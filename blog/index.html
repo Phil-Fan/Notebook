@@ -4814,6 +4814,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#aliyun-ecs-mkdocs">
+<span class="md-ellipsis">
+      Aliyun ECS + Mkdocs 网站部署与配置
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#mkdocs">
 <span class="md-ellipsis">
       Mkdocs 瘦身
@@ -4859,6 +4866,195 @@
 </ul>
 <p><br/></p></div>
 </header>
+<article class="md-post md-post--excerpt">
+<header class="md-post__header">
+<nav class="md-post__authors md-typeset">
+<span class="md-author">
+<img alt="Phil-Fan" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/202508072218866.png"/>
+</span>
+</nav>
+<div class="md-post__meta md-meta">
+<ul class="md-meta__list">
+<li class="md-meta__item">
+<time datetime="2025-10-18 00:00:00">2025年10月18日</time></li>
+<li class="md-meta__item">
+            分类于
+            
+              <a class="md-meta__link" href="category/settings.html">Settings</a></li>
+<li class="md-meta__item">
+            
+              需要 8 分钟阅读时间
+            
+          </li>
+</ul>
+</div>
+</header>
+<div class="md-post__content md-typeset">
+<h2 id="aliyun-ecs-mkdocs"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html"><span>Aliyun ECS + Mkdocs<span class="heti-spacing"> </span></span>网站部署与配置</a></h2>
+<h3 id="_1"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#_1">一、前提条件</a></h3>
+<ol>
+<li>拥有一个域名，例如 <code>philfan.cn</code>。</li>
+<li>拥有一台服务器，且服务器具有可访问公网<span><span class="heti-spacing"> </span>IP</span>，例如 <code>47.xxx.xxx.xxx</code>。</li>
+<li>已经有<span class="heti-skip"><span class="heti-spacing"> </span>Mkdocs<span class="heti-spacing"> </span></span>文档，比如<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span><code>gh-pages</code>分支<span><span class="heti-spacing"> </span>)</span></li>
+</ol>
+<hr/>
+<h3 id="_2"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#_2">二、准备网站目录</a></h3>
+<p>假设你的<span class="heti-skip"><span class="heti-spacing"> </span>MkDocs<span class="heti-spacing"> </span></span>构建输出目录为 <code>/www/philfan.cn</code>：</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/www/philfan.cn
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>USERNAME:USERNAME<span class="w"> </span>/www/philfan.cn
+sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/www/philfan.cn
+</code></pre></div>
+<blockquote>
+<p>⚠️ <code>USERNAME</code> 用户是你用于部署网站的普通用户，拥有该目录的写权限即可，无需<span><span class="heti-spacing"> </span>sudo</span>。</p>
+</blockquote>
+<hr/>
+<h3 id="nginx"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#nginx">三、配置<span><span class="heti-spacing"> </span>Nginx</span></a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>nginx<span class="w"> </span>-y
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nginx
+</code></pre></div>
+<h4 id="1"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#1"><span>1.<span class="heti-spacing"> </span></span>创建站点配置文件</a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vi<span class="w"> </span>/etc/nginx/sites-available/philfan.cn.conf
+</code></pre></div>
+<p>内容示例：</p>
+<div class="highlight"><span class="filename">配置<span class="heti-skip"><span class="heti-spacing"> </span>nginx serve<span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span>80<span class="heti-spacing"> </span></span>端口，根目录是<span><span class="heti-spacing"> </span>/www/philfan.cn</span></span><pre><span></span><code>server {
+    listen 80;
+    server_name philfan.cn www.philfan.cn;
+
+    root /www/philfan.cn;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml+rss image/svg+xml;
+    gzip_min_length 256;
+}
+</code></pre></div>
+<h4 id="2-nginx"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#2-nginx"><span>2.<span class="heti-spacing"> </span></span>测试配置并重载<span><span class="heti-spacing"> </span>Nginx</span></a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/etc/nginx/sites-available/philfan.cn.conf<span class="w"> </span>/etc/nginx/sites-enabled/
+sudo<span class="w"> </span>nginx<span class="w"> </span>-t
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nginx
+</code></pre></div>
+<h3 id="github-actions"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#github-actions">四、配置<span class="heti-skip"><span class="heti-spacing"> </span>GitHub Actions<span class="heti-spacing"> </span></span>自动上传</a></h3>
+<div class="admonition note">
+<p class="admonition-title">原理其实就是<span class="heti-skip"><span class="heti-spacing"> </span>scp<span class="heti-spacing"> </span></span>上传文件到服务器</p>
+</div>
+<p>在仓库中创建 <code>.github/workflows/ssh-upload.yml</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">upload-to-server</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_run</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">workflows</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"deploy"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">types</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">completed</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">upload</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout gh-pages</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Server via SSH</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/scp-action@v0.1.7</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_HOST }}</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_USER }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SSH_PRIVATE_KEY }}</span>
+<span class="w">          </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">"./"</span>
+<span class="w">          </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s">"/www/philfan.cn"</span>
+</code></pre></div>
+<h4 id="1-github-secrets"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#1-github-secrets"><span>1.<span class="heti-spacing"> </span></span>配置<span><span class="heti-spacing"> </span>GitHub Secrets</span></a></h4>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>GitHub<span class="heti-spacing"> </span></span>仓库 <code>Settings → Secrets and Variables → Actions</code> 添加：</p>
+<table>
+<thead>
+<tr>
+<th><span>Secret<span class="heti-spacing"> </span></span>名称</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH_HOST</td>
+<td>服务器公网<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>或域名</td>
+</tr>
+<tr>
+<td>SSH_USER</td>
+<td>USERNAME</td>
+</tr>
+<tr>
+<td>SSH_PRIVATE_KEY</td>
+<td>对应<span class="heti-skip"><span class="heti-spacing"> </span>SSH<span class="heti-spacing"> </span></span>私钥（用于登录服务器）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-ssh"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#2-ssh"><span>2.<span class="heti-spacing"> </span></span>生成<span class="heti-skip"><span class="heti-spacing"> </span>SSH<span class="heti-spacing"> </span></span>密钥对（本地）</a></h4>
+<div class="highlight"><span class="filename">生成<span class="heti-skip"><span class="heti-spacing"> </span>SSH<span class="heti-spacing"> </span></span>密钥对</span><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519<span class="w"> </span>-C<span class="w"> </span><span class="s2">"github-action-deploy"</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">复制公钥到服务器</span><pre><span></span><code>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>USERNAME@47.xxx.xxx.xxx<span class="w"> </span>
+<span class="c1"># 也可以</span>
+cp<span class="w"> </span>~/.ssh/id_ed25519.pub<span class="w"> </span>~/.ssh/authorized_keys
+</code></pre></div>
+<div class="highlight"><span class="filename">测试</span><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_ed25519<span class="w"> </span>USERNAME@47.xxx.xxx.xxx
+</code></pre></div>
+<hr/>
+<h3 id="dns"><a class="toclink" href="2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html#dns">五、阿里云<span class="heti-skip"><span class="heti-spacing"> </span>DNS<span class="heti-spacing"> </span></span>配置</a></h3>
+<ol>
+<li>登录阿里云控制台：<a href="https://dns.console.aliyun.com">https://dns.console.aliyun.com</a></li>
+<li>选择你的域名，进入 “解析设置”</li>
+<li>添加解析记录：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>记录类型</th>
+<th>主机记录</th>
+<th>记录值（服务器<span><span class="heti-spacing"> </span>IP</span>）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>@</td>
+<td>47.xxx.xxx.xxx</td>
+<td>根域名<span><span class="heti-spacing"> </span>philfan.cn</span></td>
+</tr>
+<tr>
+<td>A</td>
+<td>www</td>
+<td>47.xxx.xxx.xxx</td>
+<td><a href="http://www.philfan.cn">www.philfan.cn</a></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>保存，等待<span class="heti-skip"><span class="heti-spacing"> </span>5~10<span class="heti-spacing"> </span></span>分钟生效</li>
+<li>测试解析：</li>
+</ol>
+<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>philfan.cn<span class="w"> </span>+short
+dig<span class="w"> </span>www.philfan.cn<span class="w"> </span>+short
+</code></pre></div>
+<p>浏览器访问：</p>
+<p></p><div class="highlight"><pre><span></span><code>http://philfan.cn
+https://philfan.cn   （如已配置 HTTPS）
+</code></pre></div>
+<a class="md-button" href="https://twitter.com/intent/tweet?text=Aliyun%20ECS%20%2B%20Mkdocs%20%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE%0A&amp;url=https://www.philfan.cn/blog/2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html">Share on <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"></path></svg></span></a>
+<a class="md-button" href="https://www.facebook.com/sharer/sharer.php?u=https://www.philfan.cn/blog/2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html">Share on <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"></path></svg></span></a>
+</div>
+</article>
 <article class="md-post md-post--excerpt">
 <header class="md-post__header">
 <nav class="md-post__authors md-typeset">
