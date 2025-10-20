@@ -616,6 +616,12 @@ C:\Users\username\.ssh\
 ## 运维工具
 ### 宝塔面板
 
+```shell title="uninstall"
+wget http://download.bt.cn/install/bt-uninstall.sh
+sudo chmod +x bt-uninstall.sh
+sudo ./bt-uninstall.sh
+```
+
 
 
 ### 1Panel
