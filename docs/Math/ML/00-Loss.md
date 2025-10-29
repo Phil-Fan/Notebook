@@ -203,7 +203,6 @@ $$
 \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}} = \left( -\frac{y_i}{\hat{y}_i} \right)
 $$
 
-![image-20250828011842432](assets/00-Loss.assets/image-20250828011842432.png)
 
 根据链式法则,有
 

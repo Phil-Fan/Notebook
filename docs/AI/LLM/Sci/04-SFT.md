@@ -6,9 +6,6 @@ comments: True
 # 04 | SFT
 
 
-
-
-
 ## llama-factory 使用记录
 
 !!! note "Llama-factory"
@@ -18,6 +15,11 @@ comments: True
 
 - 中文教程[安装 - LLaMA Factory](https://llamafactory.readthedocs.io/zh-cn/latest/getting_started/installation.html)
 - [LLaMA-Factory 微调教程】LoRA 微调 改变大模型的自我认知 - 知乎](https://zhuanlan.zhihu.com/p/24909312513)
+
+[Llamafactory](https://llamafactory.readthedocs.io/zh-cn/latest/index.html)
+
+[llama-factory SFT系列教程 (二)，大模型在自定义数据集 lora 训练与部署_llama-factory自定义数据集-CSDN博客](https://blog.csdn.net/sjxgghg/article/details/137656248?spm=1001.2014.3001.5502)
+
 
 这里使用AutoDL上的社区镜像
 

@@ -24,6 +24,20 @@ source ~/.bashrc
 ```
 ## 使用
 
+### Pytorch
+
+```shell title="Install uv"
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+```shell title="Create environment"
+uv venv .venv --python 3.12
+```
+```shell title="Activate environment"
+source .venv/bin/activate
+```
+```shell title="Install Pytorch"
+uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu130
+```
 ### vllm
 
 [vllm container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/vllm?version=25.09-py3)

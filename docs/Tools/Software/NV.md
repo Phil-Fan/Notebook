@@ -119,6 +119,21 @@ nsys profile --trace=cuda,cudnn,cublas,osrt,nvtx python demo.py
 - [Nsight-Systems](https://docs.nvidia.com/nsight-systems/UserGuide/index.html)
 
 
+```
+nsys profile -y 30 \
+--trace=cuda,osrt,nvtx \
+--trace-fork-before-exec=true \
+--cuda-graph-trace=node \
+vllm serve /home/user/latency-attack/model/qwen3_0.6B \
+    --host 0.0.0.0 \
+    --port 8080 \
+    --dtype auto \
+    --max-num-seqs 32 \
+    --max-model-len 4096 \
+    --tensor-parallel-size 1 \
+    --gpu-memory-utilization 0.85
+```
+
 
 简单理解：`nsys profile [options] <application>` 会启动一个应用并对它进行系统级和 CUDA 级的性能分析。常用参数分几类：
 

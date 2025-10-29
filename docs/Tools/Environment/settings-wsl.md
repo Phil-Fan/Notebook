@@ -126,6 +126,148 @@ ssh-copy-id -p 2222 <user>@<host>
     chmod 600 ~/.ssh/authorized_keys
     ```
 
+### SSH - mirror 模式
+
+1、编辑 `.wslconfig` 文件
+
+在 Windows 执行以下步骤：
+
+```powershell
+# 在 PowerShell 中执行（非管理员也可）
+notepad $env:USERPROFILE\.wslconfig
+```
+
+在打开的文件中写入以下内容（如果已有文件则直接修改）：
+
+```ini
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+
+[experimental]
+hostAddressLoopback=true
+```
+
+> 💡说明：
+>
+> * `networkingMode=mirrored`：启用网络镜像模式，使 WSL2 与宿主机共用 IP。
+> * `hostAddressLoopback=true`：让宿主机和局域网主机可访问 WSL2 中的服务端口。
+
+
+
+2、重启 WSL 服务（在 Windows 上）
+
+在 Windows PowerShell（管理员权限）执行：
+
+```powershell
+wsl --shutdown
+wsl
+```
+
+这会关闭所有运行中的 WSL 实例并以新的配置启动。
+
+验证版本：
+
+```powershell
+wsl --version
+```
+
+确保为 `2.0.0+`，推荐 `2.0.14.0` 以上。
+
+
+
+3 在  WSL2 中配置 SSH 服务
+
+1️⃣ 在 WSL2 中打开终端（Ubuntu、Debian等）：
+
+```bash
+sudo apt update
+sudo apt install openssh-server -y
+```
+
+2️⃣ 编辑配置文件：
+
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+
+确保以下配置生效：
+
+```bash
+Port 8022
+PasswordAuthentication yes
+PermitRootLogin yes
+```
+
+保存退出后启动 SSH 服务：
+
+```bash
+sudo service ssh restart
+```
+
+验证端口监听：
+
+```bash
+sudo ss -tlnp | grep 8022
+```
+
+应看到 `0.0.0.0:8022` 或 `[::]:8022`。
+
+4 在 Windows（宿主机）开放 Hyper-V 防火墙
+
+WSL2 的 `mirrored` 模式实际上运行在 Hyper-V 虚拟交换机上。默认 Hyper-V 防火墙会阻止局域网访问。
+
+执行以下命令（**在 Windows PowerShell 管理员模式**）：
+
+```powershell
+# 查看 Hyper-V 虚拟机 ID
+Get-NetFirewallHyperVVMSetting
+
+# 然后执行允许入站连接
+Set-NetFirewallHyperVVMSetting -Name '{你的VM ID}' -DefaultInboundAction Allow
+```
+
+例如：
+
+```powershell
+Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow
+```
+
+
+
+5 在 Windows 宿主机验证访问（本机测试）
+
+在 Windows PowerShell 中执行：
+
+```powershell
+ssh username@localhost -p 8022
+```
+
+若能登录，说明 WSL2 内 SSH 服务正常、端口映射成功。
+
+
+6 在局域网中另一台远程设备测试（Linux/macOS 或 Windows）
+
+在同一局域网的另一台设备上执行：
+
+```bash
+ssh username@<Win11局域网IP> -p 8022
+```
+
+例如：
+
+```bash
+ssh user@10.162.203.84 -p 8022
+```
+
+若能成功登录，即表示：
+✅ Mirrored 网络生效
+✅ 防火墙已放行
+✅ WSL2 对外访问正常
+
+
 ### SSH - windows 转发
 
 

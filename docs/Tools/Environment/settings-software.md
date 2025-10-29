@@ -101,6 +101,14 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
 - [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
 - [ZJU-ICAL](https://ical.raynor.top/static)：以订阅连接的形式订阅课表，可以插入日历
 
+还未使用过
+- [CrazySpottedDove/fiz](https://github.com/CrazySpottedDove/fiz): 高速简洁的学在浙大第三方
+- [ZTA](https://github.com/wdtjm/zta)：zjuer的桌面端时间管理神器
+
+友情链接
+
+- Giant731 [推荐10款Chrome插件神器 - CC98论坛](https://www.cc98.org/topic/5148185)
+- 黎辉 [整理了一些自己用过的学习天地版面的和学习相关的自制工具以及优质插件的分享 - CC98论坛](https://www.cc98.org/topic/6054386)
 
 
 ## edge/chorme 插件
@@ -112,6 +120,7 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
 - ADguard：去除广告
 - Circle阅读助手：沉浸式阅读，纯净阅读
 - 油猴/篡改猴：更多脚本/插件
+- Octotree
 
 **资源类**
 

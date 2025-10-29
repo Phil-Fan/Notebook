@@ -251,7 +251,13 @@ Query来自下一个attention的输入
 Transformer看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507022311529.webp)
+
 > 图源 Attention is all you need
+
+- [分析transformer模型的参数量、计算量、中间激活、KV cache - 知乎](https://zhuanlan.zhihu.com/p/624740065) 参照这一篇博客
+  - 文中QKV有偏置可以参考[Qwen技术报告](https://arxiv.org/pdf/2412.15115)，[在QKV线性层中加入偏置项 - 知乎](https://zhuanlan.zhihu.com/p/1958184602758801076)以及两个吃瓜帖子[华为盘古与Qwen2.5：QKV偏置异同 - 知乎](https://zhuanlan.zhihu.com/p/1924571657537820068)，[盘古之殇：华为诺亚盘古大模型研发历程的心酸与黑暗 - 知乎](https://zhuanlan.zhihu.com/p/1925163876938391923?share_code=0jlaS7tuidkf&utm_psn=1925861234038775898)
+- [llama/llama/model.py at main · meta-llama/llama](https://github.com/meta-llama/llama/blob/main/llama/model.py)
+- [浅谈后向传递的计算量大约是前向传递的两倍 - 知乎](https://zhuanlan.zhihu.com/p/675517271)
 
 ### 训练方法
 

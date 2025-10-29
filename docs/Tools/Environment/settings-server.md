@@ -21,7 +21,7 @@ source /etc/network_turbo
 ```
 
 ```shell title="取消代理"
-unset http_proxy && unset https_proxy
+unset http_proxy && unset https_proxy && unset all_proxy
 ```
 
 ## zsh配置
@@ -60,7 +60,11 @@ plugins=(
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 ```
 
-Open `~/.zshrc`, find the line that sets ZSH_THEME, and change its value to "powerlevel10k/powerlevel10k".
+Open `~/.zshrc`
+
+```shell title="配置~/.zshrc"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
 
 ## AutoDL
 

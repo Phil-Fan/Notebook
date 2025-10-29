@@ -29,7 +29,7 @@
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040930043.webp)
 
-transformer大部分的参数在MLP层当中（约占用2/3的参数，GPT3 - 12亿）
+transformer大部分的参数在MLP层当中（约占用$\frac{2}{3}$的参数，GPT3 - 12亿）
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040940946.webp)
 
@@ -37,8 +37,7 @@ transformer大部分的参数在MLP层当中（约占用2/3的参数，GPT3 - 12
 
 ReLU 类似于与门，只有最终结果为正数时，才会输出
 
-第二个线性层，可以使用列视角，如果某个列向量学习到了“篮球”的概念，同时对应的向量又被激活
-
+第二个线性层，可以使用列视角：如果某个列向量学习到了“篮球”的概念，同时对应的列向量(如$n_0$)又被激活，那么最后的加权向量当中就可以表示“篮球”的概念
 
 ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040938039.webp)
 
