@@ -205,7 +205,7 @@ extra_javascript:
   # mathjax
   - https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
   # mermaid
-  - https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
+  - https://cdn.jsdelivr.net/npm/mermaid@11.0.1/dist/mermaid.min.js
   
   
 hooks:
