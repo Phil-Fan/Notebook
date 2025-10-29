@@ -9,7 +9,8 @@ repo_name: 'Phil-Fan/Notes'
 repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
-copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2025-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a> 
+beian: 浙ICP备2025206156号-1
 
 use_directory_urls: false
 
@@ -65,8 +66,8 @@ theme:
       scheme: default
       primary: blue
       toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
+          icon: material/weather-sunny
+          name: Switch to dark mode
 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -302,7 +303,7 @@ nav:
         - Math/ML/00-Loss.md
         - Math/ML/00-Method.md
         - Math/ML/00-Trick.md
-        - Math/ML/00-Proof.md
+        - Math/ML/00-proof.md
         - Math/ML/00-Review.md
         - Math/ML/01-Metrics.md
         - Math/ML/02-LinearRegression.md
@@ -353,6 +354,7 @@ nav:
         - AI/LLM/Engineer/08-LongInfer.md
         - AI/LLM/Engineer/09-Sampling.md
         - AI/LLM/Engineer/10-Evaluation.md
+        - AI/LLM/Engineer/LoRA.md
 
         - 工具手册:
           - "[部署] OpenAI API": https://platform.openai.com/docs/overview
@@ -510,6 +512,7 @@ nav:
       - Robotics/嵌入式/Arduino.md
       - Robotics/嵌入式/RaspberryPi.md
       - Robotics/嵌入式/JetsonNano.md
+      - Robotics/嵌入式/Jetson_Thor.md
       - Robotics/嵌入式/FPGA.md
     - 计控: Robotics/嵌入式/PcCtl.md
     - 计控-PLC: Robotics/嵌入式/PcCtl-PLC.md
@@ -627,35 +630,7 @@ nav:
     - "开源项目尝鲜":
       - CS/Dev/vtuber.md
       - CS/Dev/tampermonkey.md
-
-- Research:
-  - Research/index.md
-  - Research/01-Preliminaries.md
-  - Research/02-Reading.md
-  - Research/03-mind.md
-  - Research/04-communication.md
-  - Research/05-experiment.md
-  - Research/06-writing.md
-  - Research/07-rebuttal.md
-  - Research/08-presentation.md
-
-  - 论文研读:
-    - Research/Papers/index.md
-    - Research/Papers/SpongeExamples.md
-    - Research/Papers/LLMEffiChecker.md
-    - Research/Papers/OverThink.md
-    - Research/Papers/Engorgio.md
-    - Research/Papers/NICGSlowDown.md
-    - Research/Papers/VerboseImages.md
-    - Research/Papers/Zero_Query_Adversarial_Attack.md
-    - Research/Papers/BitHydra.md
-
-  - 资源:
-    - ADSL: https://adsl-rg.github.io/introduction.html
-    - FAI: http://www.fai-seminar.ac.cn
-    
-    
-
+  
 - Tools:
   - Tools/index.md
   - Efficiency:
@@ -701,6 +676,7 @@ nav:
     - Tools/Software/AI.md
     - Tools/Software/Xcode.md
     - Tools/Software/CICD.md
+    - Tools/Software/Aliyun.md
 
   - "工作环境配置":
     - Tools/Environment/settings-software.md
@@ -723,6 +699,7 @@ nav:
     - Tools/Environment/settings-content.md
     - Tools/Environment/settings-website.md
     - Tools/Environment/MCP.md
+    - Tools/Environment/nginx.md
     - Tools/Environment/filebrowser.md
     
 
@@ -746,7 +723,6 @@ nav:
   - Project/wand.md
   - Project/dRehmFlight.md
   - Project/music_quiz.md
-  - Project/matlab.md
 
 - "生命因你而火热":
   - Interest/index.md
@@ -772,10 +748,6 @@ nav:
       - Class/Fin/industry-welfare.md
       - "微观经济学":
         - Class/Fin/micro/intro.md
-      - 公司与掌舵人:
-        - Class/Fin/company/luckin.md
-        - Class/Fin/company/mixue.md
-        - Class/Fin/company/xiaomi.md
 
 
   - "🏃运动":
