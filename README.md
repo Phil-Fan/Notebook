@@ -13,11 +13,6 @@
   </a>
 </p>
 
-## Notice
-
-主站 `www.philfan.cn` 近期正在申请ICP备案当中，迁移至 `www.philfan.top`
-
-
 ## Quick Start
 
 ```bash title="Clone the repository"
