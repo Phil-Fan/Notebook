@@ -23,9 +23,11 @@ echo "export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH" >> ~/.bashr
 source ~/.bashrc
 ```
 ## 使用
+[sbsa/cu130 index](https://pypi.jetson-ai-lab.io/sbsa/cu130)
 
 ### Pytorch
 
+[How to install pytorch in thor - Jetson & Embedded Systems / Jetson Thor - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/how-to-install-pytorch-in-thor/344438/15)
 ```shell title="Install uv"
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```

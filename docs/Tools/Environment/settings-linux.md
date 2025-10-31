@@ -203,6 +203,10 @@ wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.3
 wget https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz
 ```
 
+```shell title="使用代理下载"
+wget "https://gh-proxy.com/https://github.com/clashdownload/Clash_for_Windows/releases/download/0.20.39/Clash.for.Windows-0.20.39-arm64-linux.tar.gz"
+```
+
 如果 wget 下载不了，到 Windows 把这两个链接输进去下载好，再用 u 盘拷贝到你的 Linux 系统也是一样的。
 
 

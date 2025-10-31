@@ -512,7 +512,8 @@ nav:
       - Robotics/嵌入式/Arduino.md
       - Robotics/嵌入式/RaspberryPi.md
       - Robotics/嵌入式/JetsonNano.md
-      - Robotics/嵌入式/Jetson_Thor.md
+      - Robotics/嵌入式/JetsonThor.md
+      - Robotics/嵌入式/DGXSpark.md
       - Robotics/嵌入式/FPGA.md
     - 计控: Robotics/嵌入式/PcCtl.md
     - 计控-PLC: Robotics/嵌入式/PcCtl-PLC.md
@@ -775,6 +776,9 @@ nav:
       - Interest/Travel/C-J-MY.md
       - Interest/Travel/C-J-MY-KK.md
       - Interest/Travel/C-J-MY-KL.md
+
+    - 韩国:
+      - Interest/Travel/C-J-Koera.md
 
   - "🎶音乐":
     - Interest/Music/00-Music_Theory.md
