@@ -94,8 +94,9 @@ jobs:
   将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
 
 
+### Vercel部署
 
-
+[MkDocs + Vercel](https://mkdocs.celsiusnarhwal.dev/)
 
 ## Markdown相关功能
 
