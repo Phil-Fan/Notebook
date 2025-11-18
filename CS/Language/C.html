@@ -12,7 +12,7 @@
 <link href="../../feed_rss_updated.xml" rel="alternate" title="已更新内容的 RSS 订阅" type="application/rss+xml"/>
 <link href="../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.31" name="generator"/>
-<title>C程序设计基础 - PhilFan's Notebook</title>
+<title>C 程序设计基础 - PhilFan's Notebook</title>
 <link href="../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -87,7 +87,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              C程序设计基础
+              C 程序设计基础
             
           </span>
 </div>
@@ -678,7 +678,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Math/Statistic/variable.html">
 <span class="md-ellipsis">
-    Variable
+    随机变量
   </span>
 </a>
 </li>
@@ -1028,7 +1028,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/ADV/06-Bayes.html">
 <span class="md-ellipsis">
-    06 Bayes
+    06 | Bayes
   </span>
 </a>
 </li>
@@ -1121,7 +1121,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/LLM/Engineer/01-LLMs.html">
 <span class="md-ellipsis">
-    01 | LLM分类与介绍
+    01 | LLM 分类与介绍
   </span>
 </a>
 </li>
@@ -1173,7 +1173,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/LLM/Engineer/05-2-vllm-code.html">
 <span class="md-ellipsis">
-    vLLM源码学习
+    vLLM 源码学习
   </span>
 </a>
 </li>
@@ -1469,7 +1469,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/DL/03-Modern_CNN.html">
 <span class="md-ellipsis">
-    03 | 现代CNN
+    03 | 现代 CNN
   </span>
 </a>
 </li>
@@ -1673,13 +1673,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AI/CV/03-face-Recognition.html">
-<span class="md-ellipsis">
-    人脸识别
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/CV/03-Object-Recognition.html">
 <span class="md-ellipsis">
     物体识别
@@ -1696,7 +1689,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/CV/05-3D.html">
 <span class="md-ellipsis">
-    3D视觉
+    3D 视觉
   </span>
 </a>
 </li>
@@ -1710,7 +1703,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/CV/HumanPoseEstimation.html">
 <span class="md-ellipsis">
-    HPE领域综述
+    HPE 领域综述
   </span>
 </a>
 </li>
@@ -1734,7 +1727,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../AI/CV/OpenCV.html">
 <span class="md-ellipsis">
-    OpenCV学习
+    OpenCV 学习
   </span>
 </a>
 </li>
@@ -2069,21 +2062,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Robotics/Control/Method/01-PID.html">
 <span class="md-ellipsis">
-    PID控制
+    PID 控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Robotics/Control/Method/02-LQR.html">
 <span class="md-ellipsis">
-    LQR控制
+    LQR 控制
   </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Robotics/Control/Method/03-MPC.html">
 <span class="md-ellipsis">
-    MPC控制
+    MPC 控制
   </span>
 </a>
 </li>
@@ -2544,13 +2537,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    C程序设计基础
+    C 程序设计基础
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="C.html">
 <span class="md-ellipsis">
-    C程序设计基础
+    C 程序设计基础
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -2569,10 +2562,10 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#c_1">
 <span class="md-ellipsis">
-      一、C语言的基本语法单位
+      一、C 语言的基本语法单位
     </span>
 </a>
-<nav aria-label="一、C语言的基本语法单位" class="md-nav">
+<nav aria-label="一、C 语言的基本语法单位" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1">
@@ -2582,9 +2575,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2c32">
+<a class="md-nav__link" href="#2c-32">
 <span class="md-ellipsis">
-      2.C语言32个关键字
+      2.C 语言 32 个关键字
     </span>
 </a>
 </li>
@@ -2639,16 +2632,16 @@
 <nav aria-label="四、结构" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1if-switch">
+<a class="md-nav__link" href="#1-ifswitch">
 <span class="md-ellipsis">
-      ①选择结构if 、switch
+      ①选择结构 if、switch
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2forwhiledowhile">
+<a class="md-nav__link" href="#2-forwhiledowhile">
 <span class="md-ellipsis">
-      ②循环结构for、while、dowhile
+      ②循环结构 for、while、dowhile
     </span>
 </a>
 </li>
@@ -3095,7 +3088,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../DS/07-Hash.html">
 <span class="md-ellipsis">
-    散列表与hash
+    散列表与 hash
   </span>
 </a>
 </li>
@@ -3286,7 +3279,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Web3/contract.html">
 <span class="md-ellipsis">
-    Contract
+    智能合约
   </span>
 </a>
 </li>
@@ -3317,7 +3310,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Dev/DingBot.html">
 <span class="md-ellipsis">
-    主流IM机器人
+    主流 IM 机器人
   </span>
 </a>
 </li>
@@ -3532,7 +3525,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Tools/Efficiency/latex.html">
 <span class="md-ellipsis">
-    Latex备忘录
+    Latex 备忘录
   </span>
 <span class="md-status md-status--happy"></span>
 </a>
@@ -3704,7 +3697,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Tools/Software/Matlab.html">
 <span class="md-ellipsis">
-    MATLAB使用记录
+    MATLAB 使用记录
   </span>
 </a>
 </li>
@@ -3753,7 +3746,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Tools/Software/Xcode.html">
 <span class="md-ellipsis">
-    IOS开发
+    IOS 开发
   </span>
 </a>
 </li>
@@ -3791,7 +3784,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Tools/Environment/settings-software.html">
 <span class="md-ellipsis">
-    如何复制Phil Fan的工作环境
+    如何复制 Phil Fan 的工作环境
   </span>
 </a>
 </li>
@@ -3851,7 +3844,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Tools/Environment/Linux/02-Shell.html">
 <span class="md-ellipsis">
-    Shell与Shell Script
+    Shell 与 Shell Script
   </span>
 </a>
 </li>
@@ -3980,16 +3973,30 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Project/celechron.html">
+<span class="md-ellipsis">
+    Celechron
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Project/awesome.html">
+<span class="md-ellipsis">
+    Awesome ZJU Tools
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_7_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
 <span class="md-ellipsis">
     英语能力训练
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_7_3">
+<nav aria-expanded="false" aria-labelledby="__nav_7_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_5">
 <span class="md-nav__icon md-icon"></span>
             英语能力训练
           </label>
@@ -4099,13 +4106,6 @@
 <a class="md-nav__link" href="../../Project/dRehmFlight.html">
 <span class="md-ellipsis">
     dRehmFlight
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Project/music_quiz.html">
-<span class="md-ellipsis">
-    Piano_Quiz
   </span>
 </a>
 </li>
@@ -4321,7 +4321,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Interest/Exercise/exercise-running.html">
 <span class="md-ellipsis">
-    Exercise running
+    跑步
   </span>
 </a>
 </li>
@@ -4594,14 +4594,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../Interest/Aesthetic/design.html">
 <span class="md-ellipsis">
-    案例 | 有趣的设计idea
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Interest/Aesthetic/powerpoint.html">
-<span class="md-ellipsis">
-    PowerPoint
+    案例 | 有趣的设计 idea
   </span>
 </a>
 </li>
@@ -4795,7 +4788,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../blog/archive/2025.html">
 <span class="md-ellipsis">
-    十月 2025
+    十一月 2025
   </span>
 </a>
 </li>
@@ -4820,6 +4813,13 @@
 <a class="md-nav__link" href="../../blog/category/feelings.html">
 <span class="md-ellipsis">
     Feelings
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../blog/category/meeting.html">
+<span class="md-ellipsis">
+    Meeting
   </span>
 </a>
 </li>
@@ -4860,10 +4860,10 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#c_1">
 <span class="md-ellipsis">
-      一、C语言的基本语法单位
+      一、C 语言的基本语法单位
     </span>
 </a>
-<nav aria-label="一、C语言的基本语法单位" class="md-nav">
+<nav aria-label="一、C 语言的基本语法单位" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1">
@@ -4873,9 +4873,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2c32">
+<a class="md-nav__link" href="#2c-32">
 <span class="md-ellipsis">
-      2.C语言32个关键字
+      2.C 语言 32 个关键字
     </span>
 </a>
 </li>
@@ -4930,16 +4930,16 @@
 <nav aria-label="四、结构" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1if-switch">
+<a class="md-nav__link" href="#1-ifswitch">
 <span class="md-ellipsis">
-      ①选择结构if 、switch
+      ①选择结构 if、switch
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2forwhiledowhile">
+<a class="md-nav__link" href="#2-forwhiledowhile">
 <span class="md-ellipsis">
-      ②循环结构for、while、dowhile
+      ②循环结构 for、while、dowhile
     </span>
 </a>
 </li>
@@ -5079,7 +5079,7 @@
 <li><a href="#_1">常见坑</a></li>
 <li><a href="#c_1">一、<span>C<span class="heti-spacing"> </span></span>语言的基本语法单位</a><ul>
 <li><a href="#1"><span>1.<span class="heti-spacing"> </span></span>合法标识符</a></li>
-<li><a href="#2c32"><span>2.C<span class="heti-spacing"> </span></span>语言<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个关键字</a></li>
+<li><a href="#2c-32"><span>2.C<span class="heti-spacing"> </span></span>语言<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个关键字</a></li>
 </ul>
 </li>
 <li><a href="#_2">二、数据类型、运算符和表达式（很重要）</a><ul>
@@ -5090,8 +5090,8 @@
 </li>
 <li><a href="#_5">三、输入输出函数</a></li>
 <li><a href="#_6">四、结构</a><ul>
-<li><a href="#1if-switch">①选择结构<span><span class="heti-spacing"> </span>if</span> 、switch</a></li>
-<li><a href="#2forwhiledowhile">②循环结构<span><span class="heti-spacing"> </span>for</span>、while、dowhile</a></li>
+<li><a href="#1-ifswitch">①选择结构<span><span class="heti-spacing"> </span>if</span>、switch</a></li>
+<li><a href="#2-forwhiledowhile">②循环结构<span><span class="heti-spacing"> </span>for</span>、while、dowhile</a></li>
 </ul>
 </li>
 <li><a href="#_7">五、数组</a><ul>
@@ -5119,7 +5119,7 @@
 </ul>
 </div>
 <h2 id="_1">常见坑<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><span>1.<span class="heti-spacing"> </span></span>运算优先级的题： 先回忆优先级，不要想当然</p>
+<p><span>1.<span class="heti-spacing"> </span></span>运算优先级的题：先回忆优先级，不要想当然</p>
 <p><span>2.<span class="heti-spacing"> </span></span>循环的题，慢慢写，搞清楚<span><span class="heti-spacing"> </span>for</span>、while，</p>
 <p><span>3.<span class="heti-spacing"> </span></span>看清楚分号！！！</p>
 <p><span>4.<span class="heti-spacing"> </span></span>记住<span class="heti-skip"><span class="heti-spacing"> </span>x++<span class="heti-spacing"> </span></span>相关的问题</p>
@@ -5135,23 +5135,23 @@ B) a[1]
 C) student.name
 D) register
 </code></pre></div>
-<h3 id="2c32"><strong><span>2.C<span class="heti-spacing"> </span></span>语言<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个关键字</strong><a class="headerlink" href="#2c32" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="2c-32"><strong><span>2.C<span class="heti-spacing"> </span></span>语言<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>个关键字</strong><a class="headerlink" href="#2c-32" title="anchor link to this section for reference">¶</a></h3>
 <ul>
-<li>类型说明保留字<span><span class="heti-spacing"> </span>:</span></li>
+<li>类型说明保留字：</li>
 </ul>
 <p><code>int,long,short,float,double,char,unsigned,signed,const,void,volatile,enum,struct,union</code></p>
 <ul>
-<li>语句定义保留字<span><span class="heti-spacing"> </span>:</span></li>
+<li>语句定义保留字：</li>
 </ul>
 <p><code>if,else,goto,switch,case,do,while,for,continue,break,return,default,typedef</code></p>
 <ul>
-<li>存储类说明保留字<span><span class="heti-spacing"> </span>:</span>
-<code>auto,register,extern,static</code></li>
+<li>存储类说明保留字：
+  <code>auto,register,extern,static</code></li>
 </ul>
 <ul>
 <li>
-<p>长度运算符保留字<span><span class="heti-spacing"> </span>:</span><code>sizeof</code></p>
-<div class="highlight"><pre><span></span><code><span class="n">不是C语言提供的合法关键字是</span><span class="w"> </span><span class="n">C</span>
+<p>长度运算符保留字：<code>sizeof</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">不是</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">语言提供的合法关键字是</span><span class="w"> </span><span class="n">C</span>
 <span class="w">    </span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="k">switch</span>
 <span class="w">    </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="kt">char</span>
 <span class="w">    </span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="n">Case</span>
@@ -5243,13 +5243,13 @@ D.123   2e4.2   .e5
 </li>
 </ul>
 <ul>
-<li><strong>题型：常量所占字节</strong><div class="highlight"><pre><span></span><code>sizeof(5.0)的值为( D )
+<li><strong>题型：常量所占字节</strong><div class="highlight"><pre><span></span><code>sizeof(5.0) 的值为 ( D )
 A. 5
 B. 4
 C. 2
 D. 8
 
-在C语言中，下列表达式的值最大的是( D )
+在 C 语言中，下列表达式的值最大的是 ( D )
 A. sizeof('a');
 B. sizeof(97);
 C. sizeof("aaaa");
@@ -5283,8 +5283,8 @@ printf("%d=%x\n",i,j);
 </ul>
 </li>
 </ul>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221229103520570.webp"/></p>
-<p><a href="https://www.cnblogs.com/bigclould/p/9322248.html#:~:text=static%E5%8F%98%E9%87%8F%E6%98%AF%E6%8C%87%E9%9D%99%E6%80%81%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%8C%E4%B8%8D%E7%AE%A1%E6%98%AF%E5%9C%A8%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%E5%A3%B0%E6%98%8E%E7%9A%84static%E5%8F%98%E9%87%8F%E9%83%BD%E5%AD%98%E6%94%BE%E4%BA%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%8C%BA%E5%9F%9F%EF%BC%8C%E6%89%80%E4%BB%A5%E5%AE%83%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%8E%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%A7%8B%E5%88%B0%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9D%9F%E3%80%82,%E4%BD%86%E6%98%AFstatic%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%B9%B6%E4%B8%8D%E7%AD%89%E5%90%8C%E4%BA%8E%E5%AE%83%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%EF%BC%8C%E5%AE%83%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%86%B3%E5%AE%9A%E4%BA%8E%E5%AE%83%E8%A2%AB%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BD%8D%E7%BD%AE%E3%80%82%20%E5%8F%AF%E4%BB%A5%E8%AE%A4%E4%B8%BAstatic%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F&lt;%3D%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%E3%80%82"><span>static<span class="heti-spacing"> </span></span>作用：静态变量的生存周期和作用域<span class="heti-skip"><span class="heti-spacing"> </span>- bigclould -<span class="heti-spacing"> </span></span>博客园<span><span class="heti-spacing"> </span>(cnblogs.com)</span></a></p>
+<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221229103520570.webp"/></p>
+<p><a href="https://www.cnblogs.com/bigclould/p/9322248.html"><span>static<span class="heti-spacing"> </span></span>作用：静态变量的生存周期和作用域<span class="heti-skip"><span class="heti-spacing"> </span>- bigclould -<span class="heti-spacing"> </span></span>博客园<span><span class="heti-spacing"> </span>(cnblogs.com)</span></a></p>
 <h4 id="_3"><strong>作用域</strong><a class="headerlink" href="#_3" title="anchor link to this section for reference">¶</a></h4>
 <blockquote>
 <p>生命周期：从定义开始分配存储单元到运行结束存储单元被回收的整个过程</p>
@@ -5297,9 +5297,9 @@ printf("%d=%x\n",i,j);
 <h4 id="_4">存储类型<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li><span>C<span class="heti-spacing"> </span></span>语言的四种存储类型：<ul>
-<li>动态存储 <code>auto</code>（自动）         </li>
-<li>动态存储 <code>register</code>（寄存器）   </li>
-<li>静态存储 <code>static</code>（静态）     </li>
+<li>动态存储 <code>auto</code>（自动）</li>
+<li>动态存储 <code>register</code>（寄存器）</li>
+<li>静态存储 <code>static</code>（静态）</li>
 <li>静态存储 <code>extern</code>（外部）</li>
 </ul>
 </li>
@@ -5330,20 +5330,20 @@ printf("%d=%x\n",i,j);
 <span class="cm">/*T2*/</span>
 </code></pre></div>
 <h3 id="3"><strong><span>3.<span class="heti-spacing"> </span></span>运算符和表达式（优先级很重要）</strong><a class="headerlink" href="#3" title="anchor link to this section for reference">¶</a></h3>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172815017.webp"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172846547.webp"/></p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172912591.webp"/></p>
+<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172815017.webp"/></p>
+<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172846547.webp"/></p>
+<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172912591.webp"/></p>
 <p><em>规则：单目<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>双目<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>三目</em></p>
 <p><em>算术运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>自增自减运算<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>关系运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>逻辑运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>赋值运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>条件运算符<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>逗号运算符</em></p>
-<p><em>注意：</em><em>单目运算符（从右到左） 三目运算符（从右到左）</em>**</p>
+<p><em>注意：</em><em>单目运算符（从右到左）三目运算符（从右到左）</em>**</p>
 <p><strong>易考点：除法<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>左右有一个实型，结果就是实型（类型自动转换）</strong></p>
-<div class="highlight"><pre><span></span><code>  sizeof(4/2.0)的值为( D )
+<div class="highlight"><pre><span></span><code>  sizeof(4/2.0) 的值为 ( D )
   A. 5
   B. 4
   C. 2
   D. 8
 
-  假设有定义：float x=16/5/2.0,y=16/5.0/2; 则x和y的值分别为 A
+  假设有定义：float x=16/5/2.0,y=16/5.0/2; 则 x 和 y 的值分别为 A
   A.1.5 1.6   B.1.6 1.6   C.1.5 1.5   D.1.6 1.5
 </code></pre></div>
 <p><strong>易考点：取余<span class="heti-skip"><span class="heti-spacing"> </span>(%)<span class="heti-spacing"> </span></span>要求为整型，余数正负取决于被除数</strong></p>
@@ -5358,25 +5358,25 @@ printf("%d=%x\n",i,j);
 </code></pre></div>
 <p><strong>易考点：赋值语句</strong></p>
 <p><strong>赋值运算符的左边必须是一个变量</strong></p>
-<div class="highlight"><pre><span></span><code>  若以下选项中的变量已正确定义，则正确的赋值语句是C
+<div class="highlight"><pre><span></span><code>  若以下选项中的变量已正确定义，则正确的赋值语句是 C
   A. x1=11.9%3
   B. 1+2=x2
   C. x3=012
   D. x4=1+2=3
 </code></pre></div>
 <p><strong>赋值语句的顺序为从右到左</strong></p>
-<div class="highlight"><pre><span></span><code>  设 int a=12，则执行完语句a+=a-=a*a后，a的值是
+<div class="highlight"><pre><span></span><code>  设 int a=12，则执行完语句 a+=a-=a*a 后，a 的值是
   A.0
   B.264
   C.144
   D.-264
  D
-  对于定义:int m=5,y=2;当计算表达式y+=y-=m*=y后，y的值为__-16__
+  对于定义:int m=5,y=2;当计算表达式 y+=y-=m*=y 后，y 的值为__-16__
 </code></pre></div>
 <p><strong>赋值语句的返回值为等号右边的值</strong></p>
 <div class="highlight"><pre><span></span><code>  表达式 a+=a-=(b=6)/(a=2) 的值是 -2
 
-  if (a=x) ...(只要x不为0，if语句后的...一定执行)
+  if (a=x) ...(只要 x 不为 0，if 语句后的...一定执行)
 </code></pre></div>
 <p><strong>易考点：自增自减运算（只能用于变量，不能用于常量）</strong></p>
 <p><span>x++:<span class="heti-spacing"> </span></span><mark>先参与运算，再进行加<span><span class="heti-spacing"> </span>1</span></mark></p>
@@ -5387,18 +5387,18 @@ printf("%d=%x\n",i,j);
 </code></pre></div>
 <p><strong>易考点：逻辑运算符</strong></p>
 <p>逻辑运算符的运算结果只有两种情况，即真假。非<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视为真，<span>0<span class="heti-spacing"> </span></span>值视为假</p>
-<p><strong>易错点<span class="heti-skip"><span class="heti-spacing"> </span>: &amp;&amp;<span class="heti-spacing"> </span></span>只要左边为逻辑<span><span class="heti-spacing"> </span>0</span>，右边的表达式将不会计算。同理<span class="heti-skip"><span class="heti-spacing"> </span>||<span class="heti-spacing"> </span></span>左边为逻辑<span><span class="heti-spacing"> </span>1</span>，右边不计算</strong></p>
-<p>​   记忆几个特殊的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>值</p>
+<p><strong>易错点：<span>&amp;&amp;<span class="heti-spacing"> </span></span>只要左边为逻辑<span><span class="heti-spacing"> </span>0</span>，右边的表达式将不会计算。同理<span class="heti-skip"><span class="heti-spacing"> </span>||<span class="heti-spacing"> </span></span>左边为逻辑<span><span class="heti-spacing"> </span>1</span>，右边不计算</strong></p>
+<p>​ 记忆几个特殊的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>值</p>
 <ul>
 <li>
-<p>a -&gt; 97       A -&gt; 65     0 -&gt; 48</p>
-<div class="highlight"><pre><span></span><code>假设 a=2,b='2',s="2",下列逻辑表达式中值为1（真）的是 A
+<p>a -&gt; 97  A -&gt; 65  0 -&gt; 48</p>
+<div class="highlight"><pre><span></span><code>假设 a=2,b='2',s="2",下列逻辑表达式中值为 1（真）的是 A
 A.(s[1]&gt;'a')|| ~(a+b)
 B.(b&gt;a) &amp;&amp; (s[2]='\0')
 C.!(s+1 &amp;&amp; b-a)
 D.!a&gt;b &amp;&amp; ~(a&gt;b)
 
-在C程序中，下面（B）不能表示逻辑值“真”
+在 C 程序中，下面（B）不能表示逻辑值“真”
 A.(a=1,b=2)   B.4&gt;&gt;3    C.-0.01   D."false"
 
 以下程序运行输出值是 2 1 1
@@ -5411,10 +5411,10 @@ A.(a=1,b=2)   B.4&gt;&gt;3    C.-0.01   D."false"
   static int x,y,z;
   z += (x=1)||(y=2)
   printf("%d#%d",y,z)
-A.0#1    B.2#1    C.2#2   D.z的值不确定
+A.0#1    B.2#1    C.2#2   D.z 的值不确定
 
   B
-下列语句执行后n的值为：
+下列语句执行后 n 的值为：
 n=(4 &gt; 4 - !2) &amp;&amp; (2 &gt; 1) || (2 &amp;&amp;6);
 A)  0  B)  1  C)  6  D)  以上均不对
 
@@ -5430,9 +5430,9 @@ while (a&lt;b&lt;c)
 printf("%d,%d,%d"a,b,c)
 A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 
-假设有定义:int x=10;则表达式0&lt;=x&lt;=9的值是____1____
+假设有定义:int x=10;则表达式 0&lt;=x&lt;=9 的值是____1____
 
-表达式!!5的值为___1____
+表达式!!5 的值为___1____
 </code></pre></div>
 <p><strong>易考点：位运算（转换为二进制运算、保证运算位数一致）</strong></p>
 </li>
@@ -5449,36 +5449,36 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 </code></pre></div>
 <p><strong>易考点：问号表达式</strong></p>
 <div class="highlight"><pre><span></span><code>  int a=1,b=2,c;
-  有表达式 c=(a++&gt;--b)?++a:b--; 问c的值是____1___
+  有表达式 c=(a++&gt;--b)?++a:b--; 问 c 的值是____1___
 
-  假设a=5,b=1,在执行 t=a-b?(b-a?a&lt;&lt;2|b:b&lt;&lt;2|a):a&gt;&gt;b|2之后，t的值为 A 
+  假设 a=5,b=1，在执行 t=a-b?(b-a?a&lt;&lt;2|b:b&lt;&lt;2|a):a&gt;&gt;b|2 之后，t 的值为 A 
   A.21    B.11    C.6   D.1
 
-  设有变量定义: int a=3, b=4, c=5;
-  则表达式：c&gt;a&gt;b &amp;&amp; c||!b &lt; c?2:1的值是：C
+  设有变量定义：int a=3, b=4, c=5;
+  则表达式：c&gt;a&gt;b &amp;&amp; c||!b &lt; c?2:1 的值是：C
   A.0     B.1     C.2    D.语法有错
 
   若定义 int a=1,b=2,c=3,d=4;那么下列表达式值与 A
-  (a&gt;b?c&gt;a?c-3:c-1:b==c?d-a:d-c)相等的是
+  (a&gt;b?c&gt;a?c-3:c-1:b==c?d-a:d-c) 相等的是
   A.1   B.2   C.3   D.4
 </code></pre></div>
 <p><strong>易考点：逗号表达式</strong></p>
 <p><em>表达式<span><span class="heti-spacing"> </span>1</span>，表达式<span><span class="heti-spacing"> </span>2</span>，……表达式<span><span class="heti-spacing"> </span>n</span></em></p>
 <p><strong>最后一个表达式的值就是该逗号表达式的值</strong></p>
-<p>计算顺序是<strong>从左到右</strong>，然后整个表达式返回的是最右边表达式的值。    </p>
-<div class="highlight"><pre><span></span><code><span class="n">如下表达式1</span><span class="err">，</span><span class="n">先算最内层的括号表达式的最左边的值</span><span class="err">，</span><span class="n">再把其最右边的值返回并赋值给b</span><span class="p">,</span><span class="w"> </span><span class="n">所以b在此次运算之后变为3</span><span class="err">，</span><span class="n">之后b</span><span class="o">+</span><span class="mi">2</span><span class="o">=</span><span class="mi">5</span><span class="err">（</span><span class="n">但5只是一个临时值</span><span class="err">，</span><span class="n">b值还是3</span><span class="err">），</span><span class="n">之后15</span><span class="o">+</span><span class="n">b</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="n">并且这个值由于是最右的表达式会作为整个大括号表达式的返回值</span><span class="err">，</span><span class="n">即b再一次被赋值为18</span><span class="p">,</span><span class="w"> </span><span class="n">然后现计算b</span><span class="o">+=</span><span class="mi">18</span><span class="n">得到36</span><span class="err">。</span><span class="w">    </span>
+<p>计算顺序是<strong>从左到右</strong>，然后整个表达式返回的是最右边表达式的值。</p>
+<div class="highlight"><pre><span></span><code><span class="n">如下表达式</span><span class="w"> </span><span class="mi">1</span><span class="err">，</span><span class="n">先算最内层的括号表达式的最左边的值</span><span class="err">，</span><span class="n">再把其最右边的值返回并赋值给</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">所以</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">在此次运算之后变为</span><span class="w"> </span><span class="mi">3</span><span class="err">，</span><span class="n">之后</span><span class="w"> </span><span class="n">b</span><span class="o">+</span><span class="mi">2</span><span class="o">=</span><span class="mi">5</span><span class="err">（</span><span class="n">但</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">只是一个临时值</span><span class="err">，</span><span class="n">b</span><span class="w"> </span><span class="n">值还是</span><span class="w"> </span><span class="mi">3</span><span class="err">），</span><span class="n">之后</span><span class="w"> </span><span class="mi">15</span><span class="o">+</span><span class="n">b</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="n">并且这个值由于是最右的表达式会作为整个大括号表达式的返回值</span><span class="err">，</span><span class="n">即</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="n">再一次被赋值为</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="n">然后现计算</span><span class="w"> </span><span class="n">b</span><span class="o">+=</span><span class="mi">18</span><span class="w"> </span><span class="n">得到</span><span class="w"> </span><span class="mi">36</span><span class="err">。</span><span class="w">    </span>
 <span class="w">    </span>
 <span class="w"> </span><span class="n">b</span><span class="o">+=</span><span class="n">b</span><span class="o">=</span><span class="p">((</span><span class="n">b</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">b</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="mi">15</span><span class="o">+</span><span class="n">b</span><span class="err">）</span>
 </code></pre></div>
 <p><strong>易错点：左值右值</strong></p>
 <p><a href="https://blog.csdn.net/coolwriter/article/details/80470852"><span>(8<span class="heti-spacing"> </span></span>条消息<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>左值和右值<span class="heti-skip"><span class="heti-spacing"> </span>_coolwriter<span class="heti-spacing"> </span></span>的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>什么样的表达式可以做左值</a></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">++</span><span class="p">;</span><span class="c1">//错误写法，-i不是左值</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">++</span><span class="p">;</span><span class="c1">//错误写法，-i 不是左值</span>
 </code></pre></div>
 <h2 id="_5"><strong>三、输入输出函数</strong><a class="headerlink" href="#_5" title="anchor link to this section for reference">¶</a></h2>
 <p><code>scanf</code></p>
 <p><strong><span>printf(<span class="heti-spacing"> </span></span>顺序从右到左<span><span class="heti-spacing"> </span>)</span></strong></p>
 <p>注意<span class="heti-skip"><span class="heti-spacing"> </span>%<span class="heti-spacing"> </span></span>前后的数字限制位宽、小数位数、进制等规则</p>
-<p><img alt="" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223173233886.webp"/></p>
+<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223173233886.webp"/></p>
 <div class="highlight"><pre><span></span><code>  以下程序的输出值为 5 3 2
   int i=2;
   printf("%d %d %d",++i,i++,i++);
@@ -5488,20 +5488,30 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <p><code>printf("%02d")</code> 向左补<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>输出</p>
 <p><code>(int)(f+0.5)</code>实现四舍五入</p>
 <h2 id="_6"><strong>四、结构</strong><a class="headerlink" href="#_6" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="1if-switch"><strong>①选择结构<span><span class="heti-spacing"> </span>if</span> 、switch</strong><a class="headerlink" href="#1if-switch" title="anchor link to this section for reference">¶</a></h3>
+<h3 id="1-ifswitch"><strong>①选择结构<span><span class="heti-spacing"> </span>if</span>、switch</strong><a class="headerlink" href="#1-ifswitch" title="anchor link to this section for reference">¶</a></h3>
 <p><strong><span>if<span class="heti-spacing"> </span></span>语句经典陷阱</strong></p>
-<p>+ <code>a=5;b=6</code> 
-  + <code>if (a&gt;b);a++;b++;</code>
-    + a=6 b=7
-  + <code>if (a&gt;b){a++;b++;}</code>
-    + a=5 b=6
-  + <code>if (a&gt;b) a++;b++;</code>
-    + a=5 b=7
-  + <code>if (a=b) a++;b++;</code>
-    + a=7 b=7</p>
+<ul>
+<li><code>a=5;b=6</code></li>
+<li><code>if (a&gt;b);a++;b++;</code><ul>
+<li>a=6 b=7</li>
+</ul>
+</li>
+<li><code>if (a&gt;b){a++;b++;}</code><ul>
+<li>a=5 b=6</li>
+</ul>
+</li>
+<li><code>if (a&gt;b) a++;b++;</code><ul>
+<li>a=5 b=7</li>
+</ul>
+</li>
+<li><code>if (a=b) a++;b++;</code><ul>
+<li>a=7 b=7</li>
+</ul>
+</li>
+</ul>
 <p><a href="https://blog.csdn.net/King_Louis_/article/details/90263800"><span>if<span class="heti-spacing"> </span></span>语句判断真假的几种情况<span class="heti-skip"><span class="heti-spacing"> </span>_<span class="heti-spacing"> </span></span>那朵云好像只狗哦的博客<span class="heti-skip"><span class="heti-spacing"> </span>-CSDN<span class="heti-spacing"> </span></span>博客<span class="heti-skip"><span class="heti-spacing"> </span>_if0<span class="heti-spacing"> </span></span>是真还是假</a></p>
 <p><strong><span>switch<span class="heti-spacing"> </span></span>语句注意点</strong></p>
-<p></p><div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">case</span><span class="w">  </span><span class="no">常量表达式1</span><span class="p">:</span>
 <span class="w">            </span><span class="n">语句1</span><span class="p">;</span>
@@ -5514,47 +5524,61 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <span class="w">            </span><span class="n">语句n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-  + switch
-    + switch 后面的表达式可以是数值型也可以是字符型表达式
-    + 若swtich中表达式的值<strong>不是整数则自动取整</strong>
-  + case
-    + case 后面的常量表达式<strong>只能是整型常量、字符常量或符号常量组成的表达式</strong>，即<strong>不能有变量或函数</strong>
-    + 每个<strong>常量表达式</strong>的值必须互不相同
-    + case 和 default 后的语句可以是单条语句，也可以是复合语句（<strong>仅</strong>在这里的复合语句可以不用大括号括起来）
-    + case 执行语句末尾若没有<strong>break;</strong>，则执行完该部分后继续执行之后的<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>执行语句
-    + 多个case语句可以共用一组执行语句
-  + default 
-    + 若结构中含有default，<strong>该项可置于<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>之间（即<span class="heti-skip"><span class="heti-spacing"> </span>default<span class="heti-spacing"> </span></span>项可以不是结构的最后一项<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<span>default<span class="heti-spacing"> </span></span>后<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>中的语句都将被执行。</strong>
-<h3 id="2forwhiledowhile"><strong>②循环结构<span><span class="heti-spacing"> </span>for</span>、while、dowhile</strong><a class="headerlink" href="#2forwhiledowhile" title="anchor link to this section for reference">¶</a></h3>
+<ul>
+<li>switch<ul>
+<li><span>switch<span class="heti-spacing"> </span></span>后面的表达式可以是数值型也可以是字符型表达式</li>
+<li>若<span class="heti-skip"><span class="heti-spacing"> </span>swtich<span class="heti-spacing"> </span></span>中表达式的值<strong>不是整数则自动取整</strong></li>
+</ul>
+</li>
+<li>case<ul>
+<li><span>case<span class="heti-spacing"> </span></span>后面的常量表达式<strong>只能是整型常量、字符常量或符号常量组成的表达式</strong>，即<strong>不能有变量或函数</strong></li>
+<li>每个<strong>常量表达式</strong>的值必须互不相同</li>
+<li><span>case<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>default<span class="heti-spacing"> </span></span>后的语句可以是单条语句，也可以是复合语句（<strong>仅</strong>在这里的复合语句可以不用大括号括起来）</li>
+<li><span>case<span class="heti-spacing"> </span></span>执行语句末尾若没有<strong>break;</strong>，则执行完该部分后继续执行之后的<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>执行语句</li>
+<li>多个<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>语句可以共用一组执行语句</li>
+</ul>
+</li>
+<li>default<ul>
+<li>若结构中含有<span><span class="heti-spacing"> </span>default</span>，<strong>该项可置于<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>之间（即<span class="heti-skip"><span class="heti-spacing"> </span>default<span class="heti-spacing"> </span></span>项可以不是结构的最后一项<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<span>default<span class="heti-spacing"> </span></span>后<span class="heti-skip"><span class="heti-spacing"> </span>case<span class="heti-spacing"> </span></span>中的语句都将被执行。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-forwhiledowhile"><strong>②循环结构<span><span class="heti-spacing"> </span>for</span>、while、dowhile</strong><a class="headerlink" href="#2-forwhiledowhile" title="anchor link to this section for reference">¶</a></h3>
 <p><strong><span>1. for<span class="heti-spacing"> </span></span>循环：初值、终值、步长</strong></p>
-<p></p><div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">表达式1</span><span class="p">;</span><span class="n">表达式2</span><span class="p">;</span><span class="n">表达式3</span><span class="p">)</span><span class="w">  </span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">表达式</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="n">表达式</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="n">表达式</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">  </span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">循环体</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-  - 表达式1：给某些变量赋初值
-<p><span>-<span class="heti-spacing"> </span></span>表达式<span><span class="heti-spacing"> </span>2</span>：表明循环的终止条件</p>
-<p><span>-<span class="heti-spacing"> </span></span>表达式<span><span class="heti-spacing"> </span>3</span>：用于循环中修改某些变量的值
+<ul>
+<li>表达式<span><span class="heti-spacing"> </span>1</span>：给某些变量赋初值</li>
+</ul>
+<ul>
+<li>表达式<span><span class="heti-spacing"> </span>2</span>：表明循环的终止条件</li>
+</ul>
+<ul>
+<li>
+<p>表达式<span><span class="heti-spacing"> </span>3</span>：用于循环中修改某些变量的值
     <strong>注意：</strong>
-<strong>表达式<span><span class="heti-spacing"> </span>1</span>、2、<span>3<span class="heti-spacing"> </span></span>可以全部或部分省略，但是<code>；</code>永远不能省略 
+<strong>表达式<span><span class="heti-spacing"> </span>1</span>、2、<span>3<span class="heti-spacing"> </span></span>可以全部或部分省略，但是<code>；</code>永远不能省略
     <code>for(;;)</code>=<code>while(1)</code></strong>
 <strong>表达式<span><span class="heti-spacing"> </span>1</span>、2、<span>3<span class="heti-spacing"> </span></span>都可由包含逗号运算符的多个表达式组成</strong>
 <strong>陷阱：</strong>
 <strong>空语句 <code>for（i=0;i&lt;100;i++);</code> 依然是要注意分号</strong></p>
-<div class="highlight"><pre><span></span><code>==注意递归调用的输出顺序问题！！==
-</code></pre></div>
+<p><mark>注意递归调用的输出顺序问题！！</mark></p>
 <p><strong>题型：<span>for<span class="heti-spacing"> </span></span>循环执行了几次（循环变量最终的值）</strong></p>
-<div class="highlight"><pre><span></span><code>  循环 for(i=1,j=6; ++i!=--j; ) s=i+j;  循环语句体将执行 D
-  A、 2次    B、 3次    C、 4次    D、 以上均不是
-
-错（一直执行）
-  判断: 对于下列for循环语句，循环体一次也不执行 
-    int i,k;
-    for (i=0,k=-1;k=1;i++,k++)
-      printf("***");
+<div class="highlight"><pre><span></span><code>循环 for(i=1,j=6; ++i!=--j; ) s=i+j;  循环语句体将执行 D
+A、 2 次    B、 3 次    C、 4 次    D、 以上均不是
 </code></pre></div>
+<p>错（一直执行）
+    判断：对于下列 for 循环语句，循环体一次也不执行
+      int i,k;
+      for (i=0,k=-1;k=1;i++,k++)
+        printf("***");</p>
+</li>
+</ul>
 <p><strong><span>2. while<span class="heti-spacing"> </span></span>语句和<span class="heti-skip"><span class="heti-spacing"> </span>do-while<span class="heti-spacing"> </span></span>语句</strong></p>
-<p></p><div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">循环体语句</span><span class="p">;</span>
 <span class="p">}</span>
@@ -5564,40 +5588,44 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <span class="w">  </span><span class="n">循环体</span><span class="p">;</span>
 <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="n">表达式</span><span class="p">);</span>
 </code></pre></div>
-  + 表达式是循环进行的条件
-    + <em>真（逻辑<span><span class="heti-spacing"> </span>1</span>）和假（逻辑<span><span class="heti-spacing"> </span>0</span>）</em>
-  + <code>while (1)</code>（死循环）
+<ul>
+<li>表达式是循环进行的条件<ul>
+<li><em>真（逻辑<span><span class="heti-spacing"> </span>1</span>）和假（逻辑<span><span class="heti-spacing"> </span>0</span>）</em></li>
+</ul>
+</li>
+<li><code>while (1)</code>（死循环）
     <strong>注意：<span>do-while<span class="heti-spacing"> </span></span>语句和<span class="heti-skip"><span class="heti-spacing"> </span>while<span class="heti-spacing"> </span></span>语句最大的区别是：
-    while 语句可能1次都不执行
-    而无论是否满足执行循环体的条件，do-while语句至少会执行一次循环体</strong>
-<div class="highlight"><pre><span></span><code>    设 char a[]="0123456789abc";int i=0,j=0;
-    执行下列哪一条语句所得到的结果和其他三项不同  C
-    A.for (;i&lt;=j;i++,--j)
-    B.for (;i&lt;=j;) a[i++]=a[j--];
-    C.while (i++ &lt;=--j) a[i]=a[j]
-    D.do {a[i]=a[j];} while (++i&lt;--j)
+    while 语句可能 1 次都不执行
+    而无论是否满足执行循环体的条件，do-while 语句至少会执行一次循环体</strong><div class="highlight"><pre><span></span><code>  设 char a[]="0123456789abc";int i=0,j=0;
+  执行下列哪一条语句所得到的结果和其他三项不同  C
+  A.for (;i&lt;=j;i++,--j)
+  B.for (;i&lt;=j;) a[i++]=a[j--];
+  C.while (i++ &lt;=--j) a[i]=a[j]
+  D.do {a[i]=a[j];} while (++i&lt;--j)
 
-    设 int i=0,j=9;char s[]="happy new year",*sp=s,*sq=s+9;
-    执行下列哪一条语句所得的结果和其他三项不同 C
-    A. while (i&lt;=j) s[i++]=s[j--];
-    B. for (;i&lt;=j;++i,--j)  s[i]=s[j];
-    C. for (;sp++&lt;=sq--;) *sp =*sq;
-    D. do {*sp=*sq} while (sp++ &lt;sq--);
+  设 int i=0,j=9;char s[]="happy new year",*sp=s,*sq=s+9;
+  执行下列哪一条语句所得的结果和其他三项不同 C
+  A. while (i&lt;=j) s[i++]=s[j--];
+  B. for (;i&lt;=j;++i,--j)  s[i]=s[j];
+  C. for (;sp++&lt;=sq--;) *sp =*sq;
+  D. do {*sp=*sq} while (sp++ &lt;sq--);
 </code></pre></div>
+</li>
+</ul>
 <h4 id="3break"><span>3.break<span class="heti-spacing"> </span></span>语句<a class="headerlink" href="#3break" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>通常用于跳出循环语句或<span class="heti-skip"><span class="heti-spacing"> </span>switch<span class="heti-spacing"> </span></span>语句</li>
 <li><strong>注意：
   跳出的是循环而不是语句 只能跳出一层循环
-  break语句不能用于循环体和switch之外的任何其他语句</strong></li>
+  break 语句不能用于循环体和 switch 之外的任何其他语句</strong></li>
 </ul>
 <h4 id="4continue"><span>4.continue<span class="heti-spacing"> </span></span>语句<a class="headerlink" href="#4continue" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>用于结束本次循环，即跳过循环体尚未执行的语句，接着进行下一次执行循环的判定</li>
 <li><strong>注意：
-  continue语句和break语句的区别是：
-  continue语句只是结束本次循环，而不是终止整个循环
-  break语句是结束整个循环过程</strong></li>
+  continue 语句和 break 语句的区别是：
+  continue 语句只是结束本次循环，而不是终止整个循环
+  break 语句是结束整个循环过程</strong></li>
 </ul>
 <h2 id="_7"><strong>五、数组</strong><a class="headerlink" href="#_7" title="anchor link to this section for reference">¶</a></h2>
 <h3 id="_8"><strong>数组的合法定义</strong><a class="headerlink" href="#_8" title="anchor link to this section for reference">¶</a></h3>
@@ -5606,19 +5634,21 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <h3 id="_9">一维数组<a class="headerlink" href="#_9" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ol>
 <li>全部赋初值<ul>
-<li>定义时可省略下标 <ul>
+<li>定义时可省略下标<ul>
 <li>int a[]={0,2,4,6,8,10}</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>部分赋初值
-    + 定义时不可省略下标
-    + 系统为前几个元素赋初值，而剩下的数组元素赋初值0
-      + int b[15]={1,3,5,7,9}
-+ 若是静态存储的数组，如果没有初始化，系统自动给所有的数组元素赋0
-  <code>static int a[10]</code></li>
+    - 定义时不可省略下标
+    - 系统为前几个元素赋初值，而剩下的数组元素赋初值 0
+      - int b[15]={1,3,5,7,9}</li>
 </ol>
+<ul>
+<li>若是静态存储的数组，如果没有初始化，系统自动给所有的数组元素赋<span><span class="heti-spacing"> </span>0</span>
+<code>static int a[10]</code></li>
+</ul>
 <h3 id="_10">二维数组<a class="headerlink" href="#_10" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>按行初始化 —— 每一对花括号对应一行的元素<ul>
@@ -5630,10 +5660,8 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 </ul>
 </li>
 <li><strong>注意：在初始化二维数组时可省略第一维大小，但第二维大小不能省略</strong></li>
-<li><code>int a[][3]={1,2,3,4,5,6};</code>  √<ul>
+<li><code>int a[][3]={1,2,3,4,5,6};</code>  √</li>
 <li><code>int a[2][]={1,2,3,4,5,6};</code> ×</li>
-</ul>
-</li>
 </ul>
 <h3 id="_11">字符串<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -5641,7 +5669,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <li>字符数组本质还是数组</li>
 <li>常见的字符串处理函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">strlen</span><span class="p">();</span><span class="c1">//遇到/0就停止计算</span>
+<div class="highlight"><pre><span></span><code><span class="n">strlen</span><span class="p">();</span><span class="c1">//遇到/0 就停止计算</span>
 <span class="k">sizeof</span><span class="p">();</span><span class="c1">//占据空间 要记住常见类型的大小</span>
 <span class="n">strcmp</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span><span class="n">str2</span><span class="p">);</span><span class="c1">// 按照字典序</span>
 <span class="n">strlen</span><span class="p">();</span>
@@ -5651,7 +5679,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 
 <span class="cp">#include</span><span class="cpf">&lt;ctype.h&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">islower</span><span class="p">();</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">isalpha</span><span class="p">();</span><span class="c1">//用函数判断是否大小写,如果懒得打字的话</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isalpha</span><span class="p">();</span><span class="c1">//用函数判断是否大小写，如果懒得打字的话</span>
 </code></pre></div>
 <ul>
 <li>
@@ -5659,12 +5687,12 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <ul>
 <li>
 <p>自左向右逐个字符相比（<strong>按<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>值大小</strong>相比较<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，直到出现<strong>不同</strong>的字符或遇<span class="heti-skip"><span class="heti-spacing"> </span>'0'<span class="heti-spacing"> </span></span>为止。如：</p>
-<p>​   1."A"&lt;"B" 2."A"&lt;"AB" 3."Apple"&lt;"Banana" 4."A"&lt;"a" 5."compare"&lt;"computer"</p>
+<p>​ 1."A"&lt;"B" 2."A"&lt;"AB" 3."Apple"&lt;"Banana" 4."A"&lt;"a" 5."compare"&lt;"computer"</p>
 </li>
 </ul>
 <ul>
 <li>
-<p>返回值为正数，负数，0 。而确切数值是依赖不同的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>实现的。 </p>
+<p>返回值为正数，负数，0。而确切数值是依赖不同的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>实现的。</p>
 <p>当两个字符串不相等时，<span>C<span class="heti-spacing"> </span></span>标准没有规定返回值会是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>或<span><span class="heti-spacing"> </span>-1</span>，只规定了正数和负数。</p>
 <p>有些会把两个字符的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码之差作为比较结果由函数值返回。</p>
 </li>
@@ -5674,7 +5702,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <ul>
 <li>关于 <code>sizeof</code> 和 <code>strlen</code> 的区别</li>
 </ul>
-<p><a href="https://zhuanlan.zhihu.com/p/93054021">聊点基础的–<span>sizeof,strlen,<span class="heti-spacing"> </span></span>数组<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>字符串在一起能整哪些坑？</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/93054021">聊点基础的–sizeof,strlen，数组，字符串在一起能整哪些坑？</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/79210633">NULL，0，'0'<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“0”，<span>"0"<span class="heti-spacing"> </span></span>你真的分得清吗？</a></p>
 <ul>
 <li>字符串的定义方法和常见错误</li>
@@ -5682,11 +5710,11 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <p>字符串实际上是使用空字符 <code>\0</code> 结尾的一维字符数组。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"helloworld"</span><span class="p">;</span><span class="c1">//定义时候用字符串赋值</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="n">str</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"China"</span><span class="p">;</span><span class="c1">//先定义，再赋值；</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">'h'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'w'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'r'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">};</span><span class="c1">//逐个元素进行赋值，注意有10个元素，第11个元素值为0，即为'\0'，所以不需要自己写</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="n">strcpy</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">"helloworld"</span><span class="p">);</span><span class="c1">//利用strcpy函数</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">'h'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'w'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'r'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">};</span><span class="c1">//逐个元素进行赋值，注意有 10 个元素，第 11 个元素值为 0，即为'\0'，所以不需要自己写</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="n">strcpy</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">"helloworld"</span><span class="p">);</span><span class="c1">//利用 strcpy 函数</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="o">=</span><span class="s">"ABCDE"</span><span class="p">;</span><span class="c1">//利用指针和字符串常量</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="o">=</span><span class="s">"ABCDE"</span><span class="p">;</span><span class="c1">//原理同上</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">s</span><span class="p">);</span><span class="c1">//利用scanf输入，不要加&amp;，遇到空白字符停止，包括空格，制表符，换行符</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">s</span><span class="p">);</span><span class="c1">//利用 scanf 输入，不要加&amp;，遇到空白字符停止，包括空格，制表符，换行符</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="n">gets</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="c1">//只在换行符停止</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1">//常见错误</span>
@@ -5694,8 +5722,8 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="sc">'h'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'l'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">};</span><span class="c1">//正好填满了数组，没地方放'\0'了</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">;</span><span class="n">scanf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="c1">// 不能用还未分配地址的指针</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="o">=</span><span class="p">{</span><span class="s">"ABCDE"</span><span class="p">};</span><span class="c1">//不需要加大括号</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="s">"HelloWorld"</span><span class="p">;</span><span class="c1">//不能先定义，再赋值，s是首元素的指针，不能给指针赋上字符串</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"China"</span><span class="p">;</span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2</span><span class="p">;</span><span class="c1">//将一个字符串赋值给另一个字符串，只能使用strcpy函数</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">15</span><span class="p">];</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="s">"HelloWorld"</span><span class="p">;</span><span class="c1">//不能先定义，再赋值，s 是首元素的指针，不能给指针赋上字符串</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"China"</span><span class="p">;</span><span class="n">str1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2</span><span class="p">;</span><span class="c1">//将一个字符串赋值给另一个字符串，只能使用 strcpy 函数</span>
 </code></pre></div>
 <h2 id="_12"><strong>六、函数</strong><a class="headerlink" href="#_12" title="anchor link to this section for reference">¶</a></h2>
 <blockquote>
@@ -5725,18 +5753,18 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 </code></pre></div>
 <h3 id="_13">形参和实参<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>形参<strong>只能是变量</strong>，在被定义的函数中，必须指定形参的类型。 </li>
+<li>形参<strong>只能是变量</strong>，在被定义的函数中，必须指定形参的类型。</li>
 </ul>
 <ul>
-<li>没有确定的值 </li>
-<li>形参变量在未出现函数调用时，并不占用内存，只在<strong>调用时才占用</strong>。调用结束后，将释放内存。 </li>
-<li>实参可以是<strong>常量、变量、表达式、函数</strong>等<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>无论实参是何种类型的量，在进行函数调用时，它们都必须具有确定的值，以便把这些值传送给形参。 因此应预先用赋值，输入等办法使实参获得确定值。 </li>
+<li>没有确定的值</li>
+<li>形参变量在未出现函数调用时，并不占用内存，只在<strong>调用时才占用</strong>。调用结束后，将释放内存。</li>
+<li>实参可以是<strong>常量、变量、表达式、函数</strong>等<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>无论实参是何种类型的量，在进行函数调用时，它们都必须具有确定的值，以便把这些值传送给形参。因此应预先用赋值，输入等办法使实参获得确定值。</li>
 <li>开辟内存存储数据</li>
 </ul>
 <h3 id="_14">传参<a class="headerlink" href="#_14" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>函数调用中发生的数据传送是单向的。  因此在函数调用过程中，形参的值发生改变，而实参中的值不会变化。 </li>
-<li>不是指针类型时候，形参和实参占用的是不同的内存空间，形参将实参的内容复制一份，在该函数运行结束的时候形参被释放，而实参内容不会改变。 </li>
+<li>函数调用中发生的数据传送是单向的。因此在函数调用过程中，形参的值发生改变，而实参中的值不会变化。</li>
+<li>不是指针类型时候，形参和实参占用的是不同的内存空间，形参将实参的内容复制一份，在该函数运行结束的时候形参被释放，而实参内容不会改变。</li>
 <li>参数是指针类型在调用该函数的过程中，传给函数的是实参的地址，在函数体内部使用的也是实参的地址，即使用的就是实参本身。所以在函数体内部可以改变实参的值。</li>
 </ul>
 <h2 id="_15"><strong>七、指针与地址</strong><a class="headerlink" href="#_15" title="anchor link to this section for reference">¶</a></h2>
@@ -5747,10 +5775,10 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <li>指针和字符串</li>
 <li>指针和结构体<span><span class="heti-spacing"> </span>`</span></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">).</span><span class="n">a</span><span class="w">	</span><span class="c1">//√</span>
-<span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w">	</span><span class="c1">//√</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">).</span><span class="n">a</span><span class="w"> </span><span class="c1">//√</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">a</span><span class="w"> </span><span class="c1">//√</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">POINT</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="c1">//有10个元素的，类型是int*的指针数组</span>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">POINT</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="c1">//有 10 个元素的，类型是 int*的指针数组</span>
 </code></pre></div>
 <p>动态内存分配</p>
 <ul>
@@ -5771,7 +5799,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <li>void free(void *ptr)</li>
 </ul>
 <ul>
-<li>先要初始化<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>好习惯<span><span class="heti-spacing"> </span>int *p  = NULL</span></li>
+<li>先要初始化，好习惯<span><span class="heti-spacing"> </span>int *p  = NULL</span></li>
 </ul>
 <ul>
 <li>
@@ -5826,7 +5854,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 </ul>
 <ul>
 <li>
-<p><span>C<span class="heti-spacing"> </span></span>语言的预处理主要有三个方面的内容： <span>1.<span class="heti-spacing"> </span></span>宏定义； <span>2.<span class="heti-spacing"> </span></span>文件包含； <span>3.<span class="heti-spacing"> </span></span>条件编译。 </p>
+<p><span>C<span class="heti-spacing"> </span></span>语言的预处理主要有三个方面的内容：<span>1.<span class="heti-spacing"> </span></span>宏定义；<span>2.<span class="heti-spacing"> </span></span>文件包含；<span>3.<span class="heti-spacing"> </span></span>条件编译。</p>
 <p><span>include&lt;&gt;<span class="heti-spacing"> </span></span>到系统设定的文件夹寻找；而用“”括号括起来的先到当前文件夹寻找，再到系统文件夹寻找</p>
 </li>
 </ul>
@@ -5835,19 +5863,19 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 </ul>
 <ul>
 <li>不带参数的宏定义<ul>
-<li><code>#define N 100</code> </li>
+<li><code>#define N 100</code></li>
 <li><span>N<span class="heti-spacing"> </span></span>为宏名，<span>100<span class="heti-spacing"> </span></span>是宏的内容（宏所表示的字符串）</li>
 <li>在预处理阶段，对程序中所有出现的“宏名”，预处理器都会用宏定义中的字符串区代换，这称为“宏替换”或“宏展开”。</li>
 </ul>
 </li>
 <li>带参数的宏<ul>
 <li>除了一般的字符串替换，还要做参数代换</li>
-<li><strong>宏替换只作替换，不做计算，不做表达式求解</strong> </li>
+<li><strong>宏替换只作替换，不做计算，不做表达式求解</strong></li>
 <li><em>#define S(a,b) a*b
-        area=S(3,2)；第一步被换为area=a*b; ，第二步被换为area=3*2;</em></li>
-<li>容易有问题<span><span class="heti-spacing"> </span>:</span></li>
+        area=S(3,2)；第一步被换为 area=a*b; ，第二步被换为 area=3*2;</em></li>
+<li>容易有问题：</li>
 <li><em>#define S® r*r
-          area=S(a+b);第一步换为area=r*r;,第二步被换为area=a+b*a+b;
+          area=S(a+b);第一步换为 area=r*r;,第二步被换为 area=a+b*a+b;
           正确的宏定义是#define S® ®*®</em></li>
 </ul>
 </li>
@@ -5988,15 +6016,15 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <span class="c1">//答案：D</span>
 
 <span class="mi">5</span><span class="err">、</span><span class="n">若读文件还未读到文件末尾</span><span class="err">，</span><span class="w"> </span><span class="n">feof</span><span class="p">()</span><span class="n">函数的返回值是</span><span class="err">（</span><span class="w"> </span><span class="err">）。</span>
-<span class="n">A</span><span class="p">.</span><span class="mi">-1</span><span class="w">		</span><span class="n">B</span><span class="mf">.0</span><span class="w">		</span><span class="n">C</span><span class="mf">.1</span><span class="w">		</span><span class="n">D</span><span class="p">.</span><span class="n">非0</span>
+<span class="n">A</span><span class="p">.</span><span class="mi">-1</span><span class="w">  </span><span class="n">B</span><span class="mf">.0</span><span class="w">  </span><span class="n">C</span><span class="mf">.1</span><span class="w">  </span><span class="n">D</span><span class="p">.</span><span class="n">非0</span>
 <span class="c1">//答案：B</span>
 <span class="n">解析</span><span class="err">：</span><span class="n">如果遇到文件结束</span><span class="err">，</span><span class="n">函数feof</span><span class="err">（</span><span class="n">fp</span><span class="err">）</span><span class="n">的值为1</span><span class="err">，</span><span class="n">否则为0</span><span class="err">。</span>
 
 <span class="mi">6</span><span class="err">、</span><span class="n">以下语句将输出</span><span class="w"> </span><span class="err">（）。</span>
 <span class="w">    </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d  %d  %d"</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">,</span><span class="w"> </span><span class="n">EOF</span><span class="p">);</span>
-<span class="n">A</span><span class="mf">.0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w">		 </span><span class="n">B</span><span class="mf">.0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">-1</span>
-<span class="n">C</span><span class="p">.</span><span class="nb">NULL</span><span class="w"> </span><span class="n">EOF</span><span class="w">	 </span><span class="n">D</span><span class="mf">.1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">EOF</span>
+<span class="n">A</span><span class="mf">.0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="n">B</span><span class="mf">.0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">-1</span>
+<span class="n">C</span><span class="p">.</span><span class="nb">NULL</span><span class="w"> </span><span class="n">EOF</span><span class="w">  </span><span class="n">D</span><span class="mf">.1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">EOF</span>
 <span class="c1">//答案：B</span>
 
 <span class="mi">7</span><span class="err">、</span><span class="n">缓冲文件系统的文件缓冲区位于</span><span class="err">（）。</span>
@@ -6012,7 +6040,7 @@ A.1,2,0   B.2,1,0   C.1,2,1   D.2,1,1
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 21:39:53</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年11月18日 17:40:43</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

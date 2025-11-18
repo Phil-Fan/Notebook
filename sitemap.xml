@@ -2,1634 +2,1650 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://www.philfan.cn/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/board.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/changelog.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/friends.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/todo.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/01-Transformers.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/02-FlowBased.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/03-GAN.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/04-VAE.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/05-Diffusion.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/ADV/06-Bayes.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/00-1-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/00-2-format.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/00-3-color.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/00-4-base.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/00-5-camera.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/01-classification.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/02-Image-location.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/03-Object-Recognition.html</loc>
-         <lastmod>2025-10-31</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/AI/CV/03-face-Recognition.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/04-Segmentation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/05-3D.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/06-motion_estimation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/HumanPoseEstimation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/CV/OpenCV.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/01-MLP.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/02-CNN.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/03-Modern_CNN.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/04-RNN.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/05-Modern_RNN.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/Problem.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/DL/transfer_learning.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/01-LLMs.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/02-Vectorize.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/03-RAG.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/04-2-LongChain.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/04-Agents.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/05-1-Deployment.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/05-2-vllm-code.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/05-2-vllm.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/05-3-SGlang.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/06-GPU.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/06-InferOptimization.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/07-Scheduling.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/08-LongInfer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/09-Sampling.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/10-Evaluation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/LoRA.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/%E5%88%86%E5%B8%83%E5%BC%8F.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Engineer/assets/06-InferOptimization.assets/forward.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/01-Attention.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/02-Transformer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/03-GPTs.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/04-BERT.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/05-Llama.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/06-Manba.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/assets/04-BERT.assets/data.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Models/assets/04-BERT.assets/train.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/00-Lingo.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/01-Task%26Datasets.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/02-PreTrain.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/03-PostTrain.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/04-SFT.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/05-Alignment.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/06-Evaluation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/07-Quantization.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/Focus.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/assets/04-SFT.assets/bleu.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/assets/04-SFT.assets/inference.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/MLSys/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/MLSys/CUDA.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/MLSys/CMU10_414/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/RL/RL-01.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/01-Math.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/02-Sorting.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/03-1-UninformedSearch.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/03-2-InformedSearch.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/03-3-OtherSearch.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/04-Divide.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/05-DP.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/05-%E8%83%8C%E5%8C%85.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/06-%E5%B9%B6%E6%9F%A5%E9%9B%86.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Algorithm/number.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/01-ApplicationLayer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/02-TransportLayer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/03-NetworkLayer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/04-LinkLayer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/05-PhysicalLayer.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/06-security.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CN/07-%E9%97%AE%E9%A2%98%E6%8E%A2%E7%A9%B6.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/00-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/01-web.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/02-misc.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/03-pwn.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/04-reverse.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/05-crypto.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/CTF/06-CPS.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/00-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/01-list.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/02-queue.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/03-stack.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/05-tree.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/06-graph.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/DS/07-Hash.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/CI-CD.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/DingBot.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/missing_knowledge.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/rules.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/tampermonkey.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/vtuber.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Backend/Nodejs.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Backend/PHP.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Frontend/CSS.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Frontend/HTML.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Frontend/JavaScript.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Dev/Frontend/electron.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/C%2B%2B.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/C.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/01-Expression.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/02-Statement.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/03-FuntionAbstraction.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/04-DataAbstraction.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/05-Object.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/06-File.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/07-Project.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/08-logger.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Language/Python/Python_Package.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/OS/00-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/blockchain.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/contract.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/CS/Web3/solidity.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP-Law.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/ITP-Marketing.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/classes_in_zju.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/%E9%A9%AC%E5%8E%9F.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Books/Philosophy-by-topic.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Books/Philosophy.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Books/The%20Innovator%60s%20Dilemma.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/00-intro-IELTS.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/01-Listening.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/02-Reading.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/03-Writing.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/03-Writing1.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/03-Writing2.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/03-Writing3-exp.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/04-Speaking-IELTS.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/04-Speaking-TOFEL.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/phrase.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/sentence.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/English/train_log.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/consulting.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/industry-analyze.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/industry-finance.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/industry-welfare.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/invest-stock.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/invest.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/quant.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Fin/micro/intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Class/Physics/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/bean_knowledge.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Aesthetic/Photography.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Aesthetic/design.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Aesthetic/flower.html</loc>
-         <lastmod>2025-10-31</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Interest/Aesthetic/powerpoint.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/fund.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/house.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/insurance_commercial_insurance.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/insurance_social_insurance.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/labour.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/rent.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/CommonKnowledge/social_security.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Eat/coffee.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Eat/eat-hangzhou.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Eat/eat-west.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Eat/eat.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Exercise/dance.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Exercise/exercise-fit.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Exercise/exercise-running.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Exercise/exercise-swimming.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Exercise/exercise-tennis.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Game/MC.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Game/fifa.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Music/00-Music_Theory.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Music/01-Piano_Class.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Music/02-Piano_SelfSelect.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Music/03-Pinao_Classic.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-Driving.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-Japan.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-Koera.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-MY-KK.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-MY-KL.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-MY.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-%E5%9B%9B%E5%B7%9D.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-%E5%AE%89%E5%BE%BD.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-J-%E6%B5%99%E6%B1%9F.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Interest/Travel/C-journey.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ComplexFunction.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ODE.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/information.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/logic.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/signal.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/%E4%B8%8D%E7%AD%89%E5%BC%8F.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Calculus/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/00-review.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/01-basic.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/02-1-calc.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/02-2-derivative.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/03-relationship.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/04-decomposition.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/05-matrix_equation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/06-analyze.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/LinearAlgebra/Project.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-Loss.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-Method.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-Review.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-Trick.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/00-proof.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/01-Metrics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/02-LinearRegression.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/03-DecisionTree.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/04-SVM.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/05-Bayes.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/06-Clustering.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/07-DimensionalityReduction.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/08-EnsembleLearning.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/09-SparseRepresentation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/10-ConceptLearning.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/12-interpretable_models.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/ML/13-CasualInference.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-01-programming.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-03-graph.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-04-DP.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-05-1-GameTheory.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-05-2-GameTheoryModel.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/OR/OR-06-QueuingTheory.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-1-model.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-2-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-3-%E6%97%A0%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-4-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E8%A7%A3%E6%9E%90%E6%B3%95.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-5-%E6%9C%89%E7%BA%A6%E6%9D%9F-%E6%95%B0%E5%80%BC%E6%B3%95.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Opt/Opt-6-else.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/01-probability.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/02-Univariate_Random_Variable.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/03-Multivariate_Random_Variable.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/04-Numerical_Features.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/05-Special_Functions.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/06-Parameter_Estimation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/07-Hypothesis_Testing.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/08-Goodness_of_Fit.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/09-Regression.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/11-anova.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/12-data_mining.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/13-Survival_Analysis.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/big_data_security%26privacy_protection.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/Statistic/variable.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/01-Concept.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/02-Markov.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/03-Possion.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/04-Brown.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/05-StationaryProcess.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Math/StochasticProcess/06-review.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Project/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Project/awesome.html</loc>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Project/balance_car.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/Project/celechron.html</loc>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Project/dRehmFlight.html</loc>
-         <lastmod>2025-10-31</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/Project/music_quiz.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Project/wand.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Project/website.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/ELSE-%E4%BE%9B%E9%85%8D%E7%94%B5.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/ADV/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/ADV/linear-00-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/ADV/nonliear-00-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/BASE/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/BASE/01-Model.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/BASE/02-Metrics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/BASE/03-Adjust.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/01-PID.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/02-LQR.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/03-MPC.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/04-%E9%98%BB%E6%8A%97%E5%AF%BC%E7%BA%B3.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/05-Intelligent.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Method/06-KalmanFilter.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Control/Opt/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/IOT/Protocol-MQTT.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/IOT/Protocol.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/IOT/Tech.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/IOT/intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/1-Basis.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/2-ForwardKinematics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/3-InverseKinematics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/4-Mechanics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/5-TrajectoryPlanning.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/6-Dynamics.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/7-Control.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/8-ForceControl.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Model/9-exp.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/01-Design.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/02-Mapping.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/03-Localization.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/04-Navigation.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/05-Planning.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/06-Detection.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/Drone.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/Robo/Drone_experiment.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Analog.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Arduino.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/DGXSpark.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/Digital.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051-experiment.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-8051.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-digitalcircuit.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-intro.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/EmbeddedSystem-stm32.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/FPGA.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/JetsonNano.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/JetsonThor.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/PcCtl-PLC.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/PcCtl.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/RaspberryPi.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%98%89%E7%AB%8B%E5%88%9B.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E5%A4%96%E8%AE%BE.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Robotics/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E7%84%8A%E6%8E%A5.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/JekyII.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/Mkdocs.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/latex.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/markdown.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/reveal-md.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/typst.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Efficiency/vim.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/MCP.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/ROS.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/filebrowser.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/nginx.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-content.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-linux-kali.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-linux.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-macos.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-pc.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-router.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-server.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-software.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-website.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-windows.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/settings-wsl.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/01-File.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/02-Shell.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/03-DataProcess.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/04-User.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Environment/Linux/05-Admin.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Android.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Dart.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Docker.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Java.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/JavaScript.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Makefile.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Python.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Language/Ruby.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/AI.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/AdobeIllustrator.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/AdobePhotoshop.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Aliyun.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/CICD.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Calculator.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/GDB.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Git.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Matlab.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/NV.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/SQL.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Solidworks.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Tableau.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Web.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/Tools/Software/Xcode.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/index.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/tags.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/2025/10/17/mkdocs-%E7%98%A6%E8%BA%AB.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/2025/08/07/%E5%85%89%E9%94%A5%E4%BB%A5%E5%86%85%E7%9A%86%E6%98%AF%E5%91%BD%E8%BF%90.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/2025/10/07/linux-l2tp-vpn-%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/blog/2025/11/08/note.html</loc>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/blog/2025/11/15/aiml-%E5%88%86%E4%BC%9A%E5%9C%BA.html</loc>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/2025/08/07/hello-world.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/2025/10/18/aliyun-ecs--mkdocs-%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%85%8D%E7%BD%AE.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/archive/2025.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/blog/category/meeting.html</loc>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/category/settings.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://www.philfan.cn/blog/category/feelings.html</loc>
-         <lastmod>2025-10-31</lastmod>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/blog/page/2/index.html</loc>
+         <lastmod>2025-11-18</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/blog/archive/2025/page/2.html</loc>
+         <lastmod>2025-11-18</lastmod>
     </url>
 </urlset>
