@@ -1,15 +1,6 @@
 # Python
 
-
 ## Acknowledgement
-
-
-
-
-
-
-
-
 
 ## Environment & Frame
 
@@ -19,15 +10,9 @@ each name is bound to a value
 
 within a frame, a name can't be repeated
 
-
-
 An environment is a sequence of frames and also includes its parent
 
-
-
-
-
-- 可变对象(mutable)和不可变对象(immutable)是Python语⾔的核⼼概念
+- 可变对象 (mutable) 和不可变对象 (immutable) 是 Python 语⾔的核⼼概念
 - 不可变对象，该对象所指向的内存中的值不能被改变。当改变某个变量时候，由于其所指的值不能被改变，相当于把原来的值复制⼀份后再改变，这会开辟⼀个新的地址，变量再指向这个新的地址
 - 可变对象，该对象所指向的内存中的值可以被改变。变量（准确的说是引⽤）改变后，实际上是其所指的值直接发⽣改变，并没有发⽣复制⾏为，也没有开辟新的出地址
 - 不可变数据类型创建不可变对象，可变数据类型创建可变对象
@@ -48,9 +33,9 @@ An environment is a sequence of frames and also includes its parent
 
 | 数据类型 | True                | False |
 | -------- | ------------------- | ----- |
-| 整数     | ⾮0，如1            | 0     |
-| 浮点数   | ⾮0，如1.0          | 0.0   |
-| 复数     | ⾮0，如1j           | 0+0j  |
+| 整数     | ⾮ 0，如 1            | 0     |
+| 浮点数   | ⾮ 0，如 1.0          | 0.0   |
+| 复数     | ⾮ 0，如 1j           | 0+0j  |
 | 字符串   | ⾮空字符串，"hello" | ""    |
 | 逻辑量   | True                | False |
 | 列表     | ⾮空列表            | []    |
@@ -58,14 +43,14 @@ An environment is a sequence of frames and also includes its parent
 | 集合     | ⾮空集合            | set() |
 | 字典     | ⾮空字典            | {}    |
 
-### 局部变量vs全局变量
+### 局部变量 vs 全局变量
 
-- Python无需定义变量，第一次对一个变量的赋值就产生了这个变量
+- Python 无需定义变量，第一次对一个变量的赋值就产生了这个变量
 - 在函数内
-  - 对一个变量的赋值，如果之前没有global声明，就产生了一个局部变量
+  - 对一个变量的赋值，如果之前没有 global 声明，就产生了一个局部变量
   - 取一个变量的值，如果之前没有产生过，就去使用全局变量（默认）
   - 这之后再赋值就出错
-- 规则：如果要在函数中使用全局变量，就在函数一开始使用global声明
+- 规则：如果要在函数中使用全局变量，就在函数一开始使用 global 声明
 
 ### 作用域
 
@@ -73,17 +58,14 @@ An environment is a sequence of frames and also includes its parent
 
 `scope`作用域
 
-`life cycle` 生存周期 
+`life cycle` 生存周期
 
 - 命名空间里保存了从标识符到对象的映射
 
-- 当在Python中执⾏⼀个代码块时，它拥有三个命名空间：局部、全局和内置
+- 当在 Python 中执⾏⼀个代码块时，它拥有三个命名空间：局部、全局和内置
 
-global关键字
+global 关键字
 
-- 如希望在函数中使⽤全局变量，需要⽤global关键字声明
+- 如希望在函数中使⽤全局变量，需要⽤ global 关键字声明
 - 在函数内，一个变量一经赋值就创建了一个局部变量
 - 这之后再试图用`global`来访问同名的全局变量是错误的
-
-
-

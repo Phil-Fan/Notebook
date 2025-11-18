@@ -1,7 +1,6 @@
 # Ruby
 
-
-下面是一些工具与关系的介绍 
+下面是一些工具与关系的介绍
 
 * **Ruby** → 编程语言（类似 **Python**）
 * **RubyGems** → Ruby 的包管理系统（类似 **pip**）
@@ -24,16 +23,13 @@ graph TD
     T["rubygems.org"] --> R
 ```
 
-
-
-### 安装 ruby
+## 安装 ruby
 
 [Downloads](https://rubyinstaller.org/downloads/)
 
 ```shell
 ruby -v
 ```
-
 
 === "linux or wsl"
 
@@ -50,7 +46,6 @@ ruby -v
 
     git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
     ```
-
 
 === "macos"
 
@@ -74,7 +69,6 @@ exec $SHELL
 ruby -v
 ```
 
-
 ```shell
 $ which rbenv
 
@@ -84,20 +78,19 @@ $ rbenv versions
 > 看看有没有3.2.4
 ```
 
-### rubygems 
+### rubygems
+
 [下载 RubyGems](https://rubygems.org/pages/download)
 
-下载后解压到任意路径。打开Windows的cmd界面，输入命令： 
+下载后解压到任意路径。打开 Windows 的 cmd 界面，输入命令：
 
 ```shell
-$ cd 解压的路径
+cd 解压的路径
 ```
-
 
 ```shell title="升级 RubyGems"
 gem update --system
 ```
-
 
 ```shell title="macos"
 brew install gem
@@ -105,12 +98,11 @@ brew install gem
 
 ### 切换镜像源
 
-
-
 ```shell
 # 添加镜像源并移除默认源
 gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
 ```
+
 ```shell title="列出已有源"
 gem sources -l # 应该只有镜像源一个
 ```
@@ -123,6 +115,7 @@ https://gems.ruby-china.com/
 ### 安装 Bundler
 
 安装 一个名为 Bundler 的程序 —— 用于自动安装其他所需的程序
+
 ```shell
 gem install bundler
 ```

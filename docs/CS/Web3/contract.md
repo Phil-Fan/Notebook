@@ -1,8 +1,6 @@
-
-
+# 智能合约
 
 [智能合约安全审计入门篇 —— 访问私有数据](https://learnblockchain.cn/article/3880#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE)
-
 
 [什么是交易哈希或 ID (TxHash/TxID) 以及如何查找它？ • 博客 Cryptomus](https://cryptomus.com/zh/blog/what-is-a-transaction-hash-or-id-txhashtxid-and-how-to-find-it)
 

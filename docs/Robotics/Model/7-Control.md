@@ -15,12 +15,11 @@
 - 将带执行器的机器人作为多输入多输出的受控对象，设计出利用全部关节期望轨迹及反馈信息计算全部关节执行器输入的控制器，即**集中控制**；
 - 另一种是分别将每个关节作为单输入单输出的受控对象，设计出利用本关节期望轨迹及反馈信息计算本关节执行器输入的单变量控制器，即**独立关节控制**。
 
-
 !!! todo "todo"
     - [x] 独立关节控制
     - [x] 关节建模方法与记忆
     - [ ] 转矩前馈控制
-    - [x] 重力补偿PD控制
+    - [x] 重力补偿 PD 控制
     - [x] 逆运动学控制
     - [x] 鲁棒控制
     - [ ] 自适应控制
@@ -32,30 +31,30 @@
 
     - [ ] [Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-small.pdf](https://lewisgroup.uta.edu/FL%20books/Robot_Manipulator_Control_Theory_and_Practice_-_Frank_L.Lewis-%20small.pdf)
 
-    - [x] [机器人学-4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)
+    - [x] [机器人学 -4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)
 
-    - [ ] [机械臂操作控制基础(一) - 知乎](https://zhuanlan.zhihu.com/p/264809240)
+    - [ ] [机械臂操作控制基础 (一) - 知乎](https://zhuanlan.zhihu.com/p/264809240)
 
-    - [ ] [机械臂操作控制基础(二) - 知乎](https://zhuanlan.zhihu.com/p/264811391)
+    - [ ] [机械臂操作控制基础 (二) - 知乎](https://zhuanlan.zhihu.com/p/264811391)
 
     - [ ] [机械臂先进控制方法综述 - 知乎](https://zhuanlan.zhihu.com/p/1892973878374033325)
 
-    - [ ] [零基础机械臂操作控制(一) - 知乎](https://zhuanlan.zhihu.com/p/28035516596)
-    - [ ] [零基础机械臂操作控制(二) - 知乎](https://zhuanlan.zhihu.com/p/28284740164)
+    - [ ] [零基础机械臂操作控制 (一) - 知乎](https://zhuanlan.zhihu.com/p/28035516596)
+    - [ ] [零基础机械臂操作控制 (二) - 知乎](https://zhuanlan.zhihu.com/p/28284740164)
 
     - [ ] [机械臂的动力学模型是如何解耦和线性化的？常用的线性化解耦方法有哪些？ - 知乎](https://www.zhihu.com/question/52607272)
 
     - [ ] [现代控制理论和机械臂控制（二） - 知乎](https://zhuanlan.zhihu.com/p/474813957)
 
-    - [ ] [机器人-课时2-3-控制-PD控制器 - 知乎](https://zhuanlan.zhihu.com/p/297464197)
+    - [ ] [机器人 - 课时 2-3-控制-PD 控制器 - 知乎](https://zhuanlan.zhihu.com/p/297464197)
 
-    - [ ] [机器人学-4-1-控制方法 - 知乎](https://zhuanlan.zhihu.com/p/335306452)
-    - [ ] [机器人-课时2-附件2 - 知乎](https://zhuanlan.zhihu.com/p/297504556)
+    - [ ] [机器人学 -4-1-控制方法 - 知乎](https://zhuanlan.zhihu.com/p/335306452)
+    - [ ] [机器人 - 课时 2-附件 2 - 知乎](https://zhuanlan.zhihu.com/p/297504556)
 
 
     - [ ] [现代机器人学：力学，规划，控制（chapter11Ⅰ）自动控制原理回顾 - 知乎](https://zhuanlan.zhihu.com/p/377810484)
     - [ ] [现代机器人学：力学，规划，控制（chapter11 Ⅱ）机器人控制之运动控制 - 知乎](https://zhuanlan.zhihu.com/p/378218165)
-    - [ ] [【现代机器人学】学习笔记十：机器人控制\_机器人控制算法csdn-CSDN博客](https://blog.csdn.net/zkk9527/article/details/128709448)
+    - [ ] [【现代机器人学】学习笔记十：机器人控制\_机器人控制算法 csdn-CSDN 博客](https://blog.csdn.net/zkk9527/article/details/128709448)
     
 
 ## 前置知识
@@ -65,35 +64,23 @@
 3. 准确性：
    - 劳斯判据
    - 稳态误差计算；终值定理
-4. PID系统的设计；调参方法
-5. Lyapunov稳定性定理
+4. PID 系统的设计；调参方法
+5. Lyapunov 稳定性定理
 6. 奇异值分解
-
-
-
-
-
-
 
 ### 旋转编码器——测关节转角转速
 
 原理：**光栅圆盘**——在不透光的圆盘上等宽等间隔的透光狭缝，把转角/转速转换成光传感器接收到的脉冲的数量
 
-
 方法
 
-- **高速**：频率法（M法）——计算单位时间内的脉冲数。
-- **低速**：周期法（T法）——计算相邻脉冲间的时间间隔。
-- **综合**：M/T法——结合频率法和周期法，适用于全速段，分辨率高，广泛应用。
+- **高速**：频率法（M 法）——计算单位时间内的脉冲数。
+- **低速**：周期法（T 法）——计算相邻脉冲间的时间间隔。
+- **综合**：M/T 法——结合频率法和周期法，适用于全速段，分辨率高，广泛应用。
 
 ### 力传感器
 
-
 ### 力矩传感器
-
-
-
-
 
 ## 单关节：关节空间，输入是速度
 
@@ -107,16 +94,13 @@ $$
 
 开环控制
 
-
-
-### 一阶误差 & P控制
+### 一阶误差 & P 控制
 
 $$
 \dot{\theta}(t) = K_p(\theta_d(t) - \theta(t)) = K_p\theta_e(t)
 $$
 
-
-$K_p > 0$,这种控制器被称为比例控制器，或P控制器，因为它创建一个与位置误差$\theta_e(t) = \theta_d(t) - \theta(t)$成比例的校正控制，换句话说，恒定的控制增益$K_p$有点像一个虚拟的弹簧，试图把实际的关节位置拉到期望的关节位置。P控制器是线性控制器的一个例子，因为它产生的控制信号是误差$\theta_e(t)$的线性组合也可能是其的导数和积分。
+$K_p > 0$,这种控制器被称为比例控制器，或 P 控制器，因为它创建一个与位置误差$\theta_e(t) = \theta_d(t) - \theta(t)$成比例的校正控制，换句话说，恒定的控制增益$K_p$有点像一个虚拟的弹簧，试图把实际的关节位置拉到期望的关节位置。P 控制器是线性控制器的一个例子，因为它产生的控制信号是误差$\theta_e(t)$的线性组合也可能是其的导数和积分。
 
 === "$\theta_d(t)$是常数"
     如果$\theta_d(t)$是常数，那么$\dot{\theta}_d(t) = 0$，就称为setpoint control，这时候误差动力学为：
@@ -152,8 +136,7 @@ $K_p > 0$,这种控制器被称为比例控制器，或P控制器，因为它创
     \theta_{e}(t)=\frac{c}{K_{p}}+\left(\theta_{e}(0)-\frac{c}{K_{p}}\right)e^{-K_{p}t}
     $$
 
-
-### 一阶误差 & PI控制
+### 一阶误差 & PI 控制
 
 控制律为：
 
@@ -161,7 +144,7 @@ $$
 \dot{\theta}(t) = K_p \theta_e(t) + K_i \int_0^t \theta_e(t) \, dt
 $$
 
-如果 $\theta_d(t)$ 不是常数，而 $\dot{\theta}_d(t) = c$，这时候误差动力学代入PI控制器为：
+如果 $\theta_d(t)$ 不是常数，而 $\dot{\theta}_d(t) = c$，这时候误差动力学代入 PI 控制器为：
 
 $$
 \dot{\theta}_e(t) + K_p \theta_e(t) + K_i \int_0^t \theta_e(t) \, dt = c
@@ -173,7 +156,6 @@ $$
 \ddot{\theta}_e(t) + K_p \dot{\theta}_e(t) + K_i \theta_e(t) = 0
 $$
 
-
 系统的固有频率 $\omega_n=\sqrt{K_i}$ ,阻尼比$\zeta=K_p/2\sqrt{K_i}$
 
 类比经典的弹簧阻尼系统
@@ -181,14 +163,13 @@ $$
 - 增益$K_p$的作用等同于$b/m$ ($K_p$越大，阻尼常数$b$越大)
 - 增益$K_i$的作用等同于$k/m$ ($K_i$越大，弹簧刚度$k$越大)
 
-那么$K_p$ ,$K_i>0$ 时，PI控制的误差动力学方程是稳定的，特征方程的根为：
+那么$K_p$ ,$K_i>0$ 时，PI 控制的误差动力学方程是稳定的，特征方程的根为：
 
 $$
 s_{1,2}=-\frac{K_p}{2}\pm\sqrt{\frac{K_p^2}{4}-K_i}
 $$
 
-
-### PI反馈 + 前馈
+### PI 反馈 + 前馈
 
 反馈控制的一个缺点是在关节开始运动之前需要有一个误差，在任何误差累积之前，最好利用我们对所需轨迹的了解来启动运动。我们可以将前馈控制在没有误差的情况下也能控制运动的优点与反馈控制限制误差积累的优点相结合，就有：
 
@@ -196,17 +177,14 @@ $$\
 \dot{\theta}(t)=\dot{\theta}_d(t)+K_p\theta_e(t)+K_i\int_0^t\theta_e(t)\:dt
 $$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418144504.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418144504.webp)
 > 图片来自知乎 Mr.bo
-
 
 ## 关节建模
 
 !!! note "这里有很多字母，联系英文进行记忆"
 
 ### 电机建模
-
-
 
 | 符号       | 描述                                   | 英文翻译                          |
 |------------|----------------------------------------|-----------------------------------|
@@ -231,8 +209,9 @@ $$
 $$
 
 ### 关节建模与传递函数
+
 $\theta_{mi}$ 电机转角
-$\theta_{i}$ 关节i转角
+$\theta_{i}$ 关节 i 转角
 $T_{ei}$    电机的输出力矩
 $T_{ai}$ 输入齿轮对关节的作用力矩
 $T_{li}$  反作用力的力矩，后续方程可以约掉
@@ -240,12 +219,11 @@ $T_{ci}$ 干扰力矩
 $b_{mi},b_{ai}$ 轴承的粘性摩擦系数
 $J$ 转动惯量
 
-
-减速器：其实是扭矩放大器，代价是转速的下降 
+减速器：其实是扭矩放大器，代价是转速的下降
 
 编码器：对转速进行观测
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401120430.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401120430.webp)
 
 电机动力学：$J_{mi}\dot{\omega}_{mi}=T_{ei}-T_{li}-b_{mi}\omega_{mi}$
 
@@ -261,12 +239,10 @@ $J_{ci}\ddot{\theta}_{i}+B_{ci}\dot{\theta}_{i}=J_{ci}\dot{\omega}_{i}+B_{ci}\om
 - 干扰输入$T_{ci}$
 - 输出 $\theta_i$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401121056.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401121056.webp)
 关节传递模型框图
 
-
-
-Laplace变换
+Laplace 变换
 
 $$
 J_{ci}s^2\theta_i(s)+B_{ci}s\theta_i(s)=K_{ci}U_{ci}(s)-T_{ci}(s)
@@ -280,10 +256,7 @@ $$
 
 ## 多关节：独立关节控制
 
-
-
-### 阶跃输入 | PD控制器 - 有静差
-
+### 阶跃输入 | PD 控制器 - 有静差
 
 反馈信号是：被控对象的输出$\theta_i$ 和其微分
 
@@ -292,18 +265,18 @@ $$
 $$
 \begin{align*}
 U_{ci}(s) = k_{P_i}\widetilde{\theta}_i(s) - k_{D_i}\omega_i(s)\\
-\widetilde{\theta}_i(s) = \theta_{di}(s) - \theta_i(s)    
+\widetilde{\theta}_i(s) = \theta_{di}(s) - \theta_i(s)
 \end{align*}
 $$
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011210339.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011210339.webp)
 
 $$
 \theta_{i}(s)=\frac{k_{Pi}K_{ci}}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}\theta_{di}(s)-\frac{1}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}T_{ci}(s)
 $$
 
 #### 稳定性分析
+
 !!! note "这里需要用到二阶动态性能的一些公式以及稳定性分析中的劳斯判据知识"
 
 闭环特征多项式为
@@ -312,18 +285,14 @@ $$
 s^{2}+\frac{B_{ci}+k_{Di}K_{ci}}{J_{ci}}s+\frac{k_{Pi}K_{ci}}{J_{ci}}
 $$
 
-
-
-
-
 - 阻尼比$\zeta=\frac{B_{ci}+k_{Di}K_{ci}}{2\sqrt{J_{ci}k_{pi}K_{ci}}}$
-  - 当$0<\zeta<1$时，式(8-21)成为欠阻尼系统，有一对共轭复数根为
+  - 当$0<\zeta<1$时，式 (8-21) 成为欠阻尼系统，有一对共轭复数根为
 
   $$
   s_{1,2}=-\zeta\omega_{0}\pm\mathrm{j}\omega_{0}\sqrt{1-\zeta^{2}}
   $$
 
-  - 当$\zeta>1$ 时,为过阻尼系统，其闭环特征方程有两个相异实数根为
+  - 当$\zeta>1$ 时，为过阻尼系统，其闭环特征方程有两个相异实数根为
 
   $$
   s_{1,2}=-\zeta\omega_{0}\pm\omega_{0}\sqrt{\zeta^{2}-1}
@@ -331,12 +300,8 @@ $$
 
   - 设计的时候通常选择$\zeta=1$，即临界阻尼系统，这样系统响应最快
 
-
 - 自然频率$\omega_{0}=\sqrt{\frac{k_{pi}K_{ci}}{J_{ci}}}$
   - $\omega_0$根据控制电压上限和快速性之间进行折中
-
-
-
 
 误差传递函数
 
@@ -352,27 +317,23 @@ $$
 
 这里化简的时候使用梅森增益公式求解比较简单
 
-### 阶跃输入 | PID控制器 - 消除静差
+### 阶跃输入 | PID 控制器 - 消除静差
 
 带一个积分环节
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011209180.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011209180.webp)
 
-阶跃扰动下，独立关节PID可以做到无静差
+阶跃扰动下，独立关节 PID 可以做到无静差
 
-
-### 二阶可导输入 ｜ 前馈PID
+### 二阶可导输入 ｜ 前馈 PID
 
 阶跃输入的信号，通常用于点对点的移动，但是对于一般的轨迹规划任务，都是二阶可导的（如五次多项式轨迹）
 
 前馈的引入不改变稳定性和闭环极点
 
-
 消除参考输入影响
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011208914.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011208914.webp)
 
 ## 转矩前馈控制
 
@@ -402,14 +363,13 @@ $$
 
 式中，$L = B + B_e$为正定对角矩阵。
 
-
 **集中控制的任务在于设计计算 $\tau_d$ （相当于计算各关节电机期望电流）的算法，使得 $\Phi$ 跟踪 $\Phi_d$。**
-### 重力补偿PD控制
+
+### 重力补偿 PD 控制
 
 重力力矩在控制中往往被视为一种非线性扰动，但是重力矩的数学模型可获取，因此，可作为一种已知的非线性扰动。直接补偿掉，在推导控制算法时就不需要考虑重力项了。
 
-在实验中，重力补偿的明显作用有两点：1.在位置控制时，能够增加机器人的动态性能，动态跟踪误差相比无重力补偿时更小。在无积分的位置控制器中，如PD控制器，重力补偿能够减少稳态误差。
-
+在实验中，重力补偿的明显作用有两点：1.在位置控制时，能够增加机器人的动态性能，动态跟踪误差相比无重力补偿时更小。在无积分的位置控制器中，如 PD 控制器，重力补偿能够减少稳态误差。
 
 **控制律为**
 
@@ -417,8 +377,7 @@ $$
 \boldsymbol{\tau}_d=\boldsymbol{\Lambda}_P(\boldsymbol{\Phi}_d-\boldsymbol{\Phi})-\boldsymbol{\Lambda}_D\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
 $$
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401112408.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401112408.webp)
 
 !!! note "Lyapunov 方法证明收敛"
 
@@ -505,14 +464,11 @@ $$
 
     重力补偿PD控制可以使$\Phi$收敛于定常的$\Phi_d$，适用于一种静止位形运动到另一种静止位形
 
-
 ### feedback linearization
 
-> 这一块可以看[机器人学-4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)这个博主的笔记，讲的很好
+> 这一块可以看[机器人学 -4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)这个博主的笔记，讲的很好
 
-
-
-旨在把控制律分解为 一个包含单位质量系统的部分(可以通过设置变量达到临界阻尼) 和 除了单位质量系统之外的所有和机器人物理相关的部分。
+旨在把控制律分解为 一个包含单位质量系统的部分 (可以通过设置变量达到临界阻尼) 和 除了单位质量系统之外的所有和机器人物理相关的部分。
 
 定义
 
@@ -520,20 +476,16 @@ $$
 f := \alpha f' + \beta
 $$
 
-- $\alpha$ 和 $\beta$ 称为基于模型的控制部分(model-based portion); 
-- $f'$ 称为伺服控制部分(servo portion)
+- $\alpha$ 和 $\beta$ 称为基于模型的控制部分 (model-based portion);
+- $f'$ 称为伺服控制部分 (servo portion)
 
-
-**PD控制律**
+**PD 控制律**
 
 $$
 f' = -k_v \dot{x} - k_p x
 $$
 
-
-
 **伺服控制律**
-
 
 $$
 f' = \ddot{x_d} + k_v \dot{e} + k_p e
@@ -550,8 +502,7 @@ m \ddot{x}  + b \dot{x} + kx &= \alpha (\ddot{x_d} + k_v \dot{e} + k_p e) + \bet
 \end{align*}
 $$
 
-
-=== "例子1 —— 机器人动力学"
+=== "例子 1 —— 机器人动力学"
 
     $$
     M(q)\ddot{q}+C(q)[\dot{q}^{2}]+B(q)[\dot{q}\dot{q}]+G(q)=\tau= \alpha\tau^{\prime}+\beta$$
@@ -572,10 +523,10 @@ $$
     \tau^{\prime}=\ddot{q}_{d}+k_{v}\dot{e}+k_{p}e
     $$
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418151206.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418151206.webp)
     > 图片来自[机器人学-4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)
 
-=== "例子2"
+=== "例子 2"
 
     $$
     m \ddot{x}  + b \dot{x} + kx = f
@@ -593,8 +544,6 @@ $$
 
     就变成了一个单位质量系统的运动方程
 
-
-
 !!! note "什么是伺服"
     （1）伺服系统：是使物体的位置、方位、状态等输出，能够跟随输入量（或给定值）的任意变化而变化的自动控制系统。
 
@@ -602,20 +551,15 @@ $$
 
     伺服的主要任务是按控制命令的要求，对功率进行放大、变换与调控等处理，使驱动装置输出的力矩、速度和位置控制得非常灵活方便。
 
-
-
-
 ### 逆运动学控制
 
 什么是逆运动学控制？
 
-直接根据期望的关节位移，计算出关节位置，然后使用PD控制器，把关节控制在想要的位置上面。
+直接根据期望的关节位移，计算出关节位置，然后使用 PD 控制器，把关节控制在想要的位置上面。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418130855.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418130855.webp)
 
-
-
-在反馈中利用补偿将复杂非线性模型 化成N个无耦合的单变量的线性模型
+在反馈中利用补偿将复杂非线性模型 化成 N 个无耦合的单变量的线性模型
 
 采用补偿：
 
@@ -631,9 +575,9 @@ $$
 \ddot{\Phi} = \alpha_\Phi
 $$
 
-这样就变成了N个线性的双积分系统，可以使用带前馈的PD控制器等等
+这样就变成了 N 个线性的双积分系统，可以使用带前馈的 PD 控制器等等
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401092616.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401092616.webp)
 
 所以控制律为
 
@@ -641,17 +585,13 @@ $$
 \alpha_{\phi}=\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}+K_{P}\widetilde{\boldsymbol{\Phi}}
 $$
 
-其中，$\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}$ 是前馈的部分,即框图左上角的部分
+其中，$\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}$ 是前馈的部分，即框图左上角的部分
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504010926579.webp)
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504010926579.webp)
 
 ### 鲁棒控制 ｜ 估计参数
 
 $M(\boldsymbol{\Phi})\ddot{\boldsymbol{\Phi}}+C(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})\dot{\boldsymbol{\Phi}}+L\dot{\boldsymbol{\Phi}}+G(\boldsymbol{\Phi})=\boldsymbol{\tau}_d$ 的参数值无法准确获取，使用估计值进行控制
-
 
 控制律
 
@@ -681,11 +621,9 @@ $$
 - $K_P$,$K_D$采用逆运动学控制设计，保证大范围渐进稳定
 - 正数$\overline{m}$ 大于$M^{-1}(\boldsymbol{\Phi})$的最大奇异值和正数 $\underline{m}$ 小于$M^{-1}(\boldsymbol{\Phi})$的最小奇异值，再取$\hat{M}(\boldsymbol{\Phi})=\frac2{\underline{m}+\overline{m}}\boldsymbol{I}$，可以保证$\left\|\boldsymbol{I}-\boldsymbol{M}^{-1}(\boldsymbol{\Phi})\hat{\boldsymbol{M}}(\boldsymbol{\Phi})\right\|\leqslant\frac{\overline{m}-\underline{m}}{\underline{m}+\overline{m}}=\gamma_{3}<1$
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401101152.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401101152.webp)
-
-
-又根据Lyapunov稳定性定理，可以证明，保证在不确定性$\Delta$ 下 $\boldsymbol{\Phi}$对 $\boldsymbol{\Phi}_d$的渐近跟踪。
+又根据 Lyapunov 稳定性定理，可以证明，保证在不确定性$\Delta$ 下 $\boldsymbol{\Phi}$对 $\boldsymbol{\Phi}_d$的渐近跟踪。
 
 ### 自适应控制 ｜ 动态估计参数
 
@@ -726,7 +664,6 @@ $$
 $$
 
 式中，$\overline{D} = \overline{B} \hat{M}^{-1}(\Phi) Y(\Phi, \dot{\Phi}, \ddot{\Phi})$，$\overline{A}$ 和 $\overline{B}$ 仍如式 (8-109)，且对于取定的正定 $Q_L$，可求得唯一的正定 $P_L$，满足李亚普诺夫方程式 (8-110)。自适应控制的核心在于 $\hat{\Psi}$ 时变，即采用估计更新律
-
 
 $$
 \dot{\hat{\Psi}} = \Gamma^{-1} \overline{D}^{\mathrm{T}} P_L \varphi

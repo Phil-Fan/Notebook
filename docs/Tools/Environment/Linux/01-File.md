@@ -1,20 +1,19 @@
 # 文件、目录、磁盘格式
 
-
 ## 文件权限与目录
 
 ~ home directory
 
 - ls  -list\
 
-  [技术|Linux中的15个基本‘ls’命令示例](https://linux.cn/article-5109-1.html)
+  [技术|Linux 中的 15 个基本‘ls’命令示例](https://linux.cn/article-5109-1.html)
 
   ```bash
   ls - d #列出目录本身  
   
   ls -a(all)
-  -l (long)			
-  -i(inode号)  
+  -l (long)   
+  -i(inode 号)  
   -d(属性) 
   
   ls -h
@@ -62,29 +61,27 @@ zz foo 列出最近操作的路径匹配'foo'的目录，通过序号选择，�
 
 - pwd = print working directory
 
-- cp = copy       cp -rp -r -p保留属性
+- cp = copy       cp -rp -r -p 保留属性
 
 - mv = move
 
-- rm = remove    
+- rm = remove
 
   rm -i 先询问再删除//询问是否删除
 
-  rm - rf文件或目录 
+  rm - rf 文件或目录
 
-  -r目录（**非常危险**）
+  -r 目录（**非常危险**）
 
 - echo 打印
 
-
-
-#### 文件夹导航
+### 文件夹导航
 
 - fasd
 
- 基于 [*frecency* ](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm)对文件和文件排序，也就是说它会同时针对频率（*frequency*）和时效（*recency*）进行排序。默认情况下，`fasd`使用命令 `z` 帮助我们快速切换到最常访问的目录。
+ 基于 [*frecency*](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/Places/Frecency_algorithm)对文件和文件排序，也就是说它会同时针对频率（*frequency*）和时效（*recency*）进行排序。默认情况下，`fasd`使用命令 `z` 帮助我们快速切换到最常访问的目录。
 
-例如， 如果您经常访问`/home/user/files/cool_project` 目录，那么可以直接使用 `z cool` 跳转到该目录
+例如，如果您经常访问`/home/user/files/cool_project` 目录，那么可以直接使用 `z cool` 跳转到该目录
 
 - autojump
 
@@ -92,12 +89,7 @@ zz foo 列出最近操作的路径匹配'foo'的目录，通过序号选择，�
 
 - nnn
 
-  
-
-
-
 ## 文件与目录管理
-
 
 ### ln 链接
 
@@ -128,38 +120,38 @@ zz foo 列出最近操作的路径匹配'foo'的目录，通过序号选择，�
 
 - -s：建立软链接文件。如果不加 "-s" 选项，则建立硬链接文件；
 
-  符号链接：inode号不同
+  符号链接：inode 号不同
 
 - -f：强制。如果目标文件已经存在，则删除目标文件后再建立链接文件
 
 ### 查找文件
 
-- which 查询脚本文件 -a全列出来
+- which 查询脚本文件 -a 全列出来
 
-- find   
+- find
 
-  - atime = access time    
+  - atime = access time
   - ctime = status time  
   - mtime = modification time
 
-  【-mtime n几天之前的“一天之内】【-mtime +n n天之前】【-mtime -n n天之内】
+  【-mtime n 几天之前的“一天之内】【-mtime +n n 天之前】【-mtime -n n 天之内】
 
-  ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__Linux__assets__01-File.assets__0ca63c3736084f4f9d35a949f33413d0.webp)
+  ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__Linux__assets__01-File.assets__0ca63c3736084f4f9d35a949f33413d0.webp)
 
   [使用 find 命令在 Linux 上查找文件和目录](https://linux.cn/article-14071-1.html)
 
   ```bash
-  # 查找所有名称为src的文件夹
+  # 查找所有名称为 src 的文件夹
   find . -name src -type d
   
-  # 查找所有文件夹路径中包含test的python文件
+  # 查找所有文件夹路径中包含 test 的 python 文件
   find . -path '**/test/*.py' -type f
   #  ** 表示所有
   
   # 查找前一天修改的所有文件
   find . -mtime -1
   
-  # 查找所有大小在500k至10M的tar.gz文件
+  # 查找所有大小在 500k 至 10M 的 tar.gz 文件
   find . -size +500k -size -10M -name '*.tar.gz'
   
   # 删除全部扩展名为.tmp 的文件
@@ -169,47 +161,46 @@ zz foo 列出最近操作的路径匹配'foo'的目录，通过序号选择，�
   find . -name '*.png' -exec convert {} {}.jpg \;
   
   # 文件名中有空格
-  -print 打印 find命令 结果集，默认用换行符分割。而且 -print 是默认省略的。
-  -print0 打印 find命令 结果集，用 NULL 字符 ('\0')分割，而不是换行符。 
+  -print 打印 find 命令 结果集，默认用换行符分割。而且 -print 是默认省略的。
+  -print0 打印 find 命令 结果集，用 NULL 字符 ('\0') 分割，而不是换行符。 
   
   # 编写一个命令或脚本递归的查找文件夹中最近使用的文件。更通用的做法，你可以按照最近的使用时间列出文件吗？
   find . -type f -print0 | xargs -0 ls -lt | head -1
   
-  当文件数量较多时，上面的解答会得出错误结果，解决办法是增加 -mmin 条件，先将最近修改的文件进行初步筛选再交给ls进行排序显示
+  当文件数量较多时，上面的解答会得出错误结果，解决办法是增加 -mmin 条件，先将最近修改的文件进行初步筛选再交给 ls 进行排序显示
   find . -type f -mmin -60 -print0 | xargs -0 ls -lt | head -10
   ```
 
   find+exec
 
   ```bash
-  # ls -l命令放在find命令的-exec选项中 
+  # ls -l 命令放在 find 命令的-exec 选项中 
   find . -type f -exec ls -l {} \;
   
-  # 在目录中查找更改时间在n日以前的文件并删除它们
+  # 在目录中查找更改时间在 n 日以前的文件并删除它们
   find . -type f -mtime +14 -exec rm {} \;
-  在shell中用任何方式删除文件之前，应当先查看相应的文件，一定要小心！当使用诸如mv或rm命令时，可以使用-exec选项的安全模式。它将在对每个匹配到的文件进行操作之前提示你。 
+  在 shell 中用任何方式删除文件之前，应当先查看相应的文件，一定要小心！当使用诸如 mv 或 rm 命令时，可以使用-exec 选项的安全模式。它将在对每个匹配到的文件进行操作之前提示你。 
   
-  #3 在目录中查找更改时间在n日以前的文件并删除它们，删除之前先给出提示
+  #3 在目录中查找更改时间在 n 日以前的文件并删除它们，删除之前先给出提示
   find . -name "*.log" -mtime +5 -ok rm {} \;
-  在上面的例子中， find命令在当前目录中查找所有文件名以.log结尾、更改时间在5日以上的文件，并删除它们，只不过在删除之前先给出提示。 按y键删除文件，按n键不删除。 
+  在上面的例子中，find 命令在当前目录中查找所有文件名以.log 结尾、更改时间在 5 日以上的文件，并删除它们，只不过在删除之前先给出提示。按 y 键删除文件，按 n 键不删除。 
   
-  #4 -exec中使用grep命令
+  #4 -exec 中使用 grep 命令
   find /etc -name "passwd*" -exec grep "root" {} \;
-  任何形式的命令都可以在-exec选项中使用。  在上面的例子中我们使用grep命令。find命令首先匹配所有文件名为“ passwd*”的文件，例如passwd、passwd.old、passwd.bak，然后执行grep命令看看在这些文件中是否存在一个root用户。
+  任何形式的命令都可以在-exec 选项中使用。在上面的例子中我们使用 grep 命令。find 命令首先匹配所有文件名为“passwd*”的文件，例如 passwd、passwd.old、passwd.bak，然后执行 grep 命令看看在这些文件中是否存在一个 root 用户。
   
   #5 查找文件移动到指定目录
   find . -name "*.log" -exec mv {} .. \;
   
-  #6 用exec选项执行cp命令  
+  #6 用 exec 选项执行 cp 命令  
   find . -name "*.log" -exec cp {} test3 \;
   ```
 
-- locate 
+- locate
 
-  -i大小写 
+  -i 大小写
 
-
-### 查找shell命令
+### 查找 shell 命令
 
 - history
 
@@ -241,5 +232,3 @@ history N | grep find
 ## 磁盘与文件系统
 
 ## 压缩与打包
-
-

@@ -4,10 +4,9 @@
 - 分治法的核心思想是将一个问题分解为若干个子问题，然后递归地解决这些子问题，最后将这些子问题的解合并起来得到原问题的解。
 - 分治法的核心思想是将一个问题分解为若干个子问题，然后递归地解决这些子问题，最后将这些子问题的解合并起来得到原问题的解。
 
-
 - 二分算法
 
-注意二分板子的打法，注意+1问题
+注意二分板子的打法，注意 +1 问题
 
 ```c
 int l = 0 , r = Count -1 , mid = (l+r) / 2;
@@ -20,40 +19,36 @@ while(l < r){
 
 ## 二分答案
 
--  **二分答案有==三个步骤（难点）==**
+- **二分答案有==三个步骤（难点）==**
 
 1. 判断这个题是否用到二分这种思想
 2. 写判断函数
 3. 写二分部分
-    - 板子1——最小值最大
-    - 板子2——最大值最小
-4. 分析问题，确定左右半段哪个是符合题意的区间，以及mid归属于哪一段
+    - 板子 1——最小值最大
+    - 板子 2——最大值最小
+4. 分析问题，确定左右半段哪个是符合题意的区间，以及 mid 归属于哪一段
 5. 分析结果，选择两种板子
- 
 
 ```cpp
 mid = (l + r) / 2;
-r = mid, l = mid + 1; 		//板子1
+r = mid, l = mid + 1;   //板子 1
 ```
 
 ```cpp
 mid = ( l + r + 1) / 2;
-l = mid; r = mid - 1;		//板子2
+l = mid; r = mid - 1;  //板子 2
 ```
 
-- 判断mid的算法==要不要加1==!!  判断错误就会出现死循环；
-（~~建议此步骤在草图画两个小圈圈代表最后两个数，把表达式带进去验证，就可以知道是要不要加1了~~ ）
-- 二分终止条件是`l == r；`		也是答案所在的位置
-
-
-
+- 判断 mid 的算法==要不要加 1==!!  判断错误就会出现死循环；
+（~~建议此步骤在草图画两个小圈圈代表最后两个数，把表达式带进去验证，就可以知道是要不要加 1 了~~ ）
+- 二分终止条件是`l == r；`  也是答案所在的位置
 
 !!! example "P1182 数列分段 Section II"
 
     [网址](https://www.luogu.org/problem/P1182)
 
-    - 初始值是为1的，想想为什么？？
-    - 因为这种写法是类似于进位的，就是满了给定值，段数就++；所以初始值是1；
+    - 初始值是为 1 的，想想为什么？？
+    - 因为这种写法是类似于进位的，就是满了给定值，段数就++；所以初始值是 1；
 
     ```cpp
     #include<iostream>
@@ -63,7 +58,7 @@ l = mid; r = mid - 1;		//板子2
     int a[100005];
     int n,c,mx,tot;
     int jud(int x){
-        int cnt = 1,sum=0;//cnt初始值为1，思考为什么 
+        int cnt = 1,sum=0;//cnt 初始值为 1，思考为什么 
         for(int i = 1; i<= n; i++){
             if(sum+a[i]>x){
                 cnt++,sum=a[i];
@@ -84,8 +79,8 @@ l = mid; r = mid - 1;		//板子2
         int l = mx,r = tot;
         while(l < r){
             int mid = (l+r)/2;
-            if(jud(mid)>c)	l=mid+1;
-            else if(jud(mid)<=c)	r=mid; 
+            if(jud(mid)>c) l=mid+1;
+            else if(jud(mid)<=c) r=mid; 
         }
         printf("%d",l);
         return 0;
@@ -110,10 +105,10 @@ l = mid; r = mid - 1;		//板子2
     using namespace std;
     ll a[1000005];
     ll n,c,mx;
-    ll jud(ll x){					//砍了多少木头 
+    ll jud(ll x){     //砍了多少木头 
         ll sum=0;
         for(ll i = 1; i<= n; i++){
-            if(a[i]>x)	sum+=a[i]-x; 
+            if(a[i]>x) sum+=a[i]-x; 
         }
         return sum;
     }
@@ -124,19 +119,17 @@ l = mid; r = mid - 1;		//板子2
             scanf("%lld",&a[i]);
             mx=max(mx,a[i]); 
         }
-    //	printf("%d\n",jud(mx));
+    // printf("%d\n",jud(mx));
         ll l = 0,r = mx;
-        while(l < r){					//最小值最大模板
+        while(l < r){     //最小值最大模板
             ll mid = (l+r+1)/2;
-            if(jud(mid)>=c)		l=mid;
-            else if(jud(mid)<c)	r=mid-1;
+            if(jud(mid)>=c)  l=mid;
+            else if(jud(mid)<c) r=mid-1;
         }
         printf("%lld",l);
         return 0;
     }
     ```
-
-
 
 !!! example "P2440 木材加工"
 
@@ -164,32 +157,21 @@ l = mid; r = mid - 1;		//板子2
         int l = 0 , r = 210000000;
         while(l < r-1){
             int mid = (l+r)/2;
-            if(jud(mid)>=c)			l=mid;
-            else if(jud(mid)< c)	r= mid;
+            if(jud(mid)>=c)   l=mid;
+            else if(jud(mid)< c) r= mid;
         }
         printf("%d",l);
         return 0;
     }
     ```
 
-
-
-
-
-
 ## 经典问题 - 汉诺塔问题
 
 问题描述
 
-
-
-
-
 ## 经典问题 - 树递归
 
 !!! note "问题"
-
-
 
 求正整数 n 的分割数，最大部分为 m，即 n 可以分割为不大于 m 的正整数的和，并且按递增顺序排列。例如，使用 4 作为最大数对 6 进行分割的方式有 9 种：
 
@@ -242,7 +224,6 @@ def count_partitions(n, m):
     else:
         return count_partitions(n-m, m) + count_partitions(n, m-1)
 ```
-
 
 !!! note "练习题目"
 
@@ -306,7 +287,6 @@ def count_partitions(n, m):
         """
         return count_with_top(total,100)
     ```
-
 
 !!! example "P2386 放苹果"
     本题是递归以及递推很经典的一道题

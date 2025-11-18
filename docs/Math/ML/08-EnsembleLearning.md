@@ -1,8 +1,7 @@
 # 08 | 集成学习
+
 !!! note "好的集成，个体学习器应该“好而不同” "
 > 君子和而不同
-
-
 
 - 个体学习器强依赖关系，采用串行式的方法：boosting
 - 个体学习期不存在强依赖关系，并行化的方法:bagging,RF
@@ -10,10 +9,9 @@
 <!--more-->
 ## boosting - AdaBoost
 
-[通俗易懂理解——Adaboost算法原理 - 知乎](https://zhuanlan.zhihu.com/p/41536315)
+[通俗易懂理解——Adaboost 算法原理 - 知乎](https://zhuanlan.zhihu.com/p/41536315)
 
 ### 📌Training Error Bound
-
 
 Adaboost 的训练误差界：
 
@@ -23,12 +21,11 @@ $$
 
 体现了其"自适应性"和对弱分类器的强整合能力。这也是 Adaboost 能够从多个"弱"分类器中获得强大性能的理论基础。
 
-
 设：
 
-* 我们有 $m$ 个训练样本 ${(x_i, y_i)}_{i=1}^m$，其中 $y_i \in \{-1, +1\}$
-* 使用 $T$ 轮 boosting，每轮产生一个弱分类器 $h_t(x)$ 和对应的权重 $\alpha_t$
-* 最终分类器为加权投票：
+- 我们有 $m$ 个训练样本 ${(x_i, y_i)}_{i=1}^m$，其中 $y_i \in \{-1, +1\}$
+- 使用 $T$ 轮 boosting，每轮产生一个弱分类器 $h_t(x)$ 和对应的权重 $\alpha_t$
+- 最终分类器为加权投票：
 
   $$
   H(x) = \text{sign}\left(\sum_{t=1}^T \alpha_t h_t(x)\right)
@@ -46,7 +43,7 @@ $$
 
 其中：
 
-* $Z_t$ 是第 $t$ 轮的归一化因子（normalization factor）：
+- $Z_t$ 是第 $t$ 轮的归一化因子（normalization factor）：
 
   $$
   Z_t = \sum_{i=1}^m D_t(i) \cdot e^{-\alpha_t y_i h_t(x_i)}
@@ -83,35 +80,28 @@ $$
 ---
 🔍 直观解释
 
-* $\gamma_t$ 是 margin，表示弱分类器超出随机猜测的一点点优势。
-* 即使每个 $\gamma_t$ 很小（每个分类器仅稍微优于随机），累积起来依然能让训练误差快速收敛到 0。
-* 上界是**指数下降的**，这解释了 Adaboost 的"奇迹"：即使每一轮很弱，只要"稳定比随机好"，整体误差下降得非常快。
-
+- $\gamma_t$ 是 margin，表示弱分类器超出随机猜测的一点点优势。
+- 即使每个 $\gamma_t$ 很小（每个分类器仅稍微优于随机），累积起来依然能让训练误差快速收敛到 0。
+- 上界是**指数下降的**，这解释了 Adaboost 的"奇迹"：即使每一轮很弱，只要"稳定比随机好"，整体误差下降得非常快。
 
 ### 前向分步算法
 
-Adaboost看作：模型是加法模型、损失函数是指数函数、学习算法为前向分步算法的二分类学习方法
-
-
-
-
+Adaboost 看作：模型是加法模型、损失函数是指数函数、学习算法为前向分步算法的二分类学习方法
 
 ## bagging
 
-使用bootstrap方法进行采样：$m$个样本的数据集，又放回的随机采样$m$次，初始训练集约有$63.2\%$的样本出现在采样集合
+使用 bootstrap 方法进行采样：$m$个样本的数据集，又放回的随机采样$m$次，初始训练集约有$63.2\%$的样本出现在采样集合
 
 采样出$T$个这样的数据集合，训练出$T$个基学习器，使用简单平均/投票法进行集成。
 1️
 
-[机器学习中的bootstrap到底是什么？ - 知乎](https://zhuanlan.zhihu.com/p/261387233)
+[机器学习中的 bootstrap 到底是什么？ - 知乎](https://zhuanlan.zhihu.com/p/261387233)
 
-[从0开始机器学习-Bagging和Boosting - 知乎](https://zhuanlan.zhihu.com/p/37730184#:~:text=%E6%9C%AC%E6%96%87%E5%B0%86%E4%BB%8B%E7%BB%8DBaggi)
-
-
+[从 0 开始机器学习-Bagging 和 Boosting - 知乎](https://zhuanlan.zhihu.com/p/37730184#:~:text=%E6%9C%AC%E6%96%87%E5%B0%86%E4%BB%8B%E7%BB%8DBaggi)
 
 ### Random Forest
 
-放在Decision Tree 一节 
+放在 Decision Tree 一节
 
 ## 结合策略
 

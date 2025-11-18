@@ -3,11 +3,10 @@ title: 留言板
 comments: true
 ---
 
-# 欢迎来到PhilFan的笔记本
-
-如果你觉得这个笔记本对你有用的话，不妨动动小手点一个star！
+如果你觉得这个笔记本对你有用的话，不妨动动小手点一个 star！
 
 ## About this Notebook
+
 笔记本的主要内容如下
 
 ```mermaid
@@ -37,10 +36,4 @@ mindmap
 
 访问数据统计
 
-<a href="https://clustrmaps.com/site/1c7da"  title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=3AC6I1hMPwrwAIH4FlggNCYHkMxOPtNCx0JB7SBC_Vc&cl=ffffff" width="30%" height="auto"/></a>
-
-
-
-
-
-[十年之约](https://www.foreverblog.cn/)
+<a href="https://clustrmaps.com/site/1c7da"  title="ClustrMaps"><img alt="ClustrMaps" src="//www.clustrmaps.com/map_v2.png?d=3AC6I1hMPwrwAIH4FlggNCYHkMxOPtNCx0JB7SBC_Vc&cl=ffffff" width="30%" height="auto"/></a>

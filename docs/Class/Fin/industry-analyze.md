@@ -1,10 +1,11 @@
 # 行业观察
 
 ## 分析框架
+
 !!! note "麦肯锡分析法"
 
-
 ### 宏观分析
+
 - 政治 (Political): 新能源行业敏感
 - 经济 (Economic)
 - 社会 (Social) 政策敏感：如教培
@@ -18,8 +19,8 @@
 - 发展速度
 - 行业市场结构：key players
 - 平均利润
-### 产业链分析
 
+### 产业链分析
 
 - 供求分析
 - 上下游都有哪些玩家
@@ -28,11 +29,10 @@
 - 是否不可或缺
 - 是否具备定价权
 
-
 ### 资本市场表现
+
 - 行业内上市公司业绩表现
 - PE/VC 投资动向
-
 
 ## 行业分类
 
@@ -47,16 +47,8 @@
 [GICS® - Global Industry Classification Standard - MSCI](https://www.msci.com/our-solutions/indexes/gics)
 
 ## 数据&信息搜集
+
 - 各大咨询公司公众号
 - 119it
 - 艾瑞
 - 艾媒
-
-
-
-
-
-
-
-
-

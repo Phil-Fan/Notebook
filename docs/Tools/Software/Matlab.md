@@ -1,4 +1,4 @@
-# MATLAB使用记录
+# MATLAB 使用记录
 
 MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理整个的矩阵和数组，而其他编程语言大多逐个处理数值。矩阵是指通常用来进行线性代数运算的二维数组。
 
@@ -6,28 +6,28 @@ MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理�
 
 ### Matlab in VSCode
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002347.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002347.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002415.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002415.webp)
 
 下载插件
 
-在python环境中，最好3.9
+在 python 环境中，最好 3.9
 
-```python title="检查32or64位系统"
+```python title="检查 32or64 位系统"
 import sys
 print(sys.maxsize > 2**32)
 ```
 
-
-找到安装matlab 的root路径
+找到安装 matlab 的 root 路径
 
 `\extern\engines\python`进入放置`setup.py`的位置；
+
 ```shell title="安装"
 python setup.py install
 ```
-安装 MATLAB Engine API 的 Python 设置脚本。
 
+安装 MATLAB Engine API 的 Python 设置脚本。
 
 ```shell title="测试"
 ipython
@@ -39,20 +39,17 @@ eng = matlab.engine.start_matlab()
 eng.sqrt(4.0)
 ```
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002703.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002703.webp)
 
-注意这里如果使用conda环境，需要配置对应的conda中的python路径
-
+注意这里如果使用 conda 环境，需要配置对应的 conda 中的 python 路径
 
 配好了以后右上角就会有执行代码的按钮了
 
+#### 小 bug
 
-#### 小bug
-1. 需要vscode打开`.m`文件的文件夹，否则会报错
+1. 需要 vscode 打开`.m`文件的文件夹，否则会报错
 
 ## 基础
-
-
 
 `Ctrl + I`自动整理缩进
 
@@ -68,14 +65,14 @@ format long
 
 复数包含实部和虚部，虚数单位是 `-1` 的平方根。
 
-```
+```matlab
 sqrt(-1)
 ans = 0.0000 + 1.0000i
 ```
 
 要表示复数的虚部，请使用 `i` 或 `j`。
 
-```
+```matlab
 c = [3+4i, 4+3j; -i, 10j]
 ```
 
@@ -86,8 +83,6 @@ c = [3+4i, 4+3j; -i, 10j]
 ```matlab
 t = "Hello, world";
 ```
-
-
 
 如果文本包含双引号，请在定义中使用两个双引号。
 
@@ -116,7 +111,7 @@ seq2 =
 whos
 ```
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__workspace.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__workspace.webp)
 
 退出 MATLAB 后，工作区变量不会保留。使用 `save` 命令保存数据以供将来使用，
 
@@ -134,10 +129,6 @@ save myfile.mat
 load myfile.mat
 ```
 
-
-
-
-
 ### 函数
 
 ```matlab
@@ -153,7 +144,9 @@ disp("hello world")
 ```
 
 ### 输出
+
 #### `disp()`
+
 ```matlab
 A = [1 0];
 disp(A)
@@ -161,22 +154,25 @@ disp(A)
 S = 'Hello World.';
 disp(S)
 ```
+
 #### `fprintf()`
+
 ```matlab
 fprintf('X is %4.2f\n',A)
 ```
+
 #### `print()`
+
 ```matlab
 bar(1:10)
 print
 ```
 
-
 ## 矩阵
 
 ### 创建
 
-请使用逗号 (`,`) 或空格分隔各元素,使用分号分隔各行。
+请使用逗号 (`,`) 或空格分隔各元素，使用分号分隔各行。
 
 创建矩阵的另一种方法是使用 `ones`、`zeros` 或 `rand` 等函数。
 
@@ -208,12 +204,6 @@ A(3,:)
 B = 0:10:100 % 冒号表达式
 ```
 
-
-
-
-
-
-
 ### 运算
 
 MATLAB 允许您使用单一的算术运算符或函数来处理矩阵中的所有值
@@ -227,7 +217,7 @@ inv(a) % 逆矩阵
 
 您可以使用 `*` 运算符执行标准矩阵乘法
 
-```
+```matlab
 p = a*inv(a)
 ```
 
@@ -239,10 +229,12 @@ a.^3
 ```
 
 乘方
-```
+
+```matlab
 A^P
 ```
-表示A的P次
+
+表示 A 的 P 次
 
 ### 矩阵值
 
@@ -250,12 +242,11 @@ A^P
 矩阵的迹： `trace`
 矩阵的秩： `rank`
 矩阵和向量的范数
+
 - `norm` 欧几里德范数
 - `norm(x,inf)` 无穷范数
 矩阵函数
 expm logm sqrtm
-
-
 
 ### 串联
 
@@ -267,29 +258,38 @@ A = [a; a] % 垂直
 ```
 
 ### 分解
+
 #### LU
+
 矩阵的三角分解：将一个方阵表示为一个上三角阵（U）和一个下
-三角阵（L）的乘积（LU分解） 
-```
+三角阵（L）的乘积（LU 分解）
+
+```matlab
 [L,U]=lu(X)
 ```
+
 #### QR
+
 矩阵的正交变换：分解为正交矩阵（Q）和上三角矩阵（R）的乘积
-（QR分解） 
-```
+（QR 分解）
+
+```matlab
 [Q,R]=qr(A)
 ```
-#### 特征值分解
-eig(A)以列向量形式返回特征值，`[X,D]=eig(A)`返回
-特征值和特征向量，D为特征值对角阵，特征向量X。
 
+#### 特征值分解
+
+eig(A) 以列向量形式返回特征值，`[X,D]=eig(A)`返回
+特征值和特征向量，D 为特征值对角阵，特征向量 X。
 
 #### SVD
 
 奇异值分解
-```
+
+```matlab
 [U,S,V]=svd(A) 
 ```
+
 A=U*S*V’
 
 ## 信号处理
@@ -298,8 +298,6 @@ A=U*S*V’
 conv() % 卷积
 laplace(x) % 拉普拉斯变换
 ```
-
-
 
 ### 连续系统时域分析
 
@@ -362,8 +360,6 @@ ifourier(Y) % 傅里叶反变换
 [h,w] = freqz(sys,n,'whole') % H(Ω) 0-2pi n个频率等分点
 ```
 
-
-
 ### 复频域分析
 
 #### 连续系统
@@ -393,22 +389,16 @@ $$
 \frac{num(s)}{den(s)} = k(s) + \frac{r_1}{s-p_1}+\frac{r_2}{s-p_2} +\dots+\frac{r_n}{s-p_n}
 $$
 
-
-
 ```matlab
 # 绘制零极点分布
 pzmap(sys)
 ```
 
-
-
 #### 离散系统
 
-```
+```matlab
 zrans(x)
 ```
-
-
 
 ```matlab
 [r,p,k] = residuez(num,den)
@@ -417,28 +407,24 @@ zrans(x)
 zplane(num,den)
 ```
 
-
-
 ## Simulink
 
-- **系统仿真**：Simulink是MATLAB中用于动态系统建模、仿真和分析的工具箱，可以用于自动控制原理课程中的系统仿真。
-- **控制系统设计**：通过Simulink，可以设计和分析各种类型的控制系统，包括反馈控制系统、前馈控制系统等。
+- **系统仿真**：Simulink 是 MATLAB 中用于动态系统建模、仿真和分析的工具箱，可以用于自动控制原理课程中的系统仿真。
+- **控制系统设计**：通过 Simulink，可以设计和分析各种类型的控制系统，包括反馈控制系统、前馈控制系统等。
 
-使用方法：在matlab中输入`simulink`，打开simulink模型编辑器。
-
+使用方法：在 matlab 中输入`simulink`，打开 simulink 模型编辑器。
 
 ### 快捷键
 
 - `Ctrl + R`：顺时针旋转
 - `Ctrl + Shift + R` 逆时针旋转
 - 按住`Ctrl`键并连接线，可以从一条线中分支
-- `Ctrl + M`：打开mask
+- `Ctrl + M`：打开 mask
 - `Ctrl + Shift + X` 注释
 - `Ctrl + G` 创建子系统
 - `Ctrl + Shift + G` 取消创建子系统
 
-[MATLAB的Simulink的信号线 - 知乎](https://zhuanlan.zhihu.com/p/615160855)
-
+[MATLAB 的 Simulink 的信号线 - 知乎](https://zhuanlan.zhihu.com/p/615160855)
 
 ### 常用元件
 
@@ -458,100 +444,97 @@ zplane(num,den)
 
 !!! note "例子"
     === "搭建二阶系统"
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241020131407.webp)
+        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241020131407.webp)
         [MATLAB——Simulink二阶系统 - 哔哩哔哩](https://www.bilibili.com/read/cv9223784/)
 
 ### PID
-#### 改进型
-当系统容易收到高频信号的干扰时,微分作用会将高频信号的扰动放大(自控课本上说的),高频信号变化的较快,而微分是去求误差的变化率,所以有高频扰动信号,就会被微分作用给放大,建议对微分环节做低通滤波,通常是一阶低通滤波
 
-微分环节的缺点，就是误差e变化微弱的时候，如果D过大会产生过大的修正量，导致震动不但不减小反而扩大。
-滤波器的作用就是滤除高频修正，使D更好用，说白了是一个改进型，
+#### 改进型
+
+当系统容易收到高频信号的干扰时，微分作用会将高频信号的扰动放大 (自控课本上说的),高频信号变化的较快，而微分是去求误差的变化率，所以有高频扰动信号，就会被微分作用给放大，建议对微分环节做低通滤波，通常是一阶低通滤波
+
+微分环节的缺点，就是误差 e 变化微弱的时候，如果 D 过大会产生过大的修正量，导致震动不但不减小反而扩大。
+滤波器的作用就是滤除高频修正，使 D 更好用，说白了是一个改进型，
 
 #### 积分饱和
-那么什么时候需要加积分环节限制输出呢？当系统在抗扰动时，需要一个大的Ki参数来快速消除稳态误差，而在开始从0到稳态这个过程又会因为ki太大而引起过大超调时，这个时候就需要加积分过饱和限制。
 
+那么什么时候需要加积分环节限制输出呢？当系统在抗扰动时，需要一个大的 Ki 参数来快速消除稳态误差，而在开始从 0 到稳态这个过程又会因为 ki 太大而引起过大超调时，这个时候就需要加积分过饱和限制。
 
 #### 使用外部参数
 
+#### PID 自动调参
 
-#### PID自动调参
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__1e3dc92702c9fc392ef362c0fdc71902.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__1e3dc92702c9fc392ef362c0fdc71902.webp)
 
 点击自动调节
 
 调节最上方的响应时间和瞬态特性，可以得到不同的曲线
 按照自己项目的要求对应的调整
 
-调整之后，点击“更新模块”，就会换成新的PID参数
+调整之后，点击“更新模块”，就会换成新的 PID 参数
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__d0585d38bad5b9001b1bc60a7a47f9ea.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__d0585d38bad5b9001b1bc60a7a47f9ea.webp)
 
-
-点击“显示参数”，可以查看PID参数
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__5034c43a5f595c39fbb76b848217b623.webp)
+点击“显示参数”，可以查看 PID 参数
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__5034c43a5f595c39fbb76b848217b623.webp)
 
 ### S function
 
-!!! note "S function就是自定义的模型，用于补充simulink中没有的功能"
+!!! note "S function 就是自定义的模型，用于补充 simulink 中没有的功能"
 
+[S-function 入门及案例详解（1）——S-function 基础介绍及基本案例-CSDN 博客](https://blog.csdn.net/didi_ya/article/details/118186847)
 
-[S-function入门及案例详解（1）——S-function基础介绍及基本案例-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118186847)
+[S-function 入门及案例详解（2）——S-function 基本案例介绍\_s-function 怎么用-CSDN 博客](https://blog.csdn.net/didi_ya/article/details/118251832)
 
-[S-function入门及案例详解（2）——S-function基本案例介绍\_s-function怎么用-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118251832)
+[S-function 入门及案例详解（3）——S-function 进阶案例\_s 函数 英文学习指导-CSDN 博客](https://blog.csdn.net/didi_ya/article/details/118190541)
 
-[S-function入门及案例详解（3）——S-function进阶案例\_s函数 英文学习指导-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118190541)
+[S-function 入门及案例详解（4）——S-function 进阶案例之连续/离散状态空间表达式的 S-function 实现\_s-function 实例-CSDN 博客](https://blog.csdn.net/didi_ya/article/details/118195184)
 
-[S-function入门及案例详解（4）——S-function进阶案例之连续/离散状态空间表达式的S-function实现\_s-function实例-CSDN博客](https://blog.csdn.net/didi_ya/article/details/118195184)
+S-function 模块，位于 Simulink/User-Defined Functions 模块库中，是使 S-function 图形化的模板工具，用于为 S-function 创建一个定值的对话框和图标。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117101401.webp)
 
+- `S-function name`：填入 S-function 的函数名称，这样就建立了 S-function 模块与 M 文件形式的 S-function 之间的对应关系；
 
+- `S-function parameters`：填入 S-function 需要输入的外部参数的名称，如果有对各变量，则变量中间用逗号隔开，如 a，b，c；
 
-S-function模块，位于Simulink/User-Defined Functions模块库中，是使S-function图形化的模板工具，用于为S-function创建一个定值的对话框和图标。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117101401.webp)
-
-
-- `S-function name`：填入S-function的函数名称，这样就建立了S-function模块与M文件形式的S-function之间的对应关系；
-
-- `S-function parameters`：填入S-function需要输入的外部参数的名称，如果有对各变量，则变量中间用逗号隔开，如a，b，c；
-
-- `S-function modules`：仅当S-function是用C语言编写并用MEX工具编译的C-MEX文件时，才需要填写该参数；
-
+- `S-function modules`：仅当 S-function 是用 C 语言编写并用 MEX 工具编译的 C-MEX 文件时，才需要填写该参数；
 
 **直接馈通**
 
-如果输出函数（mdlOutputs或flag==3）是输入u的函数，即，如果输入u在mdlOutputs中被访问，则存在直接馈通。ex：$y= k\cdot u$
+如果输出函数（mdlOutputs 或 flag==3）是输入 u 的函数，即，如果输入 u 在 mdlOutputs 中被访问，则存在直接馈通。ex：$y= k\cdot u$
 
 **采样时间与偏移量**
 
 采样时间是按照固定格式成对指定的：`[采样时间 偏移时间]`。
 
-|采样时间表示	|意义|
+|采样时间表示 |意义|
 |---|---|
-|[0 0]	|连续采样时间|
-|[-1 0]	|继承S-function输入信号或父层模型的采样时间|
-|[0.5 0.1]	|离散采样时间，从0.1s开始每0.5s采样一次|
+|[0 0] |连续采样时间|
+|[-1 0] |继承 S-function 输入信号或父层模型的采样时间|
+|[0.5 0.1] |离散采样时间，从 0.1s 开始每 0.5s 采样一次|
 
 #### 函数分析
-S-function包括主函数和6个功能子函数，包括mdlInitializeSizes（初始化）、mdlDerivatives（连续状态微分）、mdlUpdate（离散状态更新）、mdlOutputs（模块输出）、mdlGetTimeOfNextVarHit（计算下次采样时刻）和mdlTerminate（仿真结束）。
 
-在S-function仿真过程中，利用switch-case语句，根据不同阶段对应的flag值（仿真流程标志向量）来调用S-function的不同子函数，以完成对S-function模块仿真流程的控制。
+S-function 包括主函数和 6 个功能子函数，包括 mdlInitializeSizes（初始化）、mdlDerivatives（连续状态微分）、mdlUpdate（离散状态更新）、mdlOutputs（模块输出）、mdlGetTimeOfNextVarHit（计算下次采样时刻）和 mdlTerminate（仿真结束）。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117102637.webp)
+在 S-function 仿真过程中，利用 switch-case 语句，根据不同阶段对应的 flag 值（仿真流程标志向量）来调用 S-function 的不同子函数，以完成对 S-function 模块仿真流程的控制。
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117102637.webp)
 
 #### Mask
-如果我们不想每次修改S-function的参数都要打开S-function的编辑窗口，我们可以使用Mask功能。
 
-**第一步是增加Mask**
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115042.webp)
+如果我们不想每次修改 S-function 的参数都要打开 S-function 的编辑窗口，我们可以使用 Mask 功能。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115132.webp)
+**第一步是增加 Mask**
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115042.webp)
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115132.webp)
 
 点击添加封装
 
 提示框可以随便写，但是名称需要和代码中的变量名称对齐。
 
-
-**第二步是在S-function初始化当中加入Mask参数**
+**第二步是在 S-function 初始化当中加入 Mask 参数**
 
 ```matlab hl_lines="1,3,8,20"
 function [sys,x0,str,ts,simStateCompliance] = expert_control(t,x,u,flag,K_b,K_s,theta_m,theta_2,theta_1,Kp,Ki,Kd,angle,F_m)
@@ -576,14 +559,12 @@ function [sys,x0,str,ts,simStateCompliance] = expert_control(t,x,u,flag,K_b,K_s,
 function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(angle)
 ```
 
-**第三步是在s-function的模块参数中，添加需要预置的参数**
+**第三步是在 s-function 的模块参数中，添加需要预置的参数**
 
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203114952.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203114952.webp)
 
 在参数这一行把需要的参数填进去，按照顺序来
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115502.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115502.webp)
 
 ## Control System Toolbox
 
@@ -604,7 +585,6 @@ sys = tf(num, den)
 其中，`num`和`den`分别是传递函数的分子和分母多项式系数向量。
 
 #### 状态空间 `ss()` | state space
-
 
 $$
 \begin{aligned}
@@ -642,8 +622,6 @@ y(t) &= \begin{bmatrix} 1 & 0 \end{bmatrix} x(t) + 0u(t)
 \end{aligned}
 $$
 
-
-
 #### 频率响应法 `freqs()`
 
 频率响应法是一种基于频率特性的分析方法，通过建立系统的频率响应函数来描述系统的输入输出关系。
@@ -653,8 +631,6 @@ G(j\omega) = \frac{Y(j\omega)}{U(j\omega)}
 $$
 
 其中，$G(j\omega)$是系统的频率响应函数，$Y(j\omega)$是系统的输出，$U(j\omega)$是系统的输入，$j$是虚数单位，$\omega$​是角频率。
-
-
 
 频率响应法可以通过`freqs`函数来计算系统的频率响应，其基本语法为：
 
@@ -707,19 +683,21 @@ $$
 G(s) = 2\frac{s + 1}{(s + 2)(s + 3)}
 $$
 
-
 #### 连续系统离散化
-```
+
+```matlab
 SYSD = c2d(SYSC,Ts,METHOD)
 ```
+
 将连续模型转换为离散模型，`METHOD`缺省为采用零阶保持器的方法，`Ts`为采样周期。
 
-Method: 
+Method:
+
 - `zoh`——采用零阶保持器
 - `foh`——采用一阶保持器
 - `tustin`——采用双线形（tustin）逼近方法
-- `prewarp`——采用改进的tustin方法
-- `matched`——采用SISO系统的零极点匹配法。
+- `prewarp`——采用改进的 tustin 方法
+- `matched`——采用 SISO 系统的零极点匹配法。
 
 !!! note "例子"
     ```matlab
@@ -730,79 +708,88 @@ Method:
     sys_d = c2d(sys,0,1)
     ```
 
-
 #### 离散系统连续化
+
 ```matlab
 sysc=d2c(sysd,method)
 ```
 
-Method: 
+Method:
+
 - `zoh`——采用零阶保持器
 - `tustin`——采用双线形（tustin）逼近方法
-- `prewarp`——采用改进的tustin方法
-- `matched`——采用SISO系统的零极点匹配法。具有接近1的极点
+- `prewarp`——采用改进的 tustin 方法
+- `matched`——采用 SISO 系统的零极点匹配法。具有接近 1 的极点
 的情况。
 !!! note "注意"
     zoh法不适合系统具有z=0的极点的情况，对于具有负实数极点的系统，该方法将增加系统的阶。
     Tustin法不适合系统具有z=1
 
 ### 系统组合
-```
+
+```matlab
 SYS = APPEND(SYS1,SYS2, ...)
 ```
 
+#### 串联系统
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115631.webp)
 
-#### 串联
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115631.webp)
-
-```
+```matlab
 sys=series(sys1,sys2)
 ```
-返回两个系统sys1和sys2的串联系统。
+
+返回两个系统 sys1 和 sys2 的串联系统。
 两个子系统必须连续时间系统或者具有相同采样周期的离散时间系
 统。
-```
+
+```matlab
 sys=series(sys1,sys2,outputs1,inputs2)
 ```
-outputs1和inputs2用于指定sys1的部分输出与sys2的部分输入进行连接。
 
+outputs1 和 inputs2 用于指定 sys1 的部分输出与 sys2 的部分输入进行连接。
 
 #### 并联
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115722.webp)
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115722.webp)
 
-```
+```matlab
 sys=parallel(sys1,sys2)
 ```
+
 返回两个系统并联连接系统，两个子系统必须连续时间系统或者具有相同采样周期的离散时间系统。
 
-```
+```matlab
 sys=parallel(sys1,sys2,inp1,inp2,out1,out2)
 ```
-inp1和inp2分别表示两个系统连接在一起的输入端，out1和out2中分别指定要做相加的输出端编号。
+
+inp1 和 inp2 分别表示两个系统连接在一起的输入端，out1 和 out2 中分别指定要做相加的输出端编号。
+
 #### 反馈
 
-```
+```matlab
 sys=feedback(sys1,sys2)
 ```
 
-返回sys1和sys2的反馈连接系统sys，反馈为负反馈。两个子系统必须连续时间系统或者具有相同采样周期的离散时间系统。
+返回 sys1 和 sys2 的反馈连接系统 sys，反馈为负反馈。两个子系统必须连续时间系统或者具有相同采样周期的离散时间系统。
 
-```
+```matlab
 sys=feedback(sys1,sys2,sign)
 ```
-定义反馈形式sign，sign=+1表示正反馈，sign=-1表示负反馈。
 
-```
+定义反馈形式 sign，sign=+1 表示正反馈，sign=-1 表示负反馈。
+
+```matlab
 sys=feedback(sys1,sys2,feedin,feedout,sign)
 ```
-将sys1的指定输出`feedout`连接到sys2的输入，sys2的输出连接到sys1的指定输入`feedin`，以此构成闭环
+
+将 sys1 的指定输出`feedout`连接到 sys2 的输入，sys2 的输出连接到 sys1 的指定输入`feedin`，以此构成闭环
 系统
 
 #### 框图连接
 
-sysc=connect(sys,Q,inputs,outputs)——框图建模，sys为由append生成的无连接对角方块系统，Q矩阵用于指定系统sys的内部连接关系，其中矩阵的每一行对应一个输入，其第一个元素为输入编号，其后为连接该输入的输出编号，如采用负连接，则以负值表示。inputs和outputs用于指定无连接系统中的某些输入/输出保留作为外部的输入输出
+sysc=connect(sys,Q,inputs,outputs)——框图建模，sys 为由 append 生成的无连接对角方块系统，Q 矩阵用于指定系统 sys 的内部连接关系，其中矩阵的每一行对应一个输入，其第一个元素为输入编号，其后为连接该输入的输出编号，如采用负连接，则以负值表示。inputs 和 outputs 用于指定无连接系统中的某些输入/输出保留作为外部的输入输出
+
 ### Time Domain
 
 #### 求解方程
@@ -813,11 +800,9 @@ z = zeros(sys) % 求零点
 r = roots([1,2,3]) % 中间是多项式的参数
 ```
 
-
-
 #### 阶跃响应绘制
 
-在MATLAB中，可以使用`step`函数来绘制系统的阶跃响应曲线。`step`函数的基本语法如下：
+在 MATLAB 中，可以使用`step`函数来绘制系统的阶跃响应曲线。`step`函数的基本语法如下：
 
 ```matlab
 step(sys)
@@ -825,7 +810,7 @@ step(sys)
 
 此外，还可以使用以下语法来获取阶跃响应的输出值和时间向量：
 
-```matlab 
+```matlab
 [y, t] = step(sys)
 ```
 
@@ -860,32 +845,33 @@ fprintf("峰值时间:%.4f,超调:%.4f,上升时间%.4f,稳态时间%.4f",timeto
 ```matlab
 pzmap(sys) % 绘制极点、零点图像
 ```
-```
+
+```matlab
 [P, Z] = pzmap(SYS)
 ```
-返回系统零极点列向量，不画图
 
+返回系统零极点列向量，不画图
 
 #### 绘制根轨迹 `rlocus`
 
 ```matlab
 rlocus(sys)
 ```
+
 **rlocus 求系统的根轨迹**
-```
+
+```matlab
 rlocus(SYS)
 ```
 
 计算并绘制系统的根轨迹图。根轨迹图用来分析
-负反馈系统，并显示当反馈增益从0变化到$\infty$时，闭环极点的轨迹。
+负反馈系统，并显示当反馈增益从 0 变化到$\infty$时，闭环极点的轨迹。
 
-```
+```matlab
 [R, K] = RLOCUS(SYS)，R＝rlocus(SYS,K) 
 ```
-K为用户定义的增益。
 
-
-
+K 为用户定义的增益。
 
 ```matlab title="有阻尼比线的根轨迹图"
 num = [1];
@@ -923,34 +909,33 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 
 **rlocfind 计算给定一组根的根轨迹增益**
 
-
-```
+```matlab
 [K, POLES] = rlocfind(SYS)
 ```
-可在图形窗口根轨迹图中显示出十字光标，当用户选择其中一点时，其相应的增益由k记录，与增益相关的所有极点记录在poles中
 
-```
+可在图形窗口根轨迹图中显示出十字光标，当用户选择其中一点时，其相应的增益由 k 记录，与增益相关的所有极点记录在 poles 中
+
+```matlab
 [K, POLES] = rlocfind(SYS,P)
 ```
-指定要得到增益的根矢量P。
 
+指定要得到增益的根矢量 P。
 
 **sgrid 在连续系统根轨迹图和零极点图中绘出阻尼系数和自然频率栅格**
 
-`sgrid`——在连续系统的根轨迹或零极点图上绘制出栅格线，栅格线由等阻尼系数和等自然频率线构成，阻尼系数以步长0.1从ξ＝0到ξ＝1绘出
+`sgrid`——在连续系统的根轨迹或零极点图上绘制出栅格线，栅格线由等阻尼系数和等自然频率线构成，阻尼系数以步长 0.1 从ξ＝0 到ξ＝1 绘出
 
 `sgrid(‘new’)`——先清除图形屏幕，然后绘制出栅格线，并设置成`hold on`，使后续绘图命令能绘制在栅格上。
 
-`sgrid(z, wn)`——可制定阻尼系数z和自然频率$\omega_n$
+`sgrid(z, wn)`——可制定阻尼系数 z 和自然频率$\omega_n$
 
-`sgrid(‘new’, z, wn)`——可制定阻尼系数z和自然频率$\omega_n$，并且在绘制栅格线之前清除图形窗口。
-
-
+`sgrid(‘new’, z, wn)`——可制定阻尼系数 z 和自然频率$\omega_n$，并且在绘制栅格线之前清除图形窗口。
 
 #### SISOTOOL
-除了使用`rlocus`函数外，你还可以使用MATLAB的SISOTOOL（单输入单输出工具）进行根轨迹设计。SISOTOOL提供了一个交互式的界面，使你可以方便地绘制和分析根轨迹，以及设计控制器。要使用SISOTOOL，只需在MATLAB命令窗口中输入`sisotool`即可。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__image-20240424103521521.webp)
+除了使用`rlocus`函数外，你还可以使用 MATLAB 的 SISOTOOL（单输入单输出工具）进行根轨迹设计。SISOTOOL 提供了一个交互式的界面，使你可以方便地绘制和分析根轨迹，以及设计控制器。要使用 SISOTOOL，只需在 MATLAB 命令窗口中输入`sisotool`即可。
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__image-20240424103521521.webp)
 
 #### 分析根轨迹
 
@@ -958,11 +943,10 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 - 去除零点、极点、积分器
 - 移动零极点
 - 添加`requirement`<br>
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145358.webp) 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145358.webp)
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__image-20240424103552781.webp" alt="image-20240424103552781" style="zoom:50%;" />
 - 查看阶跃图像特征点
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145809.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145809.webp)
 
 ### 现代控制
 
@@ -978,32 +962,28 @@ Co = ctrb(A,B) # return the controllability matrix
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=286299577&bvid=BV1Gf4y1R7sg&cid=211216173&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600px" height="450px"></iframe>
 
-[【模型预测控制】Matlab自带MPC Designer工具](https://blog.csdn.net/weixin_43470383/article/details/134227287)
+[【模型预测控制】Matlab 自带 MPC Designer 工具](https://blog.csdn.net/weixin_43470383/article/details/134227287)
 
 [MPC Toolbox 官方文档](https://ww2.mathworks.cn/help/mpc/gs/introduction.html)
 
-
 ### 使用步骤
 
-1. 安装MPC Designer
-2. 放一个simulink模型
+1. 安装 MPC Designer
+2. 放一个 simulink 模型
 
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093059.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093059.webp)
+3. 打开设计界面，点击 MPC Structure，设置输入输出通道，打开 I/O Attributes，设置输入输出名称
 
-3. 打开设计界面，点击 MPC Structure，设置输入输出通道，打开I/O Attributes，设置输入输出名称
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093026.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093026.webp)
 
 4. 点击 Update and Simulate
-
 
 ## fuzzy 工具箱
 
 ## 神经网络工具箱
 
 ### 训练
-
 
 ```matlab title="打开神经网络工具箱"
 nftool
@@ -1017,13 +997,14 @@ nftool
 !!! tip "validation test"
     validation test 表示的是泛化性能，如果连续6个epoch都上不去，就停止训练
 
-图像查看：一般看回归的图（第四个），如果都上了0.9差不多就可以了
+图像查看：一般看回归的图（第四个），如果都上了 0.9 差不多就可以了
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223002536.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223002536.webp)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=387739304&bvid=BV1Zd4y1Q7MX&cid=821664775&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 ### 模型保存
+
 ```matlab title="保存模型"
 save('filename.mat')  % 保存所有变量
 save('filename.mat', 'var1', 'var2')  % 只保存指定变量
@@ -1032,7 +1013,6 @@ save('filename.mat', 'var1', 'var2')  % 只保存指定变量
 ```matlab title="从.mat文件中导入数据"
 load('data.mat');
 ```
-
 
 ### 模型预测
 
@@ -1048,13 +1028,12 @@ disp(PreY);
 ```matlab title="方法2：使用生成的函数"
 myNeuralNetworkFunction(X) % 这里需要把后两个参数去掉
 ```
- 
+
 ### 多输入多输出
 
-多输入多输出也是一样的操作，唯一值得注意的地方就是在训练之前需要将行还是列选择正确（特征or样本）
+多输入多输出也是一样的操作，唯一值得注意的地方就是在训练之前需要将行还是列选择正确（特征 or 样本）
 
-
-### 使用脚本替代ui操作
+### 使用脚本替代 ui 操作
 
 ```matlab title="使用脚本替代ui操作，并且函数化"
 function train()
@@ -1119,33 +1098,30 @@ function train()
 end
 ```
 
+### 使用 python 训练的模型进行训练
 
-### 使用python训练的模型进行训练
-
-首先下载Deep Learning Toolbox Converter for ONNX Model Format
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223223234.webp)
+首先下载 Deep Learning Toolbox Converter for ONNX Model Format
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223223234.webp)
 
 [ONNX Model Predict](https://ww2.mathworks.cn/help/deeplearning/ref/onnxmodelpredict.html)
 
-1. 使用pytorch训练之后，导出onnx模型
-2. 在matlab中使用onnxmodelpredict函数进行预测（验证可行性）
+1. 使用 pytorch 训练之后，导出 onnx 模型
+2. 在 matlab 中使用 onnxmodelpredict 函数进行预测（验证可行性）
 
-```matlab
-model = importONNXNetwork('model.onnx', ...
-    'OutputLayerType', 'regression', ...
-    'InputDataFormats', 'BC');  % B=batch size, C=channels
+    ```matlab
+    model = importONNXNetwork('model.onnx', ...
+        'OutputLayerType', 'regression', ...
+        'InputDataFormats', 'BC');  % B=batch size, C=channels
 
-% 我训练的模型输入8维，输出2维
-u = [1.1; 1.1; 1.1; 1.1; 2.2; 2.2; 2.2; 2.2];
-u = reshape(u, [1, 8]); % 将输入调整为 [1, 8]
-y = predict(model, u);
-disp('预测输出:');
-disp(y);
-```
+    % 我训练的模型输入8维，输出2维
+    u = [1.1; 1.1; 1.1; 1.1; 2.2; 2.2; 2.2; 2.2];
+    u = reshape(u, [1, 8]); % 将输入调整为 [1, 8]
+    y = predict(model, u);
+    disp('预测输出:');
+    disp(y);
+    ```
 
-3. 在simulink中使用matlab function进行预测
-
-
+3. 在 simulink 中使用 matlab function 进行预测
 
 !!! bug "`Class mismatch for variable '<output of predict>'. Expected 'double', Actual 'single'.` "
     需要强制类型转换一下
@@ -1184,8 +1160,8 @@ disp(y);
     end
     ```
 
+## 图像绘制方法
 
-## 图像绘制
 > 绘制相平面图像[MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field: Apps for qualitative ODE analysis.](https://github.com/MathWorks-Teaching-Resources/Phase-Plane-and-Slope-Field)
 
 ### 图像保存
@@ -1199,13 +1175,11 @@ saveas(gcf, 'save.jpg'); %保存当前窗口的图像
 saveas(2, 'save.jpg'); %保存Figure 2窗口的图像
 ```
 
-
 ```matlab title="显示图像并保存"
 x=-pi: 2*pi/ 1000:pi;
 y= cos( x);
 plot( x, y); print(gcf, '-djpeg', 'abc.jpg') %绘制图像并保存为jpg格式
 ```
-
 
 ```matlab title="不显示图像而直接保存"
 x=-pi: 2*pi/ 1000:pi;
@@ -1213,23 +1187,18 @@ set(figure( 1), 'visible', 'off');
 plot( x, sin( x)); print(gcf, '-dpng', 'abc.png') %不显示图像直接保存为png格式
 ```
 
-
-
 ## 3D animation
 
-[Simulink学习——弹球仿真三维动画模型（Simulink3D演示动画学习01）\_simulink弹球仿真-CSDN博客](https://blog.csdn.net/weixin_44281768/article/details/112464275)
+[Simulink 学习——弹球仿真三维动画模型（Simulink3D 演示动画学习 01）\_simulink 弹球仿真-CSDN 博客](https://blog.csdn.net/weixin_44281768/article/details/112464275)
 
-[【免费】Bouncingball3D.slx\_simulink3dsink资源-CSDN文库](https://download.csdn.net/download/weixin_44281768/14157710)
+[【免费】Bouncingball3D.slx\_simulink3dsink 资源-CSDN 文库](https://download.csdn.net/download/weixin_44281768/14157710)
 
-[Simulink 3D Animation的使用（V\_realm builder2.0）-CSDN博客](https://blog.csdn.net/qq_51060379/article/details/129259519)
+[Simulink 3D Animation 的使用（V\_realm builder2.0）-CSDN 博客](https://blog.csdn.net/qq_51060379/article/details/129259519)
 
-[小白学习simulink建模开发，看这篇就够了，从入门到能够搭建完整的系统模型\_simulink里面vr虚拟模型建模-CSDN博客](https://blog.csdn.net/MinimalControl/article/details/131742218)
-
-
+[小白学习 simulink 建模开发，看这篇就够了，从入门到能够搭建完整的系统模型\_simulink 里面 vr 虚拟模型建模-CSDN 博客](https://blog.csdn.net/MinimalControl/article/details/131742218)
 
 ## 参考文献
 
-[matlab入门图文教程 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/77669451)
+[matlab 入门图文教程 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/77669451)
 
 [MATLAB 入门之旅 | 自定进度在线课程 - MATLAB & Simulink (mathworks.com)](https://matlabacademy.mathworks.com/cn/details/matlab-onramp/gettingstarted?s_eid=PEP_ILMEDUPage_learning)
-

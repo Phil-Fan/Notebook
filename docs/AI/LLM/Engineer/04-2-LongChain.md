@@ -2,5 +2,3 @@
 status: new
 --- 
 # Long Chain
-
-

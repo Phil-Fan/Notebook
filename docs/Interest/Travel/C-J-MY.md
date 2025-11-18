@@ -3,7 +3,7 @@
 ## 必备软件
 
 - Google Map: 找路
-- 小红书: yyds
+- 小红书：yyds
 - Grab: 打车软件
 - Bookings: 定酒店
 - AirAsia: 值机/订餐/买行李额
@@ -14,10 +14,6 @@
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=984959579&bvid=BV1xt4y1E7VC&cid=819016640&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="450"></iframe>
 
-
 ## Fun Facts
-- 马来西亚的房屋产权是999年
 
-
-
-
+- 马来西亚的房屋产权是 999 年

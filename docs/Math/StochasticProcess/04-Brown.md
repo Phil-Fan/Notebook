@@ -5,7 +5,7 @@
 **数字特征**：
 
 * $\forall\;0\leq s<t\quad X(t)-X(s)\sim N(0,\sigma^2(t-s))$
-  * 正态分布的pdf，在求特殊分布的时候有用
+  * 正态分布的 pdf，在求特殊分布的时候有用
 
 $$
 f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
@@ -21,30 +21,27 @@ $$
 * 写成增量的形式，增量之间互相独立
 
 * **马尔科夫性**：$B(t+\tau)-B(\tau)$也是标准布朗
-* **自相似性**：$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
-* $0-\infty$**对称性**：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
+* **自相似性**：$\forall\;a\neq0\quad$ { $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
+* $0-\infty$**对称性**：$\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$  则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
 
 > 当遇到条件比现在大的情况 如$P(B(1)>1|B(2)=2)$
 > 一般都考虑使用相似或者对称性质进行求解，而不是使用贝叶斯
-
 
 **特殊分布**：
 
 * 首次击中时间：$P\left(\max_{s\leq t}B(s)\geq a\right) = P(T_a \leq t) = 2P(B(t)\geq a),\quad a > 0$
 
-
 **布朗桥**
 
 $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
-- $X(0)=X(1)=0$	（桥的形状）
-- 均值：$\mu_X(t)=0$
-- 协方差：$C_X(s, t) = s(1 - t),\quad 0 < s < t < 1$
+* $X(0)=X(1)=0$ （桥的形状）
+* 均值：$\mu_X(t)=0$
+* 协方差：$C_X(s, t) = s(1 - t),\quad 0 < s < t < 1$
   
-
 ## 定义
 
-直线上一质点每隔 $\Delta t$ 等概率向左或向右移动距离 $\Delta x$ ，且每次移动相互独立 ，$X(t)$ 为 $t$ 时刻质点的位置。
+直线上一质点每隔 $\Delta t$ 等概率向左或向右移动距离 $\Delta x$ ，且每次移动相互独立，$X(t)$ 为 $t$ 时刻质点的位置。
 
 **①** $X(t)\sim N(0,\sigma^2)$
 
@@ -56,7 +53,6 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
 独立增量
 
-
 ## 标准布朗运动的性质
 
 1. 齐次的独立增量过程
@@ -65,15 +61,13 @@ $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
     * 均值函数：$\mu_B(t)=0$
     * 方差函数：$D_B(t)=t$
     * 自协方差函数：
-      
+
 $$
 \begin{aligned}
 C_B(t,s) &= R_B(t,s) = D_B[\min (s,t)]\\
 &=min(t,s)\qquad t,s>0
 \end{aligned}
 $$
-
-
 
 ??? note "证明"
     我们考虑 $t \leq s$（不妨设 $t \leq s$，因为结果是对称的）：
@@ -107,18 +101,15 @@ $$
     \mathbb{E}[B(t)B(s)] = \min(t,s)
     $$
 
-
 ### 布朗运动判定
 
 布朗运动当且仅当它是正态过程，$E(B(t))=0$且$E[B(t)B(s)]=t\wedge s.$
 
+### Markov 性
 
-### Markov 性 
-
-$\forall\;t\quad$	{ $B(t+s)-B(t);s\geq 0$ } 是标准布朗运动。
+$\forall\;t\quad$ { $B(t+s)-B(t);s\geq 0$ } 是标准布朗运动。
 
 **起点的选取是任意的**
-
 
 ??? note "证明"
 
@@ -222,22 +213,15 @@ $\forall\;t\quad$	{ $B(t+s)-B(t);s\geq 0$ } 是标准布朗运动。
     
     因此，$\{B(t); t \geq 0\}$ 是一个布朗运动。 $\blacksquare$
 
-
 多元正太分布的线性变换依然是正态分布
-
 
 ### 自相似性
 
-$\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
-
-
-
+$\forall\;a\neq0\quad$ { $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
 
 布朗运动的**自相似性（self-similarity**是它最核心、最优美的性质之一。在直觉上，它表达的是：
 
 > **把布朗运动放大或缩小，看起来就像是原来的布朗运动。**
-
-
 
 自相似性是：
 
@@ -245,27 +229,19 @@ $\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
 * 在金融中解释“不同时间尺度价格走势看起来相似”的数学基础
 * 分析长时间行为时简化问题的重要工具
 
-
-
 ### 0 与 $\infty$ 对称性
 
-令 $\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$ 	则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
-
+令 $\overset{\sim}B(t)=\begin{cases}tB(\frac 1t)\quad t>0\\[2ex]0\qquad\quad t=0\end{cases}$  则 { $\overset{\sim}B(t);t\geq0$ } 是标准布朗运动。
 
 > 把布朗运动做“时间倒转 + 振幅缩放”，你又得到了一个标准布朗运动。
 >
-
 
 | 应用领域     | 举例说明|
 | -------- | ----------------------------------------------------- |
 | **路径分析** | 某些 hitting time 与 maximum/minimum 问题在 0 和 ∞ 对称变换下形式不变 |
 | **随机分形** | 说明布朗运动具有尺度不变性，是分形过程                                   |
 | **金融建模** | 定价模型中分析小时间步和大时间尺度行为的一致性                               |
-| **理论物理** | 在量子场论中，布朗运动模型是路径积分的基础，体现“红外-紫外对称”思想                   |
-
-
-
-
+| **理论物理** | 在量子场论中，布朗运动模型是路径积分的基础，体现“红外 - 紫外对称”思想                   |
 
 !!! info "**分形（Fractal）**是一种数学和自然界中常见的结构，它具有**局部和整体相似**的特点，是许多复杂系统的本质特征。"
     虽然“分形”没有一个唯一公认的严格定义，但以下是 Benoît Mandelbrot（曼德博，分形理论之父）给出的**经典定义之一**：
@@ -290,7 +266,6 @@ $\forall\;a\neq0\quad$	{ $\frac1aB(a^2t);t\geq 0$ } 是标准布朗运动。
     
     这种“**局部与整体相似（自相似）**”的性质，在自然界和数学中非常常见。
 
-
 ## 首次击中时
 
 $$
@@ -298,8 +273,6 @@ $$
 \forall\;a>0\quad F_{T_a}(t)&=P(T_a\leq t)
 \end{aligned}
 $$
-
-
 
 $$
 \boxed{P\left(\max_{s\leq t}B(s)\geq a\right) = P(T_a \leq t) = 2P(B(t)\geq a)},\quad \text{对 } a > 0
@@ -309,9 +282,8 @@ $$
 * $T_a = \inf\{s > 0 : B(s) = a\}$：布朗运动首次达到 $a$ 的时间
 * $B(t) \sim \mathcal{N}(0,t)$：在时间 $t$ 的布朗运动服从均值 0、方差 $t$ 的正态分布
 
-
 ??? note "直观解释"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__04-Brown.assets__20250526193135.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__04-Brown.assets__20250526193135.webp)
 
     > 以价格为例，相当于求价格最高点不低于/不高于
     
@@ -338,11 +310,9 @@ $$
     | $P(T_a \leq t)$                 | 首次达到 $a$ 的时间早于 $t$ 的概率  |
     | $2P(B(t) \geq a)$               | 利用布朗运动对称性 + 反射原理的结果     |
 
-
-
 注意不同的形式：
 
-- 最大值小于$a$的概率
+* 最大值小于$a$的概率
 
 $$
 \begin{aligned}
@@ -350,7 +320,7 @@ P(\underset{0\leq s\leq t}{max}\,B(s)\leq a)&= 1-2P(B(t)\geq a)=2\Phi(\frac{\mid
 \end{aligned}
 $$
 
-- 绝对值的形式：**最小值一定小于0，所以可以直接脱去绝对值符号**
+* 绝对值的形式：**最小值一定小于 0，所以可以直接脱去绝对值符号**
 
     $X(t)=\mid \underset{0\leq s\leq t}{min}\,B(s)\mid = -\underset{0\leq s\leq t}{max}\,B_1(s)$
 
@@ -362,15 +332,13 @@ F_{X(t)}(y)=&P(X(t)\leq y)\overset{B_1(s)=-B(s)}{\longleftrightarrow}P(\underset
 \end{align*}
 $$
 
-
-
-- 对称性 
+* 对称性
   
 $$
 P(\underset{0\leq s\leq t}{min}\,B(s)\leq -y)=P(\underset{0\leq s\leq t}{max}\,B(s)\geq y)
 $$
 
-- 换元
+* 换元
 
 $$
 \begin{aligned}
@@ -381,22 +349,21 @@ P\{\underset{0\leq s\leq t}{max}\,\left[B(s)-B(t)\right]\leq x\}=&P\{\underset{0
 \end{aligned}
 $$
 
-
 ## 布朗桥运动
 
 $X(t)=B(t)-tB(1)\quad 0\leq t \leq 1$
 
-- $X(0)=X(1)=0$	
+* $X(0)=X(1)=0$
 
-- 为正态过程	
+* 为正态过程
 
-- 均值：
+* 均值：
 
 $$
 \mu_X(t) = E[X(t)] = E[B(t) - tB(1)] = E[B(t)] - tE[B(1)] = 0 - t \cdot 0 = 0
 $$
 
-- 协方差（$0 < s < t < 1$）：
+* 协方差（$0 < s < t < 1$）：
 
 $$
 \begin{align*}
@@ -408,7 +375,6 @@ C_X(s, t) &= \operatorname{Cov}(X(s), X(t)) \\
 &= s(1 - t)
 \end{align*}
 $$
-
 
 ## 例题
 
@@ -467,10 +433,9 @@ $$
     \therefore X(1)+X(2) \sim N(3,14)
     $$
 
-
-​    
+​
     ---
-    
+
     求协方差：
     
     $$
@@ -483,8 +448,6 @@ $$
     &= 5
     \end{aligned}
     $$
-
-
 
 !!! example "设 { $B(t);t\geq0$ } 是标准布朗运动，则"
 
@@ -528,11 +491,7 @@ $$
     \end{aligned}
     $$
 
-
-
 ### 相似性
-
-
 
 !!! example "设$\{B(t),t\geq0\}$是标准布朗运动，求"
 
@@ -565,7 +524,7 @@ $$
 
 !!! example "例题"
     3. $\{cB(t/4);\, t\geq0\}$ 仍是标准布朗运动的充要条件是 $c=$ ( )
-    
+
     (A) $\pm\frac{1}{2}$  (B) $\pm\frac{1}{4}$  (C) $\pm2$  (D) $\pm4$
     
     ---
@@ -586,9 +545,7 @@ $$
     
     因此 $c = \pm 2$，选 C。
 
-条件分布的问题，使用markov性质和独立增量性质进行构造，注意这里会有自相似和对称性质的应用，均值会改变
-
-
+条件分布的问题，使用 markov 性质和独立增量性质进行构造，注意这里会有自相似和对称性质的应用，均值会改变
 
 !!! example "6. 在 $B(1)=1$ 的条件下，$B(2)$ 的条件分布函数 $F_{B(2)|B(1)}(x|1)$ 为 ( )"
 
@@ -596,7 +553,6 @@ $$
     
     **解析：**  
     $B(2)|B(1)= B(2) - B(1)+B(1) = 1 + N(0,1) \sim N (1,1)$，所以分布函数为 $\Phi\left(\frac{x-1}{1}\right)$，即选 (B)。
-
 
 !!! example "7. 在 $B(2)=2$ 的条件下，$B(1)$ 的条件密度函数 $f_{B(1)|B(2)}(x|2)$ 为 ( )"
 
@@ -628,9 +584,9 @@ $$
     
     所以选 (B)。
 
-### 首次击中时
+### 首次击中时题目
 
-脑子里回想正态分布pdf的图像
+脑子里回想正态分布 pdf 的图像
 
 !!! example "击中时 + 绝对值"
 
@@ -797,15 +753,12 @@ $$
     
     而布朗桥运动的协方差为$C_X(s, t) = s(1 - t),\quad 0 < s < t < 1$
 
-
-​    
+​
     所以 $D_X(t) = C_x(t,t) =  \operatorname{Var}(B(t)) + t^2\operatorname{Var}(B(1)) - 2t\operatorname{Cov}(B(t),B(1)) = t + t^2 - 2t^2 = t(1-t)$。
-    
+
     **注：** 第五题是布朗桥过程，这部分容易被忽视。
 
-
 ### 数字特征求解与特殊
-
 
 !!! example "已知 $B(t)$是标准正态函数，则$\sum_{k=1}^{n}B(k)$符合____分布，$X(t)=e^{B(t)}$的均值函数是____。"
 
@@ -848,11 +801,9 @@ $$
     E[e^X] = e^{\mu + \frac{1}{2}\sigma^2}
     $$
     
-    而$B(t)$的均值是0，$\sigma^2 = t$
+    而$B(t)$的均值是 0，$\sigma^2 = t$
     
     带入公式即可
-
-
 
 ??? note "对数正态分布均值求解"
     > 以下推导过程摘选自[x服从正态分布,求e^x的期望？ - 知乎](https://www.zhihu.com/question/38754314)
@@ -924,7 +875,6 @@ $$
     
     当 $t = 1$ 的时候，即 $E(e^X) = e^{\mu + \frac{1}{2}\sigma^2}$ 。
 
-
 !!! example "2. $B(2) + B(1)$ 服从下列什么分布？"
 
     (A) $N(0,1)$  (B) $N(0,3)$  (C) $N(0,5)$  (D) $N(0,6)$
@@ -938,9 +888,7 @@ $$
     
     所以选 (C)。
 
-
-​    
-
+​
 
 !!! example "例题 - pdf - 公式记忆"
     $B(2)$ 的密度函数 $f_{B(2)}(x)$ 为 ( )
@@ -961,8 +909,6 @@ $$
 
 !!! example "独立增量拆分"
     已知标准布朗分布$\{B(t);t\geq0\}$,求$E(B(2)B(4)B(6))$
-
-
 
     $$
     \begin{aligned}
@@ -1030,11 +976,6 @@ $$
     
     > 也可以看98上的讨论[随机过程布朗运动一道题 - CC98论坛](https://www.cc98.org/topic/5920161)
     > 令X=B2，Y=B4-B2，Z=B6-B4，三者独立同分布N(0, 2)，然后把均值里面的三项乘开分别求。有XYZ的奇数次幂的项都为0（因为写成积分的话是个奇函数），结果算了个0
-
-
-
-
-
 
 !!! example "习题"
     已知 $X(t) = \cos (t + \Theta) + e^{-t} B(e^{2t})$，其中 $\Theta \sim U(0, 2\pi)$，$B(t)$ 为标准布朗运动，且 $\Theta$ 与 $B(t)$ 相互独立。
@@ -1116,13 +1057,9 @@ $$
     
     ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__04-Brown.assets__202506151907951.webp)
 
-
-
-​    
-
+​
 
 ## 习题
-
 
 ### 4.21
 
@@ -1175,7 +1112,6 @@ $$
     $$
 
 ### 4.27
-
 
 !!! example "设 $\{B(t); t \geqslant 0\}$ 是标准布朗运动，计算："
 
@@ -1247,5 +1183,4 @@ $$
     \end{align*}
     $$
 
-
-​    
+​

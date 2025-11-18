@@ -16,13 +16,11 @@ nostatistics: true
 
 # Aliyun ECS + Mkdocs 网站部署与配置
 
-
-
 ## 一、前提条件
 
 1. 拥有一个域名，例如 `philfan.cn`。
 2. 拥有一台服务器，且服务器具有可访问公网 IP，例如 `47.xxx.xxx.xxx`。
-3. 已经有Mkdocs文档，比如(`gh-pages`分支)
+3. 已经有 Mkdocs 文档，比如 (`gh-pages`分支)
 
 ---
 
@@ -63,7 +61,7 @@ sudo vi /etc/nginx/sites-available/philfan.cn.conf
 
 内容示例：
 
-```txt title="配置nginx serve在80端口，根目录是/www/philfan.cn"
+```txt title="配置 nginx serve 在 80 端口，根目录是/www/philfan.cn"
 server {
     listen 80;
     server_name philfan.cn www.philfan.cn;
@@ -93,11 +91,9 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-
-
 ## 四、配置 GitHub Actions 自动上传
 
-!!! note "原理其实就是scp上传文件到服务器"
+!!! note "原理其实就是 scp 上传文件到服务器"
 
 在仓库中创建 `.github/workflows/ssh-upload.yml`：
 
@@ -160,13 +156,13 @@ ssh -i ~/.ssh/id_ed25519 USERNAME@47.xxx.xxx.xxx
 ## 五、阿里云 DNS 配置
 
 1. 登录阿里云控制台：[https://dns.console.aliyun.com](https://dns.console.aliyun.com)
-2. 选择你的域名，进入 “解析设置”
+2. 选择你的域名，进入“解析设置”
 3. 添加解析记录：
 
-| 记录类型 | 主机记录 | 记录值（服务器 IP）    | 说明                                      |
-| ---- | ---- | -------------- | --------------------------------------- |
-| A    | @    | 47.xxx.xxx.xxx | 根域名 philfan.cn                          |
-| A    | www  | 47.xxx.xxx.xxx | [www.philfan.cn](http://www.philfan.cn) |
+    | 记录类型 | 主机记录 | 记录值（服务器 IP）    | 说明                                      |
+    | ---- | ---- | -------------- | --------------------------------------- |
+    | A    | @    | 47.xxx.xxx.xxx | 根域名 philfan.cn                          |
+    | A    | www  | 47.xxx.xxx.xxx | [www.philfan.cn](http://www.philfan.cn) |
 
 4. 保存，等待 5~10 分钟生效
 5. 测试解析：
@@ -176,10 +172,9 @@ dig philfan.cn +short
 dig www.philfan.cn +short
 ```
 
-
 浏览器访问：
 
-```
+```html
 http://philfan.cn
 https://philfan.cn   （如已配置 HTTPS）
 ```

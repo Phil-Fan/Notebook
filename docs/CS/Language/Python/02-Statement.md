@@ -11,8 +11,6 @@
 a,b = b+a,a
 ```
 
-
-
 ## if
 
 ```python
@@ -28,13 +26,13 @@ else:
 
 ## boolean operators
 
-优先级规则not>and>or
+优先级规则 not>and>or
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__02-Statement.assets__a26c8031eeb36116320ad0f23883c8c.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__02-Statement.assets__a26c8031eeb36116320ad0f23883c8c.webp)
 
 ## while
 
-冒号，True大写
+冒号，True 大写
 
 ```python
 while True:
@@ -45,13 +43,13 @@ while True:
     s += x
 ```
 
-## for 
+## for
 
-python中有`for - else` 结构，不要使用
+python 中有`for - else` 结构，不要使用
 
-所谓else指的是循环正常结束后要执行的代码，
+所谓 else 指的是循环正常结束后要执行的代码，
 
-即如果是bresk终止循环的情况。else下方缩进的代码将不执行。
+即如果是 bresk 终止循环的情况。else 下方缩进的代码将不执行。
 
 ```py
 x = int(input())
@@ -86,11 +84,9 @@ except Exception as n: ##万能捕捉器
 ```
 
 - 在`except 异常类型`子句中找对应的异常类型，如果找到的话，执行后面的语句块
-- 如果找不到，则执行`except`后面的语句块N+2
-- 如果程序正常执行没有发生异常，则继续执行`else`后的语句块N+3
-- 无论异常是否发生，最后都执行`finally`后面语句块N+4
-
-
+- 如果找不到，则执行`except`后面的语句块 N+2
+- 如果程序正常执行没有发生异常，则继续执行`else`后的语句块 N+3
+- 无论异常是否发生，最后都执行`finally`后面语句块 N+4
 
 - raise 抛出异常
 
@@ -106,10 +102,10 @@ raise Exception('load overload')
 | SystemExit             | 解释器请求退出              |
 | **FloatingPointError** | 浮点计算错误                |
 | OverflowError          | 数值运算超出最大限制        |
-| **ZeroDivisionError**  | 除(或取模)零 (所有数据类型) |
-| KeyboardInterrupt      | 用户中断执行(通常是输入^C)  |
+| **ZeroDivisionError**  | 除 (或取模) 零 (所有数据类型) |
+| KeyboardInterrupt      | 用户中断执行 (通常是输入^C)  |
 | ImportError            | 导入模块/对象失败           |
-| **IndexError**         | 序列中没有此索引(index)     |
+| **IndexError**         | 序列中没有此索引 (index)     |
 | RuntimeError           | 一般的运行时错误            |
 | AttributeError         | 对象没有这个属性            |
 | IOError                | 输入/输出操作失败           |
@@ -147,8 +143,6 @@ def calc(expr):
         print('divided by zero is illegal!')
         raise
 ```
-
-
 
 ### 自定义异常
 
@@ -205,8 +199,6 @@ if __name__ == '__main__':
 from doctest import run_docstring_examples
 run_docstring_examples(sum_naturals, globals(), True)
 ```
-
-
 
 ```shell
 python3 -m doctest -v <source_file>

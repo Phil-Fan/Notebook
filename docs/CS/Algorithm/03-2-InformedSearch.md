@@ -1,7 +1,8 @@
 # 启发式搜索
-启发函数（Heuristic Function）：$h(n)=$ 从节点n代表的状态到目标状态的路径耗散的最小估计值
 
-g(n)描述了从起点到当前节点的耗散，h(n)描述了从当前节点到终点的预估耗散
+启发函数（Heuristic Function）：$h(n)=$ 从节点 n 代表的状态到目标状态的路径耗散的最小估计值
+
+g(n) 描述了从起点到当前节点的耗散，h(n) 描述了从当前节点到终点的预估耗散
 
 ## 贪婪最佳优先搜索
 
@@ -9,20 +10,17 @@ $$
 f(n) = h(n)
 $$
 
-
-
 ## A*搜索
 
-[A搜索算法求解八数码问题（人工智能导论）](https://www.bilibili.com/video/BV1xG4y1N7VR)
+[A 搜索算法求解八数码问题（人工智能导论）](https://www.bilibili.com/video/BV1xG4y1N7VR)
 
-[A\*寻路算法详解 #A星 ](https://www.bilibili.com/video/BV1bv411y79P/)
+[A\*寻路算法详解 #A 星](https://www.bilibili.com/video/BV1bv411y79P/)
 
-
-A \* 搜索算法（英文：A\*search algorithm，A \* 读作 A-star），简称 A \* 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历（英文：Graph traversal）和最佳优先搜索算法（英文：Best-first search），亦是BFS的改进。
+A \* 搜索算法（英文：A\*search algorithm，A \* 读作 A-star），简称 A \* 算法，是一种在图形平面上，对于有多个节点的路径求出最低通过成本的算法。它属于图遍历（英文：Graph traversal）和最佳优先搜索算法（英文：Best-first search），亦是 BFS 的改进。
 
 ### 过程
 
-定义起点 $s$，终点 $t$，从起点（初始状态）开始的距离函数 $g(x)$，到终点（最终状态）的距离函数 $h(x)$，$h^{\ast}(x)$，以及每个点的估价函数 
+定义起点 $s$，终点 $t$，从起点（初始状态）开始的距离函数 $g(x)$，到终点（最终状态）的距离函数 $h(x)$，$h^{\ast}(x)$，以及每个点的估价函数
 
 $$
 f(x)=g(x)+h(x)
@@ -34,18 +32,13 @@ A \* 算法每次从优先队列中取出一个 $f$ 最小的元素，然后更�
 
 上述条件下，如果 $h$ 满足三角形不等式，则 A \* 算法不会将重复结点加入队列。
 
-当 $h=0$ 时，A \* 算法变为Dijkstra；当 $h=0$ 并且边权为 $1$ 时变为 BFS。
-
-
-
-
-
+当 $h=0$ 时，A \* 算法变为 Dijkstra；当 $h=0$ 并且边权为 $1$ 时变为 BFS。
 
 ### 例题
 
 ???+ note "[八数码](https://www.luogu.com.cn/problem/P1379)"
     题目大意：在 $3\times 3$ 的棋盘上，摆有八个棋子，每个棋子上标有 $1$ 至 $8$ 的某一数字。棋盘中留有一个空格，空格用 $0$ 来表示。空格周围的棋子可以移到空格中，这样原来的位置就会变成空格。给出一种初始布局和目标布局（为了使题目简单，设目标状态如下），找到一种从初始布局到目标布局最少步骤的移动方法。
-    
+
     ```plain
         123
         804
@@ -54,18 +47,16 @@ A \* 算法每次从优先队列中取出一个 $f$ 最小的元素，然后更�
 
 ??? note "解题思路"
     $h$ 函数可以定义为，不在应该在的位置的棋子个数。
-    
-    容易发现 $h$ 满足以上两个性质，此题可以使用 A \* 算法求解。
 
+    容易发现 $h$ 满足以上两个性质，此题可以使用 A \* 算法求解。
 
 ## 爬山法
 
 !!! note "不断与邻居节点的值比较，并选择值更高的节点作为下一个迭代的节点"
 
-
 - 算法**不会考虑与当前状态不相邻的状态，不维护搜索树**
 
-```
+```text
 Step 1: 评估当前的初始状态。如果是目标状态，则返回并退出。
 
 Step 2: 如果当前状态不是目标状态，则循环运行，直到找到解决方案或没有其他操作可比较。
@@ -78,20 +69,19 @@ Step 4: 评估新状态：
     - 如果不是比当前状态更好，请转到步骤2。
 ```
 
-
-
 ### 存在**局部最优的问题**
 
 - 解决方法：每次不一定选择邻域内最优的点，而是依据一定概率从邻域内选择一个点：**指标函数优的点被选中的概率大，指标函数差的点被选中的概率小**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193129.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193129.webp)
 
 !!! tip "爬山算法的优势在于当正解的写法你并不了解（常见于毒瘤计算几何和毒瘤数学题），或者本身状态维度很多，无法容易地写分治时，可以通过非常暴力的计算得到最优解"
 
 ### 存在**步长选取的问题**
+
 - 解决方法：变步长
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193153.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193153.webp)
 
 爬山算法一般会引入温度参数（类似模拟退火）。类比地说，爬山算法就像是一只兔子喝醉了在山上跳，它每次都会朝着它所认为的更高的地方（这往往只是个不准确的趋势）跳，显然它有可能一次跳到山顶，也可能跳过头翻到对面去。不过没关系，兔子翻过去之后还会跳回来。显然这个过程很没有用，兔子永远都找不到出路，所以在这个过程中兔子冷静下来并在每次跳的时候更加谨慎，少跳一点，以到达合适的最优点。
 
@@ -99,12 +89,11 @@ Step 4: 评估新状态：
 
 关于降温：降温参数是略小于 1 的常数，一般在 [0.985, 0.999] 中选取。
 
+### 存在**起始点的问题**
 
-
-###  存在**起始点的问题**
 - 解决方法：随机生成一些初始点，从每个初始点出发进行搜索，找到各自的最优解。再从这些最优解中选择一个最好的结果作为最终结果
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193221.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193221.webp)
 
 ## 模拟退火法 | Simulated Annealing
 
@@ -114,21 +103,22 @@ Step 4: 评估新状态：
 
 1. **初始解：** 随机选择一个初始解，并设置初始温度。
 2. **迭代过程：**
-- 在当前解的邻域中随机选择一个新的解。
-- 计算新解的能量（或成本）与当前解的能量之差$\Delta E$。
-如果新解的能量更低（$\Delta E<0$），则接受该新解；如果新解的能量更高，则以一定概率接受该解
+
+   - 在当前解的邻域中随机选择一个新的解。
+   - 计算新解的能量（或成本）与当前解的能量之差$\Delta E$。
+   如果新解的能量更低（$\Delta E<0$），则接受该新解；如果新解的能量更高，则以一定概率接受该解
+
 3. **退火：** 逐步降低温度，通常使用冷却调度（如指数冷却）来控制温度的下降。
 4. **终止条件：** 算法在达到预设的迭代次数或温度低于某一阈值时终止。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106154900.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106154900.webp)
 
-
-### Metropolis准则
+### Metropolis 准则
 
 $$
-P(\text{accept}) = \begin{cases} 
+P(\text{accept}) = \begin{cases}
 1 & \text{if } E(N+1) < E(N) \leq 0 \\
-e^{-\frac{\Delta f}{T}} & \text{if } E(N+1) \ge E(N) 0 
+e^{-\frac{\Delta f}{T}} & \text{if } E(N+1) \ge E(N) 0
 \end{cases}
 $$
 
@@ -144,14 +134,13 @@ $$
 
 如果温度下降到终止温度或者达到用户设定的阈值，则退火完成。
 
-
-- $T(n) = \lambda T(n-1)$, $\lambda$ 是降温系数,一般取值在0.8-0.99之间。
+- $T(n) = \lambda T(n-1)$, $\lambda$ 是降温系数，一般取值在 0.8-0.99 之间。
 - $T(n ) =\frac{T_0}{log(1+t)}$
 - $T(n) = \frac{T_0}{1+t}$
 
 ### 分析
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__simulated-annealing.gif)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__simulated-annealing.gif)
 
 随着温度的降低，跳跃越来越不随机，最优解也越来越稳定
 
@@ -172,20 +161,20 @@ import math
 from random import random
 import matplotlib.pyplot as plt
 
-def func(x, y): #x为公式里的x1,y为公式里面的x2
+def func(x, y): #x 为公式里的 x1,y 为公式里面的 x2
     res= 4*x**2-2.1*x**4+x**6/3+x*y-4*y**2+4*y**4
     return res
 
 class SA:
     def __init__(self, func, iter=100, T0=100, Tf=0.01, alpha=0.99):
         self.func = func
-        self.iter = iter         # 内循环迭代次数,即为 L=100
+        self.iter = iter         # 内循环迭代次数，即为 L=100
         self.alpha = alpha       # 降温系数，alpha=0.99
         self.T0 = T0             # 初始温度 T0 为 100
         self.Tf = Tf             # 温度终值 Tf 为 0.01
         self.T = T0              # 当前温度
-        self.x = [random() * 11 -5  for i in range(iter)] #x in [-5,5],随机生成100个x的值
-        self.y = [random() * 11 -5  for i in range(iter)] #y in [-5,5],随机生成100个y的值
+        self.x = [random() * 11 -5  for i in range(iter)] #x in [-5,5],随机生成 100 个 x 的值
+        self.y = [random() * 11 -5  for i in range(iter)] #y in [-5,5],随机生成 100 个 y 的值
         self.most_best =[] # 最优解
         self.history = {'f': [], 'T': []} # 记录最优解和温度
 
@@ -197,7 +186,7 @@ class SA:
                 break # 重复得到新解，直到产生的新解满足约束条件
         return x_new, y_new 
 
-    def Metrospolis(self, f, f_new):   #Metropolis准则
+    def Metrospolis(self, f, f_new):   #Metropolis 准则
         if f_new <= f:
             return 1
         else:
@@ -208,27 +197,27 @@ class SA:
                 return 0
 
     def best(self):    #获取最优目标函数值
-        f_list = []    #f_list数组保存每次迭代之后的值
+        f_list = []    #f_list 数组保存每次迭代之后的值
         for i in range(self.iter):
             f = self.func(self.x[i], self.y[i])
             f_list.append(f)
         f_best = min(f_list)
         
         idx = f_list.index(f_best)
-        return f_best, idx    #f_best,idx分别为在该温度下，迭代L次之后目标函数的最优解和最优解的下标
+        return f_best, idx    #f_best,idx 分别为在该温度下，迭代 L 次之后目标函数的最优解和最优解的下标
 
     def run(self):
         count = 0
         
         while self.T > self.Tf: # 外循环迭代，当前温度小于终止温度的阈值     
             for i in range(self.iter): # 内循环迭代 指定次数
-                f = self.func(self.x[i], self.y[i])                    #f为迭代一次后的值
+                f = self.func(self.x[i], self.y[i])                    #f 为迭代一次后的值
                 x_new, y_new = self.generate_new(self.x[i], self.y[i]) #产生新解
                 f_new = self.func(x_new, y_new)                        #产生新值
                 if self.Metrospolis(f, f_new):                         #判断是否接受新值
-                    self.x[i] = x_new             #如果接受新值，则把新值的x,y存入x数组和y数组
+                    self.x[i] = x_new             #如果接受新值，则把新值的 x,y 存入 x 数组和 y 数组
                     self.y[i] = y_new
-            # 迭代L次记录在该温度下最优解
+            # 迭代 L 次记录在该温度下最优解
             ft, _ = self.best()
             self.history['f'].append(ft)
             self.history['T'].append(self.T)
@@ -250,28 +239,23 @@ plt.gca().invert_xaxis()
 plt.show()
 ```
 
+random() 这个函数取 0 到 1 之间的小数
+如果你要取 0-10 之间的整数（包括 0 和 10）就写成 (int)random()*11 就可以了，11 乘以零点多的数最大是 10 点多，最小是 0 点多
+该实例中 x1 和 x2 的绝对值不超过 5（包含整数 5 和 -5），（random()* 11 -5）的结果是 -6 到 6 之间的任意值（不包括 -6 和 6）
+（random() * 10 -5）的结果是 -5 到 5 之间的任意值（不包括 -5 和 5），所有先乘以 11，取 -6 到 6 之间的值，产生新解过程中，用一个 if 条件语句把 -5 到 5 之间（包括整数 5 和 -5）的筛选出来。
 
-
-random()这个函数取0到1之间的小数
-如果你要取0-10之间的整数（包括0和10）就写成 (int)random()*11就可以了，11乘以零点多的数最大是10点多，最小是0点多
-该实例中x1和x2的绝对值不超过5（包含整数5和-5），（random() * 11 -5）的结果是-6到6之间的任意值（不包括-6和6）
-（random() * 10 -5）的结果是-5到5之间的任意值（不包括-5和5），所有先乘以11，取-6到6之间的值，产生新解过程中，用一个if条件语句把-5到5之间（包括整数5和-5）的筛选出来。
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106192331.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106192331.webp)
 
 ## 遗传算法
+
 蚂蚁在路径上释放信息素。后到的蚂蚁沿信息素浓度高的路径行走。
 在所有可能的路径中，由于往返最短路径花的时间少，通过频率高，所以信息素浓度高。这又会吸引更多蚂蚁走这条路径，形成正反馈。
 
 每只蚂蚁只关心局部的信息
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200900.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200900.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200625.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200625.webp)
 
 - 编码和初始群体生成
 - 群体评价
@@ -290,18 +274,13 @@ random()这个函数取0到1之间的小数
 - 不易陷入局部最优
 - 算法具有并行性，适合大规模并行计算机
 
-
-
-
-
 ## 常见问题
 
 ### 八皇后问题
 
 ### TSP | 旅行商问题
 
-
-??? example "例子——可拆分的TSP"
+??? example "例子——可拆分的 TSP"
 
     ```python title="需求可拆分"
     class Ant:

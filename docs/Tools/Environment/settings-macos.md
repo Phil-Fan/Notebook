@@ -1,14 +1,16 @@
 # :fontawesome-brands-apple: MacOS
-## 基础
-mac默认使用zsh
 
+## 基础
+
+mac 默认使用 zsh
 
 ## 快捷键
 
 ### System
+
 - ++space++ 预览文件
 - ++command+space++ 打开聚焦
-- ++ctrl+arrow-up++ mission control 
+- ++ctrl+arrow-up++ mission control
 - ++command+control+q++ 锁屏
 
 ### Folder
@@ -20,17 +22,16 @@ mac默认使用zsh
 
 - ++command+q++ 退出应用程序
 
-
 把鼠标移动到 另一个显示器屏幕底部，然后继续往下推一点（类似“顶到屏幕边缘”再往下挤的动作）。
 
 几秒钟后，Dock 就会跳到你鼠标所在的那个显示器。
 
 ### Typing
 
-- ++fn+backspace++ 在mac中等于 ++del++
+- ++fn+backspace++ 在 mac 中等于 ++del++
 - ++command+control+space++  emoji
 - ++shift+option+b++ 颜文字
-- ++tab++ 使用声调打字 
+- ++tab++ 使用声调打字
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
@@ -38,12 +39,11 @@ mac默认使用zsh
 open .
 ```
 
-
 ## 触控板
+
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1550039500&bvid=BV12y421e7t2&cid=1428208208&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
 
 两指左滑 - 通知中心
-
 
 ## 文件管理
 
@@ -54,10 +54,9 @@ open .
 同时重命名多个文件
 - 拆字法打字
 
-
 ## 软件配置指南
 
-鼠标反转： 自然滚动去掉
+鼠标反转：自然滚动去掉
 
 !!! info "可以在[macked](https://macked.app)这个网站上下载到一些破解的软件"
     有能力还是支持正版
@@ -68,15 +67,15 @@ open .
 sudo spctl --master-disable
 ```
 
-```shell title="放行picgo"
+```shell title="放行 picgo"
 xattr -cr /Applications/xxx.app
 ```
 
-
 ### homebrew
-首先需要配置好vpn
 
-```shell title="安装homebrew"
+首先需要配置好 vpn
+
+```shell title="安装 homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -90,8 +89,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew help
 ```
 
-
-### cli工具
+### cli 工具
 
 ```shell title="wget 安装"
 brew install wget
@@ -99,96 +97,83 @@ brew install wget
 
 ### vscode
 
-`ctl + ~` 打开终端:注意是英文状态下面
-
+`ctl + ~` 打开终端：注意是英文状态下面
 
 **Shift + Command + P** 打开设置，输入 `shell command` 找到`Shell Command: Install ‘code’ command in PATH`
 
+### paragon：NTFS 读写
 
-### paragon： NTFS读写
+在使用硬盘传数据的时候，老是报`错误代码 -50`，搜了一下才发现 mac 原生是不支持 NTFS 文件系统的
 
-在使用硬盘传数据的时候，老是报`错误代码 -50`，搜了一下才发现mac原生是不支持NTFS文件系统的
-
-!!! info "什么是NTFS"
+!!! info "什么是 NTFS"
     NTFS（New Technology File System）是由微软开发的一种文件系统，最早在 Windows NT 操作系统中引入。它是 Windows 系统的默认文件系统，用于存储和检索硬盘上的数据。
 
 官网地址
 
 [Microsoft NTFS for Mac | Paragon Software](https://www.paragon-software.com/home/ntfs-mac/)
 
-
 搜了一下发现希捷的官网有一个免费的版本
 
 [Paragon 驱动程序 | Seagate 中国](https://www.seagate.com/cn/zh/support/software/paragon/)
 
-
-
-
-
 ### picgo
+
 [Release 2.3.1 · Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1)
 
-下载之后进行dwg的安装，因为 PicGo 没有签名，所以会被 macOS 的安全检查所拦下,安装后会显示已经损坏，这个时候需要根据[PicGo/FAQ.md](https://github.com/Molunerfinn/PicGo/blob/dev/FAQ.md)中的方法进行操作
+下载之后进行 dwg 的安装，因为 PicGo 没有签名，所以会被 macOS 的安全检查所拦下，安装后会显示已经损坏，这个时候需要根据[PicGo/FAQ.md](https://github.com/Molunerfinn/PicGo/blob/dev/FAQ.md)中的方法进行操作
 
 ```shell title="信任开发者"
 sudo spctl --master-disable
 ```
 
-```shell title="放行picgo"
+```shell title="放行 picgo"
 xattr -cr /Applications/PicGo.app
 ```
 
-
 ### jetbrains
-ZJU有企业账号，在校网环境下面登陆
 
+ZJU 有企业账号，在校网环境下面登陆
 
 ### wps
-zju有企业账号，SSO登陆输入ZJU，验证登陆即可
 
+zju 有企业账号，SSO 登陆输入 ZJU，验证登陆即可
 
-### qq音乐歌单导入apple music
+### qq 音乐歌单导入 apple music
 
 1. 获取 qq 音乐的歌单 id
 2. 通过 id 获取歌单曲目
 3. 通过 [Tune My Music](https://www.tunemymusic.com/zh-CN/transfer) 向 apple music 导入歌单曲目
 
-
 > 参考文章：[将 QQ 音乐的歌单导入 apple music - 知乎](https://zhuanlan.zhihu.com/p/666443150)
-
 
 ### bandzip
 
-[Bandizip (Mac) - 如何在Mac上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
+[Bandizip (Mac) - 如何在 Mac 上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
 
 ```shell title="设置为访达扩展"
 pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
 ```
 
-
-## Safari插件
-
+## Safari 插件
 
 ## 效率工具
 
 ### Raycast
 
-### Iterm2：更nb的终端
-[iTerm2安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
+### Iterm2：更 nb 的终端
+
+[iTerm2 安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
 
 设置启动热键
 
 第一步：preference -> keys ->Create a Dedicated Hotkey Window
-第二步骤：设置Hotkey，我设置和Linux差不多布局的command（Ctrl+Alt+T）
-
-
+第二步骤：设置 Hotkey，我设置和 Linux 差不多布局的 command（Ctrl+Alt+T）
 
 ```shell title="oh my zsh"
 sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 
-
-```shell title="声明高亮插件zsh-syntax-highlighting"
+```shell title="声明高亮插件 zsh-syntax-highlighting"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
@@ -196,18 +181,11 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc && source ~/.zshrc 
 ```
 
+下载 release 即可，需要安装一个环境，按步骤来即可
 
-下载release即可，需要安装一个环境，按步骤来即可
-
-
-
-### [Scroll Reverser ](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
-
-
-
+### [Scroll Reverser](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
 
 ### latex
-
 
 ```shell
 brew install mactex --cask
@@ -219,7 +197,7 @@ brew install mactex --cask
 
 - `imap.gmail.com` DIRECT
 - `smtp.gmail.com` PROXY
-[mac邮件app无法接收Gmail邮件问题解决 | pxBang的个人博客](https://pxbang.github.io/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/)
+[mac 邮件 app 无法接收 Gmail 邮件问题解决 | pxBang 的个人博客](https://pxbang.github.io/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/)
 
 verge 上添加规则的方法：
 
@@ -228,36 +206,38 @@ verge 上添加规则的方法：
 
 ## 远程连接
 
-
 ### X11 转发
 
-1.安装XQuartz
+1.安装 XQuartz
+
 ```shell
 brew install xquartz
 ```
 
-2.在终端下或者bashrc中输入
+2.在终端下或者 bashrc 中输入
+
 ```shell
 export DISPLAY=:0
 ```
-如果没有这个，图形转发就只能在XQuartz中的xterm中有效。有了这个，就可以在iterm或者其他终端下有效。
+
+如果没有这个，图形转发就只能在 XQuartz 中的 xterm 中有效。有了这个，就可以在 iterm 或者其他终端下有效。
 
 安装之后，点击`command + ,`，在`General`中勾选`Allow connections from network clients`
 
-然后可以打开iTerm，输入`ssh -X username@ip`，就可以打开图形界面了
+然后可以打开 iTerm，输入`ssh -X username@ip`，就可以打开图形界面了
 
 可以使用小软件进行测试
 
-```shell title="xeyes进行测试"
+```shell title="xeyes 进行测试"
 xeyes
 ```
-会出现一双眼睛，可以移动
 
+会出现一双眼睛，可以移动
 
 ## Apple Script
 
 - 系统自带的“脚本编辑器”
-- vscode中`code runner`插件
+- vscode 中`code runner`插件
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=887179224&bvid=BV1NK4y1T7wA&cid=311009872&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
 
@@ -268,77 +248,82 @@ xeyes
 ## conda 环境
 
 [Miniconda — Anaconda documentation](https://docs.anaconda.com/miniconda/)
-[miniconda下载 m1/m2](https://repo.anaconda.com/minpiconda/Miniconda3-latest-MacOSX-arm64.sh)
-[MAC OS m2安装和卸载miniconda - 知乎](https://zhuanlan.zhihu.com/p/619566718)
+[miniconda 下载 m1/m2](https://repo.anaconda.com/minpiconda/Miniconda3-latest-MacOSX-arm64.sh)
+[MAC OS m2 安装和卸载 miniconda - 知乎](https://zhuanlan.zhihu.com/p/619566718)
 安装
+
 ```shell
-# 文件名是自己下载的sh文件，-p后面填安装路径
-# -b 表示将环境变量自动写入到～/.bash文件中
+# 文件名是自己下载的 sh 文件，-p 后面填安装路径
+# -b 表示将环境变量自动写入到～/.bash 文件中
 sh Miniconda3-latest-MacOSX-arm64.sh -b -p ~/miniconda3
 ```
 
 前往安装地址，打开终端
+
 ```shell
 source /bin/activate
 ```
 
 执行
-```shell
-conda init zsh #zsh执行这个命令
-或者
-conda init bash #bash执行这个命令
-```
 
+```shell
+conda init zsh #zsh 执行这个命令
+或者
+conda init bash #bash 执行这个命令
+```
 
 ```shell title="加入路径"
 vim ~/.zshrc
 export PATH=/yourpath/anaconda3/bin:$PATH
 source ~/.zshrc
 ```
-注意：上面的”/yourpath”要替换成你自己的Anaconda安装目录。
-按esc退出编辑模式，保存文件并退出（输入”:wq”回车）
 
-### 换conda源
+注意：上面的”/yourpath”要替换成你自己的 Anaconda 安装目录。
+按 esc 退出编辑模式，保存文件并退出（输入”:wq”回车）
+
+### 换 conda 源
 
 === "THU"
     ```shell
-    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-    conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-    conda config --append channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/
-    conda config --append channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
-    conda config --append channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
-    
+    conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/>
+    conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/>
+    conda config --add channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/>
+    conda config --append channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/fastai/>
+    conda config --append channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/>
+    conda config --append channels <https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/>
+
     # 搜索时显示通道地址
     conda config --set show_channel_urls yes
     ```
 
-=== "ustc源"
+=== "ustc 源"
     ```shell
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/
-    conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/
-    
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/pkgs/main/>
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/pkgs/free/>
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/>
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/>
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/>
+    conda config --add channels <https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/>
+
     conda config --set show_channel_urls yes
     ```
-### 换pip源
-解决方案：将配置好国内源的`pip.conf`文件, 放在 `~/Library/Application Support/pip` 中。
 
-可能有的新用户发现自己的文件夹中没有pip文件夹，不慌，新建就行！
+### 换 pip 源
+
+解决方案：将配置好国内源的`pip.conf`文件，放在 `~/Library/Application Support/pip` 中。
+
+可能有的新用户发现自己的文件夹中没有 pip 文件夹，不慌，新建就行！
 
 ```shell
 command + 空格            #  打开聚焦搜索
-输入 ~/Library/Application Support       # 找到Application Support文件夹
+输入 ~/Library/Application Support       # 找到 Application Support 文件夹
 ```
 
-
-在`Application Support`这个文件夹里面建一个pip 文件夹;
-在新建的pip文件夹下建一个`pip.conf`文件。
+在`Application Support`这个文件夹里面建一个 pip 文件夹;
+在新建的 pip 文件夹下建一个`pip.conf`文件。
 
 在`pip.conf`文件中输入以下内容，保存并退出。
+
 ```conf
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple/
@@ -349,6 +334,7 @@ trusted-host=pypi.tuna.tsinghua.edu.cn
 ### 卸载
 
 （1）使用 Anaconda-Clean 包删除所有与 conda 相关的文件和目录
+
 ```shell
 conda activate your_conda_env_name
 conda install anaconda-clean
@@ -357,20 +343,23 @@ anaconda-clean # add `--yes` to avoid being prompted to delete each one
 #注：如果这一步之行不成功，可以直接跳过
 ```
 
-（2） 删除整个目录（直接删掉安装文件就可）
+（2）删除整个目录（直接删掉安装文件就可）
+
 ```shell
 rm -rf ~/miniconda3
 ```
 
-（3） 删除将 conda 路径添加到PATH环境变量的行（或者注释掉）
+（3）删除将 conda 路径添加到 PATH 环境变量的行（或者注释掉）
 
 注：其实只之行第二步就可，后边这两步为了再次安装时，环境冲突，所以删干净
+
 ```shell
 vi ~/.bashrc
 # -> Search for conda and delete the lines containing it
 # -> If you're not sure if the line belongs to conda, comment it instead of deleting it just to be safe
 source ~/.bashrc
 ```
+
 ```shell
 vi ~/.zshrc
 # -> Search for conda and delete the lines containing it
@@ -378,12 +367,9 @@ vi ~/.zshrc
 source ~/.zshrc
 ```
 
-（4） 删除配置文件
+（4）删除配置文件
+
 ```shell
 rm -rf ~/.condarc
 #注：自己找一下~/.conda 开头的文件，删掉
 ```
-
-
-
-

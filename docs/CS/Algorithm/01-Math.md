@@ -1,7 +1,8 @@
 # 数论基础
-## Acknowledgement
-[数论基础 - OI Wiki](https://oi-wiki.org/math/number-theory/basic/)
 
+## Acknowledgement
+
+[数论基础 - OI Wiki](https://oi-wiki.org/math/number-theory/basic/)
 
 ## 快速幂
 
@@ -10,16 +11,16 @@
 所以需要快速幂，即更快地求出$a^b$
 
 基本思想是：
-把指数分解成2的幂的积的形式
-比如说，我们要求3 的 10次
+把指数分解成 2 的幂的积的形式
+比如说，我们要求 3 的 10 次
 我们就可以转化为`3^2 * 3^8`;
-怎么知道是2 和 8 呢？？
+怎么知道是 2 和 8 呢？？
 
 这里我们需要知道二进制
-10这个数在二进制中 是 1010；
-我们发现在第2位和第4位是有数的，说明1010变成10进制就要乘以位数的权
+10 这个数在二进制中 是 1010；
+我们发现在第 2 位和第 4 位是有数的，说明 1010 变成 10 进制就要乘以位数的权
 
-这个时候问题就转化成了找二进制上是1的位数
+这个时候问题就转化成了找二进制上是 1 的位数
 
 ```cpp title="二进制的数位分离"
 while(p){
@@ -28,33 +29,33 @@ while(p){
     p >>= 1;
 }
 ```
-~~显然与10进制数位分离一模一样~~
 
+~~显然与 10 进制数位分离一模一样~~
 
 ```cpp title="快速幂"
 #include<bits/stdc++.h>
 using namespace std;
 int x,y;
 int quick(int n,int p){   //快速幂 板子
-	int ans = 1;int	tmp = n;
-	while(p){
-		if(p & 1){
-			ans *= tmp;
-		}
-		tmp *= tmp;
-		p >>= 1;
-	}
-	return ans; 
+ int ans = 1;int tmp = n;
+ while(p){
+  if(p & 1){
+   ans *= tmp;
+  }
+  tmp *= tmp;
+  p >>= 1;
+ }
+ return ans; 
 }
 
 int main (){
-	scanf("%d %d",&x,&y);
-	printf("%d",quick(x,y));
-	return 0;
+ scanf("%d %d",&x,&y);
+ printf("%d",quick(x,y));
+ return 0;
 }
 ```
 
-??? example "例题 [Acwing 90. 64位整数乘法](https://www.acwing.com/problem/content/92/)"
+??? example "例题 [Acwing 90. 64 位整数乘法](https://www.acwing.com/problem/content/92/)"
 
     ```cpp
     #include<bits/stdc++.h>
@@ -62,16 +63,16 @@ int main (){
     using namespace std;
     ll x,y,r;
     ll quick(ll n, ll p, ll r){
-        ll ans = 0;			//因为这里是加法，所以一开始是0；
-        ll tmp = n;			
-        while(p){			//如果没分完就继续循环
-            if(p & 1){//位运算--与	
+        ll ans = 0;   //因为这里是加法，所以一开始是0；
+        ll tmp = n;   
+        while(p){   //如果没分完就继续循环
+            if(p & 1){//位运算--与 
                 ans = (ans + tmp) % r;//每次都要%r//注意这里是加法
             }
             tmp = (tmp * 2) % r;
-            p >>= 1;		//右移一位
+            p >>= 1;  //右移一位
         }
-        return ans % r; 	//最后也要mod一下
+        return ans % r;  //最后也要mod一下
     }
 
     int main (){
@@ -83,22 +84,17 @@ int main (){
 
 ### 矩阵快速幂
 
-
-
-
 ## 整除
-
 
 最大公约数
 
 求法
+
 - 欧几里得算法（辗转相除法）
 
 \[ \gcd(a, b) = \gcd(b, a \mod b) \]
 
-> 所有大于3的素数都可以表示为$6n-1$
-
-
+> 所有大于 3 的素数都可以表示为$6n-1$
 
 !!! note "proof"
 
@@ -117,13 +113,14 @@ int main (){
     
 
 ## 模
+
 特别的，当
 
 $$
 gcd(a, b) = 1
 $$
 
-时，我们称$a$和$b$是互质的。互质的两个数的最大公约数是1。
+时，我们称$a$和$b$是互质的。互质的两个数的最大公约数是 1。
 
 ## 素数
 
@@ -133,29 +130,32 @@ $$
 
   O(nlogn) 素数筛/埃氏筛
 
-
  1. 朴素算法
  2. 埃氏筛法
  3. 线性筛法（欧拉筛）
- 4. P3383 【模板】线性筛素数
+ 4. P3383【模板】线性筛素数
 
 ### 朴素算法
+
 素数最朴素的算法了
 它的时间复杂度是`O(n*sqrt(n))`的
+
 ```cpp
 bool prime (int x){
-	for(int i = 2; i <= x; i ++){
-		if(x % i ==0){
-			return 0;
-		}}
-	return 1;
+ for(int i = 2; i <= x; i ++){
+  if(x % i ==0){
+   return 0;
+  }}
+ return 1;
 }
 ```
+
 但是，这只适用于小数据的处理，所以我们需要改进算法
 
 ### Eratosthenes（埃氏筛法）
+
 - **整数的唯一分解定理：**
-任何一个大于1的自然数 N，如果N不为质数，都可以唯一分解成有限个质数的乘积`N=P1 ^ a1 · P2 ^ a2 · P3 ^ a3 · … · Pn ^ an` ，这里P1<P2<P3<…<Pn均为质数，其诸指数 ai 是正整数。
+任何一个大于 1 的自然数 N，如果 N 不为质数，都可以唯一分解成有限个质数的乘积`N=P1 ^ a1 · P2 ^ a2 · P3 ^ a3 · … · Pn ^ an` ，这里 P1<P2<P3<…<Pn 均为质数，其诸指数 ai 是正整数。
 （：当然质数的话直接就是质数本身）
 
 - 埃氏筛法的思想：
@@ -164,28 +164,29 @@ bool prime (int x){
 
 时间复杂度是**O(nloglogn)**
 
-
 - 注意`j = i`可以做到一部分的优化作用
+
 ```cpp
-for(int i = 1; i <= sqrt(n); i ++){		//循环一遍可以有倍数的	
-	if(b[i] == 1)	continue;			//如果不是质数或已经判断过，直接跳过 
-	for(int j = i; i * j <= n;j++){		//内层循环倍数 //pay attention to j = i; 
-		b[i*j] = 1;						//打上标记					
-	}			
-}	
+for(int i = 1; i <= sqrt(n); i ++){  //循环一遍可以有倍数的 
+ if(b[i] == 1) continue;   //如果不是质数或已经判断过，直接跳过 
+ for(int j = i; i * j <= n;j++){  //内层循环倍数 //pay attention to j = i; 
+  b[i*j] = 1;      //打上标记     
+ }   
+} 
 ```
-但是这个算法在1e7左右还是不太好用，会TLE（~~哭晕~
-而且埃氏筛法还有一个缺陷 ：
-对于一个合数，有可能被筛多次。例如 30 = 2 * 15 = 3 * 10 = 5*6……
+
+但是这个算法在 1e7 左右还是不太好用，会 TLE（~~哭晕~
+而且埃氏筛法还有一个缺陷：
+对于一个合数，有可能被筛多次。例如 30 = 2 *15 = 3* 10 = 5*6……
 那么如何确保每个合数只被筛选一次呢？我们只要用它的最小质因子来筛选即可，这便是欧拉筛法
 
 ### 线性筛法（欧拉筛法）
+
 线性筛法是什么意思呢？
 就是我们在埃氏筛法中有个问题就是一个数可能被筛多次
 所以就造成了时间的浪费，所以算法就在这里做了改进
 
 基本思想：在埃氏筛法的基础上，让每个合数只被它的最小质因子筛选一次，以达到不重复的目的
-
 
 ```cpp
 int prime[maxn];
@@ -195,13 +196,13 @@ void Prime(){
     mem(prime, 0);
     for (int i = 2;i <= maxn; i++) {
         if (!visit[i]) {
-            prime[++prime[0]] = i;      //记录素数， 这个prime[0] 相当于 cnt，用来计数
+            prime[++prime[0]] = i;      //记录素数，这个 prime[0] 相当于 cnt，用来计数
         }
         for (int j = 1; j <= prime[0] && i*prime[j] <= maxn; j++) {
         //j 循环枚举了当前位置已判定为素数的数，并且限制倍数和质数的和的乘积不大于最大数
 //            cout<<"  j = "<<j<<" prime["<<j<<"]"<<" = "<<prime[j]<<" i*prime[j] = "<<i*prime[j]<<endl;
             visit[i*prime[j]] = 1;    //打标记
-            if (i % prime[j] == 0) {	//这一步比较重要，如果i%j==0，说明i 就不是最小的质因子，所以就跳出程序了；
+            if (i % prime[j] == 0) { //这一步比较重要，如果 i%j==0，说明 i 就不是最小的质因子，所以就跳出程序了；
                 break;
             }
         }
@@ -210,8 +211,8 @@ void Prime(){
 
 ```
 
-
 - 还有[网友版本](https://blog.csdn.net/enjoy_pascal/article/details/80372454)的~
+
 ```cpp
 void init() 
 {
@@ -229,14 +230,12 @@ void init()
 }
 ```
 
-
-
-!!! note "P3383 【模板】线性筛素数"
+!!! note "P3383【模板】线性筛素数"
 
     做个水题
     [P3383 【模板】线性筛素数](https://www.luogu.org/problem/P3383)
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__83978c18ca1332d2089af3151f607631.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__83978c18ca1332d2089af3151f607631.webp)
 
     裸题
 
@@ -255,11 +254,11 @@ void init()
             p[1]=1;  tot=0;
             for (int i = 2;i <= n;i++) 
             {
-                if(a[i]==0)	p[tot++]= i;
+                if(a[i]==0) p[tot++]= i;
                 for (int j = 0;j < tot && i * p[j] <= n+5; j++) 
                 {
                     a[i * p[j]] = 1;
-                    if (i % p[j] == 0)	break;
+                    if (i % p[j] == 0) break;
                 }
             }
         }
@@ -274,11 +273,10 @@ void init()
                 if(a[x]==0){printf("Yes\n");}
                 else{printf("No\n");}
                 x=0;
-            }	
+            } 
             return 0;
         }
         ```
-
 
 !!! example "P1865 A % B Problem"
 
@@ -308,7 +306,7 @@ void init()
             for (int j = 0;j < tot && i * p[j] <= n+5; j++) 
             {
                 a[i * p[j]] = 1;
-                if (i % p[j] == 0)	break;
+                if (i % p[j] == 0) break;
             }
         }
     }
@@ -320,26 +318,23 @@ void init()
         init(n);
         for(int i = 1; i <= m; i++){
             scanf("%d %d",&x,&y);
-            if(x<1||x>n||y<1||y>n){		//特判
+            if(x<1||x>n||y<1||y>n){  //特判
                 printf("Crossing the line\n");
             }
             else{
-                cout<<b[y]-b[x-1]<<endl;	//x有可能也是质数，所以是x-1
+                cout<<b[y]-b[x-1]<<endl; //x有可能也是质数，所以是x-1
                 x = 0 , y = 0;
             }
-        }	
+        } 
         return 0;
     }
     ```
-
-
 
 ## gcd & lcm
 
 $$
 gcd(a,b) \times lcm(a,b) = a \times b
 $$
-
 
 ```c
 int gcd(int x , int y){
@@ -365,16 +360,16 @@ $$
 a^{-1} \equiv b \mod n
 $$
 
-表示找到一个数$b$，使得$a$和$b$相乘对模$n$同余1。
-
+表示找到一个数$b$，使得$a$和$b$相乘对模$n$同余 1。
 
 !!! note "有逆元的充要条件"
     两数互质
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__image-20240529115856874.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__image-20240529115856874.webp)
 
 计算方法
-- 拓展欧几里得 `Exgcd(a,mod)` 取x,略
+
+- 拓展欧几里得 `Exgcd(a,mod)` 取 x，略
 
 - **快速幂**
 
@@ -387,7 +382,6 @@ $$
 然后我们就可以用快速幂来求了。
 
 这里还可以使用矩阵快速幂进行优化
-
 
 ???+ note "实现"
 
@@ -441,7 +435,7 @@ a = 56
 b = 15
 g = gcd(a, b)  # 计算最大公约数
 
-# 使用扩展欧几里得算法找到x和y
+# 使用扩展欧几里得算法找到 x 和 y
 def extended_gcd(a, b):
     if b == 0:
         return (1, 0)
@@ -453,7 +447,6 @@ x, y = extended_gcd(a, b)
 print(f"The coefficients x and y are: {x}, {y}")
 ```
 
-
 ## 扩展欧几里得定理（Extended Euclidean Algorithm）
 
 根据裴蜀定理我们知道
@@ -462,8 +455,6 @@ print(f"The coefficients x and y are: {x}, {y}")
 那么对于不定方程
 \[ ax + by = m \]
 必有 $m$ 是 $\gcd(a,b)$ 的倍数（即第一个用途，判断是否有解）
-
-
 
 **知道是否有解通常不能达到目的，还需要得到一组可行解**
 
@@ -480,7 +471,7 @@ $$
 \gcd(a,b)=\gcd(b,a\bmod b)
 $$
 
-所以 
+所以
 
 $$
 ax_1+by_1=bx_2+(a\bmod b)y_2
@@ -488,7 +479,7 @@ $$
 
 又因为 $a\bmod b=a-(\lfloor\frac{a}{b}\rfloor\times b)$
 
-所以 
+所以
 
 $$
 ax_1+by_1=bx_2+(a-(\lfloor\frac{a}{b}\rfloor\times b))y_2\\
@@ -501,7 +492,6 @@ $$
 
 将 $x_2,y_2$ 不断代入递归求解直至 $\gcd$（最大公约数，下同）为 $0$ 递归 $x=1,y=0$ 回去求解。
 
-
 **通解**
 
 对于方程
@@ -510,7 +500,7 @@ $$
 ax+by=gcd(a,b) \rightarrow ax+by=k
 $$
 
-扩大了$\frac{k}{gcd(a,b)}$ 倍，那么Exgcd求出来$x_0,y_0$也要响应的扩大$\frac{k}{gcd(a,b)}$倍
+扩大了$\frac{k}{gcd(a,b)}$ 倍，那么 Exgcd 求出来$x_0,y_0$也要响应的扩大$\frac{k}{gcd(a,b)}$倍
 
 $$
 \begin{align*}
@@ -520,7 +510,6 @@ y_0 = y_0 * \frac{k}{gcd(a,b)}\\
 $$
 
 **上述方法可以求得一个特解，而通解形式如下：**
-
 
 $$
 \begin{align*}
@@ -541,11 +530,10 @@ x=(x+\frac{b}{\gcd(a,b)}*n)\mod \frac{b}{\gcd(a,b)}\\
 =x\mod \frac{b}{\gcd(a,b)}
 $$
 
-若x<=0，则x+=b/gcd
+若 x<=0，则 x+=b/gcd
 
 > 参考网址：[求逆元方法 简单又好记_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV11Y4y1U7Gh/?spm_id_from=333.788&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-> [详解扩展欧几里得算法（扩展GCD） - Seaway-Fu - 博客园 (cnblogs.com)](https://www.cnblogs.com/fusiwei/p/11775503.html)
-
+> [详解扩展欧几里得算法（扩展 GCD） - Seaway-Fu - 博客园 (cnblogs.com)](https://www.cnblogs.com/fusiwei/p/11775503.html)
 
 === "C++"
     ```cpp
@@ -574,8 +562,6 @@ $$
 
 函数最后返回的$d$即为 $\gcd$，在这个过程中计算 $x,y$ 即可。
 
-
-
 **求解乘法逆元**
 
 对于一个数 $a$，求解其模 $m$ 的逆元 $a^{-1} = x$，即满足 $a \times x \equiv 1 \mod m$。
@@ -591,8 +577,6 @@ $$
 使用扩展欧几里得算法求解 $x$ 和 $y$ 即可。
 此时 $a = a,b = m$ ,求得的$x$即为逆元
 
-
-
 ## 中国剩余定理（Chinese Remainder Theorem, CRT）
 
 参考视频：[中国剩余定理，考试包会](https://www.bilibili.com/video/BV1Y84y1E7ts)
@@ -607,7 +591,7 @@ $$
 \[ x \equiv 3 \mod 5 \]
 \[ x \equiv 2 \mod 7 \]
 
-根据CRT，可以找到唯一解 \(x\)（在模 \(105 = 3 \times 5 \times 7\) 范围内）：
+根据 CRT，可以找到唯一解 \(x\)（在模 \(105 = 3 \times 5 \times 7\) 范围内）：
 解为 \(x = 23\)，因为：
 \[ 23 \mod 3 = 2 \]
 \[ 23 \mod 5 = 3 \]
@@ -625,15 +609,13 @@ x = crt(moduli, remainders)[0]
 print(f"The solution x is: {x}")
 ```
 
-
-
 ## 欧拉函数 (Euler's Totient Function)
 
 欧拉函数$\phi(n)$是小于或等于$n$的正整数中与$n$互质的数的数量。
 
 - 对于质数$p$，$\phi(p) = p - 1$。
 
-- 如果$n$是两个不同质数$p$和$q$的乘积,从定义上考虑，与$p$ 不互质的有 $q$个，与$ q $不互质的有$ p $个，重复计算的有一个，所以 
+- 如果$n$是两个不同质数$p$和$q$的乘积，从定义上考虑，与$p$ 不互质的有 $q$个，与$ q $不互质的有$ p $个，重复计算的有一个，所以
 
 $$
 \begin{aligned}
@@ -642,7 +624,7 @@ $$
 \end{aligned}
 $$
 
-- 若$n = p^k$,，从定义上考虑，与 n 不互质的有 $p,2p,3p,\dots p^{k-1}*p $，共$p^{k-1} $个，剩下的就是互质的，所以 
+- 若$n = p^k$,，从定义上考虑，与 n 不互质的有 $p,2p,3p,\dots p^{k-1}*p $，共$p^{k-1} $个，剩下的就是互质的，所以
 $\phi(n) = n -p^{k-1} = n(1-\frac{1}{p})$
 
 - 对于任意的$n = p_1^{a_1}*p_2^{a_2}\dots p_{k}^{a_k}$
@@ -653,13 +635,13 @@ $$
 
 ## 费马小定理
 
-若 $p$ 为素数，$\gcd(a, p) = 1$，则 
+若 $p$ 为素数，$\gcd(a, p) = 1$，则
 
 $$
 a^{p - 1} \equiv 1 \pmod{p}
 $$
 
-另一个形式：对于任意整数 $a$，有 
+另一个形式：对于任意整数 $a$，有
 
 $$
 a^p \equiv a \pmod{p}
@@ -706,8 +688,6 @@ $$
 
     因为 $\binom{p}{k}=\frac{p(p-1)\cdots (p-k+1)}{k!}$ 对于 $1\leq k\leq p-1$ 成立，在模 $p$ 意义下 $\binom{p}{1}\equiv \binom{p}{2}\equiv \cdots \equiv \binom{p}{p-1}\equiv 0\pmod p$，那么 $(a+1)^p \equiv a^p +1\pmod p$，将 $a^p\equiv a\pmod p$ 带入得 $(a+1)^p\equiv a+1\pmod p$ 得证。
 
-
-
 ## 欧拉定理
 
 欧拉定理指出，对于两个互质的正整数 \(a\) 和 \(n\)（即 \(gcd(a, n) = 1\)），\(a\) 的欧拉函数 \(\phi(n)\) 次幂对 \(n\) 的模等于 1。用数学表达式表示为：
@@ -719,9 +699,6 @@ $$
 其中，\(\phi(n)\) 是欧拉函数，表示小于或等于 \(n\) 的正整数中与 \(n\) 互质的数的数量。
 
 若 $\gcd(a, m) = 1$，则 $a^{\varphi(m)} \equiv 1 \pmod{m}$。
-
-
-
 
 欧拉定理是 RSA 加密的数学基础
 

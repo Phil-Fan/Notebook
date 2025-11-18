@@ -5,7 +5,6 @@ comments: True
 
 # 04 | SFT
 
-
 ## llama-factory 使用记录
 
 !!! note "Llama-factory"
@@ -18,20 +17,15 @@ comments: True
 
 [Llamafactory](https://llamafactory.readthedocs.io/zh-cn/latest/index.html)
 
-[llama-factory SFT系列教程 (二)，大模型在自定义数据集 lora 训练与部署_llama-factory自定义数据集-CSDN博客](https://blog.csdn.net/sjxgghg/article/details/137656248?spm=1001.2014.3001.5502)
+[llama-factory SFT 系列教程 (二)，大模型在自定义数据集 lora 训练与部署_llama-factory 自定义数据集-CSDN 博客](https://blog.csdn.net/sjxgghg/article/details/137656248?spm=1001.2014.3001.5502)
 
-
-这里使用AutoDL上的社区镜像
+这里使用 AutoDL 上的社区镜像
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112920092478120&bvid=BV1a3aQeuEou&cid=500001641377964&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
+### 实战记录 —— 微调 qwen 实现 Multi30K 下英译德翻译模型
 
-
-### 实战记录 —— 微调qwen实现Multi30K下英译德翻译模型
-
-
-使用的是Multi30K数据集，下载地址：https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k
-
+使用的是 Multi30K 数据集，下载地址：<https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k>
 
 #### 下载模型
 
@@ -39,8 +33,7 @@ comments: True
 
 #### 准备数据
 
-根据sft的格式，整理数据，按照instruction, input, output格式
-
+根据 sft 的格式，整理数据，按照 instruction, input, output 格式
 
 ```json title="整理数据，按照instruction, input, output格式"
 {
@@ -50,13 +43,10 @@ comments: True
 }
 ```
 
-### 开启webui
+### 开启 webui
 
-开启webui之后，操作比较简单，只需要选择对应的模型，修改参数，填写对应路径，即可进行训练
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__webui.webp)
-
-
-
+开启 webui 之后，操作比较简单，只需要选择对应的模型，修改参数，填写对应路径，即可进行训练
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__webui.webp)
 
 #### 进行训练
 
@@ -66,9 +56,9 @@ comments: True
 - Datasets 2.21.0
 - Tokenizers 0.20.1
 
-可以中途切断，loss不需要太低
+可以中途切断，loss 不需要太低
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__loss.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__loss.webp)
 
 ```shell title="训练命令 基本是默认的参数"
 llamafactory-cli train \
@@ -107,8 +97,7 @@ llamafactory-cli train \
     --lora_target all 
 ```
 
-
-#### API推理
+#### API 推理
 
 在服务器上执行
 
@@ -121,8 +110,7 @@ CUDA_VISIBLE_DEVICES=0 API_PORT=6006 python src/api.py \
     --template qwen \
 ```
 
-
-相当于把这项服务部署到了服务器的端口上，然后通过openai的api进行调用，就可以实现推理 
+相当于把这项服务部署到了服务器的端口上，然后通过 openai 的 api 进行调用，就可以实现推理
 
 ```python title="api.py"
 import openai
@@ -151,7 +139,7 @@ def chat_with_gpt3_5(messages):
     return full_response
 
 conversation = [
-    {"role": "system", "content": "你是一个聪明的AI"}
+    {"role": "system", "content": "你是一个聪明的 AI"}
 ]
 
 while True:
@@ -170,15 +158,13 @@ while True:
     conversation.append({"role": "assistant", "content": assistant_message})
 ```
 
-则可以在本地浏览器访问`http://localhost:6006`，进行推理，也可以通过api进行调用
+则可以在本地浏览器访问`http://localhost:6006`，进行推理，也可以通过 api 进行调用
 
-下面的代码中我测试了英译德的测试集1000个样本，达到了44.45的bleu分数
-
+下面的代码中我测试了英译德的测试集 1000 个样本，达到了 44.45 的 bleu 分数
 
 [:fontawesome-solid-code:   inference.py](./assets/04-SFT.assets/inference.py){: .md-button .md-button--primary }  
 
-[:fontawesome-solid-code:   bleu.py](./assets/04-SFT.assets/bleu.py){: .md-button .md-button--primary } 
-
+[:fontawesome-solid-code:   bleu.py](./assets/04-SFT.assets/bleu.py){: .md-button .md-button--primary }
 
 ```text title="部分翻译结果"
 Original English: 2 blond girls are sitting on a ledge in a crowded plaza.
@@ -197,36 +183,30 @@ Reference German: Drei Leute sitzen an einem Picknicktisch vor einem Gebäude, d
 BLEU score: 85.15116314550686
 ```
 
-
 ```shell title="翻译结果"
 Translation English to German and calculating BLEU scores...
 100%|█████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [09:52<00:00,  1.69it/s]
 Average BLEU score for DE to EN: 44.44732087434253
 ```
 
-
-
 ### 问题解决
 
-
 1. 模型问题，下载模型
+   - 如果下载出现问题，会报错
 
-- 如果下载出现问题，会报错
-
-```
-safetensors_rust.SafetensorError: Error while deserializing header: MetadataIncompleteBuffer
-```
+    ```text
+    safetensors_rust.SafetensorError: Error while deserializing header: MetadataIncompleteBuffer
+    ```
 
 2. 模版问题：使用`llama3`模版：可以在   `template.py` 中添加自己的对话模板。
-3. lora问题
+3. lora 问题
 
-```
-ValueError: Target modules {'c_attn'} not found in the base model. Please check the target modules and try again.
-```
+    ```text
+    ValueError: Target modules {'c_attn'} not found in the base model. Please check the target modules and try again.
+    ```
 
-改成`q_proj,v_proj`
+    改成`q_proj,v_proj`
 
-```
---lora_target q_proj,v_proj
-```
-
+    ```text
+    --lora_target q_proj,v_proj
+    ```

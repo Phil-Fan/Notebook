@@ -1,30 +1,27 @@
 # 项目
 
-
 ## 程序结构
 
 [Structuring Your Project — The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/structure/)
 
-
-- 源代码目录：存放项目的主要代码，通常命名为src或项目名称。
-- 测试目录：存放项目的测试代码，一般命名为tests。
+- 源代码目录：存放项目的主要代码，通常命名为 src 或项目名称。
+- 测试目录：存放项目的测试代码，一般命名为 tests。
 - 配置文件：如`config.py`或`.env`，用于存储项目的配置信息。
 - 依赖管理文件：如`requirements.txt`，列出项目所需的第三方库及其版本。
 - 脚本文件：如`main.py`，作为项目的入口点。
 
-
-[(1 封私信 / 6 条消息) Python项目脚手架 - 知乎](https://zhuanlan.zhihu.com/p/423280686)
-[各类Python项目的项目结构及代码组织最佳实践_python项目结构-CSDN博客](https://blog.csdn.net/captain5339/article/details/128017400)
-[Python 项目组织最佳实践：从脚本到大型项目的进化之路 - Piper蛋窝 - 博客园](https://www.cnblogs.com/piperliu/p/18634331)
-[Python项目结构：构建高效项目的秘诀 - 极客技术博客](https://geek-blogs.com/blog/python-project-structure/)
+[(1 封私信 / 6 条消息) Python 项目脚手架 - 知乎](https://zhuanlan.zhihu.com/p/423280686)
+[各类 Python 项目的项目结构及代码组织最佳实践_python 项目结构-CSDN 博客](https://blog.csdn.net/captain5339/article/details/128017400)
+[Python 项目组织最佳实践：从脚本到大型项目的进化之路 - Piper 蛋窝 - 博客园](https://www.cnblogs.com/piperliu/p/18634331)
+[Python 项目结构：构建高效项目的秘诀 - 极客技术博客](https://geek-blogs.com/blog/python-project-structure/)
 
 ## 多文件编程
 
-- 模块⽤于组织较⼤的Python项⽬
-- Python标准库拆分为多个模块，以便管理。
-- 模块以⽂件形式存放，⼀个模块定义了⼀组Python 函数和其他对象，它们是有关联的
-- ⼀个Python程序可以在不同⽂件中，这些⽂件是⼀个个模块。⽤import语句引⼊
-- 模块名是另外⼀个Python⽂件的⽂件名,不包含扩展名,模块就是可以运⾏的程序
+- 模块⽤于组织较⼤的 Python 项⽬
+- Python 标准库拆分为多个模块，以便管理。
+- 模块以⽂件形式存放，⼀个模块定义了⼀组 Python 函数和其他对象，它们是有关联的
+- ⼀个 Python 程序可以在不同⽂件中，这些⽂件是⼀个个模块。⽤ import 语句引⼊
+- 模块名是另外⼀个 Python ⽂件的⽂件名，不包含扩展名，模块就是可以运⾏的程序
 - `import <模块名>`就是执⾏由模块名代表的程序
 - 引入模块中的函数另⼀⽅法
 
@@ -35,21 +32,17 @@
     - 这种⽅法引⼊模块中的单个函数，调⽤的时候也不需要再加模块名
 - 模块名字空间
 
-  - 每个py文件是一个模块，模块名就是文件名
+  - 每个 py 文件是一个模块，模块名就是文件名
 
   - 在每个模块里的全局变量和函数是模块内的，在模块内部可以直接使用，在模块外部要通过模块的名字引用
 
-  - 用哪个py文件启动程序，那个py文件的模块的模块空间就是全局名字空间
+  - 用哪个 py 文件启动程序，那个 py 文件的模块的模块空间就是全局名字空间
 
   - `dir(模块名)`：显示模块属性
 - `__main__`
   - 程序运⾏时，解释器会制造变量`__name__`
   - 如果模块作为主程序运⾏，`__name__`变量的值是 `__main__`
   - 如果模块被另⼀模块导⼊，`__name__`变量的值是 模块名
-
-
-
-
 
 ### 包
 
@@ -61,6 +54,7 @@
 - 第⼀次加载包时，会执⾏`init.py`⽂件，完成初始化⼯作
 - 如果模块存在于包中，使⽤`import 包名.模块名`形式导⼊包中模块
 - ⽤以下形式调⽤函数：`包名.模块名.函数`
+
 ## 命令行参数
 
 - sys.argv[0] #程序的⽂件名

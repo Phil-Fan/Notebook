@@ -1,6 +1,5 @@
 <h1 align="center">Welcome to PhilFan's NoteBook 👋</h1>
 
-
 <p align="center">
   <a href="https://github.com/Phil-Fan/Phil-Fan.github.io">
     <img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg" />
@@ -39,9 +38,7 @@ mkdocs serve
 1. 如果想要贡献，请先fork仓库，然后创建一个新分支，提交你的修改，然后创建一个pull request
 2. 如果你需要添加图片，使用 `asset/{filename}.assets/{x}.{y}` 来存放图片，其中`x`是图片名，`y`是图片格式，比如`asset/image.assets/1.png`，合并的时候我会处理图床问题
 
-
 ## About Me
-
 
 👤 **PhilFan**
 

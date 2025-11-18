@@ -3,7 +3,6 @@ comments: true
 ---
 # 最优控制
 
-
 什么是最优控制：
 
 - 在一定约束条件下，达到的最优的系统表现
@@ -14,8 +13,7 @@ comments: true
 - 系统表现
 - 控制系统中的最优是综合分析的结果
 
-
-=== "SISO系统"
+=== "SISO 系统"
 
     $$
     e = y-r
@@ -36,9 +34,9 @@ comments: true
 
     我们的目的就是设计一个控制器，使得$J$最小。
 
-=== "MIMO系统"
+=== "MIMO 系统"
 
-对于MIMO系统，最优控制问题可以表示为：
+对于 MIMO 系统，最优控制问题可以表示为：
 
 $$
 \min_{u(t)} J = \int_{0}^{\infty} \mathbf{E}^T \mathbf{Q} \mathbf{E} + \mathbf{U}^T \mathbf{R} \mathbf{U} dt
@@ -49,21 +47,4 @@ $$
 - $\mathbf{U} = \begin{pmatrix} u_1 & u_2 & \cdots & u_n \end{pmatrix}^T$ 是控制量
 - $\mathbf{R} = diag(r_1, r_2, \cdots, r_n)$ 是控制量的惩罚矩阵
 
-如果要关心输入，那么需要提高$r$的值，如果关心输出，那么需要提高$q$的值。 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+如果要关心输入，那么需要提高$r$的值，如果关心输出，那么需要提高$q$的值。

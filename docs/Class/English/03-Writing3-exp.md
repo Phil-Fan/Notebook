@@ -1,6 +1,5 @@
 # 大作文练习记录
 
-
 ## 教育
 
 ### C18Test2 7.27
@@ -13,9 +12,6 @@ Give reasons for your answer and include any relevant examples from your own kno
 
 Write at least 250 words.
 
-
-
-
 ??? "初次版本，Band5-6"
     It is a highly debating topic that whether university students should take extra subjects addtion to core subjects. From my point of view, we shouldn't be limited to one subject, it's the mixed background students that outstand.
 
@@ -25,8 +21,7 @@ Write at least 250 words.
 
     For conservative ones, giving all time on the main subject seems promising. But if you have time and energy,why not put your eggs in different baskets?
 
-
-??? "稍作修改,Band6.5-7"
+??? "稍作修改，Band6.5-7"
 
     It is a topic of much debate that whether university students should devote all their time to their core subjects or expand their horizons by exploring additional disciplines. From my point of view, embracing an interdisciplinary approach yields substantial benefits, though there are definitely compelling reasons for focusing solely on one’s major area of study. 
     

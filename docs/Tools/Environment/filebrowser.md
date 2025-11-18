@@ -2,7 +2,6 @@
 
 ## 下载
 
-
 ## 文档
 
 [File Browser](https://filebrowser.org/index.html)
@@ -10,9 +9,8 @@
 github[filebrowser/filebrowser: 📂 Web File Browser](https://github.com/filebrowser/filebrowser)
 [filebrowser-docs/cli at master · maxant/filebrowser-docs](https://github.com/maxant/filebrowser-docs/tree/master/cli)
 
-
-
 ## 配置
+
 [Filebrowser 部署 | gobai's notes](https://blog.gocn.top/posts/filebrowser/)
 
 ```json
@@ -47,24 +45,23 @@ sudo ufw status      # Ubuntu
 sudo firewall-cmd --list-all  # CentOS
 ```
 
-```shell title="放行8080端口"
+```shell title="放行 8080 端口"
 sudo ufw allow 8080/tcp
 ```
 
 如果有端口已经占用
 
-```
+```shell
 sudo lsof -i:8080
 ```
+
 kill 掉对应的进程即可
-
-
 
 ### 配置服务
 
 `/etc/systemd/system/filebrowser.service`
 
-```
+```shell
 [Unit]
 Description=File Browser Service
 After=network.target
@@ -100,22 +97,22 @@ sudo systemctl status filebrowser
 
 ## 访问
 
-可以使用url进行访问，但需要配置服务
+可以使用 url 进行访问，但需要配置服务
 
 ### 认证方式
 
-
 认证方式有三种
+
 ```shell
 filebrowser config set --auth.method=json
 ```
-```shell title="增加reCAPTCHA"
+
+```shell title="增加 reCAPTCHA"
 filebrowser config set --auth.method=json \
   --recaptcha.key site-key \
   --recaptcha.secret private-key \
   --recaptcha.host https://recaptcha.net
 ```
-
 
 Proxy Header（代理头认证）
 
@@ -134,20 +131,16 @@ filebrowser config set --auth.method=proxy --auth.header=X-My-Header
 No Authentication（无认证）
 
 描述：完全关闭认证，适合 私有网络或家用网络，无需登录即可访问。
+
 ```shell
 filebrowser config set --auth.method=noauth
 ```
+
 ## Custom
 
-[免费Favicon图标生成器 - 在线制作ICO、PNG、SVG网站图标 | Favicon.im](https://favicon.im/zh/generator)
-
-
-
-
-
+[免费 Favicon 图标生成器 - 在线制作 ICO、PNG、SVG 网站图标 | Favicon.im](https://favicon.im/zh/generator)
 
 假设 /abs/path/to/my/dir 是你的品牌目录：
-
 
 ```shell title="文件夹结构"
 /my-brand/
@@ -159,18 +152,14 @@ filebrowser config set --auth.method=noauth
       favicon.svg
 ```
 
-
 ```shell
 filebrowser config set --branding.name "My Name" \
   --branding.files "/abs/path/to/my/dir" \
   --branding.disableExternal
 ```
 
-
 ## Debug
 
 ```shell
 sudo tail -f /var/lib/filebrowser/filebrowser.log
 ```
-
-

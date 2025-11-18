@@ -1,34 +1,30 @@
 # 00 | 课程大纲与复习
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__2.gif)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__2.gif)
 > 图源网络
-
 
 ## 课程信息
 
 - 名称：机器人建模与控制
-- 本篇笔记来源：zhihu，老师课件，b站视频等
-
+- 本篇笔记来源：zhihu，老师课件，b 站视频等
 
 ### 课程大纲
 
 - [x] [空间描述与变换](1-Basis.md)：旋转矩阵、欧拉角、等效轴角、四元数及它们之间的变换
-- [x] [正运动学](2-ForwardKinematics.md)：已知角度求末端位姿；关节空间to笛卡尔空间
+- [x] [正运动学](2-ForwardKinematics.md)：已知角度求末端位姿；关节空间 to 笛卡尔空间
 - [x] [逆运动学](3-InverseKinematics.md)：已知位姿求解角度；给定工具坐标系的位置和姿态，解算出个各关节变量
 - [x] [速度与静力](4-Mechanics.md)：讲关节空间速度映射到笛卡尔空间速度，通过雅可比矩阵描述
-- [x] [轨迹规划](5-TrajectoryPlanning.md)：为每个关节计算连续的运动轨迹，使末端执行器在空间中从点A移动到点B。这一章比较独立，可以先看。
-- [x] [动力学](6-Dynamics.md)：主要讲解**牛顿-欧拉迭代动力学方程**和**拉格朗日动力学方程**。
-- [ ] [运动控制](7-Control.md)：通过传感器检测运动状态，利用反馈调整执行器的输入，补偿系统误差，以实现期望的轨迹。逐步介绍了P控制、PD控制、PID控制、转矩前馈控制、逆运动学控制、鲁棒控制、自适应控制等。
+- [x] [轨迹规划](5-TrajectoryPlanning.md)：为每个关节计算连续的运动轨迹，使末端执行器在空间中从点 A 移动到点 B。这一章比较独立，可以先看。
+- [x] [动力学](6-Dynamics.md)：主要讲解**牛顿 - 欧拉迭代动力学方程**和**拉格朗日动力学方程**。
+- [ ] [运动控制](7-Control.md)：通过传感器检测运动状态，利用反馈调整执行器的输入，补偿系统误差，以实现期望的轨迹。逐步介绍了 P 控制、PD 控制、PID 控制、转矩前馈控制、逆运动学控制、鲁棒控制、自适应控制等。
 - [ ] [力控制](8-ForceControl.md)：力位混合控制器、阻抗控制器、导纳控制器
-- [x] [实验](9-exp.md)：实验部分,Pick and Place任务
-
+- [x] [实验](9-exp.md)：实验部分，Pick and Place 任务
 
 ### 课程感想
 
 基本都是看课本自学的，上课听讲不太符合节奏
 
 用的教材感觉最后两章写的比较一般，读起来没有很顺畅
-
 
 !!! question "left undone"
     - [ ] 四元数可视化理解
@@ -38,14 +34,13 @@
     - [ ] 如何描述工作空间
     - [ ] 自由度的理解
     - [x] 奇异性的理解
-    - [x] DH参数表下计算齐次变换矩阵
+    - [x] DH 参数表下计算齐次变换矩阵
     - [x] 惯性张量、转动惯量、惯量积的计算和关系
     - [ ] 逆运动学求解的题目
     - [x] 末端给了力求解关节力矩的题目
     - [x] 小测题目
     - [ ] 动力学模型各个矩阵的含义
     - [x] 设计控制器
-
 
 ## 资料整理
 
@@ -115,56 +110,53 @@
         └── 江水水儿.pdf
     ```
 
-
 ### 文档
 
-- [机器人建模与控制学习楼 - FLOG司马](https://www.cc98.org/topic/6115926)
-- [应试的心得 - 逐梦xcdh](https://www.cc98.org/topic/6167057)
+- [机器人建模与控制学习楼 - FLOG 司马](https://www.cc98.org/topic/6115926)
+- [应试的心得 - 逐梦 xcdh](https://www.cc98.org/topic/6167057)
 - [课程笔记 - 小胖一族](https://skillful-vest-b8d.notion.site/3d905d613c1046beb84c6a85c71818c5)
 - [《机器人学Ⅰ》笔记 - FrankG](https://www.cc98.org/topic/6127422)
 
 其他网上的一些资料，我放在了章节的对应位置
 
-### 复习资料与A4
-- [资料 - 追风Holy](https://www.cc98.org/topic/6167251)
+### 复习资料与 A4
+
+- [资料 - 追风 Holy](https://www.cc98.org/topic/6167251)
 - [课后习题答案 - 一只千米](https://www.cc98.org/topic/6164188)，正确性存疑？
-- [逐梦xcdh A4](https://www.cc98.org/topic/6167057)
+- [逐梦 xcdh A4](https://www.cc98.org/topic/6167057)
 - [the_Piao A4](https://www.cc98.org/topic/6160390)
-- [追风Holy A4](https://www.cc98.org/topic/6167251/1)
-- [吼吼吼hhhh A4](https://www.cc98.org/topic/6164302)
+- [追风 Holy A4](https://www.cc98.org/topic/6167251/1)
+- [吼吼吼 hhhh A4](https://www.cc98.org/topic/6164302)
 - [lllllh - A4](https://www.cc98.org/topic/6165793)
-- [之一hzz A4](https://www.cc98.org/topic/5115478)
+- [之一 hzz A4](https://www.cc98.org/topic/5115478)
 - [江水水儿 A4](https://www.cc98.org/topic/5595634/1#1)
 - [Sodium01 A4](https://www.cc98.org/topic/5610926)
 - [Rainbow0 A4 英文班](https://www.cc98.org/topic/5658322)
-- [CHSAN A4 机器人学1](https://www.cc98.org/topic/5352954)
-- [AnderK A4 机器人学1](https://www.cc98.org/topic/5116418)
-- [林林home A4 机器人学1](https://www.cc98.org/topic/5116252)
-
-
-
+- [CHSAN A4 机器人学 1](https://www.cc98.org/topic/5352954)
+- [AnderK A4 机器人学 1](https://www.cc98.org/topic/5116418)
+- [林林 home A4 机器人学 1](https://www.cc98.org/topic/5116252)
 
 ## 机建 回忆卷
 
 **机建**
 
-- [2023-2024春](https://www.cc98.org/topic/5871439)
-- [2023春夏](https://www.cc98.org/topic/5595634/1#1)
-- [2022春夏](https://www.cc98.org/topic/5353760)
+- [2023-2024 春](https://www.cc98.org/topic/5871439)
+- [2023 春夏](https://www.cc98.org/topic/5595634/1#1)
+- [2022 春夏](https://www.cc98.org/topic/5353760)
 
 **机器人学**
 
-- [2022春夏](https://www.cc98.org/topic/5353760)
-- [2023机器人学1/机器人学I 回忆 - CC98论坛](https://www.cc98.org/topic/5639736)
-- [2021-2022夏《机器人学I》回忆卷 - CC98论坛](https://www.cc98.org/topic/5352203)
-- [2021机器人学I](https://www.cc98.org/topic/5071145)
-- [19年机器人学](https://www.cc98.org/topic/4901039)
-
+- [2022 春夏](https://www.cc98.org/topic/5353760)
+- [2023 机器人学 1/机器人学 I 回忆 - CC98 论坛](https://www.cc98.org/topic/5639736)
+- [2021-2022 夏《机器人学 I》回忆卷 - CC98 论坛](https://www.cc98.org/topic/5352203)
+- [2021 机器人学 I](https://www.cc98.org/topic/5071145)
+- [19 年机器人学](https://www.cc98.org/topic/4901039)
 
 ### 2024 春
 
-### 2023春 英文班
-[2023-2024春](https://www.cc98.org/topic/5871439)
+### 2023 春 英文班
+
+[2023-2024 春](https://www.cc98.org/topic/5871439)
 **判断题（2 * 5）：**
 
 !!! question "三轴相交是逆运动学有解析解的充分条件"
@@ -174,171 +166,154 @@
     
     有6个旋转关节的操作譬存在封闭解的充分条件是相邻的3个关节轴线相交于一点
 
-
 **选择题（2 * 5）**
 
 !!! question "：下列说法错误的是"
-    A. 旋转矩阵特征值均为1<br>                          
+    A. 旋转矩阵特征值均为1<br>
     B. 旋转矩阵行列式为1<br>
     C. 旋转矩阵列向量相互正交<br>
     D. 旋转矩阵列向量为单位向量<br>
 
     A
 
-
 **填空题**
 
+!!! question "填空题 1：线加速度公式"
 
-!!! question "填空题1：线加速度公式"
+!!! question "填空题 2：齐次变换矩阵求逆"
 
-!!! question "填空题2：齐次变换矩阵求逆"
-
-!!! question "填空题3：旋转矩阵转四元数"
-
-
+!!! question "填空题 3：旋转矩阵转四元数"
 
 **大题**
 
+!!! question "大题 1：给定一个 DH 参数表，求 $^0_2T$"
 
-!!! question "大题1：给定一个DH参数表，求 $^0_2T$"
-
-!!! question "大题2：平面三连杆，$\theta_2$，$\theta_3$为定值，1为转动关节，4为移动关节"
+!!! question "大题 2：平面三连杆，$\theta_2$，$\theta_3$为定值，1 为转动关节，4 为移动关节"
     （1）求末端速度<br>
     （2）求奇异位形<br>
     （3）机械臂末端给一个力，$f_x$，$f_y$给定，给一个z轴力矩，求关节力矩<br>
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134232095.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134232095.webp)
 
-!!! question "大题3：四元数插值"
+!!! question "大题 3：四元数插值"
     （1）请描述四元数插值与欧拉角插值的优势与劣势<br>
     （2）给定初始和结束两个q，slerp插值，$q_0 = [\frac{1}{2},\frac{1}{2},\frac{1}{2},\frac{1}{2}]$ $q_1 = [\frac{\sqrt{3}-1}{4}, -\frac{\sqrt{3}+1}{4}, -\frac{\sqrt{3}+1}{4}, \frac{\sqrt{3}-1}{4}]$<br>
     （3）要求角速度初始结束为0，中间段为常数，角速度连续，进行规划<br>
 
-!!! question "大题4：计算转动惯量，质量为m，坐标系建在质心$\rho = k(\frac{l^2}{4} - x^2)$"
+!!! question "大题 4：计算转动惯量，质量为 m，坐标系建在质心$\rho = k(\frac{l^2}{4} - x^2)$"
     （1）求k<br>
     （2）求转动惯量<br>
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134250046.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134250046.webp)
 
     这个题最好自己手推一下，并复习一下多元积分相关的知识
 
-!!! question "大题5：两连杆机械臂，一个转动关节一个移动关节，质量集中于末端，标在图上了，求动力学方程"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134313618.webp)
+!!! question "大题 5：两连杆机械臂，一个转动关节一个移动关节，质量集中于末端，标在图上了，求动力学方程"
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134313618.webp)
 
-    
-
-!!! question "大题6：长方体工件插入问题"
+!!! question "大题 6：长方体工件插入问题"
     （1）给定任务，把长方体工件插入长方体凹槽，求自然约束和人工约束<br>
     （2）-（3）都是阻抗控制相关，没看懂题目<br>
 
-
-
 ### 2023 春
-[2023春夏](https://www.cc98.org/topic/5595634/1#1)
 
+[2023 春夏](https://www.cc98.org/topic/5595634/1#1)
 
-!!! question "判断题1：分析雅克比是姿态的最小表示"
+!!! question "判断题 1：分析雅克比是姿态的最小表示"
     分析雅可比是基于最小表示推得多
 
-!!! question "判断题2：牛顿欧拉法是基于力学的方法，拉格朗日法是基于能量的方法"
+!!! question "判断题 2：牛顿欧拉法是基于力学的方法，拉格朗日法是基于能量的方法"
     对，考了多次
 
-!!! question "判断题3：一个旋转矩阵对应几个单位四元数"
+!!! question "判断题 3：一个旋转矩阵对应几个单位四元数"
     2
 
-!!! question "判断题4：关节空间动力学模型的 $G$ 和笛卡尔空间动力学模型的 $G_x$ 是否一样"
-
+!!! question "判断题 4：关节空间动力学模型的 $G$ 和笛卡尔空间动力学模型的 $G_x$ 是否一样"
 
 **填空题**
 
-!!! question "填空题1：ZYX欧拉角"
+!!! question "填空题 1：ZYX 欧拉角"
     旋转矩阵 $R$ 的左边6项已知，求右边3项以及 $\alpha$、$\beta$、$\gamma$。利用 $R$ 和欧拉角转换的公式即可，有一定计算量。
 
-!!! question "填空题2：轨迹规划"
+!!! question "填空题 2：轨迹规划"
     给了一些条件，需要几次多项式规划；初末用多项式连接，中间用直线规划，有多少解。
 
-!!! question "填空题3：惯量积"
+!!! question "填空题 3：惯量积"
     XY平面是质量对称平面，哪几个惯量积为0。
-
 
 **大题**
 
-
-!!! question "四、（10分）旋转矩阵计算"
+!!! question "四、（10 分）旋转矩阵计算"
     右乘联体左乘积。
 
-!!! question "五、（17分）R-P两关节平面机械臂"
+!!! question "五、（17 分）R-P 两关节平面机械臂"
     求末端速度在0坐标系的表示，求奇异位形，已知末端 $f_x$、$f_y$、$n_z$ 求关节 $\tau_1$、$\tau_2$（$l_z$ 是用前面算出的雅克比求的 $\tau$，用内推法应该也可以）。
 
-!!! question "六、（16分）R-P两关节机械臂"
+!!! question "六、（16 分）R-P 两关节机械臂"
     质量集中，求动力学方程（拉格朗日法即可）；给出 $\theta$ 和 $d$ 的期望轨迹 $y_1(t)$ 和 $y_2(t)$，求控制率使得 $\theta$ 的两个特征根均为-1，$d$ 的两个特征根均为-3，用 $\alpha\beta$ 分解即可。
 
-!!! question "七、（17分）力控制"
+!!! question "七、（17 分）力控制"
     （1）拧螺丝（和ppt不一样，不能沿Y轴运动，而且要考虑向下的Z速度）写自然约束和人工约束。<br>
     （2）讲了什么叫"平行力位控制"，就是力控制和位置控制并非正交，两个控制器的输出要相加。让结合力位混合控制的框图，画出平行力位控制的框图。这个在A4上抄了力位混合的框图就行。<br>
     （3）描述完成机器人按下门把推开门的控制策略和控制原理。
 
-!!! question "八、（10分）规划姿态"
+!!! question "八、（10 分）规划姿态"
     用四元数插补实现。初始 $q_0$，结束 $q_1$，要求角速度连续，且初末角速度均为0。这个题没做过类似的，lz结合了Slerp方法并加了两个待定系数，利用 $q'(t=0)=0$ 和 $q'(t=1)=0$ 求解出了两个待定系数，但是不知道对不对，这题有点抽象。
 
 ### 2022 春
-[2022春夏](https://www.cc98.org/topic/5353760)
 
-**判断题（5分）**
+[2022 春夏](https://www.cc98.org/topic/5353760)
 
-!!! question "判断题1：单位四元数 $ab=ba$"
+**判断题（5 分）**
 
-!!! question "判断题2：鲁棒控制和自适应控制参数变不变"
+!!! question "判断题 1：单位四元数 $ab=ba$"
 
-!!! question "判断题3：奇异位形"
+!!! question "判断题 2：鲁棒控制和自适应控制参数变不变"
 
+!!! question "判断题 3：奇异位形"
 
-**填空题（10分）**
+**填空题（10 分）**
 
-!!! question "填空题1：$\alpha$-$\beta$ 分解"
+!!! question "填空题 1：$\alpha$-$\beta$ 分解"
 
-!!! question "填空题2：右乘联体左乘基"
-
+!!! question "填空题 2：右乘联体左乘基"
 
 **大题**
 
-!!! question "一、（10分）正四面体坐标系变换"
+!!! question "一、（10 分）正四面体坐标系变换"
     正四面体三个顶点上画了三个坐标系，求一下三个 $T$ 矩阵（属于是立体几何题）。
 
-!!! question "二、（10分）平面三自由度机械臂逆运动学"
+!!! question "二、（10 分）平面三自由度机械臂逆运动学"
     平面三自由度机械臂，第一个旋转关节，第二移动关节，第三个旋转关节，求 $\theta_1$、$d_2$、$\theta_3$。
 
-!!! question "三、（10分）轨迹规划"
+!!! question "三、（10 分）轨迹规划"
     起始点 $0°$，有个中间点 $40°$，终止点 $70°$，中间速度连续，起始速度为0，总时间1s，两个二次多项式规划。
 
-!!! question "四、（15分）三旋转关节机器人"
+!!! question "四、（15 分）三旋转关节机器人"
     （1）算0坐标系下的雅可比矩阵<br>
     （2）题目给出具体的角度长度，让算一下各个关节的力矩。
 
-!!! question "五、（15分）两自由度机械臂动力学"
+!!! question "五、（15 分）两自由度机械臂动力学"
     两自由度机械臂，第一个旋转关节，第二个移动关节，要求用牛顿欧拉法算动力学方程。
 
-!!! question "六、（15分）力控制"
+!!! question "六、（15 分）力控制"
     （1）算了一个自然约束和人工约束<br>
     （2）混合力控框图和约束矩阵
 
-
-
-
-
-
 ## 机器人学 回忆卷
-### 2023
-[2022春夏](https://www.cc98.org/topic/5353760)
-
 
 ### 2023
-[2023机器人学1/机器人学I 回忆 - CC98论坛](https://www.cc98.org/topic/5639736)
 
-**判断题**：共5题，每题两分
+[2022 春夏](https://www.cc98.org/topic/5353760)
+
+### 2023 试题
+
+[2023 机器人学 1/机器人学 I 回忆 - CC98 论坛](https://www.cc98.org/topic/5639736)
+
+**判断题**：共 5 题，每题两分
 
 1. 旋转矩阵的转置仍然是旋转矩阵。
-2. 在一个串联关节机器人场景下，若其笛卡尔空间是6维，则其关节空间也是6维。
+2. 在一个串联关节机器人场景下，若其笛卡尔空间是 6 维，则其关节空间也是 6 维。
 3. 等效轴角表示是姿态的最小表示。
-4. 6关节机器人中，速度域的奇异位形不一定是力域的奇异位形。
+4. 6 关节机器人中，速度域的奇异位形不一定是力域的奇异位形。
 5. 如果操作臂动力学模型为 $\tau = M(\Theta)\ddot{\Theta} + V(\Theta, \dot{\Theta}) + G(\Theta)$，则其动能为 $\frac{1}{2}\dot{\Theta}^T M(\Theta) \dot{\Theta}$。
 
 **单选题**
@@ -351,7 +326,7 @@
 
 2. 姿态等效轴角表示有几组？
 
-3. DH表达法中，滑动关节的参数哪个是变量？
+3. DH 表达法中，滑动关节的参数哪个是变量？
 
 4. 角速度矩阵 $S$ 一定是
    - 对称矩阵。
@@ -360,7 +335,7 @@
    - 可逆矩阵。
 
 5. 关于齐次变换矩阵的说法正确的是：
-   选项忘了，但是应该是选最后一行一定是0001。
+   选项忘了，但是应该是选最后一行一定是 0001。
 
 **大题**
 
@@ -379,19 +354,17 @@
 !!! question "五、速度传递"
     一个2R连杆，跟书上不一样的是第二个关节转了90°（有点像竹蜻蜓那样），运动平面跟第一个杆的平面垂直，给了角度和角速度、杆的参数，求末端线速度在基座标系下的速度表示。可以用雅可比矩阵求解。
 
-
 ### 2021-2022
-[2021-2022夏《机器人学I》回忆卷 - CC98论坛](https://www.cc98.org/topic/5352203)
+
+[2021-2022 夏《机器人学 I》回忆卷 - CC98 论坛](https://www.cc98.org/topic/5352203)
 
 **选择题**
 
-!!! question "SCAR工业机器人有几个滑动关节，几个转动关节？"
+!!! question "SCAR 工业机器人有几个滑动关节，几个转动关节？"
 
 !!! question "关于角速度向量哪个说法是错的？"
-    
 
-!!! question "关于PD控制哪个说法是错的？"
-    
+!!! question "关于 PD 控制哪个说法是错的？"
 
 !!! question "复阻抗是力与什么的比值？"
 
@@ -423,13 +396,13 @@
 
 ### 2021
 
-[2021机器人学I](https://www.cc98.org/topic/5071145)
+[2021 机器人学 I](https://www.cc98.org/topic/5071145)
 
 !!! question "一、选择题"
-    1. 坐标系A和B重合，问欧拉参数
+    1. 坐标系 A 和 B 重合，问欧拉参数
     2. 在 $\mathbb{R}^3$ 中的向量外积是不是半群/群
     3. 问静力传递式中的矩阵和速度雅可比之间的关系
-    4. 考察惯性张量I的相关性质
+    4. 考察惯性张量 I 的相关性质
 
 !!! question "二、坐标变换"
     已知 ${}_B^A\!T$ 求 ${}_A^B\!T$
@@ -455,10 +428,9 @@
 !!! question "九、轨迹规划"
     约束条件下的单自由度机械臂运动规划
 
-
 ### 2019
-[19年机器人学](https://www.cc98.org/topic/4901039)
 
+[19 年机器人学](https://www.cc98.org/topic/4901039)
 
 !!! question "一、坐标变换"
     已知 ${}_A^B\!T$ 矩阵，求 ${}_B^A\!T$ 矩阵

@@ -35,6 +35,7 @@
        ```bash
        sdkmanager --list
        ```
+
    * 安装指定版本：
 
        ```bash
@@ -47,9 +48,6 @@
        sdkmanager --update
        ```
 
-
-
-
     | 命令                                  | 作用                |
     | ----------------------------------- | ----------------- |
     | `sdkmanager --list`                 | 查看可用 SDK 和已安装 SDK |
@@ -58,9 +56,6 @@
     | `sdkmanager --update`               | 更新所有已安装的 SDK 包    |
     | `avdmanager list avd`               | 查看已创建模拟器          |
     | `avdmanager create avd`             | 创建新的模拟器           |
-
-
-
 
 ### 安装 Android Studio
 
@@ -85,7 +80,6 @@
 
    * 在 SDK 管理界面直接勾选更新项 → 点击 `Apply` 更新即可。
 
-
 ## 使用
 
 ### 创建模拟器
@@ -101,7 +95,6 @@ export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools
 
 > Windows 使用 `setx` 或在系统环境变量里添加相同路径。
 
-
 **2. 查看可用系统镜像**
 
 Android 系统镜像是创建 AVD 的基础：
@@ -112,22 +105,18 @@ sdkmanager --list | grep "system-images;"
 
 你会看到类似：
 
-```
+```text
 system-images;android-33;google_apis;x86_64
 system-images;android-33;google_apis_playstore;x86_64
 ```
 
 > 选择一个适合的镜像，比如 `android-33;google_apis;x86_64`
 
-
-
 **3. 安装系统镜像**
 
 ```bash
 sdkmanager "system-images;android-33;google_apis;x86_64"
 ```
-
-
 
 **4. 创建 AVD**
 

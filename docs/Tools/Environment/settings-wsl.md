@@ -1,13 +1,15 @@
 # WSL
 
 ## 安装
+
 ### 安装系统
+
 ```shell title="powershell"
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 ```
-第一个结束不要重启，第二个结束一起重启
 
+第一个结束不要重启，第二个结束一起重启
 
 ```shell title="同样的效果"
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
@@ -16,30 +18,27 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 访问 程序和功能 子菜单 `打开或关闭Windows功能`，勾选`适用于Linux的Windows子系统`和`虚拟机平台`
 
-
-```shell title="cmd更新wsl"
+```shell title="cmd 更新 wsl"
 wsl --update
 ```
 
-```shell title="cmd更新wsl"
+```shell title="cmd 更新 wsl"
 wsl --set-default-version 2
 ```
 
-```shell title="cmd更新wsl"
+```shell title="cmd 更新 wsl"
 wsl --set-version <distro> <version>
 ```
 
-
-[Ubuntu 20.04.6 LTS - Windows官方下载 | 微软应用商店 | Microsoft Store](https://apps.microsoft.com/detail/9mttcl66cpxj?hl=zh-cn&gl=US)
+[Ubuntu 20.04.6 LTS - Windows 官方下载 | 微软应用商店 | Microsoft Store](https://apps.microsoft.com/detail/9mttcl66cpxj?hl=zh-cn&gl=US)
 
 点击安装，等待安装完成
 
+打开 cmd，打开 ubuntu 的标签，设置用户名和密码，可以进入子系统
 
-打开cmd，打开ubuntu的标签，设置用户名和密码，可以进入子系统
 ### 系统换源
 
-
-### SSH - wsl基础配置
+### SSH - wsl 基础配置
 
 > 参考[【linux】SSH 连接 WSL2 本地环境的完整步骤](https://blog.csdn.net/2201_75772333/article/details/147534639)
 
@@ -49,14 +48,13 @@ sudo apt install openssh-server -y
 sudo apt install net-tools
 ```
 
-
 ```shell title="ssh 配置"
 sudo vim /etc/ssh/sshd_config
 ```
 
 搜索下面的内容，更改或取消注释
 
-这样设置可以同时监听22和2222端口，方便使用
+这样设置可以同时监听 22 和 2222 端口，方便使用
 
 ```text title="ssh 配置"
 Port 22
@@ -70,7 +68,6 @@ PermitRootLogin yes
 sudo systemctl start ssh
 ```
 
-
 ```shell title="ssh 重启"
 sudo systemctl restart ssh
 ```
@@ -79,12 +76,11 @@ sudo systemctl restart ssh
 systemctl status ssh
 ```
 
-```shell title="确认是2222端口"
+```shell title="确认是 2222 端口"
 sudo ss -tlnp | grep ssh
 
 netstat -tlnp | grep ssh
 ```
-
 
 你应该能看到 `0.0.0.0:2222` 或 `[::]:2222`。
 
@@ -102,7 +98,6 @@ ssh-copy-id -p 2222 <user>@<host>
     ```shell title="ssh 开机自启"
     sudo systemctl enable ssh
     ```
-
 
 !!! note "免密登陆"
 
@@ -155,8 +150,6 @@ hostAddressLoopback=true
 > * `networkingMode=mirrored`：启用网络镜像模式，使 WSL2 与宿主机共用 IP。
 > * `hostAddressLoopback=true`：让宿主机和局域网主机可访问 WSL2 中的服务端口。
 
-
-
 2、重启 WSL 服务（在 Windows 上）
 
 在 Windows PowerShell（管理员权限）执行：
@@ -176,11 +169,9 @@ wsl --version
 
 确保为 `2.0.0+`，推荐 `2.0.14.0` 以上。
 
-
-
 3 在  WSL2 中配置 SSH 服务
 
-1️⃣ 在 WSL2 中打开终端（Ubuntu、Debian等）：
+1️⃣ 在 WSL2 中打开终端（Ubuntu、Debian 等）：
 
 ```bash
 sudo apt update
@@ -235,8 +226,6 @@ Set-NetFirewallHyperVVMSetting -Name '{你的VM ID}' -DefaultInboundAction Allow
 Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -DefaultInboundAction Allow
 ```
 
-
-
 5 在 Windows 宿主机验证访问（本机测试）
 
 在 Windows PowerShell 中执行：
@@ -246,7 +235,6 @@ ssh username@localhost -p 8022
 ```
 
 若能登录，说明 WSL2 内 SSH 服务正常、端口映射成功。
-
 
 6 在局域网中另一台远程设备测试（Linux/macOS 或 Windows）
 
@@ -267,11 +255,9 @@ ssh user@10.162.203.84 -p 8022
 ✅ 防火墙已放行
 ✅ WSL2 对外访问正常
 
-
 ### SSH - windows 转发
 
-
-1. WSL IP 
+1. WSL IP
 
 在 WSL 里执行：
 
@@ -288,7 +274,6 @@ inet 172.22.183.12/20 brd 172.22.191.255 scope global eth0
 这里的 `172.22.183.12` 就是 WSL 的内部 IP。
 ⚠️ 注意：WSL 重启后，这个 IP 会变化。
 
-
 确认 Windows 主机 IP, 在 Windows PowerShell 里运行：
 
 ```shell
@@ -297,9 +282,7 @@ ipconfig
 
 找到你要让别人访问的网络接口（例如 Wi-Fi 或 Ethernet），记下 IPv4 地址，比如 `192.168.1.100`。
 
-
 1. Windows 上配置端口转发
-
 
 在 Windows PowerShell（管理员权限）里执行：
 
@@ -307,23 +290,19 @@ ipconfig
 netsh interface portproxy add v4tov4 listenport=2222 listenaddress=0.0.0.0 connectport=2222 connectaddress=<WSL_IP>
 ```
 
-
 替换 `<WSL_IP>` 为上一步查到的 WSL IP（例如 `172.22.183.12`）。
 
 这个命令意思是：当别人访问 `Windows_IP:2222`，流量会被转发到 `WSL_IP:2222`。
 
-也可以使用defender防火墙添加规则
+也可以使用 defender 防火墙添加规则
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250817114056593.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250817114056593.webp)
 
 1. 开放防火墙
 
 ```shell title="开放防火墙"
 netsh advfirewall firewall add rule name="OpenSSH WSL 2222" dir=in action=allow protocol=TCP localport=2222
 ```
-
 
 1. 测试连接
 
@@ -334,7 +313,6 @@ ssh -p 2222 user@192.168.1.100
 ```
 
 这里 `192.168.1.100` 是 Windows 主机的局域网 IP。
-
 
 后台自动运行的 PowerShell 脚本，它会定时检查 WSL 的 IP 是否变化，如果变了就自动更新 Windows 的端口转发规则
 
@@ -391,33 +369,27 @@ while ($true) {
 powershell.exe -ExecutionPolicy Bypass -File .\wsl-portproxy-daemon.ps1
 ```
 
-
-
-
-### 安装cuda
-
-
+### 安装 cuda
 
 !!! note "Limitations&Banned Features"
-    
+
     === "Limitations"
     
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816204530654.webp)
+        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816204530654.webp)
     
     === "Banned Features"
     
-        ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816204600671.webp)
+        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816204600671.webp)
 
+首先查看电脑支持的 CUDA 版本
 
-首先查看电脑支持的CUDA版本
-
-```shell title="查看CUDA版本"
+```shell title="查看 CUDA 版本"
 nvidia-smi
 ```
 
-右上角是支持的cuda版本
+右上角是支持的 cuda 版本
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816210945859.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-wsl.assets__image-20250816210945859.webp)
 
 根据[CUDA Toolkit 12.9 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-12-9-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)，选择对应的版本
 
@@ -433,7 +405,7 @@ sudo apt-get -y install cuda-toolkit-12-9
 
 最后记得把路径添加进`PATH`
 
-```shell title="添加CUDA路径"
+```shell title="添加 CUDA 路径"
 export PATH="/usr/local/cuda-12.9/bin:$PATH"
 ```
 
@@ -448,11 +420,8 @@ export PATH="/usr/local/cuda-12.9/bin:$PATH"
     
     Note that the above paths change when using a custom install path with the runfile installation method.
 
-
-
 !!! note "V13.0"
     如果是13.0，则可以安装13.0，参考NVIDIA 官方文档 [CUDA on WSL User Guide — CUDA on WSL 13.0 documentation](https://docs.nvidia.com/cuda/wsl-user-guide/index.html)
-
 
     可以前往[CUDA Toolkit 13.0 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)这个网页查看具体教程，这里截取使用的命令（2025-8-16）
     
@@ -474,19 +443,19 @@ export PATH="/usr/local/cuda-12.9/bin:$PATH"
     ```
 
 ### nsight-systems
+
 在官网上进行下载
 
-```shell title="安装nsight-systems"
+```shell title="安装 nsight-systems"
 chmod a+x NsightSystems-linux-public-2025.5.1.121-3638078.run
 sudo ./NsightSystems-linux-public-2025.5.1.121-3638078.run
 ```
-
 
 ```shell title="添加路径"
 export PATH="/opt/nvidia/nsight-systems/2025.5.1/bin/:$PATH"
 ```
 
-!!! attention "这里要注意PATH的先后顺序，在前面路径下的文件会优先被调用"
+!!! attention "这里要注意 PATH 的先后顺序，在前面路径下的文件会优先被调用"
     比如`/usr/local/cuda-12.9/bin`和`/usr/local/cuda-13.0/bin`，如果`/usr/local/cuda-12.9/bin`在前面，那么`nvcc`会优先使用`/usr/local/cuda-12.9/bin`下的文件，而不是`/usr/local/cuda-13.0/bin`下的文件。
 
     比如我有两个版本的Nsight-systems，一个在`/opt/nvidia/nsight-systems/2025.5.1`，一个在`/opt/nvidia/nsight-systems/2025.3.0`，如果`/opt/nvidia/nsight-systems/2025.5.1`的PATH路径`/opt/nvidia/nsight-systems/2025.5.1/bin`在前面，那么`nsight-systems`会优先使用`/opt/nvidia/nsight-systems/2025.5.1/bin`下的文件，而不是`/opt/nvidia/nsight-systems/2025.3.0/bin`下的文件。
@@ -496,7 +465,7 @@ export PATH="/opt/nvidia/nsight-systems/2025.5.1/bin/:$PATH"
 
 ### nsight-compute
 
-```shell title="安装nsight-compute"
+```shell title="安装 nsight-compute"
 chmod a+x nsight-compute-linux-2025.3.0.19-36273991.run
 sudo ./nsight-compute-linux-2025.3.0.19-36273991.run
 ```
@@ -505,18 +474,15 @@ sudo ./nsight-compute-linux-2025.3.0.19-36273991.run
 export PATH="/usr/local/NVIDIA-Nsight-Compute/:$PATH"
 ```
 
-
-
 ## 问题
 
-### 不要设置windows环境变量
+### 不要设置 windows 环境变量
 
-在wsl 的 ubuntu中编辑`/etc/wsl.conf`，输入：
+在 wsl 的 ubuntu 中编辑`/etc/wsl.conf`，输入：
 
 ```shell
 vi /etc/wsl.conf
 ```
-
 
 ```shell title="/etc/wsl.conf"
 [interop]
@@ -524,6 +490,6 @@ enabled = false
 appendWindowsPath = false
 ```
 
-```shell title="powershell重启wsl"
+```shell title="powershell 重启 wsl"
 wsl --shutdown
 ```

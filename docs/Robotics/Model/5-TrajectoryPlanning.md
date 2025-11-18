@@ -1,14 +1,13 @@
 # 05 | 轨迹规划
 
-为每个关节计算连续的运动轨迹，使末端执行器在空间中从点A移动到点B
+为每个关节计算连续的运动轨迹，使末端执行器在空间中从点 A 移动到点 B
 
 难点：
 
 - 求解方程;公式理解
 - 列写方程之后，检查未知数个数和方程个数是否匹配
 
-
-|特性|关节空间规划|笛卡尔空间规划|
+|特性 | 关节空间规划 | 笛卡尔空间规划|
 |---|---|---|
 |**定义**|在关节空间中规划每个关节的运动轨迹，使末端执行器达到目标位置。|在笛卡尔空间中直接规划末端执行器的运动轨迹。|
 |**优点**|计算简单，适合大多数机器人控制器。|轨迹直观，便于控制末端执行器的运动路径。|
@@ -28,8 +27,8 @@
 | **分段三次多项式** | 高（速度/加速度连续） | 中高       | 连续         | 平滑加减速的中高速运动       |
 | **五次多项式**     | 极高（全局连续）      | 高         | 连续         | 高精度、高动态性能需求       |
 
-
 ### 线性插值
+
 线性插值是一种简单的轨迹规划方法，通过在起点和终点之间进行线性插值来计算中间点的位置。其公式如下：
 
 $$
@@ -65,7 +64,6 @@ def linear_interpolation(start, end, t, duration):
     return x_angles
 ```
 
-
 ### 三次多项式：规划位置&速度
 
 $$
@@ -76,7 +74,6 @@ $$
 
 用给定的数据求解方程，得到四个系数，然后就可以得到轨迹方程。
 
-
 !!! note "多项式规划的思想可以用在指定导数的题目上面，不一定是轨迹的规划"
 
 ### 三次 + 中间点
@@ -86,11 +83,9 @@ $$
 每一段都使用三次多项式进行规划。
 
 - 前后两段斜率符号相同：速度取平均值
-- 前后两段斜率符号不同：速度取0 
-
+- 前后两段斜率符号不同：速度取 0
 
 **不指定中间点速度**
-
 
 $$
 \phi_{ij}(t) = a_0 + a_1t + a_2t^2 + a_3t^3\\
@@ -103,9 +98,9 @@ $$
 - 速度约束：第一段起点速度，第二段终点速度，中间点速度相等
 - 加速度联系约束：中间点加速度相等
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250416154011.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250416154011.webp)
 
-```python title="三次+两个中间点" linenums="1" hl_lines="7"
+```python title="三次 + 两个中间点" linenums="1" hl_lines="7"
 clc;clear;
 %定义时间节点和位置（包含起点、两个中间点、终点）
 t_points=[0,1,2,3];%时间参数
@@ -141,7 +136,6 @@ a_{22} = \frac{3(\phi_0t_{\textrm{f2}} + \phi_gt_{\textrm{f1}} - \phi_vt_{\textr
 a_{23} = -\frac{3\phi_0t_{\textrm{f2}}^2 + \phi_gt_{\textrm{f1}}^2 - \phi_vt_{\textrm{f1}}^2 - 3\phi_vt_{\textrm{f2}}^2 + 4\phi_gt_{\textrm{f1}}t_{\textrm{f2}} - 4\phi_vt_{\textrm{f1}}t_{\textrm{f2}}}{2t_{\textrm{f1}}t_{\textrm{f2}}^3(t_{\textrm{f1}} + t_{\textrm{f2}})}
 \end{cases}$
 
-
 ### 五次多项式：规划位置&速度&加速度
 
 思路比较类似。
@@ -150,9 +144,7 @@ $$
 \phi(t) = a_0 + a_1t + a_2t^2 + a_3t^3 + a_4t^4 + a_5t^5
 $$
 
-六个未知数,就可以指定起点终点的位置、速度、加速度，然后求解方程。
-
-
+六个未知数，就可以指定起点终点的位置、速度、加速度，然后求解方程。
 
 ```python title="quintic_polynomial"
 def quintic_polynomial(start, end, t, duration):
@@ -182,14 +174,14 @@ def quintic_polynomial(start, end, t, duration):
     return x
 ```
 
-### 直线段+抛物线过渡
+### 直线段 + 抛物线过渡
 
 两段形状相同的抛物线，中间连接的直线段是公切线
 
 - 过渡段：抛物线段
 - 直线段：顾名思义
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325090130.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325090130.webp)
 
 给定：起点$\phi_0$、终点$\phi_{final}$、总时间$t_{final}$、加速度$\ddot\phi$
 需要求解：**过渡时间（抛物线段）$t_b$**、速度（直线段）$k_b$
@@ -198,15 +190,13 @@ $$
 t_b=\frac{\ddot{\phi}t_f-\sqrt{\ddot{\phi}^2t_f^2-4\ddot{\phi}(\phi_f-\phi_0)}}{2\ddot{\phi}}
 $$
 
-> 过渡段的时间间隔，二次方程求根公式求解。舍掉+号的解是因为$t_b < t_{f}$
+> 过渡段的时间间隔，二次方程求根公式求解。舍掉 + 号的解是因为$t_b < t_{f}$
 
 $$
 k_b=\ddot \phi \cdot t_b
 $$
 
-> 这里相当于初速度为0的平抛
-
-
+> 这里相当于初速度为 0 的平抛
 
 ```python title="parabolic_transition"
 def parabolic_transition(start, end, t, duration):
@@ -231,15 +221,13 @@ def parabolic_transition(start, end, t, duration):
     return x_angles
 ```
 
-
 ### 中间点 + 抛物线过渡
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325091125.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325091125.webp)
 
 **给定：** 系列点$\phi_0, \phi_1,\dots,\phi_{final}$、各段时间$t_{dij}$、加速度$\ddot\phi$
 
 **需要求解：** 各段的速度$k_{ij}$，以及过渡段的时间$t_{i}$，直线段的时间$t_{ij}$
-
 
 #### 中间段计算
 
@@ -277,7 +265,7 @@ $$
 
     也就是说，任意给定抛物线上的点，找到位移中点，连线即可得到速度方向
     
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324205542.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324205542.webp)
 
 #### 起始段计算
 
@@ -313,23 +301,14 @@ $$
 t_{12} = t_{d12} - t_1 - \frac{1}{2} t_2
 $$
 
-
-
-
-
-
-
 !!! note "这里因为抛物线对轨迹进行了圆滑处理，相当于先用直线连接起来，再用抛物线做一个圆角，所以并不能真正到达对应的点"
     解决方案：设置两个伪关节，连线经过给定点，则可以保证经过给定点
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325093447.webp)
-
-
-
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325093447.webp)
 
 ## 笛卡尔空间规划
 
-旋转矩阵和欧拉角不可以插值的原因：插值得到的R矩阵不一定属于SO(3)
+旋转矩阵和欧拉角不可以插值的原因：插值得到的 R 矩阵不一定属于 SO(3)
 
 ### 等效轴角插值
 
@@ -349,7 +328,6 @@ $$
 
     并且注意等效轴角在$\theta =0$的时候无法表示，所以需要特殊处理。
 
-
 对两个等效轴角表示的姿态
 
 $$
@@ -360,10 +338,9 @@ $$
 
 #### 代码实现
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__rotation_animation.gif)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__rotation_animation.gif)
 
-??? note "编程实现等效轴角的插值，并比较不同n下的结果"
-
+??? note "编程实现等效轴角的插值，并比较不同 n 下的结果"
 
     ```python title="等效轴角插值" 
     clc;clear;
@@ -456,14 +433,11 @@ $$
     end
     ```
 
-
-
-
 ### Slerp ｜ 四元数球面线性插值
 
 !!! note "Key Assumption: $r_t$从$r_0$到$r_1$匀速旋转"
 
-$$ 
+$$
 r_t = k_0 r_0 + k_1 r_1
 $$
 
@@ -473,10 +447,7 @@ k_0 = \frac{\sin((1-t)\theta)}{\sin\theta} \quad k_1 = \frac{\sin(t\theta)}{\sin
 \end{align*}
 $$
 
-
-
-
-??? note "证明方法：线性表出 &  两个欧拉参数内积等于夹角cos值"
+??? note "证明方法：线性表出 &  两个欧拉参数内积等于夹角 cos 值"
 
     $S^3$中的单位四元数 $\eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$ 与 $\mathrm{U}$ 中的欧拉参数 $(\eta, \varepsilon_1, \varepsilon_2, \varepsilon_3)^T$ 一一对应。考虑两个用欧拉参数（等价于用单位四元数）表示的不同姿态：
 
@@ -510,7 +481,7 @@ $$
     \mathbf{r}_0 \cdot \mathbf{r}_1 = \cos\theta
     $$
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325102316.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325102316.webp)
 
     如图所示，将中间姿态 $\mathbf{r}_t$ 限制在 $\mathbf{r}_0$ 和 $\mathbf{r}_1$ 确定的平面中并假设匀速旋转，可以使四元数插值问题化为一个简单的平面几何问题：$\mathbf{r}_0$、$\mathbf{r}_1$ 和 $\mathbf{r}_t$ 都在平面单位圆上，$\mathbf{r}_t$ 从 $\mathbf{r}_0$ 匀速旋转到 $\mathbf{r}_1$。
 
@@ -546,17 +517,15 @@ $$
 
     式中，$\theta = \cos^{-1}(\mathbf{r}_0 \cdot \mathbf{r}_1)$。
 
-
 注意到单位四元数$r$和-$r$表示三维空间中的同一姿态。一般应该选取**最短路径**进行球面线性插值。
 
 因此如果两四元数的夹角为钝角，则可通过将其中一个四元数取负，再对得到的两个夹角为锐角的四元数进行球面线性插值。
-
 
 初始两个四元数如果是$\pi$的话，就说明两个四元数对应的是同一个姿态。
 
 如果
 
-#### 代码实现
+#### 代码实现如下
 
 ```python title="slerp_interpolation"
 def slerp(q1, q2, t):
@@ -581,8 +550,8 @@ def slerp(q1, q2, t):
     return s0 * q1 + s1 * q2
 ```
 
-需要下载matlab的 robotics toolbox和
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__quaternion_animation.gif)
+需要下载 matlab 的 robotics toolbox 和
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__quaternion_animation.gif)
 
 ```m title="slerp_interpolation，r0到r1和r0到-r1的对比" linenums="1"
 %初始化
@@ -686,17 +655,13 @@ function q_interp = slerp(q0,q1,t)
 end
 ```
 
-
-
-### Slerp拓展：对角速度有约束
+### Slerp 拓展：对角速度有约束
 
 !!! attention "这个题目与变式历年卷考察多次，一定要掌握"
 
-!!! note "当匀速旋转的假设不成立的时候，需要应用多项式规划" 
+!!! note "当匀速旋转的假设不成立的时候，需要应用多项式规划"
 
-
-由于单位四元数球面线性插值方法(Slerp)的旋转角速度是定值， 此时直接应用 Slerp 公式进行规划是不行的。结合 Slerp 公式，给出上述要求下相应的姿态
-
+由于单位四元数球面线性插值方法 (Slerp) 的旋转角速度是定值，此时直接应用 Slerp 公式进行规划是不行的。结合 Slerp 公式，给出上述要求下相应的姿态
 
 !!! example "若单位四元数插值时，要求在初始姿态$r_0$ 和最终姿态$r_1$ 时的角速度均为$0$,且转动过程中角速度连续。"
 
@@ -748,36 +713,24 @@ end
     r_t = \frac{\sin((1-x(t))\theta)}{\sin\theta}r_0 + \frac{\sin(x(t)\theta)}{\sin\theta}r_1
     $$
 
-
-
-
-
 ## 题型
 
 解方程比较麻烦
 
 ### 多项式参数计算：时间、速度
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084857.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084857.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084926.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084926.webp)
 
 ### 抛物线过渡计算
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203708.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203708.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203627.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203627.webp)
 
+已知起点角度为 138°，中间点到达的点角度为 158°，时间为 5.5s，点角度为 10°，时间为 31.5s。需要计算中间点。中间点关于中点对称。采用带有抛物线过渡的线性规划来实现。过渡段（第二个中间点到第三个中间点）的持续时间为 16s。
 
+### matlab 求解方程
 
-已知起点角度为138°，中间点到达的点角度为158°，时间为5.5s，点角度为10°，时间为31.5s。需要计算中间点。中间点关于中点对称。采用带有抛物线过渡的线性规划来实现。过渡段（第二个中间点到第三个中间点）的持续时间为16s。
-
-
-
-
-
-### matlab求解方程
-
-- 方程写出来，丢给gpt
-
+- 方程写出来，丢给 gpt

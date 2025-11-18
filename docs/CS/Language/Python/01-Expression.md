@@ -15,7 +15,6 @@ b = 7
 a, b = b, a
 ```
 
-
 ## 输入输出
 
 ### 输入
@@ -24,11 +23,11 @@ a, b = b, a
 a,b = map(int, input().split())
 
 list(map(int, input().split()))
-#如果数据中有浮点数，直接用int会出错
+#如果数据中有浮点数，直接用 int 会出错
 
 a = tuple(int(item) for item in input().split())
 ```
-     
+
 ```python title="多行 每行不确定"
 lst = []
 while True:
@@ -47,12 +46,11 @@ while True:
     except:
         break
         
-###多行输入2
+###多行输入 2
 for line in sys.stdin:
     a = line.split()
 print(int(a[0]) + int(a[1]))
 ```
-
 
 ### 输出
 
@@ -66,7 +64,8 @@ print(int(a[0]) + int(a[1]))
   - 字符串前面的`f`表示格式字符串，其中的`{}`中的名字会被同名的变量的值所替换，`:`后面的内容表示输出的格式（可以省略）
   - `.2f`表示小数点后保留两位小数的浮点数
   
-### format格式化输出
+### format 格式化输出
+
 ```py
 print({:[fill][align][width]}.format(data))
 
@@ -74,8 +73,8 @@ print("{:.3f}".format(s))
 print(format(s, '.3f'))
 ```
 
-`fill`：任意一个字符,比如 # 、 * 等,默认空格填充
-`width`：字段宽度,如果未指定,那么字段宽度由内容确定,这种情况下的对齐选项没有意义
+`fill`：任意一个字符，比如 # 、 * 等，默认空格填充
+`width`：字段宽度，如果未指定，那么字段宽度由内容确定，这种情况下的对齐选项没有意义
 `data`：填充的数据
 `align`：对齐方式
 
@@ -98,16 +97,14 @@ print(f'{1.8*shuzhi+32:.2f}')   # 格式字符串的{}里可以做表达式计�
 
 - 后缀
 
-
-
 ## 进制转换
 
-转化为10进制的数可用int(待转数字,进制单位)
-bin(m)将整数m转化为二进制字符串
-oct(m)将整数m转化为八进制字符串
-hex(m)将整数m转化为十六进制字符串
+转化为 10 进制的数可用 int(待转数字，进制单位)
+bin(m) 将整数 m 转化为二进制字符串
+oct(m) 将整数 m 转化为八进制字符串
+hex(m) 将整数 m 转化为十六进制字符串
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__image-20230405210620174.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__image-20230405210620174.webp)
 
 - ==变量记得赋初值==
 
@@ -140,32 +137,31 @@ math.ceil(a)
 math.modf(a)
 ```
 
-
 - int()
 
 ```py
-## int()函数
+## int() 函数
 
 a = 5.6
 print(int(a)) #可以
 print(int('5.6')) #不行
 ```
 
-不过对于int()函数的使用，大家要注意一点：
+不过对于 int() 函数的使用，大家要注意一点：
 
-只有符合整数规范的字符串类数据，才能被int()强制转换。
+只有符合整数规范的字符串类数据，才能被 int() 强制转换。
 
-其次，文字形式，比如中文、火星文或者标点符号，不可以被int()函数强制转换。
+其次，文字形式，比如中文、火星文或者标点符号，不可以被 int() 函数强制转换。
 
-最后，小数形式的字符串，由于Python的语法规则，也不能使用int()函数强制转换。
+最后，小数形式的字符串，由于 Python 的语法规则，也不能使用 int() 函数强制转换。
 
-浮点形式的字符串，不能使用int()函数。但浮点数是可以被int()函数强制转换的。
+浮点形式的字符串，不能使用 int() 函数。但浮点数是可以被 int() 函数强制转换的。
 
 注意：1.文字类和小数类字符串，不能转化为整数
 
 2.浮点数转化为整数：抹零取整
 
-- **float()函数：**
+- **float() 函数：**
 
 将其他数据类型转换为浮点数
 
@@ -173,7 +169,7 @@ print(int('5.6')) #不行
 
 其次，**float()**函数也可以将**整数**和**字符串**转换为浮点类型。但同时，如果括号里面的数据是**字符串**类型，那这个数据一定得是数字形式。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__dd2bdf0fe3cf485bfeae0a055fb51a21.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__dd2bdf0fe3cf485bfeae0a055fb51a21.webp)
 
 ## conditional expressions
 
@@ -185,6 +181,3 @@ print(int('5.6')) #不行
 #EX
 abs(1/x if x!= 0 else 0)
 ```
-
-
-

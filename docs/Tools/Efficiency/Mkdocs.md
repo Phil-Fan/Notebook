@@ -3,47 +3,37 @@ status:new
 ---
 # Mkdocs
 
+## 我为什么选择 Mkdocs
 
-## 我为什么选择Mkdocs
+在我看来 mkdocs 的构建形式其实是适合结构化的知识和文档的，很多时候是需要博主自己去把自己的知识梳理出一个树形的逻辑 (nav)
+所以它和 98 这种以帖、标签、版面为主导的网页以及一些以帖为组织单元的博客网页（比如很多 wordpress 的模版）是有设计哲学的差别的
 
-在我看来mkdocs的构建形式其实是适合结构化的知识和文档的，很多时候是需要博主自己去把自己的知识梳理出一个树形的逻辑(nav)
-所以它和98这种以帖、标签、版面为主导的网页以及一些以帖为组织单元的博客网页（比如很多wordpress的模版）是有设计哲学的差别的
+严格来讲或许叫它技术文档站可能更合适一点，当然从易用性来看，用 pages 托管的 mkdocs 部署服务比一众需要自己搭前后端的网站要简单不少，但是也有麻烦之处，比如写博文或者写随笔可能 mkdocs 并不是一个合适的选择（每次更新需要重新更新目录）。
 
-严格来讲或许叫它技术文档站可能更合适一点，当然从易用性来看，用pages托管的mkdocs部署服务比一众需要自己搭前后端的网站要简单不少，但是也有麻烦之处，比如写博文或者写随笔可能mkdocs并不是一个合适的选择（每次更新需要重新更新目录）。
+自己建站的话很大比起内容来讲精力有些时间可能更多会花在配置环境、增添属性上 doge，虽然 mkdocs 我也经常干这种事、、、
 
-自己建站的话很大比起内容来讲精力有些时间可能更多会花在配置环境、增添属性上 doge，虽然mkdocs我也经常干这种事、、、
-
-## 有什么其他的工具?
+## 有什么其他的工具？
 
 - [Notion](https://www.notion.so/)
 - [WordPress](https://wordpress.org/)
-- [Jekyll](https://jekyllrb.com/) 
-- [Hexo](https://hexo.io/) 
-- [Hugo](https://gohugo.io/) 
+- [Jekyll](https://jekyllrb.com/)
+- [Hexo](https://hexo.io/)
+- [Hugo](https://gohugo.io/)
 - [VuePress](https://vuepress.vuejs.org/)
-
 
 ## Acknowledgement
 
 这里放一些好的资源和博客
 
-[Mkdocs Material文档](https://squidfunk.github.io/mkdocs-material/)
+[Mkdocs Material 文档](https://squidfunk.github.io/mkdocs-material/)
 
-[Mkdocs Material使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
+[Mkdocs Material 使用记录 - shafish.cn](https://shafish.cn/blog/mkdocs/#%E5%9B%9B%E9%83%A8%E7%BD%B2)
 
-[Mkdocs中文教程 - Wcowin](https://wcowin.work/Mkdocs-Wcowin/blog/MIT.html)
+[Mkdocs 中文教程 - Wcowin](https://wcowin.work/Mkdocs-Wcowin/blog/MIT.html)
 
 ## Build From Scratch
 
-
-
-
-
 ### 本地部署
-
-
-
-
 
 ### Github-Pages
 
@@ -51,11 +41,11 @@ status:new
 
 [GitHub Pages 文档自动化部署 - MkDocs - Arisa | Blog](https://blog.arisa.moe/blog/2022/220407-github-pages/#vcs)
 
-[github pages绑定域名-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
+[github pages 绑定域名 - 腾讯云开发者社区 - 腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1454059)
 
 - 编写`workflow`文件
 
-在仓库上方有actions选项，点击new workflow，我这里选择了自己编写的workflow文件，貌似也有针对Mkdocs的模板
+在仓库上方有 actions 选项，点击 new workflow，我这里选择了自己编写的 workflow 文件，貌似也有针对 Mkdocs 的模板
 
 ```yml
 name: deploy
@@ -84,31 +74,27 @@ jobs:
       - run: mkdocs gh-deploy --force
 ```
 
-- 设置deploy from branch
+- 设置 deploy from branch
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20240707225202.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20240707225202.webp)
 
 ### 自定义域名
 
 - 设置自定义域名
-  将域名填入`CNAME`文件中，然后打开仓库的设置界面，在cumtom domain 中设置好自己的域名
+  将域名填入`CNAME`文件中，然后打开仓库的设置界面，在 cumtom domain 中设置好自己的域名
 
-
-### Vercel部署
+### Vercel 部署
 
 [MkDocs + Vercel](https://mkdocs.celsiusnarhwal.dev/)
 
-## Markdown相关功能
-
-
+## Markdown 相关功能
 
 ### 提示块
 
+!!! failure "这是 failure 类型的提示框"
+ 注意`extension`不要拼成`extention`！！
 
-!!! failure "这是 failure 类型的提示框" 
-	注意`extension`不要拼成`extention`！！
-
-!!! bug "这是 bug 类型的提示框" 
+!!! bug "这是 bug 类型的提示框"
     发现一个 bug，请尽快修复！
 
 !!! tip "tip"
@@ -132,10 +118,9 @@ jobs:
 
 !!! quote "这是 quote 类型的提示框"
 
-
-
 ### 列表
-```
+
+```text
 - [x] finished
 - [ ] not finished
 ```
@@ -144,17 +129,16 @@ jobs:
 
 其实是一个图片
 
-[![](https://img.shields.io/github/stars/Phil-Fan/Phil-Fan.github.io)](https://github.com/Phil-Fan/Phil-Fan.github.io) 
+[![image](https://img.shields.io/github/stars/Phil-Fan/Phil-Fan.github.io)](https://github.com/Phil-Fan/Phil-Fan.github.io)
 
-- [Badge制作指北——手把手教你制作Badge - 少数派](https://sspai.com/post/81310)
+- [Badge 制作指北——手把手教你制作 Badge - 少数派](https://sspai.com/post/81310)
 - [Static Badge | Shields.io](https://shields.io/badges)
 - [Simple Icons](https://simpleicons.org/)
 - [Semantic Scholar - Academic Graph API](https://api.semanticscholar.org/api-docs/graph#tag/Paper-Data)
 - [Google Scholar API | Scrape Google Scholar - SerpApi](https://serpapi.com/google-scholar-api)
 
-
-
 ### 代码块
+
 [Code blocks(代码块) - Material for MkDocs](https://wdk-docs.github.io/mkdocs-material-docs/reference/code-blocks/#annotations-with-numbers)
 
 `hl_lines="2 3"` 高亮行
@@ -163,14 +147,12 @@ jobs:
 
 `title="bubble_sort.py"` 显示文件名字
 
+### 嵌入 b 站/youtube 视频
 
-### 嵌入b站/youtube视频
+1.打开 B 站的视频
+2.点击“分享”按钮，获取“嵌入代码”：B 站视频的下一行，点击“分享”按钮，下方弹出分享页面。
 
-
-1.打开B站的视频
-2.点击“分享”按钮，获取“嵌入代码”：B站视频的下一行，点击“分享”按钮，下方弹出分享页面。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20241031230641.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20241031230641.webp)
 
 禁用方法很简单，就是在视频 url 链接最后加上 autoplay=0。例如：
 
@@ -197,14 +179,13 @@ jobs:
 
 > 来自 [解决 mkdocs 不支持无序列表嵌套 - SegmentFault 思否](https://segmentfault.com/a/1190000042842937)
 
-安装 `mdx_truly_sane_lists` 
+安装 `mdx_truly_sane_lists`
 
 ```shell
 pip install mdx_truly_sane_lists
 ```
 
 然后在 `mkdoc.yml` 的 `markdown_extensions` 添加 `mdx_truly_sane_lists` 就好了
-
 
 ### 嵌入下载界面
 
@@ -213,7 +194,6 @@ pip install mdx_truly_sane_lists
 This browser does not support PDFs
 </iframe>
 ```
-
 
 ```html
 <div class="card file-block" markdown="1">
@@ -226,56 +206,50 @@ This browser does not support PDFs
 </div>
 ```
 
-
-### mermaid支持
+### mermaid 支持
 
 ## 个性配置 —— Mkdocs DIY
 
 ### Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- `mkdocs new [dir-name]` - Create a new project.
+- `mkdocs serve` - Start the live-reloading docs server.
+- `mkdocs build` - Build the documentation site.
+- `mkdocs -h` - Print help message and exit.
 
-??? note "安装代码" 
-	```Shell
+??? note "安装代码"
+
+ ```Shell
     pip install mkdocs
     pip install mkdocs-material
     pip install mkdocs-material-extensions
     pip install mkdocs-git-revision-date-localized-plugin
     pip install mkdocs-statistics-plugin
     pip install mkdocs-heti-plugin
-	```
+ ```
 
 ### 页面组织
 
 - index.md 会放到小标题下的第一个页面
 
-
 ### Overrides
 
 #### 主页
 
-#### banner位置
-
+#### banner 位置
 
 ### social links
 
-
-### nav配置
+### nav 配置
 
 ### hooks
 
-
-### Mathjax 
-
+### Mathjax
 
 [mkdocs-material/docs/plugins/privacy.md 在 master ·squidfunk/mkdocs-材料](https://github.com/squidfunk/mkdocs-material/blob/master/docs/plugins/privacy.md)
 
 jupyter 遇到了单行公式无法显示的问题
 [Local MathJax with mkdocs-jupyter · squidfunk/mkdocs-material · Discussion #7134](https://github.com/squidfunk/mkdocs-material/discussions/7134)
-
 
 Steps to reproduce
 
@@ -324,7 +298,7 @@ sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=
 
 Adjust mkdocs.yml:
 
-```yml title="mkdocs.yml" 
+```yml title="mkdocs.yml"
 plugins:
     - privacy
     - mkdocs-jupyter
@@ -338,26 +312,25 @@ extra_javascript:
 
 ### 颜色主题
 
-
 ## 锦上添花 —— Plugins
 
 ### Blog
 
 blog 功能 下面这个仓库有[template](https://github.com/mkdocs-material/create-blog/tree/main)
 
-1. 首先在docs文件夹下放一个blog目录，下面是一个目录的样例
+1. 首先在 docs 文件夹下放一个 blog 目录，下面是一个目录的样例
 
-```shell
-docs/blog
-├── author
-│   └── team.md
-├── posts ---------------------------------- 放所有的博文
-│   ├── drafts ----------------------------- drafts目录下是所有的草稿
-│   │   └── draft.md
-│   └── helloworld.md
-├── index.md
-└── tags.md
-```
+    ```shell
+    docs/blog
+    ├── author
+    │   └── team.md
+    ├── posts ---------------------------------- 放所有的博文
+    │   ├── drafts ----------------------------- drafts目录下是所有的草稿
+    │   │   └── draft.md
+    │   └── helloworld.md
+    ├── index.md
+    └── tags.md
+    ```
 
 2. 配置一下`mkdocs.yml`，具体的配置可以看这个[Basic blogs - Material for MkDocs](https://squidfunk.github.io/mkdocs-material/tutorials/blogs/basic/)
 
@@ -386,12 +359,9 @@ docs/blog
 3. 阅读器解析 XML，把文章列表显示给用户。
 4. 用户可以在阅读器中点击链接，跳转到原网站查看全文。
 
-
-
 配置方法
 
 第一步，安装插件
-
 
 ```shell
 pip install mkdocs-rss-plugin
@@ -408,31 +378,26 @@ plugins:
   - rss
 ```
 
-
-
-
-
 ### git-committers
+
 [byrnereese/mkdocs-git-committers-plugin: A mkdocs plugin for displaying the last commit and a list of a file's contributors.](https://github.com/byrnereese/mkdocs-git-committers-plugin)
 
-这个插件的作用是在页面底部显示该文档的贡献者，比较适合有多个作者的情况，我这个库目前暂时还只有我一个人qwq，觉得好玩还是放了一下。
+这个插件的作用是在页面底部显示该文档的贡献者，比较适合有多个作者的情况，我这个库目前暂时还只有我一个人 qwq，觉得好玩还是放了一下。
 
+为了可以解决 git-committers 插件的 token 问题，需要设置环境变量，但是这种 token 不适宜明文传递，所以需要使用 github 的 secret 来存储
 
+所以第一步是在 github 的仓库中设置 secret
 
-为了可以解决git-committers插件的token问题，需要设置环境变量，但是这种token不适宜明文传递，所以需要使用github的secret来存储
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__image-20250817151216756.webp)
 
-所以第一步是在github的仓库中设置secret
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__image-20250817151216756.webp)
-
-第二步是在github actions中设置环境变量
+第二步是在 github actions 中设置环境变量
 
 ```yml title="github actions"
 - name: Deploy with MkDocs
     run: export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && mkdocs gh-deploy --force
 ```
 
-第三步是在mkdocs.yml中设置插件和token
+第三步是在 mkdocs.yml 中设置插件和 token
 
 ```yml
 plugins:
@@ -442,14 +407,9 @@ plugins:
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
 ```
 
-
-
-
-
-
-
 ### Jupyter Notebook
-使用mkdocs-jupyter插件可以支持jupyter notebook文件
+
+使用 mkdocs-jupyter 插件可以支持 jupyter notebook 文件
 [mkdocs-jupyter](https://pypi.org/project/mkdocs-jupyter/)
 [Jupytext demo (.py) - mkdocs-jupyter demo](https://mkdocs-jupyter.danielfrg.com/demo-script/)
 
@@ -458,7 +418,6 @@ plugins:
 ```shell
 pip install mkdocs-jupyter
 ```
-
 
 ```yml title="mkdocs.yml" hl_lines="11" linenums="1"
 nav:
@@ -475,8 +434,8 @@ plugins:
 ```
 
 !!! bug "遇到的问题"
-    1. 无法显示数学公式（解决方法：加上了js文件）
-    2. toc配置与之前的逻辑不同，导致自动配置123的时候出现错误
+    1. 无法显示数学公式（解决方法：加上了 js 文件）
+    2. toc 配置与之前的逻辑不同，导致自动配置 123 的时候出现错误
     3. 奇怪的路径问题
 
     ```
@@ -489,8 +448,7 @@ plugins:
     
     [DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs · Issue #148 · danielfrg/mkdocs-jupyter](https://github.com/danielfrg/mkdocs-jupyter/issues/148)
 
-
-如果想要实现material中的某些功能，需要自己写html代码
+如果想要实现 material 中的某些功能，需要自己写 html 代码
 
 ```html
 <details class="tip">
@@ -501,7 +459,6 @@ plugins:
 </details>
 ```
 
-
 ```html
 <div class="admonition success">
     <p class="admonition-title">Success</p>
@@ -511,14 +468,15 @@ plugins:
 </div>
 ```
 
-
-### Github评论
+### Github 评论
 
 - 安装[giscus](https://giscus.app/zh-CN)
+
 1. 安装 giscus GitHub App。这一步只需要在 GitHub 官网上点击安装即可。
 2. 访问 giscus 官网，配置与 giscus 评论系统关联的 GitHub 仓库。
 
 请确保：
+
 - 该仓库是**公开**的，否则访客将无法查看 Discussions。
 - **giscus app** 已安装，否则访客将无法评论和回应。
 - Discussions 功能已在你的仓库中启用。
@@ -595,16 +553,15 @@ theme:
 
 ```
 
-
 **一个页面单独添加**
 
-在每个文档头前添加comments: true
+在每个文档头前添加 comments: true
+
 ```markdown
 ---
 comments: true
 ---
 ```
-
 
 **所有页面**
 
@@ -615,36 +572,40 @@ plugins:
   - comments
 ```
 
+[mkdocs-material 集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
+[为 Mkdocs 网站添加评论系统（以 giscus 为例）\_giscus mkdocs-CSDN 博客](https://blog.csdn.net/m0_63203517/article/details/133819706)
 
-[mkdocs-material集成评论系统 - 知识库 (geodoer.github.io)](https://geodoer.github.io/Z-工具/博客相关工具/mkdocs/mkdocs-material/评论系统/#commentshtml)
-[为Mkdocs网站添加评论系统（以giscus为例）\_giscus mkdocs-CSDN博客](https://blog.csdn.net/m0_63203517/article/details/133819706)
-
-### changelog 
+### changelog
 
 [TonyCrane/mkdocs-changelog-plugin: A MkDocs plugin that create changelog in a page](https://github.com/TonyCrane/mkdocs-changelog-plugin?tab=readme-ov-file)
 
-
 在 mkdocs.yml 中启用插件：
+
 ```yml
 plugins:
     - changelog
 ```
+
 changelog 从外部的 yaml 文件读取，默认在 docs/changelog.yml 中，可以通过 file 选项来选择其他位置：
+
 ```yml
 plugins:
   - changelog:
       file: changelog.yml
 ```
+
 按照格式编写 changelog yaml 文件（见下）
 在需要插入 changelog 的页面 meta 部分中添加：
+
 ```yml
 changelog: True
 ```
+
 在页面需要插入对应部分的位置添加：
-```
+
+```text
 {{ placeholder }}
 ```
-
 
 ```yml title="changelog.yml格式"
 - "placeholder1":
@@ -668,89 +629,77 @@ changelog: True
 
 ### git-revision
 
-
 ### statistics
+
 使用统计插件
 
-
-
-
 ### heti
-
-
 
 ### mkdocs-video
 
 ### minify
-有bug
 
-### 解析xmind
+有 bug
+
+### 解析 xmind
 
 !!! todo "可以实现吗"
 
 [OpenFiles.online](https://openfiles.online/)
 [在浏览器中解析和渲染 XMind 文件 | 文森的主站](https://liangwensen.com/blog/parse-and-render-xmind-file-in-browser)
 
-
 ## Deprecated
-
 
 ### 图床的配置与更换
 
-原先配置的时候使用的是gitee的仓库配置
+原先配置的时候使用的是 gitee 的仓库配置
 
 但在发布网站后发现所有的图片都无法显示
 
 #### 原因
 
-[查询资料](https://blog.csdn.net/qq_45173404/article/details/123759688)后发现是Gitee防盗链的原因
+[查询资料](https://blog.csdn.net/qq_45173404/article/details/123759688)后发现是 Gitee 防盗链的原因
 
->发现图片请求的过程与上面不同，请求头中多了一个`Referer`字段，也就是我自己的gitee地址。
->应该是Gitee添加了防盗链机制，当我们通过直接访问存储在Gitee上的图片时，Http请求头没有Referer字段，所以被Gitee服务器当作黑名单而拒绝响应。而前面我们通过Gitee Page部署的Hexo博客请求时，由于代码都托管在Gitee上，在加载所有图片的时候都附加了Referer字段指向Gitee，相当于被Gitee服务器看作白名单因而可以访问。
-
+>发现图片请求的过程与上面不同，请求头中多了一个`Referer`字段，也就是我自己的 gitee 地址。
+>应该是 Gitee 添加了防盗链机制，当我们通过直接访问存储在 Gitee 上的图片时，Http 请求头没有 Referer 字段，所以被 Gitee 服务器当作黑名单而拒绝响应。而前面我们通过 Gitee Page 部署的 Hexo 博客请求时，由于代码都托管在 Gitee 上，在加载所有图片的时候都附加了 Referer 字段指向 Gitee，相当于被 Gitee 服务器看作白名单因而可以访问。
 
 #### 解决办法
 
-将图像存储更改为阿里云OSS，根据[教程](https://zhuanlan.zhihu.com/p/104152479)做出以下操作
+将图像存储更改为阿里云 OSS，根据[教程](https://zhuanlan.zhihu.com/p/104152479)做出以下操作
 
-- 购买阿里云oss服务
-- 创建用户，记录id和密码
+- 购买阿里云 oss 服务
+- 创建用户，记录 id 和密码
 - 将图床中的所有图片迁移到阿里云当中
-- 更换picgo中服务
+- 更换 picgo 中服务
 - 更换`.md`中所有图片的链接
 
-
-picgo中的设置如下
+picgo 中的设置如下
 
 1. 设定`keyid`，就是创建用户的`AccessKey ID`，
 2. `KeySecret` 就是`AccessKeySecret`
-3. 存储空间名就是创建Bucket的名字，存储区域也是创建时设定的， 忘记的可以通过Bucket概览查看，如下图所示：
-4. 存储路径默认设置img/即可
+3. 存储空间名就是创建 Bucket 的名字，存储区域也是创建时设定的，忘记的可以通过 Bucket 概览查看，如下图所示：
+4. 存储路径默认设置 img/即可
 5. 如果自己有已经备案的域名，可以填写设定自定义域名，如果没有不填即可。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20240813014140.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__Mkdocs.assets__20240813014140.webp)
 
 #### 图床的迁移
 
-[利用 PicGo 快速迁移 Gitee 图床外链图片到服务器-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1975652)
-
+[利用 PicGo 快速迁移 Gitee 图床外链图片到服务器 - 腾讯云开发者社区 - 腾讯云](https://cloud.tencent.com/developer/article/1975652)
 
 [替换的工具 - 时光](https://blog.shiguang666.eu.org/2024/10/15/6b65681b29d7/#%E4%B8%80%E3%80%81%E9%9C%80%E6%B1%82%E6%8F%8F%E8%BF%B0)
 
-[jarvanstack/markpic: 一键下载 markdown 中图片, 并通过 picgo 上传图片到图床并替换链接](https://github.com/jarvanstack/markpic)
-
-
-
+[jarvanstack/markpic: 一键下载 markdown 中图片，并通过 picgo 上传图片到图床并替换链接](https://github.com/jarvanstack/markpic)
 
 ### 显示音乐符号
 
-关于安装lilypond
+关于安装 lilypond
 
 LilyPond (荷花池) 是一个音乐雕版软件，致力产生最高质量的乐谱。它把传统音乐雕版印刷的美学，呈现在计算机打印的乐谱上。LilyPond 是自由软件，也是 GNU Project 的一部分。
 
 [Download (LilyPond – 人人的乐谱软件)](https://lilypond.org/download.zh.html)
 
-下载之后，是没有安装的，但是需要将其添加到环境变量中.win菜单搜索`查看高级环境设置`,在path中添加`lilypond\bin\`的路径
+下载之后，是没有安装的，但是需要将其添加到环境变量中.win 菜单搜索`查看高级环境设置`,在 path 中添加`lilypond\bin\`的路径
 
 编译
 
@@ -758,17 +707,14 @@ LilyPond (荷花池) 是一个音乐雕版软件，致力产生最高质量的�
 lilypond -o output music.ly
 ```
 
-[LilyPond 学习手册: LilyPond — 学习手册](https://lilypond.org/doc/v2.23/Documentation/learning/index)
-
-
+[LilyPond 学习手册：LilyPond — 学习手册](https://lilypond.org/doc/v2.23/Documentation/learning/index)
 
 [关于在 Markdown 中描述音乐符号](https://blog.twofei.com/1425/)
 [Lilypond in Markdown](https://lilypond-in-markdown.netlify.app/)
 
-
 [Render LilyPond in Markdown](https://pianomanfrazier.com/post/lilypond-in-markdown/)
 
-[uliska/markdown-lilypond： 支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
+[uliska/markdown-lilypond：支持 LilyPond（符号软件）输入的 MkDocs 插件](https://github.com/uliska/markdown-lilypond)
 
 ### termynal
 
@@ -777,6 +723,3 @@ lilypond -o output music.ly
 ```shell
 pip install termynal
 ```
-
-
-

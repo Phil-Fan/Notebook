@@ -1,19 +1,13 @@
 # 创业营销
 
 !!! note "课程体验"
-	**授课教师** 盛峰（竺院巴德年 + PKU心理 + PKU管理 + 沃顿博后）
-	**课堂体验** 聊天式课堂，盛峰老师上课是一个questioner的角色，引导大家交流自己的经历或是观点<br>
-	**考核形式** 小组展示+课堂讨论；小组展示有两个，都是围绕一个bp，一个是讲STP，另一个是讲4P<br>
-	**分数构成** 到课率 40%；小组展示 30%；小组文本 30%
-
-
-
-
+ **授课教师** 盛峰（竺院巴德年 + PKU 心理 + PKU 管理 + 沃顿博后）
+ **课堂体验** 聊天式课堂，盛峰老师上课是一个 questioner 的角色，引导大家交流自己的经历或是观点<br>
+ **考核形式** 小组展示 + 课堂讨论；小组展示有两个，都是围绕一个 bp，一个是讲 STP，另一个是讲 4P<br>
+ **分数构成** 到课率 40%；小组展示 30%；小组文本 30%
 
 !!! tip "什么是营销"
-	营销是创造、传播、交付和交换有价值的供给的过程。
-
-
+ 营销是创造、传播、交付和交换有价值的供给的过程。
 
 ## 什么是营销
 
@@ -26,15 +20,15 @@
 - 交易：供给和需求的匹配
 - 营销：让你关注在交易中得到什么而不是失去什么
 
-什么可以营销？ 产品、服务、城市、事件、组织、观念
+什么可以营销？产品、服务、城市、事件、组织、观念
 
 > **宣传营销自己不可怕，放弃完美主义，命中相似的人即可**
 
 ### need & want & demand
 
-- 市场营销最基本的概念是人的**需要(needs)**。
-- **欲望(wants)**指的是人们为了满足以上基本需要所渴望的“特定方式”或“特定物”
-- 在得到购买能力的支持时，欲望就转化为**需求(demands)**。一个人可能会有无限的欲望，但却只有有限的财力。
+- 市场营销最基本的概念是人的**需要 (needs)**。
+- **欲望 (wants)**指的是人们为了满足以上基本需要所渴望的“特定方式”或“特定物”
+- 在得到购买能力的支持时，欲望就转化为**需求 (demands)**。一个人可能会有无限的欲望，但却只有有限的财力。
 
 > 需要：痛点，缺失感；饿了
 >
@@ -50,11 +44,7 @@
 
 马斯洛认为，**只有前一层次的需要被基本满足之后，人们才会去追求下一层次的需要。**
 
-
-
 满足需求的形式是可以变化的，不会钻到牛角尖
-
-
 
 ### **营销 = 销售？**
 
@@ -68,29 +58,25 @@
 
 营销的目标是让销售变得多余
 
-!!! note "Marketing管理的本质就是需求管理"
-
-
+!!! note "Marketing 管理的本质就是需求管理"
 
 ### 营销理论和组合
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__474ca2f5b0c499548b56be7302dccaa.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__474ca2f5b0c499548b56be7302dccaa.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__123314e681a6dc4e70d83796e4af3cf.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__123314e681a6dc4e70d83796e4af3cf.webp)
 
-4R:关联(relevancy)、节省(retrenchment)、关系(relationship)和回报(reward)。
+4R:关联 (relevancy)、节省 (retrenchment)、关系 (relationship) 和回报 (reward)。
 
-4I 营销理论包含四个要素：个性原则(individuality)、趣味原则(interesting)、互动原则(interaction)和利益原则(interests)
+4I 营销理论包含四个要素：个性原则 (individuality)、趣味原则 (interesting)、互动原则 (interaction) 和利益原则 (interests)
 
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__7377286817253286571ca85ba4d3733.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__7377286817253286571ca85ba4d3733.webp)
 
 ## STP
 
 ### 市场细分 | Segmentation
 
-- 咖啡or茶？
+- 咖啡 or 茶？
 - 🏠RENT or OWN？
 
 > 人口学是最为核心的变量，房产这种大宗消费市场对于社会转型的反映与影响更为深刻
@@ -98,21 +84,17 @@
 > 强调：**人口学变化**会带来哪些消费点？什么样的产品会被更多人所需要？
 
 - 金融管理：没有稳定的养老收入，更多人选择资产配置优化养老规划。
-- 教育：教育机构，教师职业的稳定性👇，事业编不牢固？[2024年，第一个被打破的铁饭碗，可能是教师。](https://zhuanlan.zhihu.com/p/678407624)
+- 教育：教育机构，教师职业的稳定性👇，事业编不牢固？[2024 年，第一个被打破的铁饭碗，可能是教师。](https://zhuanlan.zhihu.com/p/678407624)
 
-​     教育的营销方向==>老年人、中年人|保险：安全保障意识升高|
+​     教育的营销方向==>老年人、中年人 | 保险：安全保障意识升高|
 
 - 城乡人口的转换
 - 养老
-- 医疗3.0：从治疗到预防为主、心理治疗需求
-
-
+- 医疗 3.0：从治疗到预防为主、心理治疗需求
 
 总结：**从需求和人出发，提供服务与产品，此时的服务与产品才是有价值的，才是可持续与平衡发展的生意。**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__8eba1e247d009eb86a8d0ee77380a45.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__8eba1e247d009eb86a8d0ee77380a45.webp)
 
 ### 目标市场 | Targeting
 
@@ -128,26 +110,18 @@
 
 - 市场可达性
 - 聚道可达性
--  促销可达性
+- 促销可达性
 - 竟争态势
 - 波特五力[wiki.mbalib.com](https://wiki.mbalib.com/wiki/波特五力分析模型)
 
 ### 市场定位 | Position
 
-
-
-
-
-
-
-## 4P理论
+## 4P 理论
 
 ### 产品 | Product
 
-只要它能够满足一个团体或个人的需求和欲望，就可称之为产品(product)。
+只要它能够满足一个团体或个人的需求和欲望，就可称之为产品 (product)。
 包括有形物品、服务、体验、事件、人物、地点、财产、组织、信息和想法等
-
-
 
 **产品要素：**原有的是什么，提供的新的东西是什么
 
@@ -157,7 +131,7 @@
 
 开发企业已有资源进行降维打击——需要营销
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091336106.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091336106.webp)
 
 > **产品组合**
 >
@@ -173,46 +147,34 @@
 > 侵蚀效应
 > Cannibalization 是指新产品的销售挤占原有产品的销售的现象
 
-
-
 纵向产品线的扩展
 
 > 变高端和变低端哪一个更简单
 
-- 向上拓展 - 收购：Toyota，lenovo，吉利收购volvo
+- 向上拓展 - 收购：Toyota，lenovo，吉利收购 volvo
 
   > （文化问题、品牌问题、员工问题）
 
-- 向下拓展：小米-红米；宝马-宝马1系
+- 向下拓展：小米 - 红米；宝马 - 宝马 1 系
 
   > 政府与政治立场
 
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091545688.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091545688.webp)
 
 !!! note "先成为先锋消费者，才能发现商机，才能成为先锋创业者"
-	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630092024979.webp" alt="image-20240630092024979" style="zoom:50%;" />
-
-
+ <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630092024979.webp" alt="image-20240630092024979" style="zoom:50%;" />
 
 一方能够向另一方提供的任何本质上是无形的活动或作业，并且其结果不会导致任何所有权的产生。
-
-
 
 微软——敢为天下后，消费者导向，即使不是第一个也有空间
 
 > 不是第一个，但往往是第一批的人会成长为一个大公司（学术也不要做已经二三十年的、先机红利）
 
-
-
 **服务**
 
-一方能够向另一方提供的任何本质上是无形的活动或作业， 并且其结果不会导致任何所有权的产生。
+一方能够向另一方提供的任何本质上是无形的活动或作业，并且其结果不会导致任何所有权的产生。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630093500908.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630093500908.webp)
 
 无形性：服务无形，提供者有形
 
@@ -221,8 +183,6 @@
 可变性：每次质量不一样
 
 易逝性：智云课堂
-
-
 
 **服务体验**
 
@@ -234,15 +194,11 @@
 > - 爽是超出预期
 > - 服务体验需要参与感（顾客授权，游戏里直播里有免费玩家才会有付费玩家，付给谁？不是主播，而是其他玩家）
 
-
-
 ### 促销 | Promotion
-
-
 
 ### 渠道 | Place
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630095116333.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630095116333.webp)
 
 短渠道
 
@@ -260,15 +216,7 @@
 - 顾客的采购金额和数量少
 - 不需要服务
 
-
-
 **渠道宽度**
-
-
-
-
-
-
 
 ### 定价 | Price
 
@@ -280,11 +228,9 @@
 
 !!! tip "消费者只为主观判断付费"
 
-
-
 消费者不是为质量付费，而是为体验付费
 
-价格-质量（成本）-价值（需要）
+价格 - 质量（成本）- 价值（需要）
 
 供大于求的时候，价格与质量的关系变得更加不确定
 
@@ -293,8 +239,8 @@
 相关性低：享乐型，服务型
 
 !!! tip "交易效用 | transaction utility"
-	交易效用 = 成交价 - 参考价<br>
-	消费者依据交易效用判断自己是占了便宜还是吃了亏
+ 交易效用 = 成交价 - 参考价<br>
+ 消费者依据交易效用判断自己是占了便宜还是吃了亏
 
 ### **价格安慰剂效应**
 
@@ -308,9 +254,7 @@
 
 参考价格：上一次支付的价格、市场价、告知的价格
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630094217847.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630094217847.webp)
 
 ### **价格锚定**
 
@@ -318,25 +262,17 @@
 
 这个锚点可以是产品的建议零售价、市场均价或其他相关产品的价格。通过设定一个较高的锚点，然后以较低的实际价格出售产品，商家可以营造出一种产品价格实惠的感觉，从而影响消费者的购买决策。例如，一家商店可能会先标出一个高昂的建议零售价，然后以折扣价出售，使消费者觉得他们在得到实惠。价格锚定的目的是影响消费者对产品价格的感知，从而增加产品的吸引力和销售机会。
 
-
-
 ### **价格尾数**
 
-9结尾与0结尾（高端）尾数奇偶性，价格精度
+9 结尾与 0 结尾（高端）尾数奇偶性，价格精度
 
 **免费是一种商业模式吗**?
-
-
-
 
 ## 营销
 
 交易效率：中间商降低了交易成本
 
-
-
 对整个链路的控制力减弱
-
 
 ### 自营平台和大平台的区别和优劣
 
@@ -344,8 +280,8 @@
 
 **需求端：**
 1.更高展示率
-2.有限SKU，
-3.品牌调性：打进用户心智，自上而下的搜索，基于用户的memory，拼多多不是主打品牌
+2.有限 SKU，
+3.品牌调性：打进用户心智，自上而下的搜索，基于用户的 memory，拼多多不是主打品牌
 
 **供给端：**
 1.建立网站与维护网站的高额费用
@@ -387,10 +323,6 @@
 2. **成本较高**：广告和促销等手段需要投入大量的资金和资源，成本较高。
 3. **市场竞争激烈**：在竞争激烈的市场中，拉动策略的效果可能受到其他企业类似策略的影响。
 
-
-
-
 ## 案例课一 ——  瑞幸咖啡
 
 ## 案例课二 —— 蜜雪冰城
-

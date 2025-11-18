@@ -2,17 +2,17 @@
 
 ## 线性规划
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets___E7_BA_BF_E6_80_A7_E8_A7_84_E5_88_92_E9_97_AE_E9_A2_98.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets___E7_BA_BF_E6_80_A7_E8_A7_84_E5_88_92_E9_97_AE_E9_A2_98.webp)
 
 ### 基础
 
-$C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向量
+$C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B 为约束向量
 
 图解法：找到可行域，移动平行直线
 
 从图解法我们可以发现有以下规律
 
-1. 解的情况:唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）<br>
+1. 解的情况：唯一最优解、无穷最优解、无界解（少了约束）无可行解（约束矛盾，鱼与熊掌不可得兼）<br>
 2. 可行域很可能是一个凸集<br>
 3. 最优解若存在，很可能就是可行域的顶点<br>
 
@@ -30,9 +30,7 @@ $C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向
 4. $a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n \leq b_m$<br>
 5. $x_1, x_2, \cdots, x_n \geq 0$<br>
 
-$C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B为约束向量
-
-
+$C_n$为价值向量，$x_n$是约束变量，$A$是工艺矩阵，B 为约束向量
 
 **矩阵**方式表示为：
 
@@ -50,23 +48,23 @@ $$
 \begin{align}
 max \quad &z = \mathbf{C}X\\
 s.t. &\left\{
-	\begin{array}{lr}  
-		\mathbf{A}x = \vec{b}\\
-		x\ge 0 
-	\end{array}
-	\right.
+ \begin{array}{lr}  
+  \mathbf{A}x = \vec{b}\\
+  x\ge 0
+ \end{array}
+ \right.
 \end{align}
 $$
 
-> 可参照[【线性规划2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
+> 可参照[【线性规划 2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
 
 **变量条件转化为标准约束**
 
-$$ 
-\begin{align} x_j &\geq 0 \quad \text{unchange} \\ x_j &\leq 0 \quad \Rightarrow \quad x_j' = -x_j \\ x_j \quad \text{(no limit)} &\quad \Rightarrow \quad x_j = x_j' - x_j'', \quad x_j' \geq 0, \ x_j'' \geq 0 \end{align} 
-$$ 
+$$
+\begin{align} x_j &\geq 0 \quad \text{unchange} \\ x_j &\leq 0 \quad \Rightarrow \quad x_j' = -x_j \\ x_j \quad \text{(no limit)} &\quad \Rightarrow \quad x_j = x_j' - x_j'', \quad x_j' \geq 0, \ x_j'' \geq 0 \end{align}
+$$
 
 **约束条件的转化**
 
@@ -81,11 +79,7 @@ $$
 
 大于等于则减去松弛变量
 
-
-
 绝对值不等式换成两个不等式
-
-
 
 **目标函数的转化**
 
@@ -96,12 +90,8 @@ $$
 \end{align}
 $$
 
-
-
-
-
 !!! bug "拉格朗日方程不可以用"
-	$x\ge 0$这个条件不可以用求极值的方法
+ $x\ge 0$这个条件不可以用求极值的方法
 
 ??? note "定义"
     === "可行域"
@@ -161,19 +151,19 @@ $$
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501113721301.webp" alt="image-20240501113721301" style="zoom:50%;" />
 
-!!! note "定理1若线性规划问题存在可行解，则问题的可行域是凸集"
+!!! note "定理 1 若线性规划问题存在可行解，则问题的可行域是凸集"
 
-!!! note "引理1 若$rank(A)=m$，则可行解$x$为基可行解"
-	可行解x的正分量所对应的系数列向量线性独立<br>
-	**必要性证明**：基可行解的定义<br>
-	**充分性证明**：<br>
-    可行解x是基解,构造x对应的基<br>
-    假设x正分量个数为k，可知$k\le m$<br>
+!!! note "引理 1 若$rank(A)=m$，则可行解$x$为基可行解"
+ 可行解 x 的正分量所对应的系数列向量线性独立<br>
+ **必要性证明**：基可行解的定义<br>
+ **充分性证明**：<br>
+    可行解 x 是基解，构造 x 对应的基<br>
+    假设 x 正分量个数为 k，可知$k\le m$<br>
 
     - 如果$k=m$，可直接视正分量对应的列向量为基；<br>
     - 如果$k<m$，总可补充$m-k$个列向量构成基。
 
-!!! note "定理2 线性规划的可行域顶点与**基可行解**一一对应"
+!!! note "定理 2 线性规划的可行域顶点与**基可行解**一一对应"
     考察逆否命题：$x$不是可行域顶点$\iff$$x$不是基可行解
     1）**$x$不是基可行解$\Rightarrow$ $x$不是可行域顶点**<br>
     可行解$x$不是基可行解<br>
@@ -187,14 +177,13 @@ $$
 > 基本可行解有两个关键因素：
 >
 > 1. 所有约束均满足。
-> 2. 存在n个线性无关的约束有效。
+> 2. 存在 n 个线性无关的约束有效。
 >
-> 顶点在约束所限制的多面体内，因此所有约束也都是满足的。下来考虑第二个关键因素，存在n个线性无关的约束有效，则说明这个点在n个超平面的交上。注意：n维空间中n个线性无关的超平面的交是一个点。（比如：2维空间中，两条线性无关的线的交是一个点；三维空间中，三个线性无关的面的交也是一个点）。那这个点为什么会是在多面体的最外侧而不是内部呢？这是因为多面体是由半空间所构成的，而上述的超平面就恰好是多面体的最外侧的面。那么基本可行解落在的点也就恰好是多平面的一个顶点。
+> 顶点在约束所限制的多面体内，因此所有约束也都是满足的。下来考虑第二个关键因素，存在 n 个线性无关的约束有效，则说明这个点在 n 个超平面的交上。注意：n 维空间中 n 个线性无关的超平面的交是一个点。（比如：2 维空间中，两条线性无关的线的交是一个点；三维空间中，三个线性无关的面的交也是一个点）。那这个点为什么会是在多面体的最外侧而不是内部呢？这是因为多面体是由半空间所构成的，而上述的超平面就恰好是多面体的最外侧的面。那么基本可行解落在的点也就恰好是多平面的一个顶点。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
-
-!!! note "定理3 若线性规划问题有最优解，一定存在一个**最优解是基可行解**"
+!!! note "定理 3 若线性规划问题有最优解，一定存在一个**最优解是基可行解**"
 
 |     几何概念     |        代数概念        |
 | :--------------: | :--------------------: |
@@ -211,13 +200,13 @@ $$
 
 > 博客
 >
-> [【运筹学】单纯形法总结 ( 单纯形法原理 | 单纯形法流程 | 单纯形表 | 计算检验数 | 最优解判定 | 入基变量 | 出基变量 | 方程组同解变换 ) ★★★-CSDN博客](https://hanshuliang.blog.csdn.net/article/details/114498881)
+> [【运筹学】单纯形法总结 ( 单纯形法原理 | 单纯形法流程 | 单纯形表 | 计算检验数 | 最优解判定 | 入基变量 | 出基变量 | 方程组同解变换 ) ★★★-CSDN 博客](https://hanshuliang.blog.csdn.net/article/details/114498881)
 >
-> 
 >
-> 详细步骤解答[【Wu的课堂】《运筹学》单纯形法中文讲解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1j7411d7Gm/?spm_id_from=333.880.my_history.page.click)
 >
-> 
+> 详细步骤解答[【Wu 的课堂】《运筹学》单纯形法中文讲解_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1j7411d7Gm/?spm_id_from=333.880.my_history.page.click)
+>
+>
 >
 > 非常清楚的视频 讲的非常好[四种解的特殊情况](https://www.bilibili.com/video/BV1im4y1g7zM/?spm_id_from=333.999.0.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 >
@@ -227,9 +216,7 @@ $$
 
 !!! note "先求出一个基本可行解，判断是否最优；不是最优的话再换一个基本可行解"
 
-
-
-**松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于0。找到一组单位矩阵
+**松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于 0。找到一组单位矩阵
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501140607194.webp" alt="image-20240501140607194" style="zoom:50%;" />
 
@@ -241,9 +228,9 @@ $$
 
 单纯形表的各个元素的含义
 
-基变量对应检验数必为0
+基变量对应检验数必为 0
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612115726009.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612115726009.webp)
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240423091540343.webp" alt="image-20240423091540343" style="zoom:67%;" />
 
@@ -253,16 +240,14 @@ $$
 
 $\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
 
-**没有大于0的最优值时候，跳出循环**
+**没有大于 0 的最优值时候，跳出循环**
 
-
-
-- 若非基变量检验数全小于0，有唯一可行解<br>
-- **多重解**：若存在一个非基变量检验数为0，则有无数可行解<br>可以将为0的非基变量作为入基变量再进行一次，得到另一个解<br>其他的最优解使用$X_1^*$和$X_2^*$的线性组合$X^* = \alpha X_1^*+(1-\alpha) X_2^*$求得。<br>
+- 若非基变量检验数全小于 0，有唯一可行解<br>
+- **多重解**：若存在一个非基变量检验数为 0，则有无数可行解<br>可以将为 0 的非基变量作为入基变量再进行一次，得到另一个解<br>其他的最优解使用$X_1^*$和$X_2^*$的线性组合$X^* = \alpha X_1^*+(1-\alpha) X_2^*$求得。<br>
   目标函数平行于非冗余的紧约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612123945639.webp" alt="image-20240612123945639" style="zoom:33%;" />
-- **无界解**：若检验数$\sigma_k >0$且对应的变量$x_k$系数列向量$P_k \le 0$，则有无界解。<br>原因：计算$\theta_i$无法计算，要么小于0，要么不能除，所以找不到出基变量<br>约束条件不够<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612124738057.webp" alt="image-20240612124738057" style="zoom:50%;" />
-- **退化解**：有多个相同的$\theta_i$​​​时候，下一次迭代会有基变量等于0<br>原因：有约束没有作用，有冗余约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612125308828.webp" alt="image-20240612125308828" style="zoom:33%;" />元素相同时候，选择下角标最小的作为出基变量\入基变量
-- **无可行解**：检验数小于0，但又不等于零的人工变量；（有矛盾的约束）
+- **无界解**：若检验数$\sigma_k >0$且对应的变量$x_k$系数列向量$P_k \le 0$，则有无界解。<br>原因：计算$\theta_i$无法计算，要么小于 0，要么不能除，所以找不到出基变量<br>约束条件不够<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612124738057.webp" alt="image-20240612124738057" style="zoom:50%;" />
+- **退化解**：有多个相同的$\theta_i$​​​时候，下一次迭代会有基变量等于 0<br>原因：有约束没有作用，有冗余约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612125308828.webp" alt="image-20240612125308828" style="zoom:33%;" />元素相同时候，选择下角标最小的作为出基变量\入基变量
+- **无可行解**：检验数小于 0，但又不等于零的人工变量；（有矛盾的约束）
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501153721390.webp" alt="image-20240501153721390" style="zoom:50%;" />
 
@@ -276,11 +261,7 @@ $\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
 
 !!! note "需要$a_{lk}>0$​​​"
 
-$x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大	
-
-
-
-
+$x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__5c6bd94b01acd096378bcc5de043abb.webp" alt="5c6bd94b01acd096378bcc5de043abb" style="zoom:50%;" />
 
@@ -288,29 +269,25 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501153555816.webp" alt="image-20240501153555816" style="zoom:33%;" />
 
-
-
 > 退化：基变量出现零的现象
 >
 > 影响：可能出现循环迭代
 
-
-
 二、人工变量法
 
-> [线性规划与单纯形法(三)(大M法与两阶段法)bilibili](https://www.bilibili.com/video/BV1NL411c7dH/?spm_id_from=333.999.0.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
+> [线性规划与单纯形法 (三)(大 M 法与两阶段法)bilibili](https://www.bilibili.com/video/BV1NL411c7dH/?spm_id_from=333.999.0.0&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 >
 > [人工变量法总结](https://hanshuliang.blog.csdn.net/article/details/114544508)
 
-!!! note "线性规划要是有最优解，人工变量为0"
-	使人工变量为0，让人工变量出基
+!!! note "线性规划要是有最优解，人工变量为 0"
+ 使人工变量为 0，让人工变量出基
 
 人工变量法是在无法直接找到单位矩阵作为起始时使用的一种方法，主要步骤包括：
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612121539611.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612121539611.webp)
 
 - 引入人工变量：人为引入几个人工变量使其构成对角单位矩阵。
-- 目标函数引入M：为了防止引入人工变量对线性规划的最大、最小解产生影响，在目标函数中引入一个正无穷的M。
+- 目标函数引入 M：为了防止引入人工变量对线性规划的最大、最小解产生影响，在目标函数中引入一个正无穷的 M。
 
 **计算检验数**
 
@@ -319,19 +296,9 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 - 所有检验数小于零且没有人工变量，则有最优解
 - 所有检验数小于零，有非零人工变量，没有可行解。
 
-
-
 - 中心元变换：在迭代过程中将人工变量替换成其他已有的变量，如果无法将人工变量替走，则无可行解。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240423091734877.webp)
-
-
-
-
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240423091734877.webp)
 
 ### 二、对偶理论
 
@@ -339,20 +306,18 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 >
 > [线性规划原问题对偶问题之间的转化](https://blog.csdn.net/qq_43657442/article/details/106074037)
 >
-> [对偶理论 : 总结 ](https://blog.csdn.net/shulianghan/article/details/112096734)
+> [对偶理论 : 总结](https://blog.csdn.net/shulianghan/article/details/112096734)
 
 #### 背景理解
 
 • 生产 : 目标函数追求 利润最大化 , 约束方程设备的使用时长受约束 , 小于等于 某个时间值 ;
 • 出租设备 : 目标函数追求 租金最小化 , 约束方程（机会成本）设备产生的利润要 大于等于 生产的利润 , 不能亏钱 ;
 
-
-
 对偶问题最优解$y^*_1,y^*_2\dots y^*_m$称为影子价格，影子价格是一种机会成本。影子价格大于市场价格，可买入，否则卖出。
 
-$y_i^* = \frac{\partial{z^*}}{\partial{b_i}} = \frac{最大利润增量}{第i种资源增量} = 第i种资源边际利润$​
+$y_i^* = \frac{\partial{z^*}}{\partial{b_i}} = \frac{最大利润增量}{第 i 种资源增量} = 第 i 种资源边际利润$​
 
-- 边际利润大于0，资源都要被用掉
+- 边际利润大于 0，资源都要被用掉
 - 有剩余的资源，边际利润=0
 - 机会成本>利润，不安排生产
 
@@ -376,8 +341,7 @@ s.t. \quad &A \cdot x \le b\\
 \end{align}
 $$
 
-
-其中，Z是目标函数，c是目标函数的系数向量，x是决策变量向量，A是约束矩阵，b是约束向量。
+其中，Z 是目标函数，c 是目标函数的系数向量，x 是决策变量向量，A 是约束矩阵，b 是约束向量。
 
 对偶问题（Dual Problem）：
 
@@ -389,14 +353,13 @@ s.t. \quad &A^T \cdot y \ge C^T\\
 \end{align}
 $$
 
-
-其中，W是对偶目标函数，y是对偶变量向量。
+其中，W 是对偶目标函数，y 是对偶变量向量。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501165458278.webp" alt="image-20240501165458278" style="zoom: 33%;" />
 
 #### 弱对偶性（Weak Duality）
 
-若$\overline{x}$是原问题(目标函数求最大)的可行解，$\overline{y}$是对偶问题（目标函数求最小）的可行解
+若$\overline{x}$是原问题 (目标函数求最大) 的可行解，$\overline{y}$是对偶问题（目标函数求最小）的可行解
 
 则$c^T\overline{x} \leq b^T\overline{y}$​。
 
@@ -405,35 +368,29 @@ $$
 !!! note "推导"
     设$x_0,y_0$分别是原始问题和对偶问题的可行解，那么有$z = cx^0 \le y^{0T}A x^0 \le y^{0T}b = w$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521170252798.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521170252798.webp)
 
+**弱对偶定理推论 1:**
 
+原问题任何一个可行解的目标函数值，都是其对偶问题目标函数值的下界;
 
-**弱对偶定理推论1:**
+对偶问题任何一个可行解的目标函数值，都是其原问题目标函数的上界;
 
-原问题任何一个可行解的目标函数值,都是其对偶问题目标函数值的下界;
-
-对偶问题任何一个可行解的目标函数值,都是其原问题目标函数的上界;
-
-**弱对偶定理推论2:(对偶问题的无界性)**
+**弱对偶定理推论 2:(对偶问题的无界性)**
 
 原问题为无界解，则对偶问题无可行解
 
 > 可以前推后，不可以后推前
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131424300.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131424300.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131531365.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131531365.webp)
 
+**弱对偶定理推论 3:**
 
+在一对对偶问题 (P) 和 (D) 中，
 
-**弱对偶定理推论3:**
-
-在一对对偶问题(P)和(D)中,
-
-如果其中一个线性规划问题可行,而另一个线性规划问题不可行,则该可行问题的目标函数是无界的;
-
-
+如果其中一个线性规划问题可行，而另一个线性规划问题不可行，则该可行问题的目标函数是无界的;
 
 #### 最优性（Optimality）
 
@@ -473,36 +430,26 @@ $$
     
     因为最终检验数都小于0，所以$c_B B^{-1} \ge 0,y = (c_B B^{-1})^T \ge 0$，且有$c-c_BB^{-1}A \le 0\\ c_BB^{-1}A \ge c$,所以y是一个可行解
 
-
-
-
-
-
-
 #### 互补松弛性（Complementary Slackness）
 
 $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变量的可行解，
 
 则$\hat{X}$和$\hat{Y}$是最优解当且仅当$Y_s\hat{X} = 0,\hat{Y}X_s = 0$
 
-给了m+n个方程，互补松弛定理的等式
+给了 m+n 个方程，互补松弛定理的等式
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501170322542.webp" alt="image-20240501170322542" style="zoom:50%;" />
 
 2、对偶松弛定理：
-先将问题的对偶解算出来，得到对偶解的值（条件1），代入对偶问题的不等式可得到对偶问题不等式是否为严格不等式（条件2）
+先将问题的对偶解算出来，得到对偶解的值（条件 1），代入对偶问题的不等式可得到对偶问题不等式是否为严格不等式（条件 2）
 
-条件1：说明对偶问题的解如果不为0，原问题的对应解为等式（即AX-b=0）
+条件 1：说明对偶问题的解如果不为 0，原问题的对应解为等式（即 AX-b=0）
 
-条件2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为0。
+条件 2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为 0。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612132752901.webp" alt="image-20240612132752901" style="zoom:67%;" />
 
-
-
 #### 约束条件的转化
-
-
 
 !!! note "一个问题的约束和对偶问题的变量有关系"
 
@@ -523,33 +470,25 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612130938287.webp" alt="image-20240612130938287" style="zoom:67%;" />
 
-
-
 #### 对偶单纯形法
 
 单纯形表上，原问题的检验数对应对偶问题的一个基解，相反数关系;
 
 单纯形表同时给出原问题和对偶问题的基解。
 
-单纯形表的解释：保持x可行解，y演变为可行解
-
-
+单纯形表的解释：保持 x 可行解，y 演变为可行解
 
 !!! note "证明"
     对偶问题的约束方程$A^Ty-y_s = c^T$<br>
     记录$A = [B\ N]\quad y_s= [y_{sB}^T \ y_{sN}]$
 
-
-
-
-
 对偶单纯形法，是原始单纯形法
 
-**步骤1：构造初始可行解**
+**步骤 1：构造初始可行解**
 
 构造一个对偶问题的初始可行解，要求全部检验数$\sigma_j\le0,\sigma_j = c_j-\sum\limits^m_{i=1}c_ia_{ij}$
 
-**步骤2：相邻基可行解迭代**
+**步骤 2：相邻基可行解迭代**
 
 所有$b_i>0$，已经是最优解
 
@@ -557,11 +496,11 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 - 入基变量$x_s$，$\theta' = \frac{\sigma_s}{a_{rs}} = \mathop{min}\limits_i\{\frac{\sigma_j}{a_{rj}}|a_{rj} <0,j = 1,\dots,n\}$
 
 !!! note "所有$a_{ij}\ge0$"
-	说明对偶问题无界解
+ 说明对偶问题无界解
 
-**步骤3：跳出循环**
+**步骤 3：跳出循环**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612140113503.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612140113503.webp)
 
 **可行性分析**
 
@@ -576,8 +515,6 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 
 当 $a_{rj} < 0: \sigma_j / a_{rj} - \sigma_s / a_{rs} \ge 0$, 所以 $\sigma_j ' \le 0$
 
-
-
 - 初始解可以是非可行解，当检验数都$\le0$时候，就可以进行基变换，不需要添加人工变量
 - 当变量多于约束条件的时候，用对偶单纯形法可减少计算工作量
 - 用于灵敏度分析及求解整数规划的割平面法
@@ -589,9 +526,7 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 - 参数变化的情况，最优解怎么变
 - 最优解/最优基不变时候，参数变化的范围
 
-[【运筹学】-对偶理论与灵敏度分析(三)(灵敏度分析)_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1bS4y1j7sC/?spm_id_from=333.788.recommend_more_video.-1&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
-
+[【运筹学】- 对偶理论与灵敏度分析 (三)(灵敏度分析)_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1bS4y1j7sC/?spm_id_from=333.788.recommend_more_video.-1&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
 原问题可行解就是满足$b\ge 0$
 
@@ -604,13 +539,11 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 | 非可行解 |  可行解  | 用对偶单纯形法迭代求解 |
 | 非可行解 | 非可行解 |    重新编制单纯形表    |
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240511084406077.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240511084406077.webp)
 
 原问题可行解，$b\ge0$
 
 对偶问题可行解，$\sigma \le 0$
-
-
 
 ① $b$ 的变化：$x_B=B^{-1}b$​
 
@@ -623,15 +556,11 @@ $\sigma_A=c-c_BB^{-1}A \quad \sigma_N=c_N-c_BB^{-1}N$​
 $\sigma_j=c_j-c_BB^{-1}p_j$​
 
 - 非基变量变化：只计算改变的一列即可
-- 基变量变化：需要重新计算所有非基变量的检验数 
+- 基变量变化：需要重新计算所有非基变量的检验数
 
 ③ $a_j$ 的变化
 
 $A'=B^{-1}A \quad p_j'=B^{-1}p_j$​
-
-
-
-
 
 问：如何安排产品产量，可获最大利润？
 
@@ -658,17 +587,13 @@ $\begin{cases} x_1+x_2+x_3+x_4=12 \\ x_1+2x_2+2x_3+x_5=20 \\ x_1,x_2,x_3\geq0 \e
 
 **(1) 非基变量系数 $c_3$​ 的改变范围**
 
-
-
 $\sigma_3=c_3-c_BB^{-1}p_3$
 
 $=c_3-[5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}1 \\ 2\end{array}\right]=c_3-8 \leq 0$
 
 即 $c_3 \leq 8$
 
-**(2) 基变量系数 $c_1$ 的改变范围** 
-
-
+**(2) 基变量系数 $c_1$ 的改变范围**
 
 $\sigma_A = c - c_BB^{-1}A$
 
@@ -678,9 +603,7 @@ $=[0,0,-2,-2c_1+8,c_1-8]\leq 0$
 
 $\begin{cases} -2c_1+8\leq 0 \\ c_1-8\leq 0 \end{cases} \quad \therefore 4\leq c_1\leq 8$
 
-=== "**b的灵敏度分析**"
-
-
+=== "**b 的灵敏度分析**"
 
 保持最优方案不变，求$b_1$的变化范围。
 
@@ -688,11 +611,11 @@ $B^{-1}b=\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{a
 
 $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\leq b_1\leq 20$​
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612144652767.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612144652767.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612145050904.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612145050904.webp)
 
-=== "**A的灵敏度分析**"
+=== "**A 的灵敏度分析**"
 (计划生产的产品工艺结构改变)<br>
 (1)、非基变量$x_j$工艺改变<br>
 只影响单纯形表$p_j$列，即$\sigma_j$。<br>
@@ -701,18 +624,16 @@ $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\le
 
 === "增加新变量灵敏度分析"
 
-例：对于新产品D，已知1个单位D要消耗甲: 3 乙: 2<br>
-问：保持原有生产比例，利润为多少时，投产产品D有利？<br>
+例：对于新产品 D，已知 1 个单位 D 要消耗甲：3 乙：2<br>
+问：保持原有生产比例，利润为多少时，投产产品 D 有利？<br>
 解：$\sigma_6=c_6-c_BB^{-1}p_6=c_6-[-5 \quad 8]\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{array}{c}3 \\ 2\end{array}\right]=c_6-12>0$<br>
 得 $c_6>12$<br>
 
 === "添加约束灵敏度分析"
 
-例：新增加电力约束：13 已知A、B、C每单位需电 2、1、3<br>
-问：原方案是否改变?<br>
+例：新增加电力约束：13 已知 A、B、C 每单位需电 2、1、3<br>
+问：原方案是否改变？<br>
 解：$2x_1+x_2+3x_3\leq 13$；原方案 A: 4 B: 8 C: 0；$16>13$ 原方案要改变<br>
-
-
 
 ### 例题
 
@@ -720,10 +641,7 @@ $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\le
 
 注意这种先分情况，再列写方案求解的思路
 
-
-
-例：某车间接到制作100套钢架的订单，每套钢架要用长为2.9m，2.1m，1.5m的圆钢各一根，已知原料长7.4m，问应如何下料，可使所用原料最省。
-
+例：某车间接到制作 100 套钢架的订单，每套钢架要用长为 2.9m，2.1m，1.5m 的圆钢各一根，已知原料长 7.4m，问应如何下料，可使所用原料最省。
 
 | 方案     | 1    | 2    | 3    | 4    | 5    |
 | -------- | ---- | ---- | ---- | ---- | ---- |
@@ -733,26 +651,23 @@ $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\le
 | **合计** | 7.4  | 7.3  | 7.2  | 7.1  | 6.6  |
 | **剩余** | 0    | 0.1  | 0.2  | 0.3  | 0.8  |
 
-
 设$x_j$为按方案$j$​下料的原料根数
 
 $$
 \begin{align*}
     min \quad z&=0\cdot x_1+0.1\cdot x_2 +0.2\cdot x_3 +0.3\cdot x_4 +0.8\cdot x_5\\
-    s.t. &\left\{ 
-    	\begin{array}{**lr**}  
-    		x_1+ 2x_2 + x_4=100\\
-    		2x_3+2x_4 + x_5 =100\\
-    		3x_1+ x_2 +2x_3 + 3x_5 =100\\
-    		x_1, x_2, x_3, x_4,x_5\ge0\\
-    	\end{array}
+    s.t. &\left\{
+     \begin{array}{**lr**}  
+      x_1+ 2x_2 + x_4=100\\
+      2x_3+2x_4 + x_5 =100\\
+      3x_1+ x_2 +2x_3 + 3x_5 =100\\
+      x_1, x_2, x_3, x_4,x_5\ge0\\
+     \end{array}
     \right.
 \end{align*}
 $$
 
-结果: $X^*=\left[30, 10, 0, 50, 0\right]^T ,\quad z^*=16m$
-
-
+结果：$X^*=\left[30, 10, 0, 50, 0\right]^T ,\quad z^*=16m$
 
 #### **最优跟踪控制问题**
 
@@ -774,17 +689,11 @@ $-t\le y(k+1)-r(k) \le t$
 
 !!! note "非线性约束线性化"
 
-​	绝对值变成双向不等式
-
-
+​ 绝对值变成双向不等式
 
 ## 运输规划
 
 运输规划是研究如何在满足一定约束条件下，将货物从产地运到销地的最优方案，包括以下内容：
-
-
-
-
 
 （1）求初始基本可行解——最小元素法、伏格尔法、西北角法
 
@@ -792,13 +701,11 @@ $-t\le y(k+1)-r(k) \le t$
 
 （3）调整运量——闭回路法
 
-
-
 ### **产销平衡模型**
 
 $$
 \begin{align}
-    \min z = \sum_{i=1}^m\sum_{j=1}^nc_{ij}x_{ij}	
+    \min z = \sum_{i=1}^m\sum_{j=1}^nc_{ij}x_{ij}
 \end{align}
 $$
 
@@ -815,8 +722,6 @@ $$
 
 其中，$a_i$ 表示第 $i$ 种产品的生产量，$b_j$ 表示第 $j$ 种产品的销售量。
 
-
-
 #### 问题的特点
 
 1. $A$ 矩阵稀疏，$P_{ij}=[0,...,0,1,0,...,0,1,0,...,0]^T$
@@ -831,15 +736,11 @@ $$
     也就是说，可以做到有两行完全一样，比如让前面的m行加到其中一行，后面的n行加到其中一行，就会得到两个相同的约束条件,一行减去另一行得到一行全为0的向量。<br>
     结合矩阵秩的求法，最小非零行数为矩阵秩的值；所以**模型最多只有m+n-1个独立约束方程，即系数矩阵的秩r<=m+n-1**.<br>
 
-
-
 $\sigma_j = c_j-c_B \mathbf{B}^{-1}P_j$
 
 $\sigma_j = c_j - Y^T P_j$
 
-基变量检验数为0
-
-
+基变量检验数为 0
 
 ### 表上作业法：求初始基可行解
 
@@ -847,7 +748,7 @@ $\sigma_j = c_j - Y^T P_j$
 
 #### 西北角法
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612173525391.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612173525391.webp)
 
 #### 最小元素
 
@@ -855,19 +756,17 @@ $\sigma_j = c_j - Y^T P_j$
 
 **就近供应** , 从运费最小的地方开始供应 , 然后逐步供应运费稍高的地方 , 直到最终供应完毕为止 ;
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230708758.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230708758.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230828100.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230828100.webp)
 
-#### 差额法 ( Vogel ) 
+#### 差额法 ( Vogel )
 
 " Vogel 方法 " 的核心思想就是从运价表中 , 分别计算 各行 , 各列 的 **最小运费 和 次最小运费** 差额 , 填写到表的 最右列 和 最下行 ;
 
-
-
 **应该 优先满足差额较高的行列 优先安排运输 ;**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521084050364.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521084050364.webp)
 
 ### 最优性检验
 
@@ -886,58 +785,36 @@ $\sigma_j = c_j - Y^T P_j$
 1. 回路法
 2. 位势法
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612175923952.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612175923952.webp)
 
 以非基变量为起点 , 出发的格子使用加号 + ++ , 第二个格子使用减号 − -− , 之后的歌词依次使用 加号减号交替 + − +-+− 符号 ;
 
 计算上述闭回路的运费代数和 ,
 
-如果代数和 大于等于0 , 说明当前的非基变量格子取 0 就是 最优选择 ;
+如果代数和 大于等于 0 , 说明当前的非基变量格子取 0 就是 最优选择 ;
 
-如果代数和 小于0, 说明当前的非基变量格子取0 不是最优选择 ;
+如果代数和 小于 0, 说明当前的非基变量格子取 0 不是最优选择 ;
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085450785.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085450785.webp)
 
 $\sigma_{11} = 3-1+6-4 = 4\geq 0$
 
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085712413.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085712413.webp)
 
 $σ_{12}=11−2+6−4=11\geq0$
 
-
-
 所有的非基变量检验数都 $\geq 0$ , 当前的基可行解就是最优解 ;
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085914564.webp)
-
-
-
-
-
-
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085914564.webp)
 
 ## 整数规划
 
 !!! note "核心问题"
-	根据**整数规划问题的的松弛问题**的最优解 , 如何找其**整数规划问题 的整数最优解** , 是整数规划问题的核心问题
-
-
+ 根据**整数规划问题的的松弛问题**的最优解 , 如何找其**整数规划问题 的整数最优解** , 是整数规划问题的核心问题
 
 - 纯整数规划：$x_j$ 全部取整数的线性规划。
 - 混合整数规划：$x_j$​ 部分取整数的线性规划。
-- 0-1型整数规划：$x_j$ 只能取0或1的线性规划。
-
-
+- 0-1 型整数规划：$x_j$ 只能取 0 或 1 的线性规划。
 
 ### 数学模型
 
@@ -947,7 +824,7 @@ $σ_{12}=11−2+6−4=11\geq0$
 
 - $p$个约束当中只有$q$​个有效$a_{i1}x_1+a_{i2}x_2+\dots a_{in}x_n \le b_i + M\cdot(1-y_i) \\ y_1 + \dots + y_p = p-q$
 
-- 前置课程，选2必须先选1约束：逻辑变量$y_1 \ge y_2$​
+- 前置课程，选 2 必须先选 1 约束：逻辑变量$y_1 \ge y_2$​
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612011052418.webp" alt="image-20240612011052418" style="zoom:50%;" />
 
@@ -963,13 +840,11 @@ $σ_{12}=11−2+6−4=11\geq0$
 
 ### 分支定界法
 
-> 分治+剪枝
+> 分治 + 剪枝
 
 **分枝：将原问题转化为子问题；**
 
 **定界：确定界限减少搜索范围。**
-
-
 
 #### 优点
 
@@ -990,14 +865,10 @@ $σ_{12}=11−2+6−4=11\geq0$
 
 - 检查到分支松弛问题的解及目标函数值：<br>如果该分支的解是整数，并且目标函数值大于等于其它分支的目标值，则剪去其它分支，停止计算；<br>如果没有得到最优整数解，如果该分支的解是小数，并且目标函数值大于整数解的目标值，需要继续进行分支，直到得到最优解。
 
-
-
 新的分支松弛问题特征：
 
 - 原问题求最大值时，目标值是分支问题的上界；
 - 原问题求最小值时，目标值是分支问题的下界；
-
-
 
 #### 例子
 
@@ -1017,8 +888,6 @@ $$
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210112203423822.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
-
-
 ### 割平面法
 
 思路：构造切割可行域问题的割平面，把整数
@@ -1027,8 +896,6 @@ $$
 > 割一刀，最好使得整数解处于顶点的位置上
 
 利用整数约束条件引入新变量，构造新的松弛问题进行求解。
-
-
 
 割平面法解题的标准形式
 
@@ -1046,17 +913,13 @@ $$
 目的：
 使所有的松弛变量、人工变量均为整数。
 
-
-
-
-
-### (0-1)指派问题
+### (0-1) 指派问题
 
 $$
 min z = \sum_{i=1}^{n}\sum_{j=1}^{n}c_{ij}x_{ij}
 $$
 
-s.t. 
+s.t.
 
 $$
 \sum_{j=1}^{n}x_{ij} = 1 \quad \text{每个人有且只有一项工作}
@@ -1070,19 +933,13 @@ $$
 x_{ij} = 0 \text{或} 1 \quad i, j = 1, 2, ..., n
 $$
 
-
-
-
-
 !!! note "独立零元素的个数"
-	定理(D.Konig):系数矩阵C中独立零元素的个数最多等于能覆盖所有零元素的最少直线数。
+ 定理 (D.Konig):系数矩阵 C 中独立零元素的个数最多等于能覆盖所有零元素的最少直线数。
 
-	- 标记没有独立零元素所在行
-	- 标记打√行中所有非独立零元素所在列
-	- 标记打√列中独立零元素所在行
-	- 没有打√的行和打√的列标上直线
-
-
+- 标记没有独立零元素所在行
+- 标记打√行中所有非独立零元素所在列
+- 标记打√列中独立零元素所在行
+- 没有打√的行和打√的列标上直线
 
 !!! note "克尼格定理"
     在分配问题中，对于效率矩阵$[a_{ij}]$，进行以下操作：<br>
@@ -1090,11 +947,9 @@ $$
     - 对每一列元素加上或减去一个常数$v_j$。<br>
         得到新的效率矩阵$[b_{ij}]$，两个效率矩阵$[a_{ij}]$与$[b_{ij}]$分配问题的最优解相同。<br>
 
-
-
 算法复杂度$O(n^4)$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521095612930.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521095612930.webp)
 
 ### 应用举例
 
@@ -1102,14 +957,12 @@ $$
 - **生产调度问题（Production Scheduling Problem）**：给定一组工作任务和它们的时序约束，确定一个可行的生产调度计划。这个问题是 NP-hard 的。
 - **0-1 背包问题（Knapsack Problem）**：给定一组物品和它们的重量、价值，以及一个背包的容量限制，求解如何选择物品以最大化背包中的总价值。这是一个 NP-hard 问题。
 - **装箱问题（Bin Packing Problem）**：给定一组物品和它们的尺寸，以及一些相同尺寸的箱子，求解如何将物品装入箱子以最小化使用的箱子数量。这是一个 NPC 问题。
-- **图着色问题（Graph Coloring Problem）**：给定一个图和一些颜色，求解如何为图中的每个顶点分配颜色，使得没有两个相邻的顶点有相同的颜色。这是一个 NPC问题。
+- **图着色问题（Graph Coloring Problem）**：给定一个图和一些颜色，求解如何为图中的每个顶点分配颜色，使得没有两个相邻的顶点有相同的颜色。这是一个 NPC 问题。
 - **聚类问题（Clustering Problem）**：给定一组数据点和它们的相似性度量，求解如何将它们分成不同的聚类，使得相似的点在同一聚类中，而不相似的点在不同聚类中。这个问题是 NP-hard 的。
-
-
 
 ## 目标规划
 
-!!! note "思想：软约束+优先级"
+!!! note "思想：软约束 + 优先级"
 
 ### 概念与定义
 
@@ -1117,7 +970,7 @@ $$
 
 - 多个约束，很可能可行域为空$\rightarrow$为约束设置不同的优先级，先满足高优先级的约束
 
-- 常常存在多目标：分清主次，设置优先级（d的编号越小，优先级越高），并按照优先级进行加权，构成一个新的单目标函数
+- 常常存在多目标：分清主次，设置优先级（d 的编号越小，优先级越高），并按照优先级进行加权，构成一个新的单目标函数
 - 保证多个目标尽可能接近，而不会放弃某个目标
 
 **硬约束与软约束**
@@ -1127,17 +980,17 @@ $$
 
 **偏差变量$d_i$**：表示实际值与目标值之间的差距。
 
-- $d_i^+ $正偏差，表示实际值-指标值
+- $d_i^+ $正偏差，表示实际值 - 指标值
 
-- $d_i^-$​​负偏差，表示指标值-实际值
+- $d_i^-$​​负偏差，表示指标值 - 实际值
 
 **与线性规划区别**
 
-- 线性规划的目标是一个刚性的目标.但实际应用中，目标常常是模糊的；**解决方法：建立软约束**
-- 线性规划立足于求满足所有约束条件的可行解，要求各个约束条件相容且可行域不是空集，而实际中的问题往往存在相互矛盾的约束条件,目标规划可在相互矛盾的约束条件下找到满意解,即满意方案.
-- 线性规划只能处理一个目标的问题,而目标规划能够统筹兼顾多个目标的关系求得更切合实际的解.**解决方案：设置优先级**
+- 线性规划的目标是一个刚性的目标。但实际应用中，目标常常是模糊的；**解决方法：建立软约束**
+- 线性规划立足于求满足所有约束条件的可行解，要求各个约束条件相容且可行域不是空集，而实际中的问题往往存在相互矛盾的约束条件，目标规划可在相互矛盾的约束条件下找到满意解，即满意方案。
+- 线性规划只能处理一个目标的问题，而目标规划能够统筹兼顾多个目标的关系求得更切合实际的解。**解决方案：设置优先级**
 - 目标规划找到的最优解是指尽可能达到或接近一个或多个已给定指标值的满意解
-- 线性规划对约束条件是不分主次地同等对待,而目标规划可根据实际需要给予轻重缓急的考虑.
+- 线性规划对约束条件是不分主次地同等对待，而目标规划可根据实际需要给予轻重缓急的考虑。
 
 ### 建模
 
@@ -1178,34 +1031,15 @@ $$
 
 - 调整同一绝对优先级下的相对优先级
 
-
-
-
-
-
-
 ### 单纯形法求解
 
-
-
 !!! note "使用单纯形法求解 $d^+ \cdot d^- = 0$自动满足"
-	$d^+$和$d^-$不可能同时是基变量；无论怎么变换，都是相反数的关系
+ $d^+$和$d^-$不可能同时是基变量；无论怎么变换，都是相反数的关系
 
 ### 序贯法求解
 
-
-
-有K个优先级，先按照第一个优先级求得最优值
+有 K 个优先级，先按照第一个优先级求得最优值
 
 将已计算目标函数值，作为下一级目标的硬约束。
 
 再求第二优先级的最优值
-
-
-
-
-
-
-
-
-

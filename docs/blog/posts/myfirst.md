@@ -13,7 +13,7 @@ authors:
 nostatistics: true
 ---
 
-# Hello World!
+# Hello World
 
 This is my first blog post.
 <!-- more -->

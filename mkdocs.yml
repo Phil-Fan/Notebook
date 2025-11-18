@@ -414,7 +414,6 @@ nav:
         - Tasks: 
             - AI/CV/01-classification.md
             - AI/CV/02-Image-location.md
-            - AI/CV/03-face-Recognition.md
             - AI/CV/03-Object-Recognition.md
             - AI/CV/04-Segmentation.md
             - AI/CV/05-3D.md
@@ -707,6 +706,8 @@ nav:
 - Project:
   - Project/index.md
   - Project/website.md
+  - Project/celechron.md
+  - Project/awesome.md
   - 英语能力训练:
     - Class/English/00-intro-IELTS.md
     - Class/English/01-Listening.md
@@ -723,7 +724,6 @@ nav:
   - Project/balance_car.md
   - Project/wand.md
   - Project/dRehmFlight.md
-  - Project/music_quiz.md
 
 - "生命因你而火热":
   - Interest/index.md
@@ -791,7 +791,6 @@ nav:
   - "🎨审美":
     - Interest/Aesthetic/flower.md
     - Interest/Aesthetic/design.md
-    - Interest/Aesthetic/powerpoint.md
     - Interest/Aesthetic/Photography.md
 
   - "🎮游戏":
@@ -917,4 +916,3 @@ plugins:
       # 使用github secret 保存API KEY，防止明文传递
       cache_dir: docs/style/
       # 使用cache file，否则编译过久，且每次编译都会重新获取
-  

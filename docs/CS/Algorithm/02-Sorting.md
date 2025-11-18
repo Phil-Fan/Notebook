@@ -1,10 +1,8 @@
 # Sorting
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101230057146.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101230057146.webp)
 
-
-
-## n2级
+## n2 级
 
 ### 冒泡排序
 
@@ -41,15 +39,13 @@ std::vector<int> selection_sort(const std::vector<int> &arr){
 }
 ```
 
-
-
 ### 插入排序
 
-在第p趟，将位置p上的元素向左移动直至找到它在前p+1个元素中的正确位置
+在第 p 趟，将位置 p 上的元素向左移动直至找到它在前 p+1 个元素中的正确位置
 
-时间复杂度O(N^2)
+时间复杂度 O(N^2)
 
-N个互异的元素的数组的平均逆序数是N(N-1)/4
+N 个互异的元素的数组的平均逆序数是 N(N-1)/4
 
 通过交换相邻元素进行排序的任何算法时间复杂度Ω(N^2)
 
@@ -66,7 +62,7 @@ std::vector<int> insertion_sort(const std::vector<int> &arr){
             j--;
         }
         sorted_array[j+1] = key;
-        //注意这里的写法，省略了一些步骤，不管j是否移动过，这样都可以保证最后插入正确
+        //注意这里的写法，省略了一些步骤，不管 j 是否移动过，这样都可以保证最后插入正确
     }
     return sorted_array;
 }
@@ -94,23 +90,21 @@ std::vector<int> shell_sort(const std::vector<int> &arr){
 }
 ```
 
-
-
-## nlogn级
+## nlogn 级
 
 ### 快速排序
 
-(1)如果S的元素个数为0或1返回
+(1) 如果 S 的元素个数为 0 或 1 返回
 
-(2)取S中的一个元素v为枢纽元
+(2) 取 S 中的一个元素 v 为枢纽元
 
-(3)将S-v划分成两个不相交的集合
+(3) 将 S-v 划分成两个不相交的集合
 
-(4)返回{qiucksort(S1),v,qiucksort(S2)}
+(4) 返回{qiucksort(S1),v,qiucksort(S2)}
 
 可以三个元素去中间值来确定枢纽元以及小数组直接快速排序
 
-快速排序最慢O(N^2) 平均sita（NlogN）最坏O（NlogN）
+快速排序最慢 O(N^2) 平均 sita（NlogN）最坏 O（NlogN）
 
 ```c++
 // quick sort
@@ -136,17 +130,15 @@ void quick_sort(std::vector<int> &arr,int left,int right){
 }
 ```
 
-
-
 ### 归并排序
 
-将数组分而治之，最后再加上线性的O(N)合并的代价
+将数组分而治之，最后再加上线性的 O(N) 合并的代价
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225240004.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225240004.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225257854.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225257854.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225310487.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__02-Sorting.assets__image-20230101225310487.webp)
 
 ```c++
 // merge sort
@@ -175,13 +167,11 @@ void merge_sort(std::vector<int> &arr,int left,int right){
 }
 ```
 
-
-
 ### 堆排序
 
-建立N个元素的二叉堆 O(N)
+建立 N 个元素的二叉堆 O(N)
 
-执行N次deleteMin 每次O(logN)
+执行 N 次 deleteMin 每次 O(logN)
 
 总运行时间 O（NlogN）
 
@@ -189,11 +179,11 @@ void merge_sort(std::vector<int> &arr,int left,int right){
 // heap sort
 
 void heapify(std::vector<int> &arr, int n, int i ){
-    //在长度为n的二叉堆中调整第i个元素
+    //在长度为 n 的二叉堆中调整第 i 个元素
     int max = i;
     int left = 2*i +1, right = 2*i + 2;
 
-    if(left < n && arr[left] > arr[max]) max = left;//这里一定要写left<n的判断，不然不会是你想要排序的序列
+    if(left < n && arr[left] > arr[max]) max = left;//这里一定要写 left<n 的判断，不然不会是你想要排序的序列
     if(right <n && arr[right] > arr[max]) max = right;
     if(max != i){
         std::swap(arr[max],arr[i]);
@@ -203,7 +193,7 @@ void heapify(std::vector<int> &arr, int n, int i ){
 
 void heap_sort(std::vector<int> &arr){
     int n = arr.size();
-    //构建最大堆,从倒数第二层开始调整
+    //构建最大堆，从倒数第二层开始调整
     for(int i = n/2-1; i >=0;i--){
         heapify(arr,n,i);
     }
@@ -216,15 +206,13 @@ void heap_sort(std::vector<int> &arr){
 }
 ```
 
-
-
 ## 其他
 
 ### 桶排序
 
 桶排序（Bucket sort）是将数据分到有限数量的桶子里，然后每个桶再分别排序
 
-先创建n个桶，桶的区间跨度=(最大值-最小值)/桶的数量
+先创建 n 个桶，桶的区间跨度=(最大值 - 最小值)/桶的数量
 
 遍历原始序列，将序列放入桶中
 
@@ -234,8 +222,6 @@ void heap_sort(std::vector<int> &arr){
 
 O（M+N）
 
-
-
 ### 计数排序
 
 稳定性：保持顺序不变
@@ -243,7 +229,7 @@ O（M+N）
 ```c++
 void counting_sort(vector<int> &arr,int exp){
     const int n = arr.size();
-    const int base = 10;//基数排序10进制
+    const int base = 10;//基数排序 10 进制
 
     vector<int> counting_array(base);
     for(int i = 0; i < n;i++){//注意这里是循环原数组
@@ -270,17 +256,12 @@ void counting_sort(vector<int> &arr,int exp){
 }
 ```
 
-
-
 ### 基数排序
 
-基数排序（Radix Sort）是将待排序序列的每个元素统一为同样位数长度的元素，位数较短的通过补0达到长度一致，然后从最低位或从最高位开始，依次进行稳定的计数排序，最终形成有序的序列
+基数排序（Radix Sort）是将待排序序列的每个元素统一为同样位数长度的元素，位数较短的通过补 0 达到长度一致，然后从最低位或从最高位开始，依次进行稳定的计数排序，最终形成有序的序列
 
 对于每一位进行计数排序，从而达到
 
 穿孔制表机
 
 [查尔斯·巴贝奇](https://zhuanlan.zhihu.com/p/107462919)
-
-
-

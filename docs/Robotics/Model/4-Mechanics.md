@@ -4,19 +4,16 @@
 
 从运动学方程微分、向量积构造法、速度向外传递、力向内传递逐步认识到雅可比矩阵这一强大的工具
 
-
-
 !!! note "Acknowledgement"
     特别鸣谢以下文章
-    
+
     - [机器人学导论---第五章 速度和静力（一）5.1-5.11（好难） - 知乎](https://zhuanlan.zhihu.com/p/155829972)
     - [干货 | “瞬时运动学”——还是从关节空间到操作空间（雅可比矩阵上篇） - 知乎](https://zhuanlan.zhihu.com/p/341804875)
     - [干货 | 机械臂的雅可比矩阵这么厉害，怎么把它求出来呢？（雅可比矩阵中篇） - 知乎](https://zhuanlan.zhihu.com/p/341805201)
     - [干货 | 力的传递关系、奇异、冗余——从雅可比矩阵你还能得到什么？（雅可比矩阵下篇） - 知乎](https://zhuanlan.zhihu.com/p/341806737)
 
-
-
 ## 前置知识
+
 - 向量叉乘
 - 矩阵求微分
 - 向量求导、矩阵求导
@@ -54,14 +51,13 @@ $$
 {}^B\mathbf{V}_Q = \frac{d}{dt} {}^B\mathbf{Q} = \lim_{\Delta t \to 0} \frac{{}^B\mathbf{Q}(t + \Delta t) - {}^B\mathbf{Q}(t)}{\Delta t}
 $$
 
-速度矢量 \( {}^B\mathbf{V}_Q \) 可在任意坐标系中描述(相当于在B的原点建立一个和B固连的，与A姿态相同的坐标系)
+速度矢量 \( {}^B\mathbf{V}_Q \) 可在任意坐标系中描述 (相当于在 B 的原点建立一个和 B 固连的，与 A 姿态相同的坐标系)
 
 $$
 {}^A({}^B\mathbf{V}_Q) = {}^A_B\mathbf{R} {}^B\mathbf{V}_Q = ^A(\frac{d}{dt} {}^B\mathbf{Q}) = \lim_{\Delta t \to 0} {}^A_B\mathbf{R}(t) \left( \frac{{}^B\mathbf{Q}(t + \Delta t) - {}^B\mathbf{Q}(t)}{\Delta t} \right)
 $$
 
 坐标系原点相对于世界坐标系{U}的速度:$\mathbf{v}_C = {}^U\mathbf{V}_{\text{CORG}}$
-
 
 !!! note "需要注意，${}^A({}^B\mathbf{V}_Q)$ 不同于 ${}^A\mathbf{V}_Q$"
 
@@ -75,13 +71,10 @@ $$
     特别注意符号的意义
     ${}^A\mathbf{v}_C = {}^A_U\mathbf{R} \mathbf{v}_C = {}^A_U\mathbf{R} {}^U\mathbf{V}_{\text{CORG}} \neq {}^A\mathbf{V}_{\text{CORG}}$
 
-
-
-
-
-
 ### 坐标系的转动
+
 在 $\{A\}$ 中描述 $\{B\}$ 的定点转动可用角速度向量 $^A\mathbf{\Omega}_B$ 表示
+
 - $^A\mathbf{\Omega}_B$的方向是瞬轴在 $\{A\}$ 中的方向
 - $^A\mathbf{\Omega}_B$的大小表示在 $\{A\}$ 中 $\{B\}$ 绕瞬轴的旋转速度。
 - 在任意坐标系中描述：$^C(^A\mathbf{\Omega}_B) = {^C_A}\mathbf{R}{^A\mathbf{\Omega}_B}$
@@ -95,7 +88,6 @@ $$
 ^C\mathbf{\omega}_C &= {^C_U}\mathbf{R}\mathbf{\omega}_C = {^C_U}\mathbf{R}{^U_C}\mathbf{\Omega}_C
 \end{align*}
 $$
-
 
 ### 刚体线速度
 
@@ -120,12 +112,11 @@ S(\mathbf{\omega}) = \begin{bmatrix}
 0 & -\omega_z & \omega_y \\
 \omega_z & 0 & -\omega_x \\
 -\omega_y & \omega_x & 0
-\end{bmatrix}   
+\end{bmatrix}
 $$
 
 - 反对称矩阵
 - $S = \dot{R}R^T$
-
 
 ### 连杆间速度传递（向外迭代法）
 
@@ -143,7 +134,7 @@ $$
 
 > 其中，$\hat{Z}_{i+1}$ 是轴 $i+1$在 ${i+1}$ 中的表示；${\theta}_{i+1}$ 是转动型关节 $i+1$ 的关节转速。
 
-线速度：连杆i+1 针对世界坐标系线速度在{i+1}坐标系的表示
+线速度：连杆 i+1 针对世界坐标系线速度在{i+1}坐标系的表示
 
 $$
 {}^{i+1}\!v_{i+1} = {^{i+1}_iR} (^iv_i + ^i\omega_i \times {^iP_{i+1}})
@@ -158,7 +149,6 @@ $$
 $$
 ^{i+1}\omega_{i+1} = _i^{i+1}R {^i\omega_i}
 $$
-
 
 线速度：要加一个在轴线上的速度
 
@@ -178,41 +168,34 @@ $$
 
 **力偶矩：** 用来描述物体力偶的作用效果
 
-**物体平衡的条件：** 合力为0，合力矩为0
+**物体平衡的条件：** 合力为 0，合力矩为 0
 
 > 参考资料<br>
 > [力矩、力偶矩、弯矩的区别是什么？ - 知乎](https://www.zhihu.com/question/23371844?sort=created)<br>
 > [力矩的本质是什么？与力偶有什么关系？ - 知乎](https://www.zhihu.com/question/398334639/answer/1258696609)<br>
 
-
 ### 力的平移原理
 
+- 引理 1：作用在刚体上的力沿着其作用线移动后，力对刚体作用效应不变
+- 引理 2：在刚体上增加一组平衡力系，不改变原力系对刚体的作用效应
 
-- 引理1：作用在刚体上的力沿着其作用线移动后，力对刚体作用效应不变
-- 引理2：在刚体上增加一组平衡力系，不改变原力系对刚体的作用效应
-
-所以如果想将力平移，那么可以在B点增加一组平衡力系，使得B点的力和A点的力相同，方向相反。这个时候把$F$和$F_2$视为一组力偶。
+所以如果想将力平移，那么可以在 B 点增加一组平衡力系，使得 B 点的力和 A 点的力相同，方向相反。这个时候把$F$和$F_2$视为一组力偶。
 
 可以看作力$F$平移到$F_1$之后，刚体受到$F_1$和力偶矩$M = F \times r_{AB}$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313095306008.webp)
-> 图源 [力平移定理与平衡 - CSDN博客](https://blog.csdn.net/weixin_43989965/article/details/120471367)
-
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313095306008.webp)
+> 图源 [力平移定理与平衡 - CSDN 博客](https://blog.csdn.net/weixin_43989965/article/details/120471367)
 
 ### 操作臂的静力传递（向内迭代法）
 
 > 要解决的问题是：如果机械臂末端抓着一个重物，为了保持末端位置不动，各个关节需要输出多大的力矩呢？或者如果机械臂末端要对工件施加一个固定的加工力，各个关节又需要输出多大的力矩呢？
 
-
 - 传递方向：从末端向下传递
 - 方式：先固定，写出各连杆的平衡关系，再加外力，写出各关节轴需要加多少力
+
 > 忽略重力
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313114049005.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313114049005.webp)
 
 $$
 \begin{align*}
@@ -230,9 +213,7 @@ $$
 \end{align*}
 $$
 
-
-!!! note "转动型关节需要考虑施加多少力矩,平动型关节需要考虑施加多少力.需要对(力，力矩)向量进行正交分解"
-
+!!! note "转动型关节需要考虑施加多少力矩，平动型关节需要考虑施加多少力。需要对 (力，力矩) 向量进行正交分解"
 
 **转动型关节$i$**
 
@@ -250,14 +231,10 @@ $$
 \tau_i = f_i^{\mathrm{T}} \hat{z}_i
 $$
 
-
 !!! example "例子"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112419504.webp)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112444810.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112419504.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112444810.webp)
     > 课本习题
-
-
-
 
 ## 雅可比
 
@@ -271,17 +248,13 @@ $$
 
 4. 雅可比将末端空间的位移转化为关节空间的位移：$\delta\mathbf{q}=J(\mathbf{q})^{-1}\delta\mathbf{x}$
 
-5. 雅可比将末端空间的力转化为关节空间的力(扭矩)：$\tau=J^T\mathbf{F}$
+5. 雅可比将末端空间的力转化为关节空间的力 (扭矩)：$\tau=J^T\mathbf{F}$
 
 ### 直观理解
+
 复杂变换在某个局部点可以看作线性变换
 
-
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=79626296&bvid=BV1NJ411r7ja/?share_source=copy_web&vd_source=1ce3320d605852426ce5ccfc9b31eb50&t=233&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=80% height=auto></iframe>
-
-
-
-
 
 !!! note "雅可比矩阵由来"
 
@@ -298,24 +271,19 @@ $$
     $$
 
     - 第$i$行第$j$列表示的物理意义就是当第$j$个关节运动时，操作空间的第$i$个平动/转动方向会如何运动
-    - 雅可比矩阵表明 end effector 的速度与关节速度joint velocity 之间是线性关系
-
+    - 雅可比矩阵表明 end effector 的速度与关节速度 joint velocity 之间是线性关系
 
 $$
 J=\begin{bmatrix}(J_v)_ {3\times n}\\(J_\omega)_ {3\times n}\end{bmatrix}
 $$
 
-$J_v$表示的含义是一个机械臂的关节移动多少角度，它的end effector就会相应地移动多少距离（速度）
+$J_v$表示的含义是一个机械臂的关节移动多少角度，它的 end effector 就会相应地移动多少距离（速度）
 
-$J_\omega$表示的含义是一个机械臂的旋转关节绕某个轴转多少角度，它的end effector就会相应地绕这个轴转多少角度
-
+$J_\omega$表示的含义是一个机械臂的旋转关节绕某个轴转多少角度，它的 end effector 就会相应地绕这个轴转多少角度
 
 - 雅可比矩阵的行数是操作空间的自由度，列数是关节数量（关节自由度）。
 - 雅可比矩阵是时变的
-- 雅可比矩阵可以看作x的速度空间向y的速度空间做映射$\dot{x} = J(q) \dot{q}$
-
-
-
+- 雅可比矩阵可以看作 x 的速度空间向 y 的速度空间做映射$\dot{x} = J(q) \dot{q}$
 
 ### 几何雅可比
 
@@ -332,21 +300,18 @@ $$
 
 此处，$J(\Phi) \in \mathbb{R}^{6 \times N}$ 即为雅可比矩阵。
 
-
 ### 分析雅可比
 
-令$X=\begin{pmatrix}\boldsymbol{P}(\boldsymbol{\Phi})\\\boldsymbol{\psi}(\boldsymbol{\Phi})\end{pmatrix}$表示机器人末端执行器的位置与姿态，其中$\boldsymbol{P}(\boldsymbol{\Phi})$为基座坐标系原点到末端执行器坐标系原点的一般向量，$\Psi(\boldsymbol{\Phi})$为末端执行器坐标系相对于基座坐标系姿态的最小表示(如固定角表示或欧拉角表示)。分析雅可比矩阵满足以下形式
+令$X=\begin{pmatrix}\boldsymbol{P}(\boldsymbol{\Phi})\\\boldsymbol{\psi}(\boldsymbol{\Phi})\end{pmatrix}$表示机器人末端执行器的位置与姿态，其中$\boldsymbol{P}(\boldsymbol{\Phi})$为基座坐标系原点到末端执行器坐标系原点的一般向量，$\Psi(\boldsymbol{\Phi})$为末端执行器坐标系相对于基座坐标系姿态的最小表示 (如固定角表示或欧拉角表示)。分析雅可比矩阵满足以下形式
 
 $$\dot{\boldsymbol{X}}=\begin{pmatrix}\dot{\boldsymbol{P}}\\\dot{\boldsymbol{\psi}}\end{pmatrix}=\boldsymbol{J}_a(\boldsymbol{\Phi})\dot{\boldsymbol{\Phi}}$$
 
-
-!!! tip "空间中确定一个旋转至少需要3个参数"
+!!! tip "空间中确定一个旋转至少需要 3 个参数"
     SO(3)群有6个约束：两个单位向量（范数为1），两个单位向量正交，叉乘得到第三个单位向量
-    
+
     所以自由度是3
 
     因为固定角/欧拉角有3个自由度（3个参数），所以又称之为最小表示运动学方程
-
 
 ### 几何雅可比和分析雅可比
 
@@ -361,14 +326,10 @@ $$\dot{\boldsymbol{X}}=\begin{pmatrix}\dot{\boldsymbol{P}}\\\dot{\boldsymbol{\ps
 | $\omega$ | 角速度向量，表示**绕各个轴**的旋转速度 |
 | $v$ | 线速度向量，表示在笛卡尔空间中的平移速度 |
 
-
 > 参考文献：[机械臂的几何雅可比和分析雅可比有什么区别？ - 知乎](https://www.zhihu.com/question/67687838)
 
-
-
-
-
 **Analytical Jacobians**：
+
 - 在笛卡尔坐标系下，它得到的“角速度”是选择的表示末端方向的角度的时间导数。
 - 表示的是机器人姿态的变化。这个姿态是自己定义的，它取决于你的坐标系。
 
@@ -382,8 +343,8 @@ $$
 \end{align*}
 $$
 
-
 **Geometrical Jacobians**：
+
 - 获得的“角速度”是绕旋转轴的速度。得到的是关节空间速度与末端力矩之间的映射关系。
 
 $$
@@ -398,7 +359,6 @@ $$
 
 其中，$\omega_x$、$\omega_y$、$\omega_z$ 表示绕 $x$、$y$、$z$ 轴的角速度。
 
-
 **转化关系**
 
 $$
@@ -410,7 +370,6 @@ $$
 $$
 J_a(\Phi) = \begin{pmatrix} I & 0 \\ 0 & B_a^{-1}(\Psi) \end{pmatrix} J(\Phi) = T_a J(\Phi)
 $$
-
 
 刚体角速度$\omega$和欧拉角速率$\dot{\Psi}$之间的关系
 
@@ -494,16 +453,13 @@ $$
     \end{align*}
     $$
 
-
 ### 坐标变换
 
+[极坐标和直角坐标的雅克比矩阵推导\_直角坐标到极坐标的雅可比矩阵-CSDN 博客](https://blog.csdn.net/subtitle_/article/details/133185018)
 
-[极坐标和直角坐标的雅克比矩阵推导\_直角坐标到极坐标的雅可比矩阵-CSDN博客](https://blog.csdn.net/subtitle_/article/details/133185018)
-
-如果雅可比矩阵不是表示在frame{0}下面，需要进行坐标变换，需要左乘一个转换矩阵就可以了。
+如果雅可比矩阵不是表示在 frame{0}下面，需要进行坐标变换，需要左乘一个转换矩阵就可以了。
 
 > 回想一下微积分中变量替换，替换变量的时候需要乘以雅可比矩阵行列式
-
 
 !!! example "柱坐标"
     例如，如果你的end effector位置是由柱坐标表示的，即$(\rho, \theta, z)$，而柱坐标转换为笛卡尔坐标是：
@@ -530,12 +486,12 @@ $$
 ^i\boldsymbol{J}(\boldsymbol{\Phi})=\begin{pmatrix}{}_0^i\boldsymbol{R}&0\\0&{}_0^i\boldsymbol{R}\end{pmatrix}\boldsymbol{J}(\boldsymbol{\Phi})
 $$
 
-
 ### 力域中的雅可比
+
 笛卡尔力映射到关节上的力矩，不需要求解逆运动学
 
 $$
-\tau = J^T F 
+\tau = J^T F
 $$
 
 - 是操作空间向关节空间的映射（与$\dot{x} = J \dot{\Phi}$是相反的）
@@ -580,16 +536,16 @@ $$
 ### 奇异性理解
 
 - **运动角度理解**：机械臂处在特定的关节位置组合（奇异位形）的时候，末端执行器会丢掉某个方向的自由度
+
 > 完全伸直手臂之后，手无法沿着手臂方向移动
 
-- **雅可比矩阵角度**：关节的运动速度乘以雅可比矩阵即得到end effector的运动速度。而end effector失去某个方向的自由度即意味着在机械臂到达那个configuration的瞬间，不管关节怎么运动，end effector在这个方向的速度总为0（雅可比矩阵的分量为0）
+- **雅可比矩阵角度**：关节的运动速度乘以雅可比矩阵即得到 end effector 的运动速度。而 end effector 失去某个方向的自由度即意味着在机械臂到达那个 configuration 的瞬间，不管关节怎么运动，end effector 在这个方向的速度总为 0（雅可比矩阵的分量为 0）
 
-- **从线性代数的角度来说**：此时的J矩阵有这样的特性：对所有任意向量a，Ja相乘得到向量b，则所有向量b组成的线性空间维度将比正常情况下少至少一个自由度（**降秩**）
+- **从线性代数的角度来说**：此时的 J 矩阵有这样的特性：对所有任意向量 a，Ja 相乘得到向量 b，则所有向量 b 组成的线性空间维度将比正常情况下少至少一个自由度（**降秩**）
 
 ### 奇异位形求解
 
 奇异位形：无法通过关节变量速度实现要求的末端速度
-
 
 对于一般机器人，奇异位形为令雅可比矩阵 $J$ 不满秩的 $\Phi$ 值所构成的位形，（$N$是机器人关节数目）时
 
@@ -597,30 +553,20 @@ $$
 \text{rank}(J(\Phi) < \min(m, N)
 $$
 
-
 不同情况下的奇异点的判断条件为：
 
 1. **无冗余 ($m = N$)**: 在此 $\Phi$ 时 $J(\Phi)$ 不可逆，即 $\det(J(\Phi)) = 0$。
 2. **冗余 ($m < N$)**: 在此 $\Phi$ 时 $J(\Phi)$ 不行满秩，即 $\text{rank}(J(\Phi)) < m$。（可能有最小范数解）
 3. **欠驱动 ($m > N$)**: 在此 $\Phi$ 时 $J(\Phi)$ 不列满秩，即 $\text{rank}(J(\Phi)) < N$。（可能有最小二乘解）
 
-
-
 - 奇异位形是机器人的构型决定的，是机器人的固有特征
-- 接近奇异位形的时候，存在机器人末端在工作空间中的微小速度导致关节空间产生过大速度：从线性方程的角度看，当机器人接近Singularity时，雅可比矩阵也越来越“病态”（ill-conditioned），很小的dx可能求得很大的dq，方程对数值误差也更加敏感；而当机器人处于Singularity时，线性方程可能无解、也可能有无数多个解。
-
-
+- 接近奇异位形的时候，存在机器人末端在工作空间中的微小速度导致关节空间产生过大速度：从线性方程的角度看，当机器人接近 Singularity 时，雅可比矩阵也越来越“病态”（ill-conditioned），很小的 dx 可能求得很大的 dq，方程对数值误差也更加敏感；而当机器人处于 Singularity 时，线性方程可能无解、也可能有无数多个解。
 
 **边界奇异性**: 工作空间边界的奇异位形。出现在机器人完全展开或者收回使得末端执行器处于或非常接近工作空间边界的情况。
 
 **内点奇异性**: 工作空间内部的奇异位形。出现在远离工作空间的边界，通常是由于两个或两个以上的关节轴线共线引起的。
 
-
-
-
-
 ### 可操作度
-
 
 !!! note "二次型与椭圆"
 
@@ -643,30 +589,23 @@ $$
 
     对应的归一化特征向量为：$\mu_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad \mu_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$，表示了椭圆的长轴和短轴的方向
 
-
-
 假设机器人有 $N$ 个关节，末端速度空间的维数为 $m$，要求 $N \geq m$，则 $m \times N$ 维雅可比矩阵 $J$ 的奇异值分解为：
-
 
 $$
 J = U \Sigma V^T
 $$
 
-
 其中，$\Sigma$ 是 $m \times N$ 维矩阵，其主对角线外的元素均为零，主对角线上的每个元素为 $J$ 的奇异值 $\sigma_i = \sqrt{\lambda_i(JJ^T)} (i = 1, \cdots, m)$，且 $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_m \geq 0$；$U$ 和 $V$ 分别为 $m$ 维和 $N$ 维正交矩阵，且 $U$ 由矩阵 $JJ^T$ 的特征向量 $u_i (i = 1, \cdots, m)$ 张成，$V$ 由矩阵 $J^TJ$ 的特征向量 $v_i (i = 1, \cdots, N)$ 张成。由此得到：
-
 
 $$
 v_e^T (J J^T)^{-1} v_e = (U^T v_e)^T \Sigma^{-2} (U^T v_e)
 $$
-
 
 此时，$\Sigma^{-2} = \text{diag}(\sigma_1^{-2}, \sigma_2^{-2}, \cdots, \sigma_m^{-2})$ 为 $m$ 维对角矩阵。记 $\alpha = U^T v_e$
 
 $$
 v_e^T (J J^T)^{-1} v_e - \alpha^T \Sigma^{-2} \alpha = \sum_{i=1}^m \frac{\alpha_i^2}{\sigma_i^2} \leq 1
 $$
-
 
 是一个标准的椭球体方程，表明机器人此位形的可操作椭球体的轴由向量 $\sigma_i u_i$ 给出。
 
@@ -678,14 +617,11 @@ $$
 \kappa(\boldsymbol{\Phi})=\sigma_1\sigma_2\cdots\sigma_m=\sqrt{\det(\boldsymbol{J}(\boldsymbol{\Phi})\boldsymbol{J}^\mathrm{T}(\boldsymbol{\Phi}))}
 $$
 
-
 特别的，当雅可比矩阵可逆的时候 $\kappa(\boldsymbol{\Phi})=\mid\det(\boldsymbol{J}(\boldsymbol{\Phi}))\mid$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314222953648.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314222953648.webp)
 
 ## 冗余
-
 
 “又矮又胖的矩阵”：关节自由度特别多的时候
 
@@ -697,28 +633,15 @@ $$
 
 > 指尖保持不动，只动手肘手腕
 
-假如J是一个方阵，那么$J\dot{q}=0$有非零解的充分必要条件是J是一个奇异矩阵——也就是说，如果没有冗余自由度，一个机械臂关节运动而end effector不动的情况只有在它处于singularity时才能出现。
+假如 J 是一个方阵，那么$J\dot{q}=0$有非零解的充分必要条件是 J 是一个奇异矩阵——也就是说，如果没有冗余自由度，一个机械臂关节运动而 end effector 不动的情况只有在它处于 singularity 时才能出现。
 
-但是，如果J是一个矮胖矩阵，那么$J\dot{q}=0$必然有无数个非零解，这些解组成的空间即称为"零空间"（nullspace）。
-
-
-
-
-
-
-
-
-
-
+但是，如果 J 是一个矮胖矩阵，那么$J\dot{q}=0$必然有无数个非零解，这些解组成的空间即称为"零空间"（nullspace）。
 
 ## 题型
 
-
 ### 基础公式记忆
 
-
 **z-y-x 欧拉角** 公式
-
 
 $$
 \begin{align}
@@ -730,11 +653,9 @@ s\alpha c\beta & s\alpha s\beta s\gamma+c\alpha c\gamma & s\alpha s\beta c\gamma
 \end{align}
 $$
 
+MDH 建模下，坐标系**齐次变换矩阵**
 
-MDH建模下，坐标系**齐次变换矩阵**
-
-
-$^{i-1}_i \!T$ 表示坐标系 $\{i-1\}$ 到坐标系 $\{i\}$ 的变换矩阵，i从1开始
+$^{i-1}_i \!T$ 表示坐标系 $\{i-1\}$ 到坐标系 $\{i\}$ 的变换矩阵，i 从 1 开始
 
 $$
 ^{i-1}_i \!T = \begin{pmatrix}
@@ -747,22 +668,19 @@ $$
 
 > 使用基向量表出的方法快速列写/检查矩阵写的对不对
 
-
-
 **几种方法对比**
 
 !!! note "推荐方法"
     - 首选运动学方程微分方法，计算$J_v$
-    - 然后列写各个坐标系下$^{0} z$轴向量，计算$J_\omega$；平动关节直接为0
-    - 这两个方法只要DH参数表和${}^0_NT$计算正确即可
-
+    - 然后列写各个坐标系下$^{0} z$轴向量，计算$J_\omega$；平动关节直接为 0
+    - 这两个方法只要 DH 参数表和${}^0_NT$计算正确即可
 
 | 方法               | 计算量                           | 需要求解                     | 注意点                                                                 |
 |--------------------|----------------------------------|-----------------------------|----------------------------------------------------------------------|
 | **运动学方程微分** | 中等                             | 正运动学方程 $^0_nT$         | 确保正确求导，注意矩阵维度一致性                                      |
 | **向量积构造法**   | 较低                             | 各关节轴的单位向量 $\hat{Z}_i$ 和原点位置 $O_i$ | $\hat{Z}_i$ 和 $O_i$ 必须在世界坐标系下表示，注意叉乘方向             |
 | **速度传递**       | 较高                             | 各连杆的旋转矩阵 $^{i+1}_iR$ 和位置向量 $^iP_{i+1}$ | 确保旋转矩阵和位置向量的正确性，注意旋转矩阵的转置操作                 |
-| **力传递**         | 较高                             | 各连杆的旋转矩阵 $^{i+1}_iR$ 和位置向量 $^iP_{i+1}$ | 求解的雅可比需要转置，需要乘R转回全局坐标系下   |
+| **力传递**         | 较高                             | 各连杆的旋转矩阵 $^{i+1}_iR$ 和位置向量 $^iP_{i+1}$ | 求解的雅可比需要转置，需要乘 R 转回全局坐标系下   |
 
 ### 求雅可比矩阵 - 运动学方程微分 $J_v$
 
@@ -782,20 +700,17 @@ $$
 
 ### 求雅可比矩阵 - 向量积构造法 $J_v$ $J_\omega$
 
-计算每一个关节对于连杆N速度的贡献
+计算每一个关节对于连杆 N 速度的贡献
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314234911486.webp)
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314234911486.webp)
 
 #### 平动型关节
+
 若第 $i$ 个关节为平动型关节，则：
 
 $$
 v_N^{(i)} = d_i \hat{Z}_i \quad \omega_N^{(i)} = 0
 $$
-
 
 #### 转动型关节
 
@@ -808,19 +723,17 @@ $$
 
 在三维空间里，角速度定义为一个指向旋转轴的向量，其方向由右手定则确定。
 
-每个旋转关节都是绕自身的z轴旋转的，所以当一个旋转关节转速为$\omega$时，它所contribute的end effector的角速度向量以这个旋转关节本身的坐标系为参照系必然为$[0, 0, \omega]$。
+每个旋转关节都是绕自身的 z 轴旋转的，所以当一个旋转关节转速为$\omega$时，它所 contribute 的 end effector 的角速度向量以这个旋转关节本身的坐标系为参照系必然为$[0, 0, \omega]$。
 
-但是由于基础雅可比矩阵是以frame{0}为参照系的，所以需要将$[0, 0, \omega]$转换到frame{0}下.
+但是由于基础雅可比矩阵是以 frame{0}为参照系的，所以需要将$[0, 0, \omega]$转换到 frame{0}下。
 
 ### 求雅可比矩阵 - 速度传递 - 向外迭代法
 
-
-知道了这样的变换方法，就可以从连杆0，变换到连杆N，一个个地计算速度和角速度
+知道了这样的变换方法，就可以从连杆 0，变换到连杆 N，一个个地计算速度和角速度
 
 向外迭代法是计算机器人几何雅可比矩阵的方法之一
 
-
-#### 转动型关节
+#### 转动型关节求解
 
 角速度：连杆 i+1 针对世界坐标系角速度在{i+1}坐标系的表示
 
@@ -830,10 +743,7 @@ $$
 
 > 其中，$\hat{Z}_{i+1}$ 是轴 $i+1$在 ${i+1}$ 中的表示；${\theta}_{i+1}$ 是转动型关节 $i+1$ 的关节转速。
 
-
-
-
-线速度：连杆i+1 针对世界坐标系线速度在{i+1}坐标系的表示
+线速度：连杆 i+1 针对世界坐标系线速度在{i+1}坐标系的表示
 
 $$
 {}^{i+1}\!v_{i+1} = {^{i+1}_iR} (^iv_i + ^i\omega_i \times {^iP_{i+1}})
@@ -843,7 +753,7 @@ $$
 
 !!! attention "公式不要记错，这里要注意 $^{i+1}_i\!R$ 需要使用 $(^{i}_{i+1}\!R)^T$ 进行求解"
 
-#### 平动型关节
+#### 平动型关节求解
 
 角速度：不变
 
@@ -851,18 +761,13 @@ $$
 ^{i+1}\omega_{i+1} = _i^{i+1}R {^i\omega_i}
 $$
 
-
 线速度：要加一个在轴线上的速度
 
 $$
 ^{i+1}v_{i+1} = _i^{i+1}R (^iv_i + ^i\omega_i \times ^iP_{i+1}) + \dot{d_{i+1}} \hat{Z}_{i+1}
 $$
 
-
-
-
 ### 求雅可比矩阵 - 力传递 - 向内迭代法
-
 
 $$
 \begin{align*}
@@ -871,10 +776,7 @@ $$
 \end{align*}
 $$
 
-
-转动型关节需要考虑施加多少力矩,平动型关节需要考虑施加多少力.需要对(力，力矩)向量进行正交分解
-
-
+转动型关节需要考虑施加多少力矩，平动型关节需要考虑施加多少力。需要对 (力，力矩) 向量进行正交分解
 
 **转动型关节$i$**
 
@@ -888,22 +790,19 @@ $$
 \tau_i = f_i^{\mathrm{T}} \hat{z}_i
 $$
 
-
 将式子写成矩阵的形式，即可得到
 
-$$ 
-\tau = J^T F 
+$$
+\tau = J^T F
 $$
 
 取转置，得到 $\boldsymbol{^iJ}$，是末端坐标系下的雅可比矩阵
 
 但是要注意到，这里的雅可比矩阵需要转到全局下
 
-
 $$
 \boldsymbol{J}(\boldsymbol{\Phi})= ^0_i\boldsymbol{R} \boldsymbol{^iJ}(\boldsymbol{\Phi})
 $$
-
 
 ### 末端给出力/力矩，求解关节力矩
 
@@ -917,11 +816,9 @@ $$
 \tau=J^T F
 $$
 
-
-
 ## 例题
 
-### 5-3 
+### 5-3
 
 若$R\in\text{SO}(3)$，$a\in\mathbb{R}^3$，$B\in\mathbb{R}^{3\times3}$，证明$R(a^\wedge B)=(Ra)^\wedge(RB)$
 
@@ -971,5 +868,3 @@ $$
 $$
 B(\Psi)=\begin{bmatrix}0&-s\alpha&c\alpha c\beta\\0&c\alpha&c\beta s\alpha\\1&0&-s\beta\end{bmatrix}
 $$
-
-

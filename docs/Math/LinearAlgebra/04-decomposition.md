@@ -1,19 +1,17 @@
 # 04 | 矩阵分解
 
-
 ## LDU decomposition
+
 - L: lower triangular matrix
 - D: diagonal matrix
 - U: upper triangular matrix
-
 
 ```matlab
 A = [1 2 3; 4 5 6; 7 8 9];
 [L, D, U] = ldu(A);
 ```
 
-
-## 变换矩阵 
+## 变换矩阵
 
 ### 正交变换
 
@@ -47,23 +45,17 @@ $$
 U^H(x-m_x) = \omega
 $$
 
-
-
-
-
-
 ### 迷向圆变换
 
 最后变换后的向量的协方差矩阵是单位矩阵
 
-随机向量不仅变成了独立的，能量还是1，想当于是白噪声
+随机向量不仅变成了独立的，能量还是 1，想当于是白噪声
 
 所以需要想办法把$\Sigma$变成单位矩阵
 
 $$
 \Sigma^{-\frac{1}{2}} \Sigma \Sigma^{-\frac{1}{2}} = I
 $$
-
 
 $$
 \begin{cases}
@@ -76,27 +68,21 @@ $$
 \omega' = \Sigma^{-\frac{1}{2}} U^H(x-m_x)
 $$
 
+### KL 变换
 
-
-### KL变换
-
-与PCA本质是一样的，但是从信号重构的视角出发
-
+与 PCA 本质是一样的，但是从信号重构的视角出发
 
 $$
 \omega = U^Hx \quad \text{标准正交变换}
 $$
 
-
 信号的重构过程为
-
 
 $$
 \tilde{\omega} = U_M^Hx \longrightarrow \hat{x} = U_M \tilde{\omega}
 $$
 
 重构的最优性
-
 
 $$
 \begin{aligned}
@@ -110,10 +96,9 @@ e &= x- \hat{x} \\
 \end{aligned}
 $$
 
-
 $$
 \begin{aligned}
-\mathbb{E}(e^H e) 
+\mathbb{E}(e^H e)
     &= \mathbb{E}(\omega_e^H U_e^H U_e \omega_e) \\
     &= \mathbb{E}(\omega_e^H \omega_e) \\
     &= \sum_{i=M+1}^D |\omega_i|^2 \\
@@ -121,22 +106,17 @@ $$
 \end{aligned}
 $$
 
-
-
-
-
 ## EVD | 特征分解
 
-处理的一般是 
+处理的一般是
 
 $$
 A = U \Sigma U^H
 $$
 
 - A：数据协方差矩阵
-- U拿出来之后，可以用来降维；
-- 可以用来去相关(标准正交变换)
-
+- U 拿出来之后，可以用来降维；
+- 可以用来去相关 (标准正交变换)
 
 $$
 \{y_n\}_{n=1}^N \xrightarrow{\text{求解协方差}} c = \frac1{N-1} \sum^{N}_{n=1} y_n y_n^H \xrightarrow{\text{EVD}} 下游任务
@@ -148,8 +128,7 @@ $$
 
 [全网最快速的特征向量暴力求法（纯干货技巧）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1aT411E75Q/?spm_id_from=333.337.top_right_bar_window_history.content.click)
 
-[相似对角化太难算，哈-凯定理怒斩A的n次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
-
+[相似对角化太难算，哈 - 凯定理怒斩 A 的 n 次方！（细节拉满了）\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV11P411w716/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
 **求特征值**：
 
@@ -162,7 +141,7 @@ $$
 **构造对角矩阵和特征向量矩阵**：
 
 - 对角矩阵 $\Lambda$：
-    
+
 $$
 \Lambda = \begin{bmatrix}
 \lambda_1 & 0 & \cdots & 0 \\
@@ -171,7 +150,7 @@ $$
 0 & 0 & \cdots & \lambda_n
 \end{bmatrix}
 $$
-    
+
 - 特征向量矩阵 $P$：
 
 $$
@@ -186,11 +165,9 @@ $$
 
 - 验证 $A = P \Lambda P^{-1}$ 是否成立。
 
+### Hermitian 矩阵特征分解
 
-
-### Hermitian矩阵特征分解
-
-设 $X$ 是一个 $n \times n$ 的 Hermitian 矩阵, 特征值分解 (Eigenvalue Decomposition, EVD) 可以写成:
+设 $X$ 是一个 $n \times n$ 的 Hermitian 矩阵，特征值分解 (Eigenvalue Decomposition, EVD) 可以写成：
 
 $$
 X = U \Sigma U^H = [u_1 \quad u_2 \cdots \quad u_n] \begin{bmatrix}
@@ -206,9 +183,8 @@ u_n^H
 \end{bmatrix} = \sum_{i=1}^{n} \lambda_i u_i u_i^H
 $$
 
-这里:
+这里：
 $u_1, u_2, ..., u_n$ 是矩阵的特征向量; $\lambda_1, \lambda_2, ..., \lambda_n$ 是矩阵的特征值
-
 
 ### PCA | 主成分分析
 
@@ -222,53 +198,49 @@ $$
 - 原始数据向量：$\mathbf{x}_n\in R^{D\times1}$
 - 降维后的向量：$\mathbf{z}_n\in R^M\times1$
 
-
-**主成分分析(PCA):**
-
+**主成分分析 (PCA):**
 
 PCA 是一种基于特征分解的统计技术，用于简化数据集的复杂性，同时保留尽可能多的方差 (信息)。它通过找到数据集中方差最大的方向 (主成分),将高维数据投影到这些方向上，实现降维。
-
-
 
 对于样本 $\{x_n\}_{n=1}^N$，PCA 的步骤如下：
 
 1. **计算数据均值向量（或中心化）：**
-   
-$$
-\mu = \frac{1}{N} \sum_{n=1}^N x_n
-$$
+
+    $$
+    \mu = \frac{1}{N} \sum_{n=1}^N x_n
+    $$
 
 2. **估计协方差矩阵：**
-   
-$$
-\widehat{C} = \frac{1}{N-1} \sum_{n=1}^N (x_n - \mu)(x_n - \mu)^H
-$$
 
-3. **对协方差矩阵 $\widehat{C}$ 进行特征值分解EVD：**
-   
-$$
-\widehat{C} = U \Sigma U^H
-$$
+    $$
+    \widehat{C} = \frac{1}{N-1} \sum_{n=1}^N (x_n - \mu)(x_n - \mu)^H
+    $$
 
-或者写为
+3. **对协方差矩阵 $\widehat{C}$ 进行特征值分解 EVD：**
 
-$$
-\widehat{C} = 
-\begin{bmatrix}
-u_1 & u_2 & \cdots & u_n
-\end{bmatrix}
-\begin{bmatrix}
-\lambda_1 & 0 & \cdots & 0 \\
-0 & \lambda_2 & \cdots & 0 \\
-\vdots & \vdots & \ddots & \vdots \\
-0 & 0 & \cdots & \lambda_n
-\end{bmatrix}
-\begin{bmatrix}
-u_1 & u_2 & \cdots & u_n
-\end{bmatrix}^H
-$$
+    $$
+    \widehat{C} = U \Sigma U^H
+    $$
 
-其中 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n$。
+    或者写为
+
+    $$
+    \widehat{C} =
+    \begin{bmatrix}
+    u_1 & u_2 & \cdots & u_n
+    \end{bmatrix}
+    \begin{bmatrix}
+    \lambda_1 & 0 & \cdots & 0 \\
+    0 & \lambda_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \lambda_n
+    \end{bmatrix}
+    \begin{bmatrix}
+    u_1 & u_2 & \cdots & u_n
+    \end{bmatrix}^H
+    $$
+
+    其中 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_n$。
 
 4. **降维：**  
 若从 $D$ 维降到 $M$ 维，则选择最大的前 $M$ 个特征值对应的特征向量，构成投影矩阵：
@@ -286,7 +258,6 @@ $$
 ---
 
 核心思想：降维后，数据方差最大
-
 
 上述过程等价于求解二次型的有约束极值问题：
 
@@ -324,31 +295,22 @@ $$
 
 因此，取最大的特征值 $\lambda_1$ 时 $f(\Phi_1)$ 最大，此时 $\Phi_1$ 为最大特征值对应的特征向量 $\mathbf{u}_1$。
 
-
-
 ## SVD | 奇异值分解
 
 能否跳过协方差矩阵的计算？直接对数据向量$\{y_n\}_{n=1}{N}$进行操作？
 
-
-
-
-
 如何对非方阵进行分解？
-
-
 
 $$
 A = U \Sigma V^H
 $$
-
 
 - $U^HU = UU^H = I$     左奇异向量
 - $V^HV = VV^H = I$     右奇异向量
 - $\Sigma \in \mathbb{C}^{m \times n}$ 对角线上的元素是奇异值，不是方阵
 
 $$
-\Sigma_{m\times n} = 
+\Sigma_{m\times n} =
 \begin{bmatrix}
 \sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
 0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0 \\
@@ -366,19 +328,13 @@ $$
 
 $\sigma_i$ 是奇异值，$r$ 是秩
 
-
-
-
-
-
-
 ### 性质
 
 $$
 \begin{aligned}
-&\text{Y是方阵} \qquad && Y = U\Sigma U^H \\
+&\text{Y 是方阵} \qquad && Y = U\Sigma U^H \\
 &&& Y^2 = U\Sigma^2 U^H \\[1.5ex]
-&\text{Y不是方阵} \quad Y_{m\times n} \qquad && Y = U\Sigma V^H \\
+&\text{Y 不是方阵} \quad Y_{m\times n} \qquad && Y = U\Sigma V^H \\
 &&& YY^H = U\Sigma V^H V \Sigma^H U^H \\
 &&& \phantom{YY^H} = U \Sigma \Sigma^H U^H \\
 &&& \phantom{YY^H} = U
@@ -395,8 +351,7 @@ $$
 \end{aligned}
 $$
 
-### 计算方法
-
+### SVD 计算方法
 
 $$
 \{y_n\}_{n=1}^N \xrightarrow{\text{SVD}} Y = U\Sigma V^H \rightarrow \begin{cases}
@@ -405,27 +360,19 @@ U_r{\color{red}{m\times r}} \quad PCA/KL\\
 \end{cases}
 $$
 
-
-
-
-
-
-* $Y Y^H = U \Sigma V^H V \Sigma^H U^H = U \Sigma^2 U^H$
+- $Y Y^H = U \Sigma V^H V \Sigma^H U^H = U \Sigma^2 U^H$
   - 构造矩阵$Y Y^H$
-  - 对$Y Y^H$进行特征值分解EVD，得到特征值$\lambda_i$和特征向量$u_i$
+  - 对$Y Y^H$进行特征值分解 EVD，得到特征值$\lambda_i$和特征向量$u_i$
   - $\sigma_i = \sqrt{\lambda_i}$
 
 - $Y^H Y = V \Sigma^H U^H U \Sigma V^H = V \Sigma^2 V^H$
   - 构造矩阵$Y^H Y$
-  - 对$Y^H Y$进行特征值分解EVD，得到特征值$\lambda_i$和特征向量$v_i$
+  - 对$Y^H Y$进行特征值分解 EVD，得到特征值$\lambda_i$和特征向量$v_i$
   - $\sigma_i = \sqrt{\lambda_i}$
 
-注意，奇异值的定义中就是大于0的
+注意，奇异值的定义中就是大于 0 的
 
 ### 直观理解
-
-
-
 
 变换 = 旋转和伸缩组合
 
@@ -441,21 +388,20 @@ $$
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=652439242&bvid=BV1YY4y1U7UX&cid=1024031413&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
-
 作用：求解逆矩阵、伪逆矩阵
 
-### 截断SVD(truncated SVD)
+### 截断 SVD(truncated SVD)
 
 $$
 \begin{aligned}
-Y_{\color{red}{m\times n}} 
-    &= U_{\color{red}{m\times m}} 
+Y_{\color{red}{m\times n}}
+    &= U_{\color{red}{m\times m}}
         \begin{bmatrix}
             \Sigma_{\color{red}{r\times r}} & O \\
             O & O
-        \end{bmatrix}_{\color{red}{m\times n}} 
+        \end{bmatrix}_{\color{red}{m\times n}}
         V_{\color{red}{n\times n}}^H \\[1.5ex]
-    &= 
+    &=
         \begin{bmatrix}
             {U_r}_{\color{red}{m\times r}} & X
         \end{bmatrix}
@@ -474,25 +420,15 @@ $$
 r \leq \min(m, n)
 $$
 
-
 可以实现数据的压缩
 
-
-
-
-
-
-
-
-```c title="matlab代码"
+```c title="matlab 代码"
 svd(Y,'econ')
 ```
 
 econ: economic mode
 
-
-
-### 应用1 - 求伪逆矩阵
+### 应用 1 - 求伪逆矩阵
 
 $$
 \Sigma^\dagger = \begin{bmatrix}
@@ -501,11 +437,9 @@ O & O
 \end{bmatrix}
 $$
 
-
-
-
 #### 左逆
-首先对$A$进行SVD分解
+
+首先对$A$进行 SVD 分解
 
 $$
 A_{\color{red}{m\times n}} = U_{\color{red}{m\times m}} \begin{bmatrix}
@@ -531,15 +465,10 @@ O
 \end{bmatrix}V^H}
 $$
 
-
 $$
 m \leq n \quad \text{且} \quad \text{rank}(A) = m \quad \text{列满秩}\\
 L = V \Sigma^\dagger U^H
 $$
-
-
-
-
 
 #### 右逆
 
@@ -557,8 +486,8 @@ rank(A) < \min(m, n) \quad \text{秩亏}\\
 A^\dagger = V \Sigma^\dagger U^H
 $$
 
+### 应用 2 - 求范数
 
-### 应用2 - 求范数
 !!! note "酉变换的性质"
       主要使用“酉矩阵不改变向量的范数”这一性质
 
@@ -568,7 +497,6 @@ $$
       \langle Ux, Uy \rangle = \langle x, y \rangle\\
       ||Ux||_2 = ||x||_2\\
       $$
-
 
 **谱范数**
 
@@ -587,7 +515,7 @@ $$
 \|Ax_{\mathrm{opt}}\|^2=\lambda_{\max}=\sigma_{\max}^2
 $$
 
-**F范数**
+**F 范数**
 
 $$
 \begin{aligned}
@@ -598,10 +526,7 @@ $$
 \end{aligned}
 $$
 
-
-
-
-### 应用3 - SVD图像降噪
+### 应用 3 - SVD 图像降噪
 
 !!! note "图像本身就是一个矩阵"
 
@@ -612,7 +537,6 @@ $$
     $$
     Y = X + N
     $$
-
 
 $$
 \begin{aligned}
@@ -629,16 +553,14 @@ $$
 \hat{X} = \sum_{i=1}^{r} \tilde{\sigma}_i \tilde{u}_i \tilde{v}_i^H
 $$
 
+### 应用 4 - 矩阵低秩逼近
 
-
-### 应用4 - 矩阵低秩逼近
-
-需求: $P \leq r$, rank-P 矩阵 $\hat{Y}$,使得$Y$与$\hat{Y}$最接近
+需求：$P \leq r$, rank-P 矩阵 $\hat{Y}$,使得$Y$与$\hat{Y}$最接近
 
 问题建模
 
 $$
-Y_{\color{red}{m\times n}} \xrightarrow{\text{SVD}} Y = U\Sigma V^H \xrightarrow{\text{截断SVD}} \hat{Y} = U_r \Sigma_r V_r^H\\
+Y_{\color{red}{m\times n}} \xrightarrow{\text{SVD}} Y = U\Sigma V^H \xrightarrow{\text{截断 SVD}} \hat{Y} = U_r \Sigma_r V_r^H\\
 \sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r > 0 \quad \text{且} \quad \text{rank}(A) = r \leq \min(m, n)\\
 $$
 
@@ -651,10 +573,10 @@ $$
 
 $$
 Y = U_r \Sigma_r V_r^H = \sum_{i=1}^{r} \sigma_i u_i v_i^H\\
-\hat{Y} = \sum_{i=1}^{P} \sigma_i u_i v_i^H \quad (P \leq r)\quad \text{是} Y \text{的} P \text{阶最佳逼近}\\ 
+\hat{Y} = \sum_{i=1}^{P} \sigma_i u_i v_i^H \quad (P \leq r)\quad \text{是} Y \text{的} P \text{阶最佳逼近}\\
 $$
 
-把截断SVD的前p个分量取出来
+把截断 SVD 的前 p 个分量取出来
 
 逼近误差 approximation error
 
@@ -672,12 +594,10 @@ $$
 
 有效秩（$P$）的确定：是一个超参数调优的问题
 
-- P过大，overfit noise
-- P过小，underfit data
+- P 过大，overfit noise
+- P 过小，underfit data
 
-
-
-SNR较大的时候，使用拐点图
+SNR 较大的时候，使用拐点图
 
 - 归一化奇异值方法
 
@@ -697,20 +617,8 @@ $$
 V(P) \geq \alpha, \quad \alpha  = 0.9,0.95 \cdots
 $$
 
-SNR较低，贝叶斯低秩分解
+SNR 较低，贝叶斯低秩分解
 
+## 张量 CP 分解
 
-
-
-
-
-## 张量CP分解
-
-张量分解是矩阵分解的推广，矩阵是2阶张量，向量是1阶张量，标量是0阶张量
-
-
-
-
-
-
-
+张量分解是矩阵分解的推广，矩阵是 2 阶张量，向量是 1 阶张量，标量是 0 阶张量

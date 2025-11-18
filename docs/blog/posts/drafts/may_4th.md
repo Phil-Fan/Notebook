@@ -5,7 +5,7 @@ nostatistics: true
 draft: true
 ---
 
-# May the 4th be with you!
+# May the 4th be with you
 
 Happy Star Wars Day to all!
 

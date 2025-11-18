@@ -3,47 +3,44 @@ status: happy
 comments: True
 ---
 
-# Latex备忘录
+# Latex 备忘录
 
-!!! attention "本文写于2024年，有些信息可能有些过时，请注意甄别"
+!!! attention "本文写于 2024 年，有些信息可能有些过时，请注意甄别"
 
 ## Overleaf | 边学边用的使用指南
 
-最早是看到98上发的有关latex的帖子，说可以快速高效地写实验报告。也从雪松前辈发的模版中学习到一些latex排版的基础知识。再加上去年《数学软件》短学期老妖的一些小作业的磨炼，可以说对latex的基本用法有了浅薄的了解。这个学期的所有课程作业报告和论文就没有使用过word了（真香啊:laughing:）。
+最早是看到 98 上发的有关 latex 的帖子，说可以快速高效地写实验报告。也从雪松前辈发的模版中学习到一些 latex 排版的基础知识。再加上去年《数学软件》短学期老妖的一些小作业的磨炼，可以说对 latex 的基本用法有了浅薄的了解。这个学期的所有课程作业报告和论文就没有使用过 word 了（真香啊:laughing:）。
 
 !!! tip "趁手的工具才是最好的工具"
 
 !!! note "为什么要写这一个章节"
     众所周知，大学中有很多课程都需要写实验报告/解题报告/小作业报告/论文等等，除却写作内容，排版也是非常令人头疼的一部分。常用的排版工具有两大类，一类是以word为代表的“所见即所得”式，另一类是像LaTeX这样子的“所想即所得”的编程式排版。
 
-	发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。而在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。笔者LaTeX水平不高，目的就是想要快点把实验报告写掉:laughing:，中间也花了很多时间迭代几个模版，所以就有了这个笔记+分享性质的章节。
+ 发现身边有很多朋友并不是非常会排版，或者是排版会花费很多时间。而在现行的评价体系下，在内容质量大致相似的情况下，图文并茂，排版整洁的作业印象分一定会高不少。笔者 LaTeX 水平不高，目的就是想要快点把实验报告写掉:laughing:，中间也花了很多时间迭代几个模版，所以就有了这个笔记 + 分享性质的章节。
 
     这一个章节面向0 LaTeX 基础小白，使用`overleaf`平台，希望实现的效果是基本掌握后，只用15-20min就能完成日常论文/实验报告作业的排版。
 
-
-
-
-=== "我为什么要用latex"
+=== "我为什么要用 latex"
     - 复用性高，所有设置都比较明晰 :yellow_heart:
     - 只要做一个称心如意的模版，便可以**专注于内容本身，而将麻烦的排版交给编译器**:full_moon_with_face:
-    - 良好的公式体验：公式编辑较word方便和美观太多
+    - 良好的公式体验：公式编辑较 word 方便和美观太多
     - 公式、图表、参考文献可以自动标号
 
-    当然，它也有一些缺点，比如图片排版较为复杂，调一个符合要求的模版比较困难，但是在当今LLM比较发达的今天，很多语法和格式问题都可以丢给AI来解决。
+    当然，它也有一些缺点，比如图片排版较为复杂，调一个符合要求的模版比较困难，但是在当今 LLM 比较发达的今天，很多语法和格式问题都可以丢给 AI 来解决。
 
-=== "我为什么要用overleaf"
+=== "我为什么要用 overleaf"
     - 不用进行包管理、环境配置简单、打开网址就可以用
     - 云端自动保存、不怕写了半天的论文突然消失
     - 有很多模版供使用
 
-这里分享4个我自己魔改的模版，基本上覆盖到了大部分的日常学习场景。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629181605.webp)
+这里分享 4 个我自己魔改的模版，基本上覆盖到了大部分的日常学习场景。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629181605.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629181704.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629181704.webp)
 
 - [Template1：日常课程小作业](https://www.overleaf.com/read/hqckgzcdwscq#d182d9)
 - [Template2：中文课程论文](https://www.overleaf.com/read/yqgsngdxvvcd#a149e2)
-- [Template3：实验报告](https://www.overleaf.com/read/zxmwdhtbssrf#ee235c) 按照嵌入式系统等一些课程给的word模版改编
+- [Template3：实验报告](https://www.overleaf.com/read/zxmwdhtbssrf#ee235c) 按照嵌入式系统等一些课程给的 word 模版改编
 - [Template4：实验报告](https://www.overleaf.com/read/kjpmbgxvmcwr#e6e432)  这一个是笔者使用频率最高的模版。
 
 使用模版的时候，**点击复制按钮，将模版复制一份使用**！
@@ -68,14 +65,12 @@ comments: True
 
 `ctrl+B`:加粗
 
-`ctrl+/`:注释，latex中的注释是以`%`开头的，
+`ctrl+/`:注释，latex 中的注释是以`%`开头的，
 
 ```latex
 % 我是一行注释
 \section{} %我是一句注释
 ```
-
-
 
 ### 个人信息
 
@@ -85,7 +80,7 @@ comments: True
 
 ### 标题与小标题
 
-一般不建议使用3-4甚至更高的标题
+一般不建议使用 3-4 甚至更高的标题
 
 ```latex
 \section{} % 我是一级标题
@@ -93,18 +88,16 @@ comments: True
 \subsubsection{} % 我是三级标题
 ```
 
-
-
 ### 表格
 
-- latex表格比较麻烦，一种简单快捷的方式是使用其他软件（excel、tableau）直接生成表格，另存为图片格式复制进latex中（最简单省时）
-- 如果你还是想在latex中打表格 :laughing: ，推荐一个网站[Create LaTeX tables online – TablesGenerator.com](https://www.tablesgenerator.com/#)，在excel中打好之后。复制到这个网站中，点击`generate`，把生成的代码复制进编辑区域
+- latex 表格比较麻烦，一种简单快捷的方式是使用其他软件（excel、tableau）直接生成表格，另存为图片格式复制进 latex 中（最简单省时）
+- 如果你还是想在 latex 中打表格 :laughing: ，推荐一个网站[Create LaTeX tables online – TablesGenerator.com](https://www.tablesgenerator.com/#)，在 excel 中打好之后。复制到这个网站中，点击`generate`，把生成的代码复制进编辑区域
+
 > 有时候会遇到一些奇怪的问题
-- 还可以使用`excel2latex`等excel的插件，不过感觉使用体验没有第二种方法好。
+
+- 还可以使用`excel2latex`等 excel 的插件，不过感觉使用体验没有第二种方法好。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240628205446618.webp" alt="image-20240628205446618" style="zoom:33%;" />
-
-
 
 ### 图片怎么插入
 
@@ -120,7 +113,7 @@ comments: True
     \centering
     \includegraphics[width=0.5\linewidth]{figures/example.png} % 数字表示放缩比例
     \caption{Enter Caption} % 图片标题
-    \label{fig:enter-label} % 图片tag，用于交叉引用
+    \label{fig:enter-label} % 图片 tag，用于交叉引用
 \end{figure}
 ```
 
@@ -128,8 +121,6 @@ comments: True
 
 - 如图，`folder location`请放在`figures`这个文件夹下，你可以在左侧的列表中看到。
 - 请在`\begin{figure}`后边加上`[htbp]`!
-
-
 
 **如何插入并排的图片**
 
@@ -143,24 +134,22 @@ comments: True
     \begin{minipage}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{example}
-        \caption{非子图并排题注1}
+        \caption{非子图并排题注 1}
     \end{minipage}%
     \begin{minipage}[b]{0.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{example}
-        \caption{非子图并排题注2}
+        \caption{非子图并排题注 2}
     \end{minipage}
 \end{figure}
 ```
 
-
-
-**如何插入2x2，3个并排或者其他类型**
+**如何插入 2x2，3 个并排或者其他类型**
 
 在`pic.tex`文件中，由多种图片展示形式，选择你想要的形式，将代码复制到主文件下，把`\includegraphics[width=0.5\linewidth]{figures/example.png}`这一行改成你想要的图片的路径。
 
-
 ****
+
 ### 参考文献如何设置
 
 `latex`中的参考文献是使用`bibtex`，什么意思呢？就是要用类似下面的语句来声明一个你要引用的文献
@@ -178,15 +167,13 @@ comments: True
 这种格式如何获取呢？
 
 === "方式一：从你找到论文的网页获取"
-	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240628210459330.webp" alt="image-20240628210459330" style="zoom: 50%;" />
+ <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240628210459330.webp" alt="image-20240628210459330" style="zoom: 50%;" />
 
-=== "方式2：使用`endnote`或者`zotero`等文献管理软件"
-	<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240628210840951.webp" alt="image-20240628210840951" style="zoom:50%;" />
+=== "方式 2：使用`endnote`或者`zotero`等文献管理软件"
+ <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240628210840951.webp" alt="image-20240628210840951" style="zoom:50%;" />
 
-=== "方式3——GPT"
-	你已经有了一版参考文献的列表，但是你懒得一个一个去知网找了；打开任意一个大模型，输入你的参考文献的列表，说"请把上边的参考文献改写成为bibtex的格式"
-
-
+=== "方式 3——GPT"
+ 你已经有了一版参考文献的列表，但是你懒得一个一个去知网找了；打开任意一个大模型，输入你的参考文献的列表，说"请把上边的参考文献改写成为 bibtex 的格式"
 
 获取之后，请把对应的代码放在`ref.bib`文件下，这个代码中的`number1`可以改成任何你记得住的数字或者字符，相当于给这个参考文献一个名字。
 
@@ -200,64 +187,57 @@ comments: True
 }
 ```
 
-
-
 **在文中如何引用呢？**
 
-在准备好上面的文献列表以后，在文中想要插入引用文献的地方打`\cite{xxx}`命令，xxx就是你刚才给文献取的名字。
+在准备好上面的文献列表以后，在文中想要插入引用文献的地方打`\cite{xxx}`命令，xxx 就是你刚才给文献取的名字。
 
 ### 交叉引用
 
-你的论文或许有这样的片段——“如图1所示” “由表1可知”
+你的论文或许有这样的片段——“如图 1 所示” “由表 1 可知”
 
-但是如果你的图片不止一张，或者你在这张图片前面又加了一张图片，那顺序不就乱了吗？难道还要一个一个手动编号吗！！！？:sob: 
+但是如果你的图片不止一张，或者你在这张图片前面又加了一张图片，那顺序不就乱了吗？难道还要一个一个手动编号吗！！！？:sob:
 
 当然不用！:laughing:
 
-聪明的你可能注意到了，在刚才图片或者表格的代码当中，有一行是`label`，这一行的名字就相当于图片的tag。
+聪明的你可能注意到了，在刚才图片或者表格的代码当中，有一行是`label`，这一行的名字就相当于图片的 tag。
 
 ```latex
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/example.png} % 数字表示放缩比例
     \caption{Enter Caption} % 图片标题
-    \label{xxxx} % 图片tag，用于交叉引用
+    \label{xxxx} % 图片 tag，用于交叉引用
 \end{figure}
 ```
 
-`如图1所示`——就可以改写成`如图\ref{xxxx}所示`，其中`xxxx`是你要交叉引用的对象的label
-
+`如图1所示`——就可以改写成`如图\ref{xxxx}所示`，其中`xxxx`是你要交叉引用的对象的 label
 
 ### 公式
-这点应该是latex的强项了
+
+这点应该是 latex 的强项了
 可以依照参考文献中的资料，自己学习一下相关语法
 
 遇到不会的上网搜索一下，应该问题不大。
 
-推荐一个小工具 https://www.latexlive.com/
-
+推荐一个小工具 <https://www.latexlive.com/>
 
 ### 共享与同步
 
 点击右上角的`share`按钮，就可以打开共享链接，分为两种权限——只读和可编辑。发给同伴以后就可以一起编辑了。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629191400.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240629191400.webp)
 
 ### 其他
 
 至此，你已经可以使用上面的功能去编辑一篇有模有样的论文了。快去试试吧！
 
-要记住的是，使用一种新的工具，遇到问题是很正常的事情。遇到问题先自行排查问题原因，搜索解决方案，这也是学习LaTeX的很好途径。
+要记住的是，使用一种新的工具，遇到问题是很正常的事情。遇到问题先自行排查问题原因，搜索解决方案，这也是学习 LaTeX 的很好途径。
 
-除了Overleaf，你还可以去探索LaTeX本地环境的构建、新兴语言Typst等，就不在本文的讨论范围内了。
+除了 Overleaf，你还可以去探索 LaTeX 本地环境的构建、新兴语言 Typst 等，就不在本文的讨论范围内了。
 
-如果遇到了解决不了的问题，先上网搜有没有相似的问题，再问问GPT。也可以在98上发帖求助，但先看一下[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)这两篇文章
+如果遇到了解决不了的问题，先上网搜有没有相似的问题，再问问 GPT。也可以在 98 上发帖求助，但先看一下[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)这两篇文章
 
-
-
-
-
-### 拓展阅读 & 98资源整合
+### 拓展阅读 & 98 资源整合
 
 感谢各位前辈的分享！
 
@@ -301,18 +281,15 @@ comments: True
 
     [合法免费白嫖 Overleaf 高级会员方法，解决编译时间限制问题（已失效）](https://www.cc98.org/topic/5749388)
 
-
-
 ## 本地环境配置
-!!! attention "本章节是本地环境的部署，如果您想使用在线环境or配环境苦手，请跳过"
 
+!!! attention "本章节是本地环境的部署，如果您想使用在线环境 or 配环境苦手，请跳过"
 
-### Texlive | Linux 的 `LaTeX `环境
+### Texlive | Linux 的 `LaTeX`环境
 
 [CTAN/systems/texlive/Images/ | 清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
 
-
-```shell title="验证md5"
+```shell title="验证 md5"
 md5sum texlive2025.iso
 ```
 
@@ -337,15 +314,12 @@ deghijkstuvwxyznoABCEHIKLMNS
 
 输入`I`开始安装，精简版本大概十几分钟
 
-
-
-
 ```shell title="如果缺少包，可以手动安装"
 tlmgr install <package>
 ```
 
 ```shell title="弹出并删除/mnt/texlive"
-sudo umount /mnt/texlive	
+sudo umount /mnt/texlive 
 sudo rm -r /mnt/texlive
 ```
 
@@ -370,11 +344,10 @@ sudo cp /usr/local/texlive/2025/texmf-var/fonts/conf/texlive-fontconfig.conf /et
 sudo fc-cache -fsv
 ```
 
-
 [TeX Live 2025 安装教程（Windows/WSL/Linux） - Eslzzyl - 博客园](https://www.cnblogs.com/eslzzyl/p/17358405.html)
-[TeX Live宏包集合和自定义安装 - 知乎](https://zhuanlan.zhihu.com/p/133984428)
+[TeX Live 宏包集合和自定义安装 - 知乎](https://zhuanlan.zhihu.com/p/133984428)
 
-### `TexLive` | windows 的 `LaTeX `环境
+### `TexLive` | windows 的 `LaTeX`环境
 
 #### Texlive 安装
 
@@ -384,22 +357,19 @@ sudo fc-cache -fsv
 This browser does not support PDFs
 </iframe>
 
-
 [Installing TeX Live over the Internet - TeX Users Group (tug.org)](https://www.tug.org/texlive/acquire-netinstall.html)
 
 [CTAN | ZJU Mirror](https://mirror.zju.edu.cn/docs/CTAN/)
 
-
-
 在进入安装界面前，可以选择镜像源
 
-安装texworks前端可以不选
+安装 texworks 前端可以不选
 
-texlive安装比较慢，需要耐心等待
+texlive 安装比较慢，需要耐心等待
 
-安装后，搜索“查看高级系统设置”，修改环境变量，将texlive安装目录下的`bin/windows`目录加入到系统环境变量中
+安装后，搜索“查看高级系统设置”，修改环境变量，将 texlive 安装目录下的`bin/windows`目录加入到系统环境变量中
 
-然后在cmd中输入`tex -v`，如果出现版本号，说明安装成功
+然后在 cmd 中输入`tex -v`，如果出现版本号，说明安装成功
 
 ```shell title="验证代码"
 tex -v
@@ -408,21 +378,20 @@ xelatex -v
 bibtex -v
 ```
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110729.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110729.webp)
 
 #### Texstudio 下载
 
 [Releases · texstudio-org/texstudio](https://github.com/texstudio-org/texstudio/releases/)
 
-- 将语言设置为中文。依次选择Opitions->Configure TeXstudio
+- 将语言设置为中文。依次选择 Opitions->Configure TeXstudio
 
-- 修改中文界面后，我们可以选择左侧命令设置不同编译器，外部PDF查看器，和参看文献的执行程序。点击1处，可以将上述提到的3，4，5等的路径设置为TeXlive安装路径下对应的exe执行程序。点击2处，就可恢复默认。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904105850.webp)
--  默认编译器、默认PDF查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、PDF查看器和默认文献工具等。若写中文论文，则需修改默认编译器为XelaTeX. 若为英文，则用PdfLaTex。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904105924.webp)
-- 设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为UTF-8（一般不修改）。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110012.webp)
-
+- 修改中文界面后，我们可以选择左侧命令设置不同编译器，外部 PDF 查看器，和参看文献的执行程序。点击 1 处，可以将上述提到的 3，4，5 等的路径设置为 TeXlive 安装路径下对应的 exe 执行程序。点击 2 处，就可恢复默认。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904105850.webp)
+- 默认编译器、默认 PDF 查看器、默认文献工具等设置；点击构建选项，可以修改默认编译器、PDF 查看器和默认文献工具等。若写中文论文，则需修改默认编译器为 XelaTeX. 若为英文，则用 PdfLaTex。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904105924.webp)
+- 设置默认字体编码和添加行号：点击编辑器选项，一般默认字体编码为 UTF-8（一般不修改）。显示行号默认：所有行号。添加行号，可以快速定位某个词或句的位置。此外，当程序报错时，可快速定位到出错位置，方便修改。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110012.webp)
 
 ```latex title="测试代码"
 \documentclass{article}
@@ -452,29 +421,27 @@ If you can see this document with the title, sections, and the equation above, t
 ```
 
 编译后显示下面的页面，说明编译成功
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110244.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240904110244.webp)
 
 **参考文献编译**
 
-在设置页面，选择bibtex为默认
+在设置页面，选择 bibtex 为默认
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240731211334.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240731211334.webp)
 
-对于texstudio来说，应该是F6+F8+F6+F6
+对于 texstudio 来说，应该是 F6+F8+F6+F6
 
-### MacTex ｜ MacOS 上的LaTeX环境
+### MacTex ｜ MacOS 上的 LaTeX 环境
 
-mac 上安装mactex非常方便
+mac 上安装 mactex 非常方便
 
-```shell title="brew安装mactex"
+```shell title="brew 安装 mactex"
 brew install mactex --cask
 ```
 
 要等比较久，可以先开着去做其他事情
 
-会自己下一个Texshop，可以验证一下是否安装成功了
-
+会自己下一个 Texshop，可以验证一下是否安装成功了
 
 ```latex
 \documentclass{article}
@@ -514,12 +481,11 @@ brew install mactex --cask
 \end{document}
 ```
 
-
 ```shell title="安装字体"
 brew install font-awesome
 ```
 
-```shell title="更新texlive"
+```shell title="更新 texlive"
 sudo tlmgr update --self
 ```
 
@@ -529,27 +495,26 @@ sudo tlmgr install fandol
 
 > 参考资料： [macOS 配置 LaTeX—MacTeX+TeXstudio/VS Code - 知乎](https://zhuanlan.zhihu.com/p/407527454)
 
-
 ### `LaTeX` + `Latex Workshop` + VScode
 
 > **参考资料**
 > [论文神器 VS Code + LaTex + LaTex Workshop](https://blog.csdn.net/qq_41140138/article/details/125966870)
 > [VS Code Latex 极为简单方便的正反向定位解决办法](https://blog.csdn.net/daodao098/article/details/140791192)
 
-
 #### setting 配置
+
 下载`Latex Workshop`插件。
 
 按`ctrl+,`进入设置，点击右上角的“白纸”图标，选择`setting.json`。
 
 在`setting.json`中加入以下语句
 
-添加完成后，**重新启动VScode**。
+添加完成后，**重新启动 VScode**。
 
 ```json
 // LATEX settings
 "editor.minimap.enabled": true,
-"latex-workshop.latex.tools": [	
+"latex-workshop.latex.tools": [ 
     {
         "name": "pdflatex",
         "command": "pdflatex",
@@ -631,9 +596,9 @@ sudo tlmgr install fandol
     "*.log",
     "*.fdb_latexmk"
 ],
-//tex文件浏览器，可选项为"none" "browser" "tab" "external"
+//tex 文件浏览器，可选项为"none" "browser" "tab" "external"
 "latex-workshop.view.pdf.viewer": "tab",
-//自动编译tex文件
+//自动编译 tex 文件
 "latex-workshop.latex.autoBuild.run": "onFileChange",
 //显示内容菜单：（1）编译文件；（2）定位游标
 "latex-workshop.showContextMenu": true,
@@ -643,11 +608,11 @@ sudo tlmgr install fandol
 "latex-workshop.message.warning.show": false,
 //从使用的包中自动补全命令和环境
 "latex-workshop.intellisense.package.enabled": true,
-//设置为never，为不清除辅助文件
+//设置为 never，为不清除辅助文件
 "latex-workshop.latex.autoClean.run": "never",
-//设置vscode编译tex文档时的默认编译链
+//设置 vscode 编译 tex 文档时的默认编译链
 "latex-workshop.latex.recipe.default": "lastUsed",
-// 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击(默认)或双击
+// 用于反向同步的内部查看器的键绑定。ctrl/cmd +点击 (默认) 或双击
 // ctrl-click 代表 ctrl + 左键单击
 // double-click 代表左键双击反向定位
 "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
@@ -661,14 +626,14 @@ sudo tlmgr install fandol
 
 #### **反向定位**
 
-在 VS Code 中选择 快捷键设置 （`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
-
+在 VS Code 中选择 快捷键设置（`Keyboard Shortcuts`），搜索 `SyncTeX from cursor` ”`，将对应的快捷键改成你想要的组合，保存之后就可以通过快捷键组合实现反向搜索。
 
 #### **快捷键**
 
 F1  输入`Open Keyboard Shortcuts`
 
 在`keybindings.json`中加入
+
 ```json title="快捷键，可以自己改key binding"
 {
     "key": "cmd+b",
@@ -699,29 +664,25 @@ F1  输入`Open Keyboard Shortcuts`
 
     [教程](https://blog.csdn.net/weixin_40935730/article/details/121680692)
 
-
-!!! attention "个人感觉vsc里面的报错不是特别智能，查看problem报错有时候定位不到问题"
+!!! attention "个人感觉 vsc 里面的报错不是特别智能，查看 problem 报错有时候定位不到问题"
     总结几个常见的报错：
     - 图片位置错误/路径错误
     - 没有闭合的括号或者指令
 
     可以先把图片注释掉，看看能不能调好
 
-点击左侧的编译和查看pdf，就可以啦~
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240630191728.webp)
+点击左侧的编译和查看 pdf，就可以啦~
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20240630191728.webp)
 
 ### `IguanaTex` | LaTeX in PPT
 
-!!! attention "mac平台的keynote本身自带latex功能；windows平台的powerpoint的公式对于latex的支持比较一般，使用体验较差； 如果windows有展示公式的需求且比较反感公式截图，可以考虑beamer或者reveal-md 制作slides"
+!!! attention "mac 平台的 keynote 本身自带 latex 功能；windows 平台的 powerpoint 的公式对于 latex 的支持比较一般，使用体验较差；如果 windows 有展示公式的需求且比较反感公式截图，可以考虑 beamer 或者 reveal-md 制作 slides"
 
-
-假设已经安装好了Texlive
+假设已经安装好了 Texlive
 
 [IguanaTex - A Free Latex Add-In for PowerPoint on Windows and Mac (jonathanleroux.org)](https://www.jonathanleroux.org/software/iguanatex/)
 
 **注意设置好路径**
-
-
 
 #### [`GhostScript`](https://ghostscript.com/releases/gsdnld.html) and [`ImageMagick`](https://www.imagemagick.org/script/download.php#windows)
 
@@ -743,7 +704,7 @@ required to use pdflatex/xelatex/lualatex.
 
 !!! bug "中文公式输入错误"
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240609200702478.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__image-20240609200702478.webp)
 
 ```latex
 \documentclass{article}
@@ -757,12 +718,11 @@ required to use pdflatex/xelatex/lualatex.
 \end{document}
 ```
 
-
 ### paste image —— 图片插入助手
 
-这个插件可以使用快捷键插入图片，免去了写htbp等的麻烦，还可以插入到指定路径下。
+这个插件可以使用快捷键插入图片，免去了写 htbp 等的麻烦，还可以插入到指定路径下。
 
-!!! bug "根路径不是report文件夹怎么办"
+!!! bug "根路径不是 report 文件夹怎么办"
 
 按`F1`输入`setting`，在`setting.json`中加入
 
@@ -770,9 +730,9 @@ required to use pdflatex/xelatex/lualatex.
 "pasteImage.insertPattern": "\\begin{figure}[htbp]\n \\centering\n \\includegraphics[width=0.4\\textwidth]{figures/${imageSyntaxPrefix}${imageFilePath}${imageSyntaxSuffix}}\n \\caption{  }\n \\label{  }\n\\end{figure}"
 ```
 
-按`F1`,输入shortcut,打开快捷键设置，把latex workshop中的 `ctrl+alt+v` 预览去掉（因为和paste image的快捷键冲突了）
+按`F1`,输入 shortcut，打开快捷键设置，把 latex workshop 中的 `ctrl+alt+v` 预览去掉（因为和 paste image 的快捷键冲突了）
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20250314153206120.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__latex.assets__20250314153206120.webp)
 
 然后就可以使用快捷键`ctrl+alt+v`插入图片了，可以根据需要修改快捷键和插入的格式。
 
@@ -784,44 +744,36 @@ required to use pdflatex/xelatex/lualatex.
 \end{figure}
 ```
 
+### 服务器使用 Docker 构建 Overleaf
 
-### 服务器使用Docker构建 Overleaf
-
-[Docker部署Overleaf包含中文字体与全套texlive镜像\_overleaf docker-CSDN博客](https://blog.csdn.net/Wrm244/article/details/128567900)
+[Docker 部署 Overleaf 包含中文字体与全套 texlive 镜像\_overleaf docker-CSDN 博客](https://blog.csdn.net/Wrm244/article/details/128567900)
 
 ```shell title="clone overleaf toolkit"
 git clone https://github.com/overleaf/toolkit.git ./overleaf-toolkit
 ```
 
-```shell title="编辑overleaf.rc"
+```shell title="编辑 overleaf.rc"
 vi overleaf.rc
 
 # Sharelatex container
 SHARELATEX_DATA_PATH=data/sharelatex
 SERVER_PRO=false
 SHARELATEX_LISTEN_IP=127.0.0.1
-SHARELATEX_PORT=9000 #将该行修改为你所需服务端口，默认为80端口
+SHARELATEX_PORT=9000 #将该行修改为你所需服务端口，默认为 80 端口
 ```
 
-```shell title="编辑docker-compose.base.yml"
+```shell title="编辑 docker-compose.base.yml"
 cd lib
 vi docker-compose.base.yml
 ```
 
-
-将源文件的image: "${IMAGE}" 改为 image: wrm244/sharelatex:with-texlive-full 改这一行即可，以下为修改后文件内容
+将源文件的 image: "${IMAGE}" 改为 image: wrm244/sharelatex:with-texlive-full 改这一行即可，以下为修改后文件内容
 
 在根目录下启动
 
 ```shell title="启动"
 bin/up
 ```
-
-
-
-
-
-
 
 ## 问题解决与技巧
 
@@ -830,16 +782,14 @@ bin/up
 公式识别：
 
 - [simpletex](https://simpletex.cn/ai/latex_ocr)
-- 使用deepseek等llm工具
-- [opendatalab/MinerU](https://github.com/opendatalab/MinerU): A high-quality tool for convert PDF to Markdown and JSON.一站式开源高质量数据提取工具，将PDF转换成Markdown和JSON格式。
+- 使用 deepseek 等 llm 工具
+- [opendatalab/MinerU](https://github.com/opendatalab/MinerU): A high-quality tool for convert PDF to Markdown and JSON.一站式开源高质量数据提取工具，将 PDF 转换成 Markdown 和 JSON 格式。
 
 公式查询：
 
-
-
 ### 字号与字体
 
-设置字体大小的基本尺寸为10pt，11pt和12pt，其中默认为10pt
+设置字体大小的基本尺寸为 10pt，11pt 和 12pt，其中默认为 10pt
 
 ```latex
 \documentclass[12pt]{article}
@@ -863,7 +813,7 @@ bin/up
 ```latex
 \leftline{尊敬的各位老师}     %左对齐
 \rightline{书略陈固陋，勿劳赐复}    %右对齐
-\centering	%居中
+\centering %居中
 ```
 
 首行不能缩进
@@ -873,10 +823,9 @@ bin/up
 \setlength{\parindent}{2em} % 控制首行缩进  
 ```
 
+在 ctexart 类型文章中，标题\section 标题是居中的，现需要改为左对齐，需要设置如下。转自：Latex 标题左对齐
 
-在ctexart类型文章中，标题\section标题是居中的，现需要改为左对齐，需要设置如下。转自：Latex标题左对齐
-
-```
+```tex
 \documentclass[UTF8]{ctexart}
 
 \CTEXsetup[format={\Large\bfseries}]{section}
@@ -894,39 +843,35 @@ bin/up
 ```
 
 **解决英文断字重排的问题**
+
 ```latex
 \hyphenpenalty=5000
 \tolerance=1000
 ```
 
-可以把这两个参数的调整加到tex文件里。hyphenpenalty的意思比较显而易见，这个值越大断字出现的就越少。tolerance越大，换行就会越少，也就是说，latex会把本该断开放到下一行的单词，整个儿的留在当前行。调这两个值就可以得到不一样的排版，有可能可以解决断字太多的问题。
+可以把这两个参数的调整加到 tex 文件里。hyphenpenalty 的意思比较显而易见，这个值越大断字出现的就越少。tolerance 越大，换行就会越少，也就是说，latex 会把本该断开放到下一行的单词，整个儿的留在当前行。调这两个值就可以得到不一样的排版，有可能可以解决断字太多的问题。
 
 也可以手动指定。
+
 ```latex
 \hyphenation{hy-phen-a-tion}
 ```
-
 
 ## 公式与符号
 
 !!! attention "本章节记录一些老忘记的公式和用法，如果需要速查，推荐使用[这个网站](https://latex.emoryhuang.cn/posts/)或[这个网站](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)"
 
-
-
-
 **大括号最重要的代码段是**
 
-```
+```tex
 \left\{
-	\begin{}
-	···
-	\end{}
+ \begin{}
+ ···
+ \end{}
 \right.
 ```
 
-
-
-```
+```tex
 \left\{  
              \begin{array}{**lr**}  
              x=\dfrac{3\pi}{2}(1+2t)\cos(\dfrac{3\pi}{2}(1+2t)), &  \\  
@@ -941,16 +886,12 @@ $$
              \begin{array}{**lr**}  
              x=\dfrac{3\pi}{2}(1+2t)\cos(\dfrac{3\pi}{2}(1+2t)), &  \\  
              y=s, & 0\leq s\leq L,|t|\leq1.\\  
-             z=\dfrac{3\pi}{2}(1+2t)\sin(\dfrac{3\pi}{2}(1+2t)), &    
+             z=\dfrac{3\pi}{2}(1+2t)\sin(\dfrac{3\pi}{2}(1+2t)), &
              \end{array}  
 \right.
 $$
 
-
-
-
-
-```
+```tex
 \begin{gathered}
 \begin{matrix} 0 & 1 \\ 1 & 0 \end{matrix}
 \quad
@@ -981,8 +922,6 @@ $$
 \begin{Vmatrix} i & 0 \\ 0 & -i \end{Vmatrix}
 \end{gathered}
 $$
-
-
 
 ### 矩阵与向量
 
@@ -992,22 +931,18 @@ $$
 | \mathbf       | $\mathbf{A}$     |
 | \boldsymbol{} | $\boldsymbol{A}$ |
 
-
-
 ### 标注
 
 |                                                            |                            |
 | ---------------------------------------------------------- | -------------------------- |
 | 加^号 输入`\hat`  或 `\widehat`                            | $\hat{A}$<br>$\widehat{A}$ |
 | 加横线 输入 `\overline`                                    | $\overline{A}$             |
-| 加波浪线 输入` \widetilde`                                 | $\widetilde{A}$            |
-| 加一个点` \dot`{要加点的字母}加两个点`\ddot`{要加点的字母} | $\dot{A},\ddot{A}$         |
-
-
+| 加波浪线 输入`\widetilde`                                 | $\widetilde{A}$            |
+| 加一个点`\dot`{要加点的字母}加两个点`\ddot`{要加点的字母} | $\dot{A},\ddot{A}$         |
 
 字母正下方加文字
 
-```
+```tex
 \mathop{expr1}\limits_{expr2}^{expr3}
 ```
 
@@ -1018,6 +953,3 @@ $\sum\limits_{i=0}^n {x_i}$​
 `limits`命令必需加在数学符号后边，所以使用`\mathop{}`包裹
 
 $f_3(d) = \mathop{max}\limits_{x_3}(2x_3 + f_4(d-x_3))$
-
-
-

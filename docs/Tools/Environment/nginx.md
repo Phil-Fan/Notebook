@@ -1,18 +1,13 @@
 # Nginx
 
-
 ## 隐藏端口
 
-
-## SSL服务
-
+## SSL 服务
 
 ```shell
 sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d file.eestudy.com.cn
 ```
-
-
 
 > Only UTF-8 encoding is supported. An unexpected error occurred: KeyError: '/etc/nginx/nginx.conf'
 
@@ -20,7 +15,7 @@ sudo certbot --nginx -d file.eestudy.com.cn
 file -i /etc/nginx/nginx.conf
 ```
 
-如果不是utf-8 需要转码
+如果不是 utf-8 需要转码
 
 ```shell
 sudo iconv -f GBK -t UTF-8 /etc/nginx/nginx.conf -o /etc/nginx/nginx.conf.utf8
@@ -45,20 +40,16 @@ cat /etc/nginx/.htpasswd
 # user:$apr1$XXXXXXXXXXXXXXXXXXXXXX
 ```
 
-
 ## 错误码和问题解决
-
 
 499
 
 201
 
-
 404
 
 解决方法
 
-
-curl指令
+curl 指令
 
 chown

@@ -1,8 +1,9 @@
 # 信号分析与处理
+
 ## 资料
 
 <div class="card file-block" markdown="1">
-<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;"></div>
+<div class="file-icon"><img src="/style/images/xmind.svg" style="height: 3em;" alt="xmind"></div>
 <div class="file-body">
 <div class="file-title">信号复习思维导图</div>
 <div class="file-meta">373KB / 2024-06-24 </div>
@@ -13,7 +14,8 @@
 **[资料百度网盘下载链接](https://pan.baidu.com/s/1s6AzmpB0alH-DD3e80_VGg?pwd=CC98)**
 
 **资料目录**
-```
+
+```text
 │  信号分析处理.xmind
 │
 ├─作业
@@ -76,7 +78,6 @@ Acknowledgement
     [2022春夏 信号分析与处理 部分回忆卷及复习建议](https://www.cc98.org/topic/5352226)<br>
     [《信号分析与处理》2020-2021春夏期末回忆卷及复习整理](https://www.cc98.org/topic/5111712)<br>
 
-
 === "资源"
     [《信号分析与处理》课件例题整理](https://www.cc98.org/topic/5642928)<br>
     [梁毅浩学长资料](https://www.cc98.org/topic/5111712)<br>
@@ -85,8 +86,8 @@ Acknowledgement
     [赵光宙第二版答案](https://www.cc98.org/topic/4838843)<br>
     [信号分析与处理 郑军老师 实验指导书](https://www.cc98.org/topic/3930519)<br>
 
-
 ## 经验教训总结
+
 这门课其实在考试周之前是几乎没有学过的:shit:，信号作业两周才布置一次，我前一周没有听懂的东西，后续也没有跟进对齐，就越落越多了。:disappointed_relieved:后面几次作业也都是随便写写交了。最后所以最后期末花了比较久的时间时间补天。:dizzy_face: :innocent:
 
 期中左右开始就开始听不懂且落课了，尤其是几种变换都讲完以后，学过的东西都糊在了一起。:disappointed_relieved:最后只在信号处理部分（比较独立的部分）才跟着课堂听课:sob:。
@@ -96,31 +97,27 @@ Acknowledgement
 **我的复习顺序**是 :raising_hand: (仅供参考)
 
 （大概一天）
-- 先从比较独立的部分开始：滤波器部分直接听老师上课讲，非常清楚，看完之后把课件例题和课本例题做掉。这部分重点掌握一下：几种设计方法的优缺点（可能会考简答）。巴特沃斯的设计方法：归一化、阶数$n$的计算，反归一化等。
-- 系统分析和信号处理部分其实可以放在第二个复习。大部分是自控或是常微分的内容，这部分题型也比较固定，掌握课本课件的例题其实就差不多了。重点关注一下z变换（正反）是怎么变，收敛域问题。
-  
 
-（1-2天）
-- 自己看书看到DFT之前，重点理解傅里叶变换的各种性质、连续周期函数的傅里叶变换（下面笔记中列了）、时频域采样定理（非常非常重要）、从正交分解的角度理解各个变换
-- DFT和FFT部分可以找几个b站视频看一下速成一下，先明白怎么使用，再看zj的智云
+- 先从比较独立的部分开始：滤波器部分直接听老师上课讲，非常清楚，看完之后把课件例题和课本例题做掉。这部分重点掌握一下：几种设计方法的优缺点（可能会考简答）。巴特沃斯的设计方法：归一化、阶数$n$的计算，反归一化等。
+- 系统分析和信号处理部分其实可以放在第二个复习。大部分是自控或是常微分的内容，这部分题型也比较固定，掌握课本课件的例题其实就差不多了。重点关注一下 z 变换（正反）是怎么变，收敛域问题。
+  
+（1-2 天）
+
+- 自己看书看到 DFT 之前，重点理解傅里叶变换的各种性质、连续周期函数的傅里叶变换（下面笔记中列了）、时频域采样定理（非常非常重要）、从正交分解的角度理解各个变换
+- DFT 和 FFT 部分可以找几个 b 站视频看一下速成一下，先明白怎么使用，再看 zj 的智云
 
 （剩余的时间）
-- 听一下zj的复习课，串讲一下几种变换以及其他内容。做一下[课件例题](https://pan.zju.edu.cn/share/c88dcc5a25dd2147ac44b17f3c)
-- 这个时候就可以开始做历年卷了。做1-2套其实时间就应该到考试前一天or半天了，到这个程度应该通过考试就差不多了。尽量做到每一个题都搞清楚是怎么变化的。整理一下对应的考点和注意事项。
 
+- 听一下 zj 的复习课，串讲一下几种变换以及其他内容。做一下[课件例题](https://pan.zju.edu.cn/share/c88dcc5a25dd2147ac44b17f3c)
+- 这个时候就可以开始做历年卷了。做 1-2 套其实时间就应该到考试前一天 or 半天了，到这个程度应该通过考试就差不多了。尽量做到每一个题都搞清楚是怎么变化的。整理一下对应的考点和注意事项。
 
 张健老师的课讲的还是很清楚的，但比较可惜的是，我跟上进度的时候课程已经结课了:sunglasses: :sob:
 
 其实比较建议的是期中之前自己看书学的，信号课本写的还是比较清楚的，要是上课听不懂的话，建议自己看课本学习（不要背诵公式）。但是根据经验来说，~~一般不到最后是没有这个觉悟的~~
 
-
-（如果之后可以希望可以增加一下对应的题目练习和反馈，信号没有答案和反馈写作业真的没有什么动力，如果可以的话其实可以一周布置1-2个题，就算是课件相似的题也行啊:joy: 反向督促我这种平时摆烂的人每周都复习一下。有同学提到按照标准过程写的作业仍然会有扣分，这部分可能和不同助教有关系，不太懂。）
-
-
-
+（如果之后可以希望可以增加一下对应的题目练习和反馈，信号没有答案和反馈写作业真的没有什么动力，如果可以的话其实可以一周布置 1-2 个题，就算是课件相似的题也行啊:joy: 反向督促我这种平时摆烂的人每周都复习一下。有同学提到按照标准过程写的作业仍然会有扣分，这部分可能和不同助教有关系，不太懂。）
 
 ## 信号分类 + 连续信号分析
-
 
 模拟信号和数字信号的定义
 
@@ -132,13 +129,9 @@ Acknowledgement
 
 幅度有限的周期信号必定是功率信号 **正确**
 
-
-
 **信号的变换**
 
 - 要注意所有变换都是针对自变量而言的。要注意正负号的问题
-
-
 
 **采用正交分解的视角观察**
 补充知识：正交基下的坐标求解，复向量的内积求法。
@@ -147,7 +140,6 @@ Acknowledgement
 
 !!! example
     写出非周期连续信号傅里叶变换和周期连续信号傅里叶变换的公式，并简述他们的特点。
-
 
 ### 冲激信号
 
@@ -175,12 +167,12 @@ $$
     $$
 
     特别地
-    
+
     $$
     \int_{-\infty}^{\infty} \delta(t)x(t) dt = x(0)
     $$
 
-5. 卷积：任意信号和单位冲激信号$\delta(t)$卷积等于原信号(偶函数以及筛选性质推导)
+5. 卷积：任意信号和单位冲激信号$\delta(t)$卷积等于原信号 (偶函数以及筛选性质推导)
 
     $$
     \delta(t) * x(t) ={\color{gray} \int_{-\infty}^{\infty} x(\tau) \delta(t-\tau) d\tau = \int_{-\infty}^{\infty} x(\tau) \delta(\tau-t) d\tau } =  x(t)
@@ -200,42 +192,35 @@ $$
 
 !!! example
     $\mathscr{F}(Sa(\frac{t}{2})) = ?\quad \int_{-\infty}^{\infty}Sa(\frac{t}{2})dt = ?$
-    解答：<br>第一问使用CFT的尺度变换性质<br>第二问其实是一类题目，通常都是常见变换中少了一项，少了$\frac{1}{2\pi} $, 或是少了 $e^{j \omega t}$(找到缺失的$\omega$或者$t$). 这种题目就是找到等价的时域值或者是频域值就行了。今年考试中有多个题目都运用了这种思想。
-
+    解答：<br>第一问使用 CFT 的尺度变换性质<br>第二问其实是一类题目，通常都是常见变换中少了一项，少了$\frac{1}{2\pi} $, 或是少了 $e^{j \omega t}$(找到缺失的$\omega$或者$t$). 这种题目就是找到等价的时域值或者是频域值就行了。今年考试中有多个题目都运用了这种思想。
 
 !!! example "连续信号的傅里叶变换频谱是双边谱"
     错误，实连续信号可以；
     但复指数信号不行
     例如$e^{j\omega_0 t} \rightarrow  2\pi \delta(\omega-\omega_0)$
 
-
-
-
 ### 常见信号的傅里叶变换
 
 各种常见信号傅里叶变换需要记住
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212932.webp)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212944.webp)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213012.webp)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213040.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212932.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212944.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213012.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213040.webp)
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
 
-
 ### 傅里叶变换的性质
-
-
 
 **微分性质**
 
 最保险的方法是把原函数的解析表达式写出来然后一步一步求微分
 
-需要注意直流分量的处理:如果有直流分量，那么只能使用积分变换解决
+需要注意直流分量的处理：如果有直流分量，那么只能使用积分变换解决
 
 !!! note "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190744.webp)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190731.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190744.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190731.webp)
 
     $$
     y(t) = t(u(t)-u(t-1))
@@ -262,15 +247,14 @@ $$
 
 采样信号和门函数
 
-
 **帕斯瓦尔定理**
 
 从时域和频域分别表述信号的能量
 
-n维空间的勾股定理
+n 维空间的勾股定理
 [可以看这篇回答](https://www.zhihu.com/question/326625744/answer/3074587071)
 
-### **周期信号的傅里叶变换（!!非常重要）**
+### **周期信号的傅里叶变换（!! 非常重要）**
 
 周期信号可以表示为
 
@@ -283,9 +267,9 @@ X(\omega) &= \mathscr{F}(\mathop{\Sigma}\limits_{n=-\infty}^{\infty}X(n\omega_0)
 \end{align}
 $$
 
-!!! note "例子:求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。"
+!!! note "例子：求周期为$T_0$的周期性冲激串$\delta_T(t)$的傅里叶变换。"
 
-    **课本P42,P43**
+    **课本 P42,P43**
     
     $$
     \begin{align*}
@@ -306,10 +290,7 @@ $$
     
     **该式子在推导时域、频域采样定理时候反复出现**
 
-
-
 ## 离散信号的分析
-
 
 **常见离散信号、信号的时域计算**
 关于信号卷积、相关性和反卷积，可以看[这一篇](https://zhuanlan.zhihu.com/p/196786958)
@@ -320,20 +301,22 @@ $$
 <\vec{a},\vec{b}> = \vec{a} \cdot \vec{b} = |\vec{a}| \cdot |\vec{b}| \cos \theta
 $$
 
-内积越大，投影越大，两个向量间夹角越小，方向越一致，相似度越高。特别地，当内积为0时，两个向量是垂直的；只有当两个向量夹角为0时，内积最大（相关系数也最大）。因此，相关可反映两个向量空间的夹角。
+内积越大，投影越大，两个向量间夹角越小，方向越一致，相似度越高。特别地，当内积为 0 时，两个向量是垂直的；只有当两个向量夹角为 0 时，内积最大（相关系数也最大）。因此，相关可反映两个向量空间的夹角。
 
-### 时频域采样定理(!!!很重要)
+### 时频域采样定理 (!!! 很重要)
 
-**时域采样,采样间隔$T_s$**
+**时域采样，采样间隔$T_s$**
+
 - 频谱发生周期延拓，延拓周期是$\omega_s$
 - 频谱乘以$\frac{1}{T_s}$
 
 !!! note "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212715.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212715.webp)
 
     取样函数（内插函数）加权求和构成的无穷级数；将抽样信号通过一个理想低通滤波器。
 
 **频域采样，频率间隔$\omega_s$**
+
 - 时域周期$T_s$进行延拓
 - 幅度乘以$\frac{1}{\omega_s}$
 
@@ -341,7 +324,7 @@ $$
 
 对位相乘求和
 
-### **归一化角频率**(!!一定要搞明白)
+### **归一化角频率**(!! 一定要搞明白)
 
 $\Omega$的单位是弧度，表示的是一个采样周期内转过的角度，自然而然可以得出计算公式
 
@@ -360,17 +343,16 @@ $$
 
 ### DFS
 
-**DFS的推导**
+**DFS 的推导**
 课本：利用冲激函数串进行采样，计算傅里叶变换（参考对周期函数进行傅里叶变换的例题）
 
-[这篇文章](https://zhuanlan.zhihu.com/p/418221087)给出了从正交分解的视角看待DFS。
-
+[这篇文章](https://zhuanlan.zhihu.com/p/418221087)给出了从正交分解的视角看待 DFS。
 
 !!! bug "正交基必须与原向量等维度"
 
 !!! bug "内插公式如何理解"
 
-**DFS性质**
+**DFS 性质**
 
 共轭对称性
 若$x(n) \stackrel{DFS}{\longrightarrow} X(k\Omega_0)$，则有
@@ -378,7 +360,6 @@ $$
 $$
 x^*(-n)\stackrel{DFS}{\rightleftharpoons} X^*(k\Omega_0)
 $$
-
 
 ### DFT
 
@@ -388,14 +369,12 @@ $$
 X(l) = \sum^{N-1}_{k=0} x(k)W_M^{kl} = \sum^{N-1}_{k=0} x(k)e^{-j\frac{2\pi}{M}kl}
 $$
 
-- $l$：频谱采样的序号,频域采样第几个点
+- $l$：频谱采样的序号，频域采样第几个点
 - $k$:时域序列点的序号
 - $N$: 时域内截取数据的长度
 - $M$:频域点的个数
 
-频域采样$N$点，时域延拓的周期也是N点，每两个点的间隔为采样周期$T_s$，所以周期延拓的周期是$N\cdot T_s$
-
-
+频域采样$N$点，时域延拓的周期也是 N 点，每两个点的间隔为采样周期$T_s$，所以周期延拓的周期是$N\cdot T_s$
 
 **圆周移位**
 
@@ -406,30 +385,30 @@ x((n-m))_NR_N(n) \stackrel{DFT}{\rightarrow} X(k) e^{-j k \frac{2\pi}{N}m}
 $$
 
 !!! note "题目"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620192017.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620192017.webp)
 
     实数序列，根据共轭对称性,$X(k) = X^*(N-k)$
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620194102.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620194102.webp)
 
 **计算量**
 
 每计算一个 $X(k)$ 值需要进行 $N$次复数相乘，$N-1$次复数相加;
 
-对于 $N$个 $X(k) $点完成全部DFT运算共需 
+对于 $N$个 $X(k) $点完成全部 DFT 运算共需
 
 - $N^2$次复数相乘和 $N(N-1)$ 次复数加法。
-- $4N^2$ 次实数乘法,$2N^2 +2N(N-1)\approx 4N^2$ 次实数加法
+- $4N^2$ 次实数乘法，$2N^2 +2N(N-1)\approx 4N^2$ 次实数加法
 
-### **FFT算法**
+### **FFT 算法**
 
-[张健智云01-四种变换总结+FFT开头](https://vod.cmc.zju.edu.cn/default/2024/04/25/31e3e7edf9545c28bd0b4662d92b7bb3_1920_1080.mp4?auth_key=1718711773-0-0-770f3dc5eb4dc4974c8488d614155b80&t=636426-1718697487-4cbc4d619c41b4ee4b763e161565061a)
+[张健智云 01-四种变换总结+FFT 开头](https://vod.cmc.zju.edu.cn/default/2024/04/25/31e3e7edf9545c28bd0b4662d92b7bb3_1920_1080.mp4?auth_key=1718711773-0-0-770f3dc5eb4dc4974c8488d614155b80&t=636426-1718697487-4cbc4d619c41b4ee4b763e161565061a)
 
-[张健智云02-FFT计算](https://vod.cmc.zju.edu.cn/default/2024/05/09/b83939657f5025d61f36c484fa1c8b2e_1920_1080.mp4?auth_key=1718712318-0-0-b617cdf8ed64cf6f52632bb39f87c02d&t=636426-1718697921-5e4148b13c439b8655a2e0a039f4a074)
+[张健智云 02-FFT 计算](https://vod.cmc.zju.edu.cn/default/2024/05/09/b83939657f5025d61f36c484fa1c8b2e_1920_1080.mp4?auth_key=1718712318-0-0-b617cdf8ed64cf6f52632bb39f87c02d&t=636426-1718697921-5e4148b13c439b8655a2e0a039f4a074)
 
-[张健智云03-FFT谱分析误差](https://vod.cmc.zju.edu.cn/default/2024/05/11/2d522960da558ee3491a97e579c5b7e9_1920_1080.mp4?auth_key=1718713123-0-0-30f5c00809c6639de3343e4880648339&t=636426-1718698726-5a32d3c63d6fcdbcc20bf9879fa659d2)
+[张健智云 03-FFT 谱分析误差](https://vod.cmc.zju.edu.cn/default/2024/05/11/2d522960da558ee3491a97e579c5b7e9_1920_1080.mp4?auth_key=1718713123-0-0-30f5c00809c6639de3343e4880648339&t=636426-1718698726-5a32d3c63d6fcdbcc20bf9879fa659d2)
 
 !!! note "基本思想"
-	将原始的N点序列，一次分解成一系列短序列，并充分利用$W_N^{nk}$的对称性质和周期性质，求出短序列的DFT，适当组合后再求出长序列的DFT，减少乘法运算。
+ 将原始的 N 点序列，一次分解成一系列短序列，并充分利用$W_N^{nk}$的对称性质和周期性质，求出短序列的 DFT，适当组合后再求出长序列的 DFT，减少乘法运算。
 
 令
 
@@ -446,7 +425,7 @@ $$
 
 [简单理解](https://www.bilibili.com/video/BV1Rb4y1Z72j)
 
-复杂度计算，因为FFT相当于把规模为N的问题，每次拆分成两个规模为$\frac{N}{2}$的问题，然后用$o(1)$的时间进行处理。
+复杂度计算，因为 FFT 相当于把规模为 N 的问题，每次拆分成两个规模为$\frac{N}{2}$的问题，然后用$o(1)$的时间进行处理。
 
 由主定理可得（主定理部分内容详见数据结构）
 
@@ -460,35 +439,31 @@ $a = 2, b = 2 \therefore T(n) = n\log n$
 **FFT 逆变换**
 
 两种方法进行求解：
-* 全系数取反，结果最后乘$\frac{1}{N}$,直接求出来的就是序列
-* 因为实数序列共轭是本身，所以先取共轭序列列，再使用蝶形运算，求出来的是序列的共轭，这个时候要再注意一次取反。
+
+- 全系数取反，结果最后乘$\frac{1}{N}$,直接求出来的就是序列
+- 因为实数序列共轭是本身，所以先取共轭序列列，再使用蝶形运算，求出来的是序列的共轭，这个时候要再注意一次取反。
 
 $$
 \begin{align*}
- x^*(n) = [ \frac{1}{N} \sum \limits_{n=0}^{N-1}X(k)W_N^{-kn}]^* = \frac{1}{N}DFT[X^*(k)] 
+ x^*(n) = [ \frac{1}{N} \sum \limits_{n=0}^{N-1}X(k)W_N^{-kn}]^* = \frac{1}{N}DFT[X^*(k)]
 \end{align*}
 $$
 
 **蝶形运算**
 
-N点序列FFT运算
+N 点序列 FFT 运算
 
 - 运算次数：复数乘法总数$\frac{N}{2}\log_2{N}$,复数加法$N\log_2 N $ 对应实数乘法$2N\log_2{N}$,实数加法$3N\log_2{N}$
 - 存储空间：$N + \frac{N}{2}$
 - 全系数：因为想要节省内存空间，所以将中间的系数根据可约性进行统一，统一成$W_N^{kn}$的形式，下标都为$N$
 - 倒位序：输入自然序，输出倒位序；输入倒位序，输出自然序
 
-
-
-
 **计算线性卷积**
 
 圆周卷积是线性卷积周期延拓取主值
-（DFT是DTFT取主值）
+（DFT 是 DTFT 取主值）
 
 先补零，再反转，再卷积。
-
-
 
 **谱分析**
 
@@ -497,27 +472,24 @@ N点序列FFT运算
 - 连续周期信号：时域正周期截断
 
 !!! note "历年题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620191142.webp)
-    
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620191142.webp)
 
     **是一个频率向数字角频率转换的过程。**
     
-    - FFT进行计算，先得补零至$2^{10}=1024$个点
+    - FFT 进行计算，先得补零至$2^{10}=1024$个点
     - $k\cdot \frac{2\pi}{N} = \frac{2\pi f}{f_s} = \Omega$
     - 带入后求解得$k = 40$,若求频谱，则求$X(40)$
     
     其中，频率分辨率$\Delta f = \frac{f_s}{N}$,$f_s$可以算出最高频率，$N$可以算出来频谱间距
 
-[FFT频谱分析（补零、频谱泄露、栅栏效应、加窗、细化、频谱混叠、插值），Matlab、C语言代码\_fft发生频率畸变-CSDN博客](https://blog.csdn.net/szm1234/article/details/121636961)
+[FFT 频谱分析（补零、频谱泄露、栅栏效应、加窗、细化、频谱混叠、插值），Matlab、C 语言代码\_fft 发生频率畸变-CSDN 博客](https://blog.csdn.net/szm1234/article/details/121636961)
 
-
-
-### **z变换**
+### **z 变换**
 
 [张健智云](https://vod.cmc.zju.edu.cn/default/2024/05/16/018231e133b1fe4dd793dd3ac9182714_1920_1080.mp4?auth_key=1718713170-0-0-523036fad9a613322d4ff4d85ff0cd55&t=636426-1718698772-3fd1aea60633bbede2412ad2a2ec047d)
-这部分其实直接看书就行了，有联系的是微积分2数列收敛性分析、复变函数洛朗级数、
+这部分其实直接看书就行了，有联系的是微积分 2 数列收敛性分析、复变函数洛朗级数、
 
-**常用z变换**
+**常用 z 变换**
 最常用的应该是
 
 $$
@@ -527,14 +499,14 @@ $$
 $cos(\omega_0 n)$也是一样的做法，按照欧拉公式对$\cos (\omega_0 n )= \frac{1}{2}(e^{j\omega_0 n} + e^{-j\omega_0 n})$
 将$e^{j\omega_0}$看作$a$即可
 
-**z变换的定义域问题**
+**z 变换的定义域问题**
 
-**z变换的直观意义**
+**z 变换的直观意义**
 
-!!! bug "z变换和复变中的保角映射的联系"
+!!! bug "z 变换和复变中的保角映射的联系"
 
-**单边z变换的特殊性质**
-单边z变换就是加上了因果序列$u(n)$
+**单边 z 变换的特殊性质**
+单边 z 变换就是加上了因果序列$u(n)$
 
 - 时移定理
 
@@ -545,15 +517,12 @@ $$
 \end{align*}
 $$
 
-
-
 - 初值定理 $x(0) = \lim\limits_{z\rightarrow \infty}X(z)$
 
 - 终值定理 $\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]$
 
 !!! note "一个很巧妙的题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__21e71365034176015b05ccec5ccc345.webp)
-    
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__21e71365034176015b05ccec5ccc345.webp)
 
     思路：一开始没有看明白答案在干什么。后来看题才发现，题目中给出了$y(n)$的所有情况，只是没有用分段函数的方法给出而已。知道了这个点之后，这个题就不难了。
     
@@ -567,34 +536,30 @@ $$
     \end{align*}
     $$
 
-
-
 ### 各种变换之间的关系
 
 **DFT，DFS，DTFT**
 
-DFS→DFT：DFT是DFS的主值序列，是一种通过DFS得出的变换，将有限非周期离散信号的频谱离散化
+DFS→DFT：DFT 是 DFS 的主值序列，是一种通过 DFS 得出的变换，将有限非周期离散信号的频谱离散化
 
-DTFT→DFT：DFT是在主周期$[-\pi,\pi]$上按$\Omega_0 = \frac{2\pi}{N}$为采样间隔进行采样.
+DTFT→DFT：DFT 是在主周期$[-\pi,\pi]$上按$\Omega_0 = \frac{2\pi}{N}$为采样间隔进行采样。
 
-频域采样后时域发生周期延拓，周期为N
+频域采样后时域发生周期延拓，周期为 N
 
+**z 变换和其他变换的关系**
 
+- 与傅里叶变换：z 变换是蜡像抽样信号拉普拉斯变换进行$z = e^{sT_s}$映射的结果；有$X(z) = X_s(s)|_{s = \frac{\ln{z}}{T_s}}$
 
-**z变换和其他变换的关系**
-
-- 与傅里叶变换：z变换是蜡像抽样信号拉普拉斯变换进行$z = e^{sT_s}$映射的结果；有$X(z) = X_s(s)|_{s = \frac{\ln{z}}{T_s}}$
-
-- 与DTFT：DTFT就是在z平面单位圆上的z变换。可以先求出z变换，再用$z=e^{j\Omega}$替换
-- 与DFT：DFT视为序列的z变换在单位圆上取样间隔$\Omega_0 = \frac{2\pi}{N}$的均匀取样
+- 与 DTFT：DTFT 就是在 z 平面单位圆上的 z 变换。可以先求出 z 变换，再用$z=e^{j\Omega}$替换
+- 与 DFT：DFT 视为序列的 z 变换在单位圆上取样间隔$\Omega_0 = \frac{2\pi}{N}$的均匀取样
 
 ### 共轭对称性
+>
 > 这一块没搞懂，但是考试没有涉及，历年题考查的也不多。
 
 [共轭对称讲解](https://www.bilibili.com/video/BV1ig411P73T)
 
 [共轭对称性讲解视频，还挺清楚的](https://www.bilibili.com/video/BV1WY4y1U7yJ)
-
 
 **复序列的对称性**
 
@@ -682,9 +647,9 @@ $$
 $$
 
 **离散**
-x共轭 - X先共轭再翻转
+x 共轭 - X 先共轭再翻转
 
-x反转再共轭 - X共轭
+x 反转再共轭 - X 共轭
 
 !!! note "对于实数序列，就有$X(k) = X^*(n-k)$"
 
@@ -698,7 +663,7 @@ x反转再共轭 - X共轭
 
 证明顺序 $y_1(t)$,$x_2(t) = x_1(t-t_0)$,求$y_2(t)$
 
-!!! note "只对t进行操作，不是对括号内所有的进行变换"
+!!! note "只对 t 进行操作，不是对括号内所有的进行变换"
 
 比如下面的信号
 
@@ -713,17 +678,12 @@ $$
     x_2 &= x_1(t-t_0)\\
     y_2(t) &= x_2(-t) = x_1(-t-t_0)
 \end{align*}\\
-只对t进行操作
+只对 t 进行操作
 $$
-
-
-
-
 
 ### **系统部分**
 
-
-**s域**
+**s 域**
 
 $$
 \mathscr{L}[y^{(i)}(t)] = s^i Y(s)-\sum_{k=0}^{i-1}s^{s-i-k}y^{(k)}(0-)
@@ -731,17 +691,14 @@ $$
 
 $$
 \mathscr{y''} = s^2Y(s) - sy(0-) - y'(0)\\
-\mathscr{y'} = sY(s) - y(0-) 
+\mathscr{y'} = sY(s) - y(0-)
 $$
 
-**z域**
-
-
-
+**z 域**
 
 **零状态响应**：系统没有内部条件
 
-**零输入响应**：输入为0时候的响应
+**零输入响应**：输入为 0 时候的响应
 
 $$
 y(t) = y_{zs}(t)+y_{zi}(t)\\
@@ -754,45 +711,33 @@ $$
 \sum_{k=0}^{n}a_k y^{(k)}(t) = \sum^{m}_{k=0}b_kx^{(k)}(t)
 $$
 
-
 单位冲激响应：
 
-- n>m （物理可实现）$h(t) = \sum^{n}_{i=1} A_i e^{\lambda_i t}u(t)$
+- n>m（物理可实现）$h(t) = \sum^{n}_{i=1} A_i e^{\lambda_i t}u(t)$
 - n=m: $h(t) = c\delta(t) + \sum^{n}_{i=1} A_i e^{\lambda_i t}u(t)$
 - n<m: $h(t) = \sum_{j=0}^{m-n}c_j \delta^{(j)}(t) + \sum^{n}_{i=1} A_i e^{\lambda_i t}u(t)$
-
 
 $$
 \sum_{k=0}^{N}a_k y(n-k) = \sum^{M}_{k=0}b_kx(n-k)
 $$
-
 
 单位脉冲响应：
 
 - $N>M$:$\sum_{i=1}^{N}A_i\lambda_i^n u(n)$
 - $N\le M$: $h(n) = \sum^{N-M}_{j=0} C_j \delta(n-j)  + \sum^{N}_{i=1}A_i\lambda_i^Nu(n)$
 
-
-
 ### **时域分析**
 
 知道单位冲激响应之后，就可以计算零状态响应了
-
 
 $$
 y(t) = x(t) * h(t)
 $$
 
-- $t<0$时候，$x(t) = 0$，所以积分下限取0
+- $t<0$时候，$x(t) = 0$，所以积分下限取 0
 - $\tau> t$时候，$t-\tau <0$ ，$h(t-\tau)=0$ 积分上限取$t$
 
 !!! note "$\int_{-\infty}^{t}\delta(\tau)d\tau = u(t)$​"
-
-
-
-
-
-
 
 ### **无失真传输**
 
@@ -812,7 +757,7 @@ $$
 
 单位圆内没有极点
 
-当$H(z)$的极点全部位于z平面单位圆内部的时候，系统稳定
+当$H(z)$的极点全部位于 z 平面单位圆内部的时候，系统稳定
 
 这个时候才可以用初值定理和终值定理
 
@@ -828,40 +773,30 @@ $$
 
 再带入对应的$\Omega$
 
-
-
-
-
 ## 滤波器
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__filter-1.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__filter-1.webp)
 
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__222.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__222.webp)
 
 **冲激响应不变法**
 
 由数字角频率向模拟角频率变换的过程中，频率对应关系是
 
-s域到z域的映射是多值映射，在高频部分会出现混叠。
-
+s 域到 z 域的映射是多值映射，在高频部分会出现混叠。
 
 **双线性法**
 把整个平面压缩到$[-\frac{\pi}{T_s} ~ \frac{\pi}{T_s}]$区间
-s域到z域单值映射，不会出现混叠
-
+s 域到 z 域单值映射，不会出现混叠
 
 经过非线性畸变
-
 
 $$
 z = \frac{k+s}{k-s}\\
 s = \frac{2}{T}\frac{1+z^-1}{1-z^{-1}}
 $$
 
+**FIR 滤波器**
 
-**FIR滤波器**
-
-!!! bug "窗函数设计FIR"
+!!! bug "窗函数设计 FIR"
     主瓣、旁瓣、过冲值分别代指哪个部分

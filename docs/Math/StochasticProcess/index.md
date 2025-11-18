@@ -1,8 +1,7 @@
 # 随机过程
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__index.assets__964741a61d8044f9a864e5dfb860cbb2aa865e69.webp)
-> 莫奈 《昂蒂布的城堡》 高中时候最喜欢的一个错题本的封面
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__index.assets__964741a61d8044f9a864e5dfb860cbb2aa865e69.webp)
+> 莫奈《昂蒂布的城堡》高中时候最喜欢的一个错题本的封面
 
 - [x] Chap1 随机过程基本概念
 - [x] Chap2 马尔可夫链
@@ -10,10 +9,9 @@
 - [x] Chap4 布朗运动
 - [x] Chap5 平稳过程
 
-
 !!! note "段子"
     人的一生应当学四次随机过程
-    
+
     第一次是在概率论的阶梯教室，马尔可夫链在转移矩阵里安睡，而你的青春正与无记忆性较劲。抛硬币的轨迹画出鞅的边界，像极了二十岁未知的心跳，总以为找到稳态分布，就握住了命运的均值，却不知窗外纷飞的柳絮，正把泊松过程写成飘散的随机游走诗篇。
 
     第二次是在数字丛林的代码战场，条件期望在循环语句里重构日常。你在算法构筑的"遍历性"迷宫中突围，用蒙特卡洛采样丈量需求的热度。当截止日期逼近，BUG像布朗运动般涌现，那些闪烁的屏幕，都是随机微分的证明，将三十岁的热望，熔炼成凌晨三点的概率流。 
@@ -23,18 +21,17 @@
     第四次是在夕阳浸润的落地窗前，看见鞅的收敛穿过时间序列。窗格间的卡方检验折射生涯的置信区间。那些离散的故人啊，原来是协方差平稳的相位噪声，虽隔着重样本的间距，仍有自相关的温度，在记忆的宽平稳里，完成最后一次弱收敛的证明。
 
 ## 简介
+
 选这个课是想再学一点概率相关的话题，补一点数学知识
 
-课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率(数字点名)，课后作业，以及随堂小测（周六小测，类似概统）；
+课程成绩由平时成绩（40%）和期末成绩（60%）组成。平时成绩注重过程考核，包括平时到课率 (数字点名)，课后作业，以及随堂小测（周六小测，类似概统）；
 
 期末考试采用闭卷考试，考试时间通常为两个小时。
 
- 
 填空：布朗运动、数字特征、平稳过程、泊松运动
-大题：数字特征+泊松过程+马尔科夫链×2+平稳过程
+大题：数字特征 + 泊松过程 + 马尔科夫链×2+ 平稳过程
 
 ### 学习方法
-
 
 公式记牢、基本概念记牢、多做计算题
 
@@ -42,27 +39,25 @@
 
 随机过程各个章节的内容其实关联不是特别紧密，中间可以不按照顺序来学。
 
-
 ### 复习进度记录 & todo
 
 - [x] 半个下午 + 晚上 chap4possion+brown+chap5 stationary
-- [x] 听了复习课 + 复习Chap3 Markov Chap2 定义；梳理特殊概念；做了4章复习题PPT
-- [x] 做了老师上课讲的3套卷子 + 历年题的几套卷子
+- [x] 听了复习课 + 复习 Chap3 Markov Chap2 定义；梳理特殊概念；做了 4 章复习题 PPT
+- [x] 做了老师上课讲的 3 套卷子 + 历年题的几套卷子
 - [x] 复习题目整理
-- [x] Brown两个定理理解 + 各态历经定理
+- [x] Brown 两个定理理解 + 各态历经定理
 - [x] 布朗桥证明题写法
 - [x] 作业整理
 - [ ] 通俗含义解释
-- [x] 公式cheet sheet整理
+- [x] 公式 cheet sheet 整理
 
 ## 资源汇总
 
 通过网盘分享的文件：随机过程
 
-链接: https://pan.baidu.com/s/1Z47JujDl_nhpDbRhhAdOGw?pwd=PHIL 提取码: PHIL
+链接：<https://pan.baidu.com/s/1Z47JujDl_nhpDbRhhAdOGw?pwd=PHIL> 提取码：PHIL
 
-
-```
+```text
 .
 ├── 01-book
 │   ├── 应用随机过程 张帼奋.pdf
@@ -111,50 +106,47 @@
     └── 随过笔记 by Peter_H.pdf
 ```
 
-
 ## Acknowledgement
 
-
 ### 课程笔记
+
 在学习随机过程的过程中，我参考了以下资料：
 
-其中，markdown笔记记录过程中参考了[竝](https://www.cc98.org/topic/4929320)学长，[小胖一族](https://skillful-vest-b8d.notion.site/1-5-68ec83a57e504b79901e66a2b7e4e5ce)学长和[TyrannosaurusLjx](https://github.com/TyrannosaurusLjx/TyrannosaurusLjx.github.io/tree/main/docs/Notebook/Random-Process)学长的，感谢几位学长。
+其中，markdown 笔记记录过程中参考了[竝](https://www.cc98.org/topic/4929320)学长，[小胖一族](https://skillful-vest-b8d.notion.site/1-5-68ec83a57e504b79901e66a2b7e4e5ce)学长和[TyrannosaurusLjx](https://github.com/TyrannosaurusLjx/TyrannosaurusLjx.github.io/tree/main/docs/Notebook/Random-Process)学长的，感谢几位学长。
 
 - [启动 前辈的笔记](https://file.cc98.org/v4-upload/d/2025/0602/55uqtm1w.pdf)
 - [竝 - 笔记](https://www.cc98.org/topic/4929320)
 
 ### 回忆卷
-- [2025夏 - principle](https://www.cc98.org/topic/6215739)
-- [Akino - 随过（工科1.5学分）版搜历年卷合集](https://www.cc98.org/topic/6198962)
+
+- [2025 夏 - principle](https://www.cc98.org/topic/6215739)
+- [Akino - 随过（工科 1.5 学分）版搜历年卷合集](https://www.cc98.org/topic/6198962)
 - [2023-2024](https://www.cc98.org/topic/5930307)
 - [2022-2023](https://www.cc98.org/topic/5643156)
 - [2019-2020](https://www.cc98.org/topic/4958697)
 - [2018-2019](https://www.cc98.org/topic/4855261) (随机过程与排队论)
-- [16-17秋随过补考题目](https://file.cc98.org/v4-upload/d/2025/0528/2zeatkye.pdf)
+- [16-17 秋随过补考题目](https://file.cc98.org/v4-upload/d/2025/0528/2zeatkye.pdf)
 - [2017](https://www.cc98.org/topic/4728993) (随机过程与排队论)
 - [2016](https://www.cc98.org/topic/4641632) (随机过程与排队论)
 - 蓝田扫描版
-- 另外，老师发了一些复习题目ppt
-
-
-
+- 另外，老师发了一些复习题目 ppt
 
 ### 习题与小测
 
-- [orz_xiaoa - 应用随机过程（1.5学分）部分作业习题答案 - CC98论坛](https://www.cc98.org/topic/5358767):链接：https://pan.baidu.com/s/11s85aX0ZooESH3shA02fHA  提取码：7ttc
+- [orz_xiaoa - 应用随机过程（1.5 学分）部分作业习题答案 - CC98 论坛](https://www.cc98.org/topic/5358767):链接：<https://pan.baidu.com/s/11s85aX0ZooESH3shA02fHA>  提取码：7ttc
 - 我也把我自己的部分习题答案写在了对应章节，欢迎纠错
 - [czqlds - 小测题目和答案分享](https://www.cc98.org/topic/6191222)
 - [climb - 书后附课后题答案分享](https://www.cc98.org/topic/5891251)
 
-
 ### 课程资料
-1. [宫水三翊 - 随机过程 / 随过 （1.5学分wxy老师班）资料分享](https://www.cc98.org/topic/6121175)
 
-2. [暴龙战士 - 随机过程资源分享](https://www.cc98.org/topic/5927145) 数院3学分
+1. [宫水三翊 - 随机过程 / 随过（1.5 学分 wxy 老师班）资料分享](https://www.cc98.org/topic/6121175)
+
+2. [暴龙战士 - 随机过程资源分享](https://www.cc98.org/topic/5927145) 数院 3 学分
 
 3. [Uiiiii - 复习资料](https://www.cc98.org/topic/5926769)
 
-4. [N丿aivest - 复习笔记＆平时作业答案](https://www.cc98.org/topic/5642973)
+4. [N 丿 aivest - 复习笔记＆平时作业答案](https://www.cc98.org/topic/5642973)
 
 5. [聊以 - 学习资料](https://www.cc98.org/topic/5643340)
 
@@ -164,6 +156,6 @@
 
 8. [8h5d233 - 随机过程传送门（资源整合）](https://www.cc98.org/topic/5639264)
 
-
 ### 其他
-[人的一生应该学四次随机过程 - CC98论坛](https://www.cc98.org/topic/6158605)
+
+[人的一生应该学四次随机过程 - CC98 论坛](https://www.cc98.org/topic/6158605)

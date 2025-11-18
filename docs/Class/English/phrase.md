@@ -6,7 +6,6 @@
 - be obsessed with = abandon oneself to
 - great and profound
 
-
 get (one's) kicks
 To seek out, indulge in, or enjoy something fun or pleasurable.
 
@@ -14,8 +13,7 @@ To seek out, indulge in, or enjoy something fun or pleasurable.
 
 - frankly speaking
 - totally beyond my expectation
-- bring new color to 
-
+- bring new color to
 
 ## abbreviation
 
@@ -26,10 +24,10 @@ Me 2 = me tho = me too
 abt = about
 ppl = people
 idk = i don't know
-ntmy = nice to meet you 
+ntmy = nice to meet you
 wby = wbu = what about u
 wyd = what you are doing
-btw = by the way 
+btw = by the way
 tbh = to be honest
 Gtg = got to go
 lmk = let me know
@@ -50,7 +48,6 @@ ikr = I know Right
 | **be made up of**          | 由...组成  | The team is made up of engineers and designers.  |
 | **make (oneself) up**      | 化妆      | She made herself up before going out.            |
 | **make up the difference** | 补足差额    | He paid \$5 and I made up the difference.        |
-
 
 | 表达方式               | 例句                                                 | 适用说明       |
 | ------------------ | -------------------------------------------------- | ---------- |

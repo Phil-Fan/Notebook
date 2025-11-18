@@ -1,33 +1,33 @@
-# OpenCV学习
+# OpenCV 学习
 
-[OpenCV计算机视觉（Python）- - 一路狂奔的乌龟 - 博客园](https://www.cnblogs.com/GYH2003/collections/5918)
+[OpenCV 计算机视觉（Python）- - 一路狂奔的乌龟 - 博客园](https://www.cnblogs.com/GYH2003/collections/5918)
 
 [OpenCV Python Tutorials](https://opencv-python-tutorials.readthedocs.io/zh/latest/)
 
 ## 安装与配置
 
-python与opencv的版本对应关系
+python 与 opencv 的版本对应关系
 [Links for opencv-python](https://pypi.tuna.tsinghua.edu.cn/simple/opencv-python/)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__OpenCV.assets__20240914103526.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__OpenCV.assets__20240914103526.webp)
 
 ```shell title="安装"
-pip install opencv-python==3.4.11.45 # 这里版本要和python对应
+pip install opencv-python==3.4.11.45 # 这里版本要和 python 对应
 pip install opencv-contrib-python==3.4.11.45
 ```
 
-```
+```text
 numpy.core.multiarray failed to import
 ```
 
-解决方案：修改numpy版本
+解决方案：修改 numpy 版本
 
-[OpenCV-python安装教程\_opencv python安装-CSDN博客](https://blog.csdn.net/qq_41627235/article/details/87692748)
+[OpenCV-python 安装教程\_opencv python 安装-CSDN 博客](https://blog.csdn.net/qq_41627235/article/details/87692748)
 
 ```shell title="验证方法"
 ipython
 import cv2
 ```
+
 没有报错即可
 
 ## Image Formats
@@ -42,8 +42,6 @@ HSV
 
   - `Value/Lightness`
 
-  
-
 - advantage
 
 In image recognition,RGB is easily affected by light
@@ -53,7 +51,7 @@ In image recognition,RGB is easily affected by light
 
 ## Lec1
 
-### Basic 
+### Basic
 
 ```python
 import cv2
@@ -64,13 +62,11 @@ cv2.imread(path, flags)
 
 flags:指定以何种方式加载图片，有三个取值：
 
- `cv2.IMREAD_COLOR`:读取一副彩色图片，图片的透明度会被忽略，默认为该值，实际取值为1；
- `cv2.IMREAD_GRAYSCALE`:以灰度模式读取一张图片，实际取值为0
+ `cv2.IMREAD_COLOR`:读取一副彩色图片，图片的透明度会被忽略，默认为该值，实际取值为 1；
+ `cv2.IMREAD_GRAYSCALE`:以灰度模式读取一张图片，实际取值为 0
  `cv2.IMREAD_UNCHANGED`:加载一副彩色图像，透明度不会被忽略。
 
-
-
-读取成mat numpy格式
+读取成 mat numpy 格式
 
 ```py
 ## show image
@@ -113,8 +109,6 @@ cv2.COLOR_GRAY2BGR
 cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
 ```
 
-
-
 - Grayscale conversion algorithms
   - `Gray = (Red + Green + Blue) / 3` averaging
   - `Gray = (Red * 0.3 + Green * 0.59 + Blue * 0.11)` in Photoshop and GIMP
@@ -133,7 +127,7 @@ cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
 
 The commonly used method is: select a certain threshold `T`, if the gray value is smaller than the threshold, then `0`, otherwise `255`
 
-```
+```text
 cv2.threshold (src, dst, thresh, maxval, type)
 ```
 
@@ -156,9 +150,9 @@ cv2.adaptiveThreshold(src, dst, maxValue, adaptiveMethod, thresholdType, blockSi
 
 - `src`：灰度化的图片
 - `maxValue`：满足条件的像素点需要设置的灰度值
-- `adaptiveMethod`：自适应方法。有2种：`ADAPTIVE_THRESH_MEAN_C` 或 `ADAPTIVE_THRESH_GAUSSIAN_C`
+- `adaptiveMethod`：自适应方法。有 2 种：`ADAPTIVE_THRESH_MEAN_C` 或 `ADAPTIVE_THRESH_GAUSSIAN_C`
 
-adaptiveMethod的选择非常关键。
+adaptiveMethod 的选择非常关键。
 
 一种是使用均值的方法，而另外一种是使用高斯加权和的方法。所谓均值的方法就是以计算区域像素点灰度值的平均值作为该区域所有像素的灰度值。这其实就是一种平滑或滤波作用。
 高斯加权和算法是将区域中点（x，y）周围的像素根据高斯函数加权计算他们离中心点的距离。
@@ -169,15 +163,11 @@ adaptiveMethod的选择非常关键。
 - C：常数，每个区域计算出的阈值的基础上在减去这个常数作为这个区域的最终阈值，可以为负数
 - dst：输出图像，可选
 
-
-
 Otsu’s Binarization
 
-```
+```text
 cv.THRESH_OTSU
 ```
-
-
 
 ## Application of OpenCV
 

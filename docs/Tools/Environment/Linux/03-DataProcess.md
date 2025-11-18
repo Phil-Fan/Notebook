@@ -4,8 +4,6 @@
 
 ## 文件格式化
 
-
-
 ## 数据处理三剑客
 
 ### 过滤文本 grep
@@ -16,7 +14,7 @@
 
 `-R` 会递归地进入子目录并搜索所有的文本文件。
 
-[通过14个实例彻底掌握 grep 命令 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/561445240)
+[通过 14 个实例彻底掌握 grep 命令 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/561445240)
 
 ```bash
 ## 在文件中搜索单词或字符串
@@ -49,8 +47,6 @@ $ grep -n '^$' /etc/sysctl.conf #打印空行行号
 $ grep -c false$ /etc/passwd
 ```
 
-
-
 - ack，rg
 
 ```bash
@@ -67,22 +63,16 @@ rg foo -A 5
 rg --stats PATTERN
 ```
 
-
-
 ### 修改文本 sed
-
-
-
-
 
 ### 处理文本 awk
 
-awk主要是用来格式化
+awk 主要是用来格式化
 
-[linux awk命令详解 - ggjucheng - 博客园 (cnblogs.com)](https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
+[linux awk 命令详解 - ggjucheng - 博客园 (cnblogs.com)](https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 
-awk工作流程是这样的：先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，\$0则表示所有域,\$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。
+awk 工作流程是这样的：先执行 BEGING，然后读取文件，读入有/n 换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，\$0则表示所有域，\$1表示第一个域，$n表示第 n 个域，随后开始执行模式所对应的动作 action。接着开始读入第二条记录······直到所有的记录都读完，最后执行 END 操作。
 
 ```bash
-awk [参数] [处理内容] [操作对象]	
+awk [参数] [处理内容] [操作对象] 
 ```

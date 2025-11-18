@@ -4,11 +4,7 @@
 
 本章内容：给定工具坐标系的位置和姿态，解算出个各关节变量；把笛卡尔空间转换到关节空间
 
-
 本章其实就是在解决矩阵方程$x = T\phi$的求解问题
-
-
-
 
 **主要内容**：
 
@@ -18,9 +14,7 @@
 - [x] 几何法
 - [x] 解析法
 
-
 ## 数学基础：三角变换
-
 
 === "诱导公式"
     奇变偶不变，符号看象限，即形如$(2k + 1)\cdot90\pm\alpha$
@@ -45,11 +39,11 @@
 
 === "和差化积公式"
     高中搜到一个口诀感觉特别形象，这里记一下
-    
-    - $\sin\alpha+\sin\beta = 2\sin\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$  帅+帅 = 帅哥
-    - $\sin\alpha-\sin\beta = 2\cos\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}$ 帅-帅 = 哥帅
-    - $\cos\alpha+\cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ 哥+哥 = 哥哥
-    - $\cos\alpha-\cos\beta=-2\sin\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}$ 哥-哥 = 负嫂嫂
+
+    - $\sin\alpha+\sin\beta = 2\sin\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$  帅 + 帅 = 帅哥
+    - $\sin\alpha-\sin\beta = 2\cos\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}$ 帅 - 帅 = 哥帅
+    - $\cos\alpha+\cos\beta = 2\cos\frac{\alpha + \beta}{2}\cos\frac{\alpha - \beta}{2}$ 哥 + 哥 = 哥哥
+    - $\cos\alpha-\cos\beta=-2\sin\frac{\alpha + \beta}{2}\sin\frac{\alpha - \beta}{2}$ 哥 - 哥 = 负嫂嫂
 
 === "万能公式"
     - $\sin\alpha=\frac{2\tan\frac{\alpha}{2}}{1 + \tan^{2}\frac{\alpha}{2}}$
@@ -58,7 +52,6 @@
 
 === "辅助角公式"
     - $a\sin\alpha + b\cos\alpha=\sqrt{a^{2}+b^{2}}\sin(\alpha + \varphi)$，其中 $\tan\varphi=\frac{b}{a}$
-
 
 **正弦定理**
 
@@ -69,7 +62,6 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
 - $a^{2}=b^{2}+c^{2}-2bc\cos A$
 - $b^{2}=a^{2}+c^{2}-2ac\cos B$
 - $c^{2}=a^{2}+b^{2}-2ab\cos C$
-
 
 ### 反正切 arctan2
 
@@ -89,13 +81,10 @@ $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
     - **当 $x = 0$ 时无法计算**（除零错误）
     - **结果范围仅为 $(-\frac{\pi}{2}, \frac{\pi}{2})$**，不能表示完整的 360° 范围
 
-
-
-
 定义如下：
 
 $$
-\text{arctan2}(y, x) = 
+\text{arctan2}(y, x) =
 \begin{cases}
 \arctan(y/x) & \text{if } x > 0 \\
 \arctan(y/x) + \pi & \text{if } x < 0 \text{ and } y \geq 0 \\
@@ -105,8 +94,6 @@ $$
 \text{undefined} & \text{if } x = 0 \text{ and } y = 0
 \end{cases}
 $$
-
-
 
 ## 工作空间与自由度
 
@@ -132,32 +119,29 @@ $$
     > 想想开门时拧钥匙的动作，这个情况下是人胳膊的末端机构（手）的三维位置没有变（始终在钥匙孔前），但是末端机构（手）的三维旋转变了（转动了钥匙）。人能够实现这个简单的动作，就是因为我们的胳膊有7个自由度。
 
 ### 工作空间 ｜ Workspace
+
 - 工作空间：机械臂末端执行器所能到达的范围。
 - **灵巧工作空间**：机械臂末端执行器能够从各个方向到达的空间区域。
 - **可达工作空间**：机械臂末端执行器至少从一个方向上可以到达的空间。
 
-> 通常机械臂的关节越多，机械臂的自由度就越高，那么可达工作空间往往就越大，当机械臂少于6个自由度时，它就不能达到三维空间内一般的目标点。
+> 通常机械臂的关节越多，机械臂的自由度就越高，那么可达工作空间往往就越大，当机械臂少于 6 个自由度时，它就不能达到三维空间内一般的目标点。
 
 !!! question "如何描述工作空间"
 
 ## 解存在性与选择
-$^0_6 \!T$ 自由度为6个
 
-由于是 nonlinear transcendental equations(非线性超越方程组)问题，6未知数6方程式不代表具有唯一解。
+$^0_6 \!T$ 自由度为 6 个
 
+由于是 nonlinear transcendental equations(非线性超越方程组) 问题，6 未知数 6 方程式不代表具有唯一解。
 
 ### PIEPER 准则
 
-当如下条件之一满足时，一个6自由度运动学结构具有闭合形式的运动学逆解：（**充分条件**）
+当如下条件之一满足时，一个 6 自由度运动学结构具有闭合形式的运动学逆解：（**充分条件**）
 
 1、三个连续的转动关节的轴相交于同一点
 2、三个连续的转动关节的轴平行
 
-
-
-
 ### 多解处理方法 —— 最短行程
-
 
 若同一位姿有多个解，系统最终只能选择一个解，比较合理的一种选择是取“最短行程”解
 
@@ -165,20 +149,19 @@ $^0_6 \!T$ 自由度为6个
 
 !!! example "例子"
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304115453821.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304115453821.webp)
     > 图片来源课程组ppt
 
 
     这四个姿态位姿都相同，但是对于每种手部都有2种解，一共有8个解。
 
 ## 几何法 - 引入几何方法
+
 由于操作臂是平面的，因此可利用平面几何关系直接求解
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082111521.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082111521.webp)
 
-
-
-注意到三个连杆角度之和即为连杆3的姿态：$\theta_1 + \theta_2 + \theta_3 = \phi$,由此可求得 $\theta_3$。
+注意到三个连杆角度之和即为连杆 3 的姿态：$\theta_1 + \theta_2 + \theta_3 = \phi$,由此可求得 $\theta_3$。
 
 应用反正切公式：$\beta = \arctan 2(y, x)$
 
@@ -189,18 +172,15 @@ $^0_6 \!T$ 自由度为6个
 进一步，可得：
 
 $$
-\theta_1 = \begin{cases} 
+\theta_1 = \begin{cases}
 \beta + \psi, & \text{若 } \theta_2 \leq 0 \\
-\beta - \psi, & \text{若 } \theta_2 > 0 
+\beta - \psi, & \text{若 } \theta_2 > 0
 \end{cases}
 $$
 
 **特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的**。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082434990.webp)
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082434990.webp)
 
 ## 解析（代数）法 - 解析表达式表出
 
@@ -208,14 +188,14 @@ $$
 
 [机器人的运动学解——逆向运动学解 - 知乎](https://zhuanlan.zhihu.com/p/450749372)
 
-
 ### 基础代数
+
 !!! tip "核心思想：同一变量不同表出列方程"
 
+#### 例 1 基础的平面 3 自由度机械臂
 
-#### 例1 基础的平面3自由度机械臂
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120406684.webp)
-> 图片来源课程组ppt
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120406684.webp)
+> 图片来源课程组 ppt
 
 该操作臂的逆运动学问题可描述为：
 
@@ -273,11 +253,11 @@ $$
 s_2 = \pm \sqrt{1 - c_2^2} \quad, \quad \theta_2 = \arctan 2(s_2, c_2)
 $$
 
-得到2个可行的 $\theta_2$(肘上形和肘下形)
+得到 2 个可行的 $\theta_2$(肘上形和肘下形)
 
 ### 三角函数方程式
 
-!!! note "$n$不大于4时，一元$n$次方程有封闭形式的解"
+!!! note "$n$不大于 4 时，一元$n$次方程有封闭形式的解"
     有些情况下可将超越方程化为一元n次方程
 
 例：求解超越方程 $a \cos \theta + b \sin \theta = c$ 的 $\theta$
@@ -303,25 +283,23 @@ $$
 
 如果 $a + c = 0$，那么 $\theta = 180^\circ$
 
-### 3轴相交 PIEPER解法
+### 3 轴相交 PIEPER 解法
 
-具有6个旋转关节的操作臂存在封闭解的**充分条件**是相邻的三个关节轴线相交于一点
+具有 6 个旋转关节的操作臂存在封闭解的**充分条件**是相邻的三个关节轴线相交于一点
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120834902.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120834902.webp)
 
-当最后3根轴相交时，连杆坐标系{4}、{5}、{6}的原点均位于这个交点上(齐次变换矩阵当中的$\vec{P}$是一个值，但是$\mathbb{R}$是不一样的)，这点的基坐标为：
+当最后 3 根轴相交时，连杆坐标系{4}、{5}、{6}的原点均位于这个交点上 (齐次变换矩阵当中的$\vec{P}$是一个值，但是$\mathbb{R}$是不一样的)，这点的基坐标为：
 
 $$
 \begin{pmatrix} x \\ y \\ z \\ 1 \end{pmatrix} = {}^0_1 \mathbf{T} {}^1_2 \mathbf{T} {}^2_3 \mathbf{T} \begin{pmatrix} {}^3 \mathbf{O}_4 \\ 1 \end{pmatrix}
 $$
-
 
 其中：
 
 $$
 \begin{pmatrix} {}^2 \mathbf{O}_4 \\ 1 \end{pmatrix} = {}^2 \mathbf{T} \begin{pmatrix} {}^3 \mathbf{O}_4 \\ 1 \end{pmatrix} = \begin{pmatrix} c \theta_3 & -s \theta_3 & 0 & a_2 \\ s \theta_3 c \alpha_2 & c \theta_3 c \alpha_2 & -s \alpha_2 & -s \alpha_2 d_3 \\ s \theta_3 s \alpha_2 & c \theta_3 s \alpha_2 & c \alpha_2 & c \alpha_2 d_3 \\ 0 & 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} f_1(\theta_3) \\ f_2(\theta_3) \\ f_3(\theta_3) \\ 1 \end{pmatrix}
 $$
-
 
 其中：
 
@@ -333,13 +311,11 @@ f_3 &= f_3(\theta_3) = a_3 s \alpha_2 s_3 - d_4 s \alpha_2 s \alpha_2 c \alpha_3
 \end{align}
 $$
 
-
 利用 ${}^0_1 \mathbf{T}$，${}^1_2 \mathbf{T}$，得到：
 
 $$
 \begin{pmatrix} {}^1 \mathbf{O}_4 \\ 1 \end{pmatrix} = {}^1_2 \mathbf{T} \begin{pmatrix} {}^2 \mathbf{O}_4 \\ 1 \end{pmatrix} = \begin{pmatrix} c \theta_2 & -s \theta_2 & 0 & a_1 \\ s \theta_2 c \alpha_1 & c \theta_2 c \alpha_1 & -s \alpha_1 & -s \alpha_1 d_2 \\ s \theta_2 s \alpha_1 & c \theta_2 s \alpha_1 & c \alpha_1 & c \alpha_1 d_2 \\ 0 & 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} g_1(\theta_2, \theta_3) \\ g_2(\theta_2, \theta_3) \\ g_3(\theta_2, \theta_3) \\ 1 \end{pmatrix}
 $$
-
 
 其中：
 
@@ -350,7 +326,6 @@ g_2 &= g_2(\theta_2, \theta_3) = s_2 c \alpha_1 f_1 + c_2 c \alpha_1 f_2 - s \al
 g_3 &= g_3(\theta_2, \theta_3) = s_2 s \alpha_1 f_1 + c_2 s \alpha_1 f_2 + c \alpha_1 f_3 + d_2 c \alpha_1
 \end{align}
 $$
-
 
 令：
 
@@ -446,24 +421,17 @@ $$
 
     对于任何一个4、5、6轴相互正交的6R操作臂，最后三个关节角是一种欧拉角，即 ${}^6 \mathbf{R}^4 |_{\theta = 0}$ 可由这种欧拉角表示。这时，$\theta_4, \theta_5, \theta_6$ 可用欧拉角解法求得。
 
-
 !!! tip "两种解相当于是手性，右手形和左手形"
 
+### PUMA560 的一种代数方法
 
-### PUMA560的一种代数方法
+!!! info "PUMA560 是一款具有球形腕的机械臂，其关节 4、5、6 的旋转轴相交于第五个关节坐标系的原点处"
 
-!!! info "PUMA560是一款具有球形腕的机械臂，其关节4、5、6的旋转轴相交于第五个关节坐标系的原点处"
-
-
-
-这里要注意，求解$\theta_4$的时候，如果$\theta_5 = 0$,那么可以看图发现，轴4和轴6是重合的，这个时候不可以唯一确定$\theta_4$,所有可能的结果都可能是$\theta_4$与$\theta_6$的和或差 
-
-
-
+这里要注意，求解$\theta_4$的时候，如果$\theta_5 = 0$,那么可以看图发现，轴 4 和轴 6 是重合的，这个时候不可以唯一确定$\theta_4$,所有可能的结果都可能是$\theta_4$与$\theta_6$的和或差
 
 ## 数值法 - 有限元或者数值逼近
 
-### 优化法(Optimization-based Solution)
+### 优化法 (Optimization-based Solution)
 
 是把问题转化为一个优化问题求数值解。
 
@@ -481,10 +449,6 @@ $$
 
 使用梯度下降法求解，梯度下降法是求解无约束优化问题最常用的方法之一。
 
-
-
-
-
 ### 数值法解方程
 
 这里主要用到的是**牛顿法**
@@ -495,7 +459,7 @@ $$
 x_{n+1} = x_n - J(x_n)^{-1} f(x_n)
 $$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250313094528065.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250313094528065.webp)
 
 !!! note "为什么这么写？"
     写出泰勒展开，忽略二次高阶项. 相当于做了一条切线，再求这个切线和x轴的交点，得到新一轮的x
@@ -509,7 +473,6 @@ $$
     > [牛顿法原理与应用 - CSDN博客](https://blog.csdn.net/sinat_29244519/article/details/101872198)
 
 ## 雅可比方法
-
 
 ### 求逆
 
@@ -527,9 +490,7 @@ $$
 
 - 对于不满秩的矩阵来说，求取伪逆
 
-
 对于机械臂来说，操作空间维度相当于$m$，关节数目相当于$n$（自变量数目）
-
 
 === "左逆"
 
@@ -543,8 +504,6 @@ $$
     
     **超定方程最小二乘解**
 
-
-
 === "右逆"
 
     仅当 $m \leq n$ 时("fat matrix")，方程数目小于未知数的个数，方程式欠定的。矩阵 $A$ 可能有**右逆矩阵** 
@@ -557,10 +516,7 @@ $$
     
     欠定方程最小范数解
 
-
-
 > 关于最小二乘和最小范数解的证明可以看[线性方程组的最小二乘解和最小范数解 - 一以知行](https://zhuanlan.zhihu.com/p/503664717)
-
 
 $$
 \forall\dot{q}_0,J(I-J^\dagger J)\dot{q}_0=0
@@ -568,8 +524,7 @@ $$
 
 这说明矩阵$I-J^\dagger J$可以把任意关节速度投影到"零空间"内，投影后的关节速度将不改变末端执行器的位置。
 
-利用这个特性，我们可以在满足了位置跟踪任务之后，再利用零空间实现其它任务(比如避开障碍物)。
-
+利用这个特性，我们可以在满足了位置跟踪任务之后，再利用零空间实现其它任务 (比如避开障碍物)。
 
 ### 力域转置
 
@@ -583,19 +538,13 @@ $$
 
 !!! question "这里没懂"
 
-
 $$
 \dot{q} = J(q)^T \dot{x}
 $$
 
 ### 阻尼最小二乘法
 
-
 [干货 | “逆运动学”——从操作空间到关节空间（下篇） - 知乎](https://zhuanlan.zhihu.com/p/341805701)
-
-
-
-
 
 ### 迭代求解
 
@@ -603,15 +552,12 @@ $$
 
 使用控制器控制关节速度$\dot{q}$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250417161904.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250417161904.webp)
 > [干货 | “逆运动学”——从操作空间到关节空间（上篇） - 知乎](https://zhuanlan.zhihu.com/p/341805328)
-
-
 
 ## 求解代码
 
-
-基于ZJUI的代码
+基于 ZJUI 的代码
 
 ```python title="求解代码" hl_lines="1" linenums="1"
 

@@ -6,8 +6,7 @@
 
 在下面的网址进行下载
 
-https://www.oracle.com/java/technologies/downloads/
-
+<https://www.oracle.com/java/technologies/downloads/>
 
 ```shell title="解压"
 sudo tar -xvzf yourfile.tar.gz -C /usr/lib/jvm/
@@ -29,10 +28,7 @@ Java(TM) SE Runtime Environment (build 21.0.8+12-LTS-250)
 Java HotSpot(TM) 64-Bit Server VM (build 21.0.8+12-LTS-250, mixed mode, sharing)
 ```
 
-
 ### MacOS
-
-
 
 ```bash title="用 Homebrew 安装"
 # 安装 OpenJDK 17
@@ -49,9 +45,8 @@ brew install --cask corretto11
 
 * Homebrew 默认目录：
   `/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home`
-* Amazon Corretto：
+* Amazon Corretto:
   `/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home`
-
 
 ```bash title="系统自带查询（确认 JDK 安装情况）"
 /usr/libexec/java_home -V
@@ -59,18 +54,15 @@ brew install --cask corretto11
 
 会列出所有已安装的 JDK。
 
-
 ```bash title="安装 jenv"
 brew install jenv
 ```
-
 
 ```bash title="把 jenv 添加到 shell 配置文件"
 echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(jenv init -)"' >> ~/.zshrc
 source ~/.zshrc
 ```
-
 
 ```bash title="把 JDK 添加到 jenv"
 jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
@@ -83,7 +75,7 @@ jenv versions
 
 示例输出：
 
-```
+```shell
 * system (set by /Users/you/.jenv/version)
   11
   11.0
@@ -118,8 +110,6 @@ jenv versions
   jenv shell 17
   ```
 
-
-
 ```bash title="验证"
 java -version
 javac -version
@@ -127,20 +117,14 @@ javac -version
 
 输出应该和 jenv 设置一致。
 
-
-
-
 这样就不用每次手动找路径了。
 
-
-
-
 ## 使用
+
 ### `.jar`文件打开方式
 
-1.双击打开
-
-2. 命令行打开x
+1. 双击打开
+2. 命令行打开 x
 
 ```shell
 java -jar xxx.jar
@@ -156,4 +140,4 @@ nohup java -jar test_jar-1.0-SNAPSHOT.jar &
 
 nohup 意思是不挂断运行命令，当账户退出或终端关闭时，程序仍然运行。
 
-当用 nohup 命令运行jar包时，缺省情况下该应用的所有输出被重定向到nohup.out的文件中，除非另外指定了输出文件。
+当用 nohup 命令运行 jar 包时，缺省情况下该应用的所有输出被重定向到 nohup.out 的文件中，除非另外指定了输出文件。

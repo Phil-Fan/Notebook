@@ -1,4 +1,5 @@
 # 关键证明总结
+
 ## Bias-Variance 分解
 
 - $y_D$训练标签
@@ -10,15 +11,11 @@ $$
 f(\boldsymbol{x}) = \mathbb{E}_D[f(\boldsymbol{x}; D)]
 $$
 
-
-
-
 - 使用样本数相同的不同训练集产生的方差为：
 
     $$
     \text{var}(\boldsymbol{x}) = \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right]
     $$
-
 
 - 期望输出与真实标记的差别称为偏差（bias），即
 
@@ -42,7 +39,7 @@ $$
 \begin{aligned}
 E(f; D) &= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - y_D)^2\right] \\
 &= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}) + \bar{f}(\boldsymbol{x}) - y_D)^2\right] \\
-&= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right] + \mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y_D)^2\right] + \mathbb{E}_D \left[2(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))(\bar{f}(\boldsymbol{x}) - y_D)\right] \quad (\epsilon = y - y_D 噪声和其他一次项独立，均值为0)\\
+&= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right] + \mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y_D)^2\right] + \mathbb{E}_D \left[2(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))(\bar{f}(\boldsymbol{x}) - y_D)\right] \quad (\epsilon = y - y_D 噪声和其他一次项独立，均值为 0)\\
 &= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right] + \mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y_D)^2\right]  \\
 &= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right] + \mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y + y - y_D)^2\right] \\
 &= \mathbb{E}_D \left[(f(\boldsymbol{x}; D) - \bar{f}(\boldsymbol{x}))^2\right] + \mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y)^2\right] + \mathbb{E}_D \left[(y - y_D)^2\right] + 2\mathbb{E}_D \left[(\bar{f}(\boldsymbol{x}) - y)(y - y_D)\right] \\

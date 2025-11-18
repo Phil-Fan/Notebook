@@ -2,7 +2,7 @@
 
 ## Prefix Caching
 
-!!! note "KV Cache的跨请求复用"
+!!! note "KV Cache 的跨请求复用"
     是prefill阶段的优化策略
 
 ## Chunked Prefill
@@ -13,13 +13,10 @@
 
 ### Continuous Batching
 
-## PD分离架构
-
-
+## PD 分离架构
 
 ## FastChat 负载均衡
 
 ## Acknowledgement
-
 
 - [cr7258/ai-infra-learning: This repository organizes materials, recordings, and schedules related to AI-infra learning meetings.](https://github.com/cr7258/ai-infra-learning/tree/main)

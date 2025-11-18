@@ -1,21 +1,18 @@
 # Loss
 
-
-损失为什么求平均：更好调学习率，相当于学习率之和梯度有关，和batch size没有关系
+损失为什么求平均：更好调学习率，相当于学习率之和梯度有关，和 batch size 没有关系
 
 每次算梯度的时候要记得清零，不然会做累加
 
+## l1 loss
 
-### l1 loss
 不常用绝对差值而用平方损失：不好求导
 
 有不平滑性，可能不稳定
 
 离远点较远的时候，不一定希望有一个很大的梯度
 
-
-
-## l2 loss（MSE）
+## l2 loss (MSE)
 
 $$
 \mathcal{L}_{MSE} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2
@@ -26,14 +23,7 @@ $$
 - 缺点：
   - 梯度下降开始很慢
 
-
-
 ### Huber Robust loss
-
-
-
-
-
 
 ## softmax
 
@@ -44,15 +34,14 @@ $$
 
 ### 为什么使用
 
-什么是max我们都很清楚，那什么是soft呢？在梯度下降当中，直接使用max（hardmax）产生的问题是不可导。
+什么是 max 我们都很清楚，那什么是 soft 呢？在梯度下降当中，直接使用 max（hardmax）产生的问题是不可导。
 
-所以我们希望使用softmax来解决这个问题。
+所以我们希望使用 softmax 来解决这个问题。
 
-所谓soft，就是通过exp让大数变得更大，让小数变得更小，再通过归一化让大数更接近于1。即我们不仅对硬分类感兴趣，还对软分类（概率）感兴趣
-
+所谓 soft，就是通过 exp 让大数变得更大，让小数变得更小，再通过归一化让大数更接近于 1。即我们不仅对硬分类感兴趣，还对软分类（概率）感兴趣
 
 - 线性有可能有负数，概率应该是非负的 -> 使用指数的方式实现
-- 概率之和需要为1 -> 使用求和的方式实现
+- 概率之和需要为 1 -> 使用求和的方式实现
 
 **输入**：一个向量（例如全连接层的输出）
 
@@ -60,8 +49,8 @@ $$
 
 **约束**：分类互斥，不能是多标签分类
 
-
 ### 代码实现
+
 ```python
 import torch 
 x = torch.Tensor([1,2,3]) 
@@ -72,7 +61,6 @@ tensor([1., 2., 3.])
 >>> x_softmax
 tensor([0.0900, 0.2447, 0.6652])
 ```
-
 
 ```python title="内置函数"
 import torch.nn as nn 
@@ -89,7 +77,6 @@ tensor([[0.0900, 0.2447, 0.6652],
         [0.0900, 0.2447, 0.6652]])
 ```
 
-
 ### 梯度推导
 
 给定输入 $\mathbf{x} = [x_1, x_2, \dots, x_n]$，softmax 输出为：
@@ -98,7 +85,6 @@ $$
 \hat{y}_i = softmax(\vec{x})_i = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}
 \quad\text{for } i=1,\dots,n
 $$
-
 
 分两种情况讨论：
 
@@ -140,9 +126,9 @@ $$
 }
 $$
 
-* $\mathbf{J}$是转置对称矩阵
-* $\text{diag}(\mathbf{\hat{Y}})$ 是对角矩阵，对角线为 $\hat{y}_i$
-* $\mathbf{\hat{Y}} \mathbf{\hat{Y}}^\top$ 是外积，得到一个 rank1 矩阵
+- $\mathbf{J}$是转置对称矩阵
+- $\text{diag}(\mathbf{\hat{Y}})$ 是对角矩阵，对角线为 $\hat{y}_i$
+- $\mathbf{\hat{Y}} \mathbf{\hat{Y}}^\top$ 是外积，得到一个 rank1 矩阵
 
 !!! note "梯度消失的推导"
 
@@ -186,10 +172,9 @@ $$
     
     也就是说，在输入的数量级很大时，梯度消失为0，造成参数更新困难。
 
-
 ### 交叉熵 + softmax 的梯度推导
 
-* 交叉熵损失函数定义为：
+- 交叉熵损失函数定义为：
 
 $$
 \mathcal{L}(\hat{\mathbf{y}}, \mathbf{y}) = -\sum_{i=1}^n y_i \log \hat{y}_i
@@ -197,15 +182,13 @@ $$
 
 其中，$y_i$是真实的标签，而$\hat{y}_i$是预测的标签。
 
-如果$y$使用one-hot标签，相当于$y$是$n$维向量，其中只有$y_i$为1，其他为0，那么就可以把求和符合拿掉
+如果$y$使用 one-hot 标签，相当于$y$是$n$维向量，其中只有$y_i$为 1，其他为 0，那么就可以把求和符合拿掉
 
 $$
 \frac{\partial \mathcal{L}}{\partial \hat{\mathbf{y}}} = \left( -\frac{y_i}{\hat{y}_i} \right)
 $$
 
-
-根据链式法则,有
-
+根据链式法则，有
 
 $$
 \begin{aligned}
@@ -235,10 +218,10 @@ $$
 $$
 
 ### mini-batch softmax
+
 - one single softmax 计算量太大
 - 批处理
 - mini batch
-
 
 ### safe-softmax
 
@@ -256,11 +239,8 @@ $$
 
 ### parallel-softmax
 
-
-
 ## Acknowledgement
 
-[反向传播之一：softmax函数 - 知乎](https://zhuanlan.zhihu.com/p/37740860)
+[反向传播之一：softmax 函数 - 知乎](https://zhuanlan.zhihu.com/p/37740860)
 
-[详解softmax函数以及相关求导过程 - 知乎](https://zhuanlan.zhihu.com/p/25723112)
-
+[详解 softmax 函数以及相关求导过程 - 知乎](https://zhuanlan.zhihu.com/p/25723112)

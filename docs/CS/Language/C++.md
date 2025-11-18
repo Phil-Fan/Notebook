@@ -1,12 +1,10 @@
 # C++
 
-
-
 Objects = Attributes + Services
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231009210455062.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231009210455062.webp)
 
-C语言：面向过程
+C 语言：面向过程
 
 C++：面向对象
 
@@ -20,23 +18,19 @@ C++：面向对象
 
 `<ClassName>::<function name>`
 
-
-
 `fields` 成员变量
 
-​	成员变量有类的作用范围
+​ 成员变量有类的作用范围
 
 `parameters` 函数参数
 
 `local variable` 本地变量
 
-​	函数的作用变量
-
-
+​ 函数的作用变量
 
 ### `nullptr`
 
-c++不会把void * 隐式转换成其他指针类型。
+c++ 不会把 void * 隐式转换成其他指针类型。
 
 ```c++
 void f(int *);
@@ -46,24 +40,20 @@ define NULL = 0;
 f(NULL);//报错
 ```
 
-
-
 ### 输入输出流
 
- 流读掉了就没有了，和C中随意读写不同
+ 流读掉了就没有了，和 C 中随意读写不同
 
 - extractors >>
 - inserters <<
 
-
-
-###  `composition` 组合
+### `composition` 组合
 
 对象套对象
 
 ways of inclusion
 
-- fully 
+- fully
 
 - by reference 指针
 
@@ -71,9 +61,7 @@ ways of inclusion
 
 把数据和操作数据的函数更加明确的方式绑定在一起，给予必要的访问控制，防止外部的随意调用
 
-
-
-###  基本思想
+### 基本思想
 
 - everything is an object
 
@@ -85,27 +73,21 @@ ways of inclusion
 
 - all objects of a particular type can receive the same message
 
+`::` - scope resolution operator 解析作用域
 
+## `Inheritance` 继承
 
-`::` - scope resolution operator 解析作用域 
-
-
-
-##  `Inheritance` 继承
-
-拒绝code duplication
+拒绝 code duplication
 
 刻画出派生类对象是基类对象的`is-a-relationship`形成`hierachy of classes`>，提高代码重用性。
 
-allows sharing of design for 
+allows sharing of design for
 
 - member data
 - member function
 - interfaces
 
-需要对原先的类进行扩充，形成superset
-
-
+需要对原先的类进行扩充，形成 superset
 
 - base class devire
 - super class & sub class
@@ -114,18 +96,14 @@ allows sharing of design for
 ```c++
 class A{
 private:
-public:	
+public: 
 };
 
 class B:public A{
 };
 ```
 
-
-
 - 子类与父类出现同名函数，会自动隐藏掉父类函数
-
-
 
 ### `upcasting` 向上适应
 
@@ -133,35 +111,27 @@ class B:public A{
 
 cast 是造型而不是类型转换
 
-
-
-
-
 ## `Polymorphism` 多态
 
 - upcast
 
 - dynamic binding: call the funciton of the object  
 
-
-
-
-
 - `virtual`内存开头都有一个隐藏的`VPtr`指针，指向`VTable`
-- 访问Vtable里面获得成员函数 
+- 访问 Vtable 里面获得成员函数
 
-###  `Virtual Function`
+### `Virtual Function`
 
 子类和父类的同名函数有联系
 
 ```c++
 void render(Shape* p){
-	p->render();
-	//calls correct render function for givenShape!
+ p->render();
+ //calls correct render function for givenShape!
 }
 ```
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231023140637072.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231023140637072.webp)
 
 复制只是成员变量的复制
 
@@ -169,11 +139,9 @@ void render(Shape* p){
 
 destructor 都是动态绑定的
 
-
-
 ### `override`
 
-只有指针和引用才构成upcast关系，直接返回子类对象是不构成的。
+只有指针和引用才构成 upcast 关系，直接返回子类对象是不构成的。
 
 ## `Overloading` 重载
 
@@ -183,18 +151,12 @@ default argument
 
 编译时候进行
 
-```
+```c
 Stash(int size, int init = 0);
 Stash(int size, int init = 0, int j);//illegal
 ```
 
-
-
-
-
-##  类
-
-
+## 类
 
 object 这只杯子
 
@@ -206,33 +168,25 @@ class default as private
 
 ### 声明和定义
 
-
-
-
-
 #### 声明  `declaration`
 
 把名字引入或者重新引入到程序当中
 
-`.h`:防止重复引用，要加入标准头文件结构 
+`.h`:防止重复引用，要加入标准头文件结构
 
-调用函数，和定义的时候都需要include这个头文件
-
-
+调用函数，和定义的时候都需要 include 这个头文件
 
 ```c++
 extern global a;
 
 // Type Alias
-using arraylist = struct arraylist_ *;	
+using arraylist = struct arraylist_ *; 
 
-//嵌套类，但是使用的时候需要写resolver
+//嵌套类，但是使用的时候需要写 resolver
 
 ```
 
-
-
-#### 定义 `defination ` `.cpp`
+#### 定义 `defination` `.cpp`
 
 也是一种声明，引入的名字对应的实体可以被使用
 
@@ -242,21 +196,15 @@ using arraylist = struct arraylist_ *;
 
 ```c++
 Class Name {
-	private:
-		int i;
-	public:
-		Name();
-		~Name();
+ private:
+  int i;
+ public:
+  Name();
+  ~Name();
 };//类后边要加一个分号
 ```
 
-
-
-`this` hidden parameter,指向该对象的指针
-
-
-
-
+`this` hidden parameter，指向该对象的指针
 
 ### `access - specifier`
 
@@ -279,17 +227,9 @@ Class Name {
 
 可以声明自己是别人的朋友，授权别人访问自己的私有属性
 
-
-
-
-
-
-
 ### `constructor` 构造函数
 
 建立一种保证，要不是赋给的初值，要不然是改变后的值，不会是随机值
-
-
 
 - 与类的名字相同
 - 没有返回类型
@@ -299,23 +239,21 @@ Class Name {
 
 ```c++
 Class Name {
-	private:
-		int i;
-	public:
-		Name();
-		~Name();
+ private:
+  int i;
+ public:
+  Name();
+  ~Name();
 };//类后边要加一个分号
 
-Name A[2]={A(1)} //会报错no matching funtion for call to A::A()
+Name A[2]={A(1)} //会报错 no matching funtion for call to A::A()
 ```
 
 #### `initializer list` 初始化列表
 
 早于构造函数执行
 
-所有成员属性的赋值放在initializer list 当中，对子类的初始化也放在initializer list 当中
-
-
+所有成员属性的赋值放在 initializer list 当中，对子类的初始化也放在 initializer list 当中
 
 ```c++
 A():p(0){······}
@@ -324,48 +262,36 @@ Student::Student(string s):name(s){} // 初始化
 Student::Student(string s) {name = s;} // 先初始化再赋值
 ```
 
-如果成员有const，也必须用initializer list 进行初始化
+如果成员有 const，也必须用 initializer list 进行初始化
 
-只能初始化非静态成员，不能初始化static
+只能初始化非静态成员，不能初始化 static
 
-- c++初始化的时候，圆括号和等号是等价的 
+- c++ 初始化的时候，圆括号和等号是等价的
 
-
-
-#### `Virtual Constructor` 
-
-
+#### `Virtual Constructor`
 
 #### 拷贝构造
 
-- 没有自己写的话，编译器会拷贝每一个对应的成员变量。不是bit对bit的拷贝，而是member对member的拷贝。
+- 没有自己写的话，编译器会拷贝每一个对应的成员变量。不是 bit 对 bit 的拷贝，而是 member 对 member 的拷贝。
 
 <cstring>
 
 ```c++
 Person( const Person& w );
 Person::Person( const Person& w ){
-	name = new char[::strlen(w.name) + 1];
-	::strcpy(name, w.name )//表示是外部的函数
+ name = new char[::strlen(w.name) + 1];
+ ::strcpy(name, w.name )//表示是外部的函数
 }
 ```
 
-- c++中字符串使用string，可以用库中的拷贝构造
+- c++ 中字符串使用 string，可以用库中的拷贝构造
 - 如果把拷贝构造函数私有，那么这个类的对象不可以作为函数的参数了
 
-
-
 ### `destructor` 析构函数
-
-
-
-
 
 Stroage allocation
 
 相当于动态申请内存
-
-
 
 #### new
 
@@ -375,12 +301,10 @@ Stroage allocation
 struct Foo{Foo(int x){printf("%d\n",x)}};
 
 int main(){
-	Foo *p = new Foo(5);
-	Foo *pp = new Foo[](1,2,)
+ Foo *p = new Foo(5);
+ Foo *pp = new Foo[](1,2,)
 }
 ```
-
-
 
 #### delete
 
@@ -388,24 +312,17 @@ int main(){
 
 `delte`的形式和`new`保持一致，要有括号都有括号
 
-```
+```c++
 int * psome = new int [10];
 delete [] psome;//析构函数调用次数不同，倒着顺序析构
 delete psome;
-
 ```
-
-
-
-
-
-
 
 ### inline function
 
 调用函数开销比较大
 
-`.h`：告诉编译器这是一个inline函数
+`.h`：告诉编译器这是一个 inline 函数
 
 不需要有`.cpp`
 
@@ -414,23 +331,15 @@ delete psome;
 - 不是所有函数都需要并且适合内联。局部性和代码量会变差
 - 可以进行类型检查、作用域、访问控制和括号，比宏更优
 
-
-
 ### 函数重载
 
 先有默认参数，才有函数重载
-
-
 
 实现方法：重载解析
 
 先列出所有可能的函数，如果有一个函数优于其他所有的函数，那么就使用这个函数。如果没有，就报编译错误。
 
 所以两个只有返回值类型不同的函数不是合法重载
-
-
-
-
 
 ### const
 
@@ -445,19 +354,15 @@ const int size = x;
 double classAverage[size]; //error!
 ```
 
-
-
 ```C++
 char * const q = "abc"; // q是const
-//*q = c; 	//ok
-q++;		//ERROR
+//*q = c;  //ok
+q++;  //ERROR
 
 const char *p = "ABCD";
 // (*p) is a const char
-*p = 'b';				//ERROR
+*p = 'b';    //ERROR
 ```
-
-
 
 ```c++
 Person p1("Fred",200);
@@ -473,44 +378,32 @@ Person *const p = &p1;
 
 new 放在堆当中
 
-
-
 以`const`身份传地址，比较安全
 
 const 不能被修改
 
+在函数后边加上 const 不会修改任何。在声明和定义的时候都要说明
 
-
-在函数后边加上const 不会修改任何。在声明和定义的时候都要说明
-
-函数后加const表明`this`为`const`
-
-
+函数后加 const 表明`this`为`const`
 
 ### `static`
 
-- 存储static storage
+- 存储 static storage
 - visibility of a name
-
-
 
 static class
 
-`vptr`： 
+`vptr`：
 
 第一次进入函数的时候进行初始化
 
-
-
 全局变量的构造在第一个函数之前（main）
 
-没有跨文件的初始化方案：所以将全局变量放在一个地方去 
+没有跨文件的初始化方案：所以将全局变量放在一个地方去
 
 ### 静态成员
 
 静态成员变量需要在类外进行声明
-
-
 
 ```c++
 class A{
@@ -521,12 +414,10 @@ private:
     static int i;
 }
 
-int A::i;//不能再加static了
+int A::i;//不能再加 static 了
 ```
 
-- 只能在定义的地方进行初始化，而不可以使用initializer list
-
-
+- 只能在定义的地方进行初始化，而不可以使用 initializer list
 
 #### 静态成员函数
 
@@ -534,20 +425,14 @@ int A::i;//不能再加static了
 
 静态函数只可以访问静态成员变量
 
-不可以调用this
+不可以调用 this
 
-```
+```c
 public:
-	static void say{}
+ static void say{}
 
 A::say
 ```
-
-
-
-
-
-
 
 ### `reference` - alias for an variable
 
@@ -567,32 +452,28 @@ char& r = c;//与别名类似
 
 ```c++
 int* f(int *x){
-	(*x)++;
-	return x;	// Safe,x is outside of this scope
+ (*x)++;
+ return x; // Safe,x is outside of this scope
 }
 int& g(int &x){
-	x++;
-	return x;
+ x++;
+ return x;
 }
 int x;
 int& h(){
-	int q;
-	return x;// Safe, x lives outside of scope
+ int q;
+ return x;// Safe, x lives outside of scope
 }
 
 int main(){
-	int a = 0;
-	f(&a);
-	g(a);
-	h() = 16;//reference 可以作为左值 也可以改变x的值
+ int a = 0;
+ f(&a);
+ g(a);
+ h() = 16;//reference 可以作为左值 也可以改变 x 的值
 }
 ```
 
-
-
- 引用目标必须有地址，不能返回本地变量作为引用，而是应该返回全局变量作为reference
-
-
+ 引用目标必须有地址，不能返回本地变量作为引用，而是应该返回全局变量作为 reference
 
 函数范围一个引用的时候，直接返回一个变量
 
@@ -600,19 +481,15 @@ int main(){
 
 ```c++
 double& subscript(const int i){
-	return array[i];
+ return array[i];
 }
 ```
 
-
-
-如果想传一个对象进入一个函数，使用const reference
-
-
+如果想传一个对象进入一个函数，使用 const reference
 
 ## `Template` 模板
 
-XY有一个基类
+XY 有一个基类
 
 类型作为参数
 
@@ -623,9 +500,9 @@ XY有一个基类
 ```c++
 template < class T >  //declaration
 void swap( T& x, T& y ) {
-	T temp = x;
-	x = y;
-	y = temp;
+ T temp = x;
+ x = y;
+ y = temp;
 }
 
 //can be explicit
@@ -656,13 +533,7 @@ class Derived : public List<A>{
 }
 ```
 
- 
-
-
-
 ## `STL`
-
-
 
 ### `vector`
 
@@ -687,8 +558,6 @@ sort(a.begin()+1,a.end())
 
 ```
 
-
-
 ```c++
 # iterate
 vector<int> v;
@@ -696,8 +565,8 @@ vector<int>::iterator it = v.begin();
 
 vector<int>::iterator it;
 for(it = vi.begin(); it != vi.end();it ++)
-	cout << *it << " ";
-//vi.end()指向尾元素地址的下一个地址
+ cout << *it << " ";
+//vi.end() 指向尾元素地址的下一个地址
 
 // 或者
 auto it = vi.begin();
@@ -711,12 +580,11 @@ for (auto &x: a) {
 }
 ```
 
-
 ## 运算符的重载
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231030133850764.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231030133850764.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231030133913556.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C__.assets__image-20231030133913556.webp)
 
 给运算符一个运算规则
 
@@ -727,12 +595,12 @@ const String String::operator + (const String& that)
 ```C++
 class Integer {
 public:
-	Integer( int n = 0) : i(n){}
-	const Integer operator+(const Integer& n) const{
-		return Integer(i + n.i);
-	}
+ Integer( int n = 0) : i(n){}
+ const Integer operator+(const Integer& n) const{
+  return Integer(i + n.i);
+ }
 private:
-	int i;
+ int i;
 }
 ```
 
@@ -744,15 +612,13 @@ private:
 
 重载也可以写成全局函数
 
-
-
 ## 异常
 
 `exception`
 
 ```c++
 if(index < 0 || index >= size){
-	throw VectorIndexError(index);
+ throw VectorIndexError(index);
 }
 
 try{
@@ -766,10 +632,7 @@ try{
 } catch(...){
 }
 
-//函数声明,限制abc
+//函数声明，限制 abc
 void abc(int a) : throw(MathErr){
 }
 ```
-
-
-

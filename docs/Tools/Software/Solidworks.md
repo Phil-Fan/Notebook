@@ -2,14 +2,14 @@
 
 ## 1. 基础操作
 
-- **了解用户界面**：熟悉SolidWorks的主界面，包括菜单栏、工具栏、命令管理器、属性管理器等。
+- **了解用户界面**：熟悉 SolidWorks 的主界面，包括菜单栏、工具栏、命令管理器、属性管理器等。
 - **导航和视图**：学习如何使用视图控件来旋转、缩放、平移模型，以及如何保存和恢复视图。
 
 ### 视图
 
 - 鼠标中键：移动视图
-- ctrl+鼠标：平移视图
-- alt+拖动：旋转视图
+- ctrl+ 鼠标：平移视图
+- alt+ 拖动：旋转视图
 - 滚轮：缩放
 
 鼠标右键手势，可以进入快速设置模式
@@ -17,11 +17,9 @@
 - **文件管理**：学习如何创建新文件、打开现有文件、保存和另存为不同格式的文件。
 - 切换零件：`Ctrl + Tab`
 
-
-
 ### **设置和选项**
 
-了解如何自定义SolidWorks的设置，以适应你的工作流程。
+了解如何自定义 SolidWorks 的设置，以适应你的工作流程。
 
 [鼠标滚轮方向反转](https://blog.csdn.net/u011764302/article/details/129463846)：工具 - 选项 - 视图 - 选择反转滚轮
 
@@ -31,9 +29,7 @@
 
 设置 - 自定义
 
-## 2. 2D草图绘制
-
-
+## 2. 2D 草图绘制
 
 ### **草图工具**
 
@@ -43,37 +39,29 @@
 
 切除掉多余的线
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204625233.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204625233.webp)
 
 ### **尺寸标注**
 
 掌握如何给草图添加尺寸，包括长度、角度、半径等。
 
-
-
 ### **几何约束**
 
 学习如何使用水平、垂直、平行、相切等约束来定位和固定草图的形状。
 
-选中ctrl 添加几何约束
+选中 ctrl 添加几何约束
 
 选中点，线，左侧有对称按钮
 
-
-
 - **草图修改**：了解如何编辑草图，包括删除、移动、复制、镜像等操作。
 
-## 3. 3D建模
-
-
+## 3. 3D 建模
 
 ### **修改和编辑**
 
 #### 参考轴
 
 参考几何体 - 参考轴
-
-
 
 学习如何修改现有的特征，包括编辑尺寸、移动面、替换草图等。
 
@@ -97,8 +85,6 @@
 
 #### 切除
 
-
-
 切除：点击平面，草图绘制
 
 #### 旋转 - 回转体 `（Revolve）`
@@ -112,8 +98,6 @@
 每个截面草图相同
 
 #### 放样
-
-
 
 #### 螺旋（Helix）
 
@@ -145,7 +129,7 @@
 
 拔模特征用于在零件上创建斜面，以便于从模具中脱模。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204448594.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204448594.webp)
 
 ### 线性阵列
 
@@ -155,13 +139,13 @@
 
 注意选择中心轴
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323205622423.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323205622423.webp)
 
 **曲线驱动的阵列**
 
 等距曲线；改变方向；设置特征
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210443109.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210443109.webp)
 
 **填充阵列**
 
@@ -169,7 +153,7 @@
 
 （散热孔）
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323212620102.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323212620102.webp)
 
 ### 打孔
 
@@ -179,7 +163,7 @@
 
 设置位置
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210114623.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210114623.webp)
 
 ### **组合和布尔运算**
 
@@ -189,21 +173,13 @@
 
 并集布尔运算用于合并两个或多个实体或表面，创建一个新的单一实体。
 
-
-
 #### 差集（Cut）
 
 差集布尔运算用于从一个实体中减去另一个实体或表面，留下剩余的部分。
 
-
-
 #### 交集（Intersect）
 
 交集布尔运算用于保留两个或多个实体或表面的共同部分。
-
-
-
-
 
 ## 4. 装配体设计
 
@@ -211,13 +187,7 @@
 
 [定义地面基准面 - 2021 - SOLIDWORKS 帮助](https://help.solidworks.com/2021/chinese-simplified/SolidWorks/sldworks/t_assy_defining_a_ground_plane.htm)
 
-
-
 等比例缩放
-
-
-
-
 
 ### **零件插入**
 
@@ -226,8 +196,6 @@
 ctrl 选中多个面 同轴心
 
 反转对齐
-
-
 
 **查看零件信息**：右下角区域 - 详细信息
 
@@ -239,8 +207,6 @@ ctrl 选中多个面 同轴心
 
 右键 - 查看配合 - 选项框
 
-
-
 #### **高级配合**
 
 **距离配合** - 设置距离范围
@@ -251,11 +217,11 @@ ctrl 选中多个面 同轴心
 
 **角度配合**：选择两个面，设置最大最小角度
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323201941162.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323201941162.webp)
 
 **路径配合**：（轨道机器人）设置实体的点，选择路径；俯仰/偏航变化
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202021159.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202021159.webp)
 
 #### 齿轮配合
 
@@ -263,7 +229,7 @@ ctrl 选中多个面 同轴心
 
 传动比设置
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202315376.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202315376.webp)
 
 ### **子装配体**
 
@@ -281,31 +247,25 @@ ctrl 选中多个面 同轴心
 
 ## 5. 工程图生成
 
-**视图创建**：学习如何从3D模型创建各种类型的二维视图（正视图、侧视图、俯视图等）。
-
-
-
-
+**视图创建**：学习如何从 3D 模型创建各种类型的二维视图（正视图、侧视图、俯视图等）。
 
 ### 工程图
 
-文件-从装配体制作工程图-右侧拉入需要的视图
+文件 - 从装配体制作工程图 - 右侧拉入需要的视图
 
-右键-属性-图纸尺寸
+右键 - 属性 - 图纸尺寸
 
-右下角-2:1-修改比例
+右下角 -2:1-修改比例
 
-齿轮图案-文档属性-线型
+齿轮图案 - 文档属性 - 线型
 
-剖视图-局部视图-断裂视图
+剖视图 - 局部视图 - 断裂视图
 
 ### 爆炸视图
 
 **配置**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240322215918042.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240322215918042.webp)
 
 ### 注解
 
@@ -315,19 +275,13 @@ ctrl 选中多个面 同轴心
 
 **尺寸和注释**：掌握如何添加尺寸、公差、注释和其他技术细节到工程图上。
 
-**图框和标题栏**：了解如何添加和编辑图框、标题栏以及BOM（物料清单）。
-
-
+**图框和标题栏**：了解如何添加和编辑图框、标题栏以及 BOM（物料清单）。
 
 ### 保存输出
 
 `DWG`格式，就可以和`AutoCAD`进行配合使用了
 
-
-
 3d pdf
-
-
 
 ### 动画制作
 
@@ -337,7 +291,7 @@ ctrl 选中多个面 同轴心
 
 速度 键码
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240408225949921.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240408225949921.webp)
 
 ## 6. 简单仿真
 
@@ -350,29 +304,23 @@ ctrl 选中多个面 同轴心
 ## 7. 实战项目
 
 - **项目规划**：确定你的小车项目的具体要求和设计目标。
-- **设计实施**：根据`Robocon 2019 Moonshot`题目的要求，使用SolidWorks进行设计。
+- **设计实施**：根据`Robocon 2019 Moonshot`题目的要求，使用 SolidWorks 进行设计。
 - **迭代和优化**：在设计过程中不断迭代和优化模型，以达到最佳性能。
 - **文档和报告**：创建详细的设计文档和报告，记录设计过程和结果。
-
-
-
-
 
 ## 学习资源
 
 ### 学习路线
 
-先询问GPT给出学习路线，然后再b站观看速成的框架视频，再看一个长一点的视频进行学习。
+先询问 GPT 给出学习路线，然后再 b 站观看速成的框架视频，再看一个长一点的视频进行学习。
 
 ### 速成视频
 
-[全网最简单的SW入门教程没有之一](https://www.bilibili.com/video/BV1KV4y1J7zY)
+[全网最简单的 SW 入门教程没有之一](https://www.bilibili.com/video/BV1KV4y1J7zY)
 
-[SolidWorks速成课，一个小时轻松学完_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1w44y1j7C2)
+[SolidWorks 速成课，一个小时轻松学完_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1w44y1j7C2)
 
-
-
-- **SolidWorks官方教程**：访问SolidWorks官网，查看提供的学习资源和教程。
-- **在线课程**：网站如Udemy、Coursera、LinkedIn Learning提供专业的SolidWorks课程。
-- **YouTube教程**：YouTube上有许多免费的SolidWorks教程，适合初学者。
-- **论坛和社区**：加入SolidWorks用户论坛，与其他用户交流经验和技巧。
+- **SolidWorks 官方教程**：访问 SolidWorks 官网，查看提供的学习资源和教程。
+- **在线课程**：网站如 Udemy、Coursera、LinkedIn Learning 提供专业的 SolidWorks 课程。
+- **YouTube 教程**：YouTube 上有许多免费的 SolidWorks 教程，适合初学者。
+- **论坛和社区**：加入 SolidWorks 用户论坛，与其他用户交流经验和技巧。

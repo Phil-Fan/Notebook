@@ -1,6 +1,6 @@
 # 函数 `Function`
 
-python的函数是一种数据类型
+python 的函数是一种数据类型
 
 ```python title="注释的写法 docstring"
 def pressure(v, t, n):
@@ -18,17 +18,13 @@ def pressure(v, t, n):
 
 使用`help(pressure)`查看注释
 
-
 ## 声明  `Defination`
-
 
 - 函数的命名规范
 
 built-in name
 
 bound name
-
-
 
 - nested defination 嵌套定义
 
@@ -47,11 +43,7 @@ def sqrt(a):
     return improve(sqrt_update, sqrt_close)
 ```
 
-
-
-
-
-## 调用 `Call` 
+## 调用 `Call`
 
 when you call a function, it **creates** a new frame
 
@@ -77,13 +69,12 @@ def with_if_function():
 ```python
 x = 2
 def f():
-	print(x)
-	x = 3
+ print(x)
+ x = 3
 #UnboundLocalError: local varibale x referenced before assignment
 ```
 
 - 如果要将函数作为一个参数，那么需要格外注意是传入的是这个函数（不带括号），还是这个函数的返回值（带括号）
-
 
 - 调用函数时，传递参数的值有四种方式：
 
@@ -98,7 +89,7 @@ def f():
 
 - 位置参数和关键字参数混合
 
-- 默认值参数（缺省sheng）
+- 默认值参数（缺省 sheng）
 
   - 默认参数值在函数对象被创建时计算
 
@@ -117,7 +108,7 @@ def f():
   - print()
 
     ```py
-    print(*object,sep=" ",end="\n",file=sys.stdout)	
+    print(*object,sep=" ",end="\n",file=sys.stdout) 
     ```
 
     - `object`：输出参数
@@ -151,13 +142,13 @@ def f():
 
 - 当实参是可变对象时，形参值改变可能会影响实参！
 
-## 返回 `Return` 
+## 返回 `Return`
 
-- 函数⽤return语句返回值
-- return后⾯的表达式的值就成为这次函数调⽤的返回值
-  - **如函数没有⽤return语句返回，这时函数返回的值为`None`**；
-  - 如果return后⾯没有表达式，调⽤的返回值也为`None`
-- `None`是Python中⼀个特殊的值，虽然它不表示任何数据，但仍然具有重要的作⽤
+- 函数⽤ return 语句返回值
+- return 后⾯的表达式的值就成为这次函数调⽤的返回值
+  - **如函数没有⽤ return 语句返回，这时函数返回的值为`None`**；
+  - 如果 return 后⾯没有表达式，调⽤的返回值也为`None`
+- `None`是 Python 中⼀个特殊的值，虽然它不表示任何数据，但仍然具有重要的作⽤
 
 ```python
 # None is not displayed by the interpreter as the value of an expreesion
@@ -166,7 +157,7 @@ def f():
 1
 2
 None None
-# 注意Print的返回值是None
+# 注意 Print 的返回值是 None
 
 >>> None + 7 
 TypeError
@@ -183,10 +174,6 @@ print(x,y)##单个
 x=f(10,3)
 print(x)##元组
 ```
-
-
-
-
 
 ## Higher-Order Functions
 
@@ -216,7 +203,7 @@ w = h(5)
 
 ### `map()`- apply to all
 
-- `map(f, sq)` 
+- `map(f, sq)`
 
   函数将函数`f`作用到可枚举量`sq`的每个元素上去，并返回结果组成的`map`对象，`map`对象本身是一个可枚举量
 
@@ -249,9 +236,7 @@ map(square, filter(is_even, range(5)))
 - `reduce(f, sq)` 函数接受一个二元操作函数 `f(x,y)`，并对于序列 `sq` 做累进计算
 - 这里`f(x,y)`的`x`是累计值，而`y`是当前值，即序列中的一个元素
 
-
-
-```python title="reduce函数实现"
+```python title="reduce 函数实现"
 def reduce(function, sequence, initial=_initial_missing):
     """
     reduce(function, iterable[, initial], /) -> value
@@ -283,9 +268,7 @@ def reduce(function, sequence, initial=_initial_missing):
     return value
 ```
 
-
 例子
-
 
 ```python
 from functools import reduce
@@ -298,7 +281,6 @@ from functools import reduce
 s1 = reduce(lambda x, y: x+y, map(lambda x: x**2, range(1,10)))
 print(s1)
 ```
-
 
 ```python title="make_repeater"
 from functools import reduce
@@ -318,20 +300,13 @@ def make_repeater(f, n):
     return lambda x: reduce(lambda acc, _: f(acc), range(n), x)
 ```
 
-
-
-
-
-
-
-
 ### `sorted()`
 
 - `sorted()`函数对字符串，列表，元组，字典等对象进行排序操作
 - 同样是对列表操作，`list`的`sort()`⽅法是对已经存在的列表进⾏操作
 - ⽽内建函数`sorted()`返回的是⼀个新的`list`，原来的`list`不会被修改
 
-sorted函数语法
+sorted 函数语法
 
 ```python
 sorted(iterable ,key=None, reverse=False)
@@ -345,11 +320,9 @@ sorted(iterable ,key=None, reverse=False)
 
 ### currying  柯理化
 
-​		[函数式编程--柯理化（Currying） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/355859667)
+​  [函数式编程--柯理化（Currying） - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/355859667)
 
-​		柯里化（Currying）是一种处理多元函数的方法。它产生一系列连锁函数，其中每个函数固定部分参数，并返回一个新函数，用于传回其它剩余参数的功能
-
-
+​  柯里化（Currying）是一种处理多元函数的方法。它产生一系列连锁函数，其中每个函数固定部分参数，并返回一个新函数，用于传回其它剩余参数的功能
 
 常见场景：传入不定量参数，给出需要剩余参数的函数
 
@@ -369,31 +342,29 @@ def curry2(f):
     return g
 ```
 
-
-
 - 解决重复传参问题，提高函数适用性
 
-柯理化(currying)应用很广泛也很常见。比如，批量发送双11活动邮件，通常我们这样做
+柯理化 (currying) 应用很广泛也很常见。比如，批量发送双 11 活动邮件，通常我们这样做
 
 ```js
 function sendEmail(from, content, to){
     console.log(`${from} send email to ${to}, content is ${content}`)
 }
 
-sendEmail('xx公司', '双11优惠折上5折', 'zhangsan@xx.com')
-sendEmail('xx公司', '双11优惠折上5折', 'lisi@xx.com')
-sendEmail('xx公司', '双11优惠折上6折', 'wangwu@xx.com')
-sendEmail('xx公司', '双11优惠折上6折', 'maliu@xx.com')
+sendEmail('xx 公司', '双 11 优惠折上 5 折', 'zhangsan@xx.com')
+sendEmail('xx 公司', '双 11 优惠折上 5 折', 'lisi@xx.com')
+sendEmail('xx 公司', '双 11 优惠折上 6 折', 'wangwu@xx.com')
+sendEmail('xx 公司', '双 11 优惠折上 6 折', 'maliu@xx.com')
 
 // ...
 ```
 
-邮件发送方是固定的，邮件内容是相对固定的，唯一不同的是邮件的接受者。这正符合柯理化(currying)固定部分参数，并返回接受剩余参数新函数的规则。柯理化创建两个临时性的、适用性更强的函数sendEmailToS5和sendEmailToS6，向目标群体，发送指定类型的邮件。
+邮件发送方是固定的，邮件内容是相对固定的，唯一不同的是邮件的接受者。这正符合柯理化 (currying) 固定部分参数，并返回接受剩余参数新函数的规则。柯理化创建两个临时性的、适用性更强的函数 sendEmailToS5 和 sendEmailToS6，向目标群体，发送指定类型的邮件。
 
 ```js
-var sendEmailContent = currying(sendEmail)('xx公司')
-var sendEmailToS5 = sendEmailContent('双11优惠折上5折')
-var sendEmailToS5 = sendEmailContent('双11优惠折上6折')
+var sendEmailContent = currying(sendEmail)('xx 公司')
+var sendEmailToS5 = sendEmailContent('双 11 优惠折上 5 折')
+var sendEmailToS5 = sendEmailContent('双 11 优惠折上 6 折')
 
 // 打五折的群组
 sendEmailToS5('zhangsan@xx.com')
@@ -406,14 +377,10 @@ sendEmailToS6('wangwu@xx.com')
 sendEmailToS6('maliu@xx.com')
 ```
 
-
-
-
-
 ## 匿名函数--`lambda`表达式
 
 - lambda 的⼀般形式是关键字`lambda`后⾯跟⼀个或多个参数，紧跟⼀个冒号，后⾯是⼀个表达式
-- 作为表达式，lambda返回⼀个值，也可以返回另一个`lambda`表达式
+- 作为表达式，lambda 返回⼀个值，也可以返回另一个`lambda`表达式
 - lambda ⽤来编写简单的函数，⽽`def`⽤来处理更强⼤的任务的函数。
 
 ```python
@@ -437,7 +404,7 @@ eight = g(2)(7)
 
 - 匿名函数实现递归
 
-f(f) 就是递归调用的关键，它将相同的函数f传递给自身，实现了递归调用。
+f(f) 就是递归调用的关键，它将相同的函数 f 传递给自身，实现了递归调用。
 
 ```python
 (lambda f: lambda n: 1 if n == 1 else mul(n,f(f)(n-1)))(lambda f: lambda n: 1 if n == 1 else mul(n,f(f)(n-1)))
@@ -449,11 +416,9 @@ f(f) 就是递归调用的关键，它将相同的函数f传递给自身，实�
 leaders.sort(key=lambda x: len(x))
 ```
 
-
-
 ### 与高阶函数配合使用
 
-需要两个参数,第一个是一个处理函数,第二个是一个序列(list,tuple,dict)
+需要两个参数，第一个是一个处理函数，第二个是一个序列 (list,tuple,dict)
  **map()**
  将序列中的元素通过处理函数处理后返回一个新的列表
  **filter()**
@@ -463,18 +428,13 @@ leaders.sort(key=lambda x: len(x))
 
 ```python
 li = [1,2,3,4,5]
-# 序列中的每个元素加1 
+# 序列中的每个元素加 1 
 map(lambda x: x+1, li) # [2,3,4,5,6] 
 # 返回序列中的偶数
 filter(lambda x: x % 2 == 0, li) # [2, 4] 
 # 返回所有元素相乘的结果 
 reduce(lambda x, y: x * y, li) # 1*2*3*4*5 = 120 
 ```
-
-
-
-
-
 
 ## 闭包
 
@@ -504,9 +464,6 @@ def announce_lead_changes(prev_leader=None):
 
 这种方式创建了一个闭包，使得在每次调用内部函数时都能够持续跟踪之前的状态。这样，`announce_lead_changes`函数的每次调用都返回一个新的闭包函数，这些闭包函数共享相同的代码逻辑，但各自保持着不同的状态，即各自引用的`prev_leader`变量值。
 
-
-
-
 ## 函数装饰器 `Decorators`
 
 函数装饰器使用 `@` 符号和装饰器函数来标记要装饰的函数。
@@ -528,7 +485,6 @@ def greet():
 #等价于
 greet = decorator_function(greet)
 ```
-
 
 ```python title="计时器"
 import time
@@ -569,7 +525,6 @@ model = ...  # 某个 PyTorch 模型
 evaluate_model(model, test_data)  # 自动切换模式
 ```
 
-
 ```python title="自动重试"
 import time
 from functools import wraps
@@ -600,6 +555,7 @@ fetch_data("https://example.com/fail")  # 重试 3 次后报错
 ```
 
 ## 常见函数
+
 ### `zip`函数
 
 - `zip()`函数⽤于将可迭代的对象作为参数，将对象中对应的元素打包成一个元组，然后返回由这些元组组成的列表或迭代器
@@ -623,14 +579,12 @@ for name, score in zip(names, scores):
 # Charlie: 78
 ```
 
-
 ```python title="将两个列表合并为字典"
 keys = ["a", "b", "c"]
 values = [1, 2, 3]
 d = dict(zip(keys, values))
 print(d)  # {'a': 1, 'b': 2, 'c': 3}
 ```
-
 
 ```python title="转置二维矩阵"
 matrix = [
@@ -642,7 +596,6 @@ transposed = list(zip(*matrix))
 print(transposed)  # [(1, 4, 7), (2, 5, 8), (3, 6, 9)]
 ```
 
-
 ```python title="按最短列表截断"
 long = [1, 2, 3, 4, 5]
 short = ["a", "b", "c"]
@@ -650,8 +603,7 @@ result = list(zip(long, short))
 print(result)  # [(1, 'a'), (2, 'b'), (3, 'c')]
 ```
 
-
-```python title="与enumerate结合使用"
+```python title="与 enumerate 结合使用"
 names = ["Alice", "Bob", "Charlie"]
 for i, (name, score) in enumerate(zip(names, scores)):
     print(f"{i}: {name} -> {score}")
@@ -661,14 +613,12 @@ for i, (name, score) in enumerate(zip(names, scores)):
 # 2: Charlie -> 78
 ```
 
-
 ```python title="解压（Unzip）数据"
 pairs = [("a", 1), ("b", 2), ("c", 3)]
 letters, numbers = zip(*pairs)
 print(letters)  # ('a', 'b', 'c')
 print(numbers)  # (1, 2, 3)
 ```
-
 
 ```python title="批量计算（如元素级运算）"
 vector1 = [1, 2, 3]
@@ -678,7 +628,6 @@ sums = [x + y for x, y in zip(vector1, vector2)]
 print(sums)  # [5, 7, 9]
 ```
 
-        
 ```python title="处理不等长列表时填充默认值"
 from itertools import zip_longest
 
@@ -689,14 +638,12 @@ result = list(zip_longest(long, short, fillvalue="NULL"))
 print(result)  # [(1, 'a'), (2, 'b'), (3, 'NULL'), (4, 'NULL')]
 ```
 
-
-
 ### `eval()`和`exec()`函数
 
-- Python是⼀种动态语⾔，它包含很多含义
-- Python变量类型，操作的合法性检查都在动态运⾏中检查；运算的代码需要到运⾏时才能动态确定；程序结构也可以动态变化，容许动态加载新模块等。这两个函数就体现了这个特点
-- `eval()`是计算表达式,返回表达式的值
-- `exec()`可运⾏Python的代码段，返回代码段运⾏的结果
+- Python 是⼀种动态语⾔，它包含很多含义
+- Python 变量类型，操作的合法性检查都在动态运⾏中检查；运算的代码需要到运⾏时才能动态确定；程序结构也可以动态变化，容许动态加载新模块等。这两个函数就体现了这个特点
+- `eval()`是计算表达式，返回表达式的值
+- `exec()`可运⾏ Python 的代码段，返回代码段运⾏的结果
 
 ```py
 exec('print("hello world")')
@@ -707,10 +654,7 @@ while True:
     exec(line)
 ```
 
-
 ## 递归注意点
-
-
 
 ```python title="interleaved_sum"
 def interleaved_sum(n, odd_func, even_func):
@@ -744,7 +688,6 @@ def interleaved_sum(n, odd_func, even_func):
     return inter(1,True)
 ```
 
-
 This question demonstrates that it's possible to write recursive functions without assigning them a name in the global frame.
 
 ```python title="make_anonymous_factorial"
@@ -764,12 +707,9 @@ def make_anonymous_factorial():
     return (lambda f: lambda x: f(f,x))(lambda f,x: 1 if x == 1 else mul(x,f(f,sub(x,1))))
 ```
 
-
-
 Python 中，lambda 函数不能自引用，因为它没有名字，所以不能写成 lambda x: ... factorial(x-1)。
 
 我们就要用一种技巧：把函数自身作为参数传进去，这样它就能"递归"了。
-
 
 ```python
 return (lambda f: lambda x: f(f, x))(
@@ -786,11 +726,12 @@ return (lambda f: lambda x: f(f, x))(
 这个是一个函数，它接受一个函数 f，并返回一个函数 lambda x: f(f, x)。它的作用是：把 f 自己传给自己，这样 f(f, x) 就能模拟递归。
 
 第二层：实际的阶乘逻辑
+
 ```python
 lambda f, x: 1 if x == 1 else mul(x, f(f, sub(x, 1)))
 ```
+
 这个函数接受两个参数：
 
 - `f`：就是“自己”
 - `x`：就是要计算阶乘的数字
-

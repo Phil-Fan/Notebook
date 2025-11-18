@@ -62,19 +62,10 @@ void SingleLinkedList<DT>::remove()
 
 ## **插入操作**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164802876.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164802876.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164821049.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164821049.webp)
 
 ## **删除操作**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164855945.webp)
-
-
-
-
-
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__01-list.assets__image-20230101164855945.webp)

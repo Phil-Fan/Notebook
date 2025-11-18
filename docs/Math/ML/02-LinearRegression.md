@@ -15,7 +15,6 @@ $$
 * $\beta \in \mathbb{R}^p$：未知回归系数
 * $\varepsilon$：独立同分布噪声，均值 0，方差 $\sigma^2$
 
-
 残差平方和（Residual Sum of Squares, RSS）定义为：
 
 $$
@@ -23,7 +22,6 @@ RSS = \sum_{i=1}^n \left( y_i - x_{i1}\beta_1 - \cdots - x_{ip}\beta_p \right)^2
 $$
 
 也可以写成向量形式：
-
 
 $$
 RSS = \|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2 = (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
@@ -35,15 +33,14 @@ $$
 \widehat{\beta} = \underset{\boldsymbol{\beta}}{\operatorname*{arg\,min}} \; (\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^\mathsf{T}(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})
 $$
 
-
-- To estimate $\beta$, we set the derivative equal to 0
+* To estimate $\beta$, we set the derivative equal to 0
 $$\frac{\partial \text{RSS}}{\partial \beta} = -2 \mathbf{X}^\top (\mathbf{y} - \mathbf{X} \beta) = 0$$
 
 $$
 \widehat{\beta} = (\mathbf{X}^\top \mathbf{X})^{-1} \mathbf{X}^\top \mathbf{y}
 $$
 
-- $\mathbf{X}$ full rank $\iff \mathbf{X}^\top \mathbf{X}$ invertible
+* $\mathbf{X}$ full rank $\iff \mathbf{X}^\top \mathbf{X}$ invertible
 
 ### 性质
 
@@ -51,13 +48,7 @@ $$
 \hat{\beta} = (X^T X)^{-1} X^T y
 $$
 
-
-
-
 **无偏**
-
-
-
 
 我们计算 $\mathbb{E}[\hat{\beta}]$：
 
@@ -96,7 +87,6 @@ $$
 &= \frac{1}{n - p} \sum_{i=1}^n \hat{\varepsilon}_i^2 (\mathbf{X}^\top \mathbf{X})^{-1}
 \end{aligned}
 $$
-
 
 ---
 
@@ -153,7 +143,7 @@ Lehmann–Scheffé 定理告诉我们：
     \hat{x}_{LS} = (A^T A)^{-1} A^T b
     $$
 
-    **OLS最小二乘估计是$x$的最小方差无偏估计**
+    **OLS 最小二乘估计是$x$的最小方差无偏估计**
 
     即满足
 
@@ -171,8 +161,6 @@ Lehmann–Scheffé 定理告诉我们：
 
 * **Gauss-Markov 定理 → 最优线性无偏估计（BLUE）**
 * **Lehmann–Scheffé 定理（+ 正态性）→ 最小方差无偏估计（UMVUE）**
-
-
 
 ### Training Error & Test Error
 
@@ -197,11 +185,11 @@ $$
 
 ## OLS - 统计视角
 
-!!! note "OLS和MLE在高斯噪声的条件下是等价的"
+!!! note "OLS 和 MLE 在高斯噪声的条件下是等价的"
 
 !!! note "观测出模型的假设非常关键，给人判定模型好坏的一个直观的方法"
 
-首先定义拟合误差:
+首先定义拟合误差：
 
 $$
 Az = b + e
@@ -209,23 +197,22 @@ $$
 
 其中假设噪声$e$服从白噪声高斯分布
 
-> 使用高斯噪声的建模假设：模型的预测能力是比较好的，没有outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考100分的样本
-> 
+> 使用高斯噪声的建模假设：模型的预测能力是比较好的，没有 outlier（超出$3\sigma$的离群值），比如上课一次不来，作业一次不交，考试考 100 分的样本
+>
 > 在这种时候使用高斯噪声建模，可以得到一个比较好的结果
-
 
 $$
 e \sim N(e|0,\sigma^{2}I) \propto \exp\left[-\frac{1}{\sigma^{2}}\mathrm{e}^{\mathrm{H}}e\right]
 $$
 
-因此条件概率可以写作:
+因此条件概率可以写作：
 
 $$
 p(b | Ax) = N(b|Ax,\sigma^{2}I)\\
 = \frac{1}{z}\exp\left[-\frac{(b-Ax)^T(b-Ax)}{\sigma^2}\right]
 $$
 
-根据极大似然估计,我们需要找到一个$z$使得$p(b|Az)$最大:
+根据极大似然估计，我们需要找到一个$z$使得$p(b|Az)$最大：
 
 $$
 \begin{aligned}
@@ -237,15 +224,11 @@ $$
 \end{aligned}
 $$
 
+conditional pdf 对 b
 
-conditional pdf 对b
-
-likelihood function 对z
-
+likelihood function 对 z
 
 ## DLS - 最小数据二乘
-
-
 
 假设数据矩阵$A$存在误差（比如记录样本数据的时候写错了）
 
@@ -254,15 +237,12 @@ A = A_0 + E \\
 E_{ij} \stackrel{\text{i.i.d.}}{\sim} N(0, \sigma^2)
 $$
 
-
-
-
-使用校正量$\Delta A$来表示误差,即考察下面的约束优化问题 
+使用校正量$\Delta A$来表示误差，即考察下面的约束优化问题
 
 $$
 \begin{align*}
 \min \quad & ||\Delta A||^2_F\\
-s.t. \quad &\left[ A + \Delta A \right] x = b 
+s.t. \quad &\left[ A + \Delta A \right] x = b
 \end{align*}
 $$  
 
@@ -283,7 +263,7 @@ L(A, \lambda) &= \|A\|_F^2 + \lambda^H \left[(A + \Delta A)x - b\right]\\
 \end{align*}
 $$
 
-求导数并令导数为0
+求导数并令导数为 0
 
 $$
 \begin{align*}
@@ -298,7 +278,6 @@ $$
 \Delta A = - \frac{(Ax-b)x^H}{x^H x}\quad \lambda = \frac{Ax-b}{x^H x}
 $$
 
-
 把$\Delta A$和$\lambda$代入$L(A, \lambda)$，得到
 
 $$
@@ -311,11 +290,8 @@ $$
 \min_x J(x) =\frac{(Ax-b)^H (Ax-b)}{x^H x}
 $$
 
-- 方法1:使用梯度下降法求解$x^{t+1} = x^t - \eta \nabla J(x^t)$
-- 方法2:这是一个分式优化的问题(Fractional Programming)，2018 IEEE TSP
-
-
-
+* 方法 1:使用梯度下降法求解$x^{t+1} = x^t - \eta \nabla J(x^t)$
+* 方法 2:这是一个分式优化的问题 (Fractional Programming)，2018 IEEE TSP
 
 $$
 \begin{align*}
@@ -328,11 +304,8 @@ $$
 \min_{x, y} \|y\|_2^2 x^H A A^H x - 2 \mathrm{Re} \left\{ \|y\|_2^2 b^H A x \right\} + \|y\|_2^2 b^H b - 2 y^H x
 $$
 
-- Fix $x$, 那么$y$ 有闭式解
-- Fix $y$, 那么$x$ 是凸优化问题
-
-
-
+* Fix $x$, 那么$y$ 有闭式解
+* Fix $y$, 那么$x$ 是凸优化问题
 
 ## TLS - 总体最小二乘
 
@@ -345,7 +318,6 @@ $$
 3. $B^HB = V \Sigma V^H$
 4. 找$\lambda_{min}$对应的特征向量$v_{min}$
 5. $z^{\star} = v_{min} \times \frac{-1}{v_ {n+1}}$
-
 
 ### 问题求解
 
@@ -377,7 +349,7 @@ $$
 \end{align*}
 $$
 
-可以看出，TLS是DLS在$b = 0$的特殊情况
+可以看出，TLS 是 DLS 在$b = 0$的特殊情况
 
 使用拉格朗日乘子法
 
@@ -388,7 +360,7 @@ $$
 \end{align*}
 $$
 
-两个二次型相除：Rayleigh商，有闭式解（在PCA和TLS中都有应用）
+两个二次型相除：Rayleigh 商，有闭式解（在 PCA 和 TLS 中都有应用）
 
 对$B^HB = V \Sigma V^H$进行特征值分解
 
@@ -400,16 +372,11 @@ $$
 \frac{-1}{v_{n+1}} V_{min}= \begin{bmatrix} \frac{-v_1}{v_{n+1}} \\ \frac{-v_2}{v_{n+1}} \\ \vdots \\ \frac{-v_n}{v_{n+1}} \\ -1 \end{bmatrix} = \begin{bmatrix} x^{\star} \\ -1 \end{bmatrix}
 $$
 
-
-
 ### 几何含义
 
-普通LS是让竖直方向的距离误差最小
+普通 LS 是让竖直方向的距离误差最小
 
-而TLS是让垂直方向上的距离误差最小;即找到一条直线，让所有点到直线的距离最小
-
-
-
+而 TLS 是让垂直方向上的距离误差最小;即找到一条直线，让所有点到直线的距离最小
 
 $$
 \begin{align*}
@@ -455,10 +422,9 @@ $$
 d^2 = \frac{|Ax -b|^2}{x^2 + 1}
 $$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506242052169.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506242052169.webp)
 
-
-!!! note "引理： TLS拟合直线一定过$(\bar{x}, \bar{y})$"
+!!! note "引理：TLS 拟合直线一定过$(\bar{x}, \bar{y})$"
     $$
     \bar{x} = \frac{\sum_{i=1}^{N} x_i}{n}\qquad
     \bar{y} = \frac{\sum_{i=1}^{N} y_i}{n}
@@ -496,13 +462,11 @@ $$
     Ak = b
     $$
 
-
-### 求解案例 
+### 求解案例
 
 假设有点$(2,1),(2,4),(5,1)$
 
-- $\bar{x} = 3,\bar{y} = 2$
-
+* $\bar{x} = 3,\bar{y} = 2$
 
 $$
 \begin{align*}
@@ -521,15 +485,7 @@ y &= -x +5
 \end{align*}
 $$
 
-
-
-
-
-
-
-
-
-!!! example "Rayleigh商的应用场景 —— 最大信噪比的接收滤波器设计"
+!!! example "Rayleigh 商的应用场景 —— 最大信噪比的接收滤波器设计"
 
     $$
     r(t) = BS(t) +noise(t)
@@ -564,64 +520,51 @@ $$
     \mathrm{SNR} = \frac{\alpha x^H B B^H x}{\beta x^H x}
     $$
 
-    > 得到了Rayleigh商的表达式
+    > 得到了 Rayleigh 商的表达式
 
-    如果要maximize SNR，那么需要 对$B B^H$进行特征值分解，取最大的特征值对应的特征向量
-
-
-
-
-
-
+    如果要 maximize SNR，那么需要 对$B B^H$进行特征值分解，取最大的特征值对应的特征向量
 
 ## 广义线性回归
 
 ### logistic
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807233452.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807233452.webp)
 
-线性回归有一个很强的假设，就是y是连续的；并且有更像邻近数的趋势(MSE 对于线性回归不是一个好的function)
+线性回归有一个很强的假设，就是 y 是连续的；并且有更像邻近数的趋势 (MSE 对于线性回归不是一个好的 function)
 
-- one vs. Rest
+* one vs. Rest
 
 logistic function:
 
-- sigmoid function: $f(x) = \frac{1}{1+e^{-x}}$
-CDF(累积分布函数)ofthe standard logistic distribution   
-使用sigmoid函数将线性回归的输出转换为概率
+* sigmoid function: $f(x) = \frac{1}{1+e^{-x}}$
+CDF(累积分布函数)ofthe standard logistic distribution
+使用 sigmoid 函数将线性回归的输出转换为概率
 
-!!! note "logistic Regreesion是一个线性模型"
+!!! note "logistic Regreesion 是一个线性模型"
     主要考虑的是decision boundary
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807234021.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807234021.webp)
 
+为什么 loss function 要取 log
 
-为什么loss function要取log
-
-- 为了方便求导
-- 取log使得连乘变成连加，不会丢失信息
+* 为了方便求导
+* 取 log 使得连乘变成连加，不会丢失信息
 
 Assumptions behind logistic regression
 
-- $l(a) = -\sum_{i\in I} \log(1+e^{-y_i a^T x_i})$
-
+* $l(a) = -\sum_{i\in I} \log(1+e^{-y_i a^T x_i})$
 
 pros:
-- binomial distribution is a  good assumption for classification
-- provide a probability
-- low computation, easy to optimize
-- support online learning:梯度下降的模型都支持在线学习
+
+* binomial distribution is a  good assumption for classification
+* provide a probability
+* low computation, easy to optimize
+* support online learning:梯度下降的模型都支持在线学习
 
 cons:
-- too simple:high bias & low variance
 
+* too simple:high bias & low variance
 
 对于分类问题，只关心分类正确的类的值
-
-
-
-
-
-
 
 ## Penalty
 
@@ -633,11 +576,10 @@ $$
 
 where $P_{\lambda}(\cdot)$ is a penalty function applied on the value of each parameter, and $\lambda$ is a tuning parameter.
 
-- Lasso: $P_{\lambda}(\beta) = \lambda|\beta|$
-- Ridge: $P_{\lambda}(\beta) = \lambda\beta^2$
-- Best subset: $P_{\lambda}(\beta) = \lambda\mathbf{1}\{\beta \neq 0\}$
-- Elastic net: $P_{\lambda}(\beta) = \lambda_1|\beta| + \lambda_2\beta^2$
-
+* Lasso: $P_{\lambda}(\beta) = \lambda|\beta|$
+* Ridge: $P_{\lambda}(\beta) = \lambda\beta^2$
+* Best subset: $P_{\lambda}(\beta) = \lambda\mathbf{1}\{\beta \neq 0\}$
+* Elastic net: $P_{\lambda}(\beta) = \lambda_1|\beta| + \lambda_2\beta^2$
 
 ### Lasso - l1
 
@@ -648,7 +590,6 @@ where $P_{\lambda}(\cdot)$ is a penalty function applied on the value of each pa
 | 理论上条件           | 为了选变量，$\lambda$ 要够大；但为估计精度，$\lambda$ 又要趋于 0 |
 | 解决方法            | 改用无偏惩罚函数（如 SCAD），或者接受一定折中                   |
 
-
 求解下面的优化问题
 
 $$
@@ -658,11 +599,9 @@ $$
 \end{aligned}
 $$
 
-- Each value of $\lambda$ corresponds to an unique value of $s$.
-
+* Each value of $\lambda$ corresponds to an unique value of $s$.
 
 #### Lasso 回归在正交设计下的推导与原理
-
 
 **假设：**
 
@@ -733,7 +672,6 @@ Soft Thresholding = 变量选择机制
 * Lasso 使用 $\ell_1$ 惩罚：会直接把小的系数压成 0
 * 所以 Lasso 能实现 **变量选择（sparsity）**
 
-
 | 项目             | 解释   |
 | ---------------- | ------------------------ |
 | 正交设计         | $\mathbf{X}^\top \mathbf{X} = \mathbf{I}$ 简化问题            |
@@ -743,17 +681,16 @@ Soft Thresholding = 变量选择机制
 | 稀疏性来源        | 系数可能直接为 0，实现选择                                   |
 | $\lambda$ 越大   | 越多的参数会被压成 0                                         |
 
-
-
 ### Ridge - l2
 
 | 视角    | 解释                                                                                                   |
 | ----- | ---------------------------------------------------------------------------------------------------- |
 | 最优化视角 | Ridge 解是最小化 $\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta} \|^2 + \lambda \|\boldsymbol{\beta}\|^2$ 的解 |
 | 贝叶斯视角 | Ridge 解是 $\boldsymbol{\beta} \sim \mathcal{N}(0, \frac{\sigma^2}{\lambda} \mathbf{I})$ 下的后验均值        |
-|PCA视角||
+|PCA 视角||
 
 #### 优化视角
+
 最优化视角，即求解下面的最优化问题
 
 $$
@@ -768,8 +705,7 @@ $$
 \end{aligned}
 $$
 
-
-#### PCA视角
+#### PCA 视角
 
 !!! note "SVD 分解"
 
@@ -780,7 +716,6 @@ $$
     * $U$：正交列向量，表示在数据空间中的方向（主成分）
     * $D$：奇异值（与协方差矩阵特征值相关）
     * $V$：输入空间的正交基（回归系数方向）
-
 
 将协方差矩阵写成 PCA 形式：
 
@@ -799,11 +734,9 @@ $$
 \mathbf{X} \hat{\boldsymbol{\beta}}^{\text{ridge}} = \sum_{j=1}^p u_j \cdot \frac{d_j^2}{d_j^2 + \lambda} \cdot u_j^\top \mathbf{y}
 $$
 
-
 1. 把 $\mathbf{y}$ 投影到每个主成分方向 $u_j$
 2. 投影结果 $u_j^\top y$ 被 **缩小** 了一个因子 $\frac{d_j^2}{d_j^2 + \lambda}$
 3. $d_j^2$ 小的方向（低方差）被惩罚得更严重，防止对噪声过拟合
-
 
 | 主题     | 内容                                    |
 | ------ | ------------------------------------- |
@@ -812,9 +745,6 @@ $$
 | MSE 更优 | 合适的 $\lambda$ 可让 MSE 优于 OLS           |
 | 几何理解   | Ridge 在 PCA 空间中对不同方向施加不同强度的 shrinkage |
 | 实用价值   | 尤其在高维/共线性严重时表现更好                      |
-
-
-
 
 #### 贝叶斯视角
 
@@ -850,11 +780,9 @@ $$
 }
 $$
 
+#### Tikhonov 正则化
 
-#### Tikhonov正则化
-
-
-对于OLS问题，我们求解
+对于 OLS 问题，我们求解
 
 $$
 \min_x \|Ax-b\|_2^2
@@ -866,24 +794,19 @@ $$
 
 但是如果$A$是病态的，那么$(A^T A)^{-1}$会很大，导致$x_{LS}$不稳定
 
-
 很直观的想法是让$A^{H}A$变得好一些，即
-
 
 $$
 \hat{x} = (A^{H}A + \lambda I)^{-1}A^{H}b
 $$
 
-
 (Bayesian Linear Regression)
 
-
-Tikhonov证明求下面的优化问题和上面的等价
+Tikhonov 证明求下面的优化问题和上面的等价
 
 $$
 \min_x J(x) = \|Ax-b\|_2^2 + \lambda \|x\|_2^2, \quad \lambda \geq 0
 $$
-
 
 !!! note "证明一下"
 
@@ -905,21 +828,13 @@ $$
     \hat{x}_{Tik}=(A^{H}A+\lambda I)^{-1}Ab
     $$
 
+* 解决过拟合
+* 解决病态问题，提高数值稳定性
 
-
-
-- 解决过拟合
-- 解决病态问题，提高数值稳定性
-
-
-- 代价函数对应的是likelihood
-- 正则项对应的是prior
-
-
-
+* 代价函数对应的是 likelihood
+* 正则项对应的是 prior
 
 #### bias
-
 
 **Ridge 回归是有偏估计**
 
@@ -929,9 +844,7 @@ $$
 
 * 因为 $Z \neq I$，所以 ridge 估计是 **有偏的**
 * 随着正则化参数 $\lambda$ 增大，**bias² 增加**
-* 这是偏差-方差权衡的一部分
-
-
+* 这是偏差 - 方差权衡的一部分
 
 #### variance
 
@@ -975,9 +888,7 @@ $$
     * 总体方差是一个关于正则化强度 $\lambda$ 的**单调递减函数**
     * 换句话说，**正则化越强 ⇒ 系数波动越小**
 
-
 #### 自由度
-
 
 * Ridge 回归虽然估计 $\widehat{\boldsymbol{\beta}}^{\text{ridge}} \in \mathbb{R}^p$，但由于 **Shrinkage**，不等价于使用所有 $p$ 个变量的全部自由度。
 * 自由度随着 $\lambda$ 的变化而变化：
@@ -1025,18 +936,16 @@ $$
 * 方差小的方向（$d_j$ 小）会被严重 shrink，自由度贡献也少
 * 这是 Ridge 比 OLS 更稳健但有偏的原因
 
-
-
-
-
 ### elastic
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506200340914.webp)
 
-lasso与ridge对比
-- Ridge is $\ell_{2}$ penalty
-- Lasso is $\ell_{1}$ penalty
-- Best subset is $\ell_{0}$ penalty
-- Bridge penalty is $\ell_{q}$ normal
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506200340914.webp)
+
+lasso 与 ridge 对比
+
+* Ridge is $\ell_{2}$ penalty
+* Lasso is $\ell_{1}$ penalty
+* Best subset is $\ell_{0}$ penalty
+* Bridge penalty is $\ell_{q}$ normal
 
 $q = 4$  
 $q = 2$  
@@ -1050,14 +959,13 @@ Elastic-net is a hybrid of $\ell_{1}$ and $\ell_{2}$:
 
 $\lambda_{1}\|\beta\|_{1} + \lambda_{2}\|\beta\|_{2}^{2}$
 
-
 ## LDA
 
 [理解主成分分析（1）——最大方差投影与数据重建 - Fenrier Lab](https://seanwangjs.github.io/2017/12/21/principal-components-analysis.html)
 
 [简单理解线性判别分析 - 知乎](https://zhuanlan.zhihu.com/p/66088884)
 
-[LDA线性判别分析——投影的疑问解答\_lda投影-CSDN博客](https://blog.csdn.net/qq_41398808/article/details/100065314)
+[LDA 线性判别分析——投影的疑问解答\_lda 投影-CSDN 博客](https://blog.csdn.net/qq_41398808/article/details/100065314)
 
 最小化类内方差
 
@@ -1066,7 +974,6 @@ $$
 $$
 
 最大化类间方差
-
 
 $$
 \begin{align*} &\quad \max\limits_w \left[(w^T\mu_0-\frac{w^T\mu_0+w^T\mu_1}{2})^2+(w^T\mu_1-\frac{w^T\mu_0+w^T\mu_1}{2})^2\right]\\ &=\max\limits_w \frac{1}{2}w^T(\mu_0-\mu_1)(\mu_0-\mu_1)^Tw\\ &=\max\limits_w \frac{1}{2}w^TS_bw \\ \end{align*}
@@ -1078,6 +985,6 @@ $$
 J = \displaystyle \frac{w^TS_bw}{w^TS_ww}
 $$
 
-[LDA——线性判别分析基本推导与实验-CSDN博客](https://blog.csdn.net/qq_37189298/article/details/108656649)
+[LDA——线性判别分析基本推导与实验-CSDN 博客](https://blog.csdn.net/qq_37189298/article/details/108656649)
 
 [二分类线性判别分析，看懂这篇就够了 - 知乎](https://zhuanlan.zhihu.com/p/488134514)

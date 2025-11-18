@@ -1,14 +1,14 @@
 # 供配电技术
 
-[智能供配电技术 2023-2024春 回忆卷 - CC98论坛](https://www.cc98.org/topic/5876934)
+[智能供配电技术 2023-2024 春 回忆卷 - CC98 论坛](https://www.cc98.org/topic/5876934)
 
 !!! note "课程信息"
     - 课程名称：智能供配电技术<br>
     - 课程教师：杨强<br>
 
-
 ## 题型
-[智能供配电技术 2023-2024春 回忆卷 - CC98论坛](https://www.cc98.org/topic/5876934)
+
+[智能供配电技术 2023-2024 春 回忆卷 - CC98 论坛](https://www.cc98.org/topic/5876934)
 
 ### 选择题
 
@@ -21,19 +21,12 @@
 
 回答思路：是什么——为什么——怎么做
 
-
 ### 计算题
 
 - Chap2 计算负荷
 - Chap2 功率损耗、功率因数、尖峰电流
 - Chap3 短路电流（标幺值）
 - Chap5 导线与电缆截面（发热条件、经济电流密度）
-
-
-
-
-
-
 
 ## 供配电系统简介
 
@@ -46,10 +39,9 @@
 === "输电系统"
     - **功能**：将发电厂产生的高压电能远距离输送至负荷中心，减少损耗。
     - **关键组成部分**：
-      - **输电线路**：通常采用高压（110kV及以上）或特高压（如±800kV直流、1000kV交流），如中国的“西电东送”工程。
+      - **输电线路**：通常采用高压（110kV 及以上）或特高压（如±800kV 直流、1000kV 交流），如中国的“西电东送”工程。
       - **变电站**：升压（发电厂出口）和降压（靠近用户侧）变压器、断路器、隔离开关等。
       - **区域电网互联**：通过主干网连接不同区域，提高供电可靠性和资源调配能力（如欧洲跨国电网）。
-
 
 === "配电系统"
     - **功能**：将输电系统的高压电能降压后分配到终端用户。
@@ -57,7 +49,6 @@
       - **电压等级**：中压（10kV~35kV）和低压（220V/380V）。
       - **网络类型**：辐射状（树状）、环状或网状，以提高可靠性。
       - **设备**：配电变压器、开关柜、电缆/架空线路、无功补偿装置等。
-
 
 === "用电系统"
     - **用户分类**：
@@ -72,22 +63,16 @@
     1. **实时平衡**：发电与用电需时刻匹配，否则可能导致频率波动或停电。
     2. **高可靠性**：通过冗余设计（如多回线路）、备用电源保障连续供电。
     3. **复杂性与互联性**：跨区域互联提高效率，但也增加连锁故障风险。
-    4. **动态演化**：从集中式向“源-网-荷-储”协同的灵活系统转型。
-
+    4. **动态演化**：从集中式向“源 - 网 - 荷 - 储”协同的灵活系统转型。
 
 !!! note "电能不能储存"
     电力系统生产特点：发电、供电、用电同时完成。
 
-
-
-
-
 ## Chap1 供配电系统位置、重要性
-- **电力系统**=发电厂+变电所+输电线路+用户
-- **动力系统**=电力系统+动力装置+能源系统
-- **电力网**分为：地方电力网（<35kV）、区域电力网(110-220kV)、超高压输电网(>330kV)
 
-
+- **电力系统**=发电厂 + 变电所 + 输电线路 + 用户
+- **动力系统**=电力系统 + 动力装置 + 能源系统
+- **电力网**分为：地方电力网（<35kV）、区域电力网 (110-220kV)、超高压输电网 (>330kV)
 
 要做到有功功率和无功功率的平衡
 
@@ -95,18 +80,16 @@
 
 2030 碳达峰 2060 碳中和
 
-
-
 ### 发电厂类型
+
 - 凝气式火电厂：燃烧使汽轮机转动
-- 热电厂：供电+供热
+- 热电厂：供电 + 供热
 - 水电站：水轮机
 - 核电站：核裂变——汽轮机
 - 风力发电站
 - 潮汐发电站：幅度必须有机密，潮汐行程天然水库
-- 太阳能发电：现在光伏发电效率24%；塔式、槽式
+- 太阳能发电：现在光伏发电效率 24%；塔式、槽式
 - 地热能发电
-
 
 ### 变电所
 
@@ -116,8 +99,8 @@
 
 规模上分为
 
-- 枢纽变电所：电压等级高，一次电压330or500kV
-- 地区重要变电所：一次电压220or110，二次35or10kV
+- 枢纽变电所：电压等级高，一次电压 330or500kV
+- 地区重要变电所：一次电压 220or110，二次 35or10kV
 - 一般变电所
   
 - 中间变电所：系统功率交换的作用
@@ -129,25 +112,22 @@
 
 中性点就像三相电的「平衡中心」，类似三个水龙头交汇的「公共水池」，保证电力系统稳定运行
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220144054358.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220144054358.webp)
 
 运行方式：
 
-- 直接接地：110KV以上大接地电流系统；用电可靠性低
-- 中性点不接地：10KV架空线路，小接地电流系统；自动熄弧，非故障相电压升高不大，不会破坏系统的对称性，**故可带故障连续供电2h**，供电的可靠性相对提高
+- 直接接地：110KV 以上大接地电流系统；用电可靠性低
+- 中性点不接地：10KV 架空线路，小接地电流系统；自动熄弧，非故障相电压升高不大，不会破坏系统的对称性，**故可带故障连续供电 2h**，供电的可靠性相对提高
 - 经消弧线圈接地：小接地电流系统
 - 经阻抗接地：线路长度的增加，单相接地电容电流随之增大，消弧线圈很难熄灭；
 
-
 消弧线圈是一个具有铁芯的可调电感线圈
 
-
-
-
 ### 供电质量
+
 电压、波形和频率
 
-#### 电压：
+#### 电压
 
 === "电压偏差"
 
@@ -180,8 +160,6 @@
     4. 增加短路容量
     5. 采用静止型无功功率补偿装置
 
-
-
 #### 波形
 
 由于电力系统中存在大量的非线性供用电设备，**使得电压波形偏离正弦波**，这种现象称为电压正弦波畸变。电压波形的畸变程度用电压正弦波畸变率来衡量，也称为电压谐波畸变率。
@@ -195,33 +173,25 @@
 
 #### 频率
 
-**频率偏差** 是指供电的实际频率与电网的额定频率的差值。我国电网的标准频率为50Hz，又称工频。频率偏差一般不超过±0.5Hz，对于大容量电网，频率偏差不超过±0.2Hz。
+**频率偏差** 是指供电的实际频率与电网的额定频率的差值。我国电网的标准频率为 50Hz，又称工频。频率偏差一般不超过±0.5Hz，对于大容量电网，频率偏差不超过±0.2Hz。
 
 **频率偏差改善措施** ：调整频率的办法是增大或减小电力系统发电机的有功功率。通过调整发电机的输出功率，可以影响电网的频率，从而改善频率偏差。
-
-
 
 ### 电压等级
 
 从另一方面讲，电压等级越高，对设备的绝缘性能要求也越高，投资费用相应增加。
-因此，供配电电压的选择主要取决于用电负荷的大小和供电距离的长短。 
-
+因此，供配电电压的选择主要取决于用电负荷的大小和供电距离的长短。
 
 额定电压
 500kv,330kv,220kv,110kv,63kv,35kv,10kv
 
+- 220kV 及以上：为输电电压，用来完成电能的远距离输送。
+- 110kV 及以下：为配电电压，完成降压和电能的分配。
+- 35～110kV 配电网：高压配电网。
+- 10～35kV 配电网：中压配电网。
+- 1kV 以下：为低压配电网。
 
-- 220kV及以上：为输电电压，用来完成电能的远距离输送。
-- 110kV及以下：为配电电压，完成降压和电能的分配。
-- 35～110kV配电网：高压配电网。
-- 10～35kV配电网：中压配电网。
-- 1kV以下：为低压配电网。
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220145405384.webp)
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220145405384.webp)
 
 ## Chap2 电力负荷与计算
 
@@ -229,10 +199,7 @@
 
 **本章难点**：利用系数法确定三相用电设备组的计算负荷。
 
-
 - 什么时候用需要系数法？什么时候用二项式法
-
-
 
 ### 电力负荷
 
@@ -245,26 +212,22 @@
 - 二类：造成生产流程紊乱且难以恢复。两个回路供电（类似高德改路线）
 - 三类：单回路供电
 
-
 **工作制**
 
 - 连续工作制：
 - 短时工作制：停歇时间长
 - 断续周期工作制：规律停歇 ,**负荷持续率**$\epsilon = \frac{t}{t+t_0}\times 100\%$
 
-
-
 **负荷曲线**：电力负荷随时间变化的关系曲线
-
 
 $\Delta t = 30min$
 
 - **计算负荷** ：也称最大负荷或需要负荷，是按发热条件选择电气设备的一个假想负荷，其热效应与同一时间内实际负荷所产生的最大热效应相等，统计计算得出。
-- **年最大负荷** $P_{max}$:全年中负荷最大的工作班内消耗电能最大的半小时的平均功率, $P_{max} = P_{30}$
+- **年最大负荷** $P_{max}$:全年中负荷最大的工作班内消耗电能最大的半小时的平均功率，$P_{max} = P_{30}$
 - **年最大负荷利用小时数** $T_{max}$ :电力负荷在全年内消耗的电能与年最大负荷的比值，$T_{max} = \frac{W_a}{P_{max}}$,$W_a$为年负荷消耗的电能; 一班制$T_{max} = 1800-3000h$,两班制$T_{max} = 3500-4800h$,三班制$T_{max} = 5000-7000h$
 - **平均负荷** $P_{av}$ :电力负荷在一定时间内消耗的电能与该段时间的比值，$P_{av} = \frac{W}{T}$, 年平均负荷$P_{av} = \frac{W_a}{8760}$ （8760 = 24 * 365）
 - **负荷系数** $K_f$ :平均负荷与最大负荷的比值，$K_f = \frac{P_{av}}{P_{max}}$
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227144326520.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227144326520.webp)
 
 ### 三相 计算负荷（重点）（计算题）
 
@@ -277,9 +240,7 @@ $\Delta t = 30min$
 
     I30 中30是什么意思？30min
 
-
 #### 需要系数法（重点）
-
 
 !!! note "查表的方法"
 
@@ -287,9 +248,9 @@ $\Delta t = 30min$
 
 - **有功计算负荷** $P_{30} = K_d \sum P_{e}$
 
-    - **设备容量** $P_e$：
-      - 连续与短时工作制：取所有设备的铭牌额定容量之和 $P_e = \sum P_n$
-      - 断续周期工作制：等效发热原理换算到负荷持续率$\epsilon$, $P_e = P_N \frac{\sqrt{\epsilon_N}}{\sqrt{\epsilon}}$,其中$P_N$为铭牌额定容量，$\epsilon_N$为铭牌负荷持续率，$\epsilon$为规定负荷持续率，25%或者100%
+  - **设备容量** $P_e$：
+    - 连续与短时工作制：取所有设备的铭牌额定容量之和 $P_e = \sum P_n$
+    - 断续周期工作制：等效发热原理换算到负荷持续率$\epsilon$, $P_e = P_N \frac{\sqrt{\epsilon_N}}{\sqrt{\epsilon}}$,其中$P_N$为铭牌额定容量，$\epsilon_N$为铭牌负荷持续率，$\epsilon$为规定负荷持续率，25% 或者 100%
 
 - **无功计算负荷** $Q_{30} = P_{30} \tan \phi$
 
@@ -297,12 +258,8 @@ $\Delta t = 30min$
 
 - **计算电流** $I_{30} = \frac{S_{30}}{\sqrt{3}U_n}$
 
-
-
-
 !!! example "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227145549202.webp)
-
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227145549202.webp)
 
 多组三相用电设备的计算
 
@@ -313,7 +270,8 @@ S_{30} = \sqrt{P_{30}^2 + Q_{30}^2}\\
 I_{30} = \frac{S_{30}}{\sqrt{3}U_N}
 $$
 
-其中:
+其中：
+
 - $K_{\Sigma p}$ - 有功负荷综合系数
 - $K_{\Sigma q}$ - 无功负荷综合系数
 - $U_N$ - 额定电压
@@ -322,7 +280,7 @@ $$
     1. 车间干线上的计算负荷
         - $K_{\Sigma p} = 0.85 \sim 0.95$
         - $K_{\Sigma q} = 0.90 \sim 0.97$
-    
+
     2. 低压母线上的计算负荷
         1. 由用电设备组计算负荷直接相加来计算时
             - $K_{\Sigma p} = 0.85 \sim 0.90$
@@ -333,15 +291,12 @@ $$
     
     一般会选择车间干线这个分支，不会选择低压母线这个分支。
 
-
-
 !!! example "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150010769.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150010769.webp)
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150037929.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150037929.webp)
 
 !!! attention "查表的时候功率因数一般选择大一点的"
-
 
 #### 二相式法
 
@@ -350,23 +305,21 @@ P_{30} = bP_{e} + cP_{x}
 $$
 
 - $P_{e}$ - 用电设备组的设备容量
-- $P_{x}$ - 用电设备组中x台容量最大的用电设备的设备容量
-- $b,c$ - 二项式系数,查表
+- $P_{x}$ - 用电设备组中 x 台容量最大的用电设备的设备容量
+- $b,c$ - 二项式系数，查表
 
 !!! note "适用于设备台数少，容量差别大，低压分支干线的计算负荷"
-    
 
-$x$和$P_x$ 的选取规则:
-1. 如果用电设备组的总台数 $n < 2x$，$x$ 为附录表1中的最大容量设备台数，则公式中的 $x$ 取值为:$x = \frac{n}{2}$,$x$ 四舍五入取整
+$x$和$P_x$ 的选取规则：
 
-2. 如果用电设备组总台数 $n \leq 2$，则: $P_{30} = P_e$
-对于单台电动机而言: $P_{30} = \frac{P_e}{\eta}$,其中 $\eta$ 为额定效率
+1. 如果用电设备组的总台数 $n < 2x$，$x$ 为附录表 1 中的最大容量设备台数，则公式中的 $x$ 取值为:$x = \frac{n}{2}$,$x$ 四舍五入取整
 
+2. 如果用电设备组总台数 $n \leq 2$，则：$P_{30} = P_e$
+对于单台电动机而言：$P_{30} = \frac{P_e}{\eta}$,其中 $\eta$ 为额定效率
 
 !!! example "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151325077.webp)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151843385.webp)
-
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151325077.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151843385.webp)
 
 多组用电设备
 
@@ -376,31 +329,35 @@ $P_{30} = \sum(bP_e)_i + (cP_x)_{max}$
 
 $Q_{30} = \sum(bP_e \tan \varphi)_i + (cP_x)_{max} \tan \varphi_{max}$
 
-其中:
+其中：
+
 - $bP_e$ - 各组的平均负荷
 - $(cP_e)_{max}$ - 其中一组最大的附加负荷
 - $\tan \varphi_{max}$ - 最大附加负荷 $(cP_e)_{max}$ 的设备组的平均功率因数角的正切值
 
-计算视在功率和电流:
+计算视在功率和电流：
 
 $S_{30} = \sqrt{P_{30}^2 + Q_{30}^2}$
 
 $I_{30} = \frac{S_{30}}{\sqrt{3}U_N}$
 
-教材附录表A-6
+教材附录表 A-6
 
 !!! example "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152445278.webp)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152504859.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152445278.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152504859.webp)
 
 ### 单相负荷计算
 
 ### 工厂计算负荷（计算题）
+
 #### 需要系数法
+
 需要系数法计算公式：
 
 $P_{30} = K_d \cdot P_e$
-- $K_d$ - 全厂需要系数(附录2查表)
+
+- $K_d$ - 全厂需要系数 (附录 2 查表)
 - $P_e$ - 全厂用电设备总容量
 
 $Q_{30} = P_{30} \tan \varphi$
@@ -408,7 +365,6 @@ $Q_{30} = P_{30} \tan \varphi$
 $S_{30} = \frac{P_{30}}{\cos \varphi}$
 
 $I_{30} = \frac{S_{30}}{\sqrt{3}U_N}$，$U_N$ - 额定电压
-
 
 #### 年产量估算法
 
@@ -419,11 +375,11 @@ $$
 - $A$ - 年产量
 - $a$ - 单位产品耗电量
 
-$$ 
+$$
 P_{30} = \frac{W_a}{T_{max}}
 $$
 
-- $T_{max}$ - 年最大负荷利用小时数(附录3查表)
+- $T_{max}$ - 年最大负荷利用小时数 (附录 3 查表)
 
 ### 功率损耗
 
@@ -435,7 +391,7 @@ $\Delta P_{T}=\Delta P_{Fe}+\Delta P_{Cu}=\Delta P_{0}+\Delta P_{k}\left(\frac{S
 
 $\Delta Q_{T}=\Delta Q_{0}+\Delta Q_{N}\left(\frac{S_{30}}{S_{N}}\right)^{2}\approx S_{N}\left[\frac{I_{0}\%}{100}+\frac{U_{0}\%}{100}\left(\frac{S_{30}}{S_{N}}\right)^{2}\right]=  \Delta Q_{T}=\Delta Q_{0}+\Delta Q_{N}\left(\frac{S_{30}}{S_{N}}\right)^{2}\approx S_{N}\left[\frac{I_{0}\%}{100}+\frac{U_{0}\%}{100}\left(\frac{S_{30}}{S_{N}}\right)^{2}\right]=S_{N}\left[\frac{I_{0}\%}{100}+\frac{U_{0}\%}{100}\beta^{2}\right]\\\approx 0.06 S_{30}$
 
-- $S_{30}$: 变压器二次侧的视在计算负荷 
+- $S_{30}$: 变压器二次侧的视在计算负荷
 - $\beta$: 变压器的负荷率
 
 ### 功率因数（计算题）
@@ -446,7 +402,6 @@ $\cos \varphi = \frac{P}{S} = \frac{P}{\sqrt{3}UI}$ - **监测负荷用**
 2. 平均功率因数
 $\cos \varphi_{av} = \frac{W_p}{\sqrt{W_p^2 + W_q^2}}$ - **调整电费用**，其中$W_p$为有功电量，$W_q$为无功电量
 
-
 3. 最大负荷时的功率因数
 $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 
@@ -456,20 +411,19 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 2. 增大线路和变压器的功率损耗
 3. 线路和变压器电压损失增大，电压质量下降
 
-
 **无功功率补偿**：简单的三角函数问题
 
 !!! example "例题"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153913366.webp)
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153927232.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153913366.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153927232.webp)
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154101272.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154101272.webp)
 
 无功补偿的方式：高压集中补偿、低压集中补偿和分散就地补偿（个别补偿）
 
 ### 尖峰电流
 
-单台或者多台持续1-2s短时最大负荷电流
+单台或者多台持续 1-2s 短时最大负荷电流
 
 作用：就是启动电流，目的是为了选择熔断器、镇定低压断路器
 
@@ -505,10 +459,7 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 
     - $I_c$为全部设备投入运行时线路的计算电流。
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154423691.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154423691.webp)
 
 ## Chap5 电力线路
 
@@ -522,8 +473,6 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 | **树干式** | • 减少线路的有色金属消耗量<br>• 采用的高压开关数少<br>• 投资较省 | • 供电可靠性较低<br>• 干线故障时，所有接于干线的变电所都要停电<br>• 在实现自动化方面适应性较差 | • 适用于对供电可靠性要求不高的场合<br>• 三级负荷供电系统 | • 二级负荷：采用双干线供电或两端供电的接线方式<br>• 一级负荷：不适用 |
 | **环形** | • 供电可靠性高<br>• 实质上是两端供电的树干式接线<br>• 便于切换操作 | • 保护配置较复杂<br>• 投资较高 | • 在现代城市电网中应用广<br>• 适用于一、二级负荷 | • 多用"开口"（开环）|
 
-
-
 #### 低压配电线路拓扑结构
 
 | 拓扑结构 | 优点 | 缺点 | 适用范围 | 一二级负荷设计方法 |
@@ -531,9 +480,6 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 | **放射式** | • 引出线故障时，互不影响<br>• 供电可靠性较高 | • 采用的开关设备较多<br>• 有色金属消耗量较多 | • 多用于设备容量较大或对供电可靠性要求较高的设备配电 | • 一级负荷：需配置自动转换开关<br>• 二级负荷：可采用手动转换开关 |
 | **树干式** | • 开关设备较少<br>• 有色金属消耗量较少 | • 干线故障时，影响范围大<br>• 供电可靠性较低 | • 适用于容量较小而分布较均匀的设备<br>• 如机械加工车间、工具车间、机修车间、机床、小型加热炉等 | • 二级负荷：需设置分段开关<br>• 一级负荷：不适用 |
 | **环形** | • 供电可靠性较高<br>• 任一段线路故障或检修时，不致造成停电或只短时停电<br>• 只需切换电源就能恢复供电 | • 线路较长<br>• 控制较复杂 | • 车间变电所的低压侧，通过低压联络线互联而成环形 | • 多采用"开口"运行<br>• 一级负荷：环网两侧电源互为备用<br>• 二级负荷：可通过切换实现快速恢复供电 |
-
-
-
 
 !!! note "接线总原则：简单、可靠、尽量深入负荷中心。"
 
@@ -554,13 +500,11 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 - 电线杆什么距离，弧垂
 - 线路的路径选择
 
+### 导线与电缆截面 (计算题)
 
-### 导线与电缆截面(计算题)
+通常 10kV 及以下高压线路和低压动力线路按发热条件选择，按其他条件校验；低压照明线路按电压损耗条件选择，按其他条件校验；
 
-通常10kV及以下高压线路和低压动力线路按发热条件选择，按其他条件校验；低压照明线路按电压损耗条件选择，按其他条件校验；
-
-35kV及以上的高压线路，按经济电流密度选择，再校验其他条件。
-
+35kV 及以上的高压线路，按经济电流密度选择，再校验其他条件。
 
 若导体敷设处的环境温度与允许载流量所采用的环境温度不同时，则导体的允许载流量应乘以温度校正系数：
 
@@ -576,26 +520,26 @@ $\theta^{'}$为导线敷设地点实际的环境温度。
 
 户外（含户外电缆沟），采用当地最热月平均最高气温；
 
-户内（含户内电缆沟），可采用当地最热月平均最高气温加5℃；
+户内（含户内电缆沟），可采用当地最热月平均最高气温加 5℃；
 
-而直接埋地电缆，则取当地最热月地下0.8m的地壤平均温度，或近似地取当地最热月平均气温。
+而直接埋地电缆，则取当地最热月地下 0.8m 的地壤平均温度，或近似地取当地最热月平均气温。
 
 #### 发热条件计算截面
 
 三相系统、中性线和保护线
 
-- 中性线（N线）截面A0的选择
-  - 一般三相四线制线路的中性线截面A0：
-  应不小于相线截面Aφ的50%，即 $A_0 \geq 0.5A_\varphi$
-  - 两相三线制及单相线路（单相二线）的A0：
-  因中性线与相线电流相等，故其中性线截面A0应与相线截面Aφ相同，即 $A_0 = A_\varphi$
-  - 三次谐波电流突出的三相四线制线路的A0：
-  由于各相的三次谐波电流均通过中性线，使其电流可能等于甚至超过相线电流，故中性线截面A0宜等于或大于相线截面，即 $A_0 \geq A_\varphi$
-- 保护线（PE线）截面$A_{PE}$的选要考虑系统发生单相短路，短路电流通过时的短路热稳定度。
+- 中性线（N 线）截面 A0 的选择
+  - 一般三相四线制线路的中性线截面 A0：
+  应不小于相线截面 Aφ的 50%，即 $A_0 \geq 0.5A_\varphi$
+  - 两相三线制及单相线路（单相二线）的 A0：
+  因中性线与相线电流相等，故其中性线截面 A0 应与相线截面 Aφ相同，即 $A_0 = A_\varphi$
+  - 三次谐波电流突出的三相四线制线路的 A0：
+  由于各相的三次谐波电流均通过中性线，使其电流可能等于甚至超过相线电流，故中性线截面 A0 宜等于或大于相线截面，即 $A_0 \geq A_\varphi$
+- 保护线（PE 线）截面$A_{PE}$的选要考虑系统发生单相短路，短路电流通过时的短路热稳定度。
   - 当相线截面$A_{\varphi}\leq 16mm^2$时，$A_{PE} \geq A_{\varphi}$
   - 当$16mm^2 < A_{\varphi} \leq 35mm^2$时，$A_{PE} \geq 16mm^2$
   - 当$A_{\varphi}>35mm^2$时，$A_{PE} \geq 0.5A_{\varphi}$
-- 保护中性线（PEN线）截面的选择:PEN线兼双重功能，故其截面选择应同时满足PE线和N线的要求，取其中的最大截面。
+- 保护中性线（PEN 线）截面的选择:PEN 线兼双重功能，故其截面选择应同时满足 PE 线和 N 线的要求，取其中的最大截面。
 
 #### 经济电流密度计算截面
 
@@ -603,12 +547,10 @@ $\theta^{'}$为导线敷设地点实际的环境温度。
 - $j_{ec}$ 查表
 - 计算的截面积 $A_{ec} = \frac{I_{30}}{j_{ec}}$
 - 选择一个最接近的截面积，可以更小
-- 查附录表16验证发热条件
-- 查附录表14验证机械强度
-
+- 查附录表 16 验证发热条件
+- 查附录表 14 验证机械强度
 
 #### 机械强度验证
-
 
 ### 电压损耗计算
 
@@ -620,8 +562,6 @@ $\theta^{'}$为导线敷设地点实际的环境温度。
 
 ## Chap3 短路电流
 
-
-
 ### 基础
 
 - **是什么**：不同部分对地的低阻性短接
@@ -629,14 +569,15 @@ $\theta^{'}$为导线敷设地点实际的环境温度。
 - **影响**
 
 ### 分类
+
 计算原因：选择电气设备
 
 三相短路危害最大，所以设计的时候考虑最坏情况
 
-- 两相短路电流近似看成三相短路电流的0.866倍，单相短路电流为相电压除短路回路总阻抗。两相短路电流计算目的主要是校验保护的灵敏度，单相短路电流计算目的主要是为接地设计等。 
-
+- 两相短路电流近似看成三相短路电流的 0.866 倍，单相短路电流为相电压除短路回路总阻抗。两相短路电流计算目的主要是校验保护的灵敏度，单相短路电流计算目的主要是为接地设计等。
 
 ### 短路物理量
+
 无限大容量系统发生三相短路时，短路全电流由周期分量和非周期分量组成。短路电流周期分量在短路过程中保持不变，从而使短路计算十分简便。
 
 $$
@@ -649,25 +590,18 @@ $$
 
 ### 短路电流的计算（计算题）
 
-
-
-
 #### **欧姆法** （不考）
 
-
 #### **标幺制法**  （重点）
+
 没有量纲
 
-
-
 - 采用标幺值法计算三相短路电流，避免了多级电压系统中的阻抗变换，计算简便，在工程中广泛应用。
-
 
 ### 热效应与电动效应
 
 - 热效应：用短路稳态电流计算
 - 电动效应：用冲击电流计算
-
 
 ## Chap7 二次回路
 
@@ -683,19 +617,17 @@ $$
 
 ### 其他装置
 
-
 ## Chap8 防雷接地、安全
 
 ### 过电压&防雷
+
 - 过电压：内部分操作和谐振
 - 外部过电压称雷电过电压
-
 
 **雷电分类**：
 
 - 直击雷
 - 感应类
-
 
 **防雷装置**：接闪器、引下线、接地装置
 
@@ -703,18 +635,16 @@ $$
 
 相当于把一个假象球体紧贴避雷针，中间空出的部分就是保护范围。（平面几何问题）
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085725227.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311090327635.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085725227.webp)
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311090327635.webp)
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085744071.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085744071.webp)
 
 ### 接地
 
 接地故障的时候，接地电流通过接地体向大地做半球形散开
 
 - 降低土壤电阻率：外引式、深埋、换土
-
 
 #### N、PEN、PE
 
@@ -724,10 +654,11 @@ PEN：保护零线，兼作工作零线
 
 PE：保护接地线
 
-[供配电系统中的PE、N、PEN线各指的是什么？怎么区别和使用？ - 知乎](https://zhuanlan.zhihu.com/p/102467013)
+[供配电系统中的 PE、N、PEN 线各指的是什么？怎么区别和使用？ - 知乎](https://zhuanlan.zhihu.com/p/102467013)
 
 #### 形式
-低压系统接地形式有IT、TT、TN三大类，而TN类又分为TN-C、TN-C-S、TN-S三种形式；
+
+低压系统接地形式有 IT、TT、TN 三大类，而 TN 类又分为 TN-C、TN-C-S、TN-S 三种形式；
 
 其中字母表示的含义：
 
@@ -749,17 +680,17 @@ S：保护零线与工作零线彻底分开，各自独立用两根线；（s st
 
 C-S：保护零线与工作零线前边一部分用同一根线，后边一部分保护零线与工作零线彻底分开，用两根线。
 
-[低压接地系统：TN-C 、TN-S、TN-C-S、TT、IT分别适用哪些场所？ - 知乎](https://zhuanlan.zhihu.com/p/165025804)
-
+[低压接地系统：TN-C、TN-S、TN-C-S、TT、IT 分别适用哪些场所？ - 知乎](https://zhuanlan.zhihu.com/p/165025804)
 
 ### 电气安全
+
 对人体的危害
 
 - 漏电保护器的工作原理
 
-正常情况下，通过TAN一次侧的三相电流相量和等于零，TAN的铁心中没有磁通，其二次侧没有电流输出。当被保护电路发生漏电或有人触电时，由于漏电电流的存在，通过TAN一次侧的三相电流相量不等于零，TAN中产生零序磁通，其二次侧有电流输出，经放大器放大后，驱动低压断路器QF的脱扣线圈YR，使断路器QF自动跳闸。
+正常情况下，通过 TAN 一次侧的三相电流相量和等于零，TAN 的铁心中没有磁通，其二次侧没有电流输出。当被保护电路发生漏电或有人触电时，由于漏电电流的存在，通过 TAN 一次侧的三相电流相量不等于零，TAN 中产生零序磁通，其二次侧有电流输出，经放大器放大后，驱动低压断路器 QF 的脱扣线圈 YR，使断路器 QF 自动跳闸。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250412234545.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250412234545.webp)
 
 - 安全用电知识
 
@@ -767,34 +698,30 @@ C-S：保护零线与工作零线前边一部分用同一根线，后边一部�
 
 保护装置：切断电路
 
-
 选择性：
-
-
 
 ## Extra 电力系统格局
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143424995.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143424995.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143505299.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143505299.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220152204297.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220152204297.webp)
 
 > [中国“五大六小”发电集团梳理 - 知乎](https://zhuanlan.zhihu.com/p/618684846)
 > [起底：中国电力系统企业关系图！ - 知乎](https://zhuanlan.zhihu.com/p/531123778)
-> 在2002年电力改革厂网分家之前的电力行业(包括发、输、配、售、设计、建设等)都只被一个单位—国家电力公司所垄断。2002年厂网分离改革后，分化成多家单位
-
+> 在 2002 年电力改革厂网分家之前的电力行业 (包括发、输、配、售、设计、建设等) 都只被一个单位—国家电力公司所垄断。2002 年厂网分离改革后，分化成多家单位
 
 **政府部门**：国家能源局、国家发展和改革委员会
 
 **两大电网**：国家电网、南方电网（以建设和运营电网为核心业务）
 
-**两大EPC单位**：中国电力建设集团公司(中电建)和中国能源建设集团有限公司(中能建)
+**两大 EPC 单位**：中国电力建设集团公司 (中电建) 和中国能源建设集团有限公司 (中能建)
 
-> 设计采购施工总承包 （EPC：即Engineering，Procurement，Construction的组合）是我国推行总承包模式最主要的一种。
+> 设计采购施工总承包（EPC：即 Engineering，Procurement，Construction 的组合）是我国推行总承包模式最主要的一种。
 
 **发电集团**
+
 - 五大电力央企：国家能源投资集团、中国华能集团、中国华电集团、中国大唐集团、国家电力投资集团。
 - 六小豪门：国投电力、中广核、三峡集团、华润电力、中节能、中核
 - 地方公司：浙能、京能、申能、鲁能
@@ -805,22 +732,21 @@ C-S：保护零线与工作零线前边一部分用同一根线，后边一部�
 This browser does not support PDFs
 </iframe>
 
-
 !!! note "一些数据"
     2014-2023能源生产结构
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153711082.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153711082.webp)
 
     2022-2023能源消费结构
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154202935.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154202935.webp)
 
     2014-2023全社会用电量与增速
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153833167.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153833167.webp)
 
     2023年非化石能源发电量
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154120147.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154120147.webp)
 
     2023年发电结构
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154323482.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154323482.webp)
 
 
     >2017年
@@ -832,4 +758,3 @@ This browser does not support PDFs
     | 国家电投 | 10800亿元 | 1438亿元 | 76.2亿元 | — | 14万人 |
     | 中国大唐 | 7458亿元 | 1895亿元 | 95.98亿元 | — | 96095人 |
     | 中国华电 | 7984亿元 | 2006亿元 | — | — | — |
-

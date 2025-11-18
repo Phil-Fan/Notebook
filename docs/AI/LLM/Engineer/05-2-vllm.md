@@ -4,13 +4,12 @@ comments: True
 --- 
 
 # vLLM
+
 !!! note "正在施工中👷.. "
 
 [vLLM - vLLM 文档](https://docs.vllm.com.cn/en/latest/index.html)
 
 ## 安装
-
-
 
 ```shell title="安装"
 > uv venv --python 3.12 --seed
@@ -18,9 +17,7 @@ comments: True
 > uv pip install vllm --torch-backend=auto
 ```
 
-
 !!! error "RuntimeError: Failed to find C compiler. Please specify via CC environment variable or set triton.knobs.build.impl."
-
 
     ```shell title="linux"
     sudo apt update
@@ -31,13 +28,9 @@ comments: True
     pip install triton
     ```
 
-
 ## 使用
 
-
-
 ### logger
-
 
 ```json title="logger"
 {
@@ -85,13 +78,10 @@ vllm serve /path/to/model
 
 ## 源码理解
 
-
-
-
-
 ## tricks
 
 ### LMcache
+
 [LMCache - vLLM --- LMCache - vLLM](https://docs.vllm.ai/en/stable/examples/others/lmcache.html#1-disaggregated-prefill-in-vllm-v1)
 
 ```mermaid
@@ -110,9 +100,6 @@ sequenceDiagram
     Proxy->>Client: 发送响应
 ```
 
-
-
-
 ```shell
 > uv venv --python 3.12 --seed
 > source .venv/bin/activate
@@ -122,9 +109,6 @@ Installed
 ```
 
 <br>
-
-
-
 
 ```shell
 > uv pip install lmcache
@@ -137,8 +121,6 @@ Installed
 ```shell
 cd vllm/examples/others/lmcache/disagg_prefill_lmcache_v1
 ```
-
-
 
 ## 案例
 
@@ -157,7 +139,6 @@ vllm serve Salesforce/blip2-opt-2.7b \
 
 ### 离线推理
 
- 
 ```python title="单提示词和多提示词批量推理"
 from vllm import LLM, SamplingParams
 import PIL
@@ -208,7 +189,7 @@ for o in outputs:
     print(generated_text)
 ```
 
-```python title="Salesforce/blip2-opt-2.7b离线推理"
+```python title="Salesforce/blip2-opt-2.7b 离线推理"
 import os
 import argparse
 from PIL import Image
@@ -286,9 +267,7 @@ if __name__ == "__main__":
     main()
 ```
 
-
-### LMcache配置
-
+### LMcache 配置
 
 ```shell title="tree"
 configs/

@@ -1,11 +1,12 @@
 # MISC
-!!! note "笔记来源: 短学期课程ppt，可能有转写错误，请注意鉴别"
 
-## 什么是MISC
+!!! note "笔记来源：短学期课程 ppt，可能有转写错误，请注意鉴别"
+
+## 什么是 MISC
+
 miscellaneous 杂项
 
 MISC = ALL - PWN - WEB - CRYPTO - REVERSE
-
 
 一般来讲 misc 包括的题型：
 
@@ -16,43 +17,37 @@ MISC = ALL - PWN - WEB - CRYPTO - REVERSE
 - 代码审计、沙箱逃逸 **—— 不那么 binary 的 binary**
 - Blockchain、IoT、AI **—— 新兴类别题目**
 
-
 ## 编码分析
-工具 
+
+工具
 
 - [Cyberchef](https://gchq.github.io/CyberChef/)/[TonyCrane ver.](https://lab.tonycrane.cc/CyberChef/)
 - [Base 系列爆破](https://github.com/mufeedvh/basecrack/)
 - [DenCode](https://dencode.com/)
 - [Ciphey](https://github.com/Ciphey/Ciphey)
 
+所有信息都是 01 串，而 01 串之间可以发生互相的转换
 
+常见的 01 串转换方式有 编解码、加解密、哈希
 
-
-所有信息都是01串，而01串之间可以发生互相的转换
-
-常见的01串转换方式有 编解码、加解密、哈希
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704135220.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704135220.webp)
 
 ### 字符编码
-[为什么会乱码？什么是编解码？ASCII、Unicode、UTF-8的实现原理是什么？本文帮你讲透！](https://yuanjava.com/characters-and-encodings/)
 
+[为什么会乱码？什么是编解码？ASCII、Unicode、UTF-8 的实现原理是什么？本文帮你讲透！](https://yuanjava.com/characters-and-encodings/)
 
 人类理解的字符 to 计算机理解的 01 串之间的映射
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704142921.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704142921.webp)
 
 #### 乱码
+
 用一种字符编码规则解读另一种字符编码的 01 串
-
-
 
 - `CyberChef`，通过 Input 和 Output 窗口的字符集设置
 需要注意，CyberChef 的 UTF-8 不会将错误解码替换为 􀳦（非预期）
 - `vscode` 右下角的编码方案（重新打开 / 用编码保存）
 - 必要的时候可以使用 `python` 来进行编解码 / 进制转换等
-
 
 **常见乱码**
 
@@ -62,16 +57,14 @@ MISC = ALL - PWN - WEB - CRYPTO - REVERSE
 
     使用 GBK编码读取，它是一种双字节编码方案，因此，它可能会将这三个字节解释为两种：
 
-    - 解释成 2个字节 + 1个字节，导致乱码。
-    - 解释成 2个字节 + 2个字节(包含下一个字符的第一个字节)，导致乱码。
+    - 解释成 2 个字节 + 1 个字节，导致乱码。
+    - 解释成 2 个字节 + 2 个字节 (包含下一个字符的第一个字节)，导致乱码。
 
-!!! note "ASCII字符是不会乱码的"
+!!! note "ASCII 字符是不会乱码的"
     因为所有的编码方案都是以 ASCII为基础的，ASCII字符在所有的编码方案中都是一样的，不会发生乱码。
     经常乱码的是有CJK字符的文本（Chinese，Japanese，Korean）
 
-
 我们以"于是转身向大海走去"这句话为例，用不同的编码方式进行编码和解码，会产生不同的乱码形式。
-
 
 !!! note "案例"
 
@@ -116,29 +109,22 @@ MISC = ALL - PWN - WEB - CRYPTO - REVERSE
     c8 a5
     ```
 
-
-
-
-| 名称 | 示例 | 特点 | 产生原因 | |
+| 名称 | 示例 | 特点 | 产生原因 |表现形式|
 | --- | --- | --- | --- |---|
-| 古文码 | 浜庢槸杞韩鍚戝ぇ娴疯蛋鍘�  | 大部分为不认识的古文，并加杂日韩文 | 以GBK方式读取UTF-8编码的中文,GBK是双字节编码方案，会有识别不到的字符（缺字节） |可以复原，HEX字符不变|
-| 口字码 | ӚʇתɭϲԳڣןȥ | 大部分字符为小方块 | 以UTF-8的方式读取GBK编码的中文 |可以复原，HEX字符不变|
-| 符号码 | äºæ¯è½¬èº«åå±±æµ·èµ°å» | 大部分字符为各种符号 | 以ISO8859-1方式读取UTF-8编码的中文 |可以复原，HEX字符不变|
-| 拼音码 | ÓÚÊÇ×ªÉíÏòÉ½º£×ßÈ¥| 大部分字符为头尾带有类似声调符号的字母 | 以ISO8859-1方式读取 GBK编码的中文 |
-| 问号码 | 于是转身向山海走�? | 字符长度为偶数时正确，长度为奇数时最后的字符变为问号 | 以GBK方式读取UTF-8编码的中文，然后用 UTF-8的格式再次读取 |无法复原，HEX变化了|这个可还原的，看UTF-8编码的二进制是否都能符合GBK的编码规则 |
+| 古文码 | 浜庢槸杞韩鍚戝ぇ娴疯蛋鍘�  | 大部分为不认识的古文，并加杂日韩文 | 以 GBK 方式读取 UTF-8 编码的中文，GBK 是双字节编码方案，会有识别不到的字符（缺字节） |可以复原，HEX 字符不变|
+| 口字码 | ӚʇתɭϲԳڣןȥ | 大部分字符为小方块 | 以 UTF-8 的方式读取 GBK 编码的中文 |可以复原，HEX 字符不变|
+| 符号码 | äºæ¯è½¬èº«åå±±æµ·èµ°å» | 大部分字符为各种符号 | 以 ISO8859-1 方式读取 UTF-8 编码的中文 |可以复原，HEX 字符不变|
+| 拼音码 | ÓÚÊÇ×ªÉíÏòÉ½º£×ßÈ¥| 大部分字符为头尾带有类似声调符号的字母 | 以 ISO8859-1 方式读取 GBK 编码的中文 | |
+| 问号码 | 于是转身向山海走�? | 字符长度为偶数时正确，长度为奇数时最后的字符变为问号 | 以 GBK 方式读取 UTF-8 编码的中文，然后用 UTF-8 的格式再次读取 |无法复原，HEX 变化了 这个可还原的，看 UTF-8 编码的二进制是否都能符合 GBK 的编码规则 |
 | 锟斤拷码 | 锟斤拷锟斤拷转锟斤拷锟斤拷山锟斤拷锟斤拷去 | 全中文字符，且大部分字符为“锟斤拷”这几个字 | 先用 UTF-8 解码 GBK 编码的文本，再用 GBK 解码前面的结果 |大部分信息丢失|
-|烫烫烫|||VC Debug 栈内存没有初始化|
-|屯屯屯|||VC Debug 堆内存没有初始化|
+|烫烫烫|||VC Debug 栈内存没有初始化| |
+|屯屯屯|||VC Debug 堆内存没有初始化| |
 
+GBK 解码：在 gbk 中，半角 Ascii 字符`?`的编码是`0x3f`,若不足双字节，最后会把多余的字符变成`0x3f`，所以奇数个字符的最后一个字符会变成`?`，这个时候数据就被破坏了，就无法复原了
 
-GBK解码：在gbk中，半角Ascii字符`?`的编码是`0x3f`,若不足双字节，最后会把多余的字符变成`0x3f`，所以奇数个字符的最后一个字符会变成`?`，这个时候数据就被破坏了，就无法复原了
+UTF-8 解码：如果超出 UTF-8 的范围，会用`0xef 0xbf 0xbd`来表示，这个时候数据就被破坏了，就无法复原了
 
-UTF-8解码：如果超出UTF-8的范围，会用`0xef 0xbf 0xbd`来表示，这个时候数据就被破坏了，就无法复原了
-
-但实际中，有一种情况，是100%可以将乱码还原成最初的字符串。就是任意编码格式编码，ISO-8859-1解码，这个主要因为ISO-8859-1是单字节编码，而且匹配所有单字节情况，乱码字符串总是可以还原到最初的二进制。
-
-
-
+但实际中，有一种情况，是 100% 可以将乱码还原成最初的字符串。就是任意编码格式编码，ISO-8859-1 解码，这个主要因为 ISO-8859-1 是单字节编码，而且匹配所有单字节情况，乱码字符串总是可以还原到最初的二进制。
 
 !!! note "手持两把锟斤拷，口中疾呼烫烫烫。脚踏千朵屯屯屯，笑看万物锘锘锘"
 
@@ -158,27 +144,25 @@ UTF-8解码：如果超出UTF-8的范围，会用`0xef 0xbf 0xbd`来表示，这
         GBK下：锘`EFBB`、匡`BFEF`、豢`BBBF`
 
 #### ASCII
-> ASCII码是为了英语使用者能够把常用的 128个字符存储在计算机中而设置的一套规则。
+>
+> ASCII 码是为了英语使用者能够把常用的 128 个字符存储在计算机中而设置的一套规则。
 
-（American Standard Code for Information Interchange，美国标准信息交换码）：总共 128个字符，包括英文字母、数字、一些特殊符号和控制字符
+（American Standard Code for Information Interchange，美国标准信息交换码）：总共 128 个字符，包括英文字母、数字、一些特殊符号和控制字符
 
 一共 128 个项，即每个字符可以用一个 7 位的 01 串表示（或一字节）
 00-1F：控制字符；20-7E：可见字符；7F：控制字符（DEL）
 
-
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704180429.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704180429.webp)
 
 #### Latin-1（ISO-8859-1）
+
 扩展了 ASCII，一共 256 个项
 80-9F：控制字符；A0-FF：可见字符
 特点：任何字节流都可以用其解码
 
 #### 利用 Unicode 字符集的一系列编码
-Unicode，正如它的中文意思“统一码”一样，它包含了世界上所有的通用符号（超过 110多万个符号），而且给每个符号赋予一个独一无二的编码，通常表示为：`U+`后跟一个十六进制数，例如，`U+56fd `表示汉字的“国”，`U+0639` 表示阿拉伯字母 Ain，`U+0041` 表示英语的字母 A等。
 
+Unicode，正如它的中文意思“统一码”一样，它包含了世界上所有的通用符号（超过 110 多万个符号），而且给每个符号赋予一个独一无二的编码，通常表示为：`U+`后跟一个十六进制数，例如，`U+56fd`表示汉字的“国”，`U+0639` 表示阿拉伯字母 Ain，`U+0041` 表示英语的字母 A 等。
 
 **UTF-8 / UTF-16 / UTF-32 / UCS**
 
@@ -194,8 +178,8 @@ Unicode，正如它的中文意思“统一码”一样，它包含了世界上�
 `UCS-4`：直接用 4 字节表示码位
 
 **UTF（Unicode Transformation Format）**：
+
 - `UTF-8`：变长编码（1~4），兼容 ASCII
-        
 
 === "可变长度"
 
@@ -206,34 +190,33 @@ Unicode，正如它的中文意思“统一码”一样，它包含了世界上�
 
 === "编码规则"
 
-    - 对于单字节的符号，UTF-8编码和 ASCII码是相同的：第一位为 0，后面 7位为 Unicode码
-    - 对于$n(n >= 2)$字节的符号，二进制的第一个字节，最高位有 n个1（1后面紧跟一位 0），二进制后面的每个字节，前两位都固定为“10”，xxx部分全部是 Unicode码
+    - 对于单字节的符号，UTF-8 编码和 ASCII 码是相同的：第一位为 0，后面 7 位为 Unicode 码
+    - 对于$n(n >= 2)$字节的符号，二进制的第一个字节，最高位有 n 个 1（1 后面紧跟一位 0），二进制后面的每个字节，前两位都固定为“10”，xxx 部分全部是 Unicode 码
   
-    1 字节: 0xxxxxxx
-    2 字节: 110xxxxx 10xxxxxx
-    3 字节: 1110xxxx 10xxxxxx 10xxxxxx
-    4 字节: 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+    1 字节：0xxxxxxx
+    2 字节：110xxxxx 10xxxxxx
+    3 字节：1110xxxx 10xxxxxx 10xxxxxx
+    4 字节：11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
 
 === "示例"
 
-    1. 字符A(U+0041)
-    分析：字符’A’的 Unicode是 U+0041，位于 U+0000 到 U+007F之间，因此，一个字节就可以表示，因此，二进制为：01000001，转成十六进制为：0x41
+    1. 字符 A(U+0041)
+    分析：字符’A’的 Unicode 是 U+0041，位于 U+0000 到 U+007F 之间，因此，一个字节就可以表示，因此，二进制为：01000001，转成十六进制为：0x41
 
     2. 字符€ (U+20AC)
-    分析：字符 ‘€’的 Unicode是 U+20AC，位于 U+0800 到 U+FFFF之间，因此，需要用 3个字节表示，即1110xxxx 10xxxxxx 10xxxxxx，将“20AC”中的每个字符直接转换成二进制为：0010 0000 1010 1100，然后将它从低位往高位（从右到左）依次替换x，如下图：
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704183246.webp)
-    这样得出字符 € (U+20AC)用 UTF-8编码的二进制为：11100010 10000010 10101100，转换成十六进制为：0xE2 0x82 0xAC
-
+    分析：字符‘€’的 Unicode 是 U+20AC，位于 U+0800 到 U+FFFF 之间，因此，需要用 3 个字节表示，即 1110xxxx 10xxxxxx 10xxxxxx，将“20AC”中的每个字符直接转换成二进制为：0010 0000 1010 1100，然后将它从低位往高位（从右到左）依次替换 x，如下图：
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704183246.webp)
+    这样得出字符 € (U+20AC) 用 UTF-8 编码的二进制为：11100010 10000010 10101100，转换成十六进制为：0xE2 0x82 0xAC
 
 - `UTF-16`：变长编码（2/4），不兼容 ASCII
 
-
 #### 中国国标字符集系列编码
+
 GB 2312 / GBK / GB 18030-2022
 
-> 参考文档 [一图弄懂ASCII、GB2312、GBK、GB18030编码-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1343240)
+> 参考文档 [一图弄懂 ASCII、GB2312、GBK、GB18030 编码 - 腾讯云开发者社区 - 腾讯云](https://cloud.tencent.com/developer/article/1343240)
 
-!!! note "三种GB的递进关系"
+!!! note "三种 GB 的递进关系"
 
     === "ASCII" 
         每个字符占据1bytes，用二进制表示的话最高位必须为0（扩展的ASCII不在考虑范围内），因此ASCII只能表示128个字
@@ -244,27 +227,26 @@ GB 2312 / GBK / GB 18030-2022
     === "GB18030"
         然而为了和ASCII兼容，最高位不能为0就已经直接淘汰了一半的组合，只剩下3万多种组合无法满足全部汉字要求）。因此GB18030多出来的汉字使用4bytes编码。当然，为了兼容GBK，这个四字节的前两位显然不能与GBK冲突（实操中发现后两位也并没有和GBK冲突）。我国在2000年和2005年分别颁布的两次GB18030编码，其中2005年的是在2000年基础上进一步补充。至此，GB18030编码的中文文件已经有七万多个汉字了，甚至包含了少数民族文字。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240707134357.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240707134357.webp)
 
-这图中展示了前文所述的几种编码在编码完成后，前2个byte的值的范围（用16进制表示）。每个byte可以表示00到FF（即0至255）。从图中我们可以一目了然地看到为什么GB18030可以兼容GBK，GB2312和ASCII了。他们几种编码之间前两位没有重合部分。需要注意的是ASCII只有1byte，所以是没有第二位的。另外GB18030在上图中占的面积虽然很小，但是它是4bytes编码，这图只展示了前两位。如果后两位也算上，GB18030的字数要远多于GBK。另外需要注意的是，由于GBK兼容GB2312，因此属于GB2312的蓝色区域其实也可以算作是GBK的区域。同理GBK的区域理论上也属于GB18030的区域。上表中只是展示了多出来的部分。
+这图中展示了前文所述的几种编码在编码完成后，前 2 个 byte 的值的范围（用 16 进制表示）。每个 byte 可以表示 00 到 FF（即 0 至 255）。从图中我们可以一目了然地看到为什么 GB18030 可以兼容 GBK，GB2312 和 ASCII 了。他们几种编码之间前两位没有重合部分。需要注意的是 ASCII 只有 1byte，所以是没有第二位的。另外 GB18030 在上图中占的面积虽然很小，但是它是 4bytes 编码，这图只展示了前两位。如果后两位也算上，GB18030 的字数要远多于 GBK。另外需要注意的是，由于 GBK 兼容 GB2312，因此属于 GB2312 的蓝色区域其实也可以算作是 GBK 的区域。同理 GBK 的区域理论上也属于 GB18030 的区域。上表中只是展示了多出来的部分。
 
-实际生活中，我们用到的99%以上的汉字，其实都在GB2312那一块区域内。
+实际生活中，我们用到的 99% 以上的汉字，其实都在 GB2312 那一块区域内。
 
 **GB2312**
 
-[GB2312简体中文编码表 - 常用参考表对照表 - 脚本之家在线工具](https://tools.jb51.net/table/gb2312)
+[GB2312 简体中文编码表 - 常用参考表对照表 - 脚本之家在线工具](https://tools.jb51.net/table/gb2312)
 
-
-ASCII码的设计很优秀，但对于中文使用者，怎么能接受计算机存储不了中文的现实？于是，聪明的中国人在 1980年发布了一套适用自己的新编准：GB2312。
+ASCII 码的设计很优秀，但对于中文使用者，怎么能接受计算机存储不了中文的现实？于是，聪明的中国人在 1980 年发布了一套适用自己的新编准：GB2312。
 
 GB2312 是中华人民共和国国家标准《信息交换用汉字编码字符集 基本集》的简称，全称为 GB 2312-1980。该标准定义了用于简体中文字符和一些其他字符的编码方法，而且兼容 ASCII，广泛应用于中文信息处理系统中。
 
 === "字符范围"
     GB2312是一个**双字节编码字符集**,总共有 7445个字符，主要包括 6763个汉字和 682个非汉字字符（如 ASCII、拉丁字母、希腊字母、日文假名、符号等）。具体分为以下两个部分：
 
-    - 一级汉字：3755个常用汉字，按拼音顺序排列
-    - 二级汉字：3008个次常用汉字，按部首/笔画顺序排列
-    - 非汉字字符：682个，包括图形符号、拉丁字母、日文假名、希腊字母、俄文字母、制表符、标点符号等。
+    - 一级汉字：3755 个常用汉字，按拼音顺序排列
+    - 二级汉字：3008 个次常用汉字，按部首/笔画顺序排列
+    - 非汉字字符：682 个，包括图形符号、拉丁字母、日文假名、希腊字母、俄文字母、制表符、标点符号等。
 
 === "编码区间"
 
@@ -286,13 +268,13 @@ GB2312 是中华人民共和国国家标准《信息交换用汉字编码字符�
 
 **GBK**
 
-[最全面的GBK编码表/GBK字符集 - 常用参考表对照表 - 脚本之家在线工具](https://tools.jb51.net/table/gbk_table)
+[最全面的 GBK 编码表/GBK 字符集 - 常用参考表对照表 - 脚本之家在线工具](https://tools.jb51.net/table/gbk_table)
 
-随着互联网的快速发展，GB2312编码表中定义的字符已经不够用了，因此，GB2312的扩展版 GBK编码表诞生了。
+随着互联网的快速发展，GB2312 编码表中定义的字符已经不够用了，因此，GB2312 的扩展版 GBK 编码表诞生了。
 
-GBK是“**国标扩**展字符集”前 3个汉字拼音首字母的缩写，全称是《汉字内码扩展规范》（Chinese Internal Code Extension, GBK）。GBK字符集是 1993年发布的，它是对 GB2312的扩展。
+GBK 是“**国标扩**展字符集”前 3 个汉字拼音首字母的缩写，全称是《汉字内码扩展规范》（Chinese Internal Code Extension, GBK）。GBK 字符集是 1993 年发布的，它是对 GB2312 的扩展。
 
-GBK是一个**双字节编码字符集**，每个字符由一个或两个字节表示。其编码结构如下：
+GBK 是一个**双字节编码字符集**，每个字符由一个或两个字节表示。其编码结构如下：
 
 === "字符范围"
 
@@ -322,36 +304,35 @@ GBK是一个**双字节编码字符集**，每个字符由一个或两个字节�
     双字节
     字符“汉”在 GBK编码中使用双字节表示，GBK编码: BABA，分成两个字节表示成：0xBA 0xBA
 
-
 **GB18030**
 [国标文档](http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=A1931A578FE14957104988029B0833D3)
 
+GB18030 是国家标准化委员会（SAC）发布的字符编码标准，是一种用于汉字、汉语拼音、注音符号和汉字部首等文字的字符集和编码方案，它是继 GB2312 和 GBK 后更强劲的版本。
 
-GB18030 是国家标准化委员会（SAC）发布的字符编码标准，是一种用于汉字、汉语拼音、注音符号和汉字部首等文字的字符集和编码方案，它是继 GB2312和 GBK 后更强劲的版本。
+GB18030 的特点包括：
 
-GB18030的特点包括：
+- 兼容性：GB18030 兼容 ASCII、GB2312、GBK 以及 Unicode 等多种编码方案。
+- 完备性：GB18030 收录了 70000 多个字符，包括汉字、汉语拼音、注音符号、汉字部首、拉丁字母、数字、标点符号等。
+- 可扩展性：GB18030 采用了四字节编码方案，可以容纳未来出现的所有字符。其中汉字使用双字节或四字节编码，而非汉字字符则使用单字节或双字节编码。
 
-- 兼容性：GB18030兼容ASCII、GB2312、GBK以及Unicode等多种编码方案。
-- 完备性：GB18030收录了70000多个字符，包括汉字、汉语拼音、注音符号、汉字部首、拉丁字母、数字、标点符号等。
-- 可扩展性：GB18030采用了四字节编码方案，可以容纳未来出现的所有字符。其中汉字使用双字节或四字节编码，而非汉字字符则使用单字节或双字节编码。
+### Base 编码
 
-### Base编码
 !!! note "本质"
     字节流 -> 整数 -> n 进制 -> 系数查表
 
 #### Base 16
-base16编码也称为十六进制编码或Hex编码，是一种将二进制数据表示为十六进制数字和字符的方法。它使用16个字符（0-9和A-F）来表示4位二进制数的每个组合。
 
-这里就涉及一个字节序的问题：是用大端模式还是小端模式？Base16编码明确表明是用小端模式存储。
+base16 编码也称为十六进制编码或 Hex 编码，是一种将二进制数据表示为十六进制数字和字符的方法。它使用 16 个字符（0-9 和 A-F）来表示 4 位二进制数的每个组合。
+
+这里就涉及一个字节序的问题：是用大端模式还是小端模式？Base16 编码明确表明是用小端模式存储。
 
 编码过程：
 
-1.将二进制数据分割为4个一组
+1.将二进制数据分割为 4 个一组
 
-2.映射，将每四位二进制数据映射到对应的base16字符。如下：
+2.映射，将每四位二进制数据映射到对应的 base16 字符。如下：
 
-```
-
+```text
 0000 -> 0
 0001 -> 1
 0010 -> 2
@@ -369,14 +350,16 @@ base16编码也称为十六进制编码或Hex编码，是一种将二进制数�
 1110 -> E
 1111 -> F
 ```
+
 #### base32
-由于5bit就可以表示2^5 = 32个字符。
+
+由于 5bit 就可以表示 2^5 = 32 个字符。
 
 结果长度必须是 5 的倍数，不足的用 = 不齐（明显特征）
 
 ??? note "编码"
     ```
-    00000 -> A
+00000 -> A
     00001 -> B
     00010 -> C
     00011 -> D
@@ -410,28 +393,27 @@ base16编码也称为十六进制编码或Hex编码，是一种将二进制数�
     11111 -> 7
     ```
 
-
 #### base58
+
 原理：
 
-- 准备要编码的二进制数据： 将要编码的二进制数据准备好，通常是字节的形式。
+- 准备要编码的二进制数据：将要编码的二进制数据准备好，通常是字节的形式。
 
-- 添加版本前缀（可选）： 在某些应用中，可以在二进制数据前添加一个版本前缀，以标识数据的类型或用途。这是可选的步骤，具体取决于编码的需求。
+- 添加版本前缀（可选）：在某些应用中，可以在二进制数据前添加一个版本前缀，以标识数据的类型或用途。这是可选的步骤，具体取决于编码的需求。
 
-- 计算校验和（可选）： 在某些情况下，可以计算二进制数据的校验和并附加到数据的末尾，以增加数据的完整性和安全性。这也是可选的步骤。
+- 计算校验和（可选）：在某些情况下，可以计算二进制数据的校验和并附加到数据的末尾，以增加数据的完整性和安全性。这也是可选的步骤。
 
-- **Base58编码**： 将经过前两步（添加版本前缀和计算校验和，如果适用）的二进制数据转换为Base58编码的文本。编码过程如下：
+- **Base58 编码**：将经过前两步（添加版本前缀和计算校验和，如果适用）的二进制数据转换为 Base58 编码的文本。编码过程如下：
 
-Base58字符集通常包括58个字符，通常是由除去易混淆的字符（如0、O、I和l）以及可能引起歧义的字符（如+和/）的字符集构成。
-将二进制数据视为一个大整数，使用Base58字符集中的字符作为数字的基数。
+Base58 字符集通常包括 58 个字符，通常是由除去易混淆的字符（如 0、O、I 和 l）以及可能引起歧义的字符（如 + 和/）的字符集构成。
+将二进制数据视为一个大整数，使用 Base58 字符集中的字符作为数字的基数。
 
-将大整数除以58，记录余数，并继续除以58，直到商为零。这将生成Base58编码的每个字符。
+将大整数除以 58，记录余数，并继续除以 58，直到商为零。这将生成 Base58 编码的每个字符。
 
-最后，反转生成的字符顺序以获得最终的Base58编码字符串。
-
-
+最后，反转生成的字符顺序以获得最终的 Base58 编码字符串。
 
 #### base64
+
 **明显特征**
 
 结果长度必须是 4 的倍数，不足的用 = 不齐（1~2 个，明显特征）
@@ -440,7 +422,6 @@ Base58字符集通常包括58个字符，通常是由除去易混淆的字符（
 
 标准字符表：`A-Za-z0-9+/`
 另有多种常用字符表，如 URL 安全字符表：`A-Za-z0-9-_`
-
 
 |  Index  |  Character  |  Index  |  Character  |  Index  |  Character  |  Index  |  Character  |
 |:-------:|:-----------:|:-------:|:-----------:|:-------:|:-----------:|:-------:|:-----------:|
@@ -462,26 +443,27 @@ Base58字符集通常包括58个字符，通常是由除去易混淆的字符（
 |   15    |      P      |   31    |      f      |   47    |      v      |   63    |      /      |
 
 **步骤**
-1. 准备要编码的二进制数据： 将要编码的二进制数据准备好，通常是字节的形式。
 
-2. 分组： 将二进制数据分成固定大小的组，每组通常为3字节（24位）。如果最后一组不足3字节，通常需要进行填充，以便每组都有3字节。
+1. 准备要编码的二进制数据：将要编码的二进制数据准备好，通常是字节的形式。
 
-3. 将每个组的二进制数据转换为十进制： 将每个3字节的二进制数据视为一个8bit*3=24bit位的二进制整数，再转化为一个十进制整数。
+2. 分组：将二进制数据分成固定大小的组，每组通常为 3 字节（24 位）。如果最后一组不足 3 字节，通常需要进行填充，以便每组都有 3 字节。
 
-4. Base64编码： 将每个十进制整数编码为Base64字符。
+3. 将每个组的二进制数据转换为十进制：将每个 3 字节的二进制数据视为一个 8bit*3=24bit 位的二进制整数，再转化为一个十进制整数。
 
-- Base64字符集通常包括64个字符，通常是大写字母A到Z、小写字母a到z、数字0到9以及两个额外的字符（通常是"+"和"/"）。
-- 以24位整数为例，将它分成4组，每组6位。这4组6位整数将被编码为4个Base64字符。
-- 每个6位整数对应一个Base64字符，根据其在Base64字符集中的位置来选择。
-- 如果原始数据不足3字节，会添加一个或两个额外的0位，以确保每个6位整数都有6位。
-- Base64编码的结果是一个文本字符串，其中包含一系列Base64字符，每4个字符分为一组，每组表示一个24位整数。
-5. 填充（可选）： 如果原始数据的长度不是3的倍数，可以使用一个或两个填充字符“=”来补全Base64编码，以确保编码长度是4的倍数。
+4. Base64 编码：将每个十进制整数编码为 Base64 字符。
 
+   - Base64 字符集通常包括 64 个字符，通常是大写字母 A 到 Z、小写字母 a 到 z、数字 0 到 9 以及两个额外的字符（通常是"+"和"/"）。
+   - 以 24 位整数为例，将它分成 4 组，每组 6 位。这 4 组 6 位整数将被编码为 4 个 Base64 字符。
+   - 每个 6 位整数对应一个 Base64 字符，根据其在 Base64 字符集中的位置来选择。
+   - 如果原始数据不足 3 字节，会添加一个或两个额外的 0 位，以确保每个 6 位整数都有 6 位。
+   - Base64 编码的结果是一个文本字符串，其中包含一系列 Base64 字符，每 4 个字符分为一组，每组表示一个 24 位整数。
+
+5. 填充（可选）：如果原始数据的长度不是 3 的倍数，可以使用一个或两个填充字符“=”来补全 Base64 编码，以确保编码长度是 4 的倍数。
 
 ```python
 import base64
  
-str1 = "cPQebAcRp+n+ZeP+YePEWfP7bej4YefCYd/7cuP7WfcPb/URYeMRbesObi/=" # 待解密的base64编码
+str1 = "cPQebAcRp+n+ZeP+YePEWfP7bej4YefCYd/7cuP7WfcPb/URYeMRbesObi/=" # 待解密的 base64 编码
  
 string1 = "LMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/ABCDEFGHIJK"    #替换的表
 string2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
@@ -489,23 +471,23 @@ string2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 print (base64.b64decode(str1.translate(str.maketrans(string1,string2))))
 ```
 
-
 #### 总结
-base家族编码都不算难，根据特征特点找到对应的加解密方式就可以了。下面总结一下各个base编码的特点。
 
-- base16特征：由大写字母（A-Z）和数字（0-9）组成，通常不需要“=”填充
+base 家族编码都不算难，根据特征特点找到对应的加解密方式就可以了。下面总结一下各个 base 编码的特点。
 
-- base32特征：由大写字母（A-Z）和数字（2-7）组成，需要“=”填充
+- base16 特征：由大写字母（A-Z）和数字（0-9）组成，通常不需要“=”填充
 
-- base64特征：大小写字母（a-Z）和数字（0-9）以及特殊字符（'+','/'）不满3的倍数用“=”补齐，结尾有少量等号
+- base32 特征：由大写字母（A-Z）和数字（2-7）组成，需要“=”填充
 
-- base58特征：同base64相比，少了数字‘0’和字母‘O'数字’1‘和字母’I‘以及'+'和'/'符号,也没有“=”
+- base64 特征：大小写字母（a-Z）和数字（0-9）以及特殊字符（'+','/'）不满 3 的倍数用“=”补齐，结尾有少量等号
 
-- base85特征：有很多奇怪的符号，但一般没有“=”
+- base58 特征：同 base64 相比，少了数字‘0’和字母‘O'数字’1‘和字母’I‘以及'+'和'/'符号，也没有“=”
 
-- base91特征：由91个字符（0-9，a-z，A-Z,!#$%&()*+,./:;<=>?@[]^_`{|}~”）组成
+- base85 特征：有很多奇怪的符号，但一般没有“=”
 
-- base100特征：全是emoji表情。
+- base91 特征：由 91 个字符（0-9，a-z，A-Z,!#$%&()*+,./:;<=>?@[]^_`{|}~”）组成
+
+- base100 特征：全是 emoji 表情。
 
 ### 其他编码
 
@@ -517,36 +499,29 @@ base家族编码都不算难，根据特征特点找到对应的加解密方式�
   - 北约音标字母
   - 地点三词编码 [What3Words](https://what3words.com/)
 
-
 ## 信息搜集 | OSINT
-
 
 Open Source INTelligence | 公开信息情报
 
 [Information Protection & OSINT resources](https://github.com/ffffffff0x/Digital-Privacy?tab=readme-ov-file)
 
-
 !!! bug "Don't be evil"
-
 
 ### 构造了一个全新的虚拟身份
 
-sherlock:https://github.com/sherlock-project/sherlock
+sherlock:<https://github.com/sherlock-project/sherlock>
 
-namechk:https://namechk.com/
-
-
+namechk:<https://namechk.com/>
 
 ### 图片、文档等附件泄漏
 
-
 一些常用的搜索引擎：
+
 - 百度识图搜索：中文互联网图片搜索结果
 - Google 图片搜索：用来搜索外国范围的图片
 - Bing 图片搜索：和 Google 差不多，都可以参考
 - Yandex 图片搜索：搜索相似图片;搜索风景时更常用
 - TinEye：搜索完全相同的图片（找来源）
-
 
 ---
 **图片信息**
@@ -556,12 +531,12 @@ namechk:https://namechk.com/
 2023
 
 - 太阳角度、阴影长度等太阳相关
-  - https://www.suncalc.org/
-  - https://www.sunearthtools.com/cn/index.php
+  - <https://www.suncalc.org/>
+  - <https://www.sunearthtools.com/cn/index.php>
         时间 <=> 位置互相估计
 - 天气信息、云层信息等
 - 飞机航班信息
-  - https://flightaware.com/
+  - <https://flightaware.com/>
 - 估计方向，位置，时间等
 - 风景信息 -> Yandex 搜索
 
@@ -592,7 +567,9 @@ namechk:https://namechk.com/
 ## 文件隐写
 
 ### 文件系统
+
 不同的文件系统，不同的组织方式
+
 - MS 派：FAT、NTFS、exFAT、ReFS
 - Apple 派：HFS、APFS
 - Linux 派：ext[234]、XFS、Btrfs、ZFS...
@@ -601,6 +578,7 @@ namechk:https://namechk.com/
 
 **文件名**
 “文件名”是由文件系统管理的，不是文件本身数据的一部分
+
 - 文件系统会记录文件名、文件大小、创建时间、修改时间等信息
 - 文件内容才是真正的数据
 
@@ -610,33 +588,37 @@ namechk:https://namechk.com/
 .jpg .webp .txt .docx ..是文件名的一部分，可以随意修改（在一些桌面环境下）；决定了打开文件的默认程序
 
 **内容**
+
 - 通过文件内容来识别文件类型（√）
 - file 命令：根据文件内容判断文件类型
 - 不同文件类型有不同的“魔数”
 
-|文件类型|	文件头|	对应 ASCII|
+|文件类型 | 文件头 | 对应 ASCII|
 |---|---|---|
-|JPEG	|FF D8 FF	|...|
-|PNG	|89 50 4E 47 0D 0A 1A 0A	|.PNG....|
-|GIF	|47 49 46 38 39 61	|GIF89a|
-|PDF	|25 50 44 46	|%PDF|
-|ZIP	|50 4B 03 04	|PK..|
-|RAR	|52 61 72 21	|Rar!|
-|7zip	|37 7A BC AF 27 1C	|7z..'.|
-|WAV	|52 49 46 46	|RIFF|
+|JPEG |FF D8 FF |...|
+|PNG |89 50 4E 47 0D 0A 1A 0A |.PNG....|
+|GIF |47 49 46 38 39 61 |GIF89a|
+|PDF |25 50 44 46 |%PDF|
+|ZIP |50 4B 03 04 |PK..|
+|RAR |52 61 72 21 |Rar!|
+|7zip |37 7A BC AF 27 1C |7z..'.|
+|WAV |52 49 46 46 |RIFF|
 
 ### 文件结束
 
 大部分文件类型都有一个标记文件内容结束的标志
+
 - 比如 PNG 的 IEND 块、JPEG 的 EOI 标志（FF D9）
 
 所以一般在文件末尾添加其他字节时，不会影响原文件本身的用途，因此有些隐写是将数据隐藏在文件末尾达到的
 
 附加文件的识别
+
 - `exiftools`
 - `binwalk`
 
 附加文件的分离
+
 - `binwalk` 或 `foremost` 识别并分离
 - `dd if=<src> of=<dst> bs=1 skip=<offset>` 手动分离
 
@@ -650,14 +632,14 @@ namechk:https://namechk.com/
     - **图像信息**：宽高、色彩模式、色彩空间等
     - EXIF 信息：拍摄设备、拍摄时间、GPS 信息等
 
-    - **像素数据**：每个像素的颜色信息；二值、灰度、RGB、CMYK、调色盘等BMP 格式
+    - **像素数据**：每个像素的颜色信息；二值、灰度、RGB、CMYK、调色盘等 BMP 格式
 
     压缩算法
     - PNG 无损，JPEG 有损
     - GIF 有损且只支持 256 色
     - 新兴格式如 HEIF、WebP、AVIF 等
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709191542.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709191542.webp)
 
 - 文件头 `89 50 4E 47 0D 0A 1A 0A | .PNG....`
 **采用分块的方式存储数据**,每块的结构都是 4 字节长度 + 4 字节类型 + 数据 + 4 字节 CRC 校验
@@ -665,9 +647,8 @@ namechk:https://namechk.com/
 - 其他辅助数据块：eXIf、tEXt、zTXt、tIME、gAMA……
 - eXIf 元信息，tIME 修改时间，tEXt 文本，zTXt 压缩文本
 
-
 === "文件结构"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709190857.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709190857.webp)
 
     JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个字节表示类型：
     |开始|作用|
@@ -685,8 +666,8 @@ namechk:https://namechk.com/
 
     **JPEG 的压缩原理是 DCT（离散余弦变换）+ Huffman 编码**
     - 由 RGB 转换到 YCbCr，然后减少 Cb、Cr 的采样率
-    - 将图像分块，每个块 8x8，进行 DCT 变换,将图像转换为频域，便于压缩高频部分
-    - 量化，将 DCT 变换后的系数除以量化表中的系数:再次减少高频部分的数据,根据不同的量化表，可以调整压缩质量
+    - 将图像分块，每个块 8x8，进行 DCT 变换，将图像转换为频域，便于压缩高频部分
+    - 量化，将 DCT 变换后的系数除以量化表中的系数：再次减少高频部分的数据，根据不同的量化表，可以调整压缩质量
     - 通过游程编码和 huffman 编码进行压缩
 
 === "分类"
@@ -703,19 +684,16 @@ namechk:https://namechk.com/
     `IEND`：文件结束标志，必须位于最后，内容固定
     PNG 标准不允许 IEND 之后有数据块 结尾时`AE 42 60 82`
 
-
 === "压缩原理"
-    - PNG 使用 Deflate 压缩算法:是 LZ77 结合 huffman 编码的一种压缩算法;LZ77：利用滑动窗口，找到最长的重复字符串，用指针和长度表示
+    - PNG 使用 Deflate 压缩算法：是 LZ77 结合 huffman 编码的一种压缩算法;LZ77：利用滑动窗口，找到最长的重复字符串，用指针和长度表示
     - 会进行滤波，减少数据的冗余性，提高压缩率;五种滤波器：None、Sub、Up、Average、Paeth
-
-
 
 ## 图片隐写
 
 两篇博客
-[CTF MISC图片隐写简单题学习思路总结（持续更新）\_ctf jpg 末尾隐写-CSDN博客](https://blog.csdn.net/weixin_42193791/article/details/126825592)
+[CTF MISC 图片隐写简单题学习思路总结（持续更新）\_ctf jpg 末尾隐写-CSDN 博客](https://blog.csdn.net/weixin_42193791/article/details/126825592)
 
-[常见的隐写工具的使用\_stegoveritas-CSDN博客](https://blog.csdn.net/qq_44101248/article/details/108850686)
+[常见的隐写工具的使用\_stegoveritas-CSDN 博客](https://blog.csdn.net/qq_44101248/article/details/108850686)
 
 !!! note "WorkFlow"
     - 使用`file`查看信息，使用 `exiftool` 检查图片元信息，看看有没有看起来会有用的信息
@@ -729,15 +707,17 @@ namechk:https://namechk.com/
     - 使用 `Extract LSB` 尝试提取数据格式的 LSB（或者使用 `zsteg` 猜测）
     - 考虑能否查找原图，如果找到了尝试进行比较
     - 考虑是否是使用工具进行的图片隐写，多尝试一些常见的工具
+
 ### 图像大小修改
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709193713.webp)
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709193713.webp)
+
 - PNG 图像按行进行像素数据的压缩，以及存储 / 读取
 - 当解码时已经达到了 IHDR 中规定的大小就会结束
 - 因此题目可能会故意修改 IHDR 中的高度数据，使之显示不全
 -恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
 
-`binascii.crc32(data)`，data 为从 IHDR 开始的数据(包含IHDR)
-
+`binascii.crc32(data)`，data 为从 IHDR 开始的数据 (包含 IHDR)
 
 ### 需要原图的图片隐写
 
@@ -751,25 +731,24 @@ namechk:https://namechk.com/
 - PIL 手动处理 / `ImageChops.difference`
 - stegsolve image combiner
 
-
 **盲水印系列**
+
 - 给了打水印的代码的话直接尝试根据代码逆推即可
 - 没有给代码的可能就是常见的现有盲水印工具
 
 [guofei9987/blind\_watermark](https://github.com/guofei9987/blind_watermark)
 
+### LSB 图片隐写
 
-
-### LSB图片隐写
-
-LSB全称为 least significant bit，是最低有效位的意思
+LSB 全称为 least significant bit，是最低有效位的意思
 
 LSB 隐写将颜色通道的最低位用来编码信息
+
 - 图像：stegsolve / CyberChef View Bit Plane
 - 数据：stegsolve / CyberChef Extract LSB / zsteg / PIL
 
 ```python
-# PIL库的使用
+# PIL 库的使用
 from PIL import Image #导入和图像读写处理有关的 Image 类
 img = Image.open(file_name) #打开图像
 img.show() 显示图像；img.save(file_name) #保存图像
@@ -782,6 +761,7 @@ np.array(img) #将图像转换为 numpy 数组
 ```
 
 **具体图像模式**
+
 - '1'：黑白二值（0/255）；'L'：灰度（8 bit），'l'：32 bit 灰度
 - L = 0.299 R + 0.587 G + 0.114 B
 - 'P'：8bit 调色盘，获取的像素值是调色盘索引
@@ -790,25 +770,32 @@ np.array(img) #将图像转换为 numpy 数组
 - 'YCbCr'、'LAB'、'HSV' 等，转换时有复杂公式（可能出现新的隐写）
 
 **PIL 其他模块用途**
+
 - ImageDraw 用于绘制图像、绘制图形
 - ImageChops 用于图像通道的逻辑运算
 - ImageOps 用于图像整体的运算一类
 - ImageFilter 用于图像的滤波处理
 
 ### 人为隐写
+
 - JPEG 中 DCT 系数可以进行 LSB 隐写
 - JPEG 中 DHT 定义的 huffman 表可能有冗余项，可以隐写
 - PNG 中附加多余 IDAT 数据块的隐写（显示时被忽略）
 - PNG 中使用调色盘时可以进行调色盘隐写（EZStego 隐写）
+
 ### 工具隐写
+
 steghide、stegoveritas、SilentEye 等
 一般找到了类似密码一类的大概率是工具题
+
 ## 音频隐写
+
 使用 Python 的 soundfile / librosa 库进行音频处理
 
 mp3：有损压缩
 
 wav：无损无压缩（waveform）
+
 - 直接存储的是音频的波形数据，可操作性更高
 - 文件结构也是分 chunk 的，有 RIFF、fmt、data 等
 - 编码音频数据的 sample 也可以进行 LSB 隐写
@@ -816,24 +803,26 @@ wav：无损无压缩（waveform）
 flac：无损压缩，如果出现可能考虑转换为 wav
 
 ### 音频叠加
+
 如果可以找到原音频，或提供了原音频，可以进行比较
 
 方法是在 Audition 中创建多轨会话
+
 - 将两个音频拖入两个轨道
 - 效果 > 匹配响度，将两条音轨的响度匹配
 - 点进其中一条音轨，效果 > 反相，将波形上下颠倒
 - 两条音轨匹配上波形之后播放 / 混音，就能听到差异了
 
-
 ### 频谱隐写
+
 一般使用 Adobe Audition 打开来进行进一步的分析
 
 频谱隐写是观察音频的频谱图，可能会有部分信息经过了调整
 
-
 ## 压缩
 
 ZIP 也使用分段的方式存储数据
+
 - 本地文件记录 50 4B 03 04，可以有多个
 - 中央目录记录 50 4B 01 02，可以有多个
 - 中央目录结束 50 4B 05 06
@@ -853,7 +842,6 @@ ZIP 也使用分段的方式存储数据
 
 ### Quine
 
-
 ## 流量取证
 
 流量取证一般就是拿到这些数据包（cap、pcap、pcapng 格式）进行分析
@@ -866,19 +854,20 @@ ZIP 也使用分段的方式存储数据
 ### 常用工具
 
 - tcpdump 抓 TCP 包（Linux 命令行）
-- Wireshark直接抓包，得到物理层的全部数据并解析（开源）
-- 自带命令行工具 tshark：[官网](https://www.wireshark.org/docs/man-pages/tshark.html)，可以再wireshark中筛选，然后得到对应的指令
-[一文读懂网络报文分析神器Tshark： 100+张图、100+个示例轻松掌握-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2312883)
-- termshark类似 Wireshark 的开源命令行工具
+- Wireshark 直接抓包，得到物理层的全部数据并解析（开源）
+- 自带命令行工具 tshark：[官网](https://www.wireshark.org/docs/man-pages/tshark.html)，可以再 wireshark 中筛选，然后得到对应的指令
+[一文读懂网络报文分析神器 Tshark：100+ 张图、100+ 个示例轻松掌握 - 腾讯云开发者社区 - 腾讯云](https://cloud.tencent.com/developer/article/2312883)
+- termshark 类似 Wireshark 的开源命令行工具
 - pyshark：tshark 的 Python 封装，可以用 Python 脚本分析
 - scapy：Python 库，也可以用来分析流量包
 
 ### HTTP 协议流量分析
+
 - 分析统计信息，查看所有的 HTTP 请求 URI
 - 分析 HTTP 往返的情况，流量整体信息
 - 具体分析某些请求：利用过滤器
 - 分析某一数据包具体内容：跟踪流，跟踪 TCP 解析 TCP，跟踪 HTTP 可以自动解压 gzip 等；分析请求头、响应头、请求体、响应体等
-[Wireshark分析sql布尔盲注流量包\_sql注入wireshark抓包分析-CSDN博客](https://blog.csdn.net/weixin_44032232/article/details/114297460)
+[Wireshark 分析 sql 布尔盲注流量包\_sql 注入 wireshark 抓包分析-CSDN 博客](https://blog.csdn.net/weixin_44032232/article/details/114297460)
 
 ### 其他协议
 
@@ -890,28 +879,26 @@ OICQ 协议：QQ 使用，是加密的，但是可以看到双方 QQ 号等
 可以使用 Linux aircrack 套件爆破密码
 有了密码后可以在 Wireshark 中设置并解密流量
 
-[Kali-WIFI攻防(二)----无线网络分析工具Aircrack-ng\_airdecap-ng-CSDN博客](https://blog.csdn.net/u011781521/article/details/69062209)
+[Kali-WIFI 攻防 (二)----无线网络分析工具 Aircrack-ng\_airdecap-ng-CSDN 博客](https://blog.csdn.net/u011781521/article/details/69062209)
 
 **USB 协议**
 安装了 USBcap 之后可以在 Wireshark 中捕获 USB 流量
 有工具可以解析流量，绘制鼠标轨迹，得到按键信息等
 
-
 **VMess**，需要读文档 / 源码，实现解密
 
 ## 内存取证
+
 ### 先 strings
+
 提取出文件中所有的 ASCII 字符串，没准就发现有效信息秒杀了
 会有超多，可以输出到文件然后搜索，或者直接 grep
 strings mem.raw | grep "flag"
 提取 Unicode 字符 strings -el
 
 ### 再上 volatility
+
 - 开源的内存取证工具，可以分析 Windows/Linux/macOS
 - 先识别系统信息
 - 针对不同系统使用不同命令分析
 - 能跑的都跑一遍，注意看输出
-
-
-
-

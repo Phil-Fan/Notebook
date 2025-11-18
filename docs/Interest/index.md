@@ -4,7 +4,6 @@ comments: true
 
 # 生命因你而火热
 
-
 ```mermaid
 mindmap
     root(Interests)
@@ -19,6 +18,7 @@ mindmap
 ```
 
 {{ BEGIN_TOC }}
+
 - 🎹 Music:
   - 音乐理论: Music/00-Music_Theory.md
   - 钢琴课程: Music/01-Piano_Class.md
@@ -61,7 +61,7 @@ mindmap
 
 **玉泉手绘地图**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Interest__assets__index.assets__d8833a5b67384364385346c6ca5430e.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Interest__assets__index.assets__d8833a5b67384364385346c6ca5430e.webp)
 > 图源 浙大官微
 
-[本科生选研究生课，看这一篇就够了！(tag:选课/ 个性化 / 个性修读 / 个性学分/ 选修研究生课 /学分不够 ) - CC98论坛](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/6111277/1
+[本科生选研究生课，看这一篇就够了！(tag:选课/ 个性化 / 个性修读 / 个性学分/ 选修研究生课 /学分不够 ) - CC98论坛](http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/6111277)

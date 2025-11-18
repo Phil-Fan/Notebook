@@ -37,10 +37,9 @@ index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 
 vllm + Prometheus + Grafana
 
-
 ## Benchmark 基准测试
 
-LLM（Large Language Model）基准测试（benchmarking）是评估大型语言模型性能的关键方法，benchmark_latency和benchmark_serving是用于评估机器学习模型性能的两个重要方面，尤其是在部署和实际应用中。它们的目标是确保模型在不同条件下具有良好的响应时间和服务能力。
+LLM（Large Language Model）基准测试（benchmarking）是评估大型语言模型性能的关键方法，benchmark_latency 和 benchmark_serving 是用于评估机器学习模型性能的两个重要方面，尤其是在部署和实际应用中。它们的目标是确保模型在不同条件下具有良好的响应时间和服务能力。
 
 ### Benchmark Latency
 
@@ -56,9 +55,8 @@ Serving 是指在生产环境中部署和运行模型，以处理实际的用户
 
 - **Scalability**: 系统在增加负载时能否有效扩展，保持高性能
 - **Reliability**: 系统的可靠性，包括在高负载或异常情况下的稳定性
-- **Resource Utilization**: 评估CPU、GPU、内存等资源的使用情况，确保在高效利用资源的同时保持高性能
+- **Resource Utilization**: 评估 CPU、GPU、内存等资源的使用情况，确保在高效利用资源的同时保持高性能
 - **Latency under Load**: 在高并发请求下，系统的延迟表现
-
 
 ### 压力测试核心指标
 
@@ -83,13 +81,11 @@ Serving 是指在生产环境中部署和运行模型，以处理实际的用户
 | | 队列长度 | 等待处理请求数 | 个 | < 100 |
 | | 自动扩缩容时间 | 弹性伸缩耗时 | s | < 30 s |
 
-
-
 ## 压测工具
 
 ### vLLM 内置压测
-LLM 公开了一些指标，可用于监控系统的健康状况。这些指标通过 vLLM OpenAI 兼容 API 服务器上的 `/metrics` 端点公开。
 
+LLM 公开了一些指标，可用于监控系统的健康状况。这些指标通过 vLLM OpenAI 兼容 API 服务器上的 `/metrics` 端点公开。
 
 [生产指标 — vLLM 文档](https://docs.vllm.com.cn/en/latest/serving/metrics.html)
 
@@ -114,43 +110,33 @@ python3 vllm/benchmarks/benchmark_throughput.py \
 
 SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能表现。
 
-
 ### evalscope
 
 来自 ModelScope 的评估工具，提供全面的模型评估能力。
 
 #### VLM
 
-
-
-
-
-
 ### GenAI-Perf
 
-专门为生成式AI设计的性能评估工具。
+专门为生成式 AI 设计的性能评估工具。
 
 ### 其他压测工具
 
 [FlyAIBox/llm_benchmark](https://github.com/FlyAIBox/llm_benchmark) 是一个专门用于大模型推理压测的开源工具。
 
-
-
-
-
 ## 监控工具
 
-
-
 ### **PyTorch Profiler**
-[PyTorch Profiler 介绍——全新且改进的性能工具——PyTorch - PyTorch 深度学习库](https://pytorch.ac.cn/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
-* **简介**：PyTorch 官方提供的 Profiler，可分析 CPU/GPU 时间、内存使用、操作调用图等。
-* **特点**：
 
-  * 支持 **TensorBoard** 可视化。
-  * 能追踪 **前向、反向和优化步骤**。
-  * 支持 **CUDA、CPU、NPU 等设备**。
-* **典型用法**：
+[PyTorch Profiler 介绍——全新且改进的性能工具——PyTorch - PyTorch 深度学习库](https://pytorch.ac.cn/blog/introducing-pytorch-profiler-the-new-and-improved-performance-tool/)
+
+- **简介**：PyTorch 官方提供的 Profiler，可分析 CPU/GPU 时间、内存使用、操作调用图等。
+- **特点**：
+
+  - 支持 **TensorBoard** 可视化。
+  - 能追踪 **前向、反向和优化步骤**。
+  - 支持 **CUDA、CPU、NPU 等设备**。
+- **典型用法**：
 
   ```python
   import torch
@@ -167,17 +153,17 @@ SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能�
   print(prof.key_averages().table(sort_by="cuda_time_total"))
   prof.export_chrome_trace("trace.json")
   ```
-* **用途**：找出耗时操作（如 `einsum`、卷积等）、分析显存占用。
 
+- **用途**：找出耗时操作（如 `einsum`、卷积等）、分析显存占用。
 
 ### TensorFlow Profiler
 
-* **简介**：TensorFlow 内置 Profiler，可分析训练过程的计算图、操作耗时、内存使用等。
-* **特点**：
+- **简介**：TensorFlow 内置 Profiler，可分析训练过程的计算图、操作耗时、内存使用等。
+- **特点**：
 
-  * 与 **TensorBoard** 集成，可生成 **时间线（Trace View）**。
-  * 支持 GPU 计算分析和 **kernel-level profiling**。
-* **典型用法**：
+  - 与 **TensorBoard** 集成，可生成 **时间线（Trace View）**。
+  - 支持 GPU 计算分析和 **kernel-level profiling**。
+- **典型用法**：
 
   ```python
   import tensorflow as tf
@@ -187,19 +173,18 @@ SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能�
   model.fit(dataset, epochs=1)
   tf.profiler.experimental.stop()
   ```
-* **用途**：优化 TF 模型训练速度、GPU 利用率、查看算子瓶颈。
 
+- **用途**：优化 TF 模型训练速度、GPU 利用率、查看算子瓶颈。
 
 ### NVIDIA Nsight Systems / Nsight Compute
 
-* **简介**：NVIDIA 官方提供的 GPU 性能分析工具。
-* **特点**：
+- **简介**：NVIDIA 官方提供的 GPU 性能分析工具。
+- **特点**：
 
-  * **Nsight Systems**：宏观分析（时间线、CPU/GPU 交互、API 调用）。
-  * **Nsight Compute**：微观分析（单个 CUDA kernel 的利用率、寄存器使用、内存带宽）。
-* **用途**：分析 GPU 核心利用率、核函数瓶颈、内存访问模式。
-* **适合场景**：GPU 优化、卷积、Transformer 等大模型计算优化。
-
+  - **Nsight Systems**：宏观分析（时间线、CPU/GPU 交互、API 调用）。
+  - **Nsight Compute**：微观分析（单个 CUDA kernel 的利用率、寄存器使用、内存带宽）。
+- **用途**：分析 GPU 核心利用率、核函数瓶颈、内存访问模式。
+- **适合场景**：GPU 优化、卷积、Transformer 等大模型计算优化。
 
 ### DeepSpeed Flops Profiler
 
@@ -207,27 +192,26 @@ SGLang 框架提供的基准测试工具，用于评估 SGLang 应用的性能�
 
 [Flops 性能分析器 - DeepSpeed - DeepSpeed 深度学习库](https://deepspeed.org.cn/tutorials/flops-profiler/)
 
-* **简介**：DeepSpeed 提供的 FLOPs 及性能分析工具。
-* **特点**：
+- **简介**：DeepSpeed 提供的 FLOPs 及性能分析工具。
+- **特点**：
 
-  * 可统计 **每层操作的 FLOPs** 和显存消耗。
-  * 支持 **模型并行、数据并行** 配置。
-  * 提供 step-by-step latency 和 GPU utilization。
-* **典型用法**：
+  - 可统计 **每层操作的 FLOPs** 和显存消耗。
+  - 支持 **模型并行、数据并行** 配置。
+  - 提供 step-by-step latency 和 GPU utilization。
+- **典型用法**：
 
   ```python
   from deepspeed.profiling.flops_profiler import get_model_profile
   macs, params, flops_dict = get_model_profile(model, input_size=(1, 3, 224, 224))
   ```
-* **用途**：量化计算量，优化模型结构，评估硬件效率。
 
+- **用途**：量化计算量，优化模型结构，评估硬件效率。
 
 ### Other Profilers
 
-* **PyTorch Lightning Profiler**：适用于 Lightning 框架，简单统计训练步骤耗时。
-* **cProfile / line\_profiler**：Python 通用 Profiler，可分析 CPU 代码瓶颈。
-* **TorchMetrics + Memory Profiler**：辅助工具，用于显存、梯度消耗分析。
-
+- **PyTorch Lightning Profiler**：适用于 Lightning 框架，简单统计训练步骤耗时。
+- **cProfile / line\_profiler**：Python 通用 Profiler，可分析 CPU 代码瓶颈。
+- **TorchMetrics + Memory Profiler**：辅助工具，用于显存、梯度消耗分析。
 
 ### nvitop-exporter
 
@@ -245,7 +229,7 @@ uv pip install --upgrade nvitop nvitop-exporter
 nvitop-exporter --bind 0.0.0.0 --port 5050
 ```
 
-会在`5050/metrics`下面把gpu的信息列出来，可以使用prometheus记性数据采集
+会在`5050/metrics`下面把 gpu 的信息列出来，可以使用 prometheus 记性数据采集
 
 ### Prometheus
 
@@ -261,13 +245,11 @@ Prometheus 是一个开源的监控和告警系统，用于数据采集与存储
 
 [Download | Prometheus](https://prometheus.io/download/)
 
-!!! note "AutoDL因为本身就是docker环境搭建的，所以不支持运行docker"
+!!! note "AutoDL 因为本身就是 docker 环境搭建的，所以不支持运行 docker"
 
 ```shell
 tar -xvf prometheus-3.5.0.linux-amd64.tar 
 ```
-
-
 
 ```yml title="prometheus.yml" hl_lines="18 24"
 # 全局配置项，适用于所有 job
@@ -296,8 +278,7 @@ scrape_configs:
           - '0.0.0.0:5050'  # nvitop-exporter 默认监听在 5050 端口
 ```
 
-
-```shell title="运行，默认使用路径下的prometheus.yml配置"
+```shell title="运行，默认使用路径下的 prometheus.yml 配置"
 ./prometheus
 ```
 
@@ -308,16 +289,16 @@ scrape_configs:
 Grafana 是一个开源的数据可视化和监控平台。
 
 **主要功能：**
+
 - 丰富的图表类型
 - 多数据源支持
 - 仪表盘定制
 - 告警通知
 - 用户权限管理
 
-
 缺点：
 
-- 数据抓取时间间隔15s 较长，不适用于时间精度要求较高的任务
+- 数据抓取时间间隔 15s 较长，不适用于时间精度要求较高的任务
 
 === "ubuntu"
 
@@ -341,43 +322,39 @@ cd grafana-v12.0.0/bin/
 ./grafana server
 ```
 
-会在3000端口开一个服务
+会在 3000 端口开一个服务
 
-登陆进去之后使用 账户密码都是admin admin登陆
-    
+登陆进去之后使用 账户密码都是 admin admin 登陆
 
 添加`prometheus`数据源
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185014660.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185014660.webp)
 
-在URL处填入网址，其他可以不变。
+在 URL 处填入网址，其他可以不变。
 
 ```text
 http://localhost:9090/
 ```
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185117465.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185117465.webp)
 
-
-
-打开Dashboard
+打开 Dashboard
 
 1. 在“指标”选项卡下，选择您的 Prometheus 数据源（右下角）。
 2. 在“查询”字段中输入任何 Prometheus 表达式，同时使用“指标”字段通过自动补全查找指标。
 3. 要格式化时间序列的图例名称，请使用“图例格式”输入。例如，要仅显示返回查询结果的 method 和 status 标签（用破折号分隔），您可以使用图例格式字符串 {{method}} - {{status}}。
 4. 调整其他图表设置，直到您有一个可用的图表。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185335923.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185335923.webp)
 
-抓取的time interval是15s，而且不能更改，所以grafana测量得到的数据粒度不高
-
-
+抓取的 time interval 是 15s，而且不能更改，所以 grafana 测量得到的数据粒度不高
 
 ### Streamlit
 
 Streamlit 是一个用于快速构建数据应用的 Python 库。
 
 **主要功能：**
+
 - 快速原型开发
 - 交互式数据展示
 - 机器学习模型展示
@@ -388,6 +365,7 @@ Streamlit 是一个用于快速构建数据应用的 Python 库。
 夜莺是一个开源的监控告警系统，提供完整的监控解决方案。
 
 **主要功能：**
+
 - 数据采集
 - 数据存储
 - 告警管理
@@ -398,6 +376,7 @@ Streamlit 是一个用于快速构建数据应用的 Python 库。
 SwanLab 是一个轻量级的实验跟踪工具。优点：国产团队，国内访问比较方便
 
 **主要功能：**
+
 - 实验记录
 - 指标可视化
 - 模型比较
@@ -411,12 +390,12 @@ pip install swanlab
 swanlab login
 ```
 
-
 ### TensorBoard
 
 TensorBoard 是 TensorFlow 的可视化工具，也可用于其他深度学习框架。
 
 **主要功能：**
+
 - 训练过程可视化
 - 模型结构展示
 - 性能指标跟踪
@@ -427,14 +406,13 @@ TensorBoard 是 TensorFlow 的可视化工具，也可用于其他深度学习�
 WandB 是一个用于机器学习实验跟踪的平台。
 
 **主要功能：**
+
 - 实验管理
 - 模型版本控制
 - 性能指标跟踪
 - 团队协作
 
-
 ## 相关资源
-
 
 - [基于 nvitop+Prometheus+Grafana 的物理资源与 VLLM 引擎服务监控方案](https://blog.csdn.net/xiangyuanhong08/article/details/148011686)
 - [使用 Prometheus、Grafana、Loki 和 Alloy 在 Google GKE 上监控 Streamlit 应用程序](https://medium.com/@omarnour_5895/monitoring-a-streamlit-app-on-gke-with-grafana-loki-alloy-4d1bad572c01)

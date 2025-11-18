@@ -1,20 +1,24 @@
 # Vim
 
 ## 安装与配置
+
 [教程](https://www.cnblogs.com/cxl-/p/15319734.html)
 
 ### 改键
+
 编辑`.vimrc`文件
-```
+
+```text
 inoremap jk <ESC> 
 ```
 
-
 ### 插件
+
 [vim on vscode](https://www.cnblogs.com/YunyaSir/p/15522565.html)
 
 F1 打开 首选项：用户设置，按需增添以下代码
-```
+
+```json
 //j+j替换esc键位，更加高效快捷
 "vim.insertModeKeyBindings": [
     {
@@ -39,10 +43,10 @@ F1 打开 首选项：用户设置，按需增添以下代码
 "vim.hlsearch": true,
 ```
 
-[vimium-C on Chorme]()
-
+[vimium-C on Chorme](https://vimium.github.io)
 自定义搜索引擎
-```
+
+```text
 b|ba|baidu|Baidu|百度: https://www.baidu.com/s?ie=utf-8&wd=%s \
   blank=https://www.baidu.com/ 百度
 bi: https://www.bing.com/search?q=$s
@@ -103,17 +107,16 @@ js\:|Js: javascript:\ $S; JavaScript
 
 ## 简介
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__vim.assets__20240706181314.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Efficiency__assets__vim.assets__20240706181314.webp)
 
 ## 用法
 
 ### 正常模式
 
-- 基本移动: `hjkl` （左， 下， 上， 右）
+- 基本移动：`hjkl` （左，下，上，右）
 词： `w` （下一个词）， `b` （上一个词/词初）， `e` （下一个词/词尾）
 - 行： `0` （行初）， `^` （第一个非空格字符）， `$` （行尾）
-屏幕： `H` （屏幕首行）， `M` （屏幕中间）， `L `（屏幕底部）
+屏幕： `H` （屏幕首行）， `M` （屏幕中间）， `L`（屏幕底部）
 - 翻页： `Ctrl-u` （上翻）， `Ctrl-d` （下翻）
 - 文件： `gg` （文件头）， `G` （文件尾）
 行数：{行数}G ({行数}为行数)
@@ -121,7 +124,7 @@ js\:|Js: javascript:\ $S; JavaScript
 - 查找：`f{字符}`，`t{字符}`，`F{字符}`，`T{字符}`
 - 查找/到 向前/向后 在本行的
 , / ; 用于导航匹配
-- 搜索: /{正则表达式}, n / N 用于导航匹配
+- 搜索：/{正则表达式}, n / N 用于导航匹配
 
 ### 底线命令模式
 
@@ -134,8 +137,7 @@ js\:|Js: javascript:\ $S; JavaScript
 `:w`：保存文件。
 `:q`：退出 Vim 编辑器。
 `:wq`：保存文件并退出 Vim 编辑器。
-`:q!`：强制退出Vim编辑器，不保存修改。
-
+`:q!`：强制退出 Vim 编辑器，不保存修改。
 
 ## 技巧
 
@@ -145,4 +147,4 @@ js\:|Js: javascript:\ $S; JavaScript
 
 === "example"
     用x操作来删除一个字符，接着用.重复删除字符
-    ![](https://img-blog.csdn.net/20150614230108127)
+    ![image](https://img-blog.csdn.net/20150614230108127)

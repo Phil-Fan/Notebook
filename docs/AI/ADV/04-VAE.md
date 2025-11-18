@@ -1,6 +1,5 @@
 # VAE
+
 Variational Autoencoder
 
 ## Background
-
-

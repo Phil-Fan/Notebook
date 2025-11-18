@@ -1,20 +1,19 @@
 # Solidity
 
-
 ## 编译器
-[remix](https://remix.ethereum.org/)
 
+[remix](https://remix.ethereum.org/)
 
 ### 方法 ID
 
-每个Solidity函数都有一个唯一的标识符，称为函数选择器或方法ID。它是函数签名的前4个字节的Keccak-256哈希值。
+每个 Solidity 函数都有一个唯一的标识符，称为函数选择器或方法 ID。它是函数签名的前 4 个字节的 Keccak-256 哈希值。
 
 #### 计算方法 ID
 
-假设有一个函数签名为`setVars(uint256)`，计算方法ID的步骤如下：
+假设有一个函数签名为`setVars(uint256)`，计算方法 ID 的步骤如下：
 
-1. 获取签名字符串的Keccak-256哈希值。
-2. 取哈希值的前4个字节。
+1. 获取签名字符串的 Keccak-256 哈希值。
+2. 取哈希值的前 4 个字节。
 
 ```solidity
 pragma solidity ^0.8.0;
@@ -28,9 +27,9 @@ contract MethodIDExample {
 
 在上面的示例中，`setVars(uint256)`的函数选择器是`bytes4(keccak256("setVars(uint256)"))`。
 
-
 ## 语法
-Solidity是一种面向智能合约的编程语言，主要用于在以太坊区块链上开发智能合约。它是一种静态类型语言，语法类似于JavaScript，但也有一些自己的特性。
+
+Solidity 是一种面向智能合约的编程语言，主要用于在以太坊区块链上开发智能合约。它是一种静态类型语言，语法类似于 JavaScript，但也有一些自己的特性。
 
 ### 1. 基本结构
 
@@ -59,11 +58,11 @@ contract SimpleStorage {
 
 ### 2. 数据类型
 
-Solidity支持多种数据类型，包括：
+Solidity 支持多种数据类型，包括：
 
 - `uint`/`int`：无符号/有符号整数，可以指定位数（如`uint8`、`uint256`）。
 - `bool`：布尔类型，值为`true`或`false`。
-- `address`：20字节的以太坊地址。
+- `address`：20 字节的以太坊地址。
 - `bytes`/`string`：动态大小的字节数组和字符串。
 - `struct`：自定义数据结构。
 - `enum`：枚举类型。
@@ -82,16 +81,15 @@ Solidity支持多种数据类型，包括：
 - `private`：只能从本合约内部调用。
 - `external`：只能从外部调用。
 
-
-当然，以下是关于Solidity文档中`delegatecall`低级函数、如何使用它来委托操作到链上库，以及它对执行范围的影响的介绍。
+当然，以下是关于 Solidity 文档中`delegatecall`低级函数、如何使用它来委托操作到链上库，以及它对执行范围的影响的介绍。
 
 #### delegatecall
 
-`delegatecall`是Solidity中的一种低级函数，允许一个合约在另一个合约的上下文中执行代码。使用`delegatecall`时，被调用合约的代码以调用合约的存储、消息和余额来执行。这意味着在`delegatecall`执行过程中，当前合约的存储、msg.sender和msg.value不会改变，而是继续引用原来的上下文。
+`delegatecall`是 Solidity 中的一种低级函数，允许一个合约在另一个合约的上下文中执行代码。使用`delegatecall`时，被调用合约的代码以调用合约的存储、消息和余额来执行。这意味着在`delegatecall`执行过程中，当前合约的存储、msg.sender 和 msg.value 不会改变，而是继续引用原来的上下文。
 
 **用法**
 
-假设有两个合约，合约A和合约B。合约A希望使用合约B的某些功能。可以使用`delegatecall`将操作委托给合约B：
+假设有两个合约，合约 A 和合约 B。合约 A 希望使用合约 B 的某些功能。可以使用`delegatecall`将操作委托给合约 B：
 
 ```solidity
 contract B {
@@ -120,7 +118,7 @@ contract A {
 }
 ```
 
-在上面的示例中，当调用A合约的`setVars`方法时，`delegatecall`将B合约中的`setVars`函数在A合约的上下文中执行。因此，A合约中的`num`、`sender`和`value`会被更新，而B合约中的相应变量不会改变。
+在上面的示例中，当调用 A 合约的`setVars`方法时，`delegatecall`将 B 合约中的`setVars`函数在 A 合约的上下文中执行。因此，A 合约中的`num`、`sender`和`value`会被更新，而 B 合约中的相应变量不会改变。
 
 **影响**
 
@@ -132,8 +130,7 @@ contract A {
 
 #### Fallback 方法
 
-在Solidity中，`fallback`方法是一种特殊的函数，当调用一个合约时，如果该合约中没有匹配的函数签名，或者直接发送以太币而不调用任何函数时，`fallback`函数会被调用。Solidity还引入了一个新的`receive`函数用于接收纯以太币转账。
-
+在 Solidity 中，`fallback`方法是一种特殊的函数，当调用一个合约时，如果该合约中没有匹配的函数签名，或者直接发送以太币而不调用任何函数时，`fallback`函数会被调用。Solidity 还引入了一个新的`receive`函数用于接收纯以太币转账。
 
 - `fallback`：用来处理所有不匹配函数调用和无数据的直接转账。
 - `receive`：专门用于处理无数据的纯以太币转账。
@@ -152,9 +149,6 @@ contract FallbackExample {
     }
 }
 ```
-
-
-
 
 ### 5. 修饰符
 
@@ -179,7 +173,7 @@ function set(uint256 x) public {
 
 ### 7. 继承
 
-Solidity支持合约继承：
+Solidity 支持合约继承：
 
 ```solidity
 contract Parent {

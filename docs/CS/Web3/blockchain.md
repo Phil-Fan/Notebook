@@ -1,18 +1,20 @@
 # 以太坊区块链基础
+
 [一文读懂区块链技术](https://blog.chain.link/what-is-blockchain-zh/)
 
 [以太坊基础 - 鹤翔万里的笔记本](https://note.tonycrane.cc/ctf/blockchain/eth/basic/)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Web3__assets__blockchain.assets__20240713192452.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Web3__assets__blockchain.assets__20240713192452.webp)
 
 两种账户：EOA
 
 有一对公私钥，用于签署交易
+
 - 私钥是随机生成的 256 位数（32 字节）
 - 公钥由私钥经过 ECDSA 算法计算而来，是一个 64 字节的数
 - 地址由公钥经过 Keccak-256 哈希后取前 20 字节得到
 
-```
+```text
 > personal.unlockAccount(eth.accounts[0],"C6HQU#ULHLvv172b")
 true
 > eth.getBalance(eth.accounts[0])
@@ -22,4 +24,3 @@ true
 > eth.getTransaction("0x58ba4de9e40c331709954cb10ad80850bb44238944580216ac715d46002fae5f")
 > eth.getTransactionReceipt("0x58ba4de9e40c331709954cb10ad80850bb44238944580216ac715d46002fae5f")
 ```
-

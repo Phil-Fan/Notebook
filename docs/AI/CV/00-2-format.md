@@ -1,19 +1,17 @@
 # 图片格式
 
-### 图片格式
-
 !!! note "图像需要存储什么"
     - **图像信息**：宽高、色彩模式、色彩空间等
     - EXIF 信息：拍摄设备、拍摄时间、GPS 信息等
 
-    - **像素数据**：每个像素的颜色信息；二值、灰度、RGB、CMYK、调色盘等BMP 格式
+    - **像素数据**：每个像素的颜色信息；二值、灰度、RGB、CMYK、调色盘等 BMP 格式
 
     压缩算法
     - PNG 无损，JPEG 有损
     - GIF 有损且只支持 256 色
     - 新兴格式如 HEIF、WebP、AVIF 等
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709191542.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709191542.webp)
 
 - 文件头 `89 50 4E 47 0D 0A 1A 0A | .PNG....`
 **采用分块的方式存储数据**,每块的结构都是 4 字节长度 + 4 字节类型 + 数据 + 4 字节 CRC 校验
@@ -21,9 +19,8 @@
 - 其他辅助数据块：eXIf、tEXt、zTXt、tIME、gAMA……
 - eXIf 元信息，tIME 修改时间，tEXt 文本，zTXt 压缩文本
 
-
 === "文件结构"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709190857.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709190857.webp)
 
     JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个字节表示类型：
     |开始|作用|
@@ -41,8 +38,8 @@
 
     **JPEG 的压缩原理是 DCT（离散余弦变换）+ Huffman 编码**
     - 由 RGB 转换到 YCbCr，然后减少 Cb、Cr 的采样率
-    - 将图像分块，每个块 8x8，进行 DCT 变换,将图像转换为频域，便于压缩高频部分
-    - 量化，将 DCT 变换后的系数除以量化表中的系数:再次减少高频部分的数据,根据不同的量化表，可以调整压缩质量
+    - 将图像分块，每个块 8x8，进行 DCT 变换，将图像转换为频域，便于压缩高频部分
+    - 量化，将 DCT 变换后的系数除以量化表中的系数：再次减少高频部分的数据，根据不同的量化表，可以调整压缩质量
     - 通过游程编码和 huffman 编码进行压缩
 
 === "分类"
@@ -59,19 +56,16 @@
     `IEND`：文件结束标志，必须位于最后，内容固定
     PNG 标准不允许 IEND 之后有数据块 结尾时`AE 42 60 82`
 
-
 === "压缩原理"
-    - PNG 使用 Deflate 压缩算法:是 LZ77 结合 huffman 编码的一种压缩算法;LZ77：利用滑动窗口，找到最长的重复字符串，用指针和长度表示
+    - PNG 使用 Deflate 压缩算法：是 LZ77 结合 huffman 编码的一种压缩算法;LZ77：利用滑动窗口，找到最长的重复字符串，用指针和长度表示
     - 会进行滤波，减少数据的冗余性，提高压缩率;五种滤波器：None、Sub、Up、Average、Paeth
-
-
 
 ## 图片隐写
 
 两篇博客
-[CTF MISC图片隐写简单题学习思路总结（持续更新）\_ctf jpg 末尾隐写-CSDN博客](https://blog.csdn.net/weixin_42193791/article/details/126825592)
+[CTF MISC 图片隐写简单题学习思路总结（持续更新）\_ctf jpg 末尾隐写-CSDN 博客](https://blog.csdn.net/weixin_42193791/article/details/126825592)
 
-[常见的隐写工具的使用\_stegoveritas-CSDN博客](https://blog.csdn.net/qq_44101248/article/details/108850686)
+[常见的隐写工具的使用\_stegoveritas-CSDN 博客](https://blog.csdn.net/qq_44101248/article/details/108850686)
 
 !!! note "WorkFlow"
     - 使用`file`查看信息，使用 `exiftool` 检查图片元信息，看看有没有看起来会有用的信息
@@ -85,15 +79,17 @@
     - 使用 `Extract LSB` 尝试提取数据格式的 LSB（或者使用 `zsteg` 猜测）
     - 考虑能否查找原图，如果找到了尝试进行比较
     - 考虑是否是使用工具进行的图片隐写，多尝试一些常见的工具
+
 ### 图像大小修改
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709193713.webp)
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709193713.webp)
+
 - PNG 图像按行进行像素数据的压缩，以及存储 / 读取
 - 当解码时已经达到了 IHDR 中规定的大小就会结束
 - 因此题目可能会故意修改 IHDR 中的高度数据，使之显示不全
 -恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
 
-`binascii.crc32(data)`，data 为从 IHDR 开始的数据(包含IHDR)
-
+`binascii.crc32(data)`，data 为从 IHDR 开始的数据 (包含 IHDR)
 
 ### 需要原图的图片隐写
 
@@ -107,25 +103,24 @@
 - PIL 手动处理 / `ImageChops.difference`
 - stegsolve image combiner
 
-
 **盲水印系列**
+
 - 给了打水印的代码的话直接尝试根据代码逆推即可
 - 没有给代码的可能就是常见的现有盲水印工具
 
 [guofei9987/blind\_watermark](https://github.com/guofei9987/blind_watermark)
 
+### LSB 图片隐写
 
-
-### LSB图片隐写
-
-LSB全称为 least significant bit，是最低有效位的意思
+LSB 全称为 least significant bit，是最低有效位的意思
 
 LSB 隐写将颜色通道的最低位用来编码信息
+
 - 图像：stegsolve / CyberChef View Bit Plane
 - 数据：stegsolve / CyberChef Extract LSB / zsteg / PIL
 
 ```python
-# PIL库的使用
+# PIL 库的使用
 from PIL import Image #导入和图像读写处理有关的 Image 类
 img = Image.open(file_name) #打开图像
 img.show() 显示图像；img.save(file_name) #保存图像
@@ -138,6 +133,7 @@ np.array(img) #将图像转换为 numpy 数组
 ```
 
 **具体图像模式**
+
 - '1'：黑白二值（0/255）；'L'：灰度（8 bit），'l'：32 bit 灰度
 - L = 0.299 R + 0.587 G + 0.114 B
 - 'P'：8bit 调色盘，获取的像素值是调色盘索引
@@ -146,12 +142,14 @@ np.array(img) #将图像转换为 numpy 数组
 - 'YCbCr'、'LAB'、'HSV' 等，转换时有复杂公式（可能出现新的隐写）
 
 **PIL 其他模块用途**
+
 - ImageDraw 用于绘制图像、绘制图形
 - ImageChops 用于图像通道的逻辑运算
 - ImageOps 用于图像整体的运算一类
 - ImageFilter 用于图像的滤波处理
 
 ### 人为隐写
+
 - JPEG 中 DCT 系数可以进行 LSB 隐写
 - JPEG 中 DHT 定义的 huffman 表可能有冗余项，可以隐写
 - PNG 中附加多余 IDAT 数据块的隐写（显示时被忽略）

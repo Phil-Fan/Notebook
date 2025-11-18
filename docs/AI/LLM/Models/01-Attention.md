@@ -11,35 +11,30 @@ This browser does not support PDFs
 - [ ] 各个层的参数数量整理
 - [ ] 时间复杂度计算
 
-
 ## 对比
-!!! note "对应paper中abstract、background"
+
+!!! note "对应 paper 中 abstract、background"
 
 ### vs CNN
 
-CNN只考虑卷积核的感受野，而attention考虑整个序列
+CNN 只考虑卷积核的感受野，而 attention 考虑整个序列
 
 所以卷积难以考虑较长的序列，如果距离较远的话，需要很多层卷积才可以达到效果；
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
 > 图源网络，侵删
 
-
-而attention可以考虑整个序列，所以可以考虑较长的序列
-
-
+而 attention 可以考虑整个序列，所以可以考虑较长的序列
 
 ---
 
-可以说CNN是attention的特例
+可以说 CNN 是 attention 的特例
 
-attention也可以说是特殊的CNN，相当于CNN的receptive filed是learn出来的
-
+attention 也可以说是特殊的 CNN，相当于 CNN 的 receptive filed 是 learn 出来的
 
 <iframe src="https://arxiv.org/pdf/1911.03584" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
-
 
 ```mermaid
 graph TD
@@ -56,27 +51,24 @@ graph TD
     style C fill:none,stroke:none
 ```
 
-
-- data 较少的时候，CNN训练效果好
-- 数据量较大的时候，attention效果好，有scaling效应
-
+- data 较少的时候，CNN 训练效果好
+- 数据量较大的时候，attention 效果好，有 scaling 效应
 
 ### vs RNN
 
-- RNN 计算$h_t$的时候，需要考虑hidden state $h_{t-1}$ and the input for position $t$
-- 很早期的信息在后续计算的时候可能会丢失，做大的ht对内存开销较大
+- RNN 计算$h_t$的时候，需要考虑 hidden state $h_{t-1}$ and the input for position $t$
+- 很早期的信息在后续计算的时候可能会丢失，做大的 ht 对内存开销较大
 
-- RNN虽然可以双向，但是不可以并行计算，对memory要求高
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
+- RNN 虽然可以双向，但是不可以并行计算，对 memory 要求高
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
 
 <iframe src="https://arxiv.org/abs/2006.16236" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
 
-
 ### vs GNN
-- 应用在gragh结构上的时候，可以使用edge已经给出的连接关系，直接计算attention score，其他节点可以直接设置成0
 
+- 应用在 gragh 结构上的时候，可以使用 edge 已经给出的连接关系，直接计算 attention score，其他节点可以直接设置成 0
 
 ```mermaid
 graph LR
@@ -106,15 +98,14 @@ graph LR
     style M fill:none,stroke:none
 ```
 
-
 ## Self-Attention
 
 思考下面的问题：
 
-- 同一个词汇，放在句子不同位置，它的语义可能不同（我们需要上下文信息）：可以开window解决
-- 但如果输入是一个变长的序列：开window就解决不了了
+- 同一个词汇，放在句子不同位置，它的语义可能不同（我们需要上下文信息）：可以开 window 解决
+- 但如果输入是一个变长的序列：开 window 就解决不了了
 
-所以需要一个机制，让每个词汇都考虑整个序列的信息（这个序列是变长的），这就是self-attention
+所以需要一个机制，让每个词汇都考虑整个序列的信息（这个序列是变长的），这就是 self-attention
 
 ### word embedding
 
@@ -122,20 +113,18 @@ word2vec：获得词汇的最初始含义
 
 Word embedding.
 
-
 - 嵌入是一个“抽象”的过程，把高维向量嵌入到一个低维度当中
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271704999.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271704999.webp)
 
-> in the embedding layers, we multiply weights by $\sqrt{d_{model}} = \sqrt{512}$ 
-> 防止，维度一高，导致初始时候与position encoding的值相差太大
+> in the embedding layers, we multiply weights by $\sqrt{d_{model}} = \sqrt{512}$
+> 防止，维度一高，导致初始时候与 position encoding 的值相差太大
 
 ### position encoding
 
-我们不仅仅需要考虑词汇的语义信息，还需要考虑词汇的位置信息，所以需要一个position encoding
+我们不仅仅需要考虑词汇的语义信息，还需要考虑词汇的位置信息，所以需要一个 position encoding
 
 位置编码通过向每个位置的词嵌入添加一个特定的向量来实现，其中第 $i$ 个位置的第 $2k$ 或 $2k+1$ 维的位置编码分别为：
-
 
 $$
 \begin{aligned}
@@ -144,56 +133,47 @@ PE(pos,2i+1) &= \cos(\frac{pos}{10000^{2i/d_{model}}})
 \end{aligned}
 $$
 
-- $pos$ 是序列中的位置（从0开始）
-- $i$ 是维度索引（从0开始）
+- $pos$ 是序列中的位置（从 0 开始）
+- $i$ 是维度索引（从 0 开始）
 - $d_{model}$ 是词嵌入的维度
 
-这种正弦和余弦函数的使用使得模型能够区分不同位置的词，并使得模型能够学习到位置的相对关系，解决了Transformer模型自身不具备处理序列中元素顺序信息的问题。
+这种正弦和余弦函数的使用使得模型能够区分不同位置的词，并使得模型能够学习到位置的相对关系，解决了 Transformer 模型自身不具备处理序列中元素顺序信息的问题。
 
 > 当然表示位置的算法可以自己创造
 > 可学习的位置编码、相对位置编码、旋转位置编码（RoPE）
-
 
 ### Attention 计算 -- scaled dot-product attention
 
 word embedding 解决了词汇本身的含义，position encoding 附加了词汇的位置信息，那么词汇的不同位置（或者说上下文信息）是如何影响到这个词汇的最终含义呢？
 
-这里涉及到计算attention score，如何计算attention score呢？
+这里涉及到计算 attention score，如何计算 attention score 呢？
 
-我们使用三个矩阵，来计算attention score
+我们使用三个矩阵，来计算 attention score
 
 - $Q$: query
 - $K$: key
-- $V$: value,如何让前面的词汇影响后面的词汇，word embedding乘上这个矩阵得到一个转移到向量 
+- $V$: value，如何让前面的词汇影响后面的词汇，word embedding 乘上这个矩阵得到一个转移到向量
 
-attention分数：$K$与$Q$的点积，可以看作$K$与$Q$的相似度，为value矩阵提供权重。对于如果$Q$ 和 $K$ 相似度很高，那么就给予$V$ 更多的权重
-
+attention 分数：$K$与$Q$的点积，可以看作$K$与$Q$的相似度，为 value 矩阵提供权重。对于如果$Q$ 和 $K$ 相似度很高，那么就给予$V$ 更多的权重
 
 $$
 Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
 $$
 
-$d_k$ 是Q和K的维度，因为Q和K的维度是相同的，在论文中是$d_k = 512$
+$d_k$ 是 Q 和 K 的维度，因为 Q 和 K 的维度是相同的，在论文中是$d_k = 512$
 
-> 如果$d_k$ 很大，那么$QK^T$ 的值会很大，导致softmax的值趋近于1，导致梯度消失
+> 如果$d_k$ 很大，那么$QK^T$ 的值会很大，导致 softmax 的值趋近于 1，导致梯度消失
 > 所以需要除以$\sqrt{d_k}$ 来归一化
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271659099.webp)
+> 图片来源：李宏毅老师 ppt
 
-
-
-
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271659099.webp)
-> 图片来源：李宏毅老师ppt
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271708856.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271708856.webp)
 > 图片来源：3b1b
 
 点积能够有效衡量两个向量的相似性。在注意力机制中，通过计算查询向量（Query）和键向量（Key）的点积，可以评估它们之间的相关性，从而决定注意力权重
 
-
-!!! note "attention的注意力矩阵的计算为什么用乘法而不是加法？"
+!!! note "attention 的注意力矩阵的计算为什么用乘法而不是加法？"
 
     **为了计算更快**。
     
@@ -206,17 +186,17 @@ $d_k$ 是Q和K的维度，因为Q和K的维度是相同的，在论文中是$d_k
     \end{aligned}
     $$
     
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041239000.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041239000.webp)
 
 
-    加法形式是先加、后tanh、再和V矩阵相乘，相当于一个完整的隐层。
+    加法形式是先加、后 tanh、再和 V 矩阵相乘，相当于一个完整的隐层。
 
 
     !!! note "计算复杂度"
     
-    - 在计算复杂度上，乘法和加法理论上的复杂度相似，但是在实践中，乘法可以利用高度优化的矩阵乘法代码(有成熟的加速实现)使得点乘速度更快，空间利用率更高。(论文P4有解释)
+    - 在计算复杂度上，乘法和加法理论上的复杂度相似，但是在实践中，乘法可以利用高度优化的矩阵乘法代码 (有成熟的加速实现) 使得点乘速度更快，空间利用率更高。(论文 P4 有解释)
     - 加性注意力需要额外的全连接层和非线性变换，计算复杂度高，且不好并行
-    - 点积可通过除以根号下dk进行缩放缓解梯度问题，加性注意力的不如其稳定；在$d_k$较小的时候，加法和乘法形式效果相近。但是随着$d_k$增大，加法开始显著优于乘法。作者认为，$d_k$增大导致乘法性能不佳的原因，**是极大的点乘值将整个softmax推向梯度平缓区，使得收敛困难**。于是选择scale，除$\sqrt{d_k}$。
+    - 点积可通过除以根号下 dk 进行缩放缓解梯度问题，加性注意力的不如其稳定；在$d_k$较小的时候，加法和乘法形式效果相近。但是随着$d_k$增大，加法开始显著优于乘法。作者认为，$d_k$增大导致乘法性能不佳的原因，**是极大的点乘值将整个 softmax 推向梯度平缓区，使得收敛困难**。于是选择 scale，除$\sqrt{d_k}$。
 
 !!! note "为什么$Q、K、V$ 相同"
 
@@ -226,7 +206,7 @@ $d_k$ 是Q和K的维度，因为Q和K的维度是相同的，在论文中是$d_k
     
     通过这种方式，模型可以计算每个元素与其他元素之间的关系，并生成上下文相关的表示
 
-!!! note "Transformer中为什么需要线性变换？"
+!!! note "Transformer 中为什么需要线性变换？"
 
     **输入**：$x$维度为$[batch\_size, seq\_length, embed\_dim]$
     
@@ -242,15 +222,13 @@ $d_k$ 是Q和K的维度，因为Q和K的维度是相同的，在论文中是$d_k
     
     $K$、$Q$、$V$分别是输入向量经过不同的线性变换矩阵$W_k$、$Q_k$、$V_k$计算得到。可以从正反两面分析线性变换的必要性：
     
-    **线性变换的好处**：在$QK^T$部分，线性变换矩阵将KQ投影到了不同的空间，增加了表达能力(这一原理可以同理SVM中的核函数-
+    **线性变换的好处**：在$QK^T$部分，线性变换矩阵将 KQ 投影到了不同的空间，增加了表达能力 (这一原理可以同理 SVM 中的核函数-
     将向量映射到高维空间以解决非线性问题),这样计算得到的注意力矩阵的泛化能力更高。
     
-    **不用线性变换的坏处**：在$QK^T$部分，如果不做线性变换，即X=Q=K,则会导致注意力矩阵是对称的，即$d(x_1,x_2)=d(x_2,x_1)$,
+    **不用线性变换的坏处**：在$QK^T$部分，如果不做线性变换，即 X=Q=K，则会导致注意力矩阵是对称的，即$d(x_1,x_2)=d(x_2,x_1)$,
     这样的效果明显是差的，比如“我是一个女孩”这句话，女孩对修饰我的重要性应该要高于我修饰女孩的重要性。
 
-
-预测时候，把最后一个词乘上一个矩阵，得到映射到词库上面的得分，经过softmax层后，就有了概率分布
-
+预测时候，把最后一个词乘上一个矩阵，得到映射到词库上面的得分，经过 softmax 层后，就有了概率分布
 
 softmax：指数放缩后再归一化
 
@@ -262,22 +240,21 @@ $$
 
 同时让高值更多权重，采样的时候，让高值更容易被采样到
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041014614.webp){width=50%}
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041014614.webp){width=50%}
 
-在数量级较大时，softmax将几乎全部的概率分布都分配给了最大值对应的标签。
+在数量级较大时，softmax 将几乎全部的概率分布都分配给了最大值对应的标签。
 
 ---
 
-这里要引入一个超参数T，来控制softmax的放缩。可以类比化学反应中的温度。T越大，活性越小，softmax的放缩越大，即让高值更多权重。
+这里要引入一个超参数 T，来控制 softmax 的放缩。可以类比化学反应中的温度。T 越大，活性越小，softmax 的放缩越大，即让高值更多权重。
 
 $$
 softmax(x,T) = \frac{e^{x/T}}{\sum_{i=1}^n e^{x_i/T}}
 $$
 
-T较大的时候，让放缩较小，即让低值更多权重
+T 较大的时候，让放缩较小，即让低值更多权重
 
-
-!!! note "Transformer attention计算为什么要在softmax这一步之前除以$\sqrt{d_k}$"
+!!! note "Transformer attention 计算为什么要在 softmax 这一步之前除以$\sqrt{d_k}$"
 
     Nil-9 - [transformer中的attention为什么scaled? - 知乎](https://www.zhihu.com/question/339723385)
     
@@ -426,7 +403,7 @@ T较大的时候，让放缩较小，即让低值更多权重
     
     将方差控制为1，也就有效地控制了前面提到的梯度消失的问题。
 
-!!! note "为什么在分类层(最后一层),使用非 scaled 的 softmax?"
+!!! note "为什么在分类层 (最后一层),使用非 scaled 的 softmax?"
 
     同上面一部分，分类层的 softmax 也没有两个随机变量相乘的情况。此外，这一层的 softmax 通常和交叉熵联合求导，在某个目标类别 $i$ 上的整体梯度变为 $y_i^{\prime}-y_i$ ,即预测值和真值的差。
     
@@ -500,33 +477,24 @@ T较大的时候，让放缩较小，即让低值更多权重
     }
     $$
 
+最后一个词向量，成为预测下一个词的 logit
 
-最后一个词向量，成为预测下一个词的logit
-
-
-
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271710417.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271710417.webp)
 
 ## Multi-Head Attention
-
 
 - 捕捉更多样的特征
   - 单头 只能从一个子空间计算注意力权重，可能无法充分捕捉输入序列中复杂的依赖关系
   - 多头 通过将输入映射到多个子空间，每个头可以关注不同的特征或模式
 - 增强模型的表达能力
 - 提高泛化能力
-- 并行计算 多头注意力机制可以并行计算多个注意力头，充分利用GPU的并行计算能力
+- 并行计算 多头注意力机制可以并行计算多个注意力头，充分利用 GPU 的并行计算能力
 
-
-
-多头注意力，模型能学习到根据上下文改变语意的多种方式。使用多个线性层投影到低维空间，再进行attention计算，那么线性层的$\omega$的参数是可以学习的。
+多头注意力，模型能学习到根据上下文改变语意的多种方式。使用多个线性层投影到低维空间，再进行 attention 计算，那么线性层的$\omega$的参数是可以学习的。
 
 使用不同的$Q$，学习不同种类的相关性
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507030858038.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507030858038.webp)
 
 多头注意力机制首先将 Q、K、V 通过不同的线性变换映射到不同的表示空间，然后在每个表示空间上独立地应用自注意力机制，最后将所有头的输出拼接并再次线性变换得到最终输出。
 
@@ -550,9 +518,9 @@ $$
 
 attention 对于模型的假设更少，所以需要更大的模型，更多的数据量，更多的计算时间，才能达到好的效果
 
-[Transformer变体层出不穷，它们都长什么样？](https://mp.weixin.qq.com/s/iuuRS_M3cYm0DXFkZGjjBg)
+[Transformer 变体层出不穷，它们都长什么样？](https://mp.weixin.qq.com/s/iuuRS_M3cYm0DXFkZGjjBg)
 
-!!! note "Transformer计算量最大的部分是哪里"
+!!! note "Transformer 计算量最大的部分是哪里"
 
     多头注意力部分计算量最大。
     
@@ -588,38 +556,33 @@ attention 对于模型的假设更少，所以需要更大的模型，更多的�
        - 多头注意力(12头): 单头尺寸为$(s,\frac{h}{12})$
 
 ### 速度 & 准确
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272036822.webp)
+
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272036822.webp)
 
 <iframe src="https://arxiv.org/pdf/2011.04006" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
 
-
 ### 训练速度
 
 ### attention is not all you need
-
 
 <iframe src="https://arxiv.org/pdf/2103.03404" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
 
-
-
-
 ## Acknowledgement
 
-- 王几行XING - [大模型-Transformer 面试八股文，简单背一背 - 知乎](https://zhuanlan.zhihu.com/p/689965833)
+- 王几行 XING - [大模型-Transformer 面试八股文，简单背一背 - 知乎](https://zhuanlan.zhihu.com/p/689965833)
 
 - SweetBean - [算法岗常见面试题（八）：Transformer_牛客网](https://www.nowcoder.com/discuss/473903838680875008)
 
-- ch3nboyu - [Transformer-interview: Transformer面试常见八股](https://github.com/ch3nboyu/Transformer-interview)
+- ch3nboyu - [Transformer-interview: Transformer 面试常见八股](https://github.com/ch3nboyu/Transformer-interview)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1353986541&bvid=BV13z421U7cs&cid=1525102356&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1154246338&bvid=BV1TZ421j7Ke&cid=1530196453&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146692&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146918&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>

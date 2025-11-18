@@ -7,23 +7,18 @@
 
 !!! tip "如果看不到图像或是公式，多刷新几次"
 
-做PPT时候整理的图像
+做 PPT 时候整理的图像
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605143933543.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605143933543.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605144047495.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605144047495.webp)
 
 ## 加密——机密性
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240215231126309.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240215231126309.webp)
 
 !!! note "密钥才是加密的核心"
     加密算法和密钥是分开的，每个人可以拥有相同品牌的锁，但是每一个人有不同的钥匙<br>锁的设计是公开的，但是钥匙是秘密的。
-
-
 
 - Trudy: 窃听、插入、伪装、劫持、拒绝服务
 
@@ -31,8 +26,6 @@
 发送方加密报文；接收方解密报文
 
 明文密文并不是看是否由人读取
-
-
 
 |               Transaction                | Fill In This Column |       Choose From The Following        |
 | :--------------------------------------: | :-----------------: | :------------------------------------: |
@@ -43,28 +36,27 @@
 |  Alice public key certificate signed by  |          f          | e. Certification Authority public key  |
 | Bob public key certificate verifies with |          e          | f. Certification Authority private key |
 
-答案和解析:
+答案和解析：
 
-- Alice想要给Bob签名一封电子邮件：因为Alice使用她的私钥生成数字签名，而Bob需要使用Alice的公钥来验证这个签名。
-- Alice想要加密一封发送给Bob的电子邮件：应该是使用Bob的公钥来加密
-- Bob想要验证Alice的电子邮件：因为Bob使用Alice的公钥验证了数字签名，所以他知道这封电子邮件确实来自Alice。
-- Bob想要解密Alice的电子邮件：d（Bob的私钥）
-- Alice的公钥证书由以下机构签名：因为公钥证书是由认证机构使用其私钥签名的，所以其他人可以使用认证机构的公钥来验证这个签名。
-- Bob的公钥证书验证如下：使用认证机构的公钥来验证Bob的公钥证书
-
-
+- Alice 想要给 Bob 签名一封电子邮件：因为 Alice 使用她的私钥生成数字签名，而 Bob 需要使用 Alice 的公钥来验证这个签名。
+- Alice 想要加密一封发送给 Bob 的电子邮件：应该是使用 Bob 的公钥来加密
+- Bob 想要验证 Alice 的电子邮件：因为 Bob 使用 Alice 的公钥验证了数字签名，所以他知道这封电子邮件确实来自 Alice。
+- Bob 想要解密 Alice 的电子邮件：d（Bob 的私钥）
+- Alice 的公钥证书由以下机构签名：因为公钥证书是由认证机构使用其私钥签名的，所以其他人可以使用认证机构的公钥来验证这个签名。
+- Bob 的公钥证书验证如下：使用认证机构的公钥来验证 Bob 的公钥证书
 
 ### 古典密码
 
 > 更少的数学，更多的人文！
 
-- 代换(substitution)密码用新的替换原先的内容
+- 代换 (substitution) 密码用新的替换原先的内容
 
-- 置换(permutation)密码 打乱原先的顺序
+- 置换 (permutation) 密码 打乱原先的顺序
 
-- Hill密码
+- Hill 密码
 
 #### 摩斯密码
+
 摩尔斯电码（Morse Code）：利用点划（“滴”的时间长短）来表示字符
 
 点 ·：1 单位；划 -：3 单位
@@ -142,12 +134,9 @@
         | $ | ···-··- |
         | @ | ·--·-· |
 
-
-
 #### 凯撒密码——平移
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522173659727.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522173659727.webp)
 
 又叫加法密码，是一种替换密码，属于其中的单表密码，将明文的每个字母按字母表循环移动固定位数得到密文
 
@@ -165,9 +154,9 @@ $$
 
 **破解：**
 
-爆破移动位数观察结果即可（常见编码ROT13 ，取 key=13)
+爆破移动位数观察结果即可（常见编码 ROT13，取 key=13)
 
-一般的凯撒加密只作用于26 个字母，但也可以将其扩展到 ASCII 码表上（常见编码 ROT47 ，将 33-126 作为字母表，取 key=47)
+一般的凯撒加密只作用于 26 个字母，但也可以将其扩展到 ASCII 码表上（常见编码 ROT47，将 33-126 作为字母表，取 key=47)
 
 #### 仿射密码
 
@@ -195,15 +184,14 @@ $$
 
 字母替换，通过分析字频和词频可以破解
 
-> 英文文章出现最高的字母是e
-
+> 英文文章出现最高的字母是 e
 
 [quipqiup - cryptoquip and cryptogram solver](http://quipqiup.com/)<br>
 [古典密码学之词频分析 | Cata1yst's blog (cata1ysts.github.io)](https://cata1ysts.github.io/2022/08/14/古典密码学之词频分析/)<br>
 [单表代换加密 - CTF Wiki (ctf-wiki.org)](https://ctf-wiki.org/crypto/classical/monoalphabetic/#_11)<br>
 
 !!! note "单表替换密码"
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__crypto_challenge1.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__crypto_challenge1.webp)
 
     - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
     
@@ -213,14 +201,13 @@ $$
     >
     > tomorrow she will go to the warehouse and become the first person to discover his corpse with a strong alibi these police officers absolutely cannot arrest her
     
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605182302624.webp)
-
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605182302624.webp)
 
 #### 多表替换密码——维吉尼亚密码
+
 一种多表加密的替换密码。密钥任意长，并且以循环使用
 
-第i个字符使用第 i 个密钥进行偏移
-
+第 i 个字符使用第 i 个密钥进行偏移
 
 加密：
 
@@ -234,13 +221,13 @@ $$
 dec(y_i)= (y_i-key_i) \mod 26
 $$
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707145724.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707145724.webp)
 
-!!! note "例：明文CRANE,密钥 TONY"
-    (C, T)  to   V 
-    (R, O)  to   F 
-    (A, N)  to   N 
-    (N, Y)  to   L 
+!!! note "例：明文 CRANE，密钥 TONY"
+    (C, T)  to   V
+    (R, O)  to   F
+    (A, N)  to   N
+    (N, Y)  to   L
     (E, T)  to   X
 
 确定密钥长度→分组爆破加法密码→得到密钥
@@ -261,7 +248,6 @@ $$
         根据字母频率推断这位密钥为 m
         经过分析破解，最后能得到密钥为 make
 
-
 !!! note "—次性密码本与压缩"
     虽然一次性密码本的密钥需要与明文等长，但是我手上有数据压缩程序，只要用这个程序 对一次性密码本的密钥进行压缩，不就可以把密钥变短了吗？ 请问Alice的想法正确吗？<br>
     不正确。因为一次性密码本的密钥无论使用任何压缩软件都无法进行压缩。<br>压缩软件的压缩原理，是找出输入数据中出现的冗余的重复序列，并将它们替换成较短的数据。然而一次性密码本所使用的密钥是随机的，其中不包含任何冗余的重复序列。<br>反过来说， 如果一个比特序列能够被压缩，就说明它不是一个随机的比特序列。
@@ -271,7 +257,7 @@ $$
 加密变换使得信息元素只有位置变化而内容不变
 比如对于一种置换密码，其置换表为
 
-| 明文$X$ | 密文$E(X)$ | 
+| 明文$X$ | 密文$E(X)$ |
 | --- | --- |
 | 1 | 3 |
 | 2 | 5 |
@@ -281,27 +267,27 @@ $$
 | 6 | 2 |
 
 对于明文`crypto basic`，先进行分组（不足需填充）对每一组进行置换：
-```
+
+```shell
 [crypto]→ [yoctrp] [ basic] → [ac ibs]
 ```
+
 最终密文就是`yoctrpac ibs`
 
 栅栏密码
 
-栅栏密码也是一种置换密码，其将明文分割成k行，然后重新拼接，这里 k 即为加密的密钥。
+栅栏密码也是一种置换密码，其将明文分割成 k 行，然后重新拼接，这里 k 即为加密的密钥。
 
-比如还是明文`crypto basic` ，取 k=3 ，将明文分割成三行
+比如还是明文`crypto basic` ，取 k=3，将明文分割成三行
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707152053.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707152053.webp)
 因此，密文为 `cp srtbiyoac`
 
+#### 矩阵的替换——Hill 加密
 
-#### 矩阵的替换——Hill加密
+Hill 密码是一种基于线性代数的多字母替换密码，由数学家 Lester S. Hill 于 1929 年发明。它通过将字母映射到数值，然后使用矩阵乘法对消息进行加密。
 
-Hill密码是一种基于线性代数的多字母替换密码，由数学家Lester S. Hill于1929年发明。它通过将字母映射到数值，然后使用矩阵乘法对消息进行加密。
-
-
-每个字母当作26 进制数字，将一串字母当成$ n $维向量，跟一个 $n*n$的矩阵相乘，再将得出的结果 $\mod 26 $，其中 $n*n$ 矩阵就是密钥。
+每个字母当作 26 进制数字，将一串字母当成$ n $维向量，跟一个 $n*n$的矩阵相乘，再将得出的结果 $\mod 26 $，其中 $n*n$ 矩阵就是密钥。
 
 1. **字母映射**：首先，将字母映射到数字。通常使用如下映射：
    - A = 0, B = 1, C = 2, ..., Z = 25
@@ -317,11 +303,10 @@ Hill密码是一种基于线性代数的多字母替换密码，由数学家Lest
      \[
      P = K^{-1} \cdot C \ (\text{mod} \ 26)
      \]
-     
 
-**Enigma加密**
+**Enigma 加密**
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522174420066.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522174420066.webp)
 
 !!! bug "这一部分没有看"
 
@@ -333,19 +318,13 @@ $K_{A-B}$:对称密钥
 
 密钥的分发：密码本
 
-
-
 密码选择
 
-- 首先，DES不应再用于任何新的用途，因为随着计算机技术的进步，**现在用暴力破解法已经能够在现实的时间内完成对DES的破译**。但是，在某些情况下也需要保持与旧版本软件的兼容性。
+- 首先，DES 不应再用于任何新的用途，因为随着计算机技术的进步，**现在用暴力破解法已经能够在现实的时间内完成对 DES 的破译**。但是，在某些情况下也需要保持与旧版本软件的兼容性。
 
-- 其次，我们也没有理由将三重DES用于任何新的用途，尽管在一些重视兼容性的环境中还会继续使用，但它会逐渐被AES所取代。
+- 其次，我们也没有理由将三重 DES 用于任何新的用途，尽管在一些重视兼容性的环境中还会继续使用，但它会逐渐被 AES 所取代。
 
-- 现在大家应该使用的算法是AES(`Rijndael`),因为它安全、快速，而且能够在各种平台上工作。此外，由于全世界的密码学家都在对AES进行不断的验证，因此即便万一发现它有什么缺陷，也会立刻告知全世界并修复这些缺陷。
-
-
-
-
+- 现在大家应该使用的算法是 AES(`Rijndael`),因为它安全、快速，而且能够在各种平台上工作。此外，由于全世界的密码学家都在对 AES 进行不断的验证，因此即便万一发现它有什么缺陷，也会立刻告知全世界并修复这些缺陷。
 
 #### 一次性密码本——无法被破译
 
@@ -357,134 +336,102 @@ $K_{A-B}$:对称密钥
 
 #### DES |  `Data Encryption Standard`
 
-- 56-bit 对称密钥, **64-bit明文输入**（每隔7bit会插入1bit错误检查的bit）
-- 分组密码的一种，以64bit为分组
-- 16 round Feistel网络
+- 56-bit 对称密钥，**64-bit 明文输入**（每隔 7bit 会插入 1bit 错误检查的 bit）
+- 分组密码的一种，以 64bit 为分组
+- 16 round Feistel 网络
 - 已经被破解了
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240526113303219.webp" alt="image-20240526113303219" style="zoom:50%;" />
 
-中间的 “子密钥” 指的是本轮加密所使用的密钥。在Feistel 网络中，每一轮都需要使用一个不同的子密钥。由于子密钥只在一轮中使用，它只是一个局部密钥，因此才称为子密钥 (`subkey`)。
-
-
+中间的“子密钥”指的是本轮加密所使用的密钥。在 Feistel 网络中，每一轮都需要使用一个不同的子密钥。由于子密钥只在一轮中使用，它只是一个局部密钥，因此才称为子密钥 (`subkey`)。
 
 1) 将输入的数据等分为左右两部分
 2) 将输人的右侧直接发送到输出的右侧
 3) 将输入的右侧发送到轮函数
 4) 轮函数根据右侧数据和子密钥，计算出一串看上去是随机的比特序列
-5) 将上一步得到的比特序列与左侧数据进行XOR运算，并将结果作为加密后的左侧
+5) 将上一步得到的比特序列与左侧数据进行 XOR 运算，并将结果作为加密后的左侧
 
-
-
-但是，这样一来 “右侧” 根本就没有被加密，因此我们需要用不同的子密钥对一轮的处理 重复若干次，并在每两轮处理之间将左侧和右侧的数据对调。
-
-
+但是，这样一来“右侧”根本就没有被加密，因此我们需要用不同的子密钥对一轮的处理 重复若干次，并在每两轮处理之间将左侧和右侧的数据对调。
 
 **解密**
 
-#### 3DES  | `Triple DES`：
+#### 3DES  | `Triple DES`
 
 - 3DES 是对 DES 的加强，通过三次应用 DES 算法来增加安全性。
 - 使用两到三个 56 位密钥。
-- 三重DES并不是进行三次DES加密（加密 —加密 —加密），而是加密—解密——加密的过程。IBM公司设计，能够让3-DES兼容不同DES。
+- 三重 DES 并不是进行三次 DES 加密（加密 —加密 —加密），而是加密—解密——加密的过程。IBM 公司设计，能够让 3-DES 兼容不同 DES。
 
 **三个密钥都相同**
 
-当三重DES中所有的密钥都相同时，三重DES也就等同于普通的DES了。
+当三重 DES 中所有的密钥都相同时，三重 DES 也就等同于普通的 DES 了。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529100522514.webp" alt="image-20240529100522514" style="zoom:50%;" />
-
-
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506083826564.webp" alt="image-20240506083826564" style="zoom:50%;" />
 
 **一三密钥相同**
 
-如果密钥1 和密钥3使用相同的密钥，而密钥2使用不同的密钥（也就是只使用两个DES，这种三重DES就称为DES-EDE2(图3 ( Decryption )—加密（Encryption )这个流程。
-
-
-
-
+如果密钥 1 和密钥 3 使用相同的密钥，而密钥 2 使用不同的密钥（也就是只使用两个 DES，这种三重 DES 就称为 DES-EDE2(图 3 ( Decryption )—加密（Encryption ) 这个流程。
 
 **三个不同密钥**
 
-- 使用3个key，3重DES 运算；
-- 密文分组成串技术：当前明文和前面密文64bit 做异或处理
+- 使用 3 个 key，3 重 DES 运算；
+- 密文分组成串技术：当前明文和前面密文 64bit 做异或处理
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529095943964.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529095943964.webp)
 
-尽管三重DES目前还被银行等机构使用，但其处理速度不高，除了特别重视向下兼容性的 情况以外，很少被用于新的用途。
-
-
-
-
+尽管三重 DES 目前还被银行等机构使用，但其处理速度不高，除了特别重视向下兼容性的 情况以外，很少被用于新的用途。
 
 #### AES | `Advanced Encryption Standard`
 
-- 新的对称密钥NIST标准(NIST(National Institute of Standards and Technology, 国家标准技术研究所) 用于替换DES
-- 数据128bit成组加密：128, 192, or 256 bit keys
-- 穷尽法解密如果使用1秒钟破解DES, 需要花149万亿年破解AES
-- 像这样通过竞争来实现标准化（`standardization by competition`)的方式，正是密码算法选拔的正确方式
+- 新的对称密钥 NIST 标准 (NIST(National Institute of Standards and Technology, 国家标准技术研究所) 用于替换 DES
+- 数据 128bit 成组加密：128, 192, or 256 bit keys
+- 穷尽法解密如果使用 1 秒钟破解 DES, 需要花 149 万亿年破解 AES
+- 像这样通过竞争来实现标准化（`standardization by competition`) 的方式，正是密码算法选拔的正确方式
 - 彻底杜绝了隐蔽式安全性（`security by obscurity`)
 
-2000 年 10月2日，`Rijndael`力压群雄，被NIST选定为AES标准。
+2000 年 10 月 2 日，`Rijndael`力压群雄，被 NIST 选定为 AES 标准。
 
+`Rijndael`的分组长度和密钥长度可以分别以 32 比特为单位在 128 比特到 256 比特的范围内 进行选择。不过在 AES 的规格中，分组长度固定为 128 比特，密钥长度只有 128、192 和 256 比特三种。
 
-
-`Rijndael `的分组长度和密钥长度可以分别以32比特为单位在128比特到256比特的范围内 进行选择。不过在AES的规格中，分组长度固定为128比特，密钥长度只有128、192和256 比特三种。
-
-
-
-其中每一轮分为`SubBytes`、`ShiftRows`、 `MixColumns` 和 `AddRoundKey` 共4 个步骤。
+其中每一轮分为`SubBytes`、`ShiftRows`、 `MixColumns` 和 `AddRoundKey` 共 4 个步骤。
 
 - `SubBytes`
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101532403.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101532403.webp)
 
 - `shiftrows`:每一行平移字节数也是不同的
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101600609.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101600609.webp)
 
 - mixcolumn
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101833891.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101833891.webp)
 
 最后，需要将`MixColumns` 的输出与轮密钥进行`XOR`, 即进行`AddRoundKey`处理。
 
-解密过程` AddRoundKey — InvMixColumns — InvShiftRows —InvSubBytes`
+解密过程`AddRoundKey — InvMixColumns — InvShiftRows —InvSubBytes`
 
-
-
-!!! bug "如果密钥长度为 56比特，那么用暴力破解找到正确密钥需要平均尝试约$2^{28}$次。 "
+!!! bug "如果密钥长度为 56 比特，那么用暴力破解找到正确密钥需要平均尝试约$2^{28}$次。 "
     平均尝试次数是密钥总数的大约一半。当密钥长度为56比特时，密钥总数为$2^{56}$个，它的一半是$2^{56}$ ( 注意，不是指数56变成 一半得28,而是减1得55)。 因此，当密钥长度为56比特时，平均尝试次数为$2^{55}$次，大约相当于$3.6\times10^{16}$次。
-
-
-
-
 
 ### 分组密码
 
-分组密码（`block cipher`)是每次只能处理特定长度的一块数据的一类密码算法，这里的 " —块” 就称为分组（`block`)。此外，一个分组的比特数就称为分组长度`blocklength`
+分组密码（`block cipher`) 是每次只能处理特定长度的一块数据的一类密码算法，这里的 " —块”就称为分组（`block`)。此外，一个分组的比特数就称为分组长度`blocklength`
 
-
-
-- ECB模式：`Electronic Code Book mode`(电子密码本模式
-- CBC模式：`Cipher Block Chaining mode`(密码分组链接模式） 
-- CFB模式：`Cipher Feed Back mode` (密文反馈模式） 
-- OFB模式：`Output Feed Back mode` ( 输出反馈模式） 
-- CTR模式：`CounTeR mode`(计数器模式）
+- ECB 模式：`Electronic Code Book mode`(电子密码本模式
+- CBC 模式：`Cipher Block Chaining mode`(密码分组链接模式）
+- CFB 模式：`Cipher Feed Back mode` (密文反馈模式）
+- OFB 模式：`Output Feed Back mode` ( 输出反馈模式）
+- CTR 模式：`CounTeR mode`(计数器模式）
 
 #### ECB
 
-ECB模式中，明文分组与密文分组是一一对应的关 系，因此，如果明文中存在多个相同的明文分组，则这些明文分组最终都将被转换为相同的密 文分组。这样一来，只要观察一下密文，就可以知道明文中存在怎样的重复组合，并可以以此 为线索来破译密码，因此ECB模式是存在一定风险的。
+ECB 模式中，明文分组与密文分组是一一对应的关 系，因此，如果明文中存在多个相同的明文分组，则这些明文分组最终都将被转换为相同的密 文分组。这样一来，只要观察一下密文，就可以知道明文中存在怎样的重复组合，并可以以此 为线索来破译密码，因此 ECB 模式是存在一定风险的。
 
+在 ECB 模式中，只要对任意密文分组进行替换，相应的明文分组也会被替换。此外，Mallory 所能做的还不仅限于替换，例如。如果将密文分组删除，则相应的明文分组 也会被删除，如果对密文分组进行复制，则相应的明文分组也会被复制。
 
-
-在ECB模式中，只要对任意密文分组进行替换，相应的明文分组也会被替换。此外，Mallory 所能做的还不仅限于替换，例如.如果将密文分组删除，则相应的明文分组 也会被删除，如果对密文分组进行复制，则相应的明文分组也会被复制。
-
-> A向B转账1亿元，只要吧密文交换位置，就变成了B向A转一亿元
+> A 向 B 转账 1 亿元，只要吧密文交换位置，就变成了 B 向 A 转一亿元
 
 #### CBC | `Cipher Block Chaining`
 
@@ -492,64 +439,53 @@ ECB模式中，明文分组与密文分组是一一对应的关 系，因此，�
 
 **密码块链**：
 
-异或第`i`轮输入`m(i)`, 与前一轮的密文, `c(i-1)`  
+异或第`i`轮输入`m(i)`, 与前一轮的密文，`c(i-1)`  
 
 `c(0)` 明文传输到接收端
-
-
 
 $mac=MAC(K_{mac},message)$
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506084559460.webp" alt="image-20240506084559460" style="zoom:50%;" />
 
-是一种用于分组密码的加密模式。在CBC模式中，每个明文分组在加密之前会先与前一个密文分组进行XOR运算，然后再进行加密。这种方式使得密文分组之间相互连接，像链条一样
+是一种用于分组密码的加密模式。在 CBC 模式中，每个明文分组在加密之前会先与前一个密文分组进行 XOR 运算，然后再进行加密。这种方式使得密文分组之间相互连接，像链条一样
 
 当加密第一个明文分组时，由于不存在前一个密文分组，因此需要使用一个初始化向量（Initialization Vector，IV）来代替。初始化向量是一个随机生成的比特序列，其长度与分组长度相同。每次加密时，都会使用不同的初始化向量，以增加加密的安全性。
 
-CBC模式的特点包括：
+CBC 模式的特点包括：
 
-- 明文分组在加密之前一定会与前一个密文分组进行XOR运算，因此相同的明文分组在不同的上下文中会产生不同的密文分组。
+- 明文分组在加密之前一定会与前一个密文分组进行 XOR 运算，因此相同的明文分组在不同的上下文中会产生不同的密文分组。
 - 在加密过程中，无法单独对一个中间的明文分组进行加密，因为每个密文分组都依赖于前一个密文分组。
 
 **密文分组损坏**，则最多只有两个分组会受到影响。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114556558.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114556558.webp)
 
-**bit缺失**
+**bit 缺失**
 
 导致密文分组的长度发生变化，此后的分组发生错 位，这样一来，缺失比特的位置之后的密文分组也就全部无法解密了
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114626002.webp)
 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114626002.webp)
-
-确保互联网安全的通信协议之一`SSL/TLS`, 就是使用CBC模式来确保通信的机密性的，如使 用CBC模式三重DES的3DES_EDE _CBC以及CBC模式256比特AES的AES _256 _CBC等。
-
-
-
-
+确保互联网安全的通信协议之一`SSL/TLS`, 就是使用 CBC 模式来确保通信的机密性的，如使 用 CBC 模式三重 DES 的 3DES_EDE_CBC 以及 CBC 模式 256 比特 AES 的 AES _256_CBC 等。
 
 !!! note "初始化向量"
-	在CBC模式中，我们假设永远使用相同的初始化向量。于是，当用同一密钥对同一明文进行加密时，所得到的密文一定是相同的。 <br>例如，密码破译者间隔一周收到了两份相同的密文。于是，密码破译者无需破译密码，就可以判断出：这份密文和上周的密文一样，因此两份密文解密所得到的明文也是一样的。如果在每次加密时都改变初始化向量的值，那么即便是用同一密钥对同一明文进行加密，也可以确保每次所得到的密文都不相同。
-
+ 在 CBC 模式中，我们假设永远使用相同的初始化向量。于是，当用同一密钥对同一明文进行加密时，所得到的密文一定是相同的。 <br>例如，密码破译者间隔一周收到了两份相同的密文。于是，密码破译者无需破译密码，就可以判断出：这份密文和上周的密文一样，因此两份密文解密所得到的明文也是一样的。如果在每次加密时都改变初始化向量的值，那么即便是用同一密钥对同一明文进行加密，也可以确保每次所得到的密文都不相同。
 
 ### 非对称加密
 
 **公钥只能用做数据加密。公钥加密的数据，只能用对应的私钥才能解密。这是非对称加密的核心概念**。
 
-对称密码通过将明文转换为复杂的形式来保证其机密性，相对地，公钥密码则是基于数学上闲难的问题来保证机密性的。例如RSA就利用了大整数的质因数分解问题的闲难度。**因此，对称密码和公钥密码源于两种根本不同的思路。**
+对称密码通过将明文转换为复杂的形式来保证其机密性，相对地，公钥密码则是基于数学上闲难的问题来保证机密性的。例如 RSA 就利用了大整数的质因数分解问题的闲难度。**因此，对称密码和公钥密码源于两种根本不同的思路。**
 
 !!! note "为机密性的高低是根据密钥长度而变化的。"
-	这个问题无法冋答，因为机密性的高低是根据密钥长度而变化的。
+ 这个问题无法冋答，因为机密性的高低是根据密钥长度而变化的。
 
-!!! note "密钥长度为256比特的对称密码AES, 与密钥长度为1024比特的公钥密码RSA相比，RSA的安全性更高吗？"
+!!! note "密钥长度为 256 比特的对称密码 AES, 与密钥长度为 1024 比特的公钥密码 RSA 相比，RSA 的安全性更高吗？"
     公钥密码的密钥长度不能直接与对称密码的密钥长度进行比较，而且对不同密码算法的强度进行比较本来就不是一件容易的事。<br>
     尽管如此，在将对称密钥和公钥密码结合起来使用的场景中.我们还是希望使两者的强度保持一定的平衡。很多密码系统中都会给出一些密码算法的理想组合方式，并打包成密码套件( `cipher suite` )<br>
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529122411971.webp)
+    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529122411971.webp)
 
-> 首先，将物品放人寄物柜中。然后，投入硬币并拔出钥匙，就可以将寄物柜关闭了。关闭 后的寄物柜，没有钥匙是无法打开的。 <br>只要有硬币，任何人都可以关闭寄物柜，但寄物柜一旦被关闭，再怎么投币也无法打开。 打开寄物柜需要使用钥匙，而不是硬币。 <br>因此我们可以说，硬币是关闭寄物柜的密钥，而钥匙则是打开寄物柜的密钥。
-
-
+> 首先，将物品放人寄物柜中。然后，投入硬币并拔出钥匙，就可以将寄物柜关闭了。关闭 后的寄物柜，没有钥匙是无法打开的。 <br>只要有硬币，任何人都可以关闭寄物柜，但寄物柜一旦被关闭，再怎么投币也无法打开。打开寄物柜需要使用钥匙，而不是硬币。 <br>因此我们可以说，硬币是关闭寄物柜的密钥，而钥匙则是打开寄物柜的密钥。
 
 加密
 
@@ -572,21 +508,13 @@ CBC模式的特点包括：
     3、消息**发送方**使用接收方公钥对消息进行加密<br>
     4、消息**接收方**用自己的私钥对消息解密<br>
 
-
-
 #### RSA | `Rivest, Shamir, Adelson algorithm`
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529115538998.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529115538998.webp)
 
 1978 年，`Ron Rivest`、`Adi Shamir`和`Reonard Adleman`共同发表了一种公钥密码算法 RSA
 
-
-
-
-
-在中间步骤求mod,可以避免计算大整数的乘积。这种在计算过程中求mod来计算乘方的 方法，也是RSA的加密和解密算法中所使用的方法。
-
-
+在中间步骤求 mod，可以避免计算大整数的乘积。这种在计算过程中求 mod 来计算乘方的 方法，也是 RSA 的加密和解密算法中所使用的方法。
 
 两个密钥不一样
 
@@ -594,108 +522,96 @@ CBC模式的特点包括：
 
 - 私钥：自己保留
 
-
-
-
-
-RSA算法过程
+RSA 算法过程
 
 **将两个大质数相乘是容易的，但是要将其乘积分解回原来的两个质数却极其困难。**
-2004 年 Alexander May 证明了**求 RSA的私钥和对N进行质因数分解**是等价的。
+2004 年 Alexander May 证明了**求 RSA 的私钥和对 N 进行质因数分解**是等价的。
 
 1. 选择两个大质数 $p$ 和 $q$。
 2. 计算它们的乘积 $n = pq$，$n$ 的长度就是密钥长度。
 3. 计算 $n$ 的欧拉函数 $\phi(n) = (p-1)(q-1)$
-4. 选择一个整数 $e$，使得 $e$ 与 $\phi(n)$ 互质，且 $1 < e < \phi(n)$。通常，$e$ 被选为65537。
+4. 选择一个整数 $e$，使得 $e$ 与 $\phi(n)$ 互质，且 $1 < e < \phi(n)$。通常，$e$ 被选为 65537。
 5. 计算 $e$ 相对于 $\phi(n)$ 的模逆 $d$，即满足 $ed \equiv 1 \mod \phi(n)$ 的 $d$。
 
-加密: 
+加密：
 
 $$
 C = M^e \mod n
 $$
 
-解密: 
+解密：
 
 $$
 M = C^d \mod n
 $$
 
-- $e$(encryption)和$n$(number)的组合$\{E,N\}$就是公钥。
+- $e$(encryption) 和$n$(number) 的组合$\{E,N\}$就是公钥。
 
-- $d$(decryption)和$n$(number)的组合$\{D,N\}$就是私钥。(由于W是公钥的一部分，是公开的，因此单独将D称为私钥也是可以的)
+- $d$(decryption) 和$n$(number) 的组合$\{D,N\}$就是私钥。(由于 W 是公钥的一部分，是公开的，因此单独将 D 称为私钥也是可以的)
 
+证明目标：显示解密操作确实恢复了原始消息 $M$。
 
+证明过程：
 
-证明目标: 显示解密操作确实恢复了原始消息 $M$。 
-
-证明过程: 
-
-1. 根据欧拉定理，如果 $gcd(M, n) = 1$，则 $M^{\phi(n)} \equiv 1 \mod n$。 
+1. 根据欧拉定理，如果 $gcd(M, n) = 1$，则 $M^{\phi(n)} \equiv 1 \mod n$。
 2. $ed = 1 + k\phi(n)$ 表示 $e$ 和 $d$ 是模 $\phi(n)$ 的乘法逆元
-3. 因此，$M^{ed} = M^{1+k\phi(n)} = M \cdot (M^{\phi(n)})^k$。 由于 $M^{\phi(n)} \equiv 1 \mod n$，我们得到 $M^{ed} \mod n = M \mod n$，这证明了解密后我们可以得到原始消息 $M$。
+3. 因此，$M^{ed} = M^{1+k\phi(n)} = M \cdot (M^{\phi(n)})^k$。由于 $M^{\phi(n)} \equiv 1 \mod n$，我们得到 $M^{ed} \mod n = M \mod n$，这证明了解密后我们可以得到原始消息 $M$。
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240216123200169.webp" alt="image-20240216123200169" style="zoom:50%;" />
 
 #### 机密性分析
 
-> [[CTF密码学\]RSA相关题目解题方法与python脚本总结](https://blog.csdn.net/qq_46145027/article/details/125047313)
+> [[CTF 密码学\]RSA 相关题目解题方法与 python 脚本总结](https://blog.csdn.net/qq_46145027/article/details/125047313)
 
 中间人攻击——消息认证和证书
-
-
 
 密码破译者知道的信息
 
 - 密文：可以通过窃听来获取
-- 数E和N：公钥是公开的信息。因此密码破译者知道E和N
+- 数 E 和 N：公钥是公开的信息。因此密码破译者知道 E 和 N
 
 密码破译者不知道的信息
 
 - 明文：需要破译的内容
-- 数D：私钥中至少D是不知道的信息
-- 其他：密码破译者不知道生成密钥对时所使用的p、q和L
+- 数 D：私钥中至少 D 是不知道的信息
+- 其他：密码破译者不知道生成密钥对时所使用的 p、q 和 L
 
 !!! note "思考：$e$ 和 $\phi(n)$不互质会怎么样？"
     出现多解的情况，$e$ 和 $\phi(n)$不互质，那么没有乘法逆元，不能完全恢复消息
 
-
-
 **通过密文来求得明文**
 
-RSA加密过程如下。
+RSA 加密过程如下。
 
-密文 = 明文^E mod N (RSA加密)
+密文 = 明文^E mod N (RSA 加密)
 
-由于密码破译者知道密文、E和N，那么有没有一种方法能够用E次方mod N之后的密文求出原来的明文呢？如果没有mod N的话，即：
+由于密码破译者知道密文、E 和 N，那么有没有一种方法能够用 E 次方 mod N 之后的密文求出原来的明文呢？如果没有 mod N 的话，即：
 
 密文 = 明文
 
 通过密文求明文的难度不大，因为这可以被看作是一个求对数的问题。
 
-但是，加上mod N之后，求明文就变成了求离散对数的问题，这是非常困难的，因为人类还没有发现求离散对数的高效算法。
+但是，加上 mod N 之后，求明文就变成了求离散对数的问题，这是非常困难的，因为人类还没有发现求离散对数的高效算法。
 
+**通过暴力破解来找出 D**
 
+现在，RSA 中所使用的 p 和 q 的长度都是 1024 比特以上，N 的长度为 2048 比特以上。由 于 E 和 D 的长度可以和 N 差不多，因此要找出 D，就需要进行 2048 比特以上的暴力破解。要 在这样的长度下用暴力破解找出 D 是极其困难的。
 
-**通过暴力破解来找出D**
+**通过 E 和 N 求出 D**
 
-现在，RSA中所使用的p和q的长度都是1024比特以上，N的长度为2048比特以上。由 于E和D的长度可以和N差不多，因此要找出D,就需要进行2048比特以上的暴力破解。要 在这样的长度下用暴力破解找出D是极其困难的。
+那就是质数 p 和 q 不能被密码破译者知道。把 p 和 q 交给密码破译者与把私钥交给密码破译者是等价的。
 
-**通过E和N求出D**
+##### **对 N 进行质因数分解攻击**
 
-那就是质数p和q不能被密码破译者知道。把p和q交给密码破译者与把私钥交给密码破译者是等价的。
+**一旦发现了对大整数进行质因数分解的高效算法，RSA 就能够被破译**
 
-##### **对N进行质因数分解攻击**
+适用情况：n 已知且可因式分解
 
-**一旦发现了对大整数进行质因数分解的高效算法，RSA就能够被破译**
+既然 n = p*q，那么最常规的想法就是把 n 因式分解得到 p,q，上面说 n 很难分解，但对于一些不太大的 n，我们可以借助工具去分解它。下面介绍两种常规因式分解方法：
 
-适用情况：n已知且可因式分解
+第一种：在线因式分解网站，例如[factordb.com](http://www.factordb.com/)，我们可以利用在线网站快速分解出 p,q
 
-既然n = p*q，那么最常规的想法就是把n因式分解得到p,q，上面说n很难分解，但对于一些不太大的n，我们可以借助工具去分解它。下面介绍两种常规因式分解方法：
-
-第一种：在线因式分解网站，例如[factordb.com](http://www.factordb.com/)，我们可以利用在线网站快速分解出p,q
-
-第二种：yafu大数分解工具，windows下载地址：yafu download | SourceForge.net使用相关命令分解n
+第二种：yafu 大数分解工具，windows 下载地址：yafu download | SourceForge.net 使用相关命令分解 n
 
 ```python
 import gmpy2
@@ -718,14 +634,12 @@ print(m)
 print(long_to_bytes(m))
 ```
 
+##### 通过推测 p 和 q 进行攻击
 
-
-##### 通过推测p和q进行攻击
-
-即便不进行质因数分解，密码破译者还是有可能知道p和q。 由于p和q是通过伪随机数生成器产生的，如果伪随机数生成器的算法很差，密码破译者 就有可能推测出来q和p因此使用能够被推测出来的随机数是非常危险的。
+即便不进行质因数分解，密码破译者还是有可能知道 p 和 q。由于 p 和 q 是通过伪随机数生成器产生的，如果伪随机数生成器的算法很差，密码破译者 就有可能推测出来 q 和 p 因此使用能够被推测出来的随机数是非常危险的。
 
 ```python
-# 签到题，已知p,q
+# 签到题，已知 p,q
 from sympy import mod_inverse
 from Crypto.Util.number import long_to_bytes
 
@@ -734,7 +648,7 @@ q = 0xa0ac7bcd3b1e826fdbd1ee907e592c163dea4a1a94eb03fd4d3ce58c2362100ec20d96ad85
 e = 0x10001
 c = 0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539
 
-# 因为给了p,q 相当于就给到了私钥了
+# 因为给了 p,q 相当于就给到了私钥了
 n = p * q
 phi_n = (p - 1) * (q - 1)
 
@@ -747,9 +661,7 @@ print(long_to_bytes(m))
 # flag = AAA{Ace_Attorney_is_very_fun_Phoenix_Wright&Miles_Edgeworth}
 ```
 
-
-
-##### 直接开根——N很大，e指数很小
+##### 直接开根——N 很大，e 指数很小
 
 ```python
 # 例题 ZJUAAA SimpleRSA
@@ -776,13 +688,12 @@ print(m)
 print(long_to_bytes(m))
 ```
 
-
 #### ECC 椭圆曲线密码学
-- 基于椭圆曲线上的离散对数问题（ECDLP），类似Diffie-Hellman 密钥交换
-- $g$是椭圆曲线上的一个公开点, $\alpha$ 是秘密值，计算 $\alpha \cdot g$ 是容易的
+
+- 基于椭圆曲线上的离散对数问题（ECDLP），类似 Diffie-Hellman 密钥交换
+- $g$是椭圆曲线上的一个公开点，$\alpha$ 是秘密值，计算 $\alpha \cdot g$ 是容易的
 但给定 $g$ 和$\alpha \cdot g$，要找到 $\alpha$ 是困难的
 - 相比 RSA，ECC 能够在更短的密钥长度下提供相同的安全性
-
 
 ### 混合密码
 
@@ -790,29 +701,23 @@ print(long_to_bytes(m))
 
 对称密码提高速度，用公钥密码保护会话密钥
 
-- 用对称密码加密消息 
+- 用对称密码加密消息
 
-- 通过伪随机数生成器生成对称密码加密中使用的会话密钥 
+- 通过伪随机数生成器生成对称密码加密中使用的会话密钥
 
-- 用公钥密码加密会话密钥 
+- 用公钥密码加密会话密钥
 
 - 从混合密码系统外部赋予公钥密码加密时使用的密钥
 
-
-
-
-
 加密与解密过程
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135817229.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135817229.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135843902.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135843902.webp)
 
-密钥长度的平衡 
+密钥长度的平衡
 
-混合密码系统中运用了对称密码和公钥密码两种密码方式，无论其中任何一方的密钥过短，都可能遭到集中攻击，因此对称密码和公钥密码的密钥长度必须具备同等的强度。 然而考虑到长期运用的情况，公钥密码的强度应该要高于对称密码，因为对称密码的会话密钥被破译只会影响本次通信的内容，而公钥密码一旦被破译，从过去到未来的（用相同公 钥加密的）所有通信内容就都能够被破译了
-
-
+混合密码系统中运用了对称密码和公钥密码两种密码方式，无论其中任何一方的密钥过短，都可能遭到集中攻击，因此对称密码和公钥密码的密钥长度必须具备同等的强度。然而考虑到长期运用的情况，公钥密码的强度应该要高于对称密码，因为对称密码的会话密钥被破译只会影响本次通信的内容，而公钥密码一旦被破译，从过去到未来的（用相同公 钥加密的）所有通信内容就都能够被破译了
 
 ### 伪随机数生成器
 
@@ -820,9 +725,9 @@ print(long_to_bytes(m))
 
 - 生成密钥对 用于公钥密码和数字签名。
 
-- 生成初始化向量（IV) ：用于分组密码的CBC、CFB和OFB模式。 
-- 生成nonce ：用于防御重放攻击以及分组密码的CTR模式等。 
-- 生成盐 ：于基于口令的密码（PBE)等。
+- 生成初始化向量（IV) ：用于分组密码的 CBC、CFB 和 OFB 模式。
+- 生成 nonce：用于防御重放攻击以及分组密码的 CTR 模式等。
+- 生成盐：于基于口令的密码（PBE) 等。
 
 随机性
 
@@ -830,13 +735,11 @@ print(long_to_bytes(m))
 
 是指攻击者在知道过去生成的伪随机数列的前提下，依然无法预测出下—个生成出来的伪随机数的性质。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529153557497.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529153557497.webp)
 
 #### 线性同余法
 
-![](C:/Users/Philfan/AppData/Roaming/Typora/typora-user-images/image-20240529153657516.png)
-
-
+![image](C:/Users/Philfan/AppData/Roaming/Typora/typora-user-images/image-20240529153657516.png)
 
 ## 认证
 
@@ -846,13 +749,11 @@ print(long_to_bytes(m))
 
 发送方、接受方需要确认报文在传输的过程中或者事后没有被改变
 
-> 顺便说一句，单向散列函数中的 “散列” 的英文 “hash” 一词，原意是古法语中的 “斧子”，后来被引申为 “剁碎的肉末”，也许是用斧子一通乱剁再搅在一起的那种感觉吧。单向散列函数的作用，实际上就是将很长的消息剁碎，然后再混合成固定长度的散列值。
+> 顺便说一句，单向散列函数中的“散列”的英文“hash”一词，原意是古法语中的“斧子”，后来被引申为“剁碎的肉末”，也许是用斧子一通乱剁再搅在一起的那种感觉吧。单向散列函数的作用，实际上就是将很长的消息剁碎，然后再混合成固定长度的散列值。
 
 生成速度快、抗碰撞性、单向性；不能检测伪装，只能检测篡改
 
-
-
-报文m 报文摘要H(m)
+报文 m 报文摘要 H(m)
 
 计算报文摘要的签名$K^-_B(H(m))$
 单向散列函数所输出的散列值的长度是固定的
@@ -861,29 +762,25 @@ print(long_to_bytes(m))
 
 报文摘要：互异、反向计算特别难
 
-> 一车水果打成果汁，取1mL果汁进行签名，足以代表一车水果
+> 一车水果打成果汁，取 1mL 果汁进行签名，足以代表一车水果
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506091633237.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506091633237.webp)
 
-- 首先，MD5是不安全的，因此不应该使用。 
+- 首先，MD5 是不安全的，因此不应该使用。
 
 - SHA-1 除了用于对过去生成的散列值进行校验之外，不应该被用于新的用途
-- SHA-2 有效应对了针对SHA-1的攻击方法，因此是安全的，可以使用。
+- SHA-2 有效应对了针对 SHA-1 的攻击方法，因此是安全的，可以使用。
 - SHA-3 是安全的，可以使用。  
 
  和对称密码算法一样，**我们不应该使用任何自制算法**。
-
-
 
 > **弱抗碰撞性**：要找出和某条消息具备相同散列值的另一条消息是非常困难的
 >
 > **强抗碰撞性**：找出具有相同散列值但互不相同的两条消息是非常困难的
 
+#### MD5 散列函数
 
-
-#### MD5散列函数 
-
-四个步骤计算出128bit摘要
+四个步骤计算出 128bit 摘要
 
 ```python
 >>> import hashlib
@@ -896,11 +793,10 @@ print(long_to_bytes(m))
 >>> hashlib.md5(b'123').hexdigest()
 '202cb962ac59075b964b07152d234b70'
  
-# 也可以使用hash.new()这个一般方法，hashlib.new(name[, data])，name传入的是哈希加密算法的名称，如md5
+# 也可以使用 hash.new() 这个一般方法，hashlib.new(name[, data])，name 传入的是哈希加密算法的名称，如 md5
 >>> hashlib.new('md5', b'123').hexdigest()
 '202cb962ac59075b964b07152d234b70'
 ```
-
 
 Calculating a checksum using mathematical algorithms
 
@@ -913,38 +809,31 @@ Calculating a checksum using mathematical algorithms
 
   > Possibility of generating the same message digest is practically non-existent
 
+MD4 已经被攻破了，MD5 强抗碰撞性被攻破
 
-MD4已经被攻破了,MD5强抗碰撞性被攻破
+#### SHA-1 - 160bit 报文摘要（git 使用）
 
-#### SHA-1 - 160bit报文摘要（git使用）
+SHA-1 是由 NIST ( National Institute of Standards and Technology, 美国国家标准技术研究所）设计的一种能够产生 160 比特的散列值的单向散列函数。
 
-SHA-1是由NIST ( National Institute of Standards and Technology, 美国国家标准技术研究所）设计的一种能够产生160比特的散列值的单向散列函数。
+SHA-1 已经被列入“可谨慎运用的密码清单”，即除了用于保持兼容性的目的以外，其他情况下都不推荐使用。
 
-SHA-1已经被列入 “可谨慎运用的密码清单”，即除了用于保持兼容性的目的以外，其他情况下都不推荐使用。
-
-**SHA-1 的强抗碰撞性已于2005年被攻破**
+**SHA-1 的强抗碰撞性已于 2005 年被攻破**
 
 #### SHA-256
 
-SHA-256、SHA-384 和SHA512都是由NIST设计的单向散列函数，它们的散列值长度分别为256比特、384比特和512比特。这些单向散列函数合起来统称SHA-2,它们的消息长度也存在上限（SHA-256的上限接近于264比特，SHA-384和SHA-512的上限接近于2128比特）。
+SHA-256、SHA-384 和 SHA512 都是由 NIST 设计的单向散列函数，它们的散列值长度分别为 256 比特、384 比特和 512 比特。这些单向散列函数合起来统称 SHA-2，它们的消息长度也存在上限（SHA-256 的上限接近于 264 比特，SHA-384 和 SHA-512 的上限接近于 2128 比特）。
 
-####  RIPEMD-160
+#### RIPEMD-160
 
-160比特的散列值的单向散列函数
+160 比特的散列值的单向散列函数
 
-
-
-强抗碰撞性被攻破，但RIPEMD-160还没有被攻破
-
-
+强抗碰撞性被攻破，但 RIPEMD-160 还没有被攻破
 
 #### SHA-3——Keccak
 
 Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529144434563.webp" alt="image-20240529144434563" style="zoom:50%;" />
-
-
 
 #### 攻击方法
 
@@ -954,23 +843,17 @@ Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
 **生日攻击**
 
-在这里，Mallory所进行的攻击不是寻找生成特定散列值的消息，而是要找到散列值相同的 两条消息，而散列值则可以是任意值。这样的攻击，一般称为生日攻击（`birthday attack`)或者 冲突攻击（`collision attack` )，这是一种试图破解单向散列函数的 “强抗碰撞性” 的攻击。
+在这里，Mallory 所进行的攻击不是寻找生成特定散列值的消息，而是要找到散列值相同的 两条消息，而散列值则可以是任意值。这样的攻击，一般称为生日攻击（`birthday attack`) 或者 冲突攻击（`collision attack` )，这是一种试图破解单向散列函数的“强抗碰撞性”的攻击。
 
-> 只要有23个人，有两个人生日一样的概率就大于了50%
-
-
+> 只要有 23 个人，有两个人生日一样的概率就大于了 50%
 
 ### 消息认证——完整性、认证
 
-消息认证码（`Message Authentication Code`)是一种确认完整性并进行认证的技术，取三个单词的首字母，简称为MAC。
-
-
+消息认证码（`Message Authentication Code`) 是一种确认完整性并进行认证的技术，取三个单词的首字母，简称为 MAC。
 
 消息认证码是一种与密钥相关联的单向散列函数，无法保证机密性也无法防止抵赖
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529145807418.webp)
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529145807418.webp)
 
 #### 实现方法
 
@@ -978,39 +861,33 @@ Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529150336347.webp" alt="image-20240529150336347" style="zoom:50%;" />
 
-
-
 **使用分组密码实现**
 
-分组密码的密钥作为消息认证码的共享密钥来使用，并用CBC模式（第4章）将消息全 部加密。此时，初始化向量（IV)是固定的。由于消息认证码中不需要解密，因此将除最后一 个分组以外的密文部分全部丢弃，而将最后一个分组用作MAC值。由于CBC模式的最后一个 分组会受到整个消息以及密钥的双重影响，因此可以将它用作消息认证码。例如，AES-CMAC ( RFC4493 )就是一种基于AES来实现的消息认证码。
+分组密码的密钥作为消息认证码的共享密钥来使用，并用 CBC 模式（第 4 章）将消息全 部加密。此时，初始化向量（IV) 是固定的。由于消息认证码中不需要解密，因此将除最后一 个分组以外的密文部分全部丢弃，而将最后一个分组用作 MAC 值。由于 CBC 模式的最后一个 分组会受到整个消息以及密钥的双重影响，因此可以将它用作消息认证码。例如，AES-CMAC ( RFC4493 ) 就是一种基于 AES 来实现的消息认证码。
 
 #### 攻击方法与防御
 
 发送方和接收方需要确认对方的身份。认证目的：避免重放攻击
 
-Nonce: 一生只用一次的整数(R)
-
-
+Nonce: 一生只用一次的整数 (R)
 
 ap4.0: 对称密钥加密
 
-为了证明Alice的活跃性, Bob发送给Alice一个nonce,R. 、
+为了证明 Alice 的活跃性，Bob 发送给 Alice 一个 nonce,R. 、
 
-Alice 必须返回加密之后的R，使用双方约定好的key
+Alice 必须返回加密之后的 R，使用双方约定好的 key
 
 问题：如何分发对称式加密的密钥
 
-
-
 ap5.0：非对称密钥加密
 
-Bob发送challenge R，Alice发送私钥加密的报文和公钥，
+Bob 发送 challenge R，Alice 发送私钥加密的报文和公钥，
 
-bob解密
+bob 解密
 
-漏洞：Trudy中间截获所有，`middle attack`
+漏洞：Trudy 中间截获所有，`middle attack`
 
-原因：不能可靠地拿到Alice的公钥
+原因：不能可靠地拿到 Alice 的公钥
 
 ### 数字签名——认证、不可抵赖性
 
@@ -1024,9 +901,9 @@ bob解密
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529150956820.webp" alt="image-20240529150956820" style="zoom:50%;" />
 
-**用私钥进行这一行为只能由持有私钥的人完成**：数字签名是利用了 “没有私钥的人事实上无法生成使用该私钥所生成的密文” 这一性质来 实现的。这里所生成的密文并非被用于保证机密性，而是被用于代表一种只有持有该密钥的人 才能够生成的信息。
+**用私钥进行这一行为只能由持有私钥的人完成**：数字签名是利用了“没有私钥的人事实上无法生成使用该私钥所生成的密文”这一性质来 实现的。这里所生成的密文并非被用于保证机密性，而是被用于代表一种只有持有该密钥的人 才能够生成的信息。
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529151054694.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529151054694.webp)
 
 也可以对消息的散列值签名
 
@@ -1047,109 +924,105 @@ bob解密
 
 为“密钥分发中心”。它是网络安全和加密通信中使用的一个中央服务器，负责分发网络中各方之间通信所需的密钥。
 
-KDC是Kerberos认证协议中的核心组件，主要用于认证服务和分配对称密钥，以确保网络中的数据传输安全。
+KDC 是 Kerberos 认证协议中的核心组件，主要用于认证服务和分配对称密钥，以确保网络中的数据传输安全。
 
+- 与 KDC 先建立起可信赖的对话关系
+- KDC 生成对称密钥
 
+1. **认证请求**：用户客户端向 KDC 的认证服务请求认证，通常包括用户的 ID 和所请求服务的 ID。
+2. **TGT 发放**：KDC 验证用户的凭证（如密码）。如果验证成功，KDC 会发放一个票据授权票据（Ticket Granting Ticket, TGT），加密包含用户的权限信息，使用 KDC 的密钥加密。
+3. **服务票据请求**：当用户需要访问服务时，客户端使用 TGT 向 KDC 请求针对特定服务的服务票据（Service Ticket）。
+4. **服务票据发放**：KDC 验证 TGT，并且如果用户有权限访问请求的服务，KDC 会发放一个服务票据，该票据使用服务的密钥加密，包含用户的身份信息。
+5. **服务访问**：用户客户端使用服务票据向服务进行认证。服务解密服务票据，验证用户的权限，然后允许访问。
+6. **通信加密**：客户端和服务之间的通信可以使用从 KDC 获得的会话密钥加密，确保数据传输的安全性。
 
-- 与KDC先建立起可信赖的对话关系
-- KDC生成对称密钥
-
-1. **认证请求**：用户客户端向KDC的认证服务请求认证，通常包括用户的ID和所请求服务的ID。 
-2. **TGT发放**：KDC验证用户的凭证（如密码）。如果验证成功，KDC会发放一个票据授权票据（Ticket Granting Ticket, TGT），加密包含用户的权限信息，使用KDC的密钥加密。 
-3. **服务票据请求**：当用户需要访问服务时，客户端使用TGT向KDC请求针对特定服务的服务票据（Service Ticket）。 
-4. **服务票据发放**：KDC验证TGT，并且如果用户有权限访问请求的服务，KDC会发放一个服务票据，该票据使用服务的密钥加密，包含用户的身份信息。 
-5. **服务访问**：用户客户端使用服务票据向服务进行认证。服务解密服务票据，验证用户的权限，然后允许访问。 
-6. **通信加密**：客户端和服务之间的通信可以使用从KDC获得的会话密钥加密，确保数据传输的安全性。 
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240216132053873.webp)
-
-
-
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240216132053873.webp)
 
 #### 非对称解决 | CA Certification Authorities
 
-出厂自带CA的公钥
+出厂自带 CA 的公钥
 
-用CA的私钥签署了$$CA^-(Bob,K_B^+)$$​
+用 CA 的私钥签署了$$CA^-(Bob,K_B^+)$$​
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152153523.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152153523.webp)
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240217100652773.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240217100652773.webp)
 
-- 串号(证书发行者唯一)
-- 证书拥有者信息，包括算法和密钥值本身(不显示出来
+- 串号 (证书发行者唯一)
+- 证书拥有者信息，包括算法和密钥值本身 (不显示出来
 - 证书发行者信息
 - 有效日期
 - 颁发者签名
 
-
-
 根证书：根证书是未被签名的公钥证书或自签名的证书
-- 拿到一些CA的公钥
-- 渠道：安装OS自带的数字证书；从网上下载，你信任的数字证书
 
-
+- 拿到一些 CA 的公钥
+- 渠道：安装 OS 自带的数字证书；从网上下载，你信任的数字证书
 
 信任树：
 
 - 信任了根
-- 由根CA签署的给一些机构的数字证书，根信任机构
-- 由于你信任了根，从而能够可靠地拿到根CA签发的证书，可靠地拿到这些机构的公钥
-
-
+- 由根 CA 签署的给一些机构的数字证书，根信任机构
+- 由于你信任了根，从而能够可靠地拿到根 CA 签发的证书，可靠地拿到这些机构的公钥
 
 #### Diffie-Hellman
 
-Diffie-Hellman 密钥交换( Diffie-Hellman key exchange )是 1976 年由 Whitfield Diffie 和 Martin Heilman 共同发明的一种算法。使用这种算法，通信双方仅通过交换一些可以公开的信息 就能够生成出共享的秘密数字，而这一秘密数字就可以被用作对称密码的密钥。IPsec中就使用 了经过改良的Diffie-Hellman 密钥交换。 
+Diffie-Hellman 密钥交换 ( Diffie-Hellman key exchange ) 是 1976 年由 Whitfield Diffie 和 Martin Heilman 共同发明的一种算法。使用这种算法，通信双方仅通过交换一些可以公开的信息 就能够生成出共享的秘密数字，而这一秘密数字就可以被用作对称密码的密钥。IPsec 中就使用 了经过改良的 Diffie-Hellman 密钥交换。
 
-虽然这种方法的名字叫 “密钥交换”，但实际上双方并没有真正交换密钥，而是通过计算生 成出了一个相同的共享秘钥。因此，这种方法也称为Diffie-Hellman密钥协商（`Diffie-Hellman key agreement` )
+虽然这种方法的名字叫“密钥交换”，但实际上双方并没有真正交换密钥，而是通过计算生 成出了一个相同的共享秘钥。因此，这种方法也称为 Diffie-Hellman 密钥协商（`Diffie-Hellman key agreement` )
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152845886.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152845886.webp)
 
-双方交换的数字（即能够被窃听者Eve知道的数字）一共有4个：P、 G,$ G^A \mod P$和$G^B \mod P $。根据这4个数字计算出Alice和Bob的共享密钥（$G^{AxB}\mod P$)是 非常困难的。
+双方交换的数字（即能够被窃听者 Eve 知道的数字）一共有 4 个：P、G,$ G^A \mod P$和$G^B \mod P $。根据这 4 个数字计算出 Alice 和 Bob 的共享密钥（$G^{AxB}\mod P$) 是 非常困难的。
 
-这个问题称为有限域（`finite field`)的离散对数问题。 
+这个问题称为有限域（`finite field`) 的离散对数问题。
 
-而有限域的离散对数问题的复杂度正是支撑Diffie-Hellman密钥交换算法的基础。
-
+而有限域的离散对数问题的复杂度正是支撑 Diffie-Hellman 密钥交换算法的基础。
 
 ## 工具与数学计算库
 
 [CyberChef](https://lab.tonycrane.cc/CyberChef/)
 
-
 - C++ 程序，可以使用 `OpenSSL` 和 `GMP` 等 库进行大数运算
-- python中有许多数学计算库，如 `SciPy`,`gmpy2`
+- python 中有许多数学计算库，如 `SciPy`,`gmpy2`
 
-- 商用软件: `Maple`,`Matlab`,`SageMath`
-### gmpy2使用
+- 商用软件：`Maple`,`Matlab`,`SageMath`
+
+### gmpy2 使用
+
 $x^y \mod n$
+
 ```python
 gmpy2.powmod(x, y, n)
 ```
+
 $x^{-1} \mod n$
+
 ```python
 gmpy2.invert(x, n) 
 ```
+
 $\sqrt[n]{x}$ exact or not
+
 ```python
 gmpy2.iroot(x, n)
 ```
 
 ### SageMath
 
-[Sage线上运行网址](https://sagecell.sagemath.org/)
+[Sage 线上运行网址](https://sagecell.sagemath.org/)
 
-ubuntu安装
-```
+ubuntu 安装
+
+```shell
 apt-get install sagemath
 ```
+
 docker
-```
+
+```shell
 docker pull sagemath sagemath
 ```
-
 
 - GF,Zmod
 
@@ -1158,72 +1031,69 @@ docker pull sagemath sagemath
 - vector
 - matrix
 
-
-
-## OpenSSL库
+## OpenSSL 库
 
 ### 安装
 
 ```shell
 sudo apt update && sudo apt install openssl
 ```
+
 ```shell title="验证安装"
 openssl version
 ```
 
-
-
 ### **密钥生成相关**
-1. **`genpkey`** 生成私钥。  
+
+**`genpkey`** 生成私钥。  
    示例：  
+
    ```shell
    openssl genpkey -algorithm RSA -out private_key.pem
    ```
-   
+
 1. **`-algorithm`** 指定加密算法（如 RSA、DSA、EC 等）。
    示例：  
+
    ```shell
    -algorithm RSA
    ```
 
 2. **`-pkeyopt`** 设置密钥的生成选项，例如位数。  
    示例：  
+
    ```shell
    -pkeyopt rsa_keygen_bits:2048
    ```
 
 3. **`rsa`** 用于处理 RSA 私钥或从私钥导出公钥。
    示例：  
+
    ```shell
    openssl rsa -in private_key.pem -pubout -out public_key.pem
    ```
 
 4. **`-pubout`** 将私钥转换为公钥格式导出。
 
----
-
 ### **文件摘要与哈希**
-1. **`dgst`** 生成文件的摘要（哈希值）。支持多种算法，如 SHA-256、SHA-512 等。
-   示例：  
-   ```shell
-   openssl dgst -sha256 -out hash.txt plain.txt
-   ```
+
+**`dgst`** 生成文件的摘要（哈希值）。支持多种算法，如 SHA-256、SHA-512 等。
+
+```shell
+openssl dgst -sha256 -out hash.txt plain.txt
+```
 
 1. **`-sha256`** 指定使用 SHA-256 哈希算法。
-
 2. **`-out`** 指定输出文件路径。
-
 3. **`-verify`** 验证签名时使用，需提供公钥。
-
 4. **`-sign`** 使用私钥对文件或哈希值进行签名。
-
 5. **`-signature`** 指定签名文件路径，用于验证签名。
 
----
-
 ### **加密与解密**
+
 1. **`rsautl`** 用于非对称加密和解密。主要用于 RSA 算法。
    示例：  
+
    ```shell
    openssl rsautl -encrypt -inkey public_key.pem -pubin -in plain.txt -out encrypted.bin
    ```
@@ -1233,7 +1103,7 @@ openssl version
 1. **`-decrypt`** 指定解密模式。
 
 1. **`-inkey`** 指定密钥文件（公钥或私钥）。
- 
+
 1. **`-pubin`** 表示使用公钥文件。
 
 1. **`-in`** 输入文件路径。
@@ -1243,16 +1113,16 @@ openssl version
 ---
 
 ### **文件查看与调试**
+
 1. **`xxd`** 查看文件的十六进制表示，调试加密或签名文件。  
    示例：  
+
    ```shell
    xxd encrypted.bin
    ```
 
-
-
-
 ### 示例
+
 ```shell title="生成文本文件"
 echo "Hello, OpenSSL!" > plain.txt
 ```

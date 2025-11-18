@@ -8,9 +8,9 @@
 2. 复变函数的导数 $f'(z)$ 存在，并且连续;
 3. 复变函数 $f(z)$ 满足 Cauchy-Riemann 条件
 
-$$
-\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{和} \quad \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
-$$
+    $$
+    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{和} \quad \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
+    $$
 
 4. 复变函数 $f(z)$ 的所有导数存在，并且具有一个收敛的幂级数。
 
@@ -45,16 +45,13 @@ $$
 
 即 $z$ 和 $z^*$ 是两个相互独立的变量。
 
-
 ## 复积分
 
 ## 级数
 
 ### 泰勒展开
 
-
-### Talor定理
-
+### Talor 定理
 
 ## 留数
 
@@ -62,15 +59,13 @@ $$
 
 复合闭路定理的具体体现
 
-
 ### 奇点类型判断
 
 - 可去奇点：洛必达
 - 本性奇点：洛朗展开
-- m级极点：
+- m 级极点：
 
-
-!!! example "例1.1：求$f(z)=\frac{z^{2}}{e^{z}-1}$的奇点，并指出奇点类型"
+!!! example "例 1.1：求$f(z)=\frac{z^{2}}{e^{z}-1}$的奇点，并指出奇点类型"
 
     解：令$e^{z}-1=0$，即$e^{z}=1$，即$z=\mathrm{Ln}1=2k\pi i$。
     故$f(z)$的奇点为$z=2k\pi i$($k=0,\pm 1,\pm 2,\dots$)。
@@ -87,7 +82,7 @@ $$
     $z=0$是$f(z)$的可去奇点,
     $z=2k\pi i$($k=\pm 1,\pm 2,\dots$)是$f(z)$的1级极点。
 
-!!! example "例1.2：求$f(z)=\frac{\cot(\pi z)}{2z-3}$在$|z-i|=2$内的奇点"
+!!! example "例 1.2：求$f(z)=\frac{\cot(\pi z)}{2z-3}$在$|z-i|=2$内的奇点"
 
     解：$f(z)=\frac{\cot(\pi z)}{2z-3}=\frac{\cos(\pi z)}{\sin(\pi z)(2z-3)}$.
     令$\sin(\pi z)=0$，则$z=k$($k=0,\pm 1$),
@@ -99,8 +94,6 @@ $$
 
     故在$|z-i|=2$内，
     $z=\frac{3}{2}$是$f(z)$的可去奇点，$z=0,\pm 1$是$f(z)$的1级极点。
-
-
 
 !!! note "例题"
 
@@ -121,24 +114,23 @@ $$
     C_{-1}=\text{Res}\left[\frac{1}{z}e^{zt-\frac{1}{z}};0\right]
     $$
 
-
 ### 留数计算
 
 基础方法：洛朗展开式
 
-- **有理分式函数**，1级极点：
+- **有理分式函数**，1 级极点：
 
-若$f(z)=\frac{P(z)}{Q(z)}$，且$z_0$不是$P(z)$的零点，是$Q(z)$的1级零点，则
+若$f(z)=\frac{P(z)}{Q(z)}$，且$z_0$不是$P(z)$的零点，是$Q(z)$的 1 级零点，则
 
 $$
 \text{Res}[f(z),z_0]=\frac{P(z)}{Q'(z)}
 $$
 
-> 注：只能用于「非零点/1级零点 = 1级极点」的情况。
+> 注：只能用于「非零点/1 级零点 = 1 级极点」的情况。
 
-- **m级极点**$(m=1,2,3...)$
+- **m 级极点**$(m=1,2,3...)$
 
-若$z_0$是$f(z)$的m级极点，则
+若$z_0$是$f(z)$的 m 级极点，则
 
 $$
 \text{Res}[f(z),z_0]=\frac{1}{(m-1)!}\lim_{z\to z_0}\frac{\mathrm{d}^{m-1}}{\mathrm{d}z^{m-1}}[(z-z_0)^mf(z)]
@@ -148,9 +140,7 @@ $$
 
 请留意，极点级数为$m$，乘上的多项式次数为$m$，但求导次数和系数都是$m-1$。
 
-
-
-!!! example "例2.1：求$\oint_{C}\frac{e^{z}}{z(z+1)^{2}}dz$，其中$C$为正向圆周$|z|=2$"
+!!! example "例 2.1：求$\oint_{C}\frac{e^{z}}{z(z+1)^{2}}dz$，其中$C$为正向圆周$|z|=2$"
 
     解：$f(z)=\frac{e^{z}}{z(z+1)^{2}}$的奇点为$z=0$，$z=-1$；显然$z=0$是它的1级极点，$z=-1$是它的2级极点。
 
@@ -160,7 +150,7 @@ $$
 
     则$\oint_{C}\frac{e^{z}}{z(z+1)^{2}}dz=2\pi i\{\text{Res}[f(z),0]+\text{Res}[f(z),-1]\}=2\pi i(1-\frac{2}{e})$。
 
-!!! example "例2.2：求$\oint_{C}\frac{z-\sin z}{z^{6}}dz$，其中$C$为正向圆周$|z|=1$"
+!!! example "例 2.2：求$\oint_{C}\frac{z-\sin z}{z^{6}}dz$，其中$C$为正向圆周$|z|=1$"
 
     解：$f(z)=\frac{z-\sin z}{z^{6}}$的奇点为$z=0$，这是它的3级奇点。*故此题用求留数的规则较繁琐
 
@@ -177,19 +167,18 @@ $$
 
     则$\oint_{C}\frac{z-\sin z}{z^{6}}dz=2\pi i\text{Res}[f(z),0]=-\frac{1}{60}\pi i$。
 
-
-!!! example "例3.3：用留数计算定积分 $I = \int_{-\infty}^{+\infty} \frac{x^2}{(x^2+1)(x^2+4)} dx$"
+!!! example "例 3.3：用留数计算定积分 $I = \int_{-\infty}^{+\infty} \frac{x^2}{(x^2+1)(x^2+4)} dx$"
 
     解：$f(z) = \frac{z^2}{(z^2+1)(z^2+4)}$ 在上半复平面上的奇点为 $z=i, z=2i$，且均为其1级极点，
     故 $I = 2\pi i \{ \text{Res}[f(z), i] + \text{Res}[f(z), 2i] \} = 2\pi i \left[ \lim_{z \to i} \frac{z^2}{(z+i)(z^2+4)} + \lim_{z \to 2i} \frac{z^2}{(z^2+1)(z+2i)} \right] = 0$。
 
-!!! example "例3.4：用留数计算定积分 $I = \int_{0}^{+\infty} \frac{x^2}{x^4+1} dx$"
+!!! example "例 3.4：用留数计算定积分 $I = \int_{0}^{+\infty} \frac{x^2}{x^4+1} dx$"
 
     解：显然 $f(x) = \frac{x^2}{x^4+1}$ 为偶函数，则 $I = \frac{1}{2} \int_{-\infty}^{+\infty} f(x) dx$。
     $f(z) = \frac{z^2}{z^4+1}$ 在上半复平面上的奇点为 $z = \pm \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i$，且均为其1级极点，
     故 $I = 2\pi i \left\{ \text{Res} \left[f(z), \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i \right] + \text{Res} \left[f(z), -\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2} i \right] \right\} = \pi i \left[ \frac{1-i}{4\sqrt{2}} - \frac{1+i}{4\sqrt{2}} \right] = \frac{\sqrt{2}}{4} \pi$。
 
-!!! example "例3.5：用留数计算定积分$I=\int_{0}^{+\infty}\frac{\cos x}{(x^{2}+1)(x^{2}+9)}dx$"
+!!! example "例 3.5：用留数计算定积分$I=\int_{0}^{+\infty}\frac{\cos x}{(x^{2}+1)(x^{2}+9)}dx$"
 
     解：显然$f(x)=\frac{\cos x}{(x^{2}+1)(x^{2}+9)}$为偶函数，则$I=\frac{1}{2}\int_{-\infty}^{+\infty}f(x)dx$。
 
@@ -197,7 +186,7 @@ $$
 
     故$I=\frac{1}{2}\text{Re}\left(2\pi i\left\{\text{Res}[F(z),i]+\text{Res}[F(z),3i]\right\}\right)=\frac{1}{2}\text{Re}\left(2\pi i\left\{\frac{e^{-1}}{16i}-\frac{e^{-3}}{48i}\right\}\right)=\left(\frac{e^{-1}}{16}-\frac{e^{-3}}{48}\right)\pi$。
 
-!!! example "例3.6：用留数计算定积分$I=\int_{-\infty}^{+\infty}\frac{x\sin3x}{x^{2}+16}dx$"
+!!! example "例 3.6：用留数计算定积分$I=\int_{-\infty}^{+\infty}\frac{x\sin3x}{x^{2}+16}dx$"
 
     解：$F(z)=\frac{ze^{i3z}}{z^{2}+16}$在上半复平面上的奇点为$z=4i$，且为其1级极点，
 
@@ -205,11 +194,9 @@ $$
 
 ### 留数的应用 —— 求解实函数定积分
 
-
 实函数可以认为是复数仅在实轴上“活动”得到的。实函数的定积分也同样如此。
 因此，将定积分与复变积分关联起来，再用留数定理求出复变积分，有时可以方便的求出一些不易计算的定积分。
 这里我们不加证明的给出三种形式的定积分与复变积分的关系。
-
 
 #### 有理三角函数全周期积分
 
@@ -223,18 +210,13 @@ $$
 - $\cos\theta=\frac{e^{i\theta}+e^{-i\theta}}{2}=\frac{z^{2}+1}{2z}$
 - $dz=ie^{i\theta}d\theta\quad\rightarrow\quad d\theta=\frac{1}{iz}dz$
 
-
-
-
 #### 有理分式函数无穷广义积分
-
 
 $$
 \int_{-\infty}^{+\infty}R(x)dx
 $$
 
 直接将$R(x)$改为$R(z)$,上半平面奇点的留数之和
-
 
 $$
 \int_{-\infty}^{+\infty}R(x)dx=2\pi i\sum\text{Res}[R(z),z_{0}]
@@ -257,9 +239,7 @@ $$
 - 实部对应含$\cos ax$的积分
 - 虚部对应含$\sin ax$的积分
 
-
-
-!!! example "例27：计算积分 $I=\int_{0}^{+\infty}\frac{1}{x^{4}+1}dx$"
+!!! example "例 27：计算积分 $I=\int_{0}^{+\infty}\frac{1}{x^{4}+1}dx$"
 
     解：$f(z)=\frac{1}{z^{4}+1}$ 在上半平面有单极点 $e^{\frac{\pi}{4}i},e^{\frac{3\pi}{4}i}$。
 
@@ -276,11 +256,8 @@ $$
     \end{align*}
     $$
 
-
 ## 保角映射
 
+## Laplace 变换
 
-## Laplace变换
-
-[拉普拉斯变换与拉普拉斯逆变换的常用结论与经典公式-CSDN博客](https://blog.csdn.net/wh_STUDY/article/details/126403817)
-
+[拉普拉斯变换与拉普拉斯逆变换的常用结论与经典公式-CSDN 博客](https://blog.csdn.net/wh_STUDY/article/details/126403817)

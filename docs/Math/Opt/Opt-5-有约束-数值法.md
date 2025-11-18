@@ -1,12 +1,6 @@
 # 05 | 有约束 数值解法
 
-
-
-
-
-## 可行方向 —— Zoutendijk可行方向法
-
-
+## 可行方向 —— Zoutendijk 可行方向法
 
 $$
 \begin{array}{l}
@@ -15,17 +9,16 @@ $$
 \end{array}
 $$
 
-
 $$
-\begin{align} 
+\begin{align}
 \min \eta \\
 s.t.
 \left\{
-	\begin{array}{lr}  
+ \begin{array}{lr}  
     \nabla f\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta \\
     -\nabla g_{j}\left(\boldsymbol{x}^{(k)}\right)^{T} \boldsymbol{p} \leq \eta, \quad j \in J\left(\boldsymbol{x}^{(k)}\right)\\
     -1 \le p \le 1
-	\end{array}
+ \end{array}
 \right.
 \end{align}
 $$
@@ -33,8 +26,6 @@ $$
 - $\eta<0$：可行下降方向
 - $\eta=0$：迭代结束！
 - $\eta>0$：不会出现
-
-
 
 ## 制约函数
 
@@ -44,7 +35,6 @@ $$
 ### 外点法 —— 罚函数，罚外点
 
 **思想：构造罚函数，惩罚可行域外的迭代点**
-
 
 #### 罚函数
 
@@ -70,8 +60,6 @@ $$
     \end{align*}
     $$
 
-
-
 $x \in \mathbb{F} \in \mathbb{S} \in \mathbb{R}^n$
 
 - $\mathbb{F}$: feasible region
@@ -86,16 +74,12 @@ $$
 \end{align*}
 $$
 
-Courant罚函数
+Courant 罚函数
 
-
-
-- **等式约束**：$h_i^2(x)=0$是罚函数，因为在可行域内$h(x)=0$，可行域外$h(x)\ne 0$ 
+- **等式约束**：$h_i^2(x)=0$是罚函数，因为在可行域内$h(x)=0$，可行域外$h(x)\ne 0$
 - **不等式约束**：$[\min (0,g_{j}(x))]^{2}$是罚函数，因为在可行域内$g(x)\ge 0$，$\min (0,g_{j}(x))=0$，可行域外$g(x)<0$ ，$\min (0,g_{j}(x))=g_{j}(x)$，所以相当于用一个二次函数来拟合。
 
 !!! attention "这里要关注不等式的方向，方向不同，罚函数的形式也不同"
-
-
 
 #### 外点法收敛性分析
 
@@ -109,7 +93,7 @@ $$
 P(x, M_k) = f(x) + M_k \sum_{i=1}^{m} h_i^2(x) + M_k \sum_{j=1}^{l} [\min(0, g_j(x))]^2
 $$
 
-第k步罚函数的局部极小值满足
+第 k 步罚函数的局部极小值满足
 
 $$
 \begin{align*}
@@ -125,10 +109,9 @@ $$
 \nabla P(x^*, M) = \nabla f(x^*) - \sum_{i=1}^{m} \lambda_i^* \nabla h_i(x^*) - \sum_{g_j(x^*) \rightarrow 0} \mu_j^* \nabla g_j(x^*) = 0
 $$
 
-KKT条件!
+KKT 条件！
 
-如果$x^{(k)}$是min$P(x, M_k)$的全局极小值，则外点法收敛到全局最优解!
-
+如果$x^{(k)}$是 min$P(x, M_k)$的全局极小值，则外点法收敛到全局最优解！
 
 !!! example "罚函数示例"
 
@@ -186,8 +169,6 @@ KKT条件!
     \end{align*}
     $$
 
-
-
 ### 内点法 —— 障碍函数，阻止内点离开
 
 **构造障碍函数，阻止迭代点离开可行域。**
@@ -210,12 +191,9 @@ $$
 p(x, r)=r \sum_{j=1}^{l} \frac{1}{g_{j}(x)}
 $$
 
-
-
 $$
 p(x, r)=\sum_{j=1}^{l} \log g_{j}(x)
 $$
-
 
 $$
 p(x,r) = \sum_{j=1}^{l} exp\left[\frac{1}{g_{j}(x)}\right]
@@ -229,8 +207,7 @@ $$
 
 其中 $R_{0}=\left\{x \mid g_{j}(x) > 0, j=1,2, \cdots, l\right\}$ 严格内点
 
-$r>0$ 为障碍因子，其在迭代中的取值会不断减小，趋向于0，使$x$​可趋向于边界。
-
+$r>0$ 为障碍因子，其在迭代中的取值会不断减小，趋向于 0，使$x$​可趋向于边界。
 
 !!! example "障碍函数示例"
 
@@ -287,7 +264,7 @@ $$
 \bar{P}(x, r)=f(x)-r_k \sum_{j=1}^{l} \log g_{j}(x)
 $$
 
-第k步障碍函数局部极小值满足
+第 k 步障碍函数局部极小值满足
 
 $$
 \begin{align*}
@@ -307,7 +284,7 @@ $$
 \end{align*}
 $$
 
-**KKT条件!**
+**KKT 条件！**
 
 **如果$x(k)$是$\min \bar{P}(x ; r)$的全局极小值，则内点法收敛到全局最优解！**
 
@@ -316,4 +293,3 @@ $$
 - 内点法不能处理等式约束问题
 - 外点法不能处理目标函数在可行域外不存在的问题
 - 对等式约束和当前不被满足的不等式约束，使用罚函数法，对满足的不等式约束，使用障碍函数法。
-

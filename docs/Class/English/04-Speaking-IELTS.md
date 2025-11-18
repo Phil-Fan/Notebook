@@ -3,40 +3,34 @@
 ## Important Points for Spoken Part
 
 1. Fluency and Coherence
-    
+
     - Minimize pauses and hesitations
     - Extend your responses with relevant details and examples
     - Use strategies to gain thinking time (e.g., rephrasing the question)
     - Maintain a confident speaking manner
 
 2. Language Structure
-    
+
     - Use discourse markers to organize ideas clearly
     - Employ varied vocabulary and expressions
     - Avoid repetitive words and phrases
     - Minimize filler words (um, uh, like)
 
 3. Interaction Skills
-    
+
     - Ask for clarification when needed
     - Show engagement through appropriate responses
     - Maintain natural conversation flow
     - Use proper intonation and emphasis
 
 4. Emotional Expression
-    
+
     - Show enthusiasm when appropriate
     - Use appropriate facial expressions
     - Demonstrate interest in the topic
     - Maintain positive body language
 
-
-
-
-
 ## Terms
-
-
 
 ### Pronunciation
 
@@ -58,28 +52,22 @@ Motivated
 
 newspaper 重音在前
 
-
-
 small vacations
 
-like change 
+like change
 tied; interval refreshed
 
-study alone 
+study alone
 
 job opportunities
 
-study by oneself 
-
-
-
+study by oneself
 
 ## 常用词汇
+
 quality
 equality
 redundant
-
-
 
 care about the quality
 
@@ -89,11 +77,7 @@ prohibit/restrict/limit
 question/problem/topic
 hesitate
 
-
-
 ## Vocabulary
-
-
 
 class is limited knowledge boundless
 
@@ -102,8 +86,6 @@ class is limited knowledge boundless
 hands down: 毫无疑问、五体投地
 
 shout out to: 向某人致敬
-
-
 
 ### 动词短语
 
@@ -121,16 +103,10 @@ get hooked on sth
 
 simultaneously
 
-
-
-
-
-
-
 ### terms
 
 die hard fan
-steal the show: 抢尽风头,成为焦点
+steal the show: 抢尽风头，成为焦点
 
 top it off 更进一步
 home run: 本垒打、成功的事情
@@ -155,11 +131,10 @@ in distant
 moreover
 in addition
 i would like to
+
 ### 连接词
 
 for, but, and, so, as a result, consequently, moreover, therefore, in fact, additionally, however
-
-
 
 unlike
 
@@ -172,67 +147,72 @@ nonetheless
 at all
 
 ### 引入观点
+
 - Initially,
-- To begin with, 
+- To begin with,
 - First of all,
 
 ### 表示原因和目的
+
 - In order to,
 - To achieve this,
 - For the purpose of,
 - With the aim of,
 
 ### 添加信息
+
 - Furthermore,
 - Moreover,
 - Additionally,
 - Also,
 
 ### 表示对比和转折
+
 - However,
 - On the other hand,
 - Conversely,
 - Despite / In spite of,
 
 ### 表达结果
+
 - As a result,
 - Consequently,
 - Therefore,
 - Thus,
 
 ### 举例说明
+
 - For instance,
 - For example,
 - Such as,
 - Like,
 
 ### 总结
+
 - In conclusion,
 - To sum up,
 - In summary,
 - Overall,
 
 ### 表达时间顺序
+
 - Firstly, Secondly, Thirdly,
 - Next,
 - Then,
 - Finally / Lastly,
 
-
-
 ## 成长
-### 童年故事
 
+### 童年故事
 
 ## 学业
 
 ### 学年
+
 freshman - first year
 sophomore - second year  
 junior - third year
 senior - last year
-
-
 
 ## 生活
 
@@ -249,33 +229,25 @@ I'd like to say my birthday party.
 
 I just invite some friends over, you know, snack on some food and do binge watching, we even watch the big band theory for a whole season. for a introverted person like me, it's a great way to relax and have fun. After that, we went to a restaurant to have a mouthwatering meal.
 
-
-
-
 ### 家庭
+
 nuclear family
 
 ### 旅行
 
 不得不提及
 
-
 ### 网站
-
 
 bilibili
 
 xiaolin 说
 
-讲解金融知识，比如比特币的知识，what make a good firm and the structrue of 
-
-
+讲解金融知识，比如比特币的知识，what make a good firm and the structrue of
 
 ### 品牌
 
-
 ### 音乐
-
 
 ### 书籍
 
@@ -290,7 +262,6 @@ xiaolin 说
 
 introduce one book
 
-
 One of the most interesting non-fiction books I’ve read is The Lady Tasting Tea, written by David Salsburg. It’s a book about the history of statistics — but don’t worry, it’s not as boring as it sounds!
 
 It actually tells the story of how statistics became a powerful scientific tool. The title comes from a real event, where a woman claimed she could tell whether milk was poured into a cup before or after the tea. A statistician, Ronald Fisher, designed an experiment to test her claim — and that’s where modern experimental design started!
@@ -299,22 +270,13 @@ What I really liked about this book is how it makes complex ideas easy to unders
 
 Also, it helped me understand how statistics isn’t just about numbers — it’s about thinking critically, asking the right questions, and making decisions based on evidence.
 
-
 ### 交通
 
 bumper to bumper : 车水马龙
 
-it is like killing two birds with one stone,用于描述交通
-
-
-
-
-
-
+it is like killing two birds with one stone，用于描述交通
 
 ### 电影相关
-
-
 
 horror/thriller - 恐怖/惊悚片
 drama/romance/melodrama - 戏剧/爱情/情节剧
@@ -328,8 +290,6 @@ musical - 音乐剧
 western - 西部片
 war - 战争片
 
-
-
 celebrity
 review/comment
 -related
@@ -340,10 +300,8 @@ pornographic
 
 vital roles/important role
 
-
 ordinary people
 censorship
 sweat out liquids
 
 ## 环境
-

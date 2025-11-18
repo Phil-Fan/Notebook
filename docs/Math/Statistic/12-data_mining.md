@@ -1,6 +1,5 @@
 # 数据挖掘
 
-
 ## 数据处理
 
 ## 数据变换
@@ -8,44 +7,39 @@
 数据中心化：是指变量减去它的均值。
 数据标准化：是指数值减去均值，再除以标准差；
 
-目的：通过中心化和标准化处理，得到均值为0，标准差为1的服从标准正态分布的数据。
+目的：通过中心化和标准化处理，得到均值为 0，标准差为 1 的服从标准正态分布的数据。
 
 不同数据量纲不同，尺度不同，需要进行中心化和标准化处理。
 
-
-
--  比如在训练神经网络的过程中，通过将数据标准化，能够加速权重参数的收敛。
+- 比如在训练神经网络的过程中，通过将数据标准化，能够加速权重参数的收敛。
 -对数据进行中心化预处理，这样做的目的是要增加基向量的正交性。
-
-
 
 ### 数据中心化（Zero-centered
 
-或者Mean-subtraction（subtraction表示减去））
+或者 Mean-subtraction（subtraction 表示减去））
 
 把数据的中心平移的过程
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__12-data_mining.assets__20241105101120.webp)
-
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__12-data_mining.assets__20241105101120.webp)
 
 ### 数据标准化 | normalization
 
 1）归一化后加快了梯度下降求最优解的速度；
+
 - 当使用梯度下降法寻求最优解时，很有可能走“之字型”路线（垂直等高线走），从而导致需要迭代很多次才能收敛；对两个原始特征进行了归一化，其对应的等高线显得很圆，在梯度下降进行求解时能较快的收敛
 
 2）归一化有可能提高精度。
 
-
-#### min-max标准化（Min-Max Normalization）
+#### min-max 标准化（Min-Max Normalization）
 
 也称为离差标准化，是对原始数据的线性变换，使结果值映射到[0 - 1]之间。转换函数如下：
 
-$$ 
-x^* = \frac{x - min}{max - min} 
+$$
+x^* = \frac{x - min}{max - min}
 $$
 
-这种方法有个缺陷就是当有新数据加入时，可能导致max和min的变化，需要重新定义。
+这种方法有个缺陷就是当有新数据加入时，可能导致 max 和 min 的变化，需要重新定义。
 
-#### Z-score标准化（0-1标准化）方法
+#### Z-score 标准化（0-1 标准化）方法
 
 $$
 X^* = \frac{X - \mu}{\sigma}

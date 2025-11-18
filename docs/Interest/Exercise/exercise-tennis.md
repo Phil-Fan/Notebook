@@ -3,12 +3,13 @@ comments: true
 ---
 # 台球
 
-
 ## 引言
+
 - 台球的历史与起源
 - 台球的基本概念
 
 ## where
+
 ### 学校附近的球馆
 
 ### 成本构成
@@ -22,8 +23,8 @@ comments: true
 - 八球
 - 十四一
 
-
 ## 设备与器材
+
 - 球杆
 - 球桌
 - 台球
@@ -32,15 +33,20 @@ comments: true
 ## 基本规则
 
 ### 开球规则
-### 进球规则
-### 犯规规则
-### 胜负判定
-### 摆球方法
-- 三角形摆法：将15颗球摆成三角形，其中第一颗球放在三角形的最前端，第二排放5颗球，第三排放4颗球，第四排放3颗球，第五排放2颗球，第六排放1颗球。
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Interest__Exercise__assets__exercise-tennis.assets__2a0d96873c46a04432fb72ed088ed6c.webp)
 
+### 进球规则
+
+### 犯规规则
+
+### 胜负判定
+
+### 摆球方法
+
+- 三角形摆法：将 15 颗球摆成三角形，其中第一颗球放在三角形的最前端，第二排放 5 颗球，第三排放 4 颗球，第四排放 3 颗球，第五排放 2 颗球，第六排放 1 颗球。
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Interest__Exercise__assets__exercise-tennis.assets__2a0d96873c46a04432fb72ed088ed6c.webp)
 
 ## 基础技巧
+
 - 击球姿势
 - 瞄准技巧
 - 力量控制
@@ -49,6 +55,7 @@ comments: true
 ## 进阶技巧
 
 ## 比赛与赛事
+
 - 主要国际赛事
 - 主要国内赛事
 - 著名台球选手

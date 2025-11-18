@@ -1,20 +1,23 @@
 # 句式
+
 以下是整理后的句式主干结构列表（按场景分类）：
 
 ## **开头句式**
+
 1. **虚拟语气**  
    If I were to..., I would probably/definitely/certainly/...  
 
 2. **倒装强调**  
    Only when..., can...  
 
-3. **It强调句**  
+3. **It 强调句**  
    It is... that/who...  
 
 4. **观点陈述**  
    Most people hold the belief that...  
 
 ## **逻辑链句式**
+
 1. **让步转折**  
    Although/Even though..., ...  
 
@@ -28,6 +31,7 @@
    It is high time that...  
 
 ## **观点句式**
+
 1. **事实强调**  
    There is no denying that...  
 
@@ -37,18 +41,16 @@
 3. **个人偏好**  
    I would prefer it if...  
 
-
-
 4. **并列补充**  
    Another equally vital... is...  
 
 5. **反向总结**  
-   And the opposite is also the case.   
+   And the opposite is also the case.
 
-
-3. it occurs to me that
+it occurs to me that
 
 ## **现象分析句式**
+
 1. **现象引入**  
    With the rapid growth of..., ...  
 
@@ -62,12 +64,3 @@
 
 4. 反向也成立
     And the opposite is also the case.
-
-
-
-
-
-
-
-
-

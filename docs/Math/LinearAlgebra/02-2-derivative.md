@@ -6,15 +6,13 @@ $\boldsymbol{x}=[x_1,\cdots,x_m]^{\mathrm{T}}\in\mathbb{R}^m$ 为实向量变元
 
 $\boldsymbol{X}=[\boldsymbol{x}_1,\cdots,\boldsymbol{x}_n]\in\mathbb{R}^{m\times n}$ 为实矩阵变元；
 
-
 根据输入输出的类型不同，我们可以把函数分为以下几种：
-
 
 | 输入\输出 | 输入为向量 $\boldsymbol{x}\in\mathbb{R}^m$ | 输入为矩阵 $\boldsymbol{X}\in\mathbb{R}^{m\times n}$ |
 |---|---|---|
 | 标量输出 | $f(\boldsymbol{x})\in\mathbb{R}$，记作 $f:\mathbb{R}^m\to\mathbb{R}$ <br> 例：向量的范数 | $f(\boldsymbol{X})\in\mathbb{R}$，记作 $f:\mathbb{R}^{m\times n}\to\mathbb{R}$ <br> 例：矩阵的迹 |
 | 向量输出 | $f(\boldsymbol{x})\in\mathbb{R}^p$，记作 $f:\mathbb{R}^m\to\mathbb{R}^p$ <br> 例：卷积、傅立叶变换 | $f(\boldsymbol{X})\in\mathbb{R}^p$，记作 $f:\mathbb{R}^{m\times n}\to\mathbb{R}^p$ |
-| 矩阵输出 | $\boldsymbol{F}(\boldsymbol{x})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^m\to\mathbb{R}^{p\times q}$ <br> 例：vandermonde矩阵、confusion matrix | $\boldsymbol{F}(\boldsymbol{X})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^{m\times n}\to\mathbb{R}^{p\times q}$ <br> 例：输入是猫狗图，输出是猫狗分类结果 |
+| 矩阵输出 | $\boldsymbol{F}(\boldsymbol{x})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^m\to\mathbb{R}^{p\times q}$ <br> 例：vandermonde 矩阵、confusion matrix | $\boldsymbol{F}(\boldsymbol{X})\in\mathbb{R}^{p\times q}$，记作 $\boldsymbol{F}:\mathbb{R}^{m\times n}\to\mathbb{R}^{p\times q}$ <br> 例：输入是猫狗图，输出是猫狗分类结果 |
 
 微分与积分：element-wise
 
@@ -32,8 +30,8 @@ $$
 \frac{\mathrm{d}}{\mathrm{d} t} (\mathbf{A} \mathbf{B}) = \frac{\mathrm{d} \mathbf{A}}{\mathrm{d} t} \mathbf{B} + \mathbf{A} \frac{\mathrm{d} \mathbf{B}}{\mathrm{d} t}
 $$
 
-
 ## 偏导
+
 ### 行偏导 - Jacobian Matrix
 
 === "标量函数&向量变元 - 行偏导"
@@ -72,7 +70,6 @@ $$
     
     所以求行偏导的结果相当于把雅可比矩阵给行向量化了
 
-
 === "标量函数&矩阵变元 - Jacobian Matrix"
 
     $f(X)$ 关于矩阵变元 $X$ 的 Jacobian 矩阵
@@ -83,11 +80,7 @@ $$
     D_X f(X) = \frac{\partial f(X)}{\partial X^T} = \begin{bmatrix} \frac{\partial f(X)}{\partial x_{11}} & \ldots & \frac{\partial f(X)}{\partial x_{m1}} \\ \vdots & \ddots & \vdots \\ \frac{\partial f(X)}{\partial x_{1n}} & \ldots & \frac{\partial f(X)}{\partial x_{mn}} \end{bmatrix} \in \mathbb{R}^{n \times m}
     $$
 
-
-
-
 === "矩阵函数&矩阵变元 - Jacobian Matrix"
-
 
     $$
     \mathrm{D}_{\boldsymbol{X}}\boldsymbol{F}(\boldsymbol{X})\overset{\mathrm{def}}{\operatorname*{=}}\frac{\partial\mathrm{vec}(\boldsymbol{F}(\boldsymbol{X}))}{\partial(\mathrm{vec}\boldsymbol{X})^{\mathrm{T}}}\in\mathbb{R}^{pq\times mn}
@@ -106,13 +99,11 @@ $$
     \end{aligned}
     $$
 
-
 ### 列偏导 - Derivative 梯度
 
 $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,定义为
 
 > taking derivative **with respect to** a column vector
-
 
 具有连续偏导→可微→**有切平面**→切线都在切平面上→有一个斜率最大的
 
@@ -127,10 +118,6 @@ $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,�
     \nabla_{\boldsymbol{x}}f(\boldsymbol{x})\stackrel{\mathrm{def}}{=}\left[\frac{\partial f(\boldsymbol{x})}{\partial x_{1}},\cdots,\frac{\partial f(\boldsymbol{x})}{\partial x_{m}}\right]^{\mathrm{T}}=\frac{\partial f(\boldsymbol{x})}{\partial\boldsymbol{x}}
     $$
 
-
-
-
-
 === "标量函数&矩阵变元"
 
     $$
@@ -139,19 +126,17 @@ $m\times1$列向量偏导算子即梯度算子记作$\nabla_{\boldsymbol{x}}$,�
     
     **梯度矩阵是雅可比矩阵的转置**
 
-
 !!! note "方向导数是一个数，梯度是一个向量"
 
 #### **方向导数**
 
-方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数 $f(x, y)$，在点 $(x_0, y_0)$ 处沿着方向向量 
+方向导数是函数在某一特定方向上的变化率。它表示函数在定义域内某一点沿着给定方向的变化趋势。具体来说，对于一个具有定义域的函数 $f(x, y)$，在点 $(x_0, y_0)$ 处沿着方向向量
 
 $$
 D_{\vec{u}}f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + hu_1, y_0 + hu_2) - f(x_0, y_0)}{h}
 $$
 
 其中，$h$ 是一个很小的正数，$u_1$ 和 $u_2$ 是方向向量 $\vec{u}$ 的分量。
-
 
 !!! example "求导"
     $$
@@ -163,7 +148,6 @@ $$
     $$
     
     很多时候低维推到高维的时候，结构是类似的，所以高维求不出来的时候，可以先从低维开始推，然后推广到高维
-
 
 - 梯度的方向：函数上升最快的方向
 - **梯度流**：函数下降最快的方向，梯度方向的负方向 $-\nabla_{\boldsymbol{x}}f(\boldsymbol{x})$ 称为函数 $f$ 在点 $\boldsymbol{x}$ 的梯度流 (gradient flow)，记作
@@ -189,9 +173,7 @@ $$
     
     当只有$d$ 和 $\nabla x^T f(x)$ 方向完全相反时，$\cos \langle \nabla x^T f(x), d \rangle = -1$，这个时候下降的速度最快
 
-
 ### 计算法则 - 核心链式法则
-
 
 !!! note "特例"
 
@@ -199,7 +181,6 @@ $$
     
     - $\frac{\partial{\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T$
     - $\frac{\partial{\mathbf{X}^T\mathbf{A}\mathbf{X}}}{\partial{\mathbf{X}}} = \mathbf{A}^T\mathbf{X} + \mathbf{AX}$
-
 
 - **若 $f(X)=c$ 为常数**，其中 $X$ 为 $m\times n$ 矩阵，则梯度 $\frac{\partial c}{\partial X}= O_{m\times n}$
 
@@ -225,9 +206,9 @@ $$
 \frac{\partial g(f(\boldsymbol X))}{\partial\boldsymbol X}=\frac{\mathrm{d}g(y)}{\mathrm{d}y}\frac{\partial f(\boldsymbol X)}{\partial\boldsymbol X}
 $$
 
-
 #### 独立性基本假设
-假定实值函数的向量变元 $\boldsymbol{x}=[x_{i}]_{i=1}^{m}\in\mathbb{R}^{m}$ 或者矩阵变元 $\boldsymbol{X}=[x_{ij}]_{i=1,j=1}^{m,n}\in\mathbb{R}^{m\times n}$ 本身无任何特殊结构, 即向量或矩阵变元的元素之间是各自独立的。
+
+假定实值函数的向量变元 $\boldsymbol{x}=[x_{i}]_{i=1}^{m}\in\mathbb{R}^{m}$ 或者矩阵变元 $\boldsymbol{X}=[x_{ij}]_{i=1,j=1}^{m,n}\in\mathbb{R}^{m\times n}$ 本身无任何特殊结构，即向量或矩阵变元的元素之间是各自独立的。
 
 $$
 \frac{\partial x_{i}}{\partial x_{j}}=\delta_{ij}=\begin{cases}1, & i=j \\ 0, & \text { 其他 }\end{cases}
@@ -239,11 +220,11 @@ $$
 \frac{\partial x_{kl}}{\partial x_{ij}}=\delta_{ki}\delta_{lj}=\begin{cases}1, & k=i \text { 且 } l=j \\ 0, & \text { 其他 }\end{cases}
 $$
 
-其中 $\delta_{ij}$ 是 Kronecker符号
+其中 $\delta_{ij}$ 是 Kronecker 符号
 
 !!! example "求实值函数 $f(x)=x^{T}Ax$ 的 Jacobian 矩阵"
     由于 $x^{T}Ax=\sum_{k=1}^{n}\sum_{l=1}^{n}a_{kl}x_{k}x_{l}$
-    
+
     求出行偏导向量 $\frac{\partial x^{T}Ax}{\partial x^{T}}$ 的第 $i$ 个分量为
     
     $$
@@ -266,19 +247,17 @@ $$
 
 ## 微分
 
-
 ### 一些规则
 
+!!! note "偷懒方法：pretend everything is a scalar, use the typical chain rule, and then rearrange/transpose matrices/vectors to make the size work"
 
-!!! note "偷懒方法: pretend everything is a scalar, use the typical chain rule, and then rearrange/transpose matrices/vectors to make the size work"
-
-- 标量函数 
+- 标量函数
 
 $$
 \mathrm{d}[\mathrm{tr}(\mathbf{U})] = \mathrm{d}\left(\sum_{i=1}^{n} u_{ii}\right) = \sum_{i=1}^{n} \mathrm{d}u_{ii} = \mathrm{tr}\left(\mathrm{d}\mathbf{U}\right)
 $$
 
-- 矩阵乘积UV的微分矩阵
+- 矩阵乘积 UV 的微分矩阵
 
 $$
 \mathrm{d}(\mathbf{U}\mathbf{V}) = (\mathrm{d}\mathbf{U})\mathbf{V} + \mathbf{U}(\mathrm{d}\mathbf{V})
@@ -289,7 +268,6 @@ $$
 $$
 \mathrm{d}\left(\mathrm{tr}(\mathbf{X})\right) = \mathrm{tr}(\mathrm{d}\mathbf{X})
 $$
-
 
 - 矩阵转置的微分等于矩阵微分的转置
 
@@ -302,7 +280,6 @@ $$
 $$
 \mathrm{d}(\alpha\boldsymbol{X}+\beta\boldsymbol{Y}) = \alpha\mathrm{d}\boldsymbol{X}+\beta\mathrm{d}\boldsymbol{Y}
 $$
-
 
 ### Jocabian 矩阵辨识
 
@@ -400,9 +377,8 @@ $$
     D_Xf(X)=-X^{-1}A^{-1}X^{-1}
     $$
 
-
-
 ### 复向量
+
 复变量的偏导数定义：
 
 $$
@@ -412,7 +388,7 @@ $$
 \end{cases}
 $$
 
-其中 x 和 y 是相互独立的:
+其中 x 和 y 是相互独立的：
 
 $$
 \begin{cases}
@@ -421,7 +397,7 @@ $$
 \end{cases}
 $$
 
-可以证明 z 和 z* 也是相互独立的:
+可以证明 z 和 z* 也是相互独立的：
 
 $$
 \begin{aligned}
@@ -472,13 +448,9 @@ df(\mathbf{z},\mathbf{z}^*)&=\left[\frac{\partial f(\mathbf{z},\mathbf{z}^*)}{\p
 \end{aligned}
 $$
 
-
-
-
 对于复变量来说，通常要求两个梯度，一个是$\frac{\partial}{\partial z}$，一个是$\frac{\partial}{\partial z^{*}}$
 
-
-### Hession矩阵 
+### Hession 矩阵
 
 先求行偏导，再求梯度
 
@@ -507,31 +479,15 @@ $$
 
 二次型理论
 
-- $\mathbf{H(f)}$负定，有极大值： 奇数阶主子式为负数，偶数阶为正数
+- $\mathbf{H(f)}$负定，有极大值：奇数阶主子式为负数，偶数阶为正数
 - $\mathbf{H(f)}$正定，有极小值：顺序主子式都为正数
 - $\mathbf{H(f)}$不定，鞍点：特征值有正有负
-- $\mathbf{H(f)}$不可逆，无法判断：特征值有0
+- $\mathbf{H(f)}$不可逆，无法判断：特征值有 0
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__LinearAlgebra__assets__02-2-derivative.assets__b05544056c037bc56f9070e45533f02.webp" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
-
-
-
 
 ## 积分
 
 $$
 \int\mathbf{A}\mathrm{d}t=\begin{bmatrix}\int a_{11}\mathrm{d}t&\int a_{12}\mathrm{d}t&\cdots&\int a_{1n}\mathrm{d}t\\\int a_{21}\mathrm{d}t&\int a_{22}\mathrm{d}t&\cdots&\int a_{2n}\mathrm{d}t\\\vdots&\vdots&\ddots&\vdots\\\int a_{m1}\mathrm{d}t&\int a_{m2}\mathrm{d}t&\cdots&\int a_{mn}\mathrm{d}t\end{bmatrix}
 $$
-
-
-
-
-
-
-
-
-
-
-
-
-

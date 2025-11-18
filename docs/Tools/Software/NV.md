@@ -2,9 +2,9 @@
 
 ## CUDA
 
-
 ## TensorRT
-```
+
+```shell
 tar -xzvf TensorRT-10.5.0.18.l4t.aarch64-gnu.cuda-12.6.tar.gz
 ```
 
@@ -14,13 +14,13 @@ cd TensorRT-10.5.0.18/samples/sampleOnnxMNIST
 make
 会在 `/usr/local/TensoRT-10.5.0.18/targets/aarch64-linux-gnu/bin/` 文件夹下得到一个`sample_onnx_mnist`的可执行文件，我们运行它后，会提示不能链接到`libnvinfer.so.8`的库：
 
-运行sample_onnx_mnist出现缺库现象
+运行 sample_onnx_mnist 出现缺库现象
 
 ```shell
 export LD_LIBRARY_PATH=/usr/local/TensorRT-10.5.0.18/targets/aarch64-linux-gnu/lib:$LD_LIBRARY_PATH
 ```
 
-这时候，我们通过命令export将tensorrt的库添加到环境变量中，再次运行sample_onnx_mnist，会得到如下输出即表明tensorrt安装成功
+这时候，我们通过命令 export 将 tensorrt 的库添加到环境变量中，再次运行 sample_onnx_mnist，会得到如下输出即表明 tensorrt 安装成功
 
 ## cuDNN
 
@@ -28,18 +28,14 @@ export LD_LIBRARY_PATH=/usr/local/TensorRT-10.5.0.18/targets/aarch64-linux-gnu/l
 
 ## cuSOLVER
 
-
 ## NVTX
 
 ### 使用
+
 - [nvtx · PyPI](https://pypi.org/project/nvtx/)
 - [nvtx · API Document](https://nvidia.github.io/NVTX/python/reference.html#nvtx.Domain.start_range)
 
-
-
-
 ### 案例
-
 
 ```python title="demo.py"
 import time
@@ -54,10 +50,7 @@ def my_function():
 my_function()
 ```
 
-
-
 ## Nsight System 下载
-
 
 !!! note "Acknowledgements"
 
@@ -81,23 +74,19 @@ my_function()
     - [The Study of Nsight Systerm – 子暘的blog](https://zhangweihao.cn/the-study-of-nsight-systerm/)
     - [使用Nsight Profiling工具对大模型进行性能调优 - 极术社区 - 连接开发者与智能计算生态](https://aijishu.com/a/1060000000483241)
 
+​
 
-​    
+​
 
-​    
+​
 
-​    
-
-
-​    
-
+​
 
 `nsys` 是 NVIDIA Nsight Systems 的命令行工具，可以用于分析 CUDA 应用程序的性能和行为
 
-
 ### 安装
 
-下载地址为：https://developer.nvidia.com/nswight-systems。
+下载地址为：<https://developer.nvidia.com/nswight-systems。>
 
 ```shell
 chmod +x <installer-name>.run
@@ -110,16 +99,13 @@ chmod +x <installer-name>.run
 export PATH="/opt/nvidia/nsight-systems/bin:$PATH"
 ```
 
-
 nsys profile --trace=cuda,cudnn,cublas,osrt,nvtx python demo.py
-
 
 ### profile - CLI - 基本使用
 
 - [Nsight-Systems](https://docs.nvidia.com/nsight-systems/UserGuide/index.html)
 
-
-```
+```shell
 nsys profile -y 30 \
 --trace=cuda,osrt,nvtx \
 --trace-fork-before-exec=true \
@@ -134,50 +120,48 @@ vllm serve /home/user/latency-attack/model/qwen3_0.6B \
     --gpu-memory-utilization 0.85
 ```
 
-
 简单理解：`nsys profile [options] <application>` 会启动一个应用并对它进行系统级和 CUDA 级的性能分析。常用参数分几类：
 
-**采样与回溯**
+采样与回溯
 
-* `-b, --backtrace=`：控制采样时是否收集调用栈，默认 `lbr`（低开销硬件支持），也可以 `fp`、`dwarf` 或 `none`。
-* `-s, --sample=`：是否做 CPU IP/backtrace 采样（`process-tree`、`system-wide`、`none`）。
-* `--sampling-period=`：CPU 采样周期（默认 1,000,000 cycles）。
+- `-b, --backtrace=`：控制采样时是否收集调用栈，默认 `lbr`（低开销硬件支持），也可以 `fp`、`dwarf` 或 `none`。
+- `-s, --sample=`：是否做 CPU IP/backtrace 采样（`process-tree`、`system-wide`、`none`）。
+- `--sampling-period=`：CPU 采样周期（默认 1,000,000 cycles）。
 
-**控制采集范围**
+控制采集范围
 
-* `-c` or `--capture-range`：决定什么时候开始采集（如 `cudaProfilerApi`, `nvtx`, `hotkey`）。
-* `--capture-range-end`：采集范围结束后的行为，比如 `stop`、`repeat` 等。
-* `--duration` or `-d`：直接设置采集时长（秒）。
+- `-c` or `--capture-range`：决定什么时候开始采集（如 `cudaProfilerApi`, `nvtx`, `hotkey`）。
+- `--capture-range-end`：采集范围结束后的行为，比如 `stop`、`repeat` 等。
+- `--duration` or `-d`：直接设置采集时长（秒）。
 
-**CUDA 相关**
+CUDA 相关
 
-* `-t` or `--trace=`：选择要跟踪的 API，默认 `cuda,nvtx,osrt,opengl`。
+- `-t` or `--trace=`：选择要跟踪的 API，默认 `cuda,nvtx,osrt,opengl`。
   例如 `--trace=cuda,cublas,cuDNN`。
-* `--cuda-event-trace=`：跟踪 CUDA Event，同步点。
-* `--cuda-memory-usage=`：跟踪 GPU 内存使用情况。
-* `--cuda-trace-all-apis=`：是否采集所有 CUDA API。
-* `--cudabacktrace`：给特定 CUDA API 调用收集 backtrace。
-* `--cuda-um-*`：跟踪 unified memory 的 CPU/GPU page fault。
+- `--cuda-event-trace=`：跟踪 CUDA Event，同步点。
+- `--cuda-memory-usage=`：跟踪 GPU 内存使用情况。
+- `--cuda-trace-all-apis=`：是否采集所有 CUDA API。
+- `--cudabacktrace`：给特定 CUDA API 调用收集 backtrace。
+- `--cuda-um-*`：跟踪 unified memory 的 CPU/GPU page fault。
 
-**GPU / 系统指标**
+GPU / 系统指标
 
-* `--gpu-metrics-devices=`：采集 GPU 指标（默认 none，可以选 `all` 或具体 GPU ID）。
-* `--gpu-metrics-frequency=`：GPU 指标采样频率（Hz，默认 10000）。
-* `--nic-metrics=`：采集网络适配器指标。
-* `--storage-metrics=`：采集存储吞吐指标（实验性）。
+- `--gpu-metrics-devices=`：采集 GPU 指标（默认 none，可以选 `all` 或具体 GPU ID）。
+- `--gpu-metrics-frequency=`：GPU 指标采样频率（Hz，默认 10000）。
+- `--nic-metrics=`：采集网络适配器指标。
+- `--storage-metrics=`：采集存储吞吐指标（实验性）。
 
-**Python / 深度学习支持**
+Python / 深度学习支持
 
-* `--python-functions-trace=`：指定 JSON 来跟踪 Python 函数（PyTorch、Dask 已有预设）。
-* `--pytorch=`：启用 PyTorch 特殊标记，如 `autograd-nvtx`。
-* `--dask=`：类似，用于 Dask。
+- `--python-functions-trace=`：指定 JSON 来跟踪 Python 函数（PyTorch、Dask 已有预设）。
+- `--pytorch=`：启用 PyTorch 特殊标记，如 `autograd-nvtx`。
+- `--dask=`：类似，用于 Dask。
 
-**输出**
+输出
 
-* `-o, --output=`：结果文件前缀（默认 `report1`）。
-* `--export=`：选择额外的导出格式（`sqlite`, `json`, `text` 等）。
-* `--stats=`：是否生成汇总统计。
-
+- `-o, --output=`：结果文件前缀（默认 `report1`）。
+- `--export=`：选择额外的导出格式（`sqlite`, `json`, `text` 等）。
+- `--stats=`：是否生成汇总统计。
 
 ✅ **常用命令示例**（假设要分析一个 PyTorch 脚本 `train.py`）：
 
@@ -199,26 +183,21 @@ nsys profile -c cudaProfilerApi -o result python train.py
 nsys profile -d 30 -o result --export=sqlite,json python train.py
 ```
 
-
-
 ### GUI - 基本使用
 
-- zoom in: 
+- zoom in:
   - 选中区域`shift + z`
-  - ctrl+滚轮 / command + 滚轮
-- option/alt + 滚轮: 水平移动
-- `backspace ` 返回上一个视图
+  - ctrl+ 滚轮 / command + 滚轮
+- option/alt + 滚轮：水平移动
+- `backspace` 返回上一个视图
 
-
-### GUI - SSH连接
-
-
+### GUI - SSH 连接
 
 ### 问题
 
 #### 测试
 
-用GPT写了一个使用NVTX打标的，带有CUDA命令交互 的程序，用于测试环境配置，代码如下
+用 GPT 写了一个使用 NVTX 打标的，带有 CUDA 命令交互 的程序，用于测试环境配置，代码如下
 
 ??? note "NVTX CUDA demo"
 
@@ -392,23 +371,19 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 正常运行后，应该显示类似如下图的结果
 
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816231533984.webp)
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816231533984.webp)
 
 #### 版本问题
 
 #### 路径问题
 
-#### 无法连接GPU
+#### 无法连接 GPU
 
+遇到的问题是`CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.`且 GPU 没有抓取到信息
 
+![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816230828474.webp)
 
-遇到的问题是`CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.`且GPU没有抓取到信息
-
-![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816230828474.webp)
-
-我的使用环境是：在windows上运行Nsight System，使用ssh连接wsl虚拟机，进行连接
-
-
+我的使用环境是：在 windows 上运行 Nsight System，使用 ssh 连接 wsl 虚拟机，进行连接
 
 首先检查安装问题
 
@@ -418,9 +393,9 @@ nsys --version
 nvidia-smi
 ```
 
-其次检查windows端有没有打开
+其次检查 windows 端有没有打开
 
-[![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__da2a85828fee97f1940e26df6c043bf8a598dbb8.webp)](https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png)
+[![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__da2a85828fee97f1940e26df6c043bf8a598dbb8.webp)](https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png)
 
 最后找到了官方论坛上关于这个问题的讨论，[Nsight system error : Unified Memory cannot be traced on devices that don't support peer-to-peer transfers  - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsight-system-error-unified-memory-cannot-be-traced-on-devices-that-dont-support-peer-to-peer-transfers/294742/2)
 
@@ -430,13 +405,13 @@ nvidia-smi
 
 给出了下面的解决方法
 
-
 ```shell title="find ini"
 $ nsys -z
 /home/liuyis/.config/NVIDIA Corporation/nsys-config.ini
 ```
 
 Create the config.ini file if it does not already exist. Note the path might have a space in it so it needs to be wrapped by quotes
+
 ```shell title="create ini"
 mkdir -p "/home/liuyis/.config/NVIDIA Corporation"
 touch "/home/liuyis/.config/NVIDIA Corporation/nsys-config.ini"
@@ -449,14 +424,16 @@ echo "CuptiUseRawGpuTimestamps=false" > "/home/liuyis/.config/NVIDIA Corporation
 ```
 
 但是没有解决问题
-#### 无法打开vllm
+
+#### 无法打开 vllm
+
 [[Bug]: nsys cann't open the file · Issue #19903 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/19903)
 
 [[Bug]: Failed profiling vllm (both offline and server) with Nsight Systems · Issue #20178 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/20178)
 
-#### 无法显示CUDA信息
+#### 无法显示 CUDA 信息
 
-[[Perf][Spec Decode] EAGLE Kernel Fusion + Synchronization Overhead Reduction by leo-cf-tian · Pull Request #20078 · vllm-project/vllm](https://github.com/vllm-project/vllm/pull/20078)
+[EAGLE Kernel Fusion + Synchronization Overhead Reduction by leo-cf-tian · Pull Request #20078 · vllm-project/vllm](https://github.com/vllm-project/vllm/pull/20078)
 
 [[Bug]: nsys profiler failed to collect CUDA events on vLLM 0.9.2 · Issue #20959 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/20959)
 
@@ -464,80 +441,44 @@ echo "CuptiUseRawGpuTimestamps=false" > "/home/liuyis/.config/NVIDIA Corporation
 
 [Nsys 无法捕获 cuda 信息 - Nsight Systems / Profiling DRIVE Targets - NVIDIA 开发者论坛 --- Nsys cannot capture cuda information - Nsight Systems / Profiling DRIVE Targets - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsys-cannot-capture-cuda-information/330762)
 
-
 [[Core] Nsys can't capture any information · Issue #42139 · ray-project/ray](https://github.com/ray-project/ray/issues/42139#issuecomment-2141724352)
-
 
 [[Bug]: vLLM with ray backend and enable nsight can't get perf metrics due to connection issue · Issue #7830 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/7830)
 
-#### 多进程只有主线程显示CUDA信息
+#### 多进程只有主线程显示 CUDA 信息
 
 [[Bug]: nsys cannot track the cuda kernel called by the process except rank 0 · Issue #5132 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/5132)
 
-
---event-sample=system-wide 
+--event-sample=system-wide
 
 Not really, this only enables the “event sampling” feature, which indirectly enabled the “CPU sampling” feature and that’s why you can see the background Python process and the callstack in my screenshot. However, for trace features like CUDA trace, OSRT trace, there is no system-wide support and the process has to be launched by Nsys.
 
 Nsys does not support attaching to running processes. You’ll need to launch the process through Nsys, i.e. something like `nsys profile --trace=osrt,cuda <the background app that run CUDA workload>`
 
-
-#### 多卡无法显示CUDA信息
-
+#### 多卡无法显示 CUDA 信息
 
 [[Misc]: nsys profile can not show CUDA HW on all devices · Issue #10708 · vllm-project/vllm](https://github.com/vllm-project/vllm/issues/10708)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [[misc] nsys profile output kernel classifier and visualizer by gracehonv · Pull Request #22971 · vllm-project/vllm](https://github.com/vllm-project/vllm/pull/22971)
 
-
-
-
-
-
-
-
-
-
-
-#### 无法连接CPU
+#### 无法连接 CPU
 
 Unable to collect CPU kernel IP/backtrace samples. perf event paranoid level is 2.
 Change the paranoid level to 1 to enable CPU kernel sample collection.
 
-
 ```shell
 sudo sh -c 'echo 1 >/proc/sys/kernel/perf_event_paranoid'
 ```
+
 to change the paranoid level to 1.
-
-
 
 ## Nsight Compute
 
 !!! note "Acknowledgements"
     使用教程：
 
-    - [【教程向】如何在wsl2上使用Nsight compute CLI进行profiling - 知乎](https://zhuanlan.zhihu.com/p/706903160)
-
-
-
+    - [【教程向】如何在 wsl2 上使用 Nsight compute CLI 进行 profiling - 知乎](https://zhuanlan.zhihu.com/p/706903160)
 
 ### roofline Analysis
-
 
 ### Memory Chart
