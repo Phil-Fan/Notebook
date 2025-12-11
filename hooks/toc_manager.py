@@ -1,7 +1,7 @@
 """
 TOC Manager for MkDocs
-改编自https://github.com/TonyCrane/note/tree/master/hooks
-todo: template修改的好看一些
+改编自 https://github.com/TonyCrane/note/tree/master/hooks
+todo: template 修改的好看一些
 """
 
 import os
@@ -30,30 +30,30 @@ class Statistics:
     words: int = 0        # 文档总字数（中英文）
     codes: int = 0   # 代码总行数
     read_time: int = 0    # 预计阅读时间（分钟）
-    update_time: int = 0  # 最后更新时间（Unix时间戳）
+    update_time: int = 0  # 最后更新时间（Unix 时间戳）
 
 class GitManager:
     """
-    Git仓库管理器
-    提供高效的Git仓库操作和缓存机制
+    Git 仓库管理器
+    提供高效的 Git 仓库操作和缓存机制
     """
     _repo_cache: Dict[str, Git] = {}
     
     @classmethod
     def get_repo(cls, path: Union[str, Path]) -> Git:
         """
-        获取Git仓库实例，使用缓存机制避免重复初始化
+        获取 Git 仓库实例，使用缓存机制避免重复初始化
         
-        参数:
+        参数：
             path: 文件或目录路径
             
-        返回:
-            Git仓库实例
+        返回：
+            Git 仓库实例
             
-        说明:
+        说明：
             - 对于文件路径，自动获取其所在目录
             - 使用路径作为缓存键，避免重复创建仓库实例
-            - 支持向上查找父目录中的Git仓库
+            - 支持向上查找父目录中的 Git 仓库
         """
         path = Path(path).resolve()
         if not path.is_dir():
@@ -69,15 +69,15 @@ class GitManager:
         """
         获取文件最后一次有效提交的时间戳
         
-        参数:
+        参数：
             path: 文件路径
-            ignore_commits: 需要忽略的提交SHA列表
+            ignore_commits: 需要忽略的提交 SHA 列表
             
-        返回:
-            最后一次有效提交的Unix时间戳
+        返回：
+            最后一次有效提交的 Unix 时间戳
             
-        说明:
-            - 可以通过ignore_commits列表忽略特定的提交
+        说明：
+            - 可以通过 ignore_commits 列表忽略特定的提交
             - 如果所有提交都被忽略，返回当前时间戳
             - 出现错误时会记录警告并返回当前时间戳
         """
@@ -89,7 +89,7 @@ class GitManager:
                 timestamp = repo.log(str(path), format="%at", n=1)
                 return int(timestamp) if timestamp else int(time.time())
             except Exception as e:
-                logger.warning(f"获取{path}的提交时间失败: {e}")
+                logger.warning(f"获取{path}的提交时间失败：{e}")
                 return int(time.time())
                 
         try:
@@ -99,20 +99,20 @@ class GitManager:
                 if not any(sha.startswith(ic) for ic in ignore_commits):
                     return int(timestamp)
         except Exception as e:
-            logger.warning(f"获取{path}的提交历史失败: {e}")
+            logger.warning(f"获取{path}的提交历史失败：{e}")
             
         return int(time.time())
 
 class MarkdownProcessor:
     """
-    Markdown文档处理器
-    提供高效的Markdown文本处理和统计功能
+    Markdown 文档处理器
+    提供高效的 Markdown 文本处理和统计功能
     """
     
     @staticmethod
     def process_markdown(content: str) -> Tuple[int, int, int]:
         """
-        处理Markdown内容并返回统计信息
+        处理 Markdown 内容并返回统计信息
         修复了代码行数统计的问题，现在正确处理代码块
         """
         # 提取代码块，保留完整内容
@@ -137,7 +137,7 @@ class MarkdownProcessor:
         for block in code_blocks:
             content = content.replace(block, '')
         
-        # 清理Markdown语法
+        # 清理 Markdown 语法
         content = re.sub(r"<!--.*?-->", "", content, flags=re.DOTALL)
         content = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", content)
         content = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", content)
@@ -148,12 +148,12 @@ class MarkdownProcessor:
         chinese_chars = len(re.findall(r"[\u4e00-\u9fa5]", content))
         english_words = len(re.findall(r"\b[a-zA-Z0-9]+\b", content))
         
-        # 正确计算代码行数（不包括首尾的```）
+        # 正确计算代码行数（不包括首尾的 ```）
         codes = 0
         for block in code_blocks:
             lines = block.split('\n')
             if len(lines) > 2:  # 确保至少有开始、内容和结束
-                codes += len(lines) - 2  # 减去首尾的```行
+                codes += len(lines) - 2  # 减去首尾的 ``` 行
         
         words = chinese_chars + english_words
         read_time = round(words / 300 + codes / 80)  # 标准阅读速度
@@ -165,17 +165,22 @@ class TOCManager:
     目录管理器主类
     负责生成和管理文档的目录结构
     """
+
+    _FULLWIDTH_PUNCT_MAP = str.maketrans({
+        "：": ":",
+        "﹕": ":",  # 兼容少数输入法的全宽冒号
+    })
     
     def __init__(self, template_path: Union[str, Path]):
         """
         初始化目录管理器
         
-        参数:
+        参数：
             template_path: 目录模板文件的路径
             
-        说明:
+        说明：
             - 读取并编译目录模板
-            - 模板用于生成最终的HTML目录结构
+            - 模板用于生成最终的 HTML 目录结构
         """
         self.template_path = Path(template_path)
         with open(self.template_path, 'r', encoding='utf-8') as f:
@@ -183,21 +188,21 @@ class TOCManager:
             
     def _normalize_path(self, path: str, use_directory_urls: bool) -> str:
         """
-        规范化URL路径
+        规范化 URL 路径
         
-        参数:
+        参数：
             path: 原始路径
-            use_directory_urls: 是否使用目录形式的URL
+            use_directory_urls: 是否使用目录形式的 URL
             
-        返回:
-            规范化后的URL路径
+        返回：
+            规范化后的 URL 路径
             
-        说明:
+        说明：
             - 保持外部链接和锚点不变
             - 根据配置转换内部链接格式
-            - 支持index.md特殊处理
+            - 支持 index.md 特殊处理
         """
-        # 保持绝对URL不变
+        # 保持绝对 URL 不变
         # print(path)
         if path.startswith(("http://", "https://", "#")):
             return path
@@ -206,10 +211,10 @@ class TOCManager:
         if path.startswith("#"):
             return path
             
-        # 规范化markdown路径
+        # 规范化 markdown 路径
         if path.endswith(".md"):
             if use_directory_urls:
-                # index.md -> 目录URL
+                # index.md -> 目录 URL
                 if path.endswith("index.md"):
                     return path[:-8]
                 return path[:-3] + "/"
@@ -226,16 +231,16 @@ class TOCManager:
         """
         获取文件或目录的统计信息
         
-        参数:
+        参数：
             path: 文件或目录路径
             ignore_commits: 需要忽略的提交列表
             
-        返回:
-            Statistics对象，包含统计信息
+        返回：
+            Statistics 对象，包含统计信息
             
-        说明:
+        说明：
             - 支持单个文件和整个目录的统计
-            - 递归处理目录中的所有.md文件
+            - 递归处理目录中的所有.md 文件
             - 合并统计信息，包括更新时间
         """
         stats = Statistics()
@@ -259,7 +264,7 @@ class TOCManager:
                     stats.read_time = read_time
                     stats.update_time = GitManager.get_latest_commit_time(path, ignore_commits)
             except Exception as e:
-                logger.error(f"处理文件{path}失败: {e}")
+                logger.error(f"处理文件{path}失败：{e}")
                 
         return stats
         
@@ -267,17 +272,17 @@ class TOCManager:
         """
         处理单个目录项
         
-        参数:
+        参数：
             item: 目录项配置字典
             base_path: 基础路径
-            use_directory_urls: 是否使用目录形式的URL
+            use_directory_urls: 是否使用目录形式的 URL
             
-        返回:
+        返回：
             处理后的目录项字典
             
-        说明:
+        说明：
             - 支持简单键值对和嵌套结构
-            - 处理index文件和普通文件
+            - 处理 index 文件和普通文件
             - 计算每个文件的统计信息
             - 按更新时间排序子项
         """
@@ -287,11 +292,11 @@ class TOCManager:
         result["title"] = title
         
         if isinstance(item[title], str):
-            # 获取相对于base_path的路径
+            # 获取相对于 base_path 的路径
             rel_path = item[title]
             abs_path = Path(base_path) / rel_path
             
-            # 生成相对URL
+            # 生成相对 URL
             result["link"] = self._normalize_path(rel_path, use_directory_urls)
             
             # 获取统计信息
@@ -341,27 +346,28 @@ class TOCManager:
 
     def process_markdown(self, content: str, page: Page, config: MkDocsConfig) -> str:
         """
-        处理Markdown内容并生成目录
+        处理 Markdown 内容并生成目录
         
-        参数:
-            content: Markdown内容
-            page: MkDocs页面对象
-            config: MkDocs配置对象
+        参数：
+            content: Markdown 内容
+            page: MkDocs 页面对象
+            config: MkDocs 配置对象
             
-        返回:
-            处理后的Markdown内容
+        返回：
+            处理后的 Markdown 内容
             
-        说明:
+        说明：
             - 查找并解析目录标记
-            - 处理YAML格式的目录配置
-            - 生成HTML格式的目录
-            - 替换原始标记为生成的HTML
+            - 处理 YAML 格式的目录配置
+            - 生成 HTML 格式的目录
+            - 替换原始标记为生成的 HTML
         """
         if "{{ BEGIN_TOC }}" not in content or "{{ END_TOC }}" not in content:
             return content
             
         try:
             toc_yml = content.split("{{ BEGIN_TOC }}")[1].split("{{ END_TOC }}")[0]
+            toc_yml = self._normalize_toc_yaml(toc_yml)
             toc_config = yaml.safe_load(toc_yml)
             
             base_path = Path(page.file.abs_src_path).parent
@@ -381,20 +387,35 @@ class TOCManager:
             )
             
         except Exception as e:
-            logger.error(f"处理目录失败: {e}")
+            logger.error(f"处理目录失败：{e}")
             return content
 
-# 全局TOC管理器实例
+    def _normalize_toc_yaml(self, toc_yml: str) -> str:
+        """兼容 full-width 冒号导致的 YAML 解析失败"""
+        if not toc_yml:
+            return toc_yml
+
+        normalized = toc_yml.translate(self._FULLWIDTH_PUNCT_MAP)
+
+        fixed_lines = []
+        for line in normalized.splitlines():
+            if "://" not in line:
+                line = re.sub(r":(?=\S)", ": ", line)
+            fixed_lines.append(line)
+
+        return "\n".join(fixed_lines)
+
+# 全局 TOC 管理器实例
 _toc_manager = None
 
 def get_toc_manager() -> TOCManager:
     """
-    获取或创建全局TOC管理器实例
+    获取或创建全局 TOC 管理器实例
     
-    返回:
-        TOC管理器实例
+    返回：
+        TOC 管理器实例
         
-    说明:
+    说明：
         - 使用单例模式
         - 延迟初始化，首次使用时才创建实例
         - 自动查找模板文件
@@ -407,20 +428,20 @@ def get_toc_manager() -> TOCManager:
 
 def on_page_markdown(markdown: str, page: Page, config: MkDocsConfig, **kwargs) -> str:
     """
-    MkDocs的页面处理钩子函数
+    MkDocs 的页面处理钩子函数
     
-    参数:
-        markdown: 原始Markdown内容
-        page: MkDocs页面对象
-        config: MkDocs配置对象
+    参数：
+        markdown: 原始 Markdown 内容
+        page: MkDocs 页面对象
+        config: MkDocs 配置对象
         **kwargs: 额外参数
         
-    返回:
-        处理后的Markdown内容
+    返回：
+        处理后的 Markdown 内容
         
-    说明:
-        - MkDocs插件系统的入口点
-        - 调用TOC管理器处理页面内容
+    说明：
+        - MkDocs 插件系统的入口点
+        - 调用 TOC 管理器处理页面内容
         - 处理失败时保持原内容不变
     """
     return get_toc_manager().process_markdown(markdown, page, config)
