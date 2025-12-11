@@ -25,7 +25,7 @@ Proxifier 的主要功能：
 - 支持网络请求的截获并动态修改
 - 支持模拟慢速网络
 
-### 配置
+### 配置方法
 
 1. 顶部 Profile 菜单 - Advanced Options - HTTP Proxy - Enabled HTTP proxy servers support
 2. 顶部 Profile 菜单 - Proxy Server - Add
