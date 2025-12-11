@@ -2,6 +2,44 @@
 
 ## 抓包 - Wireshark
 
+### 配置
+
+You don‘t have permission to capture on local interfaces 的问题
+
+[解决 Wireshark: You don‘t have permission to capture on local interfaces 的问题 - 知乎](https://zhuanlan.zhihu.com/p/637004817)
+
+```shell
+sudo launchctl enable system/org.wireshark.ChmodBPF
+sudo launchctl load '/Library/LaunchDaemons/org.wireshark.ChmodBPF.plist'
+```
+
+## 抓包 - Proxifier
+
+[Proxifier - The Most Advanced Proxy Client](https://www.proxifier.com/)
+
+Proxifier 的主要功能：
+
+- 截取 Http 和 Https 网络封包
+- 支持重发网络请求，方便后端调试
+- 支持修改网络请求参数
+- 支持网络请求的截获并动态修改
+- 支持模拟慢速网络
+
+### 配置
+
+1. 顶部 Profile 菜单 - Advanced Options - HTTP Proxy - Enabled HTTP proxy servers support
+2. 顶部 Profile 菜单 - Proxy Server - Add
+
+   ```text
+   name: 127.0.0.1
+   Port: 8088
+   type: HTTPS
+   ```
+
+3. 顶部 Profile 菜单 - Proxificaiton rules - Add - Application - 加号 - 选择要抓包的应用程序
+
+## 抓包 - Yakit
+
 ## 抓包 - Charles
 
 Charles 的主要功能：
@@ -12,7 +50,7 @@ Charles 的主要功能：
 - 支持网络请求的截获并动态修改
 - 支持模拟慢速网络
 
-### 配置
+### 配置方法
 
 [Download a Free Trial of Charles • Charles Web Debugging Proxy](https://www.charlesproxy.com/download/)
 

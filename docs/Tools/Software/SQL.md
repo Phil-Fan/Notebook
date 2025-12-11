@@ -221,7 +221,7 @@ SELECT SLEEP(2);
 SELECT 1, DATABASE(), VERSION(), USER(), ASCII('A'), CONCAT('A','B');
 
 
-SELECT col_name1, col_name2… FROM table_name LIMIT N, M  /*从第N(从0开始)条开始返回M条数据*/
+SELECT col_name1, col_name2… FROM table_name LIMIT N, M  /*从第 N(从 0 开始) 条开始返回 M 条数据*/
 SELECT col_name1, col_name2… FROM table_name LIMIT M OFFSET N  /*也可以这么写*/
 
 SELECT concat(col_name1, col_name2…) FROM table_name /*整合列数据*/

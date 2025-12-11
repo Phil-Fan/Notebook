@@ -44,6 +44,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
+```shell title="换源版本"
+git clone https://gh-proxy.org/https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://gh-proxy.org/https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+```
+
 ```shell title="配置~/.zshrc"
 plugins=(
   git
@@ -389,7 +394,39 @@ screen -wipe #清理那些dead的会话
 
 [远程神器 screen 命令的保姆级详解教程 + 举例-CSDN 博客](https://blog.csdn.net/weixin_39925939/article/details/121033427)
 
-## 内网穿透
+## 网络
+
+### 换源
+
+[Ubuntu | ZJU Mirror](https://mirror.zju.edu.cn/docs/ubuntu/)
+
+### 反向代理
+
+1. 本地执行 SSH 反向端口转发
+
+   ```shell
+   ssh -R 1080:127.0.0.1:7890 root@10.13.21.42 -p 48128
+   ```
+
+   `-R 1080:127.0.0.1:7890`→ 把远程服务器的 `127.0.0.1:1080` 映射到你本地的 `127.0.0.1:7890`
+
+   连上以后，你在远程服务器上可以看到本地代理被映射到远程的 `127.0.0.1:1080`
+
+2. 远程服务器设置代理变量
+
+   ```shell
+   export http_proxy=http://127.0.0.1:1080
+   export https_proxy=http://127.0.0.1:1080
+   export all_proxy=socks5://127.0.0.1:1080
+   ```
+
+3. 测试
+
+   ```shell
+   curl -I https://www.google.com
+   ```
+
+### 内网穿透
 
 公网：人人都可以访问
 
@@ -397,126 +434,126 @@ screen -wipe #清理那些dead的会话
 
 内网穿透就是将内网的服务暴露给公网访问
 
-### Server 端配置
+=== "Server 端配置"
 
-下载安装包
+   下载安装包
 
-```shell title="解压"
-tar -zxvf frp_0.61.2_linux_amd64.tar.gz
-```
+   ```shell title="解压"
+   tar -zxvf frp_0.61.2_linux_amd64.tar.gz
+   ```
 
-```shell title="进入目录"
-cd frp_0.61.2_linux_amd64
-```
+   ```shell title="进入目录"
+   cd frp_0.61.2_linux_amd64
+   ```
 
-```shell title="编辑 frps.toml"
-vim frps.toml
-```
+   ```shell title="编辑 frps.toml"
+   vim frps.toml
+   ```
 
-```toml title="frps.toml"
-bindPort = 7000      # 服务端与客户端通信端口
-# vhostHTTPPort = 80   # 如果客户端需要使用 http 服务，在这里配置代理端口
+   ```toml title="frps.toml"
+   bindPort = 7000      # 服务端与客户端通信端口
+   # vhostHTTPPort = 80   # 如果客户端需要使用 http 服务，在这里配置代理端口
 
-auth.token = "token"                    # 身份验证令牌，frpc 要与 frps 一致
+   auth.token = "token"                    # 身份验证令牌，frpc 要与 frps 一致
 
-# Server Dashboard，可以查看 frp 服务状态以及统计信息
-webServer.addr = "0.0.0.0"              # 后台管理地址
-webServer.port = 7500                   # 后台管理端口
-webServer.user = "admin"                # 后台登录用户名
-webServer.password = "admin"            # 后台登录密码
-```
+   # Server Dashboard，可以查看 frp 服务状态以及统计信息
+   webServer.addr = "0.0.0.0"              # 后台管理地址
+   webServer.port = 7500                   # 后台管理端口
+   webServer.user = "admin"                # 后台登录用户名
+   webServer.password = "admin"            # 后台登录密码
+   ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-server.assets__20250318114804586.webp)
+   ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-server.assets__20250318114804586.webp)
 
-访问公网 ip 的 7500 端口，可以查看 frp 服务状态以及统计信息
+   访问公网 ip 的 7500 端口，可以查看 frp 服务状态以及统计信息
 
-!!! note "注意这里需要在 aliyun 控制台的安全组中添加 7000 和 7500 端口"
-    ```shell title="开放服务端端口"
-    sudo ufw allow 7000/tcp    # FRP主端口
-    sudo ufw allow 7500/tcp    # 仪表盘
-    sudo ufw allow 40443/tcp   # HTTP穿透
-    sudo ufw allow 40800/tcp   # HTTPS穿透
-    ```
+   !!! note "注意这里需要在 aliyun 控制台的安全组中添加 7000 和 7500 端口"
+      ```shell title="开放服务端端口"
+      sudo ufw allow 7000/tcp    # FRP主端口
+      sudo ufw allow 7500/tcp    # 仪表盘
+      sudo ufw allow 40443/tcp   # HTTP穿透
+      sudo ufw allow 40800/tcp   # HTTPS穿透
+      ```
 
-```shell title="后台运行"
-#服务器端
-nohup ./frps -c frps.toml &
-```
+   ```shell title="后台运行"
+   #服务器端
+   nohup ./frps -c frps.toml &
+   ```
 
-### Client 端配置
+=== "Client 端配置"
 
-接下来配置客户端侧（frpc = frp client）
+   接下来配置客户端侧（frpc = frp client）
 
-```shell title="客户端"
-#客户端
-nohup ./frpc -c frpc.toml &
-```
+   ```shell title="客户端"
+   #客户端
+   nohup ./frpc -c frpc.toml &
+   ```
 
-```shell title="开机自启动"
-sudo vi /etc/rc.local  
+   ```shell title="开机自启动"
+   sudo vi /etc/rc.local  
 
-#自行修改为绝对路径
-nohup /root/frp/frpc -c /root/frp/frpc.toml &
-```
+   #自行修改为绝对路径
+   nohup /root/frp/frpc -c /root/frp/frpc.toml &
+   ```
 
-```shell title="编辑 frpc.ini"
-[common]
-server_addr = <server_ip>
-server_port = 7000              # 服务端 bind_port
-auth.token = "your_secure_token_here"
+   ```shell title="编辑 frpc.ini"
+   [common]
+   server_addr = <server_ip>
+   server_port = 7000              # 服务端 bind_port
+   auth.token = "your_secure_token_here"
 
-# ----------- TCP 穿透示例（SSH 服务）------------
-[ssh]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 22
-remote_port = 6000
-```
+   # ----------- TCP 穿透示例（SSH 服务）------------
+   [ssh]
+   type = tcp
+   local_ip = 127.0.0.1
+   local_port = 22
+   remote_port = 6000
+   ```
 
-!!! note "特别注意，字符串要加双引号，数字和 ip 不要加双引号，尽量不要写注释"
+   !!! note "特别注意，字符串要加双引号，数字和 ip 不要加双引号，尽量不要写注释"
 
-```shell title="启动"
-./frpc -c frpc.ini
-```
+   ```shell title="启动"
+   ./frpc -c frpc.ini
+   ```
 
-这个时候，服务端应该会收到客户端的连接请求，可以看到类似如下信息
+   这个时候，服务端应该会收到客户端的连接请求，可以看到类似如下信息
 
-```shell title="成功信息"
+   ```shell title="成功信息"
 
-```
+   ```
 
-```shell title="可以使用这个指令查看 server 有没有监测端口，如果没有的话就是配置错误问题"
-sudo netstat -tulnp | grep ':6000'
-```
+   ```shell title="可以使用这个指令查看 server 有没有监测端口，如果没有的话就是配置错误问题"
+   sudo netstat -tulnp | grep ':6000'
+   ```
 
-```shell title="ssh 连接"
-ssh -p 6000 <client_username>@<server_ip>
-```
+   ```shell title="ssh 连接"
+   ssh -p 6000 <client_username>@<server_ip>
+   ```
 
-要特别注意这里是 client 的 username，而不是 server 的 username
+   要特别注意这里是 client 的 username，而不是 server 的 username
 
-这个时候应该就可以配置成功了
+   这个时候应该就可以配置成功了
 
-```shell title="开放端口"
-sudo firewall-cmd --zone=public --add-port=7000/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=7500/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=6000/tcp --permanent
+   ```shell title="开放端口"
+   sudo firewall-cmd --zone=public --add-port=7000/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=7500/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=6000/tcp --permanent
 
-sudo firewall-cmd --reload
-```
+   sudo firewall-cmd --reload
+   ```
 
-!!! note "如果报错了试着使用 su 权限运行一下，说不定可以"
+   !!! note "如果报错了试着使用 su 权限运行一下，说不定可以"
 
-[error unmarshaling JSON: while decoding JSON: json: cannot unmarshal string into Go value of type v1.ServerConfig · Issue #3657 · fatedier/frp](https://github.com/fatedier/frp/issues/3657)
+   [error unmarshaling JSON: while decoding JSON: json: cannot unmarshal string into Go value of type v1.ServerConfig · Issue #3657 · fatedier/frp](https://github.com/fatedier/frp/issues/3657)
 
-| **场景**                     | **代理类型** | **本地端口** | **远程端口** | **用途** |
-|------------------------------|-------------|--------------|--------------|----------|
-| 远程 SSH 访问                | TCP         | 22           | 6000         | 远程 SSH 进内网服务器 |
-| 内网 Web 服务器访问          | HTTP        | 8080         | 8081         | 访问本地网站 |
-| 访问家中 NAS / 服务器        | TCP         | 445/5005     | 4445/5055    | 远程访问 SMB 或 WebDAV |
-| 远程数据库访问               | TCP         | 3306/5432    | 13306/15432  | 远程连接 MySQL / PostgreSQL |
-| 远程桌面（RDP）              | TCP         | 3389         | 13389        | 远程控制 Windows |
-| 远程管理 Docker API          | TCP         | 2375         | 12375        | 远程管理 Docker |
+   | **场景**                     | **代理类型** | **本地端口** | **远程端口** | **用途** |
+   |------------------------------|-------------|--------------|--------------|----------|
+   | 远程 SSH 访问                | TCP         | 22           | 6000         | 远程 SSH 进内网服务器 |
+   | 内网 Web 服务器访问          | HTTP        | 8080         | 8081         | 访问本地网站 |
+   | 访问家中 NAS / 服务器        | TCP         | 445/5005     | 4445/5055    | 远程访问 SMB 或 WebDAV |
+   | 远程数据库访问               | TCP         | 3306/5432    | 13306/15432  | 远程连接 MySQL / PostgreSQL |
+   | 远程桌面（RDP）              | TCP         | 3389         | 13389        | 远程控制 Windows |
+   | 远程管理 Docker API          | TCP         | 2375         | 12375        | 远程管理 Docker |
 
 ## 远程连接
 

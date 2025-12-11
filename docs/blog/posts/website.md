@@ -176,5 +176,5 @@ dig www.philfan.cn +short
 
 ```html
 http://philfan.cn
-https://philfan.cn   （如已配置 HTTPS）
+https://philfan.cn（如已配置 HTTPS）
 ```

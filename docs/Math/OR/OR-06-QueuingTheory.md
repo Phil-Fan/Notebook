@@ -6,7 +6,7 @@
 
 ## 主要参数
 
-对于常见的大部分模型，我们均假设顾客抵达时间的分布，服务台服务时间的分布为独立同分布(independent and identically distributed), 通用队列模型表达式如下:
+对于常见的大部分模型，我们均假设顾客抵达时间的分布，服务台服务时间的分布为独立同分布 (independent and identically distributed), 通用队列模型表达式如下：
 
 | 参数 | 含义 |
 |------|------|

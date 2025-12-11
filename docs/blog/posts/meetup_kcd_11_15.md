@@ -22,14 +22,14 @@ DRA dynamic resource allocation
 - 小模型在垂直领域更稳定幻觉更少
 - AWS：提供粒度为半卡的调度。痛点：还是太大了
 
-dynamia.ai：异构GPU资源调度(主要负责南北向流量的资源申请)
+dynamia.ai：异构 GPU 资源调度 (主要负责南北向流量的资源申请)
 
 - 调度器层：调度器扩展
-- 容器层：hami core符号劫持
+- 容器层：hami core 符号劫持
 
 volcano
 
-- 也使用hami core
+- 也使用 hami core
 - 任务级调度能力较优
 
 ## multi-agent
@@ -61,22 +61,22 @@ swarm mode: decentralized; share context
 put & func call in vLLM
 
 - choice：`choice = ["red","green"]`
-- regex：json schema
+- regex: json schema
 - son
 - grammar
 - sql
 - EBNF / Lark grammars
 
-中间输出json
+中间输出 json
 
 - structural tag
 
-guided output 的CPU bubble问题
+guided output 的 CPU bubble 问题
 
 ### 原理
 
-- 在sampler 中把不符合要求的去除
-- 状态机跟踪某个时间点哪些token是合规的
+- 在 sampler 中把不符合要求的去除
+- 状态机跟踪某个时间点哪些 token 是合规的
 
 ### tool parser
 
@@ -92,7 +92,7 @@ RBG 是面向多角色协同场景设计的工作负载
 
 - 多角色的创建、调度、升级、故障自愈、服务发现
 
-## 蚂蚁： Gateway API inference extension GIE
+## 蚂蚁：Gateway API inference extension GIE
 
 什么是云原生
 
@@ -104,11 +104,11 @@ genai-bench
 llm-optimizer
 SLO
 
-goodput 的理念：满足SLO约束的
+goodput 的理念：满足 SLO 约束的
 
 GuideLLM from vllm
 
-stepfun的论文
+stepfun 的论文
 
 计数器
 

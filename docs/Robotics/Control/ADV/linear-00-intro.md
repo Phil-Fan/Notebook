@@ -30,13 +30,13 @@ comments: true
 │  现代控制理论.xmind
 │
 ├─01-作业
-│      01周作业参考答案.pdf
-│      02周作业参考答案.pdf
-│      03周作业参考答案.pdf
-│      05周作业－答案.pdf
-│      06周作业参考答案.pdf
-│      07周作业参考答案(1).pdf
-│      08周作业参考答案.pdf
+│      01 周作业参考答案.pdf
+│      02 周作业参考答案.pdf
+│      03 周作业参考答案.pdf
+│      05 周作业－答案.pdf
+│      06 周作业参考答案.pdf
+│      07 周作业参考答案 (1).pdf
+│      08 周作业参考答案.pdf
 │
 ├─02-实验
 │  ├─Matlab
@@ -45,10 +45,10 @@ comments: true
 │  │      experiment1_3.m
 │  │      matlab 实验参考指导书_1.pdf
 │  │      matlab 实验参考指导书_2.pdf
-│  │      Matlab实验1.pdf
-│  │      matlab实验.docx
-│  │      Matlab实验2.pdf
-│  │      matlab实验.docx
+│  │      Matlab 实验 1.pdf
+│  │      matlab 实验.docx
+│  │      Matlab 实验 2.pdf
+│  │      matlab 实验.docx
 │  │      Untitled.m
 │  │      Untitled2.m
 │  │      Untitled3.m
@@ -57,9 +57,9 @@ comments: true
 │  │
 │  └─线下
 │          二阶系统瞬态响应分析.docx
-│          实验1 控制系统典型环节的模拟（24版）.pdf
-│          实验2 二阶系统的瞬态响应分析（24版）.pdf
-│          实验3 线性系统的频率特性的测试（24版）.pdf
+│          实验 1 控制系统典型环节的模拟（24 版）.pdf
+│          实验 2 二阶系统的瞬态响应分析（24 版）.pdf
+│          实验 3 线性系统的频率特性的测试（24 版）.pdf
 │          控制系统典型环节的模拟.docx
 │          线性系统的频率特性测试.docx
 │
@@ -67,20 +67,20 @@ comments: true
 │      Feedback Control of Dynamic Sys - Gene F. Franklin.pdf
 │      Linear Control System Analysis and Design.pdf
 │      modern control systems 13th Richard C.Dorf.pdf
-│      第7章-1-采样过程.pdf
-│      第7章-2-Z变换.pdf
-│      第7章-3-差分方程&脉冲传递函数.pdf
-│      第7章-4-状态空间&关系.pdf
-│      第7章-5-稳定性与性能.pdf
-│      第7章-6-离散系统设计.pdf
-│      第8章-1-状态空间简介.pdf
-│      第8章-2-能控性与能观性.pdf
-│      第8章-3-线性变换与标准型.pdf
-│      第8章-4-状态反馈.pdf
-│      第8章-5-状态反馈-2.pdf
-│      第8章-6-状态观测器.pdf
-│      第9章-1-非线性控制系统.pdf
-│      第9章-2-Lyapunov稳定性.pdf
+│      第 7 章 -1-采样过程.pdf
+│      第 7 章 -2-Z 变换.pdf
+│      第 7 章 -3-差分方程&脉冲传递函数.pdf
+│      第 7 章 -4-状态空间&关系.pdf
+│      第 7 章 -5-稳定性与性能.pdf
+│      第 7 章 -6-离散系统设计.pdf
+│      第 8 章 -1-状态空间简介.pdf
+│      第 8 章 -2-能控性与能观性.pdf
+│      第 8 章 -3-线性变换与标准型.pdf
+│      第 8 章 -4-状态反馈.pdf
+│      第 8 章 -5-状态反馈 -2.pdf
+│      第 8 章 -6-状态观测器.pdf
+│      第 9 章 -1-非线性控制系统.pdf
+│      第 9 章 -2-Lyapunov 稳定性.pdf
 │
 ├─04-PPT2
 │      CHAP7-1-20240911(1).pdf
@@ -90,18 +90,18 @@ comments: true
 │      CHAP7-5-20240925.pdf
 │      CHAP7-6-20240927.pdf
 │      CHAP7-7-20240929.pdf
-│      课件8-1.pdf
-│      课件8-2-1.pdf
-│      课件8-2-2.pdf
-│      课件8-3.pdf
-│      课件8-4.pdf
-│      课件8-5.pdf
-│      课件8-6.pdf
+│      课件 8-1.pdf
+│      课件 8-2-1.pdf
+│      课件 8-2-2.pdf
+│      课件 8-3.pdf
+│      课件 8-4.pdf
+│      课件 8-5.pdf
+│      课件 8-6.pdf
 │
 └─05-A4
         A4_Healor.pdf
         A4_PhilFan.pdf
-        A4_追风Holy.pdf
+        A4_追风 Holy.pdf
         现代控制理论_A4.pdf
 ```
 

@@ -1113,7 +1113,7 @@ end
         'OutputLayerType', 'regression', ...
         'InputDataFormats', 'BC');  % B=batch size, C=channels
 
-    % 我训练的模型输入8维，输出2维
+    % 我训练的模型输入 8 维，输出 2 维
     u = [1.1; 1.1; 1.1; 1.1; 2.2; 2.2; 2.2; 2.2];
     u = reshape(u, [1, 8]); % 将输入调整为 [1, 8]
     y = predict(model, u);

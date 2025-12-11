@@ -51,3 +51,8 @@ xcrun simctl boot 36291DE5-5BCF-4C05-A4E2-B1AE812D35C2
 ```shell title="打开模拟器"
 open -a Simulator
 ```
+
+## Safari Extension
+
+- [Safari web extensions | Apple Developer Documentation](https://developer.apple.com/documentation/safariservices/safari-web-extensions)
+- [如何开发一个 Safari 插件 | 今是昨非的博客](https://morganwang.cn/2023/06/07/%E5%A6%82%E4%BD%95%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AASafari%E6%8F%92%E4%BB%B6/)

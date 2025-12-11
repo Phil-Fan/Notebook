@@ -120,16 +120,16 @@
         A4 - pcs.pdf
         A4 - Vega.pdf
         A4 - 陈归忱.pdf
-        A4 - 戈炎-2.webp
+        A4 - 戈炎 -2.webp
         A4 - 戈炎.webp
     历年卷
         16.pdf
         17.pdf
         18.pdf
-        19-20 by boommmm,核子.pdf
+        19-20 by boommmm，核子.pdf
         19.pdf
         20.pdf
-        21 by Oddyti,核子.pdf
+        21 by Oddyti，核子.pdf
         21_新.pdf
         22_新.pdf
         22-23 秋 by 核子.pdf

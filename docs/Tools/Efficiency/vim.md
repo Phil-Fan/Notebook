@@ -19,7 +19,7 @@ inoremap jk <ESC>
 F1 打开 首选项：用户设置，按需增添以下代码
 
 ```json
-//j+j替换esc键位，更加高效快捷
+//j+j 替换 esc 键位，更加高效快捷
 "vim.insertModeKeyBindings": [
     {
         "before": [
@@ -31,7 +31,7 @@ F1 打开 首选项：用户设置，按需增添以下代码
         ]
     }
 ], 
-//以下键位将由vscode进行处理
+//以下键位将由 vscode 进行处理
 "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false,
@@ -47,19 +47,19 @@ F1 打开 首选项：用户设置，按需增添以下代码
 自定义搜索引擎
 
 ```text
-b|ba|baidu|Baidu|百度: https://www.baidu.com/s?ie=utf-8&wd=%s \
+b|ba|baidu|Baidu|百度：https://www.baidu.com/s?ie=utf-8&wd=%s \
   blank=https://www.baidu.com/ 百度
 bi: https://www.bing.com/search?q=$s
-bi|bing|Bing|必应: https://cn.bing.com/search?q=%s \
+bi|bing|Bing|必应：https://cn.bing.com/search?q=%s \
   blank=https://cn.bing.com/ 必应
-g|go|gg|google|Google|谷歌: https://www.google.com/search?q=%s\
+g|go|gg|google|Google|谷歌：https://www.google.com/search?q=%s\
   www.google.com re=/^(?:\.[a-z]{2,4})?\/search\b.*?[#&?]q=([^#&]*)/i\
   blank=https://www.google.com/ Google
 
-b.m|bm|map|b.map|bmap|地图|百度地图: \
+b.m|bm|map|b.map|bmap|地图 | 百度地图：\
   https://api.map.baidu.com/geocoder?output=html&address=%s&src=vimium-c\
   blank=https://map.baidu.com/
-gd|gaode|高德地图: https://www.gaode.com/search?query=%s \
+gd|gaode|高德地图：https://www.gaode.com/search?query=%s \
   blank=https://www.gaode.com
 g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \
   blank=https://www.google.com/maps 谷歌地图
@@ -76,9 +76,9 @@ gs|g.s|gscholar|g.x|gx|gxs: https://scholar.google.com/scholar?q=$s \
   scholar.google.com re=/^(?:\.[a-z]{2,4})?\/scholar\b.*?[#&?]q=([^#&]*)/i\
   blank=https://scholar.google.com/ 谷歌学术
 
-t|tb|taobao|ali|淘宝: https://s.taobao.com/search?ie=utf8&q=%s \
+t|tb|taobao|ali|淘宝：https://s.taobao.com/search?ie=utf8&q=%s \
   blank=https://www.taobao.com/ 淘宝
-j|jd|jingdong|京东: https://search.jd.com/Search?enc=utf-8&keyword=%s\
+j|jd|jingdong|京东：https://search.jd.com/Search?enc=utf-8&keyword=%s\
   blank=https://jd.com/ 京东
 az|amazon: https://www.amazon.com/s?k=%s \
   blank=https://www.amazon.com/ 亚马逊
@@ -92,7 +92,7 @@ wm|wayback:https://web.archive.org/web/20240000000000*/%s
 98|cc98:https://www.cc98.org/search?boardId=0&keyword=%s
 
 icon:https://www.iconfont.cn/search/index?searchType=icon&q=%s
-iresearch|艾瑞|研报|yb:https://www.iresearch.com.cn/search?type=1&keyword=%s
+iresearch|艾瑞 | 研报|yb:https://www.iresearch.com.cn/search?type=1&keyword=%s
 png|img:https://pngimg.com/search_image/?search_image=%s
 
 \:i: vimium://sed/s/^//,lower\ $S re= Lower case

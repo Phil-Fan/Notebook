@@ -37,7 +37,7 @@ comments: true
 - [x] [魔杖](wand.md)
 - [ ] [dRehmFlight](dRehmFlight.md)
 - [ ] [awesome](awesome.md)
-- [ ] [celechron](celechron.md)
+- [ ] [celechron](Celechron.md)
 - [ ] [website](website.md)
 
 ## Ideas

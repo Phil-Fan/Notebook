@@ -1,0 +1,1 @@
+JUPYTER_PLATFORM_DIRS=1 mkdocs serve

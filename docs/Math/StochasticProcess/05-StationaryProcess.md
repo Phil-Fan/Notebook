@@ -1151,7 +1151,7 @@ $$
  \begin{aligned}
  R_Y(\tau) &= E[X(t)\cos(t + \theta) \cdot X(t + \tau)\cos(t + \tau + \theta)] \\
  &= R_X(\tau) \, E[\cos(t + \theta)\cos(t + \tau + \theta)] \\
- &=R_{x}[t](\frac{1}{2}\cos(t+\frac{\pi}{4})\cos(t+t+\frac{\pi}{4})+\frac{1}{2}\cos(t-\frac{\pi}{4})\cos(t+t-\frac{\pi}{4}))\\
+ &=R_{x}[t]\left(\frac{1}{2}\cos(t+\frac{\pi}{4})\cos(t+t+\frac{\pi}{4})+\frac{1}{2}\cos(t-\frac{\pi}{4})\cos(t+t-\frac{\pi}{4})\right)\\
  &=\frac{1}{2}R_{x}(t)\cos(\tau)
  \end{aligned}
  $$

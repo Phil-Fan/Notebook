@@ -140,7 +140,7 @@ my_project/
 
 ```shell
 my_project/
-├── pyproject.toml  # Poetry配置
+├── pyproject.toml  # Poetry 配置
 ├── src/
 │   └── my_package/
 │       ├── __init__.py

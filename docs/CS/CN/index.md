@@ -1,7 +1,7 @@
 ---
 comments: true
 ---
-# `Introduction`
+# Introduction
 
 ???+note "各学院开课信息"
     === "电气学院"

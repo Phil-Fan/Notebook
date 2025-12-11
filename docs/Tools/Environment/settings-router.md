@@ -227,7 +227,7 @@ tg://socks?server=127.0.0.1&port=1080&remarks=ZJU Connect
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Environment__assets__settings-router.assets__image-20250715010941873.webp)
 
 ```text
-你的设备 → TUN 虚拟网卡 → Clash（规则匹配,ZJU-Rule） → SOCKS5/V2Ray 代理(ZJU-Connect) → 目标网站
+你的设备 → TUN 虚拟网卡 → Clash（规则匹配，ZJU-Rule） → SOCKS5/V2Ray 代理 (ZJU-Connect) → 目标网站
 ```
 
 !!! note "Some Protocols"

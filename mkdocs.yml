@@ -1,7 +1,7 @@
 # info
 site_name: PhilFan's Notebook
 site_author: PhilFan
-site_description: PhilFan的笔记本
+site_description: PhilFan 的笔记本
 site_url: "https://www.philfan.cn"
 
 # repository information
@@ -10,7 +10,7 @@ repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
 copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a> 
-beian: 浙ICP备2025206156号-1
+beian: 浙 ICP 备 2025206156 号 -1
 
 use_directory_urls: false
 
@@ -97,14 +97,14 @@ markdown_extensions:
   # 目录生成
   - toc:
       permalink: true  # 为每个标题生成永久链接
-      toc_depth: 3  # 目录深度为3级
+      toc_depth: 3  # 目录深度为 3 级
       permalink_title: "anchor link to this section for reference"  # 永久链接标题
   - markdown.extensions.smarty:
       smart_quotes: false  # 关闭智能引号
 
   # 公式渲染
   - pymdownx.arithmatex:
-      generic: true  # 支持内联和块级数学公式，使用MathJax渲染
+      generic: true  # 支持内联和块级数学公式，使用 MathJax 渲染
       # block_tag: 'pre'  # 使用<pre>标签包裹块级公式
 
   # 代码高亮与代码相关功能
@@ -122,8 +122,8 @@ markdown_extensions:
   - pymdownx.emoji:
       # emoji_index: !!python/name:pymdownx.emoji.twemoji
       # emoji_generator: !!python/name:pymdownx.emoji.to_svg
-      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用Twemoji索引
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用SVG生成Emoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用 Twemoji 索引
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用 SVG 生成 Emoji
   - pymdownx.magiclink:
       repo_url_shorthand: true  # 使用简写形式的仓库链接
       repo_url_shortener: true  # 缩短仓库链接
@@ -564,6 +564,7 @@ nav:
         - Scipy: https://docs.scipy.org/doc/scipy/reference/index.html
 
   - Algorithm:
+    - CS/Algorithm/index.md
     - CS/Algorithm/01-Math.md
     - CS/Algorithm/02-Sorting.md
     - CS/Algorithm/03-1-UninformedSearch.md
@@ -573,7 +574,6 @@ nav:
     - CS/Algorithm/05-DP.md
     - CS/Algorithm/05-背包.md
     - CS/Algorithm/06-并查集.md
-    - CS/Algorithm/number.md
 
   - "DS | 数据结构":
     - CS/DS/00-intro.md
@@ -662,6 +662,7 @@ nav:
 
       
   - Software:
+    - Tools/Software/index.md
     - Tools/Software/Git.md
     - Tools/Software/Calculator.md
     - Tools/Software/GDB.md
@@ -696,8 +697,8 @@ nav:
     - Tools/Environment/ROS.md
     - Tools/Environment/settings-server.md
     - Tools/Environment/settings-router.md
-    - Tools/Environment/settings-content.md
     - Tools/Environment/settings-website.md
+    - Tools/Environment/settings-kubernetes.md
     - Tools/Environment/MCP.md
     - Tools/Environment/nginx.md
     - Tools/Environment/filebrowser.md
@@ -706,7 +707,7 @@ nav:
 - Project:
   - Project/index.md
   - Project/website.md
-  - Project/celechron.md
+  - Project/Celechron.md
   - Project/awesome.md
   - 英语能力训练:
     - Class/English/00-intro-IELTS.md

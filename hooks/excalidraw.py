@@ -23,13 +23,13 @@ def _load_renderer_js():
 
 def _get_url_path(page, excalidraw_path):
     """
-    将文件路径转换为URL路径
+    将文件路径转换为 URL 路径
     """
     # 如果是绝对路径，直接返回
     if excalidraw_path.startswith('/'):
         return excalidraw_path
 
-    # 获取当前页面的URL路径
+    # 获取当前页面的 URL 路径
     page_url = page.url
 
     # 如果页面在子目录中，需要考虑相对路径
@@ -61,7 +61,7 @@ def on_page_markdown(markdown, **kwargs):
         # 获取图片路径
         excalidraw_path = match.group(1)
         
-        # 转换为URL路径
+        # 转换为 URL 路径
         url_path = _get_url_path(page, excalidraw_path)
         
         # 替换为 excalidraw-renderer 标签

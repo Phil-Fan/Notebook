@@ -178,7 +178,7 @@ else:
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310103313209.webp)
 > 图源课程实验要求
 
-### 实验要求2
+### 实验要求 2
 
 1. 写出 ZJU-I 型桌面机械臂的 DH 参数；
 2. 写出 ZJU-I 型机械臂的正运动学解（不用给出最终的齐次变换矩阵的具体代数式），并采用$XY'Z'$欧拉角表示末端执行器姿态；

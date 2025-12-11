@@ -325,7 +325,7 @@ blog 功能 下面这个仓库有[template](https://github.com/mkdocs-material/c
     ├── author
     │   └── team.md
     ├── posts ---------------------------------- 放所有的博文
-    │   ├── drafts ----------------------------- drafts目录下是所有的草稿
+    │   ├── drafts ----------------------------- drafts 目录下是所有的草稿
     │   │   └── draft.md
     │   └── helloworld.md
     ├── index.md

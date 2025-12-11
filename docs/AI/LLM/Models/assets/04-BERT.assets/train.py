@@ -9,7 +9,7 @@ from data import Dataset, load_data
 
 
 class BertClassifier(nn.Module):
-    """BERT-based classifier model.这里直接使用bert-base-cased，加上一个线性层"""
+    """BERT-based classifier model.这里直接使用 bert-base-cased，加上一个线性层"""
     def __init__(self, dropout: float = 0.5, num_classes: int = 5):
         super(BertClassifier, self).__init__()
         
@@ -56,7 +56,7 @@ def train(model: nn.Module,
         model.train()
         # Training phase
         for train_input, train_label in tqdm(train_dataloader):
-            # 这里train_input 是BertTokenizer的输出，是一个字典，包含input_ids, attention_mask, token_type_ids
+            # 这里 train_input 是 BertTokenizer 的输出，是一个字典，包含 input_ids, attention_mask, token_type_ids
             train_label = train_label.to(device)
             mask = train_input['attention_mask'].to(device)
             input_id = train_input['input_ids'].squeeze(1).to(device)

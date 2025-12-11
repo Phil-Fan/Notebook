@@ -1,44 +1,44 @@
 - "2025":
   - "2025-10-17":
     - function:
-        text: "将所有图片换成图床，并使用cdn上的mathjax代替本地mathjax"
+        text: "将所有图片换成图床，并使用 cdn 上的 mathjax 代替本地 mathjax"
   - "2025-08-27":
     - function:
-        text: "增加toc hook，继承改编自[TonyCrane/note](https://github.com/TonyCrane/note/tree/master/hooks)"
+        text: "增加 toc hook，继承改编自 [TonyCrane/note](https://github.com/TonyCrane/note/tree/master/hooks)"
   - "2025-08-23":
     - function:
-        text: "增加修改图像为webp图片格式的脚本，减少体积"
+        text: "增加修改图像为 webp 图片格式的脚本，减少体积"
         href: "Tools/Environment/Mkdocs.html"
   - "2025-08-19":
     - function:
-        text: "通过hook函数自动生成友链页面"
+        text: "通过 hook 函数自动生成友链页面"
         href: "friends.html"
   - "2025-08-10":
     - function:
-        text: "增加git-committers功能"
+        text: "增加 git-committers 功能"
         href: "https://github.com/Phil-Fan/Phil-Fan.github.io"
   - "2025-08-07":
     - function:
-        text: "增加blog功能"
+        text: "增加 blog 功能"
         href: "blog/index.html"
     - function:
-        text: "增加rss功能"
+        text: "增加 rss 功能"
         href: "https://www.philfan.cn/feed_rss_updated.xml"
     - function:
-        text: "增加钩子函数，在blog页面中添加社交分享功能"
+        text: "增加钩子函数，在 blog 页面中添加社交分享功能"
         href: "blog/index.html"
     - function:
-        text: "增加termynal，可以动态显示terminal"
+        text: "增加 termynal，可以动态显示 terminal"
         href: "Tools/Environment/Mkdocs.html"
     - newpage:
-        text: "重构LLM相关笔记"
+        text: "重构 LLM 相关笔记"
 
   - "2025-08-04":
     - function:
-        text: "增加Badge功能"
+        text: "增加 Badge 功能"
         href: "Tools/Environment/Mkdocs.html"
     - newpage:
-        text: "阅读论文NICGSlowDown,VerboseImages"
+        text: "阅读论文 NICGSlowDown,VerboseImages"
         href: "Research/Papers/NICGSlowDown.html"
   - "2025-08-02":
     - newpage:
@@ -54,21 +54,21 @@
         text: "[IELTS] 写作笔记"
         href: "Class/English/03-Writing.html"
   - "2025-07-10":
-    - newpage: "重构部分python笔记"
+    - newpage: "重构部分 python 笔记"
     - function: 增加卡片样式
   - "2025-07-08":
     - newpage:
         text: "[LLM] BERT 学习笔记"
         href: "AI/LLM/Models/04-BERT.html"
   - "2025-07-06":
-    - function: 增加changelog
+    - function: 增加 changelog
   - "2025-07-04":
     - newpage:
-        text: "[LLM]Transformer相关整理"
+        text: "[LLM]Transformer 相关整理"
         href: "/AI/LLM/Models/02-Transformer.html"
-    - function: "重构逻辑，把AI作为一级目录"
+    - function: "重构逻辑，把 AI 作为一级目录"
   - "2025-06-26":
-    - function: "增加mermaid支持，增加edit按钮"
+    - function: "增加 mermaid 支持，增加 edit 按钮"
     - newpage:
         text: "更新矩阵论笔记"
         href: "/Math/LinearAlgebra/index.html"
