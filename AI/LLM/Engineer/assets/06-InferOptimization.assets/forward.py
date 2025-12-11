@@ -80,7 +80,7 @@ for j in range(Tc):
         
         # step 12
         m_block_ij, _ = torch.max(S_ij, dim=-1, keepdims=True)
-        # values, indices = torch.max(...)最大值张量，最大值所在的索引
+        # values, indices = torch.max(...) 最大值张量，最大值所在的索引
         # S_ij.shape = [B, H, I, J] ——》 m_block_ij.shape = [B, H, I, 1]
 
 

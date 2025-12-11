@@ -13,7 +13,7 @@ labels = {'business':0,
 def load_data(path, with_label=True):
     """
     加载数据集，返回 DataFrame。
-    with_label: 是否包含标签列（train/solution为True，test为False）
+    with_label: 是否包含标签列（train/solution 为 True，test 为 False）
     """
     df = pd.read_csv(path)
     if with_label:
@@ -23,14 +23,14 @@ def load_data(path, with_label=True):
         else:
             df = df.rename(columns={'category': 'category', 'text': 'text'})
     else:
-        # test集没有标签
+        # test 集没有标签
         if 'Text' in df.columns:
             df = df.rename(columns={'Text': 'text'})
         else:
             df = df.rename(columns={'text': 'text'})
     return df
 
-## 这里做了特殊处理以兼容test和train数据集，因为test集没有标签，
+## 这里做了特殊处理以兼容 test 和 train 数据集，因为 test 集没有标签，
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, df):
         if 'category' in df.columns:

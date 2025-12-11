@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="PhilFan的笔记本" name="description"/>
+<meta content="PhilFan 的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
 <link href="https://www.philfan.cn/Tools/Efficiency/vim.html" rel="canonical"/>
 <link href="markdown.html" rel="prev"/>
@@ -2723,12 +2723,16 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../CS/Algorithm/index.html">
 <span class="md-ellipsis">
     Algorithm
   </span>
+</a>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_5_3">
 <span class="md-nav__icon md-icon"></span>
@@ -2795,13 +2799,6 @@
 <a class="md-nav__link" href="../../CS/Algorithm/06-%E5%B9%B6%E6%9F%A5%E9%9B%86.html">
 <span class="md-ellipsis">
     并查集
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../CS/Algorithm/number.html">
-<span class="md-ellipsis">
-    数字
   </span>
 </a>
 </li>
@@ -3516,12 +3513,16 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../Software/index.html">
 <span class="md-ellipsis">
     Software
   </span>
+</a>
+<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_4">
 <span class="md-nav__icon md-icon"></span>
@@ -3777,16 +3778,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Environment/settings-content.html">
+<a class="md-nav__link" href="../Environment/settings-website.html">
 <span class="md-ellipsis">
-    信息源与内容消费
+    网站
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Environment/settings-website.html">
+<a class="md-nav__link" href="../Environment/settings-kubernetes.html">
 <span class="md-ellipsis">
-    网站
+    Kubernetes
   </span>
 </a>
 </li>
@@ -3843,9 +3844,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Project/celechron.html">
+<a class="md-nav__link" href="../../Project/Celechron.md">
 <span class="md-ellipsis">
-    Celechron
+    None
   </span>
 </a>
 </li>
@@ -4820,7 +4821,7 @@
 <h3 id="_3">插件<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://www.cnblogs.com/YunyaSir/p/15522565.html">vim on vscode</a></p>
 <p><span>F1<span class="heti-spacing"> </span></span>打开 首选项：用户设置，按需增添以下代码</p>
-<div class="highlight"><pre><span></span><code><span class="c1">//j+j替换esc键位，更加高效快捷</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//j+j 替换 esc 键位，更加高效快捷</span>
 <span class="nt">"vim.insertModeKeyBindings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -4832,7 +4833,7 @@
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">],</span><span class="w"> </span>
-<span class="c1">//以下键位将由vscode进行处理</span>
+<span class="c1">//以下键位将由 vscode 进行处理</span>
 <span class="nt">"vim.handleKeys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"&lt;C-a&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">"&lt;C-f&gt;"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
@@ -4845,19 +4846,19 @@
 </code></pre></div>
 <p><a href="https://vimium.github.io">vimium-C on Chorme</a>
 自定义搜索引擎</p>
-<div class="highlight"><pre><span></span><code>b|ba|baidu|Baidu|百度: https://www.baidu.com/s?ie=utf-8&amp;wd=%s \
+<div class="highlight"><pre><span></span><code>b|ba|baidu|Baidu|百度：https://www.baidu.com/s?ie=utf-8&amp;wd=%s \
   blank=https://www.baidu.com/ 百度
 bi: https://www.bing.com/search?q=$s
-bi|bing|Bing|必应: https://cn.bing.com/search?q=%s \
+bi|bing|Bing|必应：https://cn.bing.com/search?q=%s \
   blank=https://cn.bing.com/ 必应
-g|go|gg|google|Google|谷歌: https://www.google.com/search?q=%s\
+g|go|gg|google|Google|谷歌：https://www.google.com/search?q=%s\
   www.google.com re=/^(?:\.[a-z]{2,4})?\/search\b.*?[#&amp;?]q=([^#&amp;]*)/i\
   blank=https://www.google.com/ Google
 
-b.m|bm|map|b.map|bmap|地图|百度地图: \
+b.m|bm|map|b.map|bmap|地图 | 百度地图：\
   https://api.map.baidu.com/geocoder?output=html&amp;address=%s&amp;src=vimium-c\
   blank=https://map.baidu.com/
-gd|gaode|高德地图: https://www.gaode.com/search?query=%s \
+gd|gaode|高德地图：https://www.gaode.com/search?query=%s \
   blank=https://www.gaode.com
 g.m|gm|g.map|gmap: https://www.google.com/maps?q=%s \
   blank=https://www.google.com/maps 谷歌地图
@@ -4874,9 +4875,9 @@ gs|g.s|gscholar|g.x|gx|gxs: https://scholar.google.com/scholar?q=$s \
   scholar.google.com re=/^(?:\.[a-z]{2,4})?\/scholar\b.*?[#&amp;?]q=([^#&amp;]*)/i\
   blank=https://scholar.google.com/ 谷歌学术
 
-t|tb|taobao|ali|淘宝: https://s.taobao.com/search?ie=utf8&amp;q=%s \
+t|tb|taobao|ali|淘宝：https://s.taobao.com/search?ie=utf8&amp;q=%s \
   blank=https://www.taobao.com/ 淘宝
-j|jd|jingdong|京东: https://search.jd.com/Search?enc=utf-8&amp;keyword=%s\
+j|jd|jingdong|京东：https://search.jd.com/Search?enc=utf-8&amp;keyword=%s\
   blank=https://jd.com/ 京东
 az|amazon: https://www.amazon.com/s?k=%s \
   blank=https://www.amazon.com/ 亚马逊
@@ -4890,7 +4891,7 @@ wm|wayback:https://web.archive.org/web/20240000000000*/%s
 98|cc98:https://www.cc98.org/search?boardId=0&amp;keyword=%s
 
 icon:https://www.iconfont.cn/search/index?searchType=icon&amp;q=%s
-iresearch|艾瑞|研报|yb:https://www.iresearch.com.cn/search?type=1&amp;keyword=%s
+iresearch|艾瑞 | 研报|yb:https://www.iresearch.com.cn/search?type=1&amp;keyword=%s
 png|img:https://pngimg.com/search_image/?search_image=%s
 
 \:i: vimium://sed/s/^//,lower\ $S re= Lower case
@@ -4944,7 +4945,7 @@ js\:|Js: javascript:\ $S; JavaScript
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年11月18日 17:40:43</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年12月11日 19:36:57</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
@@ -5033,7 +5034,7 @@ js\:|Js: javascript:\ $S; JavaScript
 </div>
 <div class="md-copyright__beian">
 <a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">
-            浙ICP备2025206156号-1
+            浙 ICP 备 2025206156 号 -1
         </a>
 </div>
 </div>
