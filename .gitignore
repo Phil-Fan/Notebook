@@ -17,6 +17,7 @@ site/
 */__pycache__/
 **/__pycache__
 __pycache__/
+.venv/
 
 # Node Modules
 **/node_modules/

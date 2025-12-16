@@ -79,6 +79,28 @@ pip install paho-mqtt
 
 ### 实例
 
+CS 模式
+
+需要有一个 mosquitto 服务器，用于订阅和发布消息。
+
+```shell title="安装 mosquitto"
+brew install mosquitto
+```
+
+```shell title="启动 mosquitto"
+mosquitto -v
+```
+
+```text title="mosquitto 日志"
+1765886137: mosquitto version 2.0.22 starting
+1765886137: Using default config.
+1765886137: Starting in local only mode. Connections will only be possible from clients running on this machine.
+1765886137: Create a configuration file which defines a listener to allow remote access.
+1765886137: For more details see https://mosquitto.org/documentation/authentication-methods/
+1765886137: Opening ipv4 listen socket on port 1883.
+1765886137: Opening ipv6 listen socket on port 1883.
+```
+
 ```python title="publisher 程序"
 import paho.mqtt.client as mqtt
 import time

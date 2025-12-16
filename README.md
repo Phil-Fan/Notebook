@@ -14,17 +14,33 @@
 
 ## Quick Start
 
+第一步，克隆仓库
+
 ```bash title="Clone the repository"
 git clone --single-branch --branch master https://github.com/Phil-Fan/Notebook.git
 ```
 
-```bash title="Install dependencies"
-cd Phil-Fan.github.io
-pip install -r requirements.txt
+第二步，[安装 uv](https://docs.astral.sh/uv/getting-started/installation/)
+
+```bash title="Install uv"
+# 方法1: 使用 Homebrew（推荐）
+brew install uv
+
+# 方法2: 使用 wget 安装
+wget -qO- https://astral.sh/uv/install.sh | sh
 ```
 
+第三步，安装依赖
+
+```bash title="Install dependencies"
+cd Phil-Fan.github.io
+uv sync
+```
+
+第四步，启动网站
+
 ```bash title="Serve the website"
-mkdocs serve
+./serve.sh
 ```
 
 打开`http://127.0.0.1:8000`即可查看网站

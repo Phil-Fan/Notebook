@@ -19,14 +19,16 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.12.4
-    
-      - run: pip install -r requirements.txt
+
+      - uses: astral-sh/setup-uv@v3
+
+      - run: uv sync
     
       - name: Create CNAME file
         run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
     
       - name: Modify nbconvert HTML exporter
-        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
+        run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(uv run python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
 
       - name: Deploy with MkDocs
-        run: export JUPYTER_PLATFORM_DIRS=1 && export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && mkdocs gh-deploy --force
+        run: export JUPYTER_PLATFORM_DIRS=1 && export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && uv run mkdocs gh-deploy --force

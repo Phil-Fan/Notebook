@@ -1,1 +1,1 @@
-JUPYTER_PLATFORM_DIRS=1 mkdocs serve
+JUPYTER_PLATFORM_DIRS=1 uv run mkdocs serve
