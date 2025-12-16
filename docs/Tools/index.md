@@ -19,6 +19,7 @@
 - [Python](Language/Python.md) - Python 开发环境
 - [Java](Language/Java.md) - Java 开发环境
 - [JavaScript](Language/JavaScript.md) - JavaScript/Node.js 环境
+- [Next.js](Language/nextjs.md) - React 全栈框架与 App Router 脚手架
 - [Dart](Language/Dart.md) - Dart/Flutter 开发环境
 - [Ruby](Language/Ruby.md) - Ruby 开发环境
 - [Docker](Language/Docker.md) - 容器化工具

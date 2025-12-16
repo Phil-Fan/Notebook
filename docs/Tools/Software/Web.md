@@ -50,7 +50,7 @@ Charles 的主要功能：
 - 支持网络请求的截获并动态修改
 - 支持模拟慢速网络
 
-### 配置方法
+### 配置软件方法
 
 [Download a Free Trial of Charles • Charles Web Debugging Proxy](https://www.charlesproxy.com/download/)
 

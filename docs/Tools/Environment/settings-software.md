@@ -2,18 +2,16 @@
 
 ## 效率软件
 
-- 浏览器：[Edge](https://www.microsoft.com/zh-cn/edge/download)，chorme
-- 日程：~~[滴答清单 (付费)](https://dida365.com/download?language=zh_CN)~~ 苹果自带日历
-- 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),QQ 影音，[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
-- 思维导图：[Xmind(付费)](https://xmind.cn/download/)；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
-
+- 浏览器：Safari，[Edge](https://www.microsoft.com/zh-cn/edge/download)
+- 日程：苹果自带日历，[滴答清单](https://dida365.com/download?language=zh_CN)
+- 多媒体：[VLC media player](https://www.videolan.org/vlc/index.zh_CN.html),[PicGo（图床）](https://github.com/Molunerfinn/PicGo/releases)
+- 思维导图：[Xmind](https://xmind.cn/download/)；首选项设置 深色主题 `alt+s`:概要 `ctrl + l`:方程
 - 即时通讯：[TIM](https://tim.qq.com/download.html)，[WeChat](https://weixin.qq.com/)，[飞书](https://www.feishu.cn/download/)，[腾讯会议](https://meeting.tencent.com/download/)，[钉钉](https://page.dingtalk.com/wow/z/dingtalk/simple/ddhomedownload#/),[微信文件传输网页版](https://filehelper.weixin.qq.com/)
 - PDF 阅读：Adobe Acrobat(adobe 处下载)
 - Markdown: [Typora](https://typoraio.cn/)
 - 云同步 (付费)：[百度网盘](https://pan.baidu.com/download#win)、[阿里网盘](https://www.alipan.com/)，坚果云 WebDav
-- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件[词典下载网站](https://forum.freemdict.com/tag/%EF%BB%BF英语/l/hot)
 - 音乐：[QQ 音乐](https://y.qq.com/download/index.html), Apple Music
-- 远程：[ToDesk](https://www.todesk.com/)
+- 远程：[ToDesk](https://www.todesk.com/)、无影云电脑
 - 压缩：[Bandzip](https://www.bandisoft.com/bandizip/)
 - 其他：[logi option+](https://www.logitech.com/zh-cn/setup/ergosetup/logi-options.html)
 - 公式识别：[SimpleTex](https://simpletex.cn/)  优化得不错
@@ -21,41 +19,69 @@
 - LLM: [Cherry Studio](https://www.cherry-ai.com/)
 - 邮件：Gmail
 - 密码管理：Apple 密码管理
+- 翻译：[欧陆词典](https://www.eudic.net/v4/en/app/download),欧陆词典文件[词典下载网站](https://forum.freemdict.com/tag/%EF%BB%BF英语/l/hot)
+- 录屏：[OpenScreen](https://openscreen.vercel.app)
 
 ### :fontawesome-brands-apple: MacOS
 
-- 开发工具 iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)<br>教程：[iTerm2 安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490); oh-my-zsh(with several plugins)
+- 开发工具 iTerm2：[iTerm2 - macOS Terminal Replacement](https://iterm2.com/)
+  - 教程：[iTerm2 安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
+  - oh my zsh
+  - 设置启动热键
+    - 第一步：`preference -> keys ->Create a Dedicated Hotkey Window`
+    - 第二步骤：设置 Hotkey，我设置和 Linux 差不多布局的 `command（Ctrl+Alt+T）`
 - [Raycast - Your shortcut to everything](https://www.raycast.com/) 替代聚焦
   - command +k 显示
   - [能少一个是一个：我用 Raycast 替代了这些应用 - 少数派](https://sspai.com/post/72540)
-  - [Raycast 小技巧之 Quicklink 二三事 - 少数派](https://sspai.com/post/72951)
-  - [URL Schemes | Drafts User Guide](https://docs.getdrafts.com/docs/automation/urlschemes#append)
-  - 可以用于替代[Rectangle Mac](https://rectangleapp.com/)：窗口管理，[SpaceLauncher](https://spacelauncherapp.com/)：空格为主的热键，[sip](https://sipapp.io/)：color picker,[Drafts | Where Text Starts](https://getdrafts.com/),[AppCleaner](https://freemacsoft.net/appcleaner/)
-- ibar: 菜单栏隐藏
+  - 软件卸载
+  - 快速打开应用：[URL Schemes | Drafts User Guide](https://docs.getdrafts.com/docs/automation/urlschemes#append)[Raycast 小技巧之 Quicklink 二三事 - 少数派](https://sspai.com/post/72951)
+  - 窗口管理
+- [ibar](https://apps.apple.com/cn/app/ibar/id6443843900?mt=12): 菜单栏隐藏
 - [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
-- 网络：clashx Pro
-- 下载工具 [Downie](https://www.downie.cn/)
-- [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
-- Markdown: typora
+- [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev): VPN
+- [Downie](https://www.downie.cn/): 下载工具
+- [Bandzip](https://www.bandisoft.com/bandizip.mac/): 压缩工具
+  - [如何在 Mac 上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
+  - 设置为访达扩展
 
-```shell
-echo 'alias typora="open -a Typora"' >> ~/.zshrc
-```
+    ```shell title="设置为访达扩展"
+    pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
+    ```
+
+- [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
+- [Typora](https://typoraio.cn/): Markdown
+
+    ```shell
+    echo 'alias typora="open -a Typora"' >> ~/.zshrc
+    ```
 
 - windows 虚拟机 [Parallels Desktop](https://www.parallels.cn/products/desktop/trial/)，可以找一个 tb 店解锁
 - [waydabber/BetterDisplay](https://github.com/waydabber/BetterDisplay?tab=readme-ov-file)：没钱上 4K 显示器的解决方案，Unlock your displays on your Mac! Flexible HiDPI scaling
+- $\LaTeX$ 环境
 
-!!! note "资源站"
-    1. [xclient](https://xclient.info/)
-    2. [macked](https://macked.app/)
-    3. [digit77](https://www.digit77.com/)
-    4. [xmac](https://xmac.app/)
-    5. [macwk](https://macwk.cn/)
+    ```shell
+    brew install mactex --cask
+    ```
+
+- [Piclist](https://piclist.cn/): 图床
+
+    ```shell title="安装 piclist"
+    brew install piclist --cask
+    ```
 
 !!! note "注意 macos 没有签名时候需要手动信任"
     ```shell
     xattr -cr /Applications/zju-learning-assistant.app
     ```
+
+!!! note "资源站"
+    尽量还是支持正版
+
+    1. [xclient](https://xclient.info/)
+    2. [macked](https://macked.app/)
+    3. [digit77](https://www.digit77.com/)
+    4. [xmac](https://xmac.app/)
+    5. [macwk](https://macwk.cn/)
 
 ### :fontawesome-brands-windows: windows
 
@@ -68,13 +94,15 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
 
 ## 专业软件
 
-- Coding: [VSC](https://code.visualstudio.com/Download),PyCharm, WebStorm
-- Environment:[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
-[git](https://git-scm.com/download/win),R,VMware
+- Coding: [VSC](https://code.visualstudio.com/Download),[Cursor](https://cursor.com/home), [Windsurf](https://windsurf.com/download/editor)
+- Environment:
+  - Python:uv/[miniconda(smaller)](https://docs.anaconda.com/miniconda/)/[anaconda](https://www.anaconda.com/download)
+  - Git: [git](https://git-scm.com/download/win)
+  - Node: [node](https://nodejs.org/en/download/)
 - 文献：[Zotero](https://www.zotero.org/download/)
 - latex：texlive,[overleaf](https://www.overleaf.com)
 - 绘图：ppt,Draw.io, ai,ps,Geogebra,python
-- 数据：excel，Tableau，origin
+- 数据：excel，Tableau
 - word，[小恐龙公文助手](https://xkonglong.com/xkl_wordaddin/)
 - 驯化 windows dism++ [Releases · Chuyu-Team/Dism-Multi-language](https://github.com/Chuyu-Team/Dism-Multi-language/releases)
 - 音乐：[Sibelius(西贝柳斯) 打谱软件](https://sibelius.mairuan.com/)
@@ -84,32 +112,6 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
 
 - [Adobe](https://www.adobe.com/cn/):AI,PS,PR,[剪映](https://www.capcut.cn/)
 - powerpoint,okplus,[Canva](https://www.canva.cn/)
-
-## 有用的 anti-school 插件
-
-- [WuliAPO/Fuck_QCZJ](https://github.com/WuliAPO/Fuck_QCZJ): 青年大学习打卡<br>
-- [iOSRealRun/iOSRealRun-cli-17](https://github.com/iOSRealRun/iOSRealRun-cli-17): (iOS 17+) 基于虚拟定位的 iOS 免越狱模拟跑步打卡，跨平台支持，在线拾取路径，可设置跑步速度，随机速度与路线
-- [Mythologyli/iOSFakeRun](https://github.com/Mythologyli/iOSFakeRun): 基于虚拟定位的 iOS 免越狱模拟跑步打卡，在线拾取路径，可设置循环次数和跑步速度<br>
-- [ginnnnnncc/GinsMooc](https://github.com/ginnnnnncc/GinsMooc): 中国大学 MOOC 查询测验/作业/考试答案，插件支持，测验支持选择/判断/填空。<br>
-
-> 下载安装包后，将其解压至文件夹内；在浏览器地址栏中输入 edge://extensions（谷歌浏览器为 chrome://extensions）；打开开发者模式；点击“加载解压缩的扩展”，选择刚刚解压到的文件夹，即可开始使用
-
-- [OCS 网课助手](https://docs.ocsjs.com/docs/quickly-start/)：刷 MOOC，智慧树
-- [VermiIIi0n/fuckZHS](https://github.com/VermiIIi0n/fuckZHS): 自动刷智慧树课程的脚本<br>
-- [Celechron/Celechron](https://github.com/Celechron/Celechron): 服务于浙大学生的时间管理器<br>
-- [memset0/Learning-at-ZJU-Helper](https://github.com/memset0/Learning-at-ZJU-Helper): 学在浙大/智云课堂 辅助脚本<br>
-- [PeiPei233/zju-learning-assistant](https://github.com/PeiPei233/zju-learning-assistant): 帮你快速下载所有课件<br>
-- [ZJU-ICAL](https://ical.raynor.top/static)：以订阅连接的形式订阅课表，可以插入日历
-
-还未使用过
-
-- [CrazySpottedDove/fiz](https://github.com/CrazySpottedDove/fiz): 高速简洁的学在浙大第三方
-- [ZTA](https://github.com/wdtjm/zta)：zjuer 的桌面端时间管理神器
-
-友情链接
-
-- Giant731 [推荐 10 款 Chrome 插件神器 - CC98 论坛](https://www.cc98.org/topic/5148185)
-- 黎辉 [整理了一些自己用过的学习天地版面的和学习相关的自制工具以及优质插件的分享 - CC98 论坛](https://www.cc98.org/topic/6054386)
 
 ## edge/chorme 插件
 
@@ -225,14 +227,3 @@ echo 'alias typora="open -a Typora"' >> ~/.zshrc
 #### Remote - SSH
 
 #### latex workshop
-
-#### 图标
-
-- Material Icon Theme
-- vscode-icons
-
-#### PlatformIO
-
-PlatformIO is a cross-platform, cross-architecture, multiple framework, professional tool for embedded systems engineers and for software developers who write applications for embedded products.
-
-[VSCode 下 PlatformIO 的安装教程-CSDN 博客](https://blog.csdn.net/qq_40018676/article/details/128680677)

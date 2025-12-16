@@ -1,10 +1,10 @@
 # :fontawesome-brands-apple: MacOS
 
-## 基础
-
-mac 默认使用 zsh
-
 ## 快捷键
+
+同时重命名多个文件
+
+- 拆字法打字
 
 ### System
 
@@ -33,33 +33,16 @@ mac 默认使用 zsh
 - ++shift+option+b++ 颜文字
 - ++tab++ 使用声调打字
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1851423987&bvid=BV1mW421w7Jw&cid=1457785582&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=100% height=600px></iframe>
+## 系统设置
+
+- 三指拖移：设置 - 辅助功能 - 指针控制 - 触控板选项 - 拖移样式
+- 触控板轻点：设置 - 触控板 - 轻点来点按
 
 ```shell title="open Finder in terminal"
 open .
 ```
 
-## 触控板
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1550039500&bvid=BV12y421e7t2&cid=1428208208&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
-
-两指左滑 - 通知中心
-
-## 文件管理
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1304948465&bvid=BV1XM4m1k7hg&cid=1556194945&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1905750778&bvid=BV1LS411N723&cid=1594491744&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=90% height=600px></iframe>
-## 小技巧
-同时重命名多个文件
-- 拆字法打字
-
-## 软件配置指南
-
-鼠标反转：自然滚动去掉
-
-!!! info "可以在[macked](https://macked.app)这个网站上下载到一些破解的软件"
-    有能力还是支持正版
+## 开发配置
 
 ### 软件已损坏？怎么解决
 
@@ -70,6 +53,10 @@ sudo spctl --master-disable
 ```shell title="放行 picgo"
 xattr -cr /Applications/xxx.app
 ```
+
+### 科学上网
+
+下载[clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)，安装后配置好代理，然后就可以开始安装 homebrew 了
 
 ### homebrew
 
@@ -89,17 +76,52 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew help
 ```
 
-### cli 工具
-
 ```shell title="wget 安装"
 brew install wget
 ```
 
-### vscode
+### python
 
-`ctl + ~` 打开终端：注意是英文状态下面
+```shell title="安装 uv"
+brew install uv
+```
 
-**Shift + Command + P** 打开设置，输入 `shell command` 找到`Shell Command: Install ‘code’ command in PATH`
+```shell title="验证安装"
+uv --version
+```
+
+```shell title="安装 miniconda"
+brew install miniconda
+```
+
+```shell title="验证安装"
+conda -V
+```
+
+### node
+
+```shell title="安装 node"
+brew install node
+```
+
+```shell title="验证安装"
+node -v
+```
+
+### 编程软件
+
+- [Cursor](https://cursor.com/home)
+- [Windsurf](https://windsurf.com/download/editor)
+- [VSC](https://code.visualstudio.com/Download)
+- [gemini-cli](https://github.com/google-gemini/gemini-cli)
+- [Codex](https://github.com/openai/codex)
+- [Claude Code](https://code.claude.com/docs/zh-CN/overview#homebrew)
+
+```shell title="安装"
+brew install --cask codex
+brew install --cask claude-code
+brew install gemini-cli
+```
 
 ### paragon：NTFS 读写
 
@@ -116,25 +138,7 @@ brew install wget
 
 [Paragon 驱动程序 | Seagate 中国](https://www.seagate.com/cn/zh/support/software/paragon/)
 
-### picgo
-
-[Release 2.3.1 · Molunerfinn/PicGo](https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.1)
-
-下载之后进行 dwg 的安装，因为 PicGo 没有签名，所以会被 macOS 的安全检查所拦下，安装后会显示已经损坏，这个时候需要根据[PicGo/FAQ.md](https://github.com/Molunerfinn/PicGo/blob/dev/FAQ.md)中的方法进行操作
-
-```shell title="信任开发者"
-sudo spctl --master-disable
-```
-
-```shell title="放行 picgo"
-xattr -cr /Applications/PicGo.app
-```
-
-### jetbrains
-
-ZJU 有企业账号，在校网环境下面登陆
-
-### wps
+### WPS
 
 zju 有企业账号，SSO 登陆输入 ZJU，验证登陆即可
 
@@ -145,94 +149,6 @@ zju 有企业账号，SSO 登陆输入 ZJU，验证登陆即可
 3. 通过 [Tune My Music](https://www.tunemymusic.com/zh-CN/transfer) 向 apple music 导入歌单曲目
 
 > 参考文章：[将 QQ 音乐的歌单导入 apple music - 知乎](https://zhuanlan.zhihu.com/p/666443150)
-
-### bandzip
-
-[Bandizip (Mac) - 如何在 Mac 上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
-
-```shell title="设置为访达扩展"
-pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
-```
-
-## Safari 插件
-
-## 效率工具
-
-### Raycast
-
-### Iterm2：更 nb 的终端
-
-[iTerm2 安装配置使用指南——保姆级 - 知乎](https://zhuanlan.zhihu.com/p/550022490)
-
-设置启动热键
-
-第一步：preference -> keys ->Create a Dedicated Hotkey Window
-第二步骤：设置 Hotkey，我设置和 Linux 差不多布局的 command（Ctrl+Alt+T）
-
-```shell title="oh my zsh"
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
-
-```shell title="声明高亮插件 zsh-syntax-highlighting"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-```shell
-echo "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc && source ~/.zshrc 
-```
-
-下载 release 即可，需要安装一个环境，按步骤来即可
-
-### [Scroll Reverser](https://pilotmoon.com/scrollreverser/) 调整滚轮方向
-
-### latex
-
-```shell
-brew install mactex --cask
-```
-
-等着就完事了
-
-## Gmail
-
-- `imap.gmail.com` DIRECT
-- `smtp.gmail.com` PROXY
-[mac 邮件 app 无法接收 Gmail 邮件问题解决 | pxBang 的个人博客](https://pxbang.github.io/2024/03/19/mac%E9%82%AE%E4%BB%B6app%E6%97%A0%E6%B3%95%E6%8E%A5%E6%94%B6Gmail%E9%82%AE%E4%BB%B6%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/)
-
-verge 上添加规则的方法：
-
-- 点击订阅
-- 右键 - 编辑规则
-
-## 远程连接
-
-### X11 转发
-
-1.安装 XQuartz
-
-```shell
-brew install xquartz
-```
-
-2.在终端下或者 bashrc 中输入
-
-```shell
-export DISPLAY=:0
-```
-
-如果没有这个，图形转发就只能在 XQuartz 中的 xterm 中有效。有了这个，就可以在 iterm 或者其他终端下有效。
-
-安装之后，点击`command + ,`，在`General`中勾选`Allow connections from network clients`
-
-然后可以打开 iTerm，输入`ssh -X username@ip`，就可以打开图形界面了
-
-可以使用小软件进行测试
-
-```shell title="xeyes 进行测试"
-xeyes
-```
-
-会出现一双眼睛，可以移动
 
 ## Apple Script
 

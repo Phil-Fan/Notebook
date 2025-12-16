@@ -121,15 +121,13 @@ command here
 
 每次写入后，Agent 必须：
 
-**Step 1：定位 index.md**  
-**Step 2：添加条目（按文件分类）**  
-格式：
+**Step 1：定位 index.md**
 
-```markdown
-* [新标题](skills/docker.md#新标题)
-```
+step2: 如果当前的更新到的文件没有写在 index.md 中，那么需要添加到 index.md 中。‘
 
-**Step 3：保持 index 按字母顺序或既有排序**
+step3: 如果当前的更新到的文件已经写在 index.md 中，则无需更新子目录
+
+step4: 保持 index 按字母顺序或既有排序
 
 ### 5.5 检查 `mkdocs.yml` 文件
 

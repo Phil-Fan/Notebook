@@ -125,6 +125,8 @@ uv python install 3.11
 uv venv --python 3.11
 ```
 
+- 可以按照 `uv venv --python 3.12` 的形式直接指定虚拟环境需要的 Python 版本，避免依赖系统默认版本。
+
 ### 换源
 
 ```shell title="换源"
