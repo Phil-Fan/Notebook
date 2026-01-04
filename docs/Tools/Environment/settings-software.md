@@ -36,18 +36,13 @@
   - 软件卸载
   - 快速打开应用：[URL Schemes | Drafts User Guide](https://docs.getdrafts.com/docs/automation/urlschemes#append)[Raycast 小技巧之 Quicklink 二三事 - 少数派](https://sspai.com/post/72951)
   - 窗口管理
+- [Input Source Pro](https://inputsource.pro/zh-CN)：自动感知 App 场景切换输入法，并在菜单栏提示当前中英文状态
 - [ibar](https://apps.apple.com/cn/app/ibar/id6443843900?mt=12): 菜单栏隐藏
 - [Pixea](https://apps.apple.com/cn/app/pixea/id1507782672?mt=12)
 - [clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev): VPN
 - [Downie](https://www.downie.cn/): 下载工具
-- [Bandzip](https://www.bandisoft.com/bandizip.mac/): 压缩工具
-  - [如何在 Mac 上更改默认应用程序](https://www.bandisoft.com/bandizip.mac/howto/default-app-changer/)
-  - 设置为访达扩展
-
-    ```shell title="设置为访达扩展"
-    pluginkit -e "use" -i "com.bandisoft.mac.bandizip.findersyncextension"
-    ```
-
+- [DevToys](https://devtoys.app/download)：多功能开发者瑞士军刀，会根据剪贴板内容智能推荐合适的工具
+- [Keka](https://github.com/aonez/Keka)：压缩与解压工具，支持 7z/zip/tar 等多种格式
 - [Scroll Reverser for macOS](https://pilotmoon.com/scrollreverser/): 反向滚动鼠标和触控板
 - [Typora](https://typoraio.cn/): Markdown
 

@@ -40,10 +40,88 @@ uv sync
 第四步，启动网站
 
 ```bash title="Serve the website"
-./serve.sh
+make serve
 ```
 
 打开`http://127.0.0.1:8000`即可查看网站
+
+## Makefile 命令
+
+项目提供了 Makefile 来简化常用操作：
+
+| 命令 | 说明 |
+|------|------|
+| `make help` | 显示所有可用命令 |
+| `make serve` | 启动 Mkdocs 开发服务器 |
+| `make format` | 格式化所有文件（Markdown + Python） |
+| `make format-md` | 格式化 Markdown 文件 |
+| `make format-py` | 格式化 Python 文件 |
+| `make install-dev` | 安装开发依赖 |
+| `make build` | 构建 Mkdocs 站点 |
+| `make clean` | 清理构建文件 |
+| `make check-tools` | 检查格式化工具是否已安装 |
+
+**示例：**
+
+```bash
+# 查看帮助
+make help
+
+# 格式化所有文件
+make format
+
+# 启动开发服务器
+make serve
+
+# 构建静态站点
+make build
+```
+
+## Claude Code Slash Commands
+
+项目配置了 Claude Code 的自定义 slash commands，可以在使用 Claude Code 时快速执行常见任务。
+
+### 可用命令
+
+| 命令 | 说明 |
+|------|------|
+| `/add [内容]` | 添加内容到知识库 |
+| `/check-markdown [路径]` | 检查 Markdown 文件格式 |
+| `/understand` | 理解这个知识库仓库的结构 |
+
+**示例：**
+
+```text
+# 添加新知识点到知识库
+/add 在 Python 中使用 async/await 处理并发
+
+# 检查特定文件的格式
+/check-markdown docs/AI/LLM/Engineer/01-LLMs.md
+
+# 检查整个项目的格式
+/check-markdown
+
+# 了解仓库结构
+/understand
+```
+
+### 自动格式化
+
+配置了 PostToolUse hook，每次使用 `Write` 或 `Edit` 工具后会自动运行格式化：
+
+- **markdownlint**：Markdown 语法检查和修复
+- **autocorrect**：中英文格式自动修正
+- **ruff**：Python 代码检查和修复
+
+### 知识库归档规则
+
+`/add` 命令会按照以下规则自动归档内容：
+
+1. **目录分类**：自动判断内容所属的知识分类（AI/Math/Robotics/CS/Tools/Project/Class/Interest）
+2. **文件定位**：搜索现有文件或创建新文件
+3. **格式化**：按照项目规范格式化内容
+4. **索引更新**：自动更新 index.md 和 mkdocs.yml
+5. **格式检查**：运行 formatter 确保格式正确
 
 ## Contributing
 
@@ -58,8 +136,8 @@ uv sync
 
 👤 **PhilFan**
 
-* Github: [@Phil-Fan](https://github.com/Phil-Fan)
-* Email: [@PhilFan](mailto:hw.phil.fan@gmail.com)
+- Github: [@Phil-Fan](https://github.com/Phil-Fan)
+- Email: [@PhilFan](mailto:hw.phil.fan@gmail.com)
 
 ## Show your support
 

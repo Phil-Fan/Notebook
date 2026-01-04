@@ -13,8 +13,6 @@ wget http://fishros.com/install -O fishros && . fishros
 !!! note "no directory"
     切换到`bash`使用 可以把 `. fishros` 替换成 `bash fishros`
 
-[如何在树莓派 4 上安装 Ubuntu 桌面系统 | Linux 中国 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/413743940)
-
 注意安装 desktop 版本而不是 sever 版本
 
 ```shell title="测试代码"

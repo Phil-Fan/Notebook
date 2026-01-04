@@ -151,6 +151,42 @@ git push -u origin bugfix/issue-12
 
 ## 合并
 
+### 合并 commit
+
+#### git rebase 合并最近 N 个 commit
+
+```shell
+git rebase -i HEAD~N
+```
+
+### squash 写法（关键）
+
+```text
+pick   <commit1>
+squash <commit2>
+squash <commit3>
+```
+
+**规则：第一个必须是 pick，后面才能 squash**
+
+### 操作流程
+
+1. `git rebase -i HEAD~N`
+2. 保留第一个 pick，其余改成 squash
+3. 保存退出
+4. 编辑最终 commit message
+5. `git rebase --continue`
+
+### merge vs rebase vs squash
+
+| 方式       | 本质     | 历史形态       | 是否改历史 | 什么时候用         |
+| -------- | ------ | ---------- | ----- | ------------- |
+| `merge`  | 两条线合并  | 有 merge 节点 | 否     | 公共分支、安全第一     |
+| `rebase` | 把提交挪位置 | 一条直线       | 是     | 整理个人提交        |
+| `squash` | 多个变一个  | 一条直线       | 是     | 提 PR / 上 main |
+
+### 放弃本地修改，强制覆盖
+
 ```shell title="快速使用云端"
 # 1. 放弃本地所有修改（包括未提交的、冲突的）
 git reset --hard HEAD

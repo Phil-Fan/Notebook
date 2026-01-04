@@ -33,6 +33,24 @@
 - ++shift+option+b++ 颜文字
 - ++tab++ 使用声调打字
 
+### Safari
+
+- ++command+t++ 打开一个新的标签页，快速开始新的浏览任务
+- ++command+arrow-up++ 移动到网页左上角，快速回到页面顶部
+- ++command+arrow-down++ 移动到网页左下角，快速跳转到页面底部
+- ++command+l++ 跳转到地址栏
+- ++control+tab++ / ++command+shift+bracket-right++ 切换到下一个标签页
+- ++shift+command+backslash++ 显示所有网页标签页
+- ++control+command+2++ 打开或关闭阅读列表边栏
+- ++shift+command+d++ 将当前页面加入阅读列表
+- ++option+click++ 点击链接文件时同时按住 ++option++ 键即可直接下载
+
+### iTerm2
+
+- ++command+d++ 在当前标签页中创建垂直分屏
+- ++command+arrow-left++ / ++command+arrow-right++ 在不同标签页之间切换
+- ++option+command+arrow-left++ / ++option+command+arrow-right++ 在同一标签页的分屏面板之间切换
+
 ## 系统设置
 
 - 三指拖移：设置 - 辅助功能 - 指针控制 - 触控板选项 - 拖移样式
