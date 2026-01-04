@@ -22,7 +22,8 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
+          username: ${{ secrets.SSH_USER  }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "./"
+          port: ${{ secrets.SSH_PORT }}
           target: ${{ secrets.SSH_UPLOAD_PATH }}   # 修改为你的服务器路径

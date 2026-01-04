@@ -25,3 +25,4 @@ __pycache__/
 
 .vercel
 .spec-workflow/*
+.ruff_cache/*
