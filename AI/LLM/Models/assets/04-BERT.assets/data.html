@@ -5077,7 +5077,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=e32509bf">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=15610963">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5095,36 +5095,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BertTokenizer</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">'bert-base-cased'</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'business'</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-          <span class="s1">'entertainment'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-          <span class="s1">'sport'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-          <span class="s1">'tech'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
-          <span class="s1">'politics'</span><span class="p">:</span><span class="mi">4</span>
-          <span class="p">}</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import torch
-import numpy as np
+<div class="clipboard-copy-txt" id="cell-1">import numpy as np
 import pandas as pd
-from transformers import BertTokenizer
-tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
-labels = {'business':0,
-          'entertainment':1,
-          'sport':2,
-          'tech':3,
-          'politics':4
-          }</div>
+import torch
+from transformers import BertTokenizer</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=15df4f6d">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7fe1656a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5142,52 +5128,18 @@ labels = {'business':0,
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">with_label</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    加载数据集，返回 DataFrame。</span>
-<span class="sd">    with_label: 是否包含标签列（train/solution 为 True，test 为 False）</span>
-<span class="sd">    """</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">with_label</span><span class="p">:</span>
-        <span class="c1"># 兼容 train/solution 格式</span>
-        <span class="k">if</span> <span class="s1">'Category'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'Category'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span> <span class="s1">'Text'</span><span class="p">:</span> <span class="s1">'text'</span><span class="p">})</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'category'</span><span class="p">:</span> <span class="s1">'category'</span><span class="p">,</span> <span class="s1">'text'</span><span class="p">:</span> <span class="s1">'text'</span><span class="p">})</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># test 集没有标签</span>
-        <span class="k">if</span> <span class="s1">'Text'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'Text'</span><span class="p">:</span> <span class="s1">'text'</span><span class="p">})</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'text'</span><span class="p">:</span> <span class="s1">'text'</span><span class="p">})</span>
-    <span class="k">return</span> <span class="n">df</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">BertTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"bert-base-cased"</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"business"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"entertainment"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"sport"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"tech"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"politics"</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">def load_data(path, with_label=True):
-    """
-    加载数据集，返回 DataFrame。
-    with_label: 是否包含标签列（train/solution 为 True，test 为 False）
-    """
-    df = pd.read_csv(path)
-    if with_label:
-        # 兼容 train/solution 格式
-        if 'Category' in df.columns:
-            df = df.rename(columns={'Category': 'category', 'Text': 'text'})
-        else:
-            df = df.rename(columns={'category': 'category', 'text': 'text'})
-    else:
-        # test 集没有标签
-        if 'Text' in df.columns:
-            df = df.rename(columns={'Text': 'text'})
-        else:
-            df = df.rename(columns={'text': 'text'})
-    return df</div>
+<div class="clipboard-copy-txt" id="cell-2">tokenizer = BertTokenizer.from_pretrained("bert-base-cased")
+labels = {"business": 0, "entertainment": 1, "sport": 2, "tech": 3, "politics": 4}</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6171c16f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5869a2f6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5205,19 +5157,82 @@ labels = {'business':0,
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_data</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">with_label</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    加载数据集，返回 DataFrame。</span>
+<span class="sd">    with_label: 是否包含标签列（train/solution 为 True，test 为 False）</span>
+<span class="sd">    """</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">with_label</span><span class="p">:</span>
+        <span class="c1"># 兼容 train/solution 格式</span>
+        <span class="k">if</span> <span class="s2">"Category"</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"Category"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span> <span class="s2">"Text"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"category"</span><span class="p">:</span> <span class="s2">"category"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># test 集没有标签</span>
+        <span class="k">if</span> <span class="s2">"Text"</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"Text"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"text"</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-3">def load_data(path, with_label=True):
+    """
+    加载数据集，返回 DataFrame。
+    with_label: 是否包含标签列（train/solution 为 True，test 为 False）
+    """
+    df = pd.read_csv(path)
+    if with_label:
+        # 兼容 train/solution 格式
+        if "Category" in df.columns:
+            df = df.rename(columns={"Category": "category", "Text": "text"})
+        else:
+            df = df.rename(columns={"category": "category", "text": "text"})
+    else:
+        # test 集没有标签
+        if "Text" in df.columns:
+            df = df.rename(columns={"Text": "text"})
+        else:
+            df = df.rename(columns={"text": "text"})
+    return df</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=46150eb9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-4">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1">## 这里做了特殊处理以兼容 test 和 train 数据集，因为 test 集没有标签，</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Dataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">'category'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'category'</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="s2">"category"</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"category"</span><span class="p">]]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">texts</span> <span class="o">=</span> <span class="p">[</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> 
-                                <span class="n">padding</span><span class="o">=</span><span class="s1">'max_length'</span><span class="p">,</span> 
-                                <span class="n">max_length</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> 
-                                <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span><span class="p">)</span> 
-                      <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'text'</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">texts</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tokenizer</span><span class="p">(</span>
+                <span class="n">text</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">"max_length"</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_tensors</span><span class="o">=</span><span class="s2">"pt"</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span>
+        <span class="p">]</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span>
@@ -5242,19 +5257,19 @@ labels = {'business':0,
         <span class="n">batch_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_batch_labels</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">batch_texts</span><span class="p">,</span> <span class="n">batch_y</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3"><span>##<span class="heti-spacing"> </span></span>这里做了特殊处理以兼容<span class="heti-skip"><span class="heti-spacing"> </span>test<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>train<span class="heti-spacing"> </span></span>数据集，因为<span class="heti-skip"><span class="heti-spacing"> </span>test<span class="heti-spacing"> </span></span>集没有标签，
+<div class="clipboard-copy-txt" id="cell-4"><span>##<span class="heti-spacing"> </span></span>这里做了特殊处理以兼容<span class="heti-skip"><span class="heti-spacing"> </span>test<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>train<span class="heti-spacing"> </span></span>数据集，因为<span class="heti-skip"><span class="heti-spacing"> </span>test<span class="heti-spacing"> </span></span>集没有标签，
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, df):
-        if 'category' in df.columns:
-            self.labels = [labels[label] for label in df['category']]
+        if "category" in df.columns:
+            self.labels = [labels[label] for label in df["category"]]
         else:
             self.labels = None
-        self.texts = [tokenizer(text, 
-                                padding='max_length', 
-                                max_length = 512, 
-                                truncation=True,
-                                return_tensors="pt") 
-                      for text in df['text']]
+        self.texts = [
+            tokenizer(
+                text, padding="max_length", max_length=512, truncation=True, return_tensors="pt"
+            )
+            for text in df["text"]
+        ]
 
     def classes(self):
         return self.labels
@@ -5291,7 +5306,7 @@ class Dataset(torch.utils.data.Dataset):
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年12月11日 19:36:57</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月4日 11:40:53</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

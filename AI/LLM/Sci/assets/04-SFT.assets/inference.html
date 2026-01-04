@@ -5077,7 +5077,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6de7bf76">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=85f15ec7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5096,25 +5096,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">openai</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tqdm</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">bleu</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_bleu</span><span class="p">,</span> <span class="n">bleu</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">"EMPTY"</span>
-<span class="n">openai</span><span class="o">.</span><span class="n">api_base</span> <span class="o">=</span> <span class="s2">"http://localhost:6006/v1"</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bleu</span><span class="w"> </span><span class="kn">import</span> <span class="n">bleu</span><span class="p">,</span> <span class="n">get_bleu</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">import openai
-import sys
 import tqdm
-from bleu import get_bleu, bleu
-api_key = "EMPTY"
-openai.api_base = "http://localhost:6006/v1"</div>
+from bleu import bleu, get_bleu</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=571f177a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f6b4cc44">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5132,46 +5126,18 @@ openai.api_base = "http://localhost:6006/v1"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">chat_with_qwen</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""使用服务器部署的训练好的模型进行预测"""</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-        <span class="n">model</span><span class="o">=</span><span class="s2">"xxx"</span><span class="p">,</span>
-        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
-        <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
-        <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># 启用流式输出</span>
-    <span class="p">)</span>
-
-    <span class="n">full_response</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">'choices'</span> <span class="ow">in</span> <span class="n">chunk</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">'choices'</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">content</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="s1">'choices'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'delta'</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'content'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
-                <span class="n">full_response</span> <span class="o">+=</span> <span class="n">content</span>
-    <span class="k">return</span> <span class="n">full_response</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">"EMPTY"</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_base</span> <span class="o">=</span> <span class="s2">"http://localhost:6006/v1"</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">def chat_with_qwen(messages):
-    """使用服务器部署的训练好的模型进行预测"""
-    response = openai.ChatCompletion.create(
-        model="xxx",
-        messages=messages,
-        api_key=api_key,
-        stream=True  # 启用流式输出
-    )
-
-    full_response = ""
-    for chunk in response:
-        if 'choices' in chunk and len(chunk['choices']) &gt; 0:
-            content = chunk['choices'][0].get('delta', {}).get('content', '')
-            if content:
-                full_response += content
-    return full_response</div>
+<div class="clipboard-copy-txt" id="cell-2">api_key = "EMPTY"
+openai.api_base = "http://localhost:6006/v1"</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=600e1e2b">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a2e616fc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5189,16 +5155,46 @@ openai.api_base = "http://localhost:6006/v1"</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">chat_with_qwen</span><span class="p">(</span><span class="n">messages</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""使用服务器部署的训练好的模型进行预测"""</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">"xxx"</span><span class="p">,</span>
+        <span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
+        <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># 启用流式输出</span>
+    <span class="p">)</span>
+
+    <span class="n">full_response</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"choices"</span> <span class="ow">in</span> <span class="n">chunk</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="n">chunk</span><span class="p">[</span><span class="s2">"choices"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"delta"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"content"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">content</span><span class="p">:</span>
+                <span class="n">full_response</span> <span class="o">+=</span> <span class="n">content</span>
+    <span class="k">return</span> <span class="n">full_response</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3"></div>
+<div class="clipboard-copy-txt" id="cell-3">def chat_with_qwen(messages):
+    """使用服务器部署的训练好的模型进行预测"""
+    response = openai.ChatCompletion.create(
+        model="xxx",
+        messages=messages,
+        api_key=api_key,
+        stream=True,  # 启用流式输出
+    )
+
+    full_response = ""
+    for chunk in response:
+        if "choices" in chunk and len(chunk["choices"]) &gt; 0:
+            content = chunk["choices"][0].get("delta", {}).get("content", "")
+            if content:
+                full_response += content
+    return full_response</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2ef764ed">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=531a72ca">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5235,7 +5231,7 @@ with open(test_data_path + "test.en", "r", encoding="utf-8") as f:
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=819790f0">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0a84b95d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5268,7 +5264,7 @@ with open(test_data_path + "test.de", "r", encoding="utf-8") as f:
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f84ea976">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0a14935a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5297,7 +5293,7 @@ bleu_scores_ende = []</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f3dd047e">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2cb518f7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5316,34 +5312,36 @@ bleu_scores_ende = []</div>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output.log"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">sentence_en</span><span class="p">,</span> <span class="n">sentence_de</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">test_data_en</span><span class="p">,</span> <span class="n">test_data_de</span><span class="p">)),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">test_data_en</span><span class="p">)):</span> <span class="c1"># zip + enumerate 可以实现同步遍历</span>
-        
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">sentence_en</span><span class="p">,</span> <span class="n">sentence_de</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span>
+        <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">test_data_en</span><span class="p">,</span> <span class="n">test_data_de</span><span class="p">)),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">test_data_en</span><span class="p">)</span>
+    <span class="p">):</span>  <span class="c1"># zip + enumerate 可以实现同步遍历</span>
         <span class="n">conversation</span> <span class="o">=</span> <span class="p">[</span>
             <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Translate the following English text to German."</span><span class="p">},</span>
-            <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">sentence_en</span><span class="p">}</span>
+            <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="n">sentence_en</span><span class="p">},</span>
         <span class="p">]</span>
         <span class="n">generated_text</span> <span class="o">=</span> <span class="n">chat_with_qwen</span><span class="p">(</span><span class="n">conversation</span><span class="p">)</span>
 
         <span class="n">bleu</span> <span class="o">=</span> <span class="n">get_bleu</span><span class="p">(</span><span class="n">hypotheses</span><span class="o">=</span><span class="n">generated_text</span><span class="o">.</span><span class="n">split</span><span class="p">(),</span> <span class="n">reference</span><span class="o">=</span><span class="n">sentence_de</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
         <span class="n">bleu_scores_ende</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bleu</span><span class="p">)</span>
-        
+
         <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original English: </span><span class="si">{</span><span class="n">sentence_en</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Translation: </span><span class="si">{</span><span class="n">generated_text</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reference German: </span><span class="si">{</span><span class="n">sentence_de</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"BLEU score: </span><span class="si">{</span><span class="n">bleu</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-7">with open("output.log", "w", encoding="utf-8") as log_file:
-    for i, (sentence_en, sentence_de) in tqdm.tqdm(enumerate(zip(test_data_en, test_data_de)), total=len(test_data_en)): # zip + enumerate 可以实现同步遍历
-        
+    for i, (sentence_en, sentence_de) in tqdm.tqdm(
+        enumerate(zip(test_data_en, test_data_de)), total=len(test_data_en)
+    ):  # zip + enumerate 可以实现同步遍历
         conversation = [
             {"role": "system", "content": "Translate the following English text to German."},
-            {"role": "user", "content": sentence_en}
+            {"role": "user", "content": sentence_en},
         ]
         generated_text = chat_with_qwen(conversation)
 
         bleu = get_bleu(hypotheses=generated_text.split(), reference=sentence_de.split())
         bleu_scores_ende.append(bleu)
-        
+
         log_file.write(f"Original English: {sentence_en}\n")
         log_file.write(f"Translation: {generated_text}\n")
         log_file.write(f"Reference German: {sentence_de}\n")
@@ -5354,7 +5352,7 @@ bleu_scores_ende = []</div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9fdf1ee9">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3335cd9e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5392,7 +5390,7 @@ print(f"Average BLEU score for DE to EN: {avg_bleu_ende}")</div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 21:39:53</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月4日 11:40:53</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

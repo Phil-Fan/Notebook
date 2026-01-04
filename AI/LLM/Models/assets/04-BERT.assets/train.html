@@ -5077,7 +5077,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c2a6bc56">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=29c01fcd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5095,30 +5095,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BertModel</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">load_data</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">from torch.optim import Adam
-from tqdm import tqdm
-import torch
-import torch.nn as nn
-from transformers import BertModel
-import os
-import numpy as np
-from data import Dataset, load_data</div>
+<div class="clipboard-copy-txt" id="cell-1">import os</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b8d53caa">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ffc429ef">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5136,42 +5122,28 @@ from data import Dataset, load_data</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BertClassifier</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""BERT-based classifier model.这里直接使用 bert-base-cased，加上一个线性层"""</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">BertClassifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        
-        <span class="bp">self</span><span class="o">.</span><span class="n">bert</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">'bert-base-cased'</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bert</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
-        
-    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_id</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bert</span><span class="p">(</span><span class="n">input_ids</span><span class="o">=</span><span class="n">input_id</span><span class="p">,</span> <span class="n">attention_mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
-        <span class="n">pooled_output</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">pooler_output</span>
-        <span class="n">dropout_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">pooled_output</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">dropout_output</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">load_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">BertModel</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">class BertClassifier(nn.Module):
-    """BERT-based classifier model.这里直接使用 bert-base-cased，加上一个线性层"""
-    def __init__(self, dropout: float = 0.5, num_classes: int = 5):
-        super(BertClassifier, self).__init__()
-        
-        self.bert = BertModel.from_pretrained('bert-base-cased')
-        self.dropout = nn.Dropout(dropout)
-        self.linear = nn.Linear(self.bert.config.hidden_size, num_classes)
-        
-    def forward(self, input_id: torch.Tensor, mask: torch.Tensor) -&gt; torch.Tensor:
-        outputs = self.bert(input_ids=input_id, attention_mask=mask)
-        pooled_output = outputs.pooler_output
-        dropout_output = self.dropout(pooled_output)
-        return self.linear(dropout_output)</div>
+<div class="clipboard-copy-txt" id="cell-2">import numpy as np
+import torch
+import torch.nn as nn
+from data import Dataset, load_data
+from torch.optim import Adam
+from tqdm import tqdm
+from transformers import BertModel</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7fbe6887">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bf90111c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5189,160 +5161,44 @@ from data import Dataset, load_data</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
-          <span class="n">train_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span> 
-          <span class="n">val_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>
-          <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-          <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-          <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="c1"># Initialize datasets</span>
-    <span class="n">train_dataset</span><span class="p">,</span> <span class="n">val_dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">train_data</span><span class="p">),</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span>
-    
-    <span class="c1"># Create data loaders</span>
-    <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> 
-                                                 <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> 
-                                                 <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">val_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">val_dataset</span><span class="p">,</span> 
-                                               <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BertClassifier</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""BERT-based classifier model.这里直接使用 bert-base-cased，加上一个线性层"""</span>
 
-    <span class="c1"># Set device</span>
-    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-    
-    <span class="c1"># Initialize loss and optimizer</span>
-    <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BertClassifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-    <span class="c1"># Training loop</span>
-    <span class="k">for</span> <span class="n">epoch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
-        <span class="n">total_acc_train</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">total_loss_train</span> <span class="o">=</span> <span class="mi">0</span>
-        
-        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-        <span class="c1"># Training phase</span>
-        <span class="k">for</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_label</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">):</span>
-            <span class="c1"># 这里 train_input 是 BertTokenizer 的输出，是一个字典，包含 input_ids, attention_mask, token_type_ids</span>
-            <span class="n">train_label</span> <span class="o">=</span> <span class="n">train_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">mask</span> <span class="o">=</span> <span class="n">train_input</span><span class="p">[</span><span class="s1">'attention_mask'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">input_id</span> <span class="o">=</span> <span class="n">train_input</span><span class="p">[</span><span class="s1">'input_ids'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            
-            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
-            <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_id</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
-            
-            <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">train_label</span><span class="p">)</span>
-            <span class="n">total_loss_train</span> <span class="o">+=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-            
-            <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">train_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-            <span class="n">total_acc_train</span> <span class="o">+=</span> <span class="n">acc</span>
-            
-            <span class="n">batch_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
-            
-        <span class="c1"># Validation phase</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-        <span class="n">total_acc_val</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">total_loss_val</span> <span class="o">=</span> <span class="mi">0</span>
-        
-        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="k">for</span> <span class="n">val_input</span><span class="p">,</span> <span class="n">val_label</span> <span class="ow">in</span> <span class="n">val_dataloader</span><span class="p">:</span>
-                <span class="n">val_label</span> <span class="o">=</span> <span class="n">val_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-                <span class="n">mask</span> <span class="o">=</span> <span class="n">val_input</span><span class="p">[</span><span class="s1">'attention_mask'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-                <span class="n">input_id</span> <span class="o">=</span> <span class="n">val_input</span><span class="p">[</span><span class="s1">'input_ids'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-                
-                <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_id</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
-                <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">val_label</span><span class="p">)</span>
-                <span class="n">total_loss_val</span> <span class="o">+=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-                
-                <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">val_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-                <span class="n">total_acc_val</span> <span class="o">+=</span> <span class="n">acc</span>
-        
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">'''Epochs: </span><span class="si">{</span><span class="n">epoch_num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1"> </span>
-<span class="s1">            | Train Loss: </span><span class="si">{</span><span class="n">total_loss_train</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="s1"> </span>
-<span class="s1">            | Train Accuracy: </span><span class="si">{</span><span class="n">total_acc_train</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="s1"> </span>
-<span class="s1">            | Val Loss: </span><span class="si">{</span><span class="n">total_loss_val</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="s1"> </span>
-<span class="s1">            | Val Accuracy: </span><span class="si">{</span><span class="n">total_acc_val</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span><span class="si">:</span><span class="s1"> .3f</span><span class="si">}</span><span class="s1">'''</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bert</span> <span class="o">=</span> <span class="n">BertModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"bert-base-cased"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bert</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_id</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bert</span><span class="p">(</span><span class="n">input_ids</span><span class="o">=</span><span class="n">input_id</span><span class="p">,</span> <span class="n">attention_mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+        <span class="n">pooled_output</span> <span class="o">=</span> <span class="n">outputs</span><span class="o">.</span><span class="n">pooler_output</span>
+        <span class="n">dropout_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">pooled_output</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">dropout_output</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def train(model: nn.Module,
-          train_data: Dataset, 
-          val_data: Dataset,
-          learning_rate: float,
-          epochs: int,
-          batch_size: int = 2) -&gt; None:
-    # Initialize datasets
-    train_dataset, val_dataset = Dataset(train_data), Dataset(val_data)
-    
-    # Create data loaders
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, 
-                                                 batch_size=batch_size, 
-                                                 shuffle=True)
-    val_dataloader = torch.utils.data.DataLoader(val_dataset, 
-                                               batch_size=batch_size)
+<div class="clipboard-copy-txt" id="cell-3">class BertClassifier(nn.Module):
+    """BERT-based classifier model.这里直接使用 bert-base-cased，加上一个线性层"""
 
-    # Set device
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = model.to(device)
-    
-    # Initialize loss and optimizer
-    criterion = nn.CrossEntropyLoss().to(device)
-    optimizer = Adam(model.parameters(), lr=learning_rate)
+    def __init__(self, dropout: float = 0.5, num_classes: int = 5):
+        super(BertClassifier, self).__init__()
 
-    # Training loop
-    for epoch_num in range(epochs):
-        total_acc_train = 0
-        total_loss_train = 0
-        
-        model.train()
-        # Training phase
-        for train_input, train_label in tqdm(train_dataloader):
-            # 这里 train_input 是 BertTokenizer 的输出，是一个字典，包含 input_ids, attention_mask, token_type_ids
-            train_label = train_label.to(device)
-            mask = train_input['attention_mask'].to(device)
-            input_id = train_input['input_ids'].squeeze(1).to(device)
-            
-            optimizer.zero_grad()
-            output = model(input_id, mask)
-            
-            batch_loss = criterion(output, train_label)
-            total_loss_train += batch_loss.item()
-            
-            acc = (output.argmax(dim=1) == train_label).sum().item()
-            total_acc_train += acc
-            
-            batch_loss.backward()
-            optimizer.step()
-            
-        # Validation phase
-        model.eval()
-        total_acc_val = 0
-        total_loss_val = 0
-        
-        with torch.no_grad():
-            for val_input, val_label in val_dataloader:
-                val_label = val_label.to(device)
-                mask = val_input['attention_mask'].to(device)
-                input_id = val_input['input_ids'].squeeze(1).to(device)
-                
-                output = model(input_id, mask)
-                batch_loss = criterion(output, val_label)
-                total_loss_val += batch_loss.item()
-                
-                acc = (output.argmax(dim=1) == val_label).sum().item()
-                total_acc_val += acc
-        
-        print(
-            f'''Epochs: {epoch_num + 1} 
-            | Train Loss: {total_loss_train / len(train_data): .3f} 
-            | Train Accuracy: {total_acc_train / len(train_data): .3f} 
-            | Val Loss: {total_loss_val / len(val_data): .3f} 
-            | Val Accuracy: {total_acc_val / len(val_data): .3f}''')</div>
+        self.bert = BertModel.from_pretrained("bert-base-cased")
+        self.dropout = nn.Dropout(dropout)
+        self.linear = nn.Linear(self.bert.config.hidden_size, num_classes)
+
+    def forward(self, input_id: torch.Tensor, mask: torch.Tensor) -&gt; torch.Tensor:
+        outputs = self.bert(input_ids=input_id, attention_mask=mask)
+        pooled_output = outputs.pooler_output
+        dropout_output = self.dropout(pooled_output)
+        return self.linear(dropout_output)</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=23b9509a">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=905302ae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5360,54 +5216,164 @@ from data import Dataset, load_data</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">test_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
-    <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+    <span class="n">train_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>
+    <span class="n">val_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>
+    <span class="n">learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Initialize datasets</span>
+    <span class="n">train_dataset</span><span class="p">,</span> <span class="n">val_dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">train_data</span><span class="p">),</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span>
+
+    <span class="c1"># Create data loaders</span>
+    <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span>
+        <span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">val_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">val_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="c1"># Set device</span>
     <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-    
-    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-    <span class="n">total_acc_test</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-        <span class="k">for</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">test_label</span> <span class="ow">in</span> <span class="n">test_dataloader</span><span class="p">:</span>
-            <span class="n">test_label</span> <span class="o">=</span> <span class="n">test_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">mask</span> <span class="o">=</span> <span class="n">test_input</span><span class="p">[</span><span class="s1">'attention_mask'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-            <span class="n">input_id</span> <span class="o">=</span> <span class="n">test_input</span><span class="p">[</span><span class="s1">'input_ids'</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># Initialize loss and optimizer</span>
+    <span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+
+    <span class="c1"># Training loop</span>
+    <span class="k">for</span> <span class="n">epoch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">total_acc_train</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_loss_train</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+        <span class="c1"># Training phase</span>
+        <span class="k">for</span> <span class="n">train_input</span><span class="p">,</span> <span class="n">train_label</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">):</span>
+            <span class="c1"># 这里 train_input 是 BertTokenizer 的输出，是一个字典，包含 input_ids, attention_mask, token_type_ids</span>
+            <span class="n">train_label</span> <span class="o">=</span> <span class="n">train_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">train_input</span><span class="p">[</span><span class="s2">"attention_mask"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">input_id</span> <span class="o">=</span> <span class="n">train_input</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_id</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
-            <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-            <span class="n">total_acc_test</span> <span class="o">+=</span> <span class="n">acc</span>
-            
-    <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">total_acc_test</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Test Accuracy: </span><span class="si">{</span><span class="n">test_accuracy</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">test_accuracy</span>
+
+            <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">train_label</span><span class="p">)</span>
+            <span class="n">total_loss_train</span> <span class="o">+=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+            <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">train_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">total_acc_train</span> <span class="o">+=</span> <span class="n">acc</span>
+
+            <span class="n">batch_loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="c1"># Validation phase</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="n">total_acc_val</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_loss_val</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">val_input</span><span class="p">,</span> <span class="n">val_label</span> <span class="ow">in</span> <span class="n">val_dataloader</span><span class="p">:</span>
+                <span class="n">val_label</span> <span class="o">=</span> <span class="n">val_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">val_input</span><span class="p">[</span><span class="s2">"attention_mask"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+                <span class="n">input_id</span> <span class="o">=</span> <span class="n">val_input</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+                <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_id</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+                <span class="n">batch_loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">val_label</span><span class="p">)</span>
+                <span class="n">total_loss_val</span> <span class="o">+=</span> <span class="n">batch_loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+                <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">val_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="n">total_acc_val</span> <span class="o">+=</span> <span class="n">acc</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"""Epochs: </span><span class="si">{</span><span class="n">epoch_num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span>
+<span class="s2">            | Train Loss: </span><span class="si">{</span><span class="n">total_loss_train</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="si">:</span><span class="s2"> .3f</span><span class="si">}</span><span class="s2"> </span>
+<span class="s2">            | Train Accuracy: </span><span class="si">{</span><span class="n">total_acc_train</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span><span class="si">:</span><span class="s2"> .3f</span><span class="si">}</span><span class="s2"> </span>
+<span class="s2">            | Val Loss: </span><span class="si">{</span><span class="n">total_loss_val</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span><span class="si">:</span><span class="s2"> .3f</span><span class="si">}</span><span class="s2"> </span>
+<span class="s2">            | Val Accuracy: </span><span class="si">{</span><span class="n">total_acc_val</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">val_data</span><span class="p">)</span><span class="si">:</span><span class="s2"> .3f</span><span class="si">}</span><span class="s2">"""</span>
+        <span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def evaluate(model: nn.Module, test_data: Dataset, batch_size: int = 2) -&gt; float:
-    test_dataset = Dataset(test_data)
-    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size)
+<div class="clipboard-copy-txt" id="cell-4">def train(
+    model: nn.Module,
+    train_data: Dataset,
+    val_data: Dataset,
+    learning_rate: float,
+    epochs: int,
+    batch_size: int = 2,
+) -&gt; None:
+    # Initialize datasets
+    train_dataset, val_dataset = Dataset(train_data), Dataset(val_data)
+
+    # Create data loaders
+    train_dataloader = torch.utils.data.DataLoader(
+        train_dataset, batch_size=batch_size, shuffle=True
+    )
+    val_dataloader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size)
+
+    # Set device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
-    
-    model.eval()
-    total_acc_test = 0
-    with torch.no_grad():
-        for test_input, test_label in test_dataloader:
-            test_label = test_label.to(device)
-            mask = test_input['attention_mask'].to(device)
-            input_id = test_input['input_ids'].squeeze(1).to(device)
+
+    # Initialize loss and optimizer
+    criterion = nn.CrossEntropyLoss().to(device)
+    optimizer = Adam(model.parameters(), lr=learning_rate)
+
+    # Training loop
+    for epoch_num in range(epochs):
+        total_acc_train = 0
+        total_loss_train = 0
+
+        model.train()
+        # Training phase
+        for train_input, train_label in tqdm(train_dataloader):
+            # 这里 train_input 是 BertTokenizer 的输出，是一个字典，包含 input_ids, attention_mask, token_type_ids
+            train_label = train_label.to(device)
+            mask = train_input["attention_mask"].to(device)
+            input_id = train_input["input_ids"].squeeze(1).to(device)
+
+            optimizer.zero_grad()
             output = model(input_id, mask)
-            acc = (output.argmax(dim=1) == test_label).sum().item()
-            total_acc_test += acc
-            
-    test_accuracy = total_acc_test / len(test_data)
-    print(f'Test Accuracy: {test_accuracy:.3f}')
-    return test_accuracy</div>
+
+            batch_loss = criterion(output, train_label)
+            total_loss_train += batch_loss.item()
+
+            acc = (output.argmax(dim=1) == train_label).sum().item()
+            total_acc_train += acc
+
+            batch_loss.backward()
+            optimizer.step()
+
+        # Validation phase
+        model.eval()
+        total_acc_val = 0
+        total_loss_val = 0
+
+        with torch.no_grad():
+            for val_input, val_label in val_dataloader:
+                val_label = val_label.to(device)
+                mask = val_input["attention_mask"].to(device)
+                input_id = val_input["input_ids"].squeeze(1).to(device)
+
+                output = model(input_id, mask)
+                batch_loss = criterion(output, val_label)
+                total_loss_val += batch_loss.item()
+
+                acc = (output.argmax(dim=1) == val_label).sum().item()
+                total_acc_val += acc
+
+        print(
+            f"""Epochs: {epoch_num + 1} 
+            | Train Loss: {total_loss_train / len(train_data): .3f} 
+            | Train Accuracy: {total_acc_train / len(train_data): .3f} 
+            | Val Loss: {total_loss_val / len(val_data): .3f} 
+            | Val Accuracy: {total_acc_val / len(val_data): .3f}"""
+        )</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b28635ee">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3dc660f5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5425,86 +5391,54 @@ from data import Dataset, load_data</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
-    
-    <span class="c1"># Load and split data</span>
-    <span class="n">train_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'BBC News Train.csv'</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">with_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    
-    <span class="c1"># Split into train/val/test (80%/10%/10%)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">n_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_train</span><span class="p">]</span>
-    <span class="n">df_val</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_train</span><span class="p">:</span><span class="n">n_val</span><span class="p">]</span>
-    <span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_val</span><span class="p">:]</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">test_data</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="n">test_dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+    <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"cpu"</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset sizes - Train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span><span class="si">}</span><span class="s2">, Val: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_val</span><span class="p">)</span><span class="si">}</span><span class="s2">, Test: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-    
-    <span class="c1"># Train model</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">BertClassifier</span><span class="p">()</span>
-    <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
-          <span class="n">train_data</span><span class="o">=</span><span class="n">df_train</span><span class="p">,</span>
-          <span class="n">val_data</span><span class="o">=</span><span class="n">df_val</span><span class="p">,</span>
-          <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
-          <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    
-    <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">df_test</span><span class="p">)</span>
-    
-    <span class="c1"># Save model</span>
-    <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'models'</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'bert_classifier.pth'</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">'models'</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">save_path</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Model saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">total_acc_test</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">test_input</span><span class="p">,</span> <span class="n">test_label</span> <span class="ow">in</span> <span class="n">test_dataloader</span><span class="p">:</span>
+            <span class="n">test_label</span> <span class="o">=</span> <span class="n">test_label</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">test_input</span><span class="p">[</span><span class="s2">"attention_mask"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">input_id</span> <span class="o">=</span> <span class="n">test_input</span><span class="p">[</span><span class="s2">"input_ids"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_id</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_label</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+            <span class="n">total_acc_test</span> <span class="o">+=</span> <span class="n">acc</span>
+
+    <span class="n">test_accuracy</span> <span class="o">=</span> <span class="n">total_acc_test</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test Accuracy: </span><span class="si">{</span><span class="n">test_accuracy</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">test_accuracy</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def main():
-    np.random.seed(112)
-    torch.manual_seed(112)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(112)
-    
-    # Load and split data
-    train_path = os.path.join('data', 'BBC News Train.csv')
-    df = load_data(train_path, with_label=True)
-    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
-    
-    # Split into train/val/test (80%/10%/10%)
-    n = len(df)
-    n_train = int(0.8 * n)
-    n_val = int(0.9 * n)
-    df_train = df.iloc[:n_train]
-    df_val = df.iloc[n_train:n_val]
-    df_test = df.iloc[n_val:]
+<div class="clipboard-copy-txt" id="cell-5">def evaluate(model: nn.Module, test_data: Dataset, batch_size: int = 2) -&gt; float:
+    test_dataset = Dataset(test_data)
+    test_dataloader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = model.to(device)
 
-    print(f"Dataset sizes - Train: {len(df_train)}, Val: {len(df_val)}, Test: {len(df_test)}")
-    
-    # Train model
-    model = BertClassifier()
-    train(model=model,
-          train_data=df_train,
-          val_data=df_val,
-          learning_rate=1e-6,
-          epochs=5)
-    
-    evaluate(model, df_test)
-    
-    # Save model
-    save_path = os.path.join('models', f'bert_classifier.pth')
-    os.makedirs('models', exist_ok=True)
-    torch.save(model.state_dict(), save_path)
-    print(f'Model saved to {save_path}')</div>
+    model.eval()
+    total_acc_test = 0
+    with torch.no_grad():
+        for test_input, test_label in test_dataloader:
+            test_label = test_label.to(device)
+            mask = test_input["attention_mask"].to(device)
+            input_id = test_input["input_ids"].squeeze(1).to(device)
+            output = model(input_id, mask)
+            acc = (output.argmax(dim=1) == test_label).sum().item()
+            total_acc_test += acc
+
+    test_accuracy = total_acc_test / len(test_data)
+    print(f"Test Accuracy: {test_accuracy:.3f}")
+    return test_accuracy</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c220ff8f">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=de3d95ca">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5522,10 +5456,99 @@ from data import Dataset, load_data</div>
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">manual_seed_all</span><span class="p">(</span><span class="mi">112</span><span class="p">)</span>
+
+    <span class="c1"># Load and split data</span>
+    <span class="n">train_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"BBC News Train.csv"</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">load_data</span><span class="p">(</span><span class="n">train_path</span><span class="p">,</span> <span class="n">with_label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Split into train/val/test (80%/10%/10%)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">n_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.9</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">df_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">n_train</span><span class="p">]</span>
+    <span class="n">df_val</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_train</span><span class="p">:</span><span class="n">n_val</span><span class="p">]</span>
+    <span class="n">df_test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_val</span><span class="p">:]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset sizes - Train: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_train</span><span class="p">)</span><span class="si">}</span><span class="s2">, Val: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_val</span><span class="p">)</span><span class="si">}</span><span class="s2">, Test: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df_test</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># Train model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">BertClassifier</span><span class="p">()</span>
+    <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">train_data</span><span class="o">=</span><span class="n">df_train</span><span class="p">,</span> <span class="n">val_data</span><span class="o">=</span><span class="n">df_val</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">df_test</span><span class="p">)</span>
+
+    <span class="c1"># Save model</span>
+    <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"models"</span><span class="p">,</span> <span class="s2">"bert_classifier.pth"</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"models"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">save_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-6">def main():
+    np.random.seed(112)
+    torch.manual_seed(112)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(112)
+
+    # Load and split data
+    train_path = os.path.join("data", "BBC News Train.csv")
+    df = load_data(train_path, with_label=True)
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+
+    # Split into train/val/test (80%/10%/10%)
+    n = len(df)
+    n_train = int(0.8 * n)
+    n_val = int(0.9 * n)
+    df_train = df.iloc[:n_train]
+    df_val = df.iloc[n_train:n_val]
+    df_test = df.iloc[n_val:]
+
+    print(f"Dataset sizes - Train: {len(df_train)}, Val: {len(df_val)}, Test: {len(df_test)}")
+
+    # Train model
+    model = BertClassifier()
+    train(model=model, train_data=df_train, val_data=df_val, learning_rate=1e-6, epochs=5)
+
+    evaluate(model, df_test)
+
+    # Save model
+    save_path = os.path.join("models", "bert_classifier.pth")
+    os.makedirs("models", exist_ok=True)
+    torch.save(model.state_dict(), save_path)
+    print(f"Model saved to {save_path}")</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0b154392">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">if __name__ == "__main__":
+<div class="clipboard-copy-txt" id="cell-7">if __name__ == "__main__":
     main()</div>
 </div>
 </div>
@@ -5540,7 +5563,7 @@ from data import Dataset, load_data</div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年12月11日 19:36:57</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月4日 11:40:53</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

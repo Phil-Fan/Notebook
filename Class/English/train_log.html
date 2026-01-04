@@ -5195,77 +5195,90 @@ I use <a href="https://ielts.papaen.com/ielts/index">趴趴模考中心一站式
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Import required libraries</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="c1"># Configure matplotlib settings</span>
 <span class="c1"># plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'axes.unicode_minus'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'font.size'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"axes.unicode_minus"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">"font.size"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+
 
 <span class="c1"># Load and process data</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">load_test_data</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Load test data for a specific section (Listening/Reading)"""</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span>
-        <span class="s1">'test'</span><span class="p">:</span> <span class="n">test</span><span class="p">,</span>
-        <span class="s1">'date'</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">'date'</span><span class="p">],</span> <span class="s1">'%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S'</span><span class="p">),</span>
-        <span class="s1">'score'</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span>
-        <span class="s1">'band'</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s1">'band'</span><span class="p">],</span>
-        <span class="s1">'time'</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span>
-    <span class="p">}</span> <span class="k">for</span> <span class="n">test</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">"test"</span><span class="p">:</span> <span class="n">test</span><span class="p">,</span>
+                <span class="s2">"date"</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"date"</span><span class="p">],</span> <span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">),</span>
+                <span class="s2">"score"</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span>
+                <span class="s2">"band"</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s2">"band"</span><span class="p">],</span>
+                <span class="s2">"time"</span><span class="p">:</span> <span class="n">details</span><span class="p">[</span><span class="s2">"time"</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">test</span><span class="p">,</span> <span class="n">details</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">section</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
 
 <span class="c1"># Read YAML file</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'train_log.yml'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"train_log.yml"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
 
 <span class="c1"># Create and sort DataFrames</span>
-<span class="n">listening_df</span> <span class="o">=</span> <span class="n">load_test_data</span><span class="p">(</span><span class="s1">'Listening'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">reading_df</span> <span class="o">=</span> <span class="n">load_test_data</span><span class="p">(</span><span class="s1">'Reading'</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">listening_df</span> <span class="o">=</span> <span class="n">load_test_data</span><span class="p">(</span><span class="s2">"Listening"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"date"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">reading_df</span> <span class="o">=</span> <span class="n">load_test_data</span><span class="p">(</span><span class="s2">"Reading"</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"date"</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Add test numbers (most recent = 1)</span>
-<span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">listening_df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">reading_df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">listening_df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">reading_df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1"># Import required libraries
-import pandas as pd
-import matplotlib.pyplot as plt
-import yaml
-import numpy as np
 from datetime import datetime
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import yaml
 
 # Configure matplotlib settings
 # plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
-plt.rcParams['axes.unicode_minus'] = False
-plt.rcParams['font.size'] = 12
+plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["font.size"] = 12
+
 
 # Load and process data
 def load_test_data(section, data):
     """Load test data for a specific section (Listening/Reading)"""
-    return pd.DataFrame([{
-        'test': test,
-        'date': datetime.strptime(details['date'], '%Y-%m-%d %H:%M:%S'),
-        'score': details['score'],
-        'band': details['band'],
-        'time': details['time']
-    } for test, details in data[section].items()])
+    return pd.DataFrame(
+        [
+            {
+                "test": test,
+                "date": datetime.strptime(details["date"], "%Y-%m-%d %H:%M:%S"),
+                "score": details["score"],
+                "band": details["band"],
+                "time": details["time"],
+            }
+            for test, details in data[section].items()
+        ]
+    )
+
 
 # Read YAML file
-with open('train_log.yml', 'r') as file:
+with open("train_log.yml", "r") as file:
     data = yaml.safe_load(file)
 
 # Create and sort DataFrames
-listening_df = load_test_data('Listening', data).sort_values('date', ascending=False)
-reading_df = load_test_data('Reading', data).sort_values('date', ascending=False)
+listening_df = load_test_data("Listening", data).sort_values("date", ascending=False)
+reading_df = load_test_data("Reading", data).sort_values("date", ascending=False)
 
 # Add test numbers (most recent = 1)
-listening_df['test_number'] = range(1, len(listening_df) + 1)
-reading_df['test_number'] = range(1, len(reading_df) + 1)
-</div>
+listening_df["test_number"] = range(1, len(listening_df) + 1)
+reading_df["test_number"] = range(1, len(reading_df) + 1)</div>
 </div>
 </div>
 </div>
@@ -5307,42 +5320,55 @@ reading_df['test_number'] = range(1, len(reading_df) + 1)
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
 <span class="c1"># Create main analysis plots</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
 
 <span class="c1"># 1. Score trends</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Listening'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Reading'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Listening"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Reading"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Add trend lines and calculate R² and p-value</span>
-<span class="n">z1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">z1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">p1_func</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
-<span class="n">r1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">r1_2</span> <span class="o">=</span> <span class="n">r1</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">pval1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">])</span>
-<span class="n">line1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">p1_func</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]),</span> 
-        <span class="s1">'--'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">'R²=</span><span class="si">{</span><span class="n">r1_2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, p=</span><span class="si">{</span><span class="n">pval1</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> 
-           <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">p1_func</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())),</span>
-           <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span>
-           <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">pval1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">])</span>
+<span class="n">line1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">p1_func</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]),</span> <span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"R²=</span><span class="si">{</span><span class="n">r1_2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">pval1</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">p1_func</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())),</span>
+    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="n">z2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">p2_func</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">r2_2</span> <span class="o">=</span> <span class="n">r2</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">pval2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">])</span>
-<span class="n">line2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">p2_func</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]),</span> 
-        <span class="s1">'--'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">'R²=</span><span class="si">{</span><span class="n">r2_2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, p=</span><span class="si">{</span><span class="n">pval2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
-           <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">p2_func</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())),</span>
-           <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s1">'offset points'</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">pval2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"score"</span><span class="p">])</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">p2_func</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]),</span> <span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">"R²=</span><span class="si">{</span><span class="n">r2_2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">pval2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">p2_func</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())),</span>
+    <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">"orange"</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'IELTS Score Trends'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Test Number (Earliest → Most Recent)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Score'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"IELTS Score Trends"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Test Number (Earliest → Most Recent)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Score"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
@@ -5350,84 +5376,103 @@ reading_df['test_number'] = range(1, len(reading_df) + 1)
 
 <span class="c1"># 2. Band score distribution</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">bp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'band'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'band'</span><span class="p">]],</span> 
-                <span class="n">tick_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">'Listening'</span><span class="p">,</span> <span class="s1">'Reading'</span><span class="p">],</span> 
-                <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">bp</span><span class="p">[</span><span class="s1">'boxes'</span><span class="p">]:</span>
-    <span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Band Score Distribution'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Band Score'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">bp</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"band"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"band"</span><span class="p">]],</span>
+    <span class="n">tick_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Listening"</span><span class="p">,</span> <span class="s2">"Reading"</span><span class="p">],</span>
+    <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">bp</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]:</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">"lightblue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Band Score Distribution"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Band Score"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
 
 <span class="c1"># 3. Listening completion time</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Listening Completion Time'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Test Number (Earliest → Most Recent)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Time (seconds)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">listening_df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Listening Completion Time"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Test Number (Earliest → Most Recent)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Time (seconds)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
 
 <span class="c1"># 4. Reading completion time</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'test_number'</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'purple'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Reading Completion Time'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Test Number (Most Recent → Earliest)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Time (seconds)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"test_number"</span><span class="p">],</span> <span class="n">reading_df</span><span class="p">[</span><span class="s2">"time"</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"purple"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Reading Completion Time"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Test Number (Most Recent → Earliest)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Time (seconds)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">invert_xaxis</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">check_significance</span><span class="p">(</span><span class="n">r_squared</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
     <span class="n">significance</span> <span class="o">=</span> <span class="s2">"显著"</span> <span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span> <span class="k">else</span> <span class="s2">"不显著"</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"决定系数为 </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">，表示训练次数可以解释分数约 </span><span class="si">{</span><span class="n">r_squared</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% 的变异。"</span> \
-           <span class="sa">f</span><span class="s2">"回归系数的 p 值为 </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">，"</span> \
-           <span class="sa">f</span><span class="s2">"说明训练次数对分数的影响在统计上</span><span class="si">{</span><span class="n">significance</span><span class="si">}</span><span class="s2">"</span> \
-           <span class="sa">f</span><span class="s2">"（以 alpha = </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2"> 为阈值）。"</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"决定系数为 </span><span class="si">{</span><span class="n">r_squared</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">，表示训练次数可以解释分数约 </span><span class="si">{</span><span class="n">r_squared</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% 的变异。"</span>
+        <span class="sa">f</span><span class="s2">"回归系数的 p 值为 </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">，"</span>
+        <span class="sa">f</span><span class="s2">"说明训练次数对分数的影响在统计上</span><span class="si">{</span><span class="n">significance</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"（以 alpha = </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2"> 为阈值）。"</span>
+    <span class="p">)</span>
+
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"阅读分数的回归模型：</span><span class="si">{</span><span class="n">check_significance</span><span class="p">(</span><span class="n">r2_2</span><span class="p">,</span><span class="w"> </span><span class="n">pval2</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"听力分数的回归模型：</span><span class="si">{</span><span class="n">check_significance</span><span class="p">(</span><span class="n">r1_2</span><span class="p">,</span><span class="w"> </span><span class="n">pval1</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">from scipy import stats
+
 # Create main analysis plots
 fig, axes = plt.subplots(2, 2, figsize=(20, 16))
 
 # 1. Score trends
 ax = axes[0, 0]
-ax.plot(listening_df['test_number'], listening_df['score'], marker='o', label='Listening', linewidth=2)
-ax.plot(reading_df['test_number'], reading_df['score'], marker='o', label='Reading', linewidth=2)
+ax.plot(
+    listening_df["test_number"], listening_df["score"], marker="o", label="Listening", linewidth=2
+)
+ax.plot(reading_df["test_number"], reading_df["score"], marker="o", label="Reading", linewidth=2)
 
 # Add trend lines and calculate R² and p-value
-z1 = np.polyfit(listening_df['test_number'], listening_df['score'], 1)
+z1 = np.polyfit(listening_df["test_number"], listening_df["score"], 1)
 p1_func = np.poly1d(z1)
-r1 = np.corrcoef(listening_df['test_number'], listening_df['score'])[0,1]
+r1 = np.corrcoef(listening_df["test_number"], listening_df["score"])[0, 1]
 r1_2 = r1**2
-_, pval1 = stats.pearsonr(listening_df['test_number'], listening_df['score'])
-line1 = ax.plot(listening_df['test_number'], p1_func(listening_df['test_number']), 
-        '--', color='blue', alpha=0.5)
-ax.annotate(f'R²={r1_2:.3f}, p={pval1:.3f}', 
-           xy=(listening_df['test_number'].mean(), p1_func(listening_df['test_number'].mean())),
-           xytext=(10, 10), textcoords='offset points',
-           color='blue', alpha=0.7)
+_, pval1 = stats.pearsonr(listening_df["test_number"], listening_df["score"])
+line1 = ax.plot(
+    listening_df["test_number"], p1_func(listening_df["test_number"]), "--", color="blue", alpha=0.5
+)
+ax.annotate(
+    f"R²={r1_2:.3f}, p={pval1:.3f}",
+    xy=(listening_df["test_number"].mean(), p1_func(listening_df["test_number"].mean())),
+    xytext=(10, 10),
+    textcoords="offset points",
+    color="blue",
+    alpha=0.7,
+)
 
-z2 = np.polyfit(reading_df['test_number'], reading_df['score'], 1)
+z2 = np.polyfit(reading_df["test_number"], reading_df["score"], 1)
 p2_func = np.poly1d(z2)
-r2 = np.corrcoef(reading_df['test_number'], reading_df['score'])[0,1]
+r2 = np.corrcoef(reading_df["test_number"], reading_df["score"])[0, 1]
 r2_2 = r2**2
-_, pval2 = stats.pearsonr(reading_df['test_number'], reading_df['score'])
-line2 = ax.plot(reading_df['test_number'], p2_func(reading_df['test_number']), 
-        '--', color='orange', alpha=0.5)
-ax.annotate(f'R²={r2_2:.3f}, p={pval2:.3f}',
-           xy=(reading_df['test_number'].mean(), p2_func(reading_df['test_number'].mean())),
-           xytext=(10, -10), textcoords='offset points', 
-           color='orange', alpha=0.7)
+_, pval2 = stats.pearsonr(reading_df["test_number"], reading_df["score"])
+line2 = ax.plot(
+    reading_df["test_number"], p2_func(reading_df["test_number"]), "--", color="orange", alpha=0.5
+)
+ax.annotate(
+    f"R²={r2_2:.3f}, p={pval2:.3f}",
+    xy=(reading_df["test_number"].mean(), p2_func(reading_df["test_number"].mean())),
+    xytext=(10, -10),
+    textcoords="offset points",
+    color="orange",
+    alpha=0.7,
+)
 
-ax.set_title('IELTS Score Trends', fontsize=16, pad=20)
-ax.set_xlabel('Test Number (Earliest → Most Recent)', fontsize=14)
-ax.set_ylabel('Score', fontsize=14)
+ax.set_title("IELTS Score Trends", fontsize=16, pad=20)
+ax.set_xlabel("Test Number (Earliest → Most Recent)", fontsize=14)
+ax.set_ylabel("Score", fontsize=14)
 ax.legend(fontsize=12)
 ax.grid(True, alpha=0.3)
 ax.set_ylim([20, 40])
@@ -5435,47 +5480,52 @@ ax.invert_xaxis()
 
 # 2. Band score distribution
 ax = axes[0, 1]
-bp = ax.boxplot([listening_df['band'], reading_df['band']], 
-                tick_labels=['Listening', 'Reading'], 
-                patch_artist=True)
-for box in bp['boxes']:
-    box.set(facecolor='lightblue', alpha=0.7)
-ax.set_title('Band Score Distribution', fontsize=16, pad=20)
-ax.set_ylabel('Band Score', fontsize=14)
+bp = ax.boxplot(
+    [listening_df["band"], reading_df["band"]],
+    tick_labels=["Listening", "Reading"],
+    patch_artist=True,
+)
+for box in bp["boxes"]:
+    box.set(facecolor="lightblue", alpha=0.7)
+ax.set_title("Band Score Distribution", fontsize=16, pad=20)
+ax.set_ylabel("Band Score", fontsize=14)
 ax.grid(True, alpha=0.3)
 ax.set_ylim([5, 9])
 
 # 3. Listening completion time
 ax = axes[1, 0]
-ax.plot(listening_df['test_number'], listening_df['time'], marker='o', color='green', linewidth=2)
-ax.set_title('Listening Completion Time', fontsize=16, pad=20)
-ax.set_xlabel('Test Number (Earliest → Most Recent)', fontsize=14)
-ax.set_ylabel('Time (seconds)', fontsize=14)
+ax.plot(listening_df["test_number"], listening_df["time"], marker="o", color="green", linewidth=2)
+ax.set_title("Listening Completion Time", fontsize=16, pad=20)
+ax.set_xlabel("Test Number (Earliest → Most Recent)", fontsize=14)
+ax.set_ylabel("Time (seconds)", fontsize=14)
 ax.grid(True, alpha=0.3)
 ax.invert_xaxis()
 
 # 4. Reading completion time
 ax = axes[1, 1]
-ax.plot(reading_df['test_number'], reading_df['time'], marker='o', color='purple', linewidth=2)
-ax.set_title('Reading Completion Time', fontsize=16, pad=20)
-ax.set_xlabel('Test Number (Most Recent → Earliest)', fontsize=14)
-ax.set_ylabel('Time (seconds)', fontsize=14)
+ax.plot(reading_df["test_number"], reading_df["time"], marker="o", color="purple", linewidth=2)
+ax.set_title("Reading Completion Time", fontsize=16, pad=20)
+ax.set_xlabel("Test Number (Most Recent → Earliest)", fontsize=14)
+ax.set_ylabel("Time (seconds)", fontsize=14)
 ax.grid(True, alpha=0.3)
 ax.invert_xaxis()
 
 plt.tight_layout()
 plt.show()
 
+
 def check_significance(r_squared, p_value, alpha=0.05):
     significance = "显著" if p_value &lt; alpha else "不显著"
-    return f"决定系数为 {r_squared:.3f}，表示训练次数可以解释分数约 {r_squared*100:.1f}% 的变异。" \
-           f"回归系数的 p 值为 {p_value:.3f}，" \
-           f"说明训练次数对分数的影响在统计上{significance}" \
-           f"（以 alpha = {alpha} 为阈值）。"
+    return (
+        f"决定系数为 {r_squared:.3f}，表示训练次数可以解释分数约 {r_squared * 100:.1f}% 的变异。"
+        f"回归系数的 p 值为 {p_value:.3f}，"
+        f"说明训练次数对分数的影响在统计上{significance}"
+        f"（以 alpha = {alpha} 为阈值）。"
+    )
+
 
 print(f"阅读分数的回归模型：{check_significance(r2_2, pval2)}")
-print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")
-</div>
+print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")</div>
 </div>
 </div>
 </div>
@@ -5531,19 +5581,17 @@ print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListedColormap</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">calendar</span>
 
 <span class="c1"># 创建训练数据（与你已有代码一样）</span>
-<span class="n">listening_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
-<span class="n">reading_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="n">listening_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">listening_df</span><span class="p">[</span><span class="s2">"date"</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="n">reading_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">reading_df</span><span class="p">[</span><span class="s2">"date"</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
 
 <span class="n">start_date</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">listening_dates</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">reading_dates</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 <span class="n">end_date</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">listening_dates</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">reading_dates</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
-<span class="n">date_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">'D'</span><span class="p">)</span>
+<span class="n">date_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"D"</span><span class="p">)</span>
 
 <span class="n">training_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">date_range</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">listening_dates</span><span class="p">:</span>
@@ -5552,16 +5600,11 @@ print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")
     <span class="n">training_data</span><span class="p">[</span><span class="n">date</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">2</span>
 
 <span class="c1"># 颜色设置</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="mi">0</span><span class="p">:</span> <span class="s1">'#f5f5f5'</span><span class="p">,</span>
-    <span class="mi">1</span><span class="p">:</span> <span class="s1">'#9ecae1'</span><span class="p">,</span>
-    <span class="mi">2</span><span class="p">:</span> <span class="s1">'#fc9272'</span><span class="p">,</span>
-    <span class="mi">3</span><span class="p">:</span> <span class="s1">'#807dba'</span>
-<span class="p">}</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">"#f5f5f5"</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">"#9ecae1"</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">"#fc9272"</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">"#807dba"</span><span class="p">}</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)])</span>
 
 <span class="c1"># 提取非零月份</span>
-<span class="n">nonzero_months</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="n">training_data</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">nonzero_months</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="n">training_data</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s2">"M"</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 
 <span class="c1"># 按月绘图</span>
 <span class="n">n_cols</span> <span class="o">=</span> <span class="mi">3</span>
@@ -5571,28 +5614,28 @@ print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">period</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nonzero_months</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">month_data</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="n">training_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)</span> <span class="o">==</span> <span class="n">period</span><span class="p">]</span>
+    <span class="n">month_data</span> <span class="o">=</span> <span class="n">training_data</span><span class="p">[</span><span class="n">training_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s2">"M"</span><span class="p">)</span> <span class="o">==</span> <span class="n">period</span><span class="p">]</span>
 
     <span class="c1"># 生成月日历矩阵</span>
     <span class="n">month_dates</span> <span class="o">=</span> <span class="n">month_data</span><span class="o">.</span><span class="n">index</span>
     <span class="n">days</span> <span class="o">=</span> <span class="n">month_dates</span><span class="o">.</span><span class="n">day</span>
     <span class="n">weekdays</span> <span class="o">=</span> <span class="n">month_dates</span><span class="o">.</span><span class="n">weekday</span>
-    <span class="n">week_of_month</span> <span class="o">=</span> <span class="p">((</span><span class="n">days</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">month_dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">week_of_month</span> <span class="o">=</span> <span class="p">(</span><span class="n">days</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">month_dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">//</span> <span class="mi">7</span>
 
     <span class="c1"># 画每个格子</span>
     <span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">month_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>  <span class="c1"># 0=Mon</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">date</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
 
     <span class="c1"># 样式</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">,</span> <span class="s1">'Wed'</span><span class="p">,</span> <span class="s1">'Thu'</span><span class="p">,</span> <span class="s1">'Fri'</span><span class="p">,</span> <span class="s1">'Sat'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s2">"Mon"</span><span class="p">,</span> <span class="s2">"Tue"</span><span class="p">,</span> <span class="s2">"Wed"</span><span class="p">,</span> <span class="s2">"Thu"</span><span class="p">,</span> <span class="s2">"Fri"</span><span class="p">,</span> <span class="s2">"Sat"</span><span class="p">,</span> <span class="s2">"Sun"</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">period</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%B %Y"</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">'equal'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">period</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">'%B %Y'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">"equal"</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
 
 <span class="c1"># 移除多余子图</span>
@@ -5601,29 +5644,27 @@ print(f"听力分数的回归模型：{check_significance(r1_2, pval1)}")
 
 <span class="c1"># 添加图例</span>
 <span class="n">legend_elements</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Listening'</span><span class="p">),</span>
-    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Reading'</span><span class="p">),</span>
-    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Both'</span><span class="p">)</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Listening"</span><span class="p">),</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Reading"</span><span class="p">),</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Both"</span><span class="p">),</span>
 <span class="p">]</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">'upper right'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">legend_elements</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">"upper right"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'IELTS Training Frequency Calendar'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"IELTS Training Frequency Calendar"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.98</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">import pandas as pd
-import matplotlib.pyplot as plt
+<div class="clipboard-copy-txt" id="cell-3">import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Patch
-import calendar
 
 # 创建训练数据（与你已有代码一样）
-listening_dates = pd.to_datetime(listening_df['date']).dt.normalize()
-reading_dates = pd.to_datetime(reading_df['date']).dt.normalize()
+listening_dates = pd.to_datetime(listening_df["date"]).dt.normalize()
+reading_dates = pd.to_datetime(reading_df["date"]).dt.normalize()
 
 start_date = min(listening_dates.min(), reading_dates.min())
 end_date = max(listening_dates.max(), reading_dates.max())
-date_range = pd.date_range(start=start_date, end=end_date, freq='D')
+date_range = pd.date_range(start=start_date, end=end_date, freq="D")
 
 training_data = pd.Series(0, index=date_range)
 for date in listening_dates:
@@ -5632,16 +5673,11 @@ for date in reading_dates:
     training_data[date] += 2
 
 # 颜色设置
-colors = {
-    0: '#f5f5f5',
-    1: '#9ecae1',
-    2: '#fc9272',
-    3: '#807dba'
-}
+colors = {0: "#f5f5f5", 1: "#9ecae1", 2: "#fc9272", 3: "#807dba"}
 cmap = ListedColormap([colors[i] for i in range(4)])
 
 # 提取非零月份
-nonzero_months = training_data[training_data &gt; 0].index.to_period('M').unique()
+nonzero_months = training_data[training_data &gt; 0].index.to_period("M").unique()
 
 # 按月绘图
 n_cols = 3
@@ -5651,28 +5687,28 @@ axes = axes.flatten()
 
 for i, period in enumerate(nonzero_months):
     ax = axes[i]
-    month_data = training_data[training_data.index.to_period('M') == period]
+    month_data = training_data[training_data.index.to_period("M") == period]
 
     # 生成月日历矩阵
     month_dates = month_data.index
     days = month_dates.day
     weekdays = month_dates.weekday
-    week_of_month = ((days - 1 + month_dates[0].weekday()) // 7)
+    week_of_month = (days - 1 + month_dates[0].weekday()) // 7
 
     # 画每个格子
     for date, value in month_data.items():
         x = date.weekday()  # 0=Mon
-        y = ((date.day + date.replace(day=1).weekday() - 1) // 7)
+        y = (date.day + date.replace(day=1).weekday() - 1) // 7
         ax.add_patch(plt.Rectangle((x, y), 1, 1, color=colors[value]))
 
     # 样式
     ax.set_xlim(0, 7)
     ax.set_ylim(0, 6)
     ax.set_xticks(range(7))
-    ax.set_xticklabels(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'])
+    ax.set_xticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
     ax.set_yticks([])
-    ax.set_title(f'{period.strftime("%B %Y")}')
-    ax.set_aspect('equal')
+    ax.set_title(f"{period.strftime('%B %Y')}")
+    ax.set_aspect("equal")
     ax.invert_yaxis()
 
 # 移除多余子图
@@ -5681,16 +5717,15 @@ for j in range(i + 1, len(axes)):
 
 # 添加图例
 legend_elements = [
-    Patch(facecolor=colors[1], label='Listening'),
-    Patch(facecolor=colors[2], label='Reading'),
-    Patch(facecolor=colors[3], label='Both')
+    Patch(facecolor=colors[1], label="Listening"),
+    Patch(facecolor=colors[2], label="Reading"),
+    Patch(facecolor=colors[3], label="Both"),
 ]
-fig.legend(handles=legend_elements, loc='upper right')
+fig.legend(handles=legend_elements, loc="upper right")
 
-plt.suptitle('IELTS Training Frequency Calendar', fontsize=16, y=0.98)
+plt.suptitle("IELTS Training Frequency Calendar", fontsize=16, y=0.98)
 plt.tight_layout()
-plt.show()
-</div>
+plt.show()</div>
 </div>
 </div>
 </div>
@@ -5755,23 +5790,31 @@ plt.show()
 <span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>
 
 <span class="c1"># Create bars</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">recent_listening</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Listening'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'skyblue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">recent_reading</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Reading'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightcoral'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">-</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">recent_listening</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Listening"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"skyblue"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">+</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">recent_reading</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Reading"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"lightcoral"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span>
+<span class="p">)</span>
 
 <span class="c1"># Add score labels with band scores</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">recent_listening</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">recent_listening</span><span class="p">[</span><span class="s1">'band'</span><span class="p">])):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">score</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s1">(B</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">)'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'bottom'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">recent_reading</span><span class="p">[</span><span class="s1">'score'</span><span class="p">],</span> <span class="n">recent_reading</span><span class="p">[</span><span class="s1">'band'</span><span class="p">])):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">score</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s1">(B</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s1">)'</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'bottom'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">recent_listening</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">recent_listening</span><span class="p">[</span><span class="s2">"band"</span><span class="p">])):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">i</span> <span class="o">-</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">score</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s2">(B</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">band</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">recent_reading</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span> <span class="n">recent_reading</span><span class="p">[</span><span class="s2">"band"</span><span class="p">])):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">i</span> <span class="o">+</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">score</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="se">\n</span><span class="s2">(B</span><span class="si">{</span><span class="n">band</span><span class="si">}</span><span class="s2">)"</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">)</span>
 
 <span class="c1"># Configure plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Recent IELTS Test Performance Comparison'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Test Number (Most Recent → Earliest)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Score'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Recent IELTS Test Performance Comparison"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Test Number (Most Recent → Earliest)"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Score"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">'y'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">"y"</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -5788,27 +5831,34 @@ x = np.arange(7)
 width = 0.35
 
 # Create bars
-plt.bar(x - width/2, recent_listening['score'], width, label='Listening', color='skyblue', alpha=0.7)
-plt.bar(x + width/2, recent_reading['score'], width, label='Reading', color='lightcoral', alpha=0.7)
+plt.bar(
+    x - width / 2, recent_listening["score"], width, label="Listening", color="skyblue", alpha=0.7
+)
+plt.bar(
+    x + width / 2, recent_reading["score"], width, label="Reading", color="lightcoral", alpha=0.7
+)
 
 # Add score labels with band scores
-for i, (score, band) in enumerate(zip(recent_listening['score'], recent_listening['band'])):
-    plt.text(i - width/2, score + 0.5, f'{score}\n(B{band})', ha='center', va='bottom', fontsize=10)
-for i, (score, band) in enumerate(zip(recent_reading['score'], recent_reading['band'])):
-    plt.text(i + width/2, score + 0.5, f'{score}\n(B{band})', ha='center', va='bottom', fontsize=10)
+for i, (score, band) in enumerate(zip(recent_listening["score"], recent_listening["band"])):
+    plt.text(
+        i - width / 2, score + 0.5, f"{score}\n(B{band})", ha="center", va="bottom", fontsize=10
+    )
+for i, (score, band) in enumerate(zip(recent_reading["score"], recent_reading["band"])):
+    plt.text(
+        i + width / 2, score + 0.5, f"{score}\n(B{band})", ha="center", va="bottom", fontsize=10
+    )
 
 # Configure plot
-plt.title('Recent IELTS Test Performance Comparison', fontsize=16, pad=20)
-plt.xlabel('Test Number (Most Recent → Earliest)', fontsize=12)
-plt.ylabel('Score', fontsize=12)
+plt.title("Recent IELTS Test Performance Comparison", fontsize=16, pad=20)
+plt.xlabel("Test Number (Most Recent → Earliest)", fontsize=12)
+plt.ylabel("Score", fontsize=12)
 plt.legend(fontsize=12)
 plt.xticks(x, range(1, 8))
 plt.ylim(20, 40)
-plt.grid(True, alpha=0.3, axis='y')
+plt.grid(True, alpha=0.3, axis="y")
 
 plt.tight_layout()
-plt.show()
-</div>
+plt.show()</div>
 </div>
 </div>
 </div>
@@ -5867,6 +5917,7 @@ plt.show()
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Lowest Score: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> (Band </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">(),</span><span class="w"> </span><span class="s1">'band'</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average Completion Time: </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
+
 <span class="n">print_section_stats</span><span class="p">(</span><span class="n">listening_df</span><span class="p">,</span> <span class="s2">"Listening"</span><span class="p">)</span>
 <span class="n">print_section_stats</span><span class="p">(</span><span class="n">reading_df</span><span class="p">,</span> <span class="s2">"Reading"</span><span class="p">)</span>
 </pre></div>
@@ -5881,9 +5932,9 @@ def print_section_stats(df, section):
     print(f"Lowest Score: {df['score'].min()} (Band {df.loc[df['score'].idxmin(), 'band']})")
     print(f"Average Completion Time: {df['time'].mean():.2f} seconds\n")
 
+
 print_section_stats(listening_df, "Listening")
-print_section_stats(reading_df, "Reading")
-</div>
+print_section_stats(reading_df, "Reading")</div>
 </div>
 </div>
 </div>
@@ -5928,7 +5979,7 @@ Average Completion Time: 3210.55 seconds
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年12月11日 19:36:57</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月4日 11:40:53</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">

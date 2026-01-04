@@ -5077,7 +5077,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=444f9e70">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5d15b1a4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5100,23 +5100,19 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="sd">@when : 2019-12-22</span>
 <span class="sd">@homepage : https://github.com/gusdnd852</span>
 <span class="sd">"""</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-1">"""
 @author : Hyunwoong
 @when : 2019-12-22
 @homepage : https://github.com/gusdnd852
-"""
-import math
-from collections import Counter</div>
+"""</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=edfcf518">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=bb2754e9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5134,16 +5130,18 @@ from collections import Counter</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">import numpy as np</div>
+<div class="clipboard-copy-txt" id="cell-2">import math
+from collections import Counter</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=675a8c1c">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5e5e4d28">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5161,46 +5159,16 @@ from collections import Counter</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bleu_stats</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Compute statistics for BLEU."""</span>
-    <span class="n">stats</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">))</span>
-    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reference</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
-        <span class="n">s_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span>
-            <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">)]</span>
-        <span class="p">)</span>
-        <span class="n">r_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span>
-            <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">)]</span>
-        <span class="p">)</span>
-
-        <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">s_ngrams</span> <span class="o">&amp;</span> <span class="n">r_ngrams</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">stats</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">def bleu_stats(hypothesis, reference):
-    """Compute statistics for BLEU."""
-    stats = []
-    stats.append(len(hypothesis))
-    stats.append(len(reference))
-    for n in range(1, 5):
-        s_ngrams = Counter(
-            [tuple(hypothesis[i:i + n]) for i in range(len(hypothesis) + 1 - n)]
-        )
-        r_ngrams = Counter(
-            [tuple(reference[i:i + n]) for i in range(len(reference) + 1 - n)]
-        )
-
-        stats.append(max(sum((s_ngrams &amp; r_ngrams).values()), 0))
-        stats.append(max(len(hypothesis) + 1 - n, 0))
-    return stats</div>
+<div class="clipboard-copy-txt" id="cell-3">import numpy as np</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3628f9f0">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b1958c03">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5218,32 +5186,38 @@ from collections import Counter</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bleu</span><span class="p">(</span><span class="n">stats</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Compute BLEU given n-gram statistics."""</span>
-    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
-    <span class="n">log_bleu_prec</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
-        <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>
-    <span class="p">)</span> <span class="o">/</span> <span class="mf">4.</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_bleu_prec</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bleu_stats</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Compute statistics for BLEU."""</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">))</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reference</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="n">s_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">)])</span>
+        <span class="n">r_ngrams</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="nb">tuple</span><span class="p">(</span><span class="n">reference</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reference</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">)])</span>
+
+        <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">s_ngrams</span> <span class="o">&amp;</span> <span class="n">r_ngrams</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">hypothesis</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">stats</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def bleu(stats):
-    """Compute BLEU given n-gram statistics."""
-    if any(x == 0 for x in stats):
-        return 0
-    (c, r) = stats[:2]
-    log_bleu_prec = sum(
-        math.log(float(x) / y) for x, y in zip(stats[2::2], stats[3::2])
-    ) / 4.
-    return math.exp(min(0, 1 - float(r) / c) + log_bleu_prec)</div>
+<div class="clipboard-copy-txt" id="cell-4">def bleu_stats(hypothesis, reference):
+    """Compute statistics for BLEU."""
+    stats = []
+    stats.append(len(hypothesis))
+    stats.append(len(reference))
+    for n in range(1, 5):
+        s_ngrams = Counter([tuple(hypothesis[i : i + n]) for i in range(len(hypothesis) + 1 - n)])
+        r_ngrams = Counter([tuple(reference[i : i + n]) for i in range(len(reference) + 1 - n)])
+
+        stats.append(max(sum((s_ngrams &amp; r_ngrams).values()), 0))
+        stats.append(max(len(hypothesis) + 1 - n, 0))
+    return stats</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=427f6b69">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ce0472f8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5261,26 +5235,28 @@ from collections import Counter</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bleu</span><span class="p">(</span><span class="n">hypotheses</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Get validation BLEU score for dev set."""</span>
-    <span class="n">stats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">ref</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hypotheses</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
-        <span class="n">stats</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bleu_stats</span><span class="p">(</span><span class="n">hyp</span><span class="p">,</span> <span class="n">ref</span><span class="p">))</span>
-    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">bleu</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bleu</span><span class="p">(</span><span class="n">stats</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Compute BLEU given n-gram statistics."""</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">log_bleu_prec</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">stats</span><span class="p">[</span><span class="mi">3</span><span class="p">::</span><span class="mi">2</span><span class="p">]))</span> <span class="o">/</span> <span class="mf">4.0</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="n">log_bleu_prec</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def get_bleu(hypotheses, reference):
-    """Get validation BLEU score for dev set."""
-    stats = np.zeros(10)
-    for hyp, ref in zip(hypotheses, reference):
-        stats += np.array(bleu_stats(hyp, ref))
-    return 100 * bleu(stats)</div>
+<div class="clipboard-copy-txt" id="cell-5">def bleu(stats):
+    """Compute BLEU given n-gram statistics."""
+    if any(x == 0 for x in stats):
+        return 0
+    (c, r) = stats[:2]
+    log_bleu_prec = sum(math.log(float(x) / y) for x, y in zip(stats[2::2], stats[3::2])) / 4.0
+    return math.exp(min(0, 1 - float(r) / c) + log_bleu_prec)</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c385f637">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ec99f0c2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -5298,31 +5274,68 @@ from collections import Counter</div>
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bleu</span><span class="p">(</span><span class="n">hypotheses</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Get validation BLEU score for dev set."""</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">ref</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hypotheses</span><span class="p">,</span> <span class="n">reference</span><span class="p">):</span>
+        <span class="n">stats</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bleu_stats</span><span class="p">(</span><span class="n">hyp</span><span class="p">,</span> <span class="n">ref</span><span class="p">))</span>
+    <span class="k">return</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">bleu</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-6">def get_bleu(hypotheses, reference):
+    """Get validation BLEU score for dev set."""
+    stats = np.zeros(10)
+    for hyp, ref in zip(hypotheses, reference):
+        stats += np.array(bleu_stats(hyp, ref))
+    return 100 * bleu(stats)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=532a9bf9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">idx_to_word</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
     <span class="c1"># 这里假设 vocab 是 dict: word -&gt; idx</span>
     <span class="c1"># 先构造 idx -&gt; word 的反转字典</span>
     <span class="n">idx2word</span> <span class="o">=</span> <span class="p">{</span><span class="n">idx</span><span class="p">:</span> <span class="n">word</span> <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-    
+
     <span class="n">words</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
         <span class="c1"># i 可能是 tensor，需要转成 int</span>
-        <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">'item'</span><span class="p">)</span> <span class="k">else</span> <span class="n">i</span>
-        <span class="n">word</span> <span class="o">=</span> <span class="n">idx2word</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="s1">'&lt;unk&gt;'</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s1">'&lt;'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">"item"</span><span class="p">)</span> <span class="k">else</span> <span class="n">i</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">idx2word</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="s2">"&lt;unk&gt;"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"&lt;"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
             <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     <span class="k">return</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">def idx_to_word(x, vocab):
+<div class="clipboard-copy-txt" id="cell-7">def idx_to_word(x, vocab):
     # 这里假设 vocab 是 dict: word -&gt; idx
     # 先构造 idx -&gt; word 的反转字典
     idx2word = {idx: word for word, idx in vocab.items()}
-    
+
     words = []
     for i in x:
         # i 可能是 tensor，需要转成 int
-        idx = i.item() if hasattr(i, 'item') else i
-        word = idx2word.get(idx, '<unk>')
-        if '&lt;' not in word:
+        idx = i.item() if hasattr(i, "item") else i
+        word = idx2word.get(idx, "<unk>")
+        if "&lt;" not in word:
             words.append(word)
     return " ".join(words)</unk></div>
 </div>
@@ -5338,7 +5351,7 @@ from collections import Counter</div>
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年10月17日 21:39:53</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月4日 11:40:53</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
