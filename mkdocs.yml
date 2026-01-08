@@ -263,16 +263,16 @@ nav:
 
     - 概率论:
         - Math/Statistic/index.md
-    #     - Notebook page: Math/Statistic/01-probability.ipynb
-    #     - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
-    #     - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
-    #     - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
-    #     - Notebook page: Math/Statistic/05-Special_Functions.ipynb
-    #     - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
-    #     - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
-    #     - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
-    #     - Notebook page: Math/Statistic/09-Regression.ipynb
-    #     - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
+        - Notebook page: Math/Statistic/01-probability.ipynb
+        - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
+        - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
+        - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
+        - Notebook page: Math/Statistic/05-Special_Functions.ipynb
+        - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
+        - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
+        - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
+        - Notebook page: Math/Statistic/09-Regression.ipynb
+        - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
         - Math/Statistic/11-anova.md
         - Math/Statistic/12-data_mining.md
         - Math/Statistic/13-Survival_Analysis.md
@@ -607,18 +607,10 @@ nav:
   - Web3:
     - CS/Web3/blockchain.md
     - CS/Web3/contract.md
-    - CS/Web3/solidity.md
+    - CS/Web3/solidity.md  
 
-
-- Project:
-  - Project/index.md
-  - Project/charger.md
-  - Project/celechron.md
-  - Project/awesome.md
-  - Project/website.md
-  - Project/balance_car.md
-  - Project/wand.md
-  - Project/dRehmFlight.md
+- Class:
+  - Class/classes_in_zju.md
   - 英语能力训练:
     - Class/English/00-intro-IELTS.md
     - Class/English/01-Listening.md
@@ -632,14 +624,11 @@ nav:
     - "积累-短语": Class/English/phrase.md
     - "积累-句式": Class/English/sentence.md
     - Notebook page: Class/English/train_log.ipynb
-
-- Class:
-  - Class/classes_in_zju.md
-  - Class/AdobeIllustrator.md
-  - Class/AdobePhotoshop.md
   - Class/ITP-Law.md
   - Class/ITP-Marketing.md
   - Class/马原.md
+  - Class/AdobeIllustrator.md
+  - Class/AdobePhotoshop.md
   - Books:
     - Class/Books/Philosophy.md
     - Class/Books/Philosophy-by-topic.md
@@ -701,14 +690,14 @@ plugins:
       strict: false
   
   # 支持jupyter notebook
-  # - mkdocs-jupyter:
-  #     execute: false
-  #     execute_ignore:
-  #       - "*.py"
-  #     kernel_name: python3
-  #     theme: dark
-  #     include_source: True
-  #     custom_mathjax_url: "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
+  - mkdocs-jupyter:
+      execute: true
+      execute_ignore:
+        - "*.py"
+      kernel_name: python3
+      theme: dark
+      include_source: True
+      custom_mathjax_url: "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
   
   # 支持视频
   - mkdocs-video:
