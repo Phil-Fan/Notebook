@@ -62,12 +62,12 @@ theme:
 
   language: 'zh'
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: blue
-      toggle:
-          icon: material/weather-sunny
-          name: Switch to dark mode
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   primary: blue
+    #   toggle:
+    #       icon: material/weather-sunny
+    #       name: Switch to dark mode
 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -162,12 +162,9 @@ extra:
       link: https://www.zhihu.com/people/phil.fan
       name: PhilFan's Zhihu
 
-    - icon: fontawesome/brands/bilibili
-      link: https://space.bilibili.com/1000000000000000000
-      name: PhilFan's Bilibili
-
-
-    
+    # - icon: fontawesome/classic/house
+    #   link: https://philfan.cn
+    #   name: PhilFan's Homepage
 
   analytics:
     provider: google
@@ -241,6 +238,8 @@ nav:
         - 微积分:
           - Math/Calculus/index.md
     - Math/signal.md
+    - Math/Calculator.md
+    - Math/Tableau.md
     - LA | 线性代数:
         - Math/LinearAlgebra/index.md
         - Math/LinearAlgebra/00-review.md
@@ -264,16 +263,16 @@ nav:
 
     - 概率论:
         - Math/Statistic/index.md
-        - Notebook page: Math/Statistic/01-probability.ipynb
-        - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
-        - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
-        - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
-        - Notebook page: Math/Statistic/05-Special_Functions.ipynb
-        - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
-        - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
-        - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
-        - Notebook page: Math/Statistic/09-Regression.ipynb
-        - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
+    #     - Notebook page: Math/Statistic/01-probability.ipynb
+    #     - Notebook page: Math/Statistic/02-Univariate_Random_Variable.ipynb
+    #     - Notebook page: Math/Statistic/03-Multivariate_Random_Variable.ipynb
+    #     - Notebook page: Math/Statistic/04-Numerical_Features.ipynb
+    #     - Notebook page: Math/Statistic/05-Special_Functions.ipynb
+    #     - Notebook page: Math/Statistic/06-Parameter_Estimation.ipynb
+    #     - Notebook page: Math/Statistic/07-Hypothesis_Testing.ipynb
+    #     - Notebook page: Math/Statistic/08-Goodness_of_Fit.ipynb
+    #     - Notebook page: Math/Statistic/09-Regression.ipynb
+    #     - Notebook page: Math/Statistic/10-Multiple_Regression_and_Analysis_of_Variance.ipynb
         - Math/Statistic/11-anova.md
         - Math/Statistic/12-data_mining.md
         - Math/Statistic/13-Survival_Analysis.md
@@ -355,6 +354,7 @@ nav:
         - AI/LLM/Engineer/09-Sampling.md
         - AI/LLM/Engineer/10-Evaluation.md
         - AI/LLM/Engineer/LoRA.md
+        - AI/LLM/Engineer/分布式.md
 
         - 工具手册:
           - "[部署] OpenAI API": https://platform.openai.com/docs/overview
@@ -399,6 +399,7 @@ nav:
     - "MLSys | 机器学习系统":
         - AI/MLSys/index.md
         - AI/MLSys/CUDA.md
+        - AI/MLSys/NV.md
         - CMU10-414:
           - AI/MLSys/CMU10_414/index.md
 
@@ -435,11 +436,6 @@ nav:
         - ML-SYS: https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main
         - LLM-interview: https://wdndev.github.io/llm_interview_note/
 
-        
-    
-
-
-
 - Robotics:
   - Robotics/index.md
   - Model:
@@ -453,6 +449,7 @@ nav:
     - 7 运动控制: Robotics/Model/7-Control.md
     - 8 力控制: Robotics/Model/8-ForceControl.md
     - 9 实验: Robotics/Model/9-exp.md
+    - Robotics/Model/Solidworks.md
 
   - Control Theory:
     - 自动控制:
@@ -483,6 +480,7 @@ nav:
 
     - 应用:
       - Robotics/Control/ELSE-供配电.md
+    - Robotics/Control/Matlab.md
 
   - 机器人技术:
     - 简介: Robotics/Robo/index.md
@@ -611,105 +609,16 @@ nav:
     - CS/Web3/contract.md
     - CS/Web3/solidity.md
 
-  - Dev:
-    - CS/Dev/DingBot.md
-    - CS/Dev/missing_knowledge.md
-    - CS/Dev/rules.md
-    - CS/Dev/CI-CD.md
-        
-    - Frontend:
-      - CS/Dev/Frontend/HTML.md
-      - CS/Dev/Frontend/CSS.md
-      - CS/Dev/Frontend/JavaScript.md
-      - CS/Dev/Frontend/electron.md
-
-    - Backend:
-      - CS/Dev/Backend/Nodejs.md
-      - CS/Dev/Backend/PHP.md
-    
-    - "开源项目尝鲜":
-      - CS/Dev/vtuber.md
-      - CS/Dev/tampermonkey.md
-  
-- Tools:
-  - Tools/index.md
-  - Efficiency:
-    - Tools/Efficiency/index.md
-    - Mkdocs:
-      - Tools/Efficiency/Mkdocs.md
-      - Pymdown Extensions: https://facelessuser.github.io/pymdown-extensions/
-      - Mkdocs Material: https://squidfunk.github.io/mkdocs-material/
-    - Tools/Efficiency/latex.md
-    - Tools/Efficiency/typst.md
-    - Tools/Efficiency/markdown.md
-    - Tools/Efficiency/vim.md
-    - Tools/Efficiency/JekyII.md
-    - Tools/Efficiency/reveal-md.md
-
-  
-  - Code:
-    - Tools/Language/index.md
-    - Tools/Language/Makefile.md
-    - Tools/Language/Python.md
-    
-    - Tools/Language/Java.md
-    - Tools/Language/JavaScript.md
-    - Tools/Language/nextjs.md
-
-    - Tools/Language/Dart.md
-    - Tools/Language/Ruby.md
-    - Tools/Language/Docker.md
-    - Tools/Language/Android.md
-
-      
-  - Software:
-    - Tools/Software/index.md
-    - Tools/Software/Git.md
-    - Tools/Software/Calculator.md
-    - Tools/Software/GDB.md
-    - Tools/Software/NV.md
-    - Tools/Software/SQL.md
-    - Tools/Software/Matlab.md
-    - Tools/Software/Solidworks.md
-    - Tools/Software/Tableau.md
-    - Tools/Software/AdobeIllustrator.md
-    - Tools/Software/AdobePhotoshop.md
-    - Tools/Software/Web.md
-    - Tools/Software/AI.md
-    - Tools/Software/Xcode.md
-    - Tools/Software/CICD.md
-    - Tools/Software/Aliyun.md
-
-  - "工作环境配置":
-    - Tools/Environment/settings-software.md
-    - Tools/Environment/settings-pc.md
-    - Tools/Environment/settings-macos.md
-    - Tools/Environment/settings-windows.md
-    - Tools/Environment/settings-linux.md
-    - Linux:
-      - Tools/Environment/Linux/index.md
-      - Tools/Environment/Linux/01-File.md
-      - Tools/Environment/Linux/02-Shell.md
-      - Tools/Environment/Linux/03-DataProcess.md
-      - Tools/Environment/Linux/04-User.md
-      - Tools/Environment/Linux/05-Admin.md
-    - Tools/Environment/settings-linux-kali.md
-    - Tools/Environment/settings-wsl.md
-    - Tools/Environment/ROS.md
-    - Tools/Environment/settings-server.md
-    - Tools/Environment/settings-router.md
-    - Tools/Environment/settings-website.md
-    - Tools/Environment/settings-kubernetes.md
-    - Tools/Environment/MCP.md
-    - Tools/Environment/nginx.md
-    - Tools/Environment/filebrowser.md
-    
 
 - Project:
   - Project/index.md
-  - Project/website.md
-  - Project/Celechron.md
+  - Project/charger.md
+  - Project/celechron.md
   - Project/awesome.md
+  - Project/website.md
+  - Project/balance_car.md
+  - Project/wand.md
+  - Project/dRehmFlight.md
   - 英语能力训练:
     - Class/English/00-intro-IELTS.md
     - Class/English/01-Listening.md
@@ -723,95 +632,32 @@ nav:
     - "积累-短语": Class/English/phrase.md
     - "积累-句式": Class/English/sentence.md
     - Notebook page: Class/English/train_log.ipynb
-  - Project/balance_car.md
-  - Project/wand.md
-  - Project/dRehmFlight.md
 
-- "生命因你而火热":
-  - Interest/index.md
-  - Interest/bean_knowledge.md
-
-  - "🏫浙大课程":
-    - Class/classes_in_zju.md
-    - Class/马原.md
-    
-    
-    - 大学物理: 
-      - Class/Physics/index.md
-
-    - Finance:
-      - Class/ITP-Law.md
-      - Class/ITP-Marketing.md
-      - Class/Fin/invest.md
-      - Class/Fin/invest-stock.md
-      - Class/Fin/quant.md
-      - Class/Fin/consulting.md
-      - Class/Fin/industry-analyze.md
-      - Class/Fin/industry-finance.md
-      - Class/Fin/industry-welfare.md
-      - "微观经济学":
-        - Class/Fin/micro/intro.md
-
-
-  - "🏃运动":
-    - Interest/Exercise/exercise-fit.md
-    - Interest/Exercise/exercise-swimming.md
-    - Interest/Exercise/exercise-running.md
-    - Interest/Exercise/exercise-tennis.md
-    - Interest/Exercise/dance.md
-
-  - "🥢食为天":
-    - Interest/Eat/eat.md
-    - Interest/Eat/eat-west.md
-    - Interest/Eat/eat-hangzhou.md
-    - Interest/Eat/coffee.md
-
-  - "🗺️出行":
-    - Interest/Travel/C-Driving.md
-    - Interest/Travel/C-journey.md
-    - Interest/Travel/C-J-浙江.md
-    - Interest/Travel/C-J-四川.md
-    - Interest/Travel/C-J-安徽.md
-    - 日本: 
-      - Interest/Travel/C-J-Japan.md
-    - 马来西亚: 
-      - Interest/Travel/C-J-MY.md
-      - Interest/Travel/C-J-MY-KK.md
-      - Interest/Travel/C-J-MY-KL.md
-
-    - 韩国:
-      - Interest/Travel/C-J-Koera.md
-
-  - "🎶音乐":
-    - Interest/Music/00-Music_Theory.md
-    - Interest/Music/01-Piano_Class.md
-    - Interest/Music/02-Piano_SelfSelect.md
-    - Interest/Music/03-Pinao_Classic.md
-    #- Interest/Music/music_band.md
-    #- Interest/Music/music_classification.md
-
-  - "🎨审美":
-    - Interest/Aesthetic/flower.md
-    - Interest/Aesthetic/design.md
-    - Interest/Aesthetic/Photography.md
-
-  - "🎮游戏":
-    - Interest/Game/fifa.md
-    - Interest/Game/MC.md
-
-  - "📚阅读":
-    - Class/Books/The Innovator`s Dilemma.md 
+- Class:
+  - Class/classes_in_zju.md
+  - Class/AdobeIllustrator.md
+  - Class/AdobePhotoshop.md
+  - Class/ITP-Law.md
+  - Class/ITP-Marketing.md
+  - Class/马原.md
+  - Books:
     - Class/Books/Philosophy.md
     - Class/Books/Philosophy-by-topic.md
+    - Class/Books/The Innovator`s Dilemma.md
+  - Fin:
+    - Class/Fin/invest.md
+    - Class/Fin/invest-stock.md
+    - Class/Fin/quant.md
+    - Class/Fin/consulting.md
+    - Class/Fin/industry-analyze.md
+    - Class/Fin/industry-finance.md
+    - Class/Fin/industry-welfare.md
+    - Class/Fin/micro/intro.md
+  - Physics:
+    - Class/Physics/index.md
 
-  - "💡常识":
-    - Interest/CommonKnowledge/social_security.md
-    - Interest/CommonKnowledge/insurance_social_insurance.md
-    - Interest/CommonKnowledge/insurance_commercial_insurance.md
-    - Interest/CommonKnowledge/labour.md
-    - Interest/CommonKnowledge/house.md
-    - Interest/CommonKnowledge/rent.md
-    - Interest/CommonKnowledge/fund.md
+- Tools: https://dev.philfan.cn
+- Interest: https://hobby.philfan.cn
 
 - Blog:
   - blog/index.md
@@ -855,14 +701,14 @@ plugins:
       strict: false
   
   # 支持jupyter notebook
-  - mkdocs-jupyter:
-      execute: true
-      execute_ignore:
-        - "*.py"
-      kernel_name: python3
-      theme: dark
-      include_source: True
-      custom_mathjax_url: "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
+  # - mkdocs-jupyter:
+  #     execute: false
+  #     execute_ignore:
+  #       - "*.py"
+  #     kernel_name: python3
+  #     theme: dark
+  #     include_source: True
+  #     custom_mathjax_url: "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
   
   # 支持视频
   - mkdocs-video:
