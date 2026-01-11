@@ -18,12 +18,14 @@ mindmap
             最优化
             机器学习
         AI<br/> 
-            热点话题学习
             LLM相关
-            机器学习实战
+            Infra
+            Sys
         Computer Science<br/>
             语言基础
             Computer Network
+            算法学习笔记
+            CTF 探索
         Robotics<br/>自动化专业课程
             控制理论
             嵌入式与IOT

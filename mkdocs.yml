@@ -223,7 +223,6 @@ nav:
   - index.md
   - 留言板: board.md
   - 待办事项: todo.md
-  - 更新记录: changelog.md
   - 友链: friends.md
   
 
@@ -423,9 +422,6 @@ nav:
         
         - 工具:
             - AI/CV/OpenCV.md
-      
-
-
     - "学习资源":
         - 论文阅读: https://github.com/mli/paper-reading
         - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
@@ -629,10 +625,7 @@ nav:
   - Class/马原.md
   - Class/AdobeIllustrator.md
   - Class/AdobePhotoshop.md
-  - Books:
-    - Class/Books/Philosophy.md
-    - Class/Books/Philosophy-by-topic.md
-    - Class/Books/The Innovator`s Dilemma.md
+  - Class/l2tp.md
   - Fin:
     - Class/Fin/invest.md
     - Class/Fin/invest-stock.md
@@ -647,10 +640,6 @@ nav:
 
 - Tools: https://dev.philfan.cn
 - Interest: https://hobby.philfan.cn
-
-- Blog:
-  - blog/index.md
-  - blog/tags.md
 
 
 plugins:
@@ -707,47 +696,12 @@ plugins:
       css_style:
         width: "50%"
 
-  # 支持changelog
-  # TonyCrane - https://github.com/TonyCrane/mkdocs-changelog-plugin
-  - changelog
-
-  # https://github.com/termynal/termynal.py
-  # A lightweight and modern animated terminal window. Built for mkdocs.
-  # - termynal:
-  #     prompt_literal_start:
-  #       - "$"
-        # - ">"
-
-
-  # blog 功能 下面这个仓库有template
-  # https://github.com/mkdocs-material/create-blog/tree/main
-  - blog:
-      blog_toc: true
-      archive_date_format: MMMM yyyy
-      # authors_profiles: true
-      pagination_per_page: 5
-      # archive_pagination_per_page: 10
-      # categories_pagination_per_page: 10
-      # post_slugify: !!python/object/apply:ext.slugs.slugify
-      #   kwds:
-      #     short: true
-  - rss:
-      match_path: "blog/posts/.*"
-      abstract_delimiter: <!-- more -->
-      date_from_meta:
-        as_creation: date.created
-        as_update: date.updated
-      enabled: true
-      use_git: true
-      use_material_blog: true
-      use_material_social_cards: true
-
   # https://github.com/ojacques/mkdocs-git-committers-plugin-2
   # get your secret key from https://github.com/settings/personal-access-tokens/new
   # export MKDOCS_GIT_COMMITTERS_APIKEY=your_secret_key
   - git-committers:
       enabled: false
-      repository: Phil-Fan/Phil-Fan.github.io
+      repository: Phil-Fan/Notebook
       branch: master
       token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
       # 使用github secret 保存API KEY，防止明文传递

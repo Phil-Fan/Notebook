@@ -9,6 +9,7 @@ mkdocs-minify-plugin==0.8.0
 mkdocs-statistics-plugin
 mkdocs-print-site-plugin==2.6.0
 mkdocs-video==1.5.0
+mdx-truly-sane-lists==1.3
 matplotlib
 numpy==2.0.1
 pandas==2.2.2
@@ -16,9 +17,6 @@ scipy==1.14.0
 seaborn==0.13.2
 statsmodels==0.14.4
 pingouin==0.5.5
-mdx-truly-sane-lists==1.3
-mkdocs-changelog-plugin==0.1.3
 calmap
-mkdocs-rss-plugin==1.17.3
 mkdocs-git-committers-plugin-2==2.5.0
 beautifulsoup4==4.13.5
