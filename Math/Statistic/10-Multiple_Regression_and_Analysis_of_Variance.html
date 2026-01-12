@@ -1654,12 +1654,16 @@
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../AI/RL/index.html">
 <span class="md-ellipsis">
     RL | 强化学习
   </span>
+</a>
+<label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
+</div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_7">
 <span class="md-nav__icon md-icon"></span>
@@ -1667,9 +1671,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../AI/RL/RL-01.html">
+<a class="md-nav__link" href="../../AI/RL/01-basic.html">
 <span class="md-ellipsis">
     强化学习 | Reinforcement Learning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../AI/RL/02-infra.html">
+<span class="md-ellipsis">
+    LLM + RL 后训练
   </span>
 </a>
 </li>
@@ -4493,9 +4504,9 @@ fig.show()</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="a8c2a424-2d35-40e2-abcf-79821dbea5fc" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="d1beffa6-7745-434f-bb3b-c65a8829ea82" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('a8c2a424-2d35-40e2-abcf-79821dbea5fc');
+var element = document.getElementById('d1beffa6-7745-434f-bb3b-c65a8829ea82');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -5489,7 +5500,7 @@ if (IPython.notebook.kernel !== null) {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div id="228b442b-548e-4a6b-a2bd-65adecb54327"></div>
+<div id="c46b2192-10b7-484a-abbd-6b6811ddc008"></div>
 </div>
 </div>
 </div>
@@ -5585,9 +5596,9 @@ print(model.intercept_, model.coef_)  # 打印截距和每个X的系数</div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="9f98c697-b263-45a3-a80d-b744e28388f6" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="f1e36412-8ac8-4120-b242-ab3e9bfaf29d" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('9f98c697-b263-45a3-a80d-b744e28388f6');
+var element = document.getElementById('f1e36412-8ac8-4120-b242-ab3e9bfaf29d');
 /* Put everything inside the global mpl namespace */
 /* global mpl */
 window.mpl = {};
@@ -6581,7 +6592,7 @@ if (IPython.notebook.kernel !== null) {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<div id="33ed48cc-6d9a-42ed-81fe-abcfc5f03938"></div>
+<div id="fc31dc9e-7b89-4eb5-bccb-df6590b0f9fb"></div>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -6737,7 +6748,7 @@ Dep. Variable:                      y   R-squared:                       0.294
 Model:                            OLS   Adj. R-squared:                  0.211
 Method:                 Least Squares   F-statistic:                     3.540
 Date:                Mon, 12 Jan 2026   Prob (F-statistic):             0.0518
-Time:                        07:36:06   Log-Likelihood:                -78.492
+Time:                        11:07:21   Log-Likelihood:                -78.492
 No. Observations:                  20   AIC:                             163.0
 Df Residuals:                      17   BIC:                             166.0
 Df Model:                           2                                         
@@ -7111,7 +7122,7 @@ Dep. Variable:                      y   R-squared:                       0.980
 Model:                            OLS   Adj. R-squared:                  0.977
 Method:                 Least Squares   F-statistic:                     325.7
 Date:                Mon, 12 Jan 2026   Prob (F-statistic):           1.09e-27
-Time:                        07:36:06   Log-Likelihood:                -72.219
+Time:                        11:07:22   Log-Likelihood:                -72.219
 No. Observations:                  40   AIC:                             156.4
 Df Residuals:                      34   BIC:                             166.6
 Df Model:                           5                                         
@@ -7349,7 +7360,7 @@ Dep. Variable:                      y   R-squared:                       0.771
 Model:                            OLS   Adj. R-squared:                  0.759
 Method:                 Least Squares   F-statistic:                     62.42
 Date:                Mon, 12 Jan 2026   Prob (F-statistic):           1.39e-12
-Time:                        07:36:07   Log-Likelihood:                -120.50
+Time:                        11:07:23   Log-Likelihood:                -120.50
 No. Observations:                  40   AIC:                             247.0
 Df Residuals:                      37   BIC:                             252.1
 Df Model:                           2                                         
@@ -7375,7 +7386,7 @@ Dep. Variable:                      y   R-squared:                       0.978
 Model:                            OLS   Adj. R-squared:                  0.976
 Method:                 Least Squares   F-statistic:                     536.0
 Date:                Mon, 12 Jan 2026   Prob (F-statistic):           6.48e-30
-Time:                        07:36:07   Log-Likelihood:                -73.584
+Time:                        11:07:23   Log-Likelihood:                -73.584
 No. Observations:                  40   AIC:                             155.2
 Df Residuals:                      36   BIC:                             161.9
 Df Model:                           3                                         
