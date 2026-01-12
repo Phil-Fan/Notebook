@@ -393,7 +393,9 @@ nav:
         - AI/DL/Problem.md
       
     - "RL | 强化学习":
-        - AI/RL/RL-01.md
+        - AI/RL/index.md
+        - AI/RL/01-basic.md
+        - AI/RL/02-infra.md
    
     - "MLSys | 机器学习系统":
         - AI/MLSys/index.md
