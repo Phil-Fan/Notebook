@@ -174,12 +174,12 @@ advantage 表示：
 
 ## 9. 一张“数据流”速查图（最常用的理解方式）
 
-```
+```text
 prompt
   │
   ▼
 [Rollout Engine / vLLM]  生成 response_tokens
-  │   产出: tokens, old_logprobs, (可选 values), ref_logprobs
+  │   产出：tokens, old_logprobs, (可选 values), ref_logprobs
   ▼
 [Reward / Rule / RM]     产出 reward（可含 KL shaping）
   │
