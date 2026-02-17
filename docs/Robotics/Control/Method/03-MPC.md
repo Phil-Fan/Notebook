@@ -411,7 +411,7 @@ DMC 算法采用阶跃响应序列作为预测模型
 - 假设对象的单位阶跃响应值为$a_i (i=1,2\dots N)$，且在$N$个采样周期后趋于平稳，即$a_i \approx a(\infty)$
 - 那么如果我们知道了这些阶跃响应值，就相当于知道了**对象的模型参数**，所有有限集合$a^T = [a_1,a_2,\dots,a_N]$可以完全描述系统动态特性
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503131226.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250503131226.webp)
 
 - LTI 系统有叠加性
 
@@ -644,15 +644,15 @@ $$
     - 模型长度 N: 40
     - 优化时域 P: 6 (使系统至少经历一个振荡周期
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152905.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250503152905.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152931.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250503152931.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503152952.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250503152952.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250503153025.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250503153025.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__202505031530152.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__202505031530152.webp)
 
 ### 代码
 
@@ -818,7 +818,7 @@ MPC and MHE implementation in Matlab using Casadi - Workshop
 有障碍物的轨迹控制
 [alexliniger/MPCC: Model Predictive Contouring Controller (MPCC) for Autonomous Racing](https://github.com/alexliniger/MPCC)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__MPC_sim.gif)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__MPC_sim.gif)
 
 [Optimization‐based autonomous racing of 1:43 scale RC cars - Liniger - 2015](https://onlinelibrary.wiley.com/doi/full/10.1002/oca.2123)
 提出了两种不同的控制方案。
@@ -827,7 +827,7 @@ MPC and MHE implementation in Matlab using Casadi - Workshop
 - 第二个控制器将这两个任务结合在一个非线性优化问题（NLP）中，遵循轮廓控制的思想。通过线性化获得的线性时变模型用于在每个采样时间构建控制 NLP 的局部近似，形成凸二次规划（QP）。生成的 QP 具有典型的 MPC 结构，障碍物规避通过基于动态规划的高级走廊规划器实现，该规划器根据对手的当前位置和赛道布局为控制器生成凸约束。
 - 实验平台：控制性能通过使用 1:43 比例的 RC 赛车进行实验研究，这些赛车以超过 3 m/s 的速度行驶，并在后轮胎力饱和（漂移）的操作区域内运行。算法在嵌入式计算平台上以 50 Hz 的采样率运行，展示了基于优化的方法在自动驾驶中的实时可行性和高性能。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250502203924.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250502203924.webp)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ioKTyc9bG4c?si=qGy-q34mUUqRq74R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -847,7 +847,7 @@ MPC and MHE implementation in Matlab using Casadi - Workshop
 
 [ZJU-FAST-Lab/CMPCC: CMPCC: Corridor-based Model PredictiveContouring Control for Aggressive Drone Flight](https://github.com/ZJU-FAST-Lab/CMPCC)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__1.gif)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__1.gif)
 
 ### 桨叶失效控制
 
@@ -893,4 +893,4 @@ $$
 
 ### 飞行吊载控制
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__03-MPC.assets__20250502210334.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__03-MPC.assets__20250502210334.webp)

@@ -310,7 +310,7 @@ with open('output.yml', 'w') as f:
 
 常见的 01 串转换方式有 编解码、加解密、哈希
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__06-File.assets__20240704135220.webp)
+![image](https://img.philfan.cn/CS__Language__Python__assets__06-File.assets__20240704135220.webp)
 
 具体参考[MISC](../../CTF/02-misc.md)部分的笔记
 

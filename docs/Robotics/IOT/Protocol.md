@@ -89,7 +89,7 @@ RS-422 是由 RS-232 改进而来：
 - 传输线可连接多个接收节点
 - 支持全双工通信
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Protocol.assets__20250607163255.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Protocol.assets__20250607163255.webp)
 
 ## RS485
 

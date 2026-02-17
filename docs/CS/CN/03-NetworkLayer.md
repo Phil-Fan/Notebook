@@ -3,7 +3,7 @@ comments: true
 ---
 # 网络层 | Network Layer
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets___E7_BD_91_E7_BB_9C_E5_B1_82.svg)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets___E7_BD_91_E7_BB_9C_E5_B1_82.svg)
 
 ## 原理
 
@@ -66,7 +66,7 @@ comments: true
 > The end-to-end routing process is analogous to a car driver who does not
 > use maps but instead prefers to ask for directions.
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201140806254.webp" alt="image-20240201140806254" style="zoom:67%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201140806254.webp" alt="image-20240201140806254" style="zoom:67%;" />
 
 最长前缀匹配`longest prefix matching`
 
@@ -78,13 +78,13 @@ comments: true
 
 排队延迟以及由于输入缓存溢出造成丢失！
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201140951934.webp" alt="image-20240201140951934" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201140951934.webp" alt="image-20240201140951934" style="zoom:50%;" />
 
 packet per minute
 
 #### `fabric`交换结构
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141044080.webp" alt="image-20240201141044080" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141044080.webp" alt="image-20240201141044080" style="zoom:50%;" />
 
 memory
 
@@ -117,7 +117,7 @@ FIFO (first in first out) scheduling
 - priority: 根据优先权丢失/移除分组
 - random: 随机地丢弃/移除
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141335251.webp" alt="image-20240201141335251" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141335251.webp" alt="image-20240201141335251" style="zoom:50%;" />
 
 优先权调度
 
@@ -125,13 +125,13 @@ FIFO (first in first out) scheduling
 
 先传高优先级的队列中的分组，除非没有 (红色传完再传绿色)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141445525.webp" alt="image-20240201141445525" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141445525.webp" alt="image-20240201141445525" style="zoom:50%;" />
 
 Round Robin (RR) scheduling
 
 循环扫描不同类型的队列，发送完一类的一个分组，再发送下一个类的一个分组，循环所有类
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141528684.webp" alt="image-20240201141528684" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141528684.webp" alt="image-20240201141528684" style="zoom:50%;" />
 
 Weighted Fair Queuing (WFQ)
 
@@ -141,13 +141,13 @@ Weighted Fair Queuing (WFQ)
 
 每个类在每一个循环中获得不同权重的服务量
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141703167.webp" alt="image-20240201141703167" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141703167.webp" alt="image-20240201141703167" style="zoom:50%;" />
 
 ### IP 协议
 
 #### 数据报格式
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201155758709.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201155758709.webp)
 
 ![image](https://data.educoder.net/api/attachments/582224)
 
@@ -181,7 +181,7 @@ Weighted Fair Queuing (WFQ)
 
 下图中有六个子网
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426230924516.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426230924516.webp)
 
 子网掩码
 
@@ -199,7 +199,7 @@ IP 号 与 子网掩码进行与操作 (&)，那么就可以得到网络号；�
 
 #### 分类编址
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201180932322.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201180932322.webp)
 
 全 0 网络和全 1 网络不用了
 
@@ -282,7 +282,7 @@ ABC 单播地址、DE 广播地址
 >
 > 以 8B 为单位计算 offset
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201160531914.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201160531914.webp)
 
 MTU 从小到大，每转发一次是否都要适应最大长度
 
@@ -290,7 +290,7 @@ MTU 从小到大，每转发一次是否都要适应最大长度
 
 ### DHCP 动态主机配置协议
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426231424660.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426231424660.webp)
 
 > 显示了连接到子网 223.1.2/24 的一个 DHCP 服务器，具有一台提供中继代理服务的路由器，它为连接到子网 223.1.1/24 和 223.1.3/24 的到达客户提供 DHCP 服务。
 
@@ -309,11 +309,11 @@ DHCP Request：由客户端发出，告诉对应的 DHCP 服务器，我需要 I
 
 DHCP ACK：由 DHCP 服务器发出，提供客户端响应的 IP 地址。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__v2-52bf53d16bc59ef70312e63a91511246_1440w.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__v2-52bf53d16bc59ef70312e63a91511246_1440w.webp)
 
 使用 UDP 进行传输
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240411090326803.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240411090326803.webp)
 
 ![image](https://data.educoder.net/api/attachments/581836)
 
@@ -370,7 +370,7 @@ NAT 路由器上的一张 NAT 转换表 ( `NAT translation table` ) ，并且在
 
 - 进入数据包：替换目标 IP 地址和端口号，采用存储在 NAT 表中的 mapping 表
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201204851149.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201204851149.webp)
 
 #### 弊端
 
@@ -388,7 +388,7 @@ NAT 路由器上的一张 NAT 转换表 ( `NAT translation table` ) ，并且在
 
 - 128 位 IP 地址
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426232040298.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426232040298.webp)
 
 #### 报文格式
 
@@ -399,7 +399,7 @@ NAT 路由器上的一张 NAT 转换表 ( `NAT translation table` ) ，并且在
 `Checksum`: 被移除掉，降低在每一段中的处理速度<br>
 `Options`: 允许，但是在头部之外，被“NextHeader”字段标示<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426232120656.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426232120656.webp)
 
 #### 通信
 
@@ -532,7 +532,7 @@ RIP 以应用进程的方式实现：route-d (daemon)
 
 网络比较大，分成若干区域
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215161223409.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215161223409.webp)
 
 ### 外部网关协议`Border Gateway Protocol`
 
@@ -551,7 +551,7 @@ RIP 以应用进程的方式实现：route-d (daemon)
 
 基于距离矢量算法（路径矢量）——不仅仅是距离矢量，还包括到达各个目标网络的详细路径（AS 序号的列表）能够避免简单 DV 算法的路由环路问题
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215163137452.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215163137452.webp)
 
 #### 报文
 
@@ -569,7 +569,7 @@ RIP 以应用进程的方式实现：route-d (daemon)
 
 当 AS3 网关路由器 3a 向 AS2 的网关路由器 2c 通告路径：AS3,X
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215163635186.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215163635186.webp)
 
 #### 策略
 
@@ -595,7 +595,7 @@ ICMP 报文有**一个类型字段和一个编码字段**，并且包含引起�
 
 ICMP**消息类型**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426224029128.webp" alt="image-20240426224029128" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426224029128.webp" alt="image-20240426224029128" style="zoom: 50%;" />
 
 - ICMP 协议在实际传输中的数据包结构：`20 字节 IP 首部 + 8 字节 ICMP 首部 + 1472 字节<数据大小> 38 字节`；
 - ICMP 报文格式：`IP 首部(20 字节) + 8 位类型 + 8 位代码 + 16 位校验和 + (不同的类型和代码，格式也有所不同)`。
@@ -643,7 +643,7 @@ Traceroute 源主机是怎样知道何时停止发送 UDP 报文段的呢？前�
 
 网络是可编程的，底层硬件标准化，网络设备软件化
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201121228823.webp)
+![image](https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201121228823.webp)
 
 - 网络设备数据平面和控制平面分离
 
@@ -686,4 +686,4 @@ Traceroute 源主机是怎样知道何时停止发送 UDP 报文段的呢？前�
   • match: IP 地址和端口号
   • action: 重写地址和
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201222746295.webp" alt="image-20240201222746295" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201222746295.webp" alt="image-20240201222746295" style="zoom:50%;" />

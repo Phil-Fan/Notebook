@@ -40,9 +40,9 @@ B 站上一个讲的很好的教程
 
 ## 框架整理
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets___E6_95_B0_E7_94_B5.svg)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets___E6_95_B0_E7_94_B5.svg)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets__8051.svg)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets__8051.svg)
 
 ## 历年卷
 
@@ -184,15 +184,15 @@ Stack 先进后出
 SP 先加 1，数据再进入
 数据先出栈，SP 再减一
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets__20240619092314.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets__20240619092314.webp)
 
 - 方法 1：使用两个芯片，加两次
 - 方法 2：使用 1 个芯片，将数据向上移动一位，相当于乘 2 了
 
 时序逻辑电路的一般结构形式
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets__20240619101421.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets__20240619101421.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets___25E5_2586_25AF_25E8_25AF_25BA_25E4_25BE_259D_25E6_259B_25BC.drawio.svg)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets___25E5_2586_25AF_25E8_25AF_25BA_25E4_25BE_259D_25E6_259B_25BC.drawio.svg)
 
 ### 程序阅读填空
 
@@ -282,7 +282,7 @@ STM32 的 ADC，要求补全代码和注释；从以上程序，请总结 STM32 
 
 CPU 的寄存器的位宽
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets__v2-9396a6ddc748e56a9dc33dadbc173aba_1440w.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets__v2-9396a6ddc748e56a9dc33dadbc173aba_1440w.webp)
 
 ### 嵌入式操作系统
 
@@ -295,7 +295,7 @@ CPU 的寄存器的位宽
 硬件：微处理器、存储器、过程接口、人机接口、通信接口
 软件：应用程序、实时操作系统（可选）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-intro.assets__image-20240619143232902.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-intro.assets__image-20240619143232902.webp)
 
 ## 领域概述
 

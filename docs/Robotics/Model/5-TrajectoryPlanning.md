@@ -98,7 +98,7 @@ $$
 - 速度约束：第一段起点速度，第二段终点速度，中间点速度相等
 - 加速度联系约束：中间点加速度相等
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250416154011.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250416154011.webp)
 
 ```python title="三次 + 两个中间点" linenums="1" hl_lines="7"
 clc;clear;
@@ -181,7 +181,7 @@ def quintic_polynomial(start, end, t, duration):
 - 过渡段：抛物线段
 - 直线段：顾名思义
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325090130.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325090130.webp)
 
 给定：起点$\phi_0$、终点$\phi_{final}$、总时间$t_{final}$、加速度$\ddot\phi$
 需要求解：**过渡时间（抛物线段）$t_b$**、速度（直线段）$k_b$
@@ -223,7 +223,7 @@ def parabolic_transition(start, end, t, duration):
 
 ### 中间点 + 抛物线过渡
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325091125.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325091125.webp)
 
 **给定：** 系列点$\phi_0, \phi_1,\dots,\phi_{final}$、各段时间$t_{dij}$、加速度$\ddot\phi$
 
@@ -265,7 +265,7 @@ $$
 
     也就是说，任意给定抛物线上的点，找到位移中点，连线即可得到速度方向
     
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324205542.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324205542.webp)
 
 #### 起始段计算
 
@@ -304,7 +304,7 @@ $$
 !!! note "这里因为抛物线对轨迹进行了圆滑处理，相当于先用直线连接起来，再用抛物线做一个圆角，所以并不能真正到达对应的点"
     解决方案：设置两个伪关节，连线经过给定点，则可以保证经过给定点
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325093447.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325093447.webp)
 
 ## 笛卡尔空间规划
 
@@ -338,7 +338,7 @@ $$
 
 #### 代码实现
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__rotation_animation.gif)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__rotation_animation.gif)
 
 ??? note "编程实现等效轴角的插值，并比较不同 n 下的结果"
 
@@ -481,7 +481,7 @@ $$
     \mathbf{r}_0 \cdot \mathbf{r}_1 = \cos\theta
     $$
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325102316.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325102316.webp)
 
     如图所示，将中间姿态 $\mathbf{r}_t$ 限制在 $\mathbf{r}_0$ 和 $\mathbf{r}_1$ 确定的平面中并假设匀速旋转，可以使四元数插值问题化为一个简单的平面几何问题：$\mathbf{r}_0$、$\mathbf{r}_1$ 和 $\mathbf{r}_t$ 都在平面单位圆上，$\mathbf{r}_t$ 从 $\mathbf{r}_0$ 匀速旋转到 $\mathbf{r}_1$。
 
@@ -551,7 +551,7 @@ def slerp(q1, q2, t):
 ```
 
 需要下载 matlab 的 robotics toolbox 和
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__quaternion_animation.gif)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__quaternion_animation.gif)
 
 ```m title="slerp_interpolation，r0到r1和r0到-r1的对比" linenums="1"
 %初始化
@@ -719,15 +719,15 @@ end
 
 ### 多项式参数计算：时间、速度
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084857.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084857.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084926.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250325084926.webp)
 
 ### 抛物线过渡计算
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203708.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203708.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203627.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__5-TrajectoryPlanning.assets__20250324203627.webp)
 
 已知起点角度为 138°，中间点到达的点角度为 158°，时间为 5.5s，点角度为 10°，时间为 31.5s。需要计算中间点。中间点关于中点对称。采用带有抛物线过渡的线性规划来实现。过渡段（第二个中间点到第三个中间点）的持续时间为 16s。
 

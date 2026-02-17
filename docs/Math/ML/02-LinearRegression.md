@@ -422,7 +422,7 @@ $$
 d^2 = \frac{|Ax -b|^2}{x^2 + 1}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506242052169.webp)
+![image](https://img.philfan.cn/Math__ML__assets__02-LinearRegression.assets__202506242052169.webp)
 
 !!! note "引理：TLS 拟合直线一定过$(\bar{x}, \bar{y})$"
     $$
@@ -528,7 +528,7 @@ $$
 
 ### logistic
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807233452.webp)
+![image](https://img.philfan.cn/Math__ML__assets__02-LinearRegression.assets__20240807233452.webp)
 
 线性回归有一个很强的假设，就是 y 是连续的；并且有更像邻近数的趋势 (MSE 对于线性回归不是一个好的 function)
 
@@ -542,7 +542,7 @@ CDF(累积分布函数)ofthe standard logistic distribution
 
 !!! note "logistic Regreesion 是一个线性模型"
     主要考虑的是decision boundary
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__20240807234021.webp)
+![image](https://img.philfan.cn/Math__ML__assets__02-LinearRegression.assets__20240807234021.webp)
 
 为什么 loss function 要取 log
 
@@ -938,7 +938,7 @@ $$
 
 ### elastic
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__02-LinearRegression.assets__202506200340914.webp)
+![image](https://img.philfan.cn/Math__ML__assets__02-LinearRegression.assets__202506200340914.webp)
 
 lasso 与 ridge 对比
 

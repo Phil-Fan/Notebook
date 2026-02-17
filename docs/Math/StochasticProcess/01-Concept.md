@@ -29,7 +29,7 @@ $X(t)$ ，为 $t$ 的函数。（所有随机变量取到可能出现的值）
 
 ??? note "如何理解协方差"
     [如何直观地理解「协方差矩阵」？ - 知乎](https://zhuanlan.zhihu.com/p/37609917)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__01-Concept.assets__20250427223326.webp)
+    ![image](https://img.philfan.cn/Math__StochasticProcess__assets__01-Concept.assets__20250427223326.webp)
 
     协方差：用与均值面积正负来刻画相关性(一三象限是正相关，二四象限是负相关)
     

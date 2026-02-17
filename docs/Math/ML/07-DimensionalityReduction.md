@@ -7,7 +7,7 @@ $$
 \underset{D\times1\ (\text{high dim})}{x} \longrightarrow \underset{M\times1\ (\text{low dim})}{\mathbf{w}}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20241022172142.webp)
+![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20241022172142.webp)
 
 Curse of Dimensionality
 
@@ -15,7 +15,7 @@ Curse of Dimensionality
 – As $p$ increases, the number of possible models explodes(computation burden, variable selection necessary)
 
 !!! example "例子"
- ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20250219163245757.webp)
+ ![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20250219163245757.webp)
 
  $$
  l^p \approx \frac{k}{n}
@@ -32,9 +32,9 @@ KNN 是一种经典的监督学习方法，也是 lazy learning 的代表，不�
 2. 选择最近的 k 个样本
 
 - 如果是回归任务，那么结果就是 k 个样本的平均 or 加权平均；
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20250219155409841.webp)
+![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20250219155409841.webp)
 - 如果是分类任务，则采用投票 or 加权投票 (majority vote)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20250219160042587.webp)
+![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20250219160042587.webp)
 
 ### 1NN
 
@@ -81,7 +81,7 @@ knn 的时候，variance 约为 $\frac{\sigma^2}{k}$,${bias}$会增加，因为 
 - 当 k 增大的时候，模型复杂度降低，模型趋于整体的均值，bias 增加，var 降低。
 - k 较小的时候，模型复杂度高，模型的 bias 低，但是 var 比较高
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20250219155643184.webp)
+![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20250219155643184.webp)
 
 ### 过拟合和模型复杂度
 
@@ -95,7 +95,7 @@ and they can be used to prevent over-fitting
 
 k 趋于无穷大，$\frac{n}{k}$趋于 0 时，KNN 是相合的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20250220084045779.webp)
+![image](https://img.philfan.cn/Math__ML__assets__07-DimensionalityReduction.assets__20250220084045779.webp)
 
 ### 计算
 

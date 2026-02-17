@@ -39,7 +39,7 @@
 
 切除掉多余的线
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204625233.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323204625233.webp)
 
 ### **尺寸标注**
 
@@ -129,7 +129,7 @@
 
 拔模特征用于在零件上创建斜面，以便于从模具中脱模。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323204448594.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323204448594.webp)
 
 ### 线性阵列
 
@@ -139,13 +139,13 @@
 
 注意选择中心轴
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323205622423.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323205622423.webp)
 
 曲线驱动的阵列
 
 等距曲线；改变方向；设置特征
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210443109.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323210443109.webp)
 
 填充阵列
 
@@ -153,7 +153,7 @@
 
 （散热孔）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323212620102.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323212620102.webp)
 
 ### 打孔
 
@@ -163,7 +163,7 @@
 
 设置位置
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210114623.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323210114623.webp)
 
 ### **组合和布尔运算**
 
@@ -213,15 +213,15 @@ ctrl 选中多个面 同轴心
 
 **机械配合** - 螺旋 - 选中圆线（边缘）再选中圆面（螺丝） - 设置转动圈数
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240322221121090.webp" alt="image-20240322221121090" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240322221121090.webp" alt="image-20240322221121090" style="zoom:50%;" />
 
 **角度配合**：选择两个面，设置最大最小角度
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323201941162.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323201941162.webp)
 
 **路径配合**：（轨道机器人）设置实体的点，选择路径；俯仰/偏航变化
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202021159.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323202021159.webp)
 
 #### 齿轮配合
 
@@ -229,7 +229,7 @@ ctrl 选中多个面 同轴心
 
 传动比设置
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323202315376.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240323202315376.webp)
 
 ### **子装配体**
 
@@ -265,7 +265,7 @@ ctrl 选中多个面 同轴心
 
 配置
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240322215918042.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240322215918042.webp)
 
 ### 注解
 
@@ -291,7 +291,7 @@ ctrl 选中多个面 同轴心
 
 速度 键码
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240408225949921.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Solidworks.assets__image-20240408225949921.webp)
 
 ## 6. 简单仿真
 

@@ -10,7 +10,7 @@ comments: true
 
 [8.6 各个层次的安全性_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1JV411t7ow?p=53&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__06-security.assets__image-20240611204450499.webp)
+![image](https://img.philfan.cn/CS__CN__assets__06-security.assets__image-20240611204450499.webp)
 
 ## 安全
 
@@ -136,7 +136,7 @@ SYN flooding: 攻击者建立很多伪造 TCP 链接，对于真正用户而言�
 
 对应用进行深度剖析
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__06-security.assets__image-20240217110805828.webp" alt="image-20240217110805828" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__06-security.assets__image-20240217110805828.webp" alt="image-20240217110805828" style="zoom:50%;" />
 
 `IP spoofing`: 路由器不知道数据报是否真的来自于声称的源地址
 
@@ -150,7 +150,7 @@ SYN flooding: 攻击者建立很多伪造 TCP 链接，对于真正用户而言�
 
 multiple IDSs: 在不同的地点进行不同类型的检查
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__06-security.assets__image-20240217111255212.webp" alt="image-20240217111255212" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__06-security.assets__image-20240217111255212.webp" alt="image-20240217111255212" style="zoom:50%;" />
 
 在所有流量上放置 sensor
 
@@ -255,9 +255,9 @@ PGP 电子邮件加密方案
 
 应用层
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__06-security.assets__image-20240217101521016.webp)
+![image](https://img.philfan.cn/CS__CN__assets__06-security.assets__image-20240217101521016.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__06-security.assets__image-20240217101539896.webp" alt="image-20240217101539896" style="zoom: 67%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__06-security.assets__image-20240217101539896.webp" alt="image-20240217101539896" style="zoom: 67%;" />
 
 ### SSL (secure sockets layer)
 

@@ -196,7 +196,7 @@ h(n) 从 节点 n 代表的状态 到 目标状态 的 路径耗散 的 最小�
 
 ### 搜索
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__00-Review.assets__20250108125536.webp)
+![image](https://img.philfan.cn/Math__ML__assets__00-Review.assets__20250108125536.webp)
 
 1. 广度优先搜索 (BFS)<br>
     - 基本原理：从根节点开始，先访问当前层的所有节点，再访问下一层节点。使用队列存储待访问节点（先进先出）<br>
@@ -214,7 +214,7 @@ h(n) 从 节点 n 代表的状态 到 目标状态 的 路径耗散 的 最小�
     - 基本原理：将有限深度搜索从小到大反复进行，每次增加最大深度限制。<br>
     - 特点：结合了 BFS 找到最短路径的优点和 DFS 空间效率高的优点。<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__00-Review.assets__20250108125558.webp)
+![image](https://img.philfan.cn/Math__ML__assets__00-Review.assets__20250108125558.webp)
 
 $$
 f(x) = g(x) + h(x)
@@ -222,7 +222,7 @@ $$
 
 g(x) 为已经走过的步数，h(x) 为初始状态各数字与目标状态各数字的曼哈顿距离之和
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__00-Review.assets__20250108130126.webp)
+![image](https://img.philfan.cn/Math__ML__assets__00-Review.assets__20250108130126.webp)
 
 ### 谓词逻辑
 
@@ -911,7 +911,7 @@ D。启发式（肯定不对，取决于 h(n) 的设计，比如贪婪最好就�
     2. 简述α-β剪枝的原理
     3. 用α-β剪枝，写出哪些分支可以剪掉
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__00-Review.assets__20250107230206.webp)
+    ![image](https://img.philfan.cn/Math__ML__assets__00-Review.assets__20250107230206.webp)
 
 !!! problem "2. 评估函数"
     评估函数是什么，g(x),h(x)分别有什么作用

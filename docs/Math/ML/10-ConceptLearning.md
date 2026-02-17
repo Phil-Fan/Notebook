@@ -35,7 +35,7 @@
 
 ### 例子
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151249.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108151249.webp)
 
 初始化最特殊假设：$h \leftarrow < \emptyset,  \emptyset,  \emptyset,  \emptyset,  \emptyset,  \emptyset>$
 
@@ -64,7 +64,7 @@
 
 变型空间：与训练样例一致的所有假设的集合，即变型空间中任意一个假设都能覆盖所有的正例并排斥所有的反例。变型空间一般用极大一般假设 G 和极大特殊假设 S 来表示，所有位于 G 和 S 之间的假设都在变型空间内
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151427.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108151427.webp)
 
 ### 步骤
 
@@ -76,7 +76,7 @@
 
    (在更新 $S$ 和 $G$ 时，每一步均需要保证 $G$ 包含 $S$)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108151728.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108151728.webp)
 
 ### 候选消除算法例子
 
@@ -89,14 +89,14 @@
 | D3 | Rainy | Cold | High | Strong | Warm | Change | Yes |
 | D4 | Sunny | Warm | High | Strong | Cool | Change | Yes |
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108152855.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108152855.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108152902.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108152902.webp)
 
 例 2
 **在候选消除算法中，如果训练样例按 EnjoySport 例子中的逆序出现，请分步给出 S 和 G 边界集合。**
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108153447.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__10-ConceptLearning.assets__20250108153506.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108153447.webp)
+![image](https://img.philfan.cn/Math__ML__assets__10-ConceptLearning.assets__20250108153506.webp)
 
 ### 候选消除算法归纳偏置
 

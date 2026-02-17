@@ -5,7 +5,7 @@ comments: true
 >
 > 以此笔记致敬 DR_CAN，感谢他的无私奉献
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241025103426.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241025103426.webp)
 
 ## Acknowledgement
 
@@ -129,7 +129,7 @@ comments: true
     - [现代控制理论 A4&资料分享 - 追风 Holy](https://www.cc98.org/topic/6025482/1#7)
 
 === "其他资料"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20240922170358.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20240922170358.webp)
     [awslasasd](https://github.com/awslasasd/Modern-control-principles/tree/main)的仓库中也比较详细
     - [现代控制理论重点概念梳理 - 知乎](https://www.zhihu.com/column/c_1131936304564453376)<br>
     - [现代控制理论-重点知识汇总\_现代控制理论知识点总结-CSDN博客](https://blog.csdn.net/qq_31274209/article/details/105156993)<br>
@@ -156,7 +156,7 @@ comments: true
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=19161045&bvid=BV1jW411J729&cid=31254269&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets___E7_8E_B0_E4_BB_A3_E6_8E_A7_E5_88_B6_E7_90_86_E8_AE_BA.svg)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets___E7_8E_B0_E4_BB_A3_E6_8E_A7_E5_88_B6_E7_90_86_E8_AE_BA.svg)
 
 首先要理解**状态空间模型**，求传递函数
 
@@ -216,7 +216,7 @@ $$
 - 读取这个体重后开始参考制定计划，计划还没有制定出来，就需要进行下一次测量了
 
 !!! example "离散系统例子"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003142612.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003142612.webp)
     控制体重的例子
 
     如果测体重测得太频繁，那么根本来不及计划
@@ -291,20 +291,20 @@ step(Back,zeroholder,'--',Forward,'-',Tustin,'r--',P_Z,'y-',D,'g-');
 legend;
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009143613.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009143613.webp)
 
 ??? note "z 域根轨迹设计"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150404.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150424.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150442.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150510.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150404.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150424.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150442.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150510.webp)
 
 ### 数字化设计
 
 !!! note "z 域解析设计的方法主要有最少拍系统设计、无波纹最少拍系统设计、最小均方差系统设计等"
     如下图的系统，我们只能设计D(z)部分，而$H(s)$与$G_c(s)$是给定的。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150948.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241009150948.webp)
 
 z 域解析设计的方法关键是根据性能指标的需要选择合适的闭环脉冲传递函数$\Phi(z)$或闭环误差脉冲传递函数$\Phi_e(z)$。
 
@@ -337,17 +337,17 @@ $$
 
 !!! example "例子"
     === "例1"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111320.webp)
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111333.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111320.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111333.webp)
 
     === "例2"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111523.webp)
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111540.webp)
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111554.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111523.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111540.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111554.webp)
 
     === "例3"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111638.webp)
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111649.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111638.webp)
+        ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105111649.webp)
 
 ### 状态空间求解
 
@@ -424,7 +424,7 @@ $$
     - 矩阵 A 对角化
     - Cayley-hamilton
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105112949.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241105112949.webp)
 
 ??? tip "推导"
 
@@ -456,7 +456,7 @@ $(A,b,c,d)$所有极点位于 S 左半开平面称为内稳定
 
 ### phase portrait
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241023191419.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241023191419.webp)
 
 $$
 A = \begin{bmatrix}a &b\\
@@ -537,7 +537,7 @@ $\exists \delta(t_0)>0: ||x(t_0)||<\delta(t_0) \Rightarrow \lim_{t\rightarrow\in
 
 最后会回到原点（棕色线条）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20240926012538.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20240926012538.webp)
 
 **大范围渐进稳定：**
 
@@ -610,7 +610,7 @@ $$
 2. 带入 lyaponov 方程，求解$P$
 3. 判断 P 的符号性质
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241025101127.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241025101127.webp)
 
 #### 克拉索夫斯基稳定性判据
 
@@ -660,7 +660,7 @@ $$ T_c = Q_c L = \begin{bmatrix} b & Ab & A^2 b & \cdots & A^{n-1} b \end{bmatri
 能控矩阵$Rank(Co) = p < n$,在$Co$中找出 p 个线性无关的列向量，再配$n-p$个线性无关的列向量，构成变换矩阵$T_c$
 
 > 不能控子空间也会对能控子空间产生影响
-> ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets___E6_9C_AA_E5_91_BD_E5_90_8D_E7_BB_98_E5_9B_BE.drawio.svg)
+> ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets___E6_9C_AA_E5_91_BD_E5_90_8D_E7_BB_98_E5_9B_BE.drawio.svg)
 
 ### 状态反馈
 
@@ -703,7 +703,7 @@ $$
 
 ??? example "例子"
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003150854.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003150854.webp)
 
     === "建立状态空间模型"
 
@@ -814,7 +814,7 @@ $$
 ??? note "卡尔曼与能观性"
 
     Kálmán published several seminal papers during the sixties, which rigorously established what is now known as the state-space representation of dynamical systems. He introduced the formal definition of a system, the notions of controllability and observability
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003163103.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241003163103.webp)
 
     卡尔曼滤波器就是随机系统的状态观测器
 
@@ -863,8 +863,8 @@ $$
 \dot{\hat{x}}=(A - LC)\hat{x} + (B - LD)u + Ly
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__3399df009b8bea13f457a685ae69d88.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__ADV__assets__linear-00-intro.assets__20241023200752.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__3399df009b8bea13f457a685ae69d88.webp)
+![image](https://img.philfan.cn/Robotics__Control__ADV__assets__linear-00-intro.assets__20241023200752.webp)
 
 ??? tip "推导过程"
 

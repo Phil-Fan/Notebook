@@ -1,6 +1,6 @@
 # 00 | 课程大纲与复习
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__2.gif)
+![image](https://img.philfan.cn/Robotics__Model__assets__index.assets__2.gif)
 > 图源网络
 
 ## 课程信息
@@ -192,7 +192,7 @@
     （1）求末端速度<br>
     （2）求奇异位形<br>
     （3）机械臂末端给一个力，$f_x$，$f_y$给定，给一个z轴力矩，求关节力矩<br>
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134232095.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__index.assets__20250217134232095.webp)
 
 !!! question "大题 3：四元数插值"
     （1）请描述四元数插值与欧拉角插值的优势与劣势<br>
@@ -202,12 +202,12 @@
 !!! question "大题 4：计算转动惯量，质量为 m，坐标系建在质心$\rho = k(\frac{l^2}{4} - x^2)$"
     （1）求k<br>
     （2）求转动惯量<br>
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134250046.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__index.assets__20250217134250046.webp)
 
     这个题最好自己手推一下，并复习一下多元积分相关的知识
 
 !!! question "大题 5：两连杆机械臂，一个转动关节一个移动关节，质量集中于末端，标在图上了，求动力学方程"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__index.assets__20250217134313618.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__index.assets__20250217134313618.webp)
 
 !!! question "大题 6：长方体工件插入问题"
     （1）给定任务，把长方体工件插入长方体凹槽，求自然约束和人工约束<br>

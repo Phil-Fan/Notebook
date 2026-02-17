@@ -4,7 +4,7 @@ PID 控制是比例积分微分控制的简称，将偏差的比例 (P)、积分
 
 至今在全世界过程控制中用的 84% 仍是纯 PID 调节器，若改进型包含在内则超过 90%。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__202505021358585.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__202505021358585.webp)
 
 ## 建模
 
@@ -35,7 +35,7 @@ PID 控制是比例积分微分控制的简称，将偏差的比例 (P)、积分
     G_c(s) = K_c \left( 1 + \frac{1}{\tau_I s} + \tau_D s \right)
     $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925141821.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925141821.webp)
 
 ### 离散 - 位置式 PID
 
@@ -94,10 +94,10 @@ $$
 ### 结构形式
 
 - 并联式：$G_c(s)=K_c(1+\frac{1}{\tau_Is}+\tau_Ds)$
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502142631.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20250502142631.webp)
 
 - 串联式：$G_c(s)=K_c(1+\frac{1}{\tau_Is})(1+\tau_Ds)$
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502142654.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20250502142654.webp)
 
 ### 可视化
 
@@ -105,14 +105,14 @@ $$
 
 使用教程讲述了单级 PID 和串级 PID 的基本实现。可以动态调节参数对小球进行控制
 [PID Simulator](https://pid-simulator-web.skythinker.top/)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925140315.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925140315.webp)
 
 [PID 小球](https://www.longluo.me/projects/pid/)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925143658.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925143658.webp)
 
 [PID Balancer | PID 平衡车](https://www.longluo.me/projects/pidcart/)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925134951.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925134951.webp)
 
 ## 控制器分类
 
@@ -150,8 +150,8 @@ $$
 #### 粗调 KP
 
 1. 先将积分、微分系数置零，这样系统就是纯比例控制。接着**逐渐增大比例系数 P，直至系统出现振荡**；
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142009.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142034.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925142009.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925142034.webp)
 当然，看到上面这个现象，一定要先确认一下系统硬件是否出现问题，比如电机堵转，电压不稳等，先排除硬件问题。
 
 !!! note "常见现象"
@@ -159,12 +159,12 @@ $$
     - 在平衡车的调节中会导致平衡车一点点偏角就导致舵机打角程度十分巨大，跑起来就是左右左右不断晃动，但又勉强能跑。
 
 第二步我们可以看到上面比例系数过大，导致系统震荡，超调量很大。接着再逐渐减小比例系数，直至系统振荡消失。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142217.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925142217.webp)
 
 #### 调整 Kd
 
 第三步为了抑制这个小幅度超调，我们**逐步增加微分比例系数 D，直至超调量基本消失**，如果此时效果较较佳，就不用考虑引入积分环节。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20240925142312.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20240925142312.webp)
 
 如上图我们可以看到引入微分环节之后，上升时间很短，超调量没有了，但是出现了静态误差。
 
@@ -193,7 +193,7 @@ $$
 
 ### 临界比例法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__20250502143126.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__20250502143126.webp)
 
 ① 设置 $\tau_I = \infty$ 和 $\tau_D = 0$，去除积分与微分作用
 
@@ -323,7 +323,7 @@ $$
 
 内模控制 ( Internal Model Control, 简称 IMC) 是 1982 年由 Garcia 等人提出的，由于它的跟踪调节性能好，鲁棒性强，能消除不可测干扰的影响，设计比较简单，成了一种设计与分析控制系统的有力工具
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__01-PID.assets__202505021518342.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__01-PID.assets__202505021518342.webp)
 
 !!! example "IMC 整定"
 

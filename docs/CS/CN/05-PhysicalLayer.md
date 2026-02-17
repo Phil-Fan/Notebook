@@ -14,7 +14,7 @@ media
 
 Manchester 编码
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__05-PhysicalLayer.assets__image-20240217170722040.webp" alt="image-20240217170722040" style="zoom:33%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__05-PhysicalLayer.assets__image-20240217170722040.webp" alt="image-20240217170722040" style="zoom:33%;" />
 
  在 10BaseT 中使用
  每一个 bit 的位时中间有一个**信号跳变**

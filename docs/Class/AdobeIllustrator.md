@@ -58,27 +58,27 @@ i 吸管
 
 我们选中形状，点击填充颜色找到【“色板库”菜单】，如图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150841.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150841.webp)
 
 接着，我们点击【图案】-【基本图形】选择【基本图形_纹理】，如图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150842.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150842.webp)
 
 我们在基本图形_纹理的里面，点击任意一个纹理图案，如图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150843.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150843.webp)
 
 接下来，在上方点击【重新着色图稿】，如图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150844.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150844.webp)
 
 我们在重新着色图稿里面更换自己喜欢的颜色，点击【确定】，如图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150845.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150845.webp)
 
 最后，我们来看一下图形添加纹理并填充颜色之后的效果。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__AdobeIllustrator.assets__20201207150846.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__AdobeIllustrator.assets__20201207150846.webp)
 
 ## 排版
 

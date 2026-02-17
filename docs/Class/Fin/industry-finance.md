@@ -6,7 +6,7 @@
 
 <https://www.mca.gov.cn/images3/www/file/201711/1509495881341.pdf>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20240929215423.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20240929215423.webp)
 
 银行业：呈现以政府为主导、审批严格的特征，其金融机构主要围绕融资、贷款展开业务，由存款性金融机构与非存款性金融机构组成。其中存款性金融机构包括银行、信用社、财务公司等；非存款性金融机构包括交易平台（货币经纪）、融资中介（融资租赁、保理、典当）、资产管理中介（信托、理财子公司）、消费中介（消费金融、汽车金融）与金融资产管理公司、金融资产投资公司等。
 
@@ -30,13 +30,13 @@
 
 金融交易场所：证券交易所、银行间市场、商品期货交易所、金融期货交易所、黄金交易所、大宗商品交易中心、贵金属交易所、金融资产交易中心、中证登、中信登、货币经纪公司等等。这些分别对应的是各种金融产品的市场化交易。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309154448711.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309154448711.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309154524839.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309154524839.webp)
 2018 年银监会和保监会合并，职能也相应合并
 
 - 银行是核心
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309154825957.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309154825957.webp)
 
 ## **一、银行业**
 
@@ -84,14 +84,14 @@
 
 ### 主要参与者
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309155732099.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309155732099.webp)
 监管机构：证监会（正部级，国务院直属机构)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1252419664&bvid=BV1wJ4m1j7Df&cid=1483221140&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width=450px height=600px></iframe>
 
 #### 券商
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309155809896.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309155809896.webp)
 
 中信证券为行业内最大的公司
 
@@ -103,8 +103,8 @@
     - **外资券商**：高盛高华、摩根大通证券（跨境并购、衍生品）。
 
 === "企业的注册资本划分"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309155929122.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309160054206.webp)
+    ![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309155929122.webp)
+    ![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309160054206.webp)
     - 其中，注册资本**大于100亿元**的企业有中信证券、海通证券、中国银河、申万宏源等;
     - 注册资本在**50-100亿元之间**的企业主要有国泰君安、华泰证券、中信建投以及广发证券等;
     - 注册资本在**50亿元以下**的企业有光大证券、浙商证券、国元证券、财达证券等。
@@ -146,7 +146,7 @@
 
     - 买方卖方
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309161757622.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20250309161757622.webp)
 
 ## **三、保险业**
 

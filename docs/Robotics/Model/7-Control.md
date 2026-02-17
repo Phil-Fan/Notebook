@@ -176,7 +176,7 @@ $$\
 \dot{\theta}(t)=\dot{\theta}_d(t)+K_p\theta_e(t)+K_i\int_0^t\theta_e(t)\:dt
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418144504.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250418144504.webp)
 > 图片来自知乎 Mr.bo
 
 ## 关节建模
@@ -222,7 +222,7 @@ $J$ 转动惯量
 
 编码器：对转速进行观测
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401120430.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250401120430.webp)
 
 电机动力学：$J_{mi}\dot{\omega}_{mi}=T_{ei}-T_{li}-b_{mi}\omega_{mi}$
 
@@ -238,7 +238,7 @@ $J_{ci}\ddot{\theta}_{i}+B_{ci}\dot{\theta}_{i}=J_{ci}\dot{\omega}_{i}+B_{ci}\om
 - 干扰输入$T_{ci}$
 - 输出 $\theta_i$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401121056.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250401121056.webp)
 关节传递模型框图
 
 Laplace 变换
@@ -268,7 +268,7 @@ U_{ci}(s) = k_{P_i}\widetilde{\theta}_i(s) - k_{D_i}\omega_i(s)\\
 \end{align*}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011210339.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__202504011210339.webp)
 
 $$
 \theta_{i}(s)=\frac{k_{Pi}K_{ci}}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}\theta_{di}(s)-\frac{1}{J_{ci}s^{2}+(B_{ci}+k_{Di}K_{ci})s+k_{Pi}K_{ci}}T_{ci}(s)
@@ -320,7 +320,7 @@ $$
 
 带一个积分环节
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011209180.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__202504011209180.webp)
 
 阶跃扰动下，独立关节 PID 可以做到无静差
 
@@ -332,7 +332,7 @@ $$
 
 消除参考输入影响
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504011208914.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__202504011208914.webp)
 
 ## 转矩前馈控制
 
@@ -376,7 +376,7 @@ $$
 \boldsymbol{\tau}_d=\boldsymbol{\Lambda}_P(\boldsymbol{\Phi}_d-\boldsymbol{\Phi})-\boldsymbol{\Lambda}_D\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401112408.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250401112408.webp)
 
 !!! note "Lyapunov 方法证明收敛"
 
@@ -522,7 +522,7 @@ $$
     \tau^{\prime}=\ddot{q}_{d}+k_{v}\dot{e}+k_{p}e
     $$
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418151206.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250418151206.webp)
     > 图片来自[机器人学-4-3-线性控制 - 知乎](https://zhuanlan.zhihu.com/p/340272432)
 
 === "例子 2"
@@ -556,7 +556,7 @@ $$
 
 直接根据期望的关节位移，计算出关节位置，然后使用 PD 控制器，把关节控制在想要的位置上面。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250418130855.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250418130855.webp)
 
 在反馈中利用补偿将复杂非线性模型 化成 N 个无耦合的单变量的线性模型
 
@@ -576,7 +576,7 @@ $$
 
 这样就变成了 N 个线性的双积分系统，可以使用带前馈的 PD 控制器等等
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401092616.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250401092616.webp)
 
 所以控制律为
 
@@ -586,7 +586,7 @@ $$
 
 其中，$\ddot{\boldsymbol{\Phi}}_{d}+K_{D}\dot{\widetilde{\boldsymbol{\Phi}}}$ 是前馈的部分，即框图左上角的部分
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__202504010926579.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__202504010926579.webp)
 
 ### 鲁棒控制 ｜ 估计参数
 
@@ -620,7 +620,7 @@ $$
 - $K_P$,$K_D$采用逆运动学控制设计，保证大范围渐进稳定
 - 正数$\overline{m}$ 大于$M^{-1}(\boldsymbol{\Phi})$的最大奇异值和正数 $\underline{m}$ 小于$M^{-1}(\boldsymbol{\Phi})$的最小奇异值，再取$\hat{M}(\boldsymbol{\Phi})=\frac2{\underline{m}+\overline{m}}\boldsymbol{I}$，可以保证$\left\|\boldsymbol{I}-\boldsymbol{M}^{-1}(\boldsymbol{\Phi})\hat{\boldsymbol{M}}(\boldsymbol{\Phi})\right\|\leqslant\frac{\overline{m}-\underline{m}}{\underline{m}+\overline{m}}=\gamma_{3}<1$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__7-Control.assets__20250401101152.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__7-Control.assets__20250401101152.webp)
 
 又根据 Lyapunov 稳定性定理，可以证明，保证在不确定性$\Delta$ 下 $\boldsymbol{\Phi}$对 $\boldsymbol{\Phi}_d$的渐近跟踪。
 

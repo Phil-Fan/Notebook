@@ -12,13 +12,13 @@
 
 话题 + 指令
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727132703372.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727132703372.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727133211332.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727133211332.webp)
 
 ### 结构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727133507844.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727133507844.webp)
 
 ## 解读与预处理
 
@@ -32,22 +32,22 @@
 - Characterization
 - Consequence
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727134748644.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727134748644.webp)
 
 ## 分论点与总论点
 
 Employees should be given at least four weeks of holiday time each year to help thm do their jobs better
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727135001310.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727135001310.webp)
 
 - 什么的 X
 - X 的什么
 
 总论点其实就是在分论点的基础上进行
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727141608482.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727141608482.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727141654949.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727141654949.webp)
 
 ### 连接词
 
@@ -59,9 +59,6 @@ Employees should be given at least four weeks of holiday time each year to help 
 - supporting
 - in favour of
 - against
--
-
-##
 
 ## 展开段落
 
@@ -74,7 +71,7 @@ Employees should be given at least four weeks of holiday time each year to help 
 
 ### 例子&细节
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727142335607.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727142335607.webp)
 
 3/4 环逻辑链路
 
@@ -86,4 +83,4 @@ Employees should be given at least four weeks of holiday time each year to help 
 
 ## 结尾
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing2.assets__image-20250727144320530.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing2.assets__image-20250727144320530.webp)

@@ -155,13 +155,13 @@ $$
 
 通过 KM 估计法，我们就可以求得生存曲线上对应时间点的生存概率，关于生存曲线的具体描绘方法，大家感兴趣可以参考[画说统计 | 生存分析之 Kaplan-Meier 曲线都告诉我们什么](http://www.360doc.com/content/17/0626/11/6175644_666623573.shtml)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__13-Survival_Analysis.assets__20250612191822.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__13-Survival_Analysis.assets__20250612191822.webp)
 
 生存曲线呈现折线的样子，每一个“台阶”都对应着一个发生终点事件的时间点
 
 也就是每次有终点事件出现的时刻都会计算一次生存率，把他们用折线连接就构成了生存曲线。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__13-Survival_Analysis.assets__20250612192108.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__13-Survival_Analysis.assets__20250612192108.webp)
 
 另外，根据 KM 估计法求得生存概率后，我们只需要找到当生存概率为 50% 所对应的时间点，该点值即为中位生存时间。
 
@@ -239,7 +239,7 @@ $$\frac{\sum_{i=1}^{k}{D_{Ti}}-\sum_{i=1}^{k}{\mu_k}}{\sqrt{\sum_{i=1}^{k}{\sigm
 
 **Case Study:**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__13-Survival_Analysis.assets__v2-cd13620f349c91e77245f86feb286b93_r.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__13-Survival_Analysis.assets__v2-cd13620f349c91e77245f86feb286b93_r.webp)
 
 以上 (1) 是一个简单的 log-rank 检验的算例，可见治疗组的生存时间是显著优于对照组的。
 

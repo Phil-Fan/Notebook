@@ -124,7 +124,7 @@ response = requests.get('https://api.example.com/data', params=params)
 
 存在注入->SQL 语句可以以一种“意料之外”的方式被解析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709155833.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240709155833.webp)
 
 传入全部各种特殊字符 '"~!@#$%^&*()`
 
@@ -203,7 +203,7 @@ SELECT col_name(…) FROM table_name WHERE username = '"' /*不报错*/
     ```
     无论id是否为0，这个条件永远为真
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709152231.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240709152231.webp)
 
 延时注入：1bit 信息不足以满足要求
 
@@ -295,7 +295,7 @@ ERROR 1105 (HY000): XPATH syntax error: '~web~'
 对数据进行转义是为了防止 SQL 语句执行时出现问题，存储的原始数据并没有转义。
 那么，如果某个数据被存入时携带了恶意的 SQL 语句，由于存入操作进行了良好的转义没有造成注入，但是服务端的其他功能读取这串数据用于拼接 SQL 语句时没有转义，可能也会造成注入。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240710112244.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240710112244.webp)
 
 ### SQL 注入的绕过
 
@@ -330,7 +330,7 @@ ERROR 1105 (HY000): XPATH syntax error: '~web~'
 
 ### 一个 SQL 注入攻击实例
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709162751.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240709162751.webp)
 
 !!! note "sql 注入的本质"
     SQL注入产生在服务端运行的编程语言和SQL服务器的边界上
@@ -377,7 +377,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' <https://trusted.
 
 ### 原理
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240703150007.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240703150007.webp)
 
 - 首选用户通过浏览器访问网银系统
 - 用户在网银登录后，浏览器会把用户 session_id 保存在浏览器 Cookie 中
@@ -484,7 +484,7 @@ def fetch_url(url):
     # 继续处理请求
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240709163411.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240709163411.webp)
 
 ## 网站扫描
 
@@ -575,7 +575,7 @@ if(isset($_GET['exp'])){
 最后构造 payload `exp=highlight_file(next(array_reverse(scandir(pos(localeconv())))));`
 
 最后得到了 flag
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__01-web.assets__20240801184746.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__01-web.assets__20240801184746.webp)
 
 ​
 

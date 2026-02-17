@@ -104,7 +104,7 @@ bin(m) 将整数 m 转化为二进制字符串
 oct(m) 将整数 m 转化为八进制字符串
 hex(m) 将整数 m 转化为十六进制字符串
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__image-20230405210620174.webp)
+![image](https://img.philfan.cn/CS__Language__Python__assets__01-Expression.assets__image-20230405210620174.webp)
 
 - ==变量记得赋初值==
 
@@ -169,7 +169,7 @@ print(int('5.6')) #不行
 
 其次，**float()**函数也可以将**整数**和**字符串**转换为浮点类型。但同时，如果括号里面的数据是**字符串**类型，那这个数据一定得是数字形式。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__01-Expression.assets__dd2bdf0fe3cf485bfeae0a055fb51a21.webp)
+![image](https://img.philfan.cn/CS__Language__Python__assets__01-Expression.assets__dd2bdf0fe3cf485bfeae0a055fb51a21.webp)
 
 ## conditional expressions
 

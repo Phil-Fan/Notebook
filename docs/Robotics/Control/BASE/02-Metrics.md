@@ -1,6 +1,6 @@
 # 02 | 性能分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__BASE__assets__02-Metrics.assets___E6_97_B6_E5_9F_9F_E5_88_86_E6_9E_90.svg)
+![image](https://img.philfan.cn/Robotics__Control__BASE__assets__02-Metrics.assets___E6_97_B6_E5_9F_9F_E5_88_86_E6_9E_90.svg)
 
 ## 微分方程
 
@@ -34,7 +34,7 @@ $$
 
 5. **衰减比（Damping Ratio）**: $n = \frac{\sigma}{B'} = e^{-\frac{2\zeta \pi}{\sqrt{1 - \zeta^2}}}$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__BASE__assets__02-Metrics.assets___E6_8E_A7_E5_88_B6_E7_B3_BB_E7_BB_9F_E6_80_A7_E8_83_BD.svg)
+![image](https://img.philfan.cn/Robotics__Control__BASE__assets__02-Metrics.assets___E6_8E_A7_E5_88_B6_E7_B3_BB_E7_BB_9F_E6_80_A7_E8_83_BD.svg)
 
 ## Error Dynamics
 

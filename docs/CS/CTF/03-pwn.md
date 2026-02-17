@@ -452,7 +452,7 @@ python3 有八个字节的 byte，所以它每次都会报这样的错误：
 - 提供两个元语：push & pop
 - 每一次 push 都会减小栈指针，把值存进去
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163238.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227163238.webp)
 
 rbp : base pointer，指向栈底（最高）
 rsp: stack pointer，指向栈顶（最低）
@@ -484,7 +484,7 @@ mov rbp, rsp ; 这个时候rbp=rsp
 
 创建局部变量，rsp 增加
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20240720010617.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20240720010617.webp)
 
 !!! note "局部变量为什么要初始化"
     创建局部变量的时候就是基于栈的，如果不进行初始化，那么这个变量还是原来这个内存地址上的值，是不确定的。
@@ -572,7 +572,7 @@ PIE 保护
     用于存储动态链接函数的地址表。第一次调用时通过 PLT（Procedure Linkage Table）和动态链接器解析符号，之后地址会被缓存到 GOT.PLT 中。
     这是动态链接函数调用的核心机制。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227162423.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227162423.webp)
 
 ### 使用 gdb 进行修改
 
@@ -580,7 +580,7 @@ PIE 保护
 objdump -R ./test | grep puts
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163702.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227163702.webp)
 
 ```shell title="设置断点"
 info files
@@ -597,7 +597,7 @@ delete # 把断点删除，防止子程序找不到对应的段
 c
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163625.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227163625.webp)
 
 ```shell title="查看被修改的 GOT 表"
 x/20x 0x403480
@@ -637,7 +637,7 @@ int printf(const char *format, ...);
     }
     ```
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216185221.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241216185221.webp)
 
     把函数断在printf的开头，我们可以看到第一个参数是格式化字符串`"%2$d %d %c %c %s %s"`,存在`RDI`寄存器中.
 
@@ -757,7 +757,7 @@ int main()
 ```
 
 先运行一下这个程序，我们可以发现这样的格式化字符串确实会泄露一些栈上的数据
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216193509.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241216193509.webp)
 
 使用 gdb 把断点下在`printf`函数上，然后运行程序
 
@@ -767,7 +767,7 @@ stack 80 # pwndbg
 telescope -l 80 # gdb
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216194547.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241216194547.webp)
 
 可以看到，栈上有很多我们感兴趣的地址
 
@@ -795,7 +795,7 @@ log.success(hex(leak))
 p.interactive()
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216195212.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241216195212.webp)
 
 如果我还想泄露 libc 的地址
 
@@ -829,7 +829,7 @@ fmt = b"%7$saaaa" + p64(binsh)
 p.sendline(fmt)
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241216220320.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241216220320.webp)
 
 加了`7$`以后需要去掉两个 a
 
@@ -859,8 +859,8 @@ p.sendline(fmt)
 ```
 
 比如说我们想把 12345678 写到栈上
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227164025.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__03-pwn.assets__20241227163853.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227164025.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__03-pwn.assets__20241227163853.webp)
 
 !!! example "写入 ABCD 四个字符"
 

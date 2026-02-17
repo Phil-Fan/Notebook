@@ -9,7 +9,7 @@
 
 !!! note "笔记来源：短学期课程 ppt，可能有转写错误，请注意鉴别"
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240714181857.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240714181857.webp)
 
 [智云链接](https://interactivemeta.cmc.zju.edu.cn/#/replay?course_id=63047&sub_id=1213368&tenant_code=112)
 
@@ -25,18 +25,18 @@ Dword = 4 Bytes = int
     eax
     edx
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707201856.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707201856.webp)
 
 AST：抽象代码树
 IR：中间表达式
 
 === "编译执行"
     上述通过编译器 (compiler) 将代码转化为机器指令格式的程序，进而执行
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707202333.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707202333.webp)
 
 === "解释执行"
     通过解释器 (interpreter) 将代码转化为 VM 格式的程序（如字节码），进而在 VM上执行；更安全，但更慢
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707202320.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707202320.webp)
 
 可执行文件
 
@@ -50,7 +50,7 @@ IR：中间表达式
 
 [ELF 文件头](https://www.cnblogs.com/jiqingwu/p/elf_explore_2.html)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20241118193116.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20241118193116.webp)
 
 ```text
 ELF Header:
@@ -142,7 +142,7 @@ clang -Xclang -emit-llvm -S hello.c -o hello.ll
 gcc -fdump-tree-all -S hello.c
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707210444.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707210444.webp)
 
 Assemble
 
@@ -179,7 +179,7 @@ as [options] -o outputfile inputfile
 
 使用`file`指令查看`.o` 文件，会发现是 reallocatable，是需要重定向的，需要把程序中留白的部分补充上
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707210812.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707210812.webp)
 
 > 需要知道 printf 函数在哪里，才能正确的调用 printf 函数
 
@@ -189,7 +189,7 @@ GNU linker
 ld hello.o -o hello
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707215122.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707215122.webp)
 
 - 静态链接：处理更快，但文件更大
 
@@ -296,7 +296,7 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 程序执行的起点和终点并不是 main 函数，c++ 有 construct 等特性可以在 main 之前就调用
 [Function Attributes - Using the GNU Compiler Collection (GCC)](https://gcc.gnu.org/onlinedocs/gcc-4.1.2/gcc/Function-Attributes.html)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240707223320.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240707223320.webp)
 
 内核以可执行文件 e_entry 位置 (即_start) 作为起点
 
@@ -376,7 +376,7 @@ b *0x4005a0
 
 ## ELF 的逆向
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240708181631.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240708181631.webp)
 
 - Bad Aspect 外挂、注册机
 - Good Aspect：未知攻，焉知防
@@ -420,7 +420,7 @@ file crackme-ext
 
 因为 shuffle 这个函数是一对一映射的，所以可以定向爆破
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240715101015.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240715101015.webp)
 
 这里 call shuffle 就是调用 shuffle 函数，那么 B6E 就是 shuffle 函数的结束地址
 
@@ -447,7 +447,7 @@ chmod +x software.run
 
 ### 窗口
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__image-20240530083905812.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__image-20240530083905812.webp)
 
 如上图所示，左侧窗口为函数列表窗口，右侧窗口为 IDA 反汇编所得的汇编代码，最下侧窗口为文件在反汇编过程中的信息。
 
@@ -475,7 +475,7 @@ Options：可以进行一些个性化的设置
 
 左侧是函数窗口，会将程序中所有的函数显示出来
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__image-20240530084316587.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__image-20240530084316587.webp)
 
 我们分析一道题目的时候一般是先从主函数开始
 
@@ -505,7 +505,7 @@ Options：可以进行一些个性化的设置
 
 #### Shift+F5 字符串窗口
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__49f8f206fe404029855de10cce91e1c2.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__49f8f206fe404029855de10cce91e1c2.webp)
 
 #### Ctrl+X（交叉引用）
 
@@ -544,4 +544,4 @@ IDA 文本搜索相当于对反汇编列表窗口进行子字符串搜索。
 可以把一些常用的可见字符标注成`char`
 
 右键即可
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__04-reverse.assets__20240715100010.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__04-reverse.assets__20240715100010.webp)

@@ -26,7 +26,7 @@ $$
 
 所以，我们只需要保存 $K_{old}$ 和 $V_{old}$ (因为只用到了 KV)，就可以实现高效的增量生成。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250812230838959.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250812230838959.webp)
 
 值得注意的是，KV 缓存的大小通常和模型本身大小是同一级别，也是一种空间换时间的策略
 
@@ -47,28 +47,28 @@ pie
 
     每个页4K
     
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000031813.webp)
+    ![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000031813.webp)
 
 ### Paged Attention 原理
 
 - 不预分配，按需调用
   
 - 按块 Block 分配内存，碎片更小
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000142399.webp)
+    ![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000142399.webp)
 
 - 虚拟内存：逻辑内存是连续的，通过映射表链接到物理内存（实际分配不连续）；方便调用
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000330631.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813000330631.webp)
 
 ## Share KV Cache
 
 **copy on write**机制：引用大于 1 的时候，不能直接写入，必须拷贝一份，再写入
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813001125290.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813001125290.webp)
 
 还可以优化 beam-search
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813001154648.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813001154648.webp)
 
 ## Flash Attention
 
@@ -88,7 +88,7 @@ pie
 
 SRAM 读取快，HBM 读取慢
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813002617202.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813002617202.webp)
 
 - Compute-bound: （数据等算力）
   - 大的矩阵乘法，多 channel 卷积
@@ -100,7 +100,7 @@ SRAM 读取快，HBM 读取慢
 
 ### 原始 Attention 的实现
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813143319708.webp" alt="image-20250813143319708" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813143319708.webp" alt="image-20250813143319708" style="zoom: 50%;" />
 
 矩阵 $Q$, $K$, $V \in \mathbb{R}^{N\times d}$ 存储在 HBM。（$N$ 是序列长度，$d$ 是维度）
 
@@ -115,7 +115,7 @@ SRAM 读取快，HBM 读取慢
 9. 把 $O$ 写出到 `HBM`
 10. 返回 $O$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813142327972.webp" alt="image-20250813142327972" style="zoom: 25%;" />
+<img src="https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813142327972.webp" alt="image-20250813142327972" style="zoom: 25%;" />
 
 ### tiling **softmax**
 
@@ -126,7 +126,7 @@ SRAM 读取快，HBM 读取慢
 - 通过分块计算，融合多个操作，减少中间结果缓存
 - 反向传播等时候，重新计算结果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813002815635.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813002815635.webp)
 
 !!! note "**softmax**精度问题"
     $e$的指数项可能超过精度，比如 65536
@@ -215,17 +215,17 @@ Q.shape[:-1] = (1, 1, 6)
 
 需要额外存储
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813003529043.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813003529043.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813153517030.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813153517030.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813142311190.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813142311190.webp)
 
 ### 反向传播 recomputation
 
 前向的时候，会保存 softmax 统计值，$m$和$l$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813003543657.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__06-InferOptimization.assets__image-20250813003543657.webp)
 
 ## StreamLLM
 

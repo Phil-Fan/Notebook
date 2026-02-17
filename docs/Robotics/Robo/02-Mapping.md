@@ -33,7 +33,7 @@ Map=Data Structure + Fusion Method
 • Un-ordered
 • No Index Query
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__02-Mapping.assets__20241224104358.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__02-Mapping.assets__20241224104358.webp)
 
 ## Free-space Roadmap
 

@@ -110,7 +110,7 @@ Web service listening on port 9004
 
 打开 Tableau 软件，依次点击菜单栏 ***帮助***-***设置和性能**-**管理外部服务连接***，即可打开服务器连接设置。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Tableau.assets__image-20240203152819659.webp" alt="image-20240203152819659" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Tools__Software__assets__Tableau.assets__image-20240203152819659.webp" alt="image-20240203152819659" style="zoom:50%;" />
 
 ## 资源和社区
 

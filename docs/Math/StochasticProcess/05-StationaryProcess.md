@@ -250,10 +250,10 @@ $$
 | $R_X(\tau)cos\omega_0\tau$ | $\frac12[S_X(\omega+\omega_0)+S_X(\omega-\omega_0)]$ |
 
 各种常见信号傅里叶变换需要记住
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620212932-20250715171227650.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620212944-20250715171230669.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620213012-20250715171233460.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620213040-20250715171236156.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620212932-20250715171227650.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620212944-20250715171230669.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620213012-20250715171233460.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__20240620213040-20250715171236156.webp)
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
@@ -435,7 +435,7 @@ $$
 
 本题目改编自课本例 5.1.6
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__202506151904855.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__202506151904855.webp)
 
 !!! example "设 $\{X(t);-\infty<t<\infty \}$ 是宽平稳过程，$X(t)=Acos(t+2\pi B)$ ，$A,B$ 独立且服从 $(0,1)$ 上的均匀分布"
 
@@ -634,7 +634,7 @@ $$
 
  所以在画图的时候，先画出包络，再绘制函数
 
- ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__image-20250530202637971.webp)
+ ![image](https://img.philfan.cn/Math__StochasticProcess__assets__05-StationaryProcess.assets__image-20250530202637971.webp)
 
  ---
 

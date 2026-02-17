@@ -15,9 +15,9 @@
 
 **定义 2.5：** 若存在 c>0 和 n0，当 N>n0 时，T(N)>cq(N)，则记为 T(N) = w(q(N))
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145822408.webp)
+![image](https://img.philfan.cn/CS__DS__assets__00-intro.assets__image-20230101145822408.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145831844.webp)
+![image](https://img.philfan.cn/CS__DS__assets__00-intro.assets__image-20230101145831844.webp)
 
 $O(1)$ 是指$f(n)$ 有上界
 
@@ -32,13 +32,13 @@ IF \quad T_1(N) = O(f(N)) \ and \ T_2(N) O(g(N))\\
 \end{align}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101145916672.webp)
+![image](https://img.philfan.cn/CS__DS__assets__00-intro.assets__image-20230101145916672.webp)
 
 主要考虑 最坏可能性 与 平均可能性
 
 ## 等价关系
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__00-intro.assets__image-20230101231048256.webp)
+![image](https://img.philfan.cn/CS__DS__assets__00-intro.assets__image-20230101231048256.webp)
 
 find:返回包含给定元素的集合
 

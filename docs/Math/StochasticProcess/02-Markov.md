@@ -87,7 +87,7 @@ $m$ 时处于状态 $i$ 的条件下，到 $n$ 时转移到状态 $j$ 的概率 
 
 ### C-K 方程
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__20250428103145-20250715171105400.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__20250428103145-20250715171105400.webp)
 
 $\forall\;m,n,l\geq0\quad i,j\in I\qquad p_{ij}(m,m+n+l)=\sum_kp_{ik}(m,m+n)·p_{kj}(m+n,m+n+l)$
 
@@ -340,7 +340,7 @@ $\mathbf{\pi}=(\pi_1,\pi_2,\pi_3,\dots,\pi_n)$ 代表稳态时各个状态的含
 
 ### 常返态性、周期、回转时
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__20250517192308.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__20250517192308.webp)
 
 各状态互达，因为$p_{00}>0$, 所以$d(0)=1$, 因此各状态周期为 1. 这是一个不可约非周期的马尔可夫链。各状态的常返性与状态 0 的常返性相同。所以，
 
@@ -480,14 +480,14 @@ $\mathbf{\pi}=(\pi_1,\pi_2,\pi_3,\dots,\pi_n)$ 代表稳态时各个状态的含
 ### 吸收概率与吸收时间
 
 例题 1
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__202506091146554.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__202506091146554.webp)
 
 例题 2
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__202506091148965.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__202506091148965.webp)
 
 例题 3
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__202506091149496.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__202506091149867.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__202506091149496.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__202506091149867.webp)
 
 !!! example "例题"
     对于一个马尔可夫过程，状态空间为 $\{1,2,3\}$，其状态转移矩阵为
@@ -1030,7 +1030,7 @@ $$
 
 (迷宫中的老鼠) 如图所示，迷宫中有九个房间，老鼠待在 1 号房间，猫待在 7 号房间，奶酪放在 9 号房间。现在假设猫不动，老鼠开始移动，由于无记忆性，如果 n 时老鼠待在 i 号房间，则 n+1 时老鼠等可能地移到 i 号房间相邻的房间 (即有门与 i 号房间相连的房间). 并且假设老鼠一旦到 7 号房间，猫就吃掉老鼠，从而认为老鼠此后就永远留在 7 号房间; 一旦到 9 号房间，老鼠就吃掉奶酪而将永远留在 9 号房间。用 X_{n} 表示 n 时老鼠所在的房间，则 {X_{n}} 是一个时齐马尔可夫链，写出状态空间和一步转移矩阵，并计算老鼠被猫吃掉的概率。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__02-Markov.assets__image-20250428202251387.webp)
+![image](https://img.philfan.cn/Math__StochasticProcess__assets__02-Markov.assets__image-20250428202251387.webp)
 
 解：
 

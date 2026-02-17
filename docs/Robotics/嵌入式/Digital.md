@@ -20,7 +20,7 @@
     Y = A\quad AND\quad B = A\&B = A\cdot B = AB
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240228121552683.webp" alt="与关系" style="zoom:33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240228121552683.webp" alt="与关系" style="zoom:33%;" />
 
 === "或 OR"
 
@@ -28,7 +28,7 @@
     Y = A \quad OR \quad B = A+B
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240228121833879.webp" alt="或关系" style="zoom:33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240228121833879.webp" alt="或关系" style="zoom:33%;" />
 
 === "非 NOT"
 
@@ -36,7 +36,7 @@
     Y = A' = NOT \quad A
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240228122022442.webp" alt="非关系" style="zoom:33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240228122022442.webp" alt="非关系" style="zoom:33%;" />
 
 === "异或——杂合子"
 
@@ -48,7 +48,7 @@
     Y = A \oplus B = \bar{A}B + A\bar{B}
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240228122336850.webp" alt="异或关系" style="zoom:33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240228122336850.webp" alt="异或关系" style="zoom:33%;" />
 
 === "同或——纯合子"
 
@@ -59,7 +59,7 @@
     Y = A \odot B
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240228122444834.webp" alt="同或关系" style="zoom:33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240228122444834.webp" alt="同或关系" style="zoom:33%;" />
 
 ### 基本公式
 
@@ -90,7 +90,7 @@ $$
 $$
 A+BC = (A+B)(A+C)
 $$
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240301144447212.webp" alt="公式 17 的证明" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240301144447212.webp" alt="公式 17 的证明" style="zoom: 50%;" />
 
 同一律
 
@@ -139,7 +139,7 @@ A \cdot A = 0
 \end{align*}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__image-20240306113302112.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Digital.assets__image-20240306113302112.webp)
 
 ### 逻辑函数化简
 
@@ -161,13 +161,13 @@ $$
 
 [数字电路 - 逻辑式化简公式](https://zhuanlan.zhihu.com/p/392457877)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__v2-8dc1606574d995edbc843fb019b38fad_1440w.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__v2-8dc1606574d995edbc843fb019b38fad_1440w.webp" alt="img" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__v2-61355c6b4a7dba5e2e887c17d8e480a8_1440w.webp" alt="img" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__v2-55a64baa868c2fd6676c3369c66ea3ff_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__v2-55a64baa868c2fd6676c3369c66ea3ff_r.webp" alt="img" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__v2-939bf95fd46b11c990a59657ff7bc67f_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__v2-939bf95fd46b11c990a59657ff7bc67f_r.webp" alt="img" style="zoom:50%;" />
 
 #### 真值表
 
@@ -185,12 +185,12 @@ $$
 
 化简：相邻、相对（偶数个），**$2^n$个相邻的最小项合并可以消去$n$个因子**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__4c32c787711a908076a7ec169f077d0.webp" alt="4c32c787711a908076a7ec169f077d0" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__4c32c787711a908076a7ec169f077d0.webp" alt="4c32c787711a908076a7ec169f077d0" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__c6677b612f12342788a479c941fda79.webp" alt="c6677b612f12342788a479c941fda79" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__c6677b612f12342788a479c941fda79.webp" alt="c6677b612f12342788a479c941fda79" style="zoom: 50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__dcc7e633252e1c0e39d94c11fa69557.webp" alt="dcc7e633252e1c0e39d94c11fa69557" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__dcc7e633252e1c0e39d94c11fa69557.webp" alt="dcc7e633252e1c0e39d94c11fa69557" style="zoom:50%;" />
 
 最简与或：包含的乘积项已经最少，每个乘积项的因子也最少，称为最简的与 - 或逻辑式
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Digital.assets__v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__Digital.assets__v2-06ac3268bb0d79aea7786e0d763dc2cd_1440w.webp" alt="img" style="zoom:50%;" />

@@ -16,7 +16,7 @@
 
 ## C51 编程
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240508102042152.webp" alt="image-20240508102042152" style="zoom:40%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240508102042152.webp" alt="image-20240508102042152" style="zoom:40%;" />
 
 以 main 函数为主体
 
@@ -214,7 +214,7 @@ C 语言和汇编语言的相互调用
     ```
 
 !!! note "A/D 转换接口编程示例"
-    ADC0809与单片机的接口电路如图所示。采用查询方式采集数据的应用程序为：<br><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240508112233118.webp" alt="image-20240508112233118" style="zoom:50%;" /><br>
+    ADC0809与单片机的接口电路如图所示。采用查询方式采集数据的应用程序为：<br><img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240508112233118.webp" alt="image-20240508112233118" style="zoom:50%;" /><br>
     ```c
     # include “reg51.h”
     # include “absacc.h”
@@ -772,11 +772,11 @@ void Usart() interrupt 4
 
 可以实现大概这个效果。如果两个同时发送的话，可能数字会越来越大（我设置的是翻倍发送）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240531230036861.webp" alt="image-20240531230036861" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__image-20240531230036861.webp" alt="image-20240531230036861" style="zoom:50%;" />
 
 ## LCD & ADC
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__1717167497179.webp" alt="1717167497179" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051-experiment.assets__1717167497179.webp" alt="1717167497179" style="zoom:50%;" />
 
 ```c
 #include "reg52.h"//此文件中定义了单片机的一些特殊功能寄存器

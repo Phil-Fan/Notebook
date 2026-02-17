@@ -143,7 +143,7 @@
   - char 1 字节
   - **C 语言允许对整型变量赋以字符值，也允许对字符变量赋以整型值**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221229103520570.webp)
+![image](https://img.philfan.cn/CS__Language__assets__C.assets__image-20221229103520570.webp)
 
 [static 作用：静态变量的生存周期和作用域 - bigclould - 博客园 (cnblogs.com)](https://www.cnblogs.com/bigclould/p/9322248.html)
 
@@ -192,11 +192,11 @@ D选项：全局变量和静态变量都是存储在静态存储区，所以在�
 
 ### **3.运算符和表达式（优先级很重要）**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172815017.webp)
+![image](https://img.philfan.cn/CS__Language__assets__C.assets__image-20221223172815017.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172846547.webp)
+![image](https://img.philfan.cn/CS__Language__assets__C.assets__image-20221223172846547.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223172912591.webp)
+![image](https://img.philfan.cn/CS__Language__assets__C.assets__image-20221223172912591.webp)
 
  规则：单目 > 双目 > 三目
 
@@ -373,7 +373,7 @@ printf(顺序从右到左)
 
 注意%前后的数字限制位宽、小数位数、进制等规则
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__assets__C.assets__image-20221223173233886.webp)
+![image](https://img.philfan.cn/CS__Language__assets__C.assets__image-20221223173233886.webp)
 
       以下程序的输出值为 5 3 2
       int i=2;

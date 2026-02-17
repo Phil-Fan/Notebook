@@ -623,7 +623,7 @@ $$
 
 !!! example "某银行有两个窗口可以接受服务。上午九点钟，小王到达这个银行，此时两个窗口分别有一个顾客在接受服务，另外有 2 个顾客排在小王的前面等待接受服务，一会儿又来了很多顾客。假设服务的规则是先来先服务。也就是说一旦有一个窗口顾客接受完服务，那么排在队伍中的第一个顾客就马上在此窗口接受服务。假设各个顾客接受服务的时间独立同分布，而且服从均值为 20 分钟的指数分布。"
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__03-Possion.assets__20250526095634.webp)
+    ![](https://img.philfan.cn/Math__StochasticProcess__assets__03-Possion.assets__20250526095634.webp)
 
     ---
 

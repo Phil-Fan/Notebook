@@ -36,7 +36,7 @@ TASK 1 是托福口语考试中唯一的一道独立口语题，要求考生针�
 
 [备考干货丨拿下托福口语 Task2，看这篇就够了 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/581129921)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__04-Speaking-TOFEL.assets__50641671694177.webp)
+![image](https://img.philfan.cn/Class__English__assets__04-Speaking-TOFEL.assets__50641671694177.webp)
 
 - Take a side
 - Speak clearly your choice

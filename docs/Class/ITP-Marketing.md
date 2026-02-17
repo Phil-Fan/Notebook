@@ -15,7 +15,7 @@
 
 > 市场营销既是一种行为、一套制度，也是**创造、传播、传递和交换**对消费者、代理商、合作伙伴和全社会**有价值的供给**的过程
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__f398f55912ba3dfa0a3d04f4dacf745.webp" alt="f398f55912ba3dfa0a3d04f4dacf745" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Class__assets__ITP-Marketing.assets__f398f55912ba3dfa0a3d04f4dacf745.webp" alt="f398f55912ba3dfa0a3d04f4dacf745" style="zoom:50%;" />
 
 - 交易：供给和需求的匹配
 - 营销：让你关注在交易中得到什么而不是失去什么
@@ -36,7 +36,7 @@
 >
 > 需求：我想要且买得起的东西
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__996c04f21130754ed22504dfc700724.webp" alt="996c04f21130754ed22504dfc700724" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Class__assets__ITP-Marketing.assets__996c04f21130754ed22504dfc700724.webp" alt="996c04f21130754ed22504dfc700724" style="zoom: 33%;" />
 
 马斯洛需求层次理论
 
@@ -62,15 +62,15 @@
 
 ### 营销理论和组合
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__474ca2f5b0c499548b56be7302dccaa.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__474ca2f5b0c499548b56be7302dccaa.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__123314e681a6dc4e70d83796e4af3cf.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__123314e681a6dc4e70d83796e4af3cf.webp)
 
 4R:关联 (relevancy)、节省 (retrenchment)、关系 (relationship) 和回报 (reward)。
 
 4I 营销理论包含四个要素：个性原则 (individuality)、趣味原则 (interesting)、互动原则 (interaction) 和利益原则 (interests)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__7377286817253286571ca85ba4d3733.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__7377286817253286571ca85ba4d3733.webp)
 
 ## STP
 
@@ -94,7 +94,7 @@
 
 总结：**从需求和人出发，提供服务与产品，此时的服务与产品才是有价值的，才是可持续与平衡发展的生意。**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__8eba1e247d009eb86a8d0ee77380a45.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__8eba1e247d009eb86a8d0ee77380a45.webp)
 
 ### 目标市场 | Targeting
 
@@ -131,7 +131,7 @@
 
 开发企业已有资源进行降维打击——需要营销
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091336106.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630091336106.webp)
 
 > **产品组合**
 >
@@ -159,10 +159,10 @@
 
   > 政府与政治立场
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630091545688.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630091545688.webp)
 
 !!! note "先成为先锋消费者，才能发现商机，才能成为先锋创业者"
- <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630092024979.webp" alt="image-20240630092024979" style="zoom:50%;" />
+ <img src="https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630092024979.webp" alt="image-20240630092024979" style="zoom:50%;" />
 
 一方能够向另一方提供的任何本质上是无形的活动或作业，并且其结果不会导致任何所有权的产生。
 
@@ -174,7 +174,7 @@
 
 一方能够向另一方提供的任何本质上是无形的活动或作业，并且其结果不会导致任何所有权的产生。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630093500908.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630093500908.webp)
 
 无形性：服务无形，提供者有形
 
@@ -198,7 +198,7 @@
 
 ### 渠道 | Place
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630095116333.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630095116333.webp)
 
 短渠道
 
@@ -254,7 +254,7 @@
 
 参考价格：上一次支付的价格、市场价、告知的价格
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__assets__ITP-Marketing.assets__image-20240630094217847.webp)
+![image](https://img.philfan.cn/Class__assets__ITP-Marketing.assets__image-20240630094217847.webp)
 
 ### **价格锚定**
 

@@ -64,11 +64,11 @@ comments: true
 <a class="down-button" target="_blank" href="CN.xmind" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__Intro.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__Intro.webp)
 
 ## 基本概念
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240122233225413.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240122233225413.webp)
 
 网络：节点、边的拓扑结构
 
@@ -128,7 +128,7 @@ ICP: internet content provider ;ex:谷歌
 
 数据中心机房 离 isp 较近
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123235809673.webp" alt="image-20240123235809673" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123235809673.webp" alt="image-20240123235809673" />
 
 internet 结构
 
@@ -142,7 +142,7 @@ delay 时延
 
 排队论，信道利用率增大，时延就增大
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240122214414552.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240122214414552.webp)
 
 ### 延时
 
@@ -150,7 +150,7 @@ $总时延 = 发送时延 + 传播时延 + 处理时延 + 排队时延$​
 
 在这里要注意理解一下书上这个定义，是以 Node A 作为研究节点的，着重注意一下每种延时的定义和区别
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240307194432836.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240307194432836.webp)
 
 #### 节点处理延时 processing delay
 
@@ -191,7 +191,7 @@ $t = \frac{d}{s}$
 
 AB 距离很远的话，传播延时不能忽略
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240125175620523.webp" alt="image-20240125175620523" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240125175620523.webp" alt="image-20240125175620523" />
 
 > 上面例子只计算了 transmission delay 和 propagation delay
 
@@ -218,7 +218,7 @@ AB 距离很远的话，传播延时不能忽略
 - Therefore, the constraining factor for throughput in today’s Internet is
   typically the access network.
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240306104410654.webp" alt="image-20240306104410654" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240306104410654.webp" alt="image-20240306104410654" style="zoom:50%;" />
 
 - 如果共同链路速率很快，那么就是短板效应
 
@@ -229,17 +229,18 @@ $$
 
 - 但如果公用链路限制速率的话，吞吐量就是共同链路的速率了
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240306105533244.webp" alt="image-20240306105533244" style="zoom:33%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240306105533244.webp" alt="image-20240306105533244" style="zoom:33%;" />
 
 ### 历史
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240129003408237.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240129003408237.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/img/image-20240129003507022.png)![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240129003519604.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240129003507022.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240129003519604.webp)
 
 网景
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240129113040843.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240129113040843.webp)
 
 ## 网络边缘 edge
 
@@ -277,9 +278,9 @@ $$
 
 波分 光纤通讯 WDM wave division multiplexing
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123105422145.webp" alt="image-20240123105422145" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123105422145.webp" alt="image-20240123105422145" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123105704164.webp" alt="image-20240123105704164" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123105704164.webp" alt="image-20240123105704164" />
 
  每个 bit 到达接收端都需要有传播延时
 
@@ -301,7 +302,7 @@ $$
 
 没有固定模式 统计多路复用
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123113304652.webp" alt="image-20240123113304652" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123113304652.webp" alt="image-20240123113304652" />
 
 流量强度为 1 的网络不可行，所以是 0-9
 
@@ -345,9 +346,9 @@ $$
 
 #### 电力线可以调制上网
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123122045769.webp" alt="image-20240123122045769" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123122045769.webp" alt="image-20240123122045769" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123122830511.webp" alt="image-20240123122830511" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123122830511.webp" alt="image-20240123122830511" />
 
 ### 无线接入
 
@@ -363,11 +364,11 @@ PAN(Personal Area Network)
 
 #### 导引型媒体
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123123058357.webp" alt="image-20240123123058357" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123123058357.webp" alt="image-20240123123058357" />
 
 两根铜线螺旋绞在一块，抗干扰效果好；空间上保持平行且间距不变
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123123111306.webp" alt="image-20240123123111306" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123123111306.webp" alt="image-20240123123111306" />
 
 光纤优点：光信号不会受到电磁的干扰
 
@@ -379,7 +380,7 @@ PAN(Personal Area Network)
 
 强度 平方反比，迅速衰减
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123123348917.webp" alt="image-20240123123348917" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240123123348917.webp" alt="image-20240123123348917" />
 
 ## 协议层次`network protocol`
 
@@ -411,15 +412,15 @@ PAN(Personal Area Network)
     `PDU: protocol data unit` 协议数据单元 SDU + head<br>
     `ICI: interface control information` <br>
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240125201420011.webp" alt="image-20240125201420011" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240125201420011.webp" alt="image-20240125201420011" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240125201113691.webp" alt="image-20240125201113691" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240125201113691.webp" alt="image-20240125201113691" />
 
 ### 模型
 
 #### Internet
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240125202826044.webp" alt="image-20240125202826044" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240125202826044.webp" alt="image-20240125202826044" />
 
 Transport Layer: Process to Process
 
@@ -459,7 +460,7 @@ Physical Layer
 
 应用层、表示层、会话层、运输层、数据链路层、物理层
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240125202836339.webp" alt="image-20240125202836339" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240125202836339.webp" alt="image-20240125202836339" />
 
 ## Top-Down 的实例
 
@@ -479,7 +480,7 @@ DHCP 服务器生成 DHCP；ACK 包括客户端 IP 地址，第一跳路由器 I
 客户端接收 DHCP ACK 应答
 
 客户端有了 IP 地址，知道了 DNS 域名服务器的名字和 IP 地址、第一跳路由器的 IP 地址
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240217181035891.webp" alt="image-20240217181035891" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240217181035891.webp" alt="image-20240217181035891" style="zoom:50%;" />
 
 ### ARP
 
@@ -497,7 +498,7 @@ IP 数据报被转发，从校园到达 comcast 网络，路由（路由表被 R
 - 被 DNS 服务器解封装
 - DNS 服务器回复给客户端：www.google.com 的 IP 地址
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240217181241937.webp" alt="image-20240217181241937" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__index.assets__image-20240217181241937.webp" alt="image-20240217181241937" style="zoom:50%;" />
 
 ### TCP 连接
 
@@ -509,7 +510,7 @@ web 服务器用 TCP SYNACK 应答 (3 次握手的第 2 次握手)
 
 TCP 连接建立了！
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240217181349495.webp)
+![image](https://img.philfan.cn/CS__CN__assets__index.assets__image-20240217181349495.webp)
 
 ### HTTP 请求与响应
 

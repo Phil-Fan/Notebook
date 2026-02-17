@@ -29,15 +29,15 @@ Minimax 算法又叫极小化极大算法，是一种找出失败的最大可能
 !!! example "Minimax 例子"
     称我方为 MAX，对方为 MIN，图示如下：
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204322.webp)
+    ![image](https://img.philfan.cn/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204322.webp)
 
     例如，对于如下的局势，假设从左往右搜索，根节点的数值为我方赢面：
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204330.webp)
+    ![image](https://img.philfan.cn/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204330.webp)
 
     我方应选择中间的路线。因为，如果选择左边的路线，最差的赢面是 3；如果选择中间的路线，最差的赢面是 15；如果选择右边的路线，最差的赢面是 1。虽然选择右边的路线可能有 22 的赢面，但对方也可能使我方只有 1 的赢面，假设对方会选择使得我方赢面最小的方向走，那么经过权衡，显然选择中间的路线更为稳妥。
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204340.webp)
+    ![image](https://img.philfan.cn/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106204340.webp)
 
     实际上，在看右边的路线时，当发现赢面可能为 1 就不必再去看赢面为 12、20、22 的分支了，因为已经可以确定右边的路线不是最好的。
 
@@ -72,7 +72,7 @@ alpha-beta 剪枝算法是对 MinMax 算法的剪枝，产生的结果完全相�
 - **向下传递：复制$\alpha$，$\beta$的值到子节点**
 - 若在某一节点更新后出现$\alpha>\beta$，则其后面不需要再进行更新，直接剪枝即可
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106205632.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-3-OtherSearch.assets__20241106205632.webp)
 
 > 算法流程详见：<https://oi-wiki.org/search/alpha-beta/>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=405104472&bvid=BV1yG411o7uH&cid=1243642275&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="500" height="300"></iframe>

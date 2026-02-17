@@ -62,7 +62,7 @@ Probabilistic Road Map 基于概率采样的路径
 
 缺点：对于给定的起点和终点，非最短路径，效率低
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__image-20240427143014709.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__image-20240427143014709.webp)
 
 [基于采样的运动规划算法-RRT(Rapidly-exploring Random Trees) - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/133224593)
 
@@ -101,18 +101,18 @@ RRT 没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 - choose parent：选择一个父节点，使得从起始点到采样点的距离最小
 - rewire：即在采样之后与最短路径连接后，考虑在某一个定长的圆的范围内，其内的点是否可以连接到新采样的点（用到初始点的距离进行判断）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183058.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183058.webp)
 
 !!! note "核心：半径 R 的选择"
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__image-20240427143031710.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__image-20240427143031710.webp)
 
 #### informed RRT*
 
 产生采样的启发式规则：采用一个椭圆采样方式来代替全局均匀采样
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183144.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183144.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183158.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183158.webp)
 
 以起点 $x_{start}$ 和终点 $x_{goal}$ 作为椭圆的焦点，令 $a$ 等于初始路径长度的一半，即 $a = \frac{c_{best}}{2}$，则 $c = \frac{c_{min}}{2}$，$b = \frac{\sqrt{c_{best}^2 - c_{min}^2}}{2}$。这样就可以得到椭圆方程的所有参数。
 
@@ -131,9 +131,9 @@ RRT 没有遗忘机制，对已知路径没有更新，对错误连接没有修�
 运动动力学
 
 - **控制空间采样**：选择一个输入$u$，固定一个持续时间$T$，前向模拟系统（数值积分）；一般都是幂 0 矩阵
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183841.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183841.webp)
 - **状态空间采样**：算则一个$s_f$ 找到两个状态$s_0$与$s_f$之间的连接
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183859.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183859.webp)
 
 ### 小车模型
 
@@ -149,7 +149,7 @@ lattice: 广义的栅格
 
 构成状态和状态之间的搜索图
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241102204243.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241102204243.webp)
 
 9-discretization & 25-discretization
 
@@ -169,7 +169,7 @@ BVP | Boundary Value Problem 边值问题
 4. 相轨迹分析
 5. 确定最优量
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__b08c1999103b530af6670e6e43d34ffe.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__b08c1999103b530af6670e6e43d34ffe.webp)
 
 ### 优化
 
@@ -184,14 +184,14 @@ BVP | Boundary Value Problem 边值问题
 2. Sample a random state
 3. solve two state boundary optimal control problem
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241102204411.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241102204411.webp)
 
 ### Hybrid A*
 
 运用 A*对 lattice graph 进行剪枝
 
    传统的 A *算法是在栅格地图中进行搜索，可行路径中的点，都是栅格地图的中心点，如下面的第一幅图所示，lattice planner 算法是先构建一个用于搜索的 lattice 图，如下面的第二幅图所示，Hybrid A* 算法结合了 A * 算法和 lattice planner 算法的思想，将栅格地图的路径搜索与 lattice 图结合起来，在搜索过程中选取不同的控制量预演一段轨迹，且保持在每个栅格中仅保留一个可行的状态，如下面的第三幅图所示
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023190050.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023190050.webp)
 
 1. Follow A* algorithm
 
@@ -199,7 +199,7 @@ BVP | Boundary Value Problem 边值问题
 
 3. Keep only 1 state in each grid
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__05-Planning.assets__20241023183547.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__05-Planning.assets__20241023183547.webp)
 [动力学约束下的运动规划算法——Hybrid A\*算法（附程序实现及详细解释）\_pythonrobotics hybrida\*-CSDN 博客](https://blog.csdn.net/qq_44339029/article/details/132466521)
 
 ## 轨迹优化

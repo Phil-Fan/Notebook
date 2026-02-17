@@ -2,7 +2,7 @@
 
 ## 线性规划
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets___E7_BA_BF_E6_80_A7_E8_A7_84_E5_88_92_E9_97_AE_E9_A2_98.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets___E7_BA_BF_E6_80_A7_E8_A7_84_E5_88_92_E9_97_AE_E9_A2_98.webp)
 
 ### 基础
 
@@ -58,7 +58,7 @@ $$
 
 > 可参照[【线性规划 2】线性规划的标准型 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/31729190)中的例题
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-60940d3d6f2b4378f3cb88c0217f25ed_1440w.webp" alt="img" style="zoom: 33%;" /><img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-c67044816117c7099e3d4c264edff055_1440w.webp" alt="img" style="zoom:33%;" /><img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-66da5ba9c5f0c5ddfb02c4ab77d26479_1440w.webp" alt="img" style="zoom:33%;" />
 
 变量条件转化为标准约束
 
@@ -149,7 +149,7 @@ $$
     === "基可行解"
     基解中$\mathbf{x} \ge 0$的解
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501113721301.webp" alt="image-20240501113721301" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501113721301.webp" alt="image-20240501113721301" style="zoom:50%;" />
 
 !!! note "定理 1 若线性规划问题存在可行解，则问题的可行域是凸集"
 
@@ -181,7 +181,7 @@ $$
 >
 > 顶点在约束所限制的多面体内，因此所有约束也都是满足的。下来考虑第二个关键因素，存在 n 个线性无关的约束有效，则说明这个点在 n 个超平面的交上。注意：n 维空间中 n 个线性无关的超平面的交是一个点。（比如：2 维空间中，两条线性无关的线的交是一个点；三维空间中，三个线性无关的面的交也是一个点）。那这个点为什么会是在多面体的最外侧而不是内部呢？这是因为多面体是由半空间所构成的，而上述的超平面就恰好是多面体的最外侧的面。那么基本可行解落在的点也就恰好是多平面的一个顶点。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-7de510c8cb1aedc309628d4f2984d2d6_1440w.webp)![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-3b51222801e565e186e6980183f6ae92_1440w.webp)
 
 !!! note "定理 3 若线性规划问题有最优解，一定存在一个**最优解是基可行解**"
 
@@ -194,7 +194,7 @@ $$
 |   可行域的顶点   |        基可行解        |
 |  目标函数等值面  |   目标函数值相同的解   |
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20200507160216458.webp" alt="img" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__20200507160216458.webp" alt="img" />
 
 ### 一、基本单纯形法
 
@@ -218,7 +218,7 @@ $$
 
 **松弛化为标准形式**：通过添加松弛变量将不等号化为等号，并保证所有变量都大于等于 0。找到一组单位矩阵
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501140607194.webp" alt="image-20240501140607194" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501140607194.webp" alt="image-20240501140607194" style="zoom:50%;" />
 
 #### **找初始基可行解**
 
@@ -230,9 +230,9 @@ $$
 
 基变量对应检验数必为 0
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612115726009.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612115726009.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240423091540343.webp" alt="image-20240423091540343" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240423091540343.webp" alt="image-20240423091540343" style="zoom:67%;" />
 
 #### **最优性检验**
 
@@ -244,12 +244,12 @@ $\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
 
 - 若非基变量检验数全小于 0，有唯一可行解<br>
 - **多重解**：若存在一个非基变量检验数为 0，则有无数可行解<br>可以将为 0 的非基变量作为入基变量再进行一次，得到另一个解<br>其他的最优解使用$X_1^*$和$X_2^*$的线性组合$X^* = \alpha X_1^*+(1-\alpha) X_2^*$求得。<br>
-  目标函数平行于非冗余的紧约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612123945639.webp" alt="image-20240612123945639" style="zoom:33%;" />
-- **无界解**：若检验数$\sigma_k >0$且对应的变量$x_k$系数列向量$P_k \le 0$，则有无界解。<br>原因：计算$\theta_i$无法计算，要么小于 0，要么不能除，所以找不到出基变量<br>约束条件不够<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612124738057.webp" alt="image-20240612124738057" style="zoom:50%;" />
-- **退化解**：有多个相同的$\theta_i$​​​时候，下一次迭代会有基变量等于 0<br>原因：有约束没有作用，有冗余约束<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612125308828.webp" alt="image-20240612125308828" style="zoom:33%;" />元素相同时候，选择下角标最小的作为出基变量\入基变量
+  目标函数平行于非冗余的紧约束<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612123945639.webp" alt="image-20240612123945639" style="zoom:33%;" />
+- **无界解**：若检验数$\sigma_k >0$且对应的变量$x_k$系数列向量$P_k \le 0$，则有无界解。<br>原因：计算$\theta_i$无法计算，要么小于 0，要么不能除，所以找不到出基变量<br>约束条件不够<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612124738057.webp" alt="image-20240612124738057" style="zoom:50%;" />
+- **退化解**：有多个相同的$\theta_i$​​​时候，下一次迭代会有基变量等于 0<br>原因：有约束没有作用，有冗余约束<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612125308828.webp" alt="image-20240612125308828" style="zoom:33%;" />元素相同时候，选择下角标最小的作为出基变量\入基变量
 - **无可行解**：检验数小于 0，但又不等于零的人工变量；（有矛盾的约束）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501153721390.webp" alt="image-20240501153721390" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501153721390.webp" alt="image-20240501153721390" style="zoom:50%;" />
 
 #### **基可行解迭代**
 
@@ -263,11 +263,11 @@ $\sigma_j = c_j - \Sigma^m_{i=1} c_ia_{ij}$<br>
 
 $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__5c6bd94b01acd096378bcc5de043abb.webp" alt="5c6bd94b01acd096378bcc5de043abb" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__5c6bd94b01acd096378bcc5de043abb.webp" alt="5c6bd94b01acd096378bcc5de043abb" style="zoom:50%;" />
 
 相邻基可行解的非基变量仅有一个不同
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501153555816.webp" alt="image-20240501153555816" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501153555816.webp" alt="image-20240501153555816" style="zoom:33%;" />
 
 > 退化：基变量出现零的现象
 >
@@ -284,7 +284,7 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
 人工变量法是在无法直接找到单位矩阵作为起始时使用的一种方法，主要步骤包括：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612121539611.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612121539611.webp)
 
 - 引入人工变量：人为引入几个人工变量使其构成对角单位矩阵。
 - 目标函数引入 M：为了防止引入人工变量对线性规划的最大、最小解产生影响，在目标函数中引入一个正无穷的 M。
@@ -298,7 +298,7 @@ $x_i-\theta \cdot a_j$，若$a_j<0$,那么$\theta$可以取到无穷大
 
 - 中心元变换：在迭代过程中将人工变量替换成其他已有的变量，如果无法将人工变量替走，则无可行解。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240423091734877.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240423091734877.webp)
 
 ### 二、对偶理论
 
@@ -325,7 +325,7 @@ $y_i^* = \frac{\partial{z^*}}{\partial{b_i}} = \frac{最大利润增量}{第 i �
 >
 > 两个问题的解相反但是
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__v2-69e26f196f76a00179a7b5d3c8c793c4_1440w.webp" alt="img" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__v2-69e26f196f76a00179a7b5d3c8c793c4_1440w.webp" alt="img" style="zoom:33%;" />
 
 #### 对称性定理
 
@@ -355,7 +355,7 @@ $$
 
 其中，W 是对偶目标函数，y 是对偶变量向量。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501165458278.webp" alt="image-20240501165458278" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501165458278.webp" alt="image-20240501165458278" style="zoom: 33%;" />
 
 #### 弱对偶性（Weak Duality）
 
@@ -368,7 +368,7 @@ $$
 !!! note "推导"
     设$x_0,y_0$分别是原始问题和对偶问题的可行解，那么有$z = cx^0 \le y^{0T}A x^0 \le y^{0T}b = w$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521170252798.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521170252798.webp)
 
 **弱对偶定理推论 1:**
 
@@ -382,9 +382,9 @@ $$
 
 > 可以前推后，不可以后推前
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131424300.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612131424300.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612131531365.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612131531365.webp)
 
 **弱对偶定理推论 3:**
 
@@ -409,9 +409,9 @@ $$
 
 且最优解的目标函数值相等，即$c^Tx^* = b^Ty^*$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521170342066.webp" alt="image-20240521170342066" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521170342066.webp" alt="image-20240521170342066" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521170359647.webp" alt="image-20240521170359647" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521170359647.webp" alt="image-20240521170359647" style="zoom:50%;" />
 
 !!! note "证明"
     由弱对偶性可知，原问题的目标函数值有上界，对偶问题的目标函数值有下界，故有最优值<br>
@@ -438,7 +438,7 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 给了 m+n 个方程，互补松弛定理的等式
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240501170322542.webp" alt="image-20240501170322542" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240501170322542.webp" alt="image-20240501170322542" style="zoom:50%;" />
 
 2、对偶松弛定理：
 先将问题的对偶解算出来，得到对偶解的值（条件 1），代入对偶问题的不等式可得到对偶问题不等式是否为严格不等式（条件 2）
@@ -447,7 +447,7 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 条件 2：反之如果将对偶问题解代入可得为严格不等式，则原问题的对应解为 0。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612132752901.webp" alt="image-20240612132752901" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612132752901.webp" alt="image-20240612132752901" style="zoom:67%;" />
 
 #### 约束条件的转化
 
@@ -462,13 +462,13 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
     | 基解     | 检验数   |
     | 检验数   | 基解     |
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20201231075901236.webp" alt="在这里插入图片描述" style="zoom: 67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__20201231075901236.webp" alt="在这里插入图片描述" style="zoom: 67%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__2020051213051145.webp" alt="在这里插入图片描述" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__2020051213051145.webp" alt="在这里插入图片描述" style="zoom:67%;" />
 
 系数矩阵是转置
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612130938287.webp" alt="image-20240612130938287" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612130938287.webp" alt="image-20240612130938287" style="zoom:67%;" />
 
 #### 对偶单纯形法
 
@@ -500,7 +500,7 @@ $\hat{X},\hat{Y}$是原问题和对偶问题的可行解，$X_s,Y_s$是松弛变
 
 步骤 3：跳出循环
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612140113503.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612140113503.webp)
 
 可行性分析
 
@@ -539,7 +539,7 @@ $\sigma_j ' = \sigma_j - \frac{a_{rj}}{a_{rs}}\sigma_s = a_{rj}\left(\frac{\sigm
 | 非可行解 |  可行解  | 用对偶单纯形法迭代求解 |
 | 非可行解 | 非可行解 |    重新编制单纯形表    |
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240511084406077.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240511084406077.webp)
 
 原问题可行解，$b\ge0$
 
@@ -611,9 +611,9 @@ $B^{-1}b=\left[\begin{array}{cc}2 & -1 \\ -1 & 1\end{array}\right]\left[\begin{a
 
 $\begin{cases} 2b_1-20\geq 0 \\ -b_1+20\geq 0 \end{cases} \quad \therefore 10\leq b_1\leq 20$​
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612144652767.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612144652767.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612145050904.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612145050904.webp)
 
 === "**A 的灵敏度分析**"
 (计划生产的产品工艺结构改变)<br>
@@ -748,7 +748,7 @@ $\sigma_j = c_j - Y^T P_j$
 
 #### 西北角法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612173525391.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612173525391.webp)
 
 #### 最小元素
 
@@ -756,9 +756,9 @@ $\sigma_j = c_j - Y^T P_j$
 
 **就近供应** , 从运费最小的地方开始供应 , 然后逐步供应运费稍高的地方 , 直到最终供应完毕为止 ;
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230708758.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__20210105230708758.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210105230828100.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__20210105230828100.webp)
 
 #### 差额法 ( Vogel )
 
@@ -766,7 +766,7 @@ $\sigma_j = c_j - Y^T P_j$
 
 **应该 优先满足差额较高的行列 优先安排运输 ;**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521084050364.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521084050364.webp)
 
 ### 最优性检验
 
@@ -785,7 +785,7 @@ $\sigma_j = c_j - Y^T P_j$
 1. 回路法
 2. 位势法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612175923952.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612175923952.webp)
 
 以非基变量为起点 , 出发的格子使用加号 + ++ , 第二个格子使用减号 − -− , 之后的歌词依次使用 加号减号交替 + − +-+− 符号 ;
 
@@ -795,17 +795,17 @@ $\sigma_j = c_j - Y^T P_j$
 
 如果代数和 小于 0, 说明当前的非基变量格子取 0 不是最优选择 ;
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085450785.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521085450785.webp)
 
 $\sigma_{11} = 3-1+6-4 = 4\geq 0$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085712413.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521085712413.webp)
 
 $σ_{12}=11−2+6−4=11\geq0$
 
 所有的非基变量检验数都 $\geq 0$ , 当前的基可行解就是最优解 ;
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521085914564.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521085914564.webp)
 
 ## 整数规划
 
@@ -826,13 +826,13 @@ $σ_{12}=11−2+6−4=11\geq0$
 
 - 前置课程，选 2 必须先选 1 约束：逻辑变量$y_1 \ge y_2$​
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612011052418.webp" alt="image-20240612011052418" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612011052418.webp" alt="image-20240612011052418" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612011036492.webp" alt="image-20240612011036492" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612011036492.webp" alt="image-20240612011036492" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612011428593.webp" alt="image-20240612011428593" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612011428593.webp" alt="image-20240612011428593" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240612011439748.webp" alt="image-20240612011439748" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240612011439748.webp" alt="image-20240612011439748" style="zoom:50%;" />
 
 朴素思想：找松弛最优解周围的整数点；但有可能找不到严格最优解
 
@@ -886,7 +886,7 @@ x_1, x_2 &\geq 0
 \end{array}
 $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__20210112203423822.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__20210112203423822.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
 ### 割平面法
 
@@ -949,7 +949,7 @@ $$
 
 算法复杂度$O(n^4)$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-01-programming.assets__image-20240521095612930.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-01-programming.assets__image-20240521095612930.webp)
 
 ### 应用举例
 

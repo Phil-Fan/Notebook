@@ -6,9 +6,9 @@ MATLAB 是“matrix laboratory”的缩写形式。MATLAB® 主要用于处理�
 
 ### Matlab in VSCode
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002347.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241128002347.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002415.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241128002415.webp)
 
 下载插件
 
@@ -39,7 +39,7 @@ eng = matlab.engine.start_matlab()
 eng.sqrt(4.0)
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241128002703.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241128002703.webp)
 
 注意这里如果使用 conda 环境，需要配置对应的 conda 中的 python 路径
 
@@ -111,7 +111,7 @@ seq2 =
 whos
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__workspace.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__workspace.webp)
 
 退出 MATLAB 后，工作区变量不会保留。使用 `save` 命令保存数据以供将来使用，
 
@@ -444,7 +444,7 @@ zplane(num,den)
 
 !!! note "例子"
     === "搭建二阶系统"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241020131407.webp)
+        ![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241020131407.webp)
         [MATLAB——Simulink二阶系统 - 哔哩哔哩](https://www.bilibili.com/read/cv9223784/)
 
 ### PID
@@ -464,7 +464,7 @@ zplane(num,den)
 
 #### PID 自动调参
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__1e3dc92702c9fc392ef362c0fdc71902.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__1e3dc92702c9fc392ef362c0fdc71902.webp)
 
 点击自动调节
 
@@ -473,10 +473,10 @@ zplane(num,den)
 
 调整之后，点击“更新模块”，就会换成新的 PID 参数
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__d0585d38bad5b9001b1bc60a7a47f9ea.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__d0585d38bad5b9001b1bc60a7a47f9ea.webp)
 
 点击“显示参数”，可以查看 PID 参数
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__5034c43a5f595c39fbb76b848217b623.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__5034c43a5f595c39fbb76b848217b623.webp)
 
 ### S function
 
@@ -491,7 +491,7 @@ zplane(num,den)
 [S-function 入门及案例详解（4）——S-function 进阶案例之连续/离散状态空间表达式的 S-function 实现\_s-function 实例-CSDN 博客](https://blog.csdn.net/didi_ya/article/details/118195184)
 
 S-function 模块，位于 Simulink/User-Defined Functions 模块库中，是使 S-function 图形化的模板工具，用于为 S-function 创建一个定值的对话框和图标。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117101401.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241117101401.webp)
 
 - `S-function name`：填入 S-function 的函数名称，这样就建立了 S-function 模块与 M 文件形式的 S-function 之间的对应关系；
 
@@ -519,16 +519,16 @@ S-function 包括主函数和 6 个功能子函数，包括 mdlInitializeSizes�
 
 在 S-function 仿真过程中，利用 switch-case 语句，根据不同阶段对应的 flag 值（仿真流程标志向量）来调用 S-function 的不同子函数，以完成对 S-function 模块仿真流程的控制。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241117102637.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241117102637.webp)
 
 #### Mask
 
 如果我们不想每次修改 S-function 的参数都要打开 S-function 的编辑窗口，我们可以使用 Mask 功能。
 
 **第一步是增加 Mask**
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115042.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241203115042.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115132.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241203115132.webp)
 
 点击添加封装
 
@@ -561,10 +561,10 @@ function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(angle)
 
 第三步是在 s-function 的模块参数中，添加需要预置的参数
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203114952.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241203114952.webp)
 
 在参数这一行把需要的参数填进去，按照顺序来
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203115502.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241203115502.webp)
 
 ## Control System Toolbox
 
@@ -733,7 +733,7 @@ SYS = APPEND(SYS1,SYS2, ...)
 
 #### 串联系统
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115631.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20240929115631.webp)
 
 ```matlab
 sys=series(sys1,sys2)
@@ -751,7 +751,7 @@ outputs1 和 inputs2 用于指定 sys1 的部分输出与 sys2 的部分输入�
 
 #### 并联
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20240929115722.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20240929115722.webp)
 
 ```matlab
 sys=parallel(sys1,sys2)
@@ -935,7 +935,7 @@ sgrid 在连续系统根轨迹图和零极点图中绘出阻尼系数和自然�
 
 除了使用`rlocus`函数外，你还可以使用 MATLAB 的 SISOTOOL（单输入单输出工具）进行根轨迹设计。SISOTOOL 提供了一个交互式的界面，使你可以方便地绘制和分析根轨迹，以及设计控制器。要使用 SISOTOOL，只需在 MATLAB 命令窗口中输入`sisotool`即可。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__image-20240424103521521.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__image-20240424103521521.webp)
 
 #### 分析根轨迹
 
@@ -943,10 +943,10 @@ sgrid 在连续系统根轨迹图和零极点图中绘出阻尼系数和自然�
 - 去除零点、极点、积分器
 - 移动零极点
 - 添加`requirement`<br>
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145358.webp)
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__image-20240424103552781.webp" alt="image-20240424103552781" style="zoom:50%;" />
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241009145358.webp)
+<img src="https://img.philfan.cn/Tools__Software__assets__Matlab.assets__image-20240424103552781.webp" alt="image-20240424103552781" style="zoom:50%;" />
 - 查看阶跃图像特征点
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241009145809.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241009145809.webp)
 
 ### 现代控制
 
@@ -971,11 +971,11 @@ Co = ctrb(A,B) # return the controllability matrix
 1. 安装 MPC Designer
 2. 放一个 simulink 模型
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093059.webp)
+    ![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241230093059.webp)
 
 3. 打开设计界面，点击 MPC Structure，设置输入输出通道，打开 I/O Attributes，设置输入输出名称
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241230093026.webp)
+    ![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241230093026.webp)
 
 4. 点击 Update and Simulate
 
@@ -999,7 +999,7 @@ nftool
 
 图像查看：一般看回归的图（第四个），如果都上了 0.9 差不多就可以了
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223002536.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241223002536.webp)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=387739304&bvid=BV1Zd4y1Q7MX&cid=821664775&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
 
@@ -1101,7 +1101,7 @@ end
 ### 使用 python 训练的模型进行训练
 
 首先下载 Deep Learning Toolbox Converter for ONNX Model Format
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241223223234.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Matlab.assets__20241223223234.webp)
 
 [ONNX Model Predict](https://ww2.mathworks.cn/help/deeplearning/ref/onnxmodelpredict.html)
 

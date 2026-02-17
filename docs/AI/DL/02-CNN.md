@@ -8,9 +8,9 @@ cnn 卷积核相当于一个 filter
 
 神经网络：逼近任何一种概率模型，似然值最大
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__v2-06b66ed455e6f94c1b0530fe5b0c1d4e_r.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__v2-06b66ed455e6f94c1b0530fe5b0c1d4e_r.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__20240912164054.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__20240912164054.webp)
 
 NUMPY
 
@@ -20,13 +20,13 @@ axis  = 1 横轴
 
 ## 卷积
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__v2-d7b60413d0a9dbc165c89bb413198176_b.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__v2-d7b60413d0a9dbc165c89bb413198176_b.webp)
 
 ### 卷积核
 
 feature 在 CNN 中也被成为卷积核（filter），一般是 3X3，或者 5X5 的大小。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__v2-3037dc47ea90a241c0f2cb4b4d29e66d_b.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__v2-3037dc47ea90a241c0f2cb4b4d29e66d_b.webp)
 
 ### 步长
 
@@ -34,7 +34,7 @@ feature 在 CNN 中也被成为卷积核（filter），一般是 3X3，或者 5X
 
 在设计 CNN 架构时，如果希望感知区域的重叠更少，或者希望 feature map 的空间维度更小，我们可以决定增加步幅。输出矩阵的尺寸——考虑到填充宽度和步幅——可以使用以下公式计算。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__v2-9d3cf1f4e2c8c02306847eb7fb0829d5_1440w.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__v2-9d3cf1f4e2c8c02306847eb7fb0829d5_1440w.webp)
 
 ### 特征图
 
@@ -88,11 +88,11 @@ Average Pooling 平均池化
 logits: the values z inputted to the softmax layer
 缺点：数值溢出
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__image-20230330195944316.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__image-20230330195944316.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__image-20230330204141660.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__image-20230330204141660.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__02-CNN.assets__image-20230330204232308.webp)
+![image](https://img.philfan.cn/AI__DL__assets__02-CNN.assets__image-20230330204232308.webp)
 
 ## 训练
 

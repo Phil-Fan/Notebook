@@ -9,7 +9,7 @@
 
 对于一个博弈模型来说，下面是收益矩阵的一般形式
 
-![mindmap](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-05-2-GameTheoryModel.assets__image-20240317144338295.webp)
+![mindmap](https://img.philfan.cn/Math__OR__assets__OR-05-2-GameTheoryModel.assets__image-20240317144338295.webp)
 
 ## 囚犯困境模型
 

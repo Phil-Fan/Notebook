@@ -3,7 +3,7 @@ comments: true
 ---
 # 链路层与局域网 | `Link Layer`
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets___E9_93_BE_E8_B7_AF_E5_B1_82_E4_B8_8E_E5_B1_80_E5_9F_9F_E7_BD_91.svg)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets___E9_93_BE_E8_B7_AF_E5_B1_82_E4_B8_8E_E5_B1_80_E5_9F_9F_E7_BD_91.svg)
 
 ## 链路层服务原理
 
@@ -23,7 +23,7 @@ comments: true
 
 **网卡 NIC**实现链路层和相应物理层的功能
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217114915691.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217114915691.webp)
 
 ### 服务 1：成帧
 
@@ -148,7 +148,7 @@ CDMA (code division multiple access) 分码（类似方言
 
 信道状态：**碰撞的 C、空闲的 E、成功的 S**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217123812413.webp" alt="image-20240217123812413" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217123812413.webp" alt="image-20240217123812413" style="zoom:50%;" />
 
 ##### 优点
 
@@ -185,7 +185,7 @@ $$
 
 - 简单，无需时间同步
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217124359578.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217124359578.webp)
 
 frame time
 
@@ -212,7 +212,7 @@ $$
 
 如果侦听到信道空闲，传送整个帧；如果侦听到信道忙，推迟传送
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217125439610.webp" alt="image-20240217125439610" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217125439610.webp" alt="image-20240217125439610" style="zoom:50%;" />
 
 - **仍然会发生冲突**(局部探知全局情况不可靠)
 
@@ -279,7 +279,7 @@ $$
 
 有基础设施`infrastructure`
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240418000656125.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240418000656125.webp)
 
 802.11: **没有冲突检测，做不了 CD**
 
@@ -290,11 +290,11 @@ $$
 
 - 冲突也有可能是成功的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240418001217281.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240418001217281.webp)
 
 无线链路特性，需要每帧确认；例如：由于隐藏终端问题，在接收端可能形成干扰，接收方没有正确地收到。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240418001048962.webp" alt="image-20240418001048962" style="zoom:33%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240418001048962.webp" alt="image-20240418001048962" style="zoom:33%;" />
 
 ??? +note "2 个站点有数据帧需要发送，第三个节点正在发送"
     === "WLAN CA"
@@ -310,7 +310,7 @@ $$
             冲突：放弃当前的发送，避免了信道的浪费无用于冲突帧的发送<br>
             代价不昂贵<br>
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217160017462.webp" alt="image-20240217160017462" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217160017462.webp" alt="image-20240217160017462" style="zoom:50%;" />
 
 无法完全避免冲突；只有单向冲突，通过预约和管理解决冲突
 
@@ -335,13 +335,13 @@ $$
 
 ⑦ 发送方接收到 ACK 确认帧 后 , 才进行下一帧的发送 , 如果没有收到 , 则一直重传 , 直到 16 1616 次失败为止 ; ( 二进制指数退避算法 )
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217160450274.webp" alt="image-20240217160450274" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217160450274.webp" alt="image-20240217160450274" style="zoom:50%;" />
 
 #### 线缆接入网络
 
 下行 CMTS 一个
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217160813735.webp" alt="image-20240217160813735" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217160813735.webp" alt="image-20240217160813735" style="zoom:50%;" />
 
 多个 40Mbps 下行 (广播) 信道，FDM
  下行：通过 FDM 分成若干信道，互联网、数字电视等<br>
@@ -361,7 +361,7 @@ $$
 
 主节点邀请从节点依次传送
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217161518137.webp" alt="image-20240217161518137" style="zoom:25%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217161518137.webp" alt="image-20240217161518137" style="zoom:25%;" />
 
 **缺点：**
 
@@ -435,7 +435,7 @@ ARP 只为在同一个子网上的主机和路由器接口解析 IP 地址
 
 TTL 时间是指地址映射失效的时间；典型是 20min
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240426140148724.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240426140148724.webp)
 
 ARP 表中没有目标主机的项目：
 
@@ -454,7 +454,7 @@ ARP 表中没有目标主机的项目：
 - 子网 1 传输到网络层，根据路由器的转发表，转发到另一个接口
 - 封装到新的帧当中，把帧发送到子网 2
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240426140231136.webp" alt="image-20240426140231136" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240426140231136.webp" alt="image-20240426140231136" style="zoom:50%;" />
 
 ### Ethernet
 
@@ -464,7 +464,7 @@ ARP 表中没有目标主机的项目：
 
 使用同轴电缆链接
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240418090302357.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240418090302357.webp)
 
 总线
 
@@ -479,13 +479,13 @@ ARP 表中没有目标主机的项目：
 
 连接选择：hub 或者 switch；现在一般是交换机在中心
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240418090518781.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240418090518781.webp)
 
 #### 以太帧类型
 
 发送方适配器在以太网帧中封装 IP 数据报
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240426142902476.webp)
+![image](https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240426142902476.webp)
 
 - 前导码：用来同步接收方和发送方的时钟，前 7 字节`10101010`，最后一字节`10101011`，用于警告目标适配器，重要信息要来了
 - 数据字段：46-1500 字节。承载 IP 数据报。MTU 是 1500 字节，多余 1500 要进行分片。数据字段最小长度 46 字节，IP 数据报小于 46 字节，数据报必须被填充到 46 字节。
@@ -503,7 +503,7 @@ ARP 表中没有目标主机的项目：
 
 #### Hub 集线器
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217173640472.webp" alt="image-20240217173640472" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217173640472.webp" alt="image-20240217173640472" style="zoom:50%;" />
 
 高负载下性能差
 
@@ -542,7 +542,7 @@ MAC 地址 + 对应端口 + 时戳
 
 **交换机可以级联**：有生成树算法，每个时刻工作的只有一颗树，防止广播式传播
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217175712364.webp" alt="image-20240217175712364" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217175712364.webp" alt="image-20240217175712364" style="zoom:50%;" />
 
 ### VLANS
 
@@ -553,4 +553,4 @@ MAC 地址 + 对应端口 + 时戳
 - 方法 1：各交换机每个 VLAN 一个端口和另外交换机相应；VLAN 端口相连->扩展性问题
 - `trunk port`干线端口：多个交换机共享定义的 VLAN，在它们之间传输帧
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__04-LinkLayer.assets__image-20240217180329788.webp" alt="image-20240217180329788" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__04-LinkLayer.assets__image-20240217180329788.webp" alt="image-20240217180329788" style="zoom:50%;" />

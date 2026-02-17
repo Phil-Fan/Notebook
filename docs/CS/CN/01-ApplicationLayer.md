@@ -5,7 +5,7 @@ comments: true
 
 > Perhaps what appeals the most to users is that the Web operates on demand. Users receive what they want, when they want it.
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets___E5_BA_94_E7_94_A8_E5_B1_82.svg)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets___E5_BA_94_E7_94_A8_E5_B1_82.svg)
 
 | 对比 | HTTP | FTP | SMTP | POP3 | IMAP | DNS | BitTorrent |
 | -------------- | ------ | --------- | ------ | ---- | ---- | ---- | ---------- |
@@ -156,7 +156,7 @@ Accept-language:fr
 - **Date**：header line indicates the time and date when the HTTP
      response was created and sent by the server. **Note that this is not the time when the object was created or last modified; it is the time when the server retrieves the object from its file system, inserts the object into the response message, and sends the response message.**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" alt="img" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__v2-98df69e7e8fccd46bfe03cc473784766_1440w.webp" alt="img" style="zoom: 50%;" />
 
 ##### 响应报文
 
@@ -201,7 +201,7 @@ description:
     - `Server`：设置服务器名称； <br>
     - `Date`：当前 GMT 时间，这个就是你请求的东西被服务器创建的时间。<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__v2-2f86d3626184a4fc8b8fed6008419055_1440w.webp)
 
 !!! note
  TCP 不维护报文长度，需要 HTTP 自己去断句
@@ -222,7 +222,7 @@ description:
 
 第三方`cookie`：泄露隐私；广告营销；
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318152447148.webp" alt="image-20240318152447148" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318152447148.webp" alt="image-20240318152447148" style="zoom:50%;" />
 
 大多数门户网站使用
 
@@ -272,11 +272,11 @@ WEB 缓存就在服务器 - 客户端之间搞监控，监控请求，并且内�
 
 <img src="https://data.educoder.net/api/attachments/543498" alt="预览大图" style="zoom:50%;" /><img src="https://data.educoder.net/api/attachments/543499" alt="预览大图" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318152538396.webp" alt="image-20240318152538396" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318152538396.webp" alt="image-20240318152538396" style="zoom:50%;" />
 
 end2end delay with cache
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160059732.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160059732.webp)
 
 解决办法
 
@@ -298,9 +298,9 @@ end2end delay with cache
     \end{align}
     $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160659497.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160659497.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160713797.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129160713797.webp)
 
 互联网上大家看的内容都是相似的，缓存的存在可以缓解流量压力
 
@@ -376,7 +376,7 @@ Multiple Web pages residing **on the same server** can be sent from the server t
 
 除非特别指明，否则 HTTP/1.1 假定所有连接都是持久的。要在事务处理结束之后将连接关闭，HTTP/1.1 应用程序必须向报文中显示地添加一个 `Connection：close` 首部。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129150803208.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129150803208.webp)
 
 持久连接有两种类型：比较老的 HTTP/1.0+"keep-alive" 连接，
 
@@ -398,7 +398,7 @@ TCP 三次握手（前面 1 个 RTT+ 一个去程）
 
 文件传输时间：2RTT+ 传输文件
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318164420937.webp" alt="image-20240318164420937" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318164420937.webp" alt="image-20240318164420937" style="zoom:50%;" />
 
 Pipeline
 
@@ -434,7 +434,7 @@ HTTP/3 的一个重要区别是它在一种新的传输协议 QUIC 上运行。Q
 **QUIC 协议的设计目标是在高延迟和不稳定的网络环境下提高网络应用程序的性能和可靠性。**
 
 QUIC（Quick UDP Internet Connections）是一种由 Google 开发的基于 UDP 的传输层协议，旨在提高网络通信的速度和效率。它通过实现低延迟的连接建立、多路复用的数据传输、网络路径迁移以及安全措施，确保了数据传输的保密性、完整性和可用性。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__20240705193308.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__20240705193308.webp)
 
 - 开发一种方法来解决当智能手机从 WiFi 切换到蜂窝数据时（例如离开家或办公室时）性能缓慢的问题
 - **减少丢包的影响**——当一个信息包没有到达目的地时，它不会再阻塞所有的信息流（称为“队头阻塞”的问题）
@@ -449,7 +449,7 @@ QUIC（Quick UDP Internet Connections）是一种由 Google 开发的基于 UDP 
 
 ### FTP
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129163627900.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129163627900.webp)
 
 有状态、双通道
 
@@ -461,7 +461,7 @@ QUIC（Quick UDP Internet Connections）是一种由 Google 开发的基于 UDP 
 
 - 控制命令的发出和数据的传输在不同的 TCP 下进行。
 
-  <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129165011533.webp" alt="image-20240129165011533" style="zoom:50%;" />
+  <img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129165011533.webp" alt="image-20240129165011533" style="zoom:50%;" />
 
 ### Email
 
@@ -479,7 +479,7 @@ QUIC（Quick UDP Internet Connections）是一种由 Google 开发的基于 UDP 
 
 传输三阶段：握手、传报文（ASCII 码）、关闭
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153214952.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153214952.webp)
 
 特点
 
@@ -612,7 +612,7 @@ The query from the requesting host to the local DNS server is recursive, and the
 
 根服务器负担太重
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153941376.webp" alt="image-20240318153941376" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153941376.webp" alt="image-20240318153941376" style="zoom:50%;" />
 
 ##### 迭代查询 `iterative`
 
@@ -622,7 +622,7 @@ The query from the requesting host to the local DNS server is recursive, and the
 
 > “我不知道这个名字，但可以向这个服务器请求”
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153924403.webp" alt="image-20240318153924403" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318153924403.webp" alt="image-20240318153924403" style="zoom:50%;" />
 
 #### DNS 记录与报文
 
@@ -637,7 +637,7 @@ The query from the requesting host to the local DNS server is recursive, and the
 
 缓存为了性能，删除缓存为了和源端保持一致性<br>
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240129232745663.webp" alt="image-20240129232745663" style="zoom:80%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240129232745663.webp" alt="image-20240129232745663" style="zoom:80%;" />
 
 报文
 
@@ -685,7 +685,7 @@ nslookup -type=type domain # 指定类型查询
 - NS：名字服务器记录；
 - PTR：反向记录。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__c371a6c6e767ead83d9a55d9cb809f13.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__c371a6c6e767ead83d9a55d9cb809f13.webp" alt="img" style="zoom:50%;" />
 
 ### P2P
 
@@ -697,13 +697,13 @@ nslookup -type=type domain # 指定类型查询
 
 #### 时间
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130004433432.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240130004433432.webp)
 
 线性增加
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130004451304.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240130004451304.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318154406618.webp" alt="image-20240318154406618" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240318154406618.webp" alt="image-20240318154406618" style="zoom:50%;" />
 
 #### BitTorrent
 
@@ -711,7 +711,7 @@ nslookup -type=type domain # 指定类型查询
 
 `tracking server` 进行 peer 列表的维护
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130101612770.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240130101612770.webp)
 
 问谁要
 
@@ -843,7 +843,7 @@ ISP 购买 CDN 服务
 
 通过 DNS 实现选择最优的节点
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130123254230.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240130123254230.webp)
 
 ### `TLS:Transport Layer Security`
 
@@ -890,7 +890,7 @@ UDP 套接字指定了应用所在的端结点（end point）
 
 ### TCP socket
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__socket_api.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__socket_api.webp)
 
 服务器先运行
 
@@ -934,4 +934,4 @@ bind socket
 
 读取 socket
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130143354086.webp)
+![image](https://img.philfan.cn/CS__CN__assets__01-ApplicationLayer.assets__image-20240130143354086.webp)

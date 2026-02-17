@@ -22,7 +22,7 @@
 - [x] 连体坐标系的变换 —— 齐次变换矩阵相乘
 - [x] 正运动学问题：几何法、矩阵法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250217105608273.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250217105608273.webp)
 
 ## 连体坐标系建立
 
@@ -76,7 +76,7 @@ Modified DH 方法是 XZ 类变换：先绕着 i 坐标系的的$X_i$轴旋转�
 
 ## 连体坐标系变换
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301174641450.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301174641450.webp)
 
 $^{i-1}_i \!T$ 表示坐标系 $\{i-1\}$ 到坐标系 $\{i\}$ 的变换矩阵，i 从 1 开始
 
@@ -108,7 +108,7 @@ $$
 !!! tip "理解变换中的变量和不变量"
     $a_{i-1}$和$\alpha_{i-1}$是固定不变的参数，不会随着 **关节i** 的运动而变化（这里这里说的是关节i和关节$i-1$的关系）
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301190411843.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301190411843.webp)
     > 这样画可能可以理解关节i的行为不会影响之前的关节参数。
     > 而且要注意：**关节的旋转是指绕轴进行转动，而不是轴本身进行转动，第一次看的时候在这里有误区**
 
@@ -122,7 +122,7 @@ $$
 
     这里可以举一个小小的例子，比如下面的图片，黑色箭头地方是关节，将关节连起来的是连杆
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301191114339.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301191114339.webp)
 
 ## 题型
 
@@ -138,19 +138,19 @@ $$
 
 === "例 1"
     下图所示为一个3关节串联机械臂，该臂的末端装有吸盘作为操作工具。试在此机构上建立几何连杆、写出各连杆参数的值并列出各关节变量
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301175836744.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301175836744.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180836339.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180836339.webp)
 
 === "例 2"
     采用非标准D-H方法建立如图机器人的连杆联体坐标系
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180453199.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180453199.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180849138.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301180849138.webp)
 
 === "正运动学问题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181505203.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181610985.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181505203.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250301181610985.webp)
 
     如果两个轴是平行的，在化简的时候可以使用和角公式进行化简（相当与把两个旋转变成一个等效的角度）
 
@@ -261,7 +261,7 @@ T_final = compute_DH(DH_params);
 
 效果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250310162148977.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250310162148977.webp)
 
 ## 例题
 
@@ -271,7 +271,7 @@ T_final = compute_DH(DH_params);
 (1) 试在此机器人上用非标准 D-H 方法建立连杆联体坐标系并写出运动学参量表
 (2) 求出该机器人用齐次变换矩阵形式表示的运动学方程
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202532.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202532.webp)
 
 运动学参量表
 
@@ -328,7 +328,7 @@ $$
 (1) 试在此机器人上用非标准 D-H 方法建立连杆联体坐标系并写出运动学参量表；
 
 (2) 求出该机器人用齐次变换矩阵形式表示的运动学方程。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202210.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418202210.webp)
 
 运动学参量表
 
@@ -360,7 +360,7 @@ $$
 
 (3) 末端执行器的方位$\varphi$。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418201721.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418201721.webp)
 
 $$
 {}^{0}T_{1}=\begin{bmatrix}\cos\theta_{1} & -\sin\theta_{1} & 0 & l_{1}\cos\theta_{1} \\\sin\theta_{1} & \cos\theta_{1} & 0 & l_{1}\sin\theta_{1} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix},\quad{}^{1}T_{2}=\begin{bmatrix}\cos\theta_{2} & -\sin\theta_{2} & 0 & l_{2}\cos\theta_{2} \\\sin\theta_{2} & \cos\theta_{2} & 0 & l_{2}\sin\theta_{2} \\0 & 0 & 1 & 0 \\0 & 0 & 0 & 1\end{bmatrix}
@@ -384,7 +384,7 @@ $$
 
 ### 实验课机械臂 6R
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418205120.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418205120.webp)
 
 | | $\alpha$ | $a$ | $d$ | $\theta$ |
 | --- | --- | --- | --- | --- |
@@ -397,7 +397,7 @@ $$
 
 ### 5-7 RRR
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418214649.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418214649.webp)
 
 | 连杆 | $\alpha_{i-1}$ | $a_{i-1}$ | $d_i$ | $\theta_i$ |
 | --- | --- | --- | --- | --- |
@@ -417,4 +417,4 @@ $$
 
 ### 5-9 PRR
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__2-ForwardKinematics.assets__20250418221914.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__2-ForwardKinematics.assets__20250418221914.webp)

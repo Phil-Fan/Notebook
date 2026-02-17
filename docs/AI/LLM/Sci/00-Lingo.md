@@ -1,6 +1,6 @@
 # 00 | 常见黑话
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__00-Lingo.assets__20241118152520.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__00-Lingo.assets__20241118152520.webp)
 [深度学习常见名词概念：Sota、Benchmark、Baseline、端到端模型、迁移学习等的定义-CSDN 博客](https://blog.csdn.net/qq_18555105/article/details/121345833)
 
 [ILSVRC-ImageNet 历年竞赛冠军\_imagenet 比赛-CSDN 博客](https://blog.csdn.net/zephyr_wang/article/details/107892280)

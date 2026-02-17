@@ -2,7 +2,7 @@
 
 [数字电子技术（余孟尝）思维导图 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/583482398)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets___E6_95_B0_E7_94_B5.svg)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets___E6_95_B0_E7_94_B5.svg)
 
 ## 数制和码制
 
@@ -18,7 +18,7 @@
 
 ### 其他码值（不同权值）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__f1e944e5e211125aab884b428a733b6.webp" alt="f1e944e5e211125aab884b428a733b6" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__f1e944e5e211125aab884b428a733b6.webp" alt="f1e944e5e211125aab884b428a733b6" style="zoom:50%;" />
 
 ### 运算
 
@@ -53,15 +53,15 @@
 
 #### 与门
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144709854.webp" alt="与门" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144709854.webp" alt="与门" style="zoom:33%;" />
 
 使用优先导通原理
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144940899.webp" alt="判断" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144940899.webp" alt="判断" style="zoom: 50%;" />
 
 #### 或门
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144723459.webp" alt="或门" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301144723459.webp" alt="或门" style="zoom:33%;" />
 
 - 二极管构成的门电路的缺点
 
@@ -71,13 +71,13 @@
 
 !!! bug "电路具体实现"
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145253756.webp" alt="CMOS反相器" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145253756.webp" alt="CMOS反相器" style="zoom: 50%;" />
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145306253.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145306253.webp)
 
 ### TTL 门电路
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145508449.webp" alt="image-20240301145508449" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145520310.webp" alt="image-20240301145520310" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145508449.webp" alt="image-20240301145508449" style="zoom:33%;" /><img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301145520310.webp" alt="image-20240301145520310" style="zoom:33%;" />
 
 只要参数合理：
 $$
@@ -90,13 +90,13 @@ $$
 
 #### 三态输出门（Three state Output Gate ,TS）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150229595.webp" alt="image-20240301150229595" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150229595.webp" alt="image-20240301150229595" style="zoom:33%;" />
 
 ### TTL 集成与非门
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150301018.webp" alt="image-20240301150301018" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150301018.webp" alt="image-20240301150301018" style="zoom: 33%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150314521.webp" alt="image-20240301150314521" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301150314521.webp" alt="image-20240301150314521" style="zoom:33%;" />
 
 ## 组合逻辑电路
 
@@ -131,9 +131,9 @@ $$
 - 列真值表
 - 描述电路的逻辑功能
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200404082218222.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200404082218222.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__2020022812360080.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__2020022812360080.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
 <img src="https://ts1.cn.mm.bing.net/th/id/R-C.17f7966df61b03e0e9ad1338517516bc?rik=TC423C2D%2fk%2bYEA&riu=http%3a%2f%2ffile.elecfans.com%2fweb1%2fM00%2f46%2f1D%2fo4YBAFqTpBGAEefFAADd-9wfZXM945.jpg&ehk=byn9hbynzFmeTQwlsVmRqX14tvd9t3pNdbrpwFnc0V8%3d&risl=&pid=ImgRaw&r=0" alt="八种逻辑门电路符号,8个基本门电路符号图,同或门图形符号_大山谷图库" style="zoom:50%;" />
 
@@ -143,13 +143,13 @@ $$
 
 不考虑来自低位的进位，将两个 1 位的二进制数相加
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103532819.webp" alt="image-20240313103532819" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103532819.webp" alt="image-20240313103532819" style="zoom:50%;" />
 
 #### 全加器
 
 将两个 1 位二进制数及来自低位的进位相加
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103643704.webp" alt="image-20240313103643704" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103643704.webp" alt="image-20240313103643704" style="zoom:50%;" />
 
 #### 多位加法器
 
@@ -157,7 +157,7 @@ $$
 
 优点：简单；缺点：慢
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103958992.webp" alt="image-20240313103958992" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313103958992.webp" alt="image-20240313103958992" style="zoom:50%;" />
 
 2.超前进位加法器
 
@@ -165,19 +165,19 @@ $$
 
 [超前进位加法器（较为详细讲解）-CSDN 博客](https://blog.csdn.net/qq_26707507/article/details/106146619)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172901988.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172901988.webp)
 
 基本原理：加到第$i$位的进位输入信号是两个加数第$i$位以前各位$0 \ to\ i-1$​的函数，可在相加前由 A,B 两数确定。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172150217.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172150217.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172524948.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517172524948.webp" alt="img" style="zoom:50%;" />
 
 可以使用 4 个 4 位超前进位加法器组成一个 16 位的超前进位加法器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517173457592.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200517173457592.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313104336683.webp" alt="image-20240313104336683" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313104336683.webp" alt="image-20240313104336683" style="zoom: 33%;" />
 
 ### 比较器
 
@@ -187,15 +187,15 @@ $$
 
 #### 一位比较
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105836046.webp" alt="image-20240313105836046" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105836046.webp" alt="image-20240313105836046" style="zoom: 50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105805295.webp" alt="image-20240313105805295" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105805295.webp" alt="image-20240313105805295" style="zoom:50%;" />
 
 > 推导：最上面一条支路函数使用德摩根定律进行化简：
 >
 > $A\cdot \bar{AB} = A \cdot (\bar{A} + \bar{B}) = A\cdot\bar{B}$​
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-d8395a6b49feb6f83a45ebe81201c8be_1440w.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-d8395a6b49feb6f83a45ebe81201c8be_1440w.webp)
 
 先实现一位比较，写出逻辑表达式，再给出逻辑图。
 
@@ -203,23 +203,23 @@ $$
 
 #### 两位比较
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-bdaebb6580d3bbdd7a4cc252a0d25e6c_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-bdaebb6580d3bbdd7a4cc252a0d25e6c_r.webp" alt="img" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-e417ce3acbe7a1f6ed053c1efe8dac80_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-e417ce3acbe7a1f6ed053c1efe8dac80_r.webp" alt="img" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-1a5b5e5de9e966642139cc2ca11b7027_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-1a5b5e5de9e966642139cc2ca11b7027_r.webp" alt="img" style="zoom:50%;" />
 
 #### CC14585  
 
   实现 4 位二进制数的比较
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200415151753424.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200415151753424.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
 ??? bug "这是为什么 为什么采用这种方式"
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105942397.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313105942397.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200415152514518.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__20200415152514518.webp)
 
 - 多位比较
 
@@ -231,7 +231,7 @@ $$
 
 $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结果，便于级联
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-162580e457a1fcb6c7d5b398fbcb9adb_r.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-162580e457a1fcb6c7d5b398fbcb9adb_r.webp)
 
 并联用于位数比较多，且对速度有要求的时候。
 
@@ -251,9 +251,9 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 
 任何时刻只允许输入一个编码信号
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301153440191.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301153440191.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301153448177.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240301153448177.webp)
 
 #### 优先编码器 74LS148
 
@@ -278,7 +278,7 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 
 ??? bug "什么意思"
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-90c9ea59aea8575f415a26354b6b680e_720w.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-90c9ea59aea8575f415a26354b6b680e_720w.webp)
 
 在尝试连接过程中，又有一个新问题，16 线 -4 线比起 8 线 -3 线多了 8 个输入端，却只多了一个输出端，这是为什么呢？
 
@@ -286,7 +286,7 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 
 因此，我们不妨再添加一位输出位 $Y_{EX}'$，传递是否用到该编码器的信息，当编码器存在有效输入信号时，输出结果为 0。这样，新增的这个输出端可以直接用于 4 线输出端的最高位输出。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-31ae6ae4582ec11a81821db895032d57_720w.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-31ae6ae4582ec11a81821db895032d57_720w.webp)
 
 注意 74LS148 输入输出都是低电平有效
 
@@ -302,11 +302,11 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 
 #### 二进制译码器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313111134365.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240313111134365.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-2a06fa479b24b850cc38ba4ce9f8667d_1440w.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-2a06fa479b24b850cc38ba4ce9f8667d_1440w.webp)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-e1c1f9d3fd7b27226e10ea6da196e1d1_1440w.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-e1c1f9d3fd7b27226e10ea6da196e1d1_1440w.webp" alt="img" style="zoom:50%;" />
 
 把连续的地址空间变成连续的八片
 
@@ -347,7 +347,7 @@ $$
 
 输出端 Y
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320095331648.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320095331648.webp)
 
 级联形式
 
@@ -355,7 +355,7 @@ $$
 
 当输入 1xxx，右边用不了，记录 8~15
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320095618868.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320095618868.webp)
 
 公式比较法
 
@@ -365,9 +365,9 @@ $$
 3. 令状态控制端分别等于 ABC
 4. 分别与标准与或式进行逐项对比，获得输入的系数即可
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100407716.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100407716.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100652880.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100652880.webp)
 
 ### 数据分配器
 
@@ -377,7 +377,7 @@ $$
 
 74LS138 译码器 作为数据分配器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100826502.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100826502.webp)
 
 竞争与冒险：
 
@@ -391,7 +391,7 @@ $$
 
 ## 触发器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-3721415154ee5768dafd4d558bec550e_r.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-3721415154ee5768dafd4d558bec550e_r.webp)
 
 基本要求
 
@@ -457,7 +457,7 @@ CP = 0，状态不变
 
 CP = 1，状态跟随
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320102806158.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320102806158.webp)
 
 存在问题：触发方式可能会出现空翻
 
@@ -469,7 +469,7 @@ CP = 1，状态跟随
 
 只能在脉冲变化沿改变
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103159466.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103159466.webp)
 
 $$
 \left\{
@@ -490,29 +490,29 @@ $$
 
 例题
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103549917.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103549917.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103527485.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103527485.webp)
 
 下降沿跟随
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103749291.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320103749291.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320104442318.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320104442318.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320105009210.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320105009210.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320105541844.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320105541844.webp)
 
 ## 时序逻辑电路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-8cc1133693e8c96ae240ffb93923fb29_r.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__v2-8cc1133693e8c96ae240ffb93923fb29_r.webp)
 
 任何时刻电路的输出不仅与输入信号有关，还取决与电路原来的状态
 
 ### 分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320110955701.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320110955701.webp)
 
 #### 写方程
 
@@ -562,13 +562,13 @@ Y = dafasdf
 
 ### 设计
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112939704.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112939704.webp)
 
 ### 分类
 
 #### 同步/异步
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320110436769.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320110436769.webp)
 
 #### 输出信号特性
 
@@ -613,15 +613,15 @@ $$
 
 CP 变化时候，进行计数
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320152331311.webp" alt="image-20240320152331311" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320152331311.webp" alt="image-20240320152331311" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320114400991.webp" alt="image-20240320114400991" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320114400991.webp" alt="image-20240320114400991" style="zoom:50%;" />
 
 二进制计数器
 
 利用 JK 触发器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320153535062.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320153535062.webp)
 
 n 位二进制计数器
 
@@ -629,7 +629,7 @@ n 位二进制计数器
 
 **74LS163**——同步置数，同步清零
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320153836181.webp" alt="74LS161真值表" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320153836181.webp" alt="74LS161真值表" style="zoom:50%;" />
 
 十进制计数器
 
@@ -637,7 +637,7 @@ n 位二进制计数器
 
 **74LS160**——同步置数，异步清零
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320161435233.webp" alt="image-20240320161435233" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320161435233.webp" alt="image-20240320161435233" style="zoom:50%;" />
 
 **74LS162**——同步置数，同步清零
 
@@ -651,13 +651,13 @@ n 进制计数器：
 
 大容量 N 进制计数器：
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122514306.webp" alt="image-20240320122514306" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122514306.webp" alt="image-20240320122514306" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122604161.webp" alt="image-20240320122604161" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122604161.webp" alt="image-20240320122604161" style="zoom:50%;" />
 
 右侧是十位、左侧是个位
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122626344.webp" alt="image-20240320122626344" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122626344.webp" alt="image-20240320122626344" style="zoom:50%;" />
 
 #### 寄存器
 
@@ -667,9 +667,9 @@ n 进制计数器：
 
 串行输入、并行输出
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320164327108.webp" alt="image-20240320164327108" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320164327108.webp" alt="image-20240320164327108" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320164617018.webp" alt="image-20240320164617018" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320164617018.webp" alt="image-20240320164617018" style="zoom:50%;" />
 
 **左移**：按照$Q_3Q_2Q_1Q_0$的顺序
 
@@ -679,14 +679,14 @@ n 进制计数器：
 
 自启动：
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111840464.webp" alt="image-20240320111840464" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111840464.webp" alt="image-20240320111840464" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111249841.webp" alt="image-20240320111249841" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111249841.webp" alt="image-20240320111249841" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111318088.webp" alt="image-20240320111318088" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111318088.webp" alt="image-20240320111318088" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111556106.webp" alt="image-20240320111556106" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111556106.webp" alt="image-20240320111556106" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112824196.webp" alt="image-20240320112824196" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112824196.webp" alt="image-20240320112824196" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112525771.webp" alt="image-20240320112525771" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320112525771.webp" alt="image-20240320112525771" style="zoom:50%;" />

@@ -20,11 +20,11 @@
 
 词汇存在高维向量当中，向量的方向可以编码不同的含义
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040930043.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__focus.assets__202507040930043.webp)
 
 transformer 大部分的参数在 MLP 层当中（约占用$\frac{2}{3}$的参数，GPT3 - 12 亿）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040940946.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__focus.assets__202507040940946.webp)
 
 第一个线性层可以使用行视角，视作嵌入空间中的方向
 
@@ -32,7 +32,7 @@ ReLU 类似于与门，只有最终结果为正数时，才会输出
 
 第二个线性层，可以使用列视角：如果某个列向量学习到了“篮球”的概念，同时对应的列向量 (如$n_0$) 又被激活，那么最后的加权向量当中就可以表示“篮球”的概念
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__focus.assets__202507040938039.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__focus.assets__202507040938039.webp)
 
 在$N$维空间当中，如果使用正交基表示一个概念，那么最多只能表示$N$个概念
 

@@ -8,7 +8,7 @@
 
 python 与 opencv 的版本对应关系
 [Links for opencv-python](https://pypi.tuna.tsinghua.edu.cn/simple/opencv-python/)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__OpenCV.assets__20240914103526.webp)
+![image](https://img.philfan.cn/AI__CV__assets__OpenCV.assets__20240914103526.webp)
 
 ```shell title="安装"
 pip install opencv-python==3.4.11.45 # 这里版本要和 python 对应

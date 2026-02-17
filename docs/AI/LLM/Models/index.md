@@ -1,6 +1,6 @@
 # 现状介绍
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__00-intro.assets__202507041718705.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__00-intro.assets__202507041718705.webp)
 
 > 图源：[Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond](https://arxiv.org/pdf/2304.13712)
 

@@ -6,9 +6,9 @@
 
 find the best sequence of actions to maximize the reward
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__RL__assets__RL-01.assets__20241107093547.webp)
+![image](https://img.philfan.cn/AI__RL__assets__RL-01.assets__20241107093547.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__RL__assets__RL-01.assets__20241107095354.webp)
+![image](https://img.philfan.cn/AI__RL__assets__RL-01.assets__20241107095354.webp)
 
 数学性较强；
 系统性较强；
@@ -109,11 +109,11 @@ $\tau$ 是温度参数，控制探索的强度；当$\tau \to 0$时，Softmax �
 
 ### Deploy & verify
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__RL__assets__RL-01.assets__20241107112543.webp)
+![image](https://img.philfan.cn/AI__RL__assets__RL-01.assets__20241107112543.webp)
 
 ## Bellman Equation
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__RL__assets__RL-01.assets__20241107112014.webp)
+![image](https://img.philfan.cn/AI__RL__assets__RL-01.assets__20241107112014.webp)
 
 $$
 Q(s, a) = r(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V(s')

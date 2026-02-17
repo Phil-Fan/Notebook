@@ -108,7 +108,7 @@ $$
     l为连杆数（包括基座），n为关节总数，f_i为第i个关节的自由度数
     $$
 
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
+    <img src="https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__017a2277142fe6ab01f933ad81c3e281_1440w.webp" alt="img" style="zoom:50%;" />
 
     > 一个6自由度的机械手，即使某两组构型对应的末端机构的三维位置相同，机械手在从一个构型移动到另一个构型的时候无法保持末端机构始终不动。
     >
@@ -149,7 +149,7 @@ $^0_6 \!T$ 自由度为 6 个
 
 !!! example "例子"
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304115453821.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250304115453821.webp)
     > 图片来源课程组ppt
 
 
@@ -159,7 +159,7 @@ $^0_6 \!T$ 自由度为 6 个
 
 由于操作臂是平面的，因此可利用平面几何关系直接求解
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082111521.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250305082111521.webp)
 
 注意到三个连杆角度之和即为连杆 3 的姿态：$\theta_1 + \theta_2 + \theta_3 = \phi$,由此可求得 $\theta_3$。
 
@@ -180,7 +180,7 @@ $$
 
 **特别要注意这个是平行四边形，而不是菱形，所以两种情况用的证明三角形略有不同，但是结论是统一的**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250305082434990.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250305082434990.webp)
 
 ## 解析（代数）法 - 解析表达式表出
 
@@ -194,7 +194,7 @@ $$
 
 #### 例 1 基础的平面 3 自由度机械臂
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120406684.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250304120406684.webp)
 > 图片来源课程组 ppt
 
 该操作臂的逆运动学问题可描述为：
@@ -287,7 +287,7 @@ $$
 
 具有 6 个旋转关节的操作臂存在封闭解的**充分条件**是相邻的三个关节轴线相交于一点
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250304120834902.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250304120834902.webp)
 
 当最后 3 根轴相交时，连杆坐标系{4}、{5}、{6}的原点均位于这个交点上 (齐次变换矩阵当中的$\vec{P}$是一个值，但是$\mathbb{R}$是不一样的)，这点的基坐标为：
 
@@ -459,7 +459,7 @@ $$
 x_{n+1} = x_n - J(x_n)^{-1} f(x_n)
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250313094528065.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250313094528065.webp)
 
 !!! note "为什么这么写？"
     写出泰勒展开，忽略二次高阶项. 相当于做了一条切线，再求这个切线和x轴的交点，得到新一轮的x
@@ -552,7 +552,7 @@ $$
 
 使用控制器控制关节速度$\dot{q}$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__3-InverseKinematics.assets__20250417161904.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__3-InverseKinematics.assets__20250417161904.webp)
 > [干货 | “逆运动学”——从操作空间到关节空间（上篇） - 知乎](https://zhuanlan.zhihu.com/p/341805328)
 
 ## 求解代码

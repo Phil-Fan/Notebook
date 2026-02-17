@@ -6,13 +6,13 @@
 
 sd 卡格式化[SD Memory Card Formatter for Windows Download | SD Association](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20240914091401.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20240914091401.webp)
 
 利用烧录工具 Raspberry Pi Imager[下载](https://www.raspberrypi.com/software/)烧录 Ubuntu 20.04 镜像系统，步骤如下：
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20240914091552.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20240914091552.webp)
 点击选择操作系统，下拉到最下面，选择自己下载的系统镜像
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20240914091604.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20240914091604.webp)
 
 [树莓派 4B 安装 Ubuntu20.04 桌面（详细教程）\_树莓派 4b ubuntu-CSDN 博客](https://blog.csdn.net/m0_70372760/article/details/140354298)
 
@@ -30,7 +30,7 @@ ubuntu-mate-20.04-beta1-desktop-arm64+raspi.img.xz
 
 ### 风扇
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20241031231019.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20241031231019.webp)
 
 ### 显示屏
 
@@ -45,7 +45,7 @@ ubuntu-mate-20.04-beta1-desktop-arm64+raspi.img.xz
 [python - 避免\`can't open camera by index\`，用 cv2 测试时，所有 cam 都连接\_Stack Overflow 中文网](https://stackoverflow.org.cn/questions/65603793)
 
 摄像头连接方法
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20241026003911.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20241026003911.webp)
 
 ```shell
 sudo apt-get install -y raspi-config
@@ -55,9 +55,9 @@ sudo apt-get install -y raspi-config
 raspi-config
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20241026005020.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20241026005020.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__RaspberryPi.assets__20241026005032.webp)
+![image](https://img.philfan.cn/Robotics_______assets__RaspberryPi.assets__20241026005032.webp)
 
 重启电脑`reboot`
 

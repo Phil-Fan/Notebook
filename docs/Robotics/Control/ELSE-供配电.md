@@ -112,7 +112,7 @@
 
 中性点就像三相电的「平衡中心」，类似三个水龙头交汇的「公共水池」，保证电力系统稳定运行
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220144054358.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220144054358.webp)
 
 运行方式：
 
@@ -191,7 +191,7 @@
 - 10～35kV 配电网：中压配电网。
 - 1kV 以下：为低压配电网。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220145405384.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220145405384.webp)
 
 ## Chap2 电力负荷与计算
 
@@ -223,7 +223,7 @@ $\Delta t = 30min$
 - **年最大负荷利用小时数** $T_{max}$ :电力负荷在全年内消耗的电能与年最大负荷的比值，$T_{max} = \frac{W_a}{P_{max}}$,$W_a$为年负荷消耗的电能; 一班制$T_{max} = 1800-3000h$,两班制$T_{max} = 3500-4800h$,三班制$T_{max} = 5000-7000h$
 - **平均负荷** $P_{av}$ :电力负荷在一定时间内消耗的电能与该段时间的比值，$P_{av} = \frac{W}{T}$, 年平均负荷$P_{av} = \frac{W_a}{8760}$ （8760 = 24 * 365）
 - **负荷系数** $K_f$ :平均负荷与最大负荷的比值，$K_f = \frac{P_{av}}{P_{max}}$
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227144326520.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227144326520.webp)
 
 ### 三相 计算负荷（重点）（计算题）
 
@@ -255,7 +255,7 @@ $\Delta t = 30min$
 - **计算电流** $I_{30} = \frac{S_{30}}{\sqrt{3}U_n}$
 
 !!! example "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227145549202.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227145549202.webp)
 
 多组三相用电设备的计算
 
@@ -288,9 +288,9 @@ $$
     一般会选择车间干线这个分支，不会选择低压母线这个分支。
 
 !!! example "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150010769.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227150010769.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227150037929.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227150037929.webp)
 
 !!! attention "查表的时候功率因数一般选择大一点的"
 
@@ -314,8 +314,8 @@ $x$和$P_x$ 的选取规则：
 对于单台电动机而言：$P_{30} = \frac{P_e}{\eta}$,其中 $\eta$ 为额定效率
 
 !!! example "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151325077.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227151843385.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227151325077.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227151843385.webp)
 
 多组用电设备
 
@@ -340,8 +340,8 @@ $I_{30} = \frac{S_{30}}{\sqrt{3}U_N}$
 教材附录表 A-6
 
 !!! example "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152445278.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227152504859.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227152445278.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227152504859.webp)
 
 ### 单相负荷计算
 
@@ -413,10 +413,10 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 **无功功率补偿**：简单的三角函数问题
 
 !!! example "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153913366.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227153927232.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227153913366.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227153927232.webp)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154101272.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227154101272.webp)
 
 无功补偿的方式：高压集中补偿、低压集中补偿和分散就地补偿（个别补偿）
 
@@ -458,7 +458,7 @@ $\cos \varphi = \frac{P_{30}}{S_{30}}$ **- 确定无功补偿容量用**
 
     - $I_c$为全部设备投入运行时线路的计算电流。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250227154423691.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250227154423691.webp)
 
 ## Chap5 电力线路
 
@@ -634,10 +634,10 @@ $$
 
 相当于把一个假象球体紧贴避雷针，中间空出的部分就是保护范围。（平面几何问题）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085725227.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311090327635.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250311085725227.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250311090327635.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250311085744071.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250311085744071.webp)
 
 ### 接地
 
@@ -689,7 +689,7 @@ C-S：保护零线与工作零线前边一部分用同一根线，后边一部�
 
 正常情况下，通过 TAN 一次侧的三相电流相量和等于零，TAN 的铁心中没有磁通，其二次侧没有电流输出。当被保护电路发生漏电或有人触电时，由于漏电电流的存在，通过 TAN 一次侧的三相电流相量不等于零，TAN 中产生零序磁通，其二次侧有电流输出，经放大器放大后，驱动低压断路器 QF 的脱扣线圈 YR，使断路器 QF 自动跳闸。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250412234545.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250412234545.webp)
 
 - 安全用电知识
 
@@ -701,11 +701,11 @@ C-S：保护零线与工作零线前边一部分用同一根线，后边一部�
 
 ## Extra 电力系统格局
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143424995.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220143424995.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220143505299.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220143505299.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220152204297.webp)
+![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220152204297.webp)
 
 > [中国“五大六小”发电集团梳理 - 知乎](https://zhuanlan.zhihu.com/p/618684846)
 > [起底：中国电力系统企业关系图！ - 知乎](https://zhuanlan.zhihu.com/p/531123778)
@@ -729,19 +729,19 @@ This browser does not support PDFs
 
 !!! note "一些数据"
     2014-2023能源生产结构
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153711082.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220153711082.webp)
 
     2022-2023能源消费结构
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154202935.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220154202935.webp)
 
     2014-2023全社会用电量与增速
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220153833167.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220153833167.webp)
 
     2023年非化石能源发电量
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154120147.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220154120147.webp)
 
     2023年发电结构
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__assets__ELSE-___.assets__20250220154323482.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__assets__ELSE-___.assets__20250220154323482.webp)
 
 
     >2017年

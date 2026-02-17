@@ -128,7 +128,7 @@ $$
 
 常见的转动惯量
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__6-Dynamics.assets__Pasted_20Graphic_205.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__6-Dynamics.assets__Pasted_20Graphic_205.webp)
 
 #### 积分 trick
 
@@ -445,7 +445,7 @@ $$
 
       题目1 RP机械臂
 
-      ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__6-Dynamics.assets__20250417230141.webp)
+      ![image](https://img.philfan.cn/Robotics__Model__assets__6-Dynamics.assets__20250417230141.webp)
 
       $$
       ^0J_{v1} = \begin{bmatrix} -l_1 \sin \theta_1 & 0 \\ l_1 \cos \theta_1 & 0 \\ 0 & 0 \end{bmatrix}; ^0J_{v2} = \begin{bmatrix} -d_2 \sin \theta_1 & \cos \theta_1 \\ d_2 \cos \theta_1 & \sin \theta_1 \\ 0 & 0 \end{bmatrix}
@@ -464,7 +464,7 @@ $$
 
       题目2 PRR机械臂
 
-      ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__6-Dynamics.assets__20250417230427.webp)
+      ![image](https://img.philfan.cn/Robotics__Model__assets__6-Dynamics.assets__20250417230427.webp)
 
       $$
       M=\begin{bmatrix}m_1+m_2+m_3&\times&\times\\\times&l_{zz2}+m_2l_2^2+l_{zz3}+m_3({a_2}^2+{l_3}^2+2a_2l_3\cos q_3)&\times\\\times&\times&l_{zz3}+m_3l_3^2\end{bmatrix}

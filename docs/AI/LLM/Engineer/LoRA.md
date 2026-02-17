@@ -24,7 +24,7 @@ LORA: Low-rank Adaptation of Large Language Models
 
 问题 2:对于微调的权重矩阵，更新在矩阵秩方面应该具有多大的表现力？更新应该如何表达
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705161145578.webp)
+![image](https://img.philfan.cn/AI__DL__assets__transfer_learning.assets__image-20250705161145578.webp)
 
 所以，LoRA 可以视作是全量微调的简化版。只要有矩阵乘法存在的地方，我们就可以考虑使用 LoRA
 
@@ -51,7 +51,7 @@ $$
 
 > LoRA 让模型 **保留原本的表达能力（$W_0 x$）**，同时**通过 $BAx$ 进行轻量级调整**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705161451599.webp){width=50%}
+![image](https://img.philfan.cn/AI__DL__assets__transfer_learning.assets__image-20250705161451599.webp){width=50%}
 
 初始化策略
 
@@ -105,6 +105,6 @@ $$
 * 并行训练多个 LoRA 模块，每个模块执行自己的任务，共享基础模型
 * LoRA 模型是可加性的，model switching 变成了 tree traversal。Base model is only instantiated once.
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__DL__assets__transfer_learning.assets__image-20250705162108510.webp)
+![image](https://img.philfan.cn/AI__DL__assets__transfer_learning.assets__image-20250705162108510.webp)
 
 * LLLM-Lab [深入浅出 LoRA - 知乎](https://zhuanlan.zhihu.com/p/650197598)

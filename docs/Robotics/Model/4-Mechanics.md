@@ -184,7 +184,7 @@ $$
 
 可以看作力$F$平移到$F_1$之后，刚体受到$F_1$和力偶矩$M = F \times r_{AB}$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313095306008.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250313095306008.webp)
 > 图源 [力平移定理与平衡 - CSDN 博客](https://blog.csdn.net/weixin_43989965/article/details/120471367)
 
 ### 操作臂的静力传递（向内迭代法）
@@ -196,7 +196,7 @@ $$
 
 > 忽略重力
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313114049005.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250313114049005.webp)
 
 $$
 \begin{align*}
@@ -233,8 +233,8 @@ $$
 $$
 
 !!! example "例子"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112419504.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250313112444810.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250313112419504.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250313112444810.webp)
     > 课本习题
 
 ## 雅可比
@@ -620,7 +620,7 @@ $$
 
 特别的，当雅可比矩阵可逆的时候 $\kappa(\boldsymbol{\Phi})=\mid\det(\boldsymbol{J}(\boldsymbol{\Phi}))\mid$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314222953648.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250314222953648.webp)
 
 ## 冗余
 
@@ -703,7 +703,7 @@ $$
 
 计算每一个关节对于连杆 N 速度的贡献
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__4-Mechanics.assets__20250314234911486.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__4-Mechanics.assets__20250314234911486.webp)
 
 #### 平动型关节
 

@@ -39,43 +39,43 @@
 
 #### [有刷电机与无刷电机](https://www.bilibili.com/video/BV1ig411S7gX/?spm_id_from=333.337.search-card.all.click&vd_source=c22bb8d123dbc6430c3057dc8d2701b4)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416164453791.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416164453791.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416164945042.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416164945042.webp)
 
 定子不动，改变转子的磁极，就可以完成换向。
 
 中间部分由惯性。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416165039391.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416165039391.webp)
 
 使用三、五线圈的奇数线圈，就不存在“平衡位置”了。
 
 使用 2N1S 顺，2S1N 逆
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416165250656.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416165250656.webp)
 
 限制：电刷；电刷与换向片接触产生动力损耗。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416165453808.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416165453808.webp)
 
 永磁铁作为转子，电磁铁作为定子。
 
 如何判断何时改变电流输入：一般在电机的不同位置上装三个霍尔传感器，就可测出转子的位置，使用霍尔原件感应转子的状态和位置。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104119842.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104119842.webp)
 
 !!! note "转动顺序、导通方式"
     **AB，AC，BC，BA，CA，CB**<br>
     后三个是前三个反序
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104143466.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104143466.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-dd52b5ed852d7e746c35aad78f4e3851_r.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-dd52b5ed852d7e746c35aad78f4e3851_r.webp)
 
 换向的过程
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416164651385.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416164651385.webp)
 
 三相 9 绕组 6 极（3 对极）
 
@@ -83,7 +83,7 @@
 
 注意：每一相是**串联**的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416164727698.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416164727698.webp)
 
 采用**9 绕组 6 极**，而不是**6 绕组 6 极**原因：为了防止定子的齿与转子的磁钢相吸而对齐，产生类似步进电机的效果，此情况下转矩会产生很大波动
 
@@ -95,7 +95,7 @@
 
 滤波
 
- [H 桥的基本原理 - 刹车 - 正反转 - 调速](https://www.bilibili.com/video/BV1ZG4y1v7LS/?spm_id_from=333.1007.top_right_bar_window_history.content.click) ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907140632003.webp)
+ [H 桥的基本原理 - 刹车 - 正反转 - 调速](https://www.bilibili.com/video/BV1ZG4y1v7LS/?spm_id_from=333.1007.top_right_bar_window_history.content.click) ![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907140632003.webp)
 
 #### 电机控制
 
@@ -103,7 +103,7 @@
 
 等效电路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416171746564.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416171746564.webp)
 
 电枢电动势 Ea，电磁转矩 T，电磁功率 P
 
@@ -138,13 +138,13 @@ $$
 $$
 $J$表示电机的转动惯量，$\omega(t)$表示电机的角速度，$B$表示电机的阻尼系数，$T_d(t)$表示电机所受的负载转矩。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416174456906.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416174456906.webp)
 
 电机烧掉：**电机铜线外绝缘体破坏，电线与电线之间短路**
 
 检查方法：测量电机绕组的电阻值是否正常进行判断
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416173535098.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416173535098.webp)
 
 白色区域需要注意
 
@@ -158,13 +158,13 @@ $J$表示电机的转动惯量，$\omega(t)$表示电机的角速度，$B$表示
 
 最常用的驱动方式
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__61EC0040D67F475F87D07883A700D778_735.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__61EC0040D67F475F87D07883A700D778_735.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__99F657663FFE42398711F883963F8542_566.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__99F657663FFE42398711F883963F8542_566.webp)
 
 上图为电机的正反转
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414193034701.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414193034701.webp)
 
 为了避免电机的反电动势的危害，仍然需要在三极管两端接二极管，因为电机线圈在电路开闭瞬间产生的反向电动势会高过电源，对晶体管和电路会造成影响，甚至是烧毁元件。
 
@@ -172,7 +172,7 @@ $J$表示电机的转动惯量，$\omega(t)$表示电机的角速度，$B$表示
 
 ##### 光电隔离电路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414193622133.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414193622133.webp)
 
 可以实现抗干扰
 
@@ -182,13 +182,13 @@ $J$表示电机的转动惯量，$\omega(t)$表示电机的角速度，$B$表示
 
 精度较低，但稳定性最好。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414193757089.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414193757089.webp)
 
 ###### 闭环伺服系统
 
 精度较高，但系统的结构较复杂、成本高，还有系统稳定性的问题
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414193902662.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414193902662.webp)
 
 ###### 半闭环伺服系统
 
@@ -196,7 +196,7 @@ $J$表示电机的转动惯量，$\omega(t)$表示电机的角速度，$B$表示
 
 精度比闭环要差一些，稳定性比闭环好，但比开环要差一些
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414193936717.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414193936717.webp)
 
 #### 转动惯量匹配
 
@@ -211,11 +211,11 @@ J_M < (2-3)J_L \\
 电机的转动惯量 J_M、负载的等效转动惯量 J_L
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416174549458.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416174549458.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104333256.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104333256.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416232800538.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416232800538.webp)
 
 设一直接高电平时，转速最大是$V_{max}$，占空比为$D= \frac{t_1}{T}$
 
@@ -238,19 +238,19 @@ $D=\frac{t_1}{T}$:占空比
 
 控制线：电源线、地线、控制线
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907143850328.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907143850328.webp)
 
 电机 + 减速器
 
 **标准舵机有三条控制线，分别为**电源线、地线和控制线。控制线连接到控制芯片上
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422172314384.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422172314384.webp)
 
 直流电机 PWM 匹配
 
 占空比
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907135711661.webp) ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907140616101.webp)![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907140621883.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907135711661.webp) ![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907140616101.webp)![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907140621883.webp)
 
 ### 气动
 
@@ -263,7 +263,7 @@ $D=\frac{t_1}{T}$:占空比
 
 包括气压发生装置、辅助元件、控制元件和执行元件
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104446817.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104446817.webp)
 
 - 气压元件：气源装置，其功能是将原动机**输入的机械能转换成流体的压力能**，为系统**提供动力**
 - 执行元件：**气缸、气马达**，功能是将流体的压力能转换成机械能，输出力和速度或转矩和转速），以带动负载进行直线运动或旋转运动
@@ -290,13 +290,13 @@ $D=\frac{t_1}{T}$:占空比
 
 几通：看**每一个回路**（小格子）里面有几个连接处
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414195847393.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414195847393.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422161542854.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422161542854.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422161556062.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422161556062.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422161610644.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422161610644.webp)
 
 对于 a 图
 
@@ -318,11 +318,11 @@ $D=\frac{t_1}{T}$:占空比
 
 ##### 双作用气缸换向回路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414200332022.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414200332022.webp)
 
 例：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240414201155714.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240414201155714.webp)
 
 不拍按钮时：左移
 
@@ -336,7 +336,7 @@ $D=\frac{t_1}{T}$:占空比
   - 优点：重量轻、尺寸小、动作平稳、快速性好、产生的力 力矩非常大。
   - 缺点：易漏油、维护困难；不确定性和非线性因素多，控制和校正不如电气式方便
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422162943114.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422162943114.webp)
 
 ## 传动装置
 
@@ -388,7 +388,7 @@ $$
 
 **优点**：传动比较准确，效率高，结构紧凑，工作可靠，寿命长。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20230907144343497.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20230907144343497.webp)
 
 #### 基本参数的计算公式
 
@@ -409,21 +409,21 @@ $$
 
 定轴轮系：所有转动轴可以是平行的或者交错的；每个轴上可以有多个齿轮。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104731762.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104731762.webp)
 
 #### 周转轮系
 
 周转轮系：**至少有一个齿轮的轴线不固定** ，而是绕另一个齿轮的轴线转动的轮系。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104742305.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104742305.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104846198.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104846198.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416215257877.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416215257877.webp)
 
 #### 减速比计算（重点）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416215432743.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416215432743.webp)
 
 $$
 i_{首末} = \frac{\omega_{首}}{\omega_{末}} = \frac{Z_末}{Z_首} \quad 包含正负 \\
@@ -439,13 +439,13 @@ $$
 
 #### 方向关系
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422185707338.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422185707338.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422192109099.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422192109099.webp)
 
 ### 连杆传动
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416104926218.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416104926218.webp)
 
 AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 
@@ -472,33 +472,33 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 
 斜边最短的时候，是曲柄摇杆机构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-2b39fc71abcddb619afb965cb02acedc_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-2b39fc71abcddb619afb965cb02acedc_b.webp)
 
 基本形式二：双曲柄机构
 
 最短杆为机架时候
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-03d65aeed7c393ce21f4de19533c46f0_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-03d65aeed7c393ce21f4de19533c46f0_b.webp)
 
 基本形式三：双摇杆机构
 
 最短杆为连杆
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-2c969a21e62d70333d3c939c9586c189_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-2c969a21e62d70333d3c939c9586c189_b.webp)
 
 证明方法：三角形两边之和大于第三边
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416105135035.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416105135035.webp)
 
 曲柄滑块
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-961dc510e2e17588e10de4e6fc78b2d8_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-961dc510e2e17588e10de4e6fc78b2d8_b.webp)
 
 对心曲柄滑块机构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-f4160d9cf92145412fd189df02a4dbd7_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__v2-f4160d9cf92145412fd189df02a4dbd7_b.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416105229282.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416105229282.webp)
 
 曲柄摇杆机构的条件
 
@@ -506,13 +506,13 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 - 双曲柄机构：两个连架杆均为曲柄：最短杆为机架 4 时
 - 双摇杆机构：两个连架杆均为摇杆：最短杆为连杆 2 时
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240416220706207.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240416220706207.webp)
 
 #### 矢量方程法 (不重要)
 
 ##### 步骤
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032040907.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032040907.webp)
 
 - 总的来说就是列写矢量方程
 - 再按照实部和虚部相等列写两个方程求解
@@ -522,29 +522,29 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 
 位移分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032129498.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032129498.webp)
 
 速度分析（位移求导）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032205341.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032205341.webp)
 
 加速度分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032228970.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032228970.webp)
 
 ##### 曲柄摇杆机构
 
 位置分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032407332.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032407332.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032513797.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032513797.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032540629.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032540629.webp)
 
 速度分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240417032607292.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240417032607292.webp)
 
 ### 滑轮组
 
@@ -570,13 +570,13 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 - 传动平稳，噪声小。
 - 具有自锁性。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__d081b02f504c3556ffff9d5a7d91d409_b.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__d081b02f504c3556ffff9d5a7d91d409_b.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__a942d11ag00qeurw800kpd000b4007wp.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__a942d11ag00qeurw800kpd000b4007wp.gif)
 
 ### 凸轮机构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__q3fgrs7uda.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__q3fgrs7uda.gif)
 
 ## 支撑与导向
 
@@ -584,20 +584,20 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 
 作用：用来支撑轴，使轴系有确定的位置
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422195340577.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422195340577.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422195359029.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422195359029.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422195541021.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422195541021.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__skzr7cxa9j.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__skzr7cxa9j.gif)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422201036218.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422201036218.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422201142655.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422201142655.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422201356861.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422201356861.webp)
 
 ### 联接
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__image-20240422201534848.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__01-Design.assets__image-20240422201534848.webp)

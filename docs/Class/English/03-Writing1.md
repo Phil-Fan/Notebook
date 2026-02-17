@@ -19,21 +19,21 @@
 
 结构：一个核心词 + 多个修饰语
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726224521980.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726224521980.webp)
 
 为什么要分修饰语：其实就是限定比较的组别和对象。需要从题目给定的数据当中找到比较维度
 
 ### 指令要求
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__106752c28ad9ec346db91b3801c919f141ba9de1.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__106752c28ad9ec346db91b3801c919f141ba9de1.webp)
 
 图表所有直观看到的内容 features
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__0b17dce22916adb7b819b1e6f004f0cdc5c85623.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__0b17dce22916adb7b819b1e6f004f0cdc5c85623.webp)
 
 要做的三个动作：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__8e1b39f3af7b5c44c1c4a18abb85957a454e4026.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__8e1b39f3af7b5c44c1c4a18abb85957a454e4026.webp)
 
 ## 准备工作 2 —— 动静分类
 
@@ -42,19 +42,17 @@
 - 不仅可以读取数值，还可以读取趋势
 - 趋势分为：上升、下降、波动
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__ca31ac2f4c2421e1b23244d4c0685597998eef64.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__ca31ac2f4c2421e1b23244d4c0685597998eef64.webp)
 
 静态图：
 
 - 只能读取数值
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__9fe4aaec6f3b58d72291f738bd642728dd37f016.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__9fe4aaec6f3b58d72291f738bd642728dd37f016.webp)
 
 ## 如何分段
 
-##
-
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__c2a67ecb363af57a45220f57104c9575e4a360a4.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__c2a67ecb363af57a45220f57104c9575e4a360a4.webp)
 
 第一段为**改写段**进行同义复述句子数量看题目改
 
@@ -62,9 +60,9 @@
 
 第三段&第四段为**Detail 细节段**,细节段分两段清晰一些
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__47e530c6bc379fcf6c6012c3425f6532ef861dad.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__47e530c6bc379fcf6c6012c3425f6532ef861dad.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__6e0ff026dbbb46a3eab9859093a889c8d3c607a3.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__6e0ff026dbbb46a3eab9859093a889c8d3c607a3.webp)
 
 ## Para1: 改写段
 
@@ -74,9 +72,9 @@
 - 补充没写完的信息
 - 如果有两个图，就重复一遍
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__77f7f7e28418db9b536e1e659cfcb136869d830c.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__77f7f7e28418db9b536e1e659cfcb136869d830c.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__c2dc455ff7bd4dc8d7c078933fba0d742bd7f4ea.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__c2dc455ff7bd4dc8d7c078933fba0d742bd7f4ea.webp)
 
 改写方法：
 
@@ -94,15 +92,15 @@
 - 不一样的趋势
 - 差距很大
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726232057048.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726232057048.webp)
 
 ### 统一的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726231924142.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726231924142.webp)
 
 ### 乱乱的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726232205227.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726232205227.webp)
 
 ### 注意
 
@@ -124,7 +122,7 @@ summerize the information by selecting and reporting the **main features**  and 
 
 什么叫做 features？
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726235929594.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726235929594.webp)
 
 !!! note "在做比较的时候要注意控制变量，一次只能比较一个变量"
 
@@ -136,9 +134,9 @@ summerize the information by selecting and reporting the **main features**  and 
 
 但是需要注意不是每一个比较维度切分出来都是可以的。不能切割只有两个项目
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726234700779.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726234700779.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__English__assets__03-Writing1.assets__image-20250726235219244.webp)
+![image](https://img.philfan.cn/Class__English__assets__03-Writing1.assets__image-20250726235219244.webp)
 
 引导词：
 

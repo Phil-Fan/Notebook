@@ -15,11 +15,11 @@
 - 逻辑：确保推理与论证有效的规则
 - 论证：有推出关系的语群
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20241115223524.webp)
+![image](https://img.philfan.cn/Math__assets__logic.assets__20241115223524.webp)
 
 AEIO
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20241115223618.webp)
+![image](https://img.philfan.cn/Math__assets__logic.assets__20241115223618.webp)
 
 逻辑是形式科学，形式有效不等于内容有效
 
@@ -129,13 +129,13 @@ AEIO
 
 !!! example "例子"
     例1：
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20250108192100.webp)
+    ![image](https://img.philfan.cn/Math__assets__logic.assets__20250108192100.webp)
 
     例2：
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20250108192142.webp)
+    ![image](https://img.philfan.cn/Math__assets__logic.assets__20250108192142.webp)
 
     例3：
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20250108192206.webp)
+    ![image](https://img.philfan.cn/Math__assets__logic.assets__20250108192206.webp)
 
 ### 命题范式
 
@@ -163,7 +163,7 @@ AEIO
 ## 谓词逻辑——表达关系
 
 !!! note "命题逻辑有局限性，无法表示从属关系、个体关系等"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20250108193046.webp)
+    ![image](https://img.philfan.cn/Math__assets__logic.assets__20250108193046.webp)
 
     不同原子命题蕴含个体、群体、关系等，命题逻辑无法表现；需要分析原子命题，分离其主语和谓语
 
@@ -272,15 +272,15 @@ AEIO
     **4. 应用归结方法证明结论 5，画出归结过程并标注出合适的合一（4 分）**
         否定结论:<br>
         1) ~EF(Louis)<br>
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__20250108130259.webp)
+        ![image](https://img.philfan.cn/Math__assets__logic.assets__20250108130259.webp)
 
 !!! example "证明案例"
 
     === "例子1"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__781f560aea6dc20644c2a507f5c82c9.webp)
+        ![image](https://img.philfan.cn/Math__assets__logic.assets__781f560aea6dc20644c2a507f5c82c9.webp)
 
     === "例子2"
-        ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__logic.assets__76ee4f24bdd379d37727a1cc78a6626.webp)
+        ![image](https://img.philfan.cn/Math__assets__logic.assets__76ee4f24bdd379d37727a1cc78a6626.webp)
 
     === "例子3"
         每一个奇数均存在一个大于它的奇数：

@@ -109,7 +109,7 @@ $$
 - $\mathbf{H(f)}$不定，鞍点：特征值有正有负
 - $\mathbf{H(f)}$不可逆，无法判断：特征值有 0
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__LinearAlgebra__assets__02-1-calc.assets__b05544056c037bc56f9070e45533f02.webp" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__LinearAlgebra__assets__02-1-calc.assets__b05544056c037bc56f9070e45533f02.webp" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
 
 !!! note "正定的理解"
     假设 $\mathbf{A}x = m$, 则 $\langle x,m \rangle = x^{\mathbf{H}} m = x^{\mathbf{H}} \mathbf{A} x$

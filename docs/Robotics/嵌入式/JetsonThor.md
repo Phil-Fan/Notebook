@@ -2,9 +2,9 @@
 
 ## 系统安装
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Jetson_Thor.assets__Jetson-ISO-KV_dark.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Jetson_Thor.assets__Jetson-ISO-KV_dark.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Jetson_Thor.assets__jetson-iso_etcher-flash-start.gif)
+![image](https://img.philfan.cn/Robotics_______assets__Jetson_Thor.assets__jetson-iso_etcher-flash-start.gif)
 
 [Quick Start Guide — Jetson AGX Thor Developer Kit - User Guide](https://docs.nvidia.com/jetson/agx-thor-devkit/user-guide/latest/quick_start.html#bsp-install-troubleshoot)
 

@@ -16,7 +16,7 @@
 
 ## 通信/通讯协议
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__intro.assets__25ac30e59c74de77fefd23134d56d277.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__intro.assets__25ac30e59c74de77fefd23134d56d277.webp)
 
 在物联网应用中，通信技术包括 Wi-Fi、RFID、NFC、ZigBee、Bluetooth、LoRa、NB-IoT、GSM、GPRS、3/4/5G 网络、Ethernet、RS232、RS485、USB 等。
 

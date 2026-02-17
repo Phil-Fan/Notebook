@@ -1,6 +1,6 @@
 # 03 | 无约束 数值解法
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-3-___-___.assets__image-20240521193045743.webp" alt="image-20240521193045743" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-3-___-___.assets__image-20240521193045743.webp" alt="image-20240521193045743" style="zoom:50%;" />
 
 有三个核心的点需要考虑：
 
@@ -28,7 +28,7 @@
 
 缺点：之字形的迭代路径，接近极值点的时候更严重
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-3-___-___.assets__v2-dd6ce242d10f41e2f20e15dfce22cd52_720w.webp)
+![image](https://img.philfan.cn/Math__Opt__assets__Opt-3-___-___.assets__v2-dd6ce242d10f41e2f20e15dfce22cd52_720w.webp)
 
 !!! note "注意"
  梯度下降不一定能够找到全局的最优解，有可能是一个局部最优解。当然，如果损失函数是凸函数，梯度下降法得到的解就一定是全局最优解。
@@ -328,7 +328,7 @@ $$
 
 > 参考文献：[共轭梯度法的简单直观理解-CSDN 博客](https://blog.csdn.net/weixin_43940314/article/details/121125847)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-3-___-___.assets__4cb1ad1b7f5d4100b19e51a63eddedee.webp)
+![image](https://img.philfan.cn/Math__Opt__assets__Opt-3-___-___.assets__4cb1ad1b7f5d4100b19e51a63eddedee.webp)
 
 为什么会走出这一 Z 形线呢？因为梯度下降的方向恰好与 f 垂直，也就是说和等高线垂直。沿着垂直于等高线的方向，一定能让函数减小，也就是最快地下了一个台阶。但是最快下台阶并不意味着最快到达目标位置（即最优解），因为你最终的目标并不是直对着台阶的。
 
@@ -341,9 +341,9 @@ $$
 可见，共轭是正交的推广化，因为向量正交的定义为：$p_i^T\cdot p_j = 0$
 
 共轭比正交中间只多了个矩阵 A，而矩阵的几何意义正是对一个向量进行线性变换（可见 Gilber Strang 的线代公开课）。因此共轭向量的意思就是一个向量经过线性变换（缩放剪切和旋转）之后与另一个向量正交。
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-3-___-___.assets__2b29249d0e29462dae65e18e1e2b25b7.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-3-___-___.assets__2b29249d0e29462dae65e18e1e2b25b7.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-3-___-___.assets__image-20240528092452183.webp" alt="image-20240528092452183" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-3-___-___.assets__image-20240528092452183.webp" alt="image-20240528092452183" style="zoom:50%;" />
 
 ## 步长选择 - determine convergence
 

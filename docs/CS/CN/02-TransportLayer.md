@@ -3,7 +3,7 @@ comments: true
 ---
 # 传输层 | `Transport Layer`
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets___E4_BC_A0_E8_BE_93_E5_B1_82.svg)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets___E4_BC_A0_E8_BE_93_E5_B1_82.svg)
 
 ## 原理
 
@@ -33,7 +33,7 @@ comments: true
 
 IP 是不可靠的，TCP 可以变成可靠的，在下层服务不可靠的情况下，向上保证可靠
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240130233920207.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240130233920207.webp)
 
 FSM 有限状态机：引起状态变迁的事件 and 状态变迁时采取的动作
 
@@ -51,7 +51,7 @@ FSM 有限状态机：引起状态变迁的事件 and 状态变迁时采取的�
 
 下层信道可能会出错：将分组中的比特翻转（01 互换）、用校验和来检测
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131000805343.webp" alt="image-20240131000805343" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131000805343.webp" alt="image-20240131000805343" style="zoom:50%;" />
 
 问题：怎样从差错中恢复：
 
@@ -91,7 +91,7 @@ FSM 有限状态机：引起状态变迁的事件 and 状态变迁时采取的�
 
 adaptive 动态超时时间设置：过早超时可以运行，但效率低
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131010457267.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131010457267.webp)
 
 ### 流水线协议 `GBN`&`SR`
 
@@ -127,17 +127,17 @@ adaptive 动态超时时间设置：过早超时可以运行，但效率低
 
 正常工作
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113191056486.gif" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__20191113191056486.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 当发送过程中发生丢包
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113192200848.gif" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__20191113192200848.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 当发送过程中的 2 号包发生丢失时，发送方没有收到接收方的 ACK2，于是后面发送的 ACK3,ACK4 全部变成了 ACK1，代表接收方因为丢失了分组 2，所以分组 3 和分组 4 都被丢弃。所以全部返回 ACK1，经过一段时间后，定时器确认超时没有收到 ACK3,ACK4，所以发送方将重新发送。也代表接收方首先只收到了分组 1 及之前的包。
 
 当接收过程中发生丢包
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113192954925.gif" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__20191113192954925.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 本次返回的为 ACK3,ACK4，所以发送方可以判断接收方已经接收到消息，不再进行重复发送。
 
@@ -156,13 +156,13 @@ SR 单独发送没有收到的
 
 发送过程中丢包
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113201934575.gif" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__20191113201934575.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 当所以`ACK1`返回以后，分组 5，分组 6 就已经可以发送。然后在接收方，分组 3456 都已经被缓存，等待分组 2 的计时器超时后，分组 2 将重新发送，然后在接收方的分组 23456 全部变为接收`received`状态。
 
 接收过程丢包
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113205433523.gif" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__20191113205433523.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 分组 2 会因为 ACK2 被丢失，在计时器计时后重新发送一次。
 
@@ -189,17 +189,17 @@ SR 单独发送没有收到的
 
 - 场景 1
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131191801624.webp" alt="image-20240131191801624" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131191801624.webp" alt="image-20240131191801624" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131191657334.webp" alt="image-20240131191657334" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131191657334.webp" alt="image-20240131191657334" style="zoom:50%;" />
 
 - 场景 2：有限缓存；超时重传的比例增加
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131191831998.webp" alt="image-20240131191831998" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131191831998.webp" alt="image-20240131191831998" style="zoom:50%;" />
 
 - 场景 3：被抛弃的分组在拥塞的时候已经穿过了一个或若干个路由
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131192304829.webp" alt="image-20240131192304829" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131192304829.webp" alt="image-20240131192304829" style="zoom:50%;" />
 
 #### 代价
 
@@ -267,9 +267,9 @@ SR 单独发送没有收到的
 
 以`datagram`为单位
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240130231654238.webp" alt="image-20240130231654238" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240130231654238.webp" alt="image-20240130231654238" style="zoom:50%;" />
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240130231125338.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240130231125338.webp)
 
 ![image](https://data.educoder.net/api/attachments/581703)
 
@@ -281,7 +281,7 @@ SR 单独发送没有收到的
 
 <img src="https://data.educoder.net/api/attachments/581700" alt="预览大图" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240425204147268.webp" alt="image-20240425204147268" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240425204147268.webp" alt="image-20240425204147268" style="zoom:50%;" />
 
 发送方：加法 + 进位回滚 + 最后的和取反码
 
@@ -290,7 +290,7 @@ SR 单独发送没有收到的
 - 检验和：把上一步结果的反码填入检验和
 - 去掉伪头部，发送
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240425203923947.webp" alt="image-20240425203923947" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240425203923947.webp" alt="image-20240425203923947" style="zoom:50%;" />
 
 **接收方：**
 
@@ -328,7 +328,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 再加上本地 ip + 对方 ip 形成 IP 数据报文
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131121759203.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131121759203.webp)
 
 ???+note "重要字段"
     1. **序号 (sequence number)**：seq 序号，占 32 位，用来标识从 TCP 源端向目的端发送的字节流，发起方发送数据时对此进行标记。 <br>
@@ -344,7 +344,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 ![image](https://data.educoder.net/api/attachments/581054)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240130231052510.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240130231052510.webp)
 
 #### 建立连接 (三次握手)
 
@@ -362,7 +362,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 ![image](https://data.educoder.net/api/attachments/566278)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__202008271630393.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__202008271630393.webp)
 
 第一次握手
 
@@ -405,7 +405,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
  启动一个定时器，如果定时器结束之前没有数据传递，那么通信就真正关闭了
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131191317844.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131191317844.webp)
 
 #### 超时定时器
 
@@ -431,7 +431,7 @@ $$
 
 最小的 ACK 没有收到，接收方三次收到比期望序号大的 ACK，这个时候即使没有到预定的超时重传时间，也要重传
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240328091444848.webp" alt="image-20240328091444848" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240328091444848.webp" alt="image-20240328091444848" style="zoom:50%;" />
 
 #### 流量控制 | Flow control
 
@@ -453,7 +453,7 @@ TCP 通过让发送方维护一个称为接收窗口 (`receive window`) 的变�
 $$
 V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]
 $$
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131180428780.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131180428780.webp)
 
 发送方
 
@@ -512,7 +512,7 @@ $$
 
 - TCP Tahoe：当超时事件发生时`timeout`, $Threshold=CongWin/2$,$CongWin=1 MSS$​，进入 SS 阶段
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131215546305.webp" alt="image-20240131215546305" style="zoom:50%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131220146619.webp" alt="image-20240131220146619" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131215546305.webp" alt="image-20240131215546305" style="zoom:50%;" /><img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131220146619.webp" alt="image-20240131220146619" style="zoom: 50%;" />
 
 > 老师的神奇例子：
 >
@@ -531,7 +531,7 @@ $$
 
 同时满足拥塞控制和流量控制要求
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131220206546.webp" alt="image-20240131220206546" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131220206546.webp" alt="image-20240131220206546" style="zoom: 50%;" />
 
 吞吐量
 
@@ -549,7 +549,7 @@ $$
 
 如果 K 个 TCP 会话分享一个链路带宽为 R 的瓶颈，每一个会话的有效带宽为 R/K
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131220718321.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131220718321.webp)
 
 证明
 
@@ -559,14 +559,14 @@ $$
 
 之后会逐渐趋近于 X=Y 这条线路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131221103041.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240131221103041.webp)
 
 #### 超长报文（不要求）
 
 ??? note "注意"
  字节流的服务，不提供报文的界限，需要靠应用进程自己维护
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__1282f9ef4d00f3cf14ccfba9aef7f7c6.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__1282f9ef4d00f3cf14ccfba9aef7f7c6.webp)
 
 MTU 最大交换单元：一个网络包的最大长度，以太网中一般为 1500 字节；
 
@@ -576,7 +576,7 @@ MSS 最大报文段：除去 IP 和 TCP 头部之后，一个网络包所能容�
 
 HTML 文件相当长时，例如：4861 字节太大，一个 TCP 数据包不能容纳。因此，单个 HTTP 响应消息由 TCP 分成几个部分，每个部分包含在单独的 TCP 报文段中，如下图：长度为 4861 的报文被分为长度分别为 1440，1440，1440，541 的 4 个 TCP 段，编号分别为 8715，8716，8718，8719。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240220112530054.webp)
+![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__image-20240220112530054.webp)
 
 - 序号：数据部分第一个字节在整个字节流的偏移量`offset`进行编号
 
@@ -593,5 +593,5 @@ HTML 文件相当长时，例如：4861 字节太大，一个 TCP 数据包不�
     当接收方发现 TCP 报文（头部 + 数据）的某一片丢失后，则不会响应 ACK 给对方，那么发送方的 TCP 在超时后，就会重发「整个 TCP 报文（头部 + 数据）」。<br>
     因此，由 IP 层进行分片传输，是非常没有效率的。<br>
     所以，为了达到最佳的传输效能 TCP 协议在建立连接的时候通常要协商双方的 MSS 值，当 TCP 层发现数据超过 MSS 时，则就先会进行分片，当然由它形成的 IP 包的长度也就不会大于 MTU，自然也就不用 IP 分片了。<br>
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__b30d3cb43b0f1561c93b6e2df7ac561b.webp)<br>
+    ![image](https://img.philfan.cn/CS__CN__assets__02-TransportLayer.assets__b30d3cb43b0f1561c93b6e2df7ac561b.webp)<br>
     经过 TCP 层分片后，如果一个 TCP 分片丢失后，进行重发时也是以 MSS 为单位，而不用重传所有的分片，大大增加了重传的效率。<br>

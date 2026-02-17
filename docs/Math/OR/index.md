@@ -66,7 +66,7 @@ s.t. &
 \end{align*}
 $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240501113721301.webp" alt="image-20240501113721301" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240501113721301.webp" alt="image-20240501113721301" style="zoom:50%;" />
 
 | 几何概念 | 代数概念 |
 | :--------------: | :--------------------: |
@@ -102,11 +102,11 @@ $$
 
 > 对偶问题的转化
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__2020051213051145.webp" alt="在这里插入图片描述" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__2020051213051145.webp" alt="在这里插入图片描述" style="zoom:67%;" />
 
 系数矩阵是转置
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612130938287.webp)
+![image](https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612130938287.webp)
 
 > 对偶问题对原问题有何帮助。举 3 例。
 
@@ -114,13 +114,13 @@ $$
 
 原问题为无界解，则对偶问题无可行解 (可以前推后，不可以后推前)
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612131424300.webp" alt="image-20240612131424300" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612131424300.webp" alt="image-20240612131424300" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612131531365.webp" alt="image-20240612131531365" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612131531365.webp" alt="image-20240612131531365" style="zoom:50%;" />
 
 互补松弛性求最优解
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612132752901.webp)
+![image](https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612132752901.webp)
 
 > 给了一个最终单纯性表，最终基变量是 x1，x2
 >
@@ -252,7 +252,7 @@ KKT 条件是判断某点是极值点的**必要条件**，**不是充分条件*
 
 对于**凸规划**，KKT 条件就是**充要条件**了，只要满足 KKT 条件，则一定是极值点，且得到的一定还是**全局最优解**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__d9b6e00773e7553ffe6ee390a299798e.webp)
+![image](https://img.philfan.cn/Math__OR__assets__index.assets__d9b6e00773e7553ffe6ee390a299798e.webp)
 
 在最优解 X*处，**f(X\*) 和 g(X\*) 的梯度方向**共线且方向相反。**向量共线且方向相反**在数学上的写法就是：
 
@@ -325,7 +325,7 @@ $$
 
 1. **阶段**：问题过程按时间、空间的特征分解成若干相互联系的阶段。
 2. **状态**：k 阶段开始（或结束）时的客观条件，记为$s_k \in S_k$，$S_k$为$k$阶段状态集合
-3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240531194223986.webp" alt="image-20240531194223986" style="zoom:67%;" />如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
+3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240531194223986.webp" alt="image-20240531194223986" style="zoom:67%;" />如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
 4. **状态转移方程：**描述当前状态在给定决策下转移至下一阶段的过程；$s_{k+1}=T_k(s_k, u_k (s_k))$
 5. **指标函数**:评价沿子策略$P_{k,n}$过程性能优劣的函数，记为$V_{k,n}(s_{k}, p_{k,n})$​。
 
@@ -359,11 +359,11 @@ $V^{*}(s) = \max_{a} \left[ r(s,a) + \gamma \sum_{s'} P(s'|s,a) V^{*}(s') \right
 
 > **建模**给了一个差分方程和 x(0)=1，叫你求一个目标函数的最小值，用动态规划
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612101320263.webp" alt="image-20240612101320263" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612101320263.webp" alt="image-20240612101320263" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612101314690.webp" alt="image-20240612101314690" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612101314690.webp" alt="image-20240612101314690" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240612101401823.webp" alt="image-20240612101401823" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240612101401823.webp" alt="image-20240612101401823" style="zoom:50%;" />
 
 ## 图论
 
@@ -395,7 +395,7 @@ $V^{*}(s) = \max_{a} \left[ r(s,a) + \gamma \sum_{s'} P(s'|s,a) V^{*}(s') \right
 1. 正权边图中求最长路可使用 SPFA
 2. 经典`Dijsktra`可在全负权边图中跑最长路、全正权边图中跑最短路；将所有边权全设置成为负数
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240611214010502.webp" alt="image-20240611214010502" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240611214010502.webp" alt="image-20240611214010502" style="zoom:33%;" />
 
 ### Floyd
 
@@ -403,15 +403,15 @@ $V^{*}(s) = \max_{a} \left[ r(s,a) + \gamma \sum_{s'} P(s'|s,a) V^{*}(s') \right
 
 `Floyd-Warshall`算法不能处理带有负权环路的图，但它能够检测到负权环路的存在。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240611220006981.webp" alt="image-20240611220006981" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240611220006981.webp" alt="image-20240611220006981" style="zoom: 33%;" />
 
 ### 费用流
 
 最小费用流问题，要求 V1 到 V2 的的最小流，V5 的 V6 的最小流情况下求最小费用
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240611220645831.webp" alt="image-20240611220645831" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240611220645831.webp" alt="image-20240611220645831" style="zoom: 33%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__index.assets__image-20240611220627796.webp" alt="image-20240611220627796" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__index.assets__image-20240611220627796.webp" alt="image-20240611220627796" style="zoom: 33%;" />
 
 ## 博弈论
 

@@ -24,9 +24,9 @@
 - 良定义问题五要素：**初始状态、可能行动、转移模型、目标测试函数、路径耗散函数**。
 - 问题环境用状态空间表示，状态空间中从初始状态到目标状态的路径是一个解。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108110133.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108110133.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108110138.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108110138.webp)
 
 ## 搜索基本概念
 
@@ -49,7 +49,7 @@
 
 Breadth-first Search（宽度优先搜索）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__02373e65ff0b858a0e1d46f99f5d1a29.gif)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__02373e65ff0b858a0e1d46f99f5d1a29.gif)
 
 !!! note "可以实现两类问题"
     - 从节点 A 出发，有前往节点 B 的路径吗
@@ -60,7 +60,7 @@ Implementation（实现方法）：使用 FIFO 队列，即新的后继节点放
 
 Breadth-first Search Algoruthm on a Graph（图的宽度优先搜索算法）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__6d343ab09c49d991ad0a67b93506f433.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__6d343ab09c49d991ad0a67b93506f433.webp)
 
 ### 数据结构——队列
 
@@ -87,7 +87,7 @@ Breadth-first Search Algoruthm on a Graph（图的宽度优先搜索算法）
 !!! note "类似于“不撞南墙不回头”"
     BFS 常用于找单一的最短路线，它的特点是 "搜到就是最优解"，而 DFS 用于找所有解的问题，它的空间效率高，而且找到的不一定是最优解，必须记录并完成整个搜索，故一般情况下，深搜需要非常高效的剪枝（剪枝的概念请百度）。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__a88bbfac61dbfa8e000f6bd9c5a0040d.gif)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__a88bbfac61dbfa8e000f6bd9c5a0040d.gif)
 
 ### 数据结构——栈（stack）
 
@@ -147,7 +147,7 @@ boolean DFS(int root, int target) {
 
 ### Iterative Deepening Search（迭代加深搜索）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108114629.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__20250108114629.webp)
 一般来说，当搜索空间很大且解的深度未知时，迭代加深搜索是首选的盲目搜索方法
 
 ### 例题
@@ -186,4 +186,4 @@ int main(){
 
 实际上，BS 就是将 BFS 画的半径为 d 的一个大圆，换成了半径为 d/2 的两个小圆。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-1-UninformedSearch.assets__20241017102041.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-1-UninformedSearch.assets__20241017102041.webp)

@@ -11,9 +11,9 @@
  === "考核方式"
   平时 20% + 小组 ppt 展示 40% + 期末个人论文 40%<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240422090745001.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240422090745001.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__20250109205113.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__20250109205113.webp)
 
 ```text
 ├─图解密码技术.pdf
@@ -172,7 +172,7 @@ CPS 具有四大核心技术要素，即“一硬”（感知和自动控制）�
 >
 > CPS 的应用领域非常广泛，包括智能交通、智能电网、智能制造、智能医疗、智能家居等。例如，在智能交通领域，CPS 可以实现车辆与道路基础设施、交通信号灯等的实时通信和协同控制，提高交通效率和安全性；在智能制造领域，CPS 可以实现生产设备与信息系统的深度融合，实现生产过程的智能化和柔性化。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__v2-446d4c8b5ca56c4e7e2a4deb167ab3c6_r.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__v2-446d4c8b5ca56c4e7e2a4deb167ab3c6_r.webp" alt="img" style="zoom:50%;" />
 
 大多数协议没有开放的协议规范或缺乏完整的协议描述尤其是专有协议，如工业控制协议和物联网协议
 
@@ -192,11 +192,11 @@ Modbus 通信的设备分为主站 (mater) 和从站 (slave)，主站为主动�
 
 报文结构
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__20210123223219854.webp" alt="在这里插入图片描述" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__20210123223219854.webp" alt="在这里插入图片描述" style="zoom:50%;" />
 
 MBAP 报文头为 7 个字节长
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240508144701385.webp" alt="image-20240508144701385" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240508144701385.webp" alt="image-20240508144701385" style="zoom:50%;" />
 
 PDU：1 字节功能码+N 字节数据
 
@@ -249,15 +249,15 @@ DNP3 协议的特点包括：
 
 ## 威胁建模
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240529154044354.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240529154044354.webp)
 
 ## 威胁模式分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240529142555579.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240529142555579.webp)
 
 ### 攻击可达性
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240529142633068.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240529142633068.webp)
 
 结合漏洞传播的 USB 摆渡攻击模式
 
@@ -269,7 +269,7 @@ DNP3 协议的特点包括：
 
 横向移动由攻击者用来进入和控制网络中远程系统的技术组成，通常包括利用默认凭证、利用漏洞、利用远程文件共享服务、利用 POU（程序组织单元）、利用合法凭证等，还可能利用 IT 和 OT 网络上的双宿主设备和系统。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240529142833008.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240529142833008.webp)
 
 **利用 POU 在控制器之间扩散**：
 
@@ -293,7 +293,7 @@ DNP3 协议的特点包括：
 
 持续隐蔽性相关技术包括劫持重要的 DLL 文件、伪装成正常的应用程序或关键设备、篡改控制器控制逻辑程序、篡改控制器固件、开发针对控制器的 Rootkit、控制主设备与从设备进行通信、抑制响应功能避免安全报警和清除攻击痕迹以防止技术人员攻击溯源等技术。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__06-CPS.assets__image-20240529143058534.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__06-CPS.assets__image-20240529143058534.webp)
 
 DLL 劫持工程师站中的组态软件
 

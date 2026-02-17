@@ -7,13 +7,13 @@
 - 状态无后效性：某阶段的状态确定后，此后过程的演变不再受此前各状态及决策的影响。
 - 动态规划的逆序解法和顺序解法：两种不同的求解顺序，但本质相同。
 
-![DP](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-04-DP.assets__cd62bceb58c0d09b0adb9345690c180a.webp)
+![DP](https://img.philfan.cn/Math__OR__assets__OR-04-DP.assets__cd62bceb58c0d09b0adb9345690c180a.webp)
 
 ## 基本概念与建模
 
 1. **阶段**：问题过程按时间、空间的特征分解成若干相互联系的阶段。
 2. **状态**：k 阶段开始（或结束）时的客观条件，记为$s_k \in S_k$，$S_k$为$k$阶段状态集合
-3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-04-DP.assets__image-20240531194223986.webp" alt="image-20240531194223986" style="zoom:67%;" />
+3. **决策**：依据状态做出的决定，记为$u_k(s_k)\in D_k(s_k)$ , $Dk (sk)$为状态$s_k$的允许决策集合。<img src="https://img.philfan.cn/Math__OR__assets__OR-04-DP.assets__image-20240531194223986.webp" alt="image-20240531194223986" style="zoom:67%;" />
 
 如$D_1(A) = {B_1,B_2,B_3},u_1(A) = B_i \quad i = 1,2,3$
 4. **状态转移方程：**描述当前状态在给定决策下转移至下一阶段的过程；$s_{k+1}=T_k(s_k, u_k (s_k))$

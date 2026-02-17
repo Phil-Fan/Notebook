@@ -21,7 +21,7 @@ CNN 只考虑卷积核的感受野，而 attention 考虑整个序列
 
 所以卷积难以考虑较长的序列，如果距离较远的话，需要很多层卷积才可以达到效果；
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
 > 图源网络，侵删
 
 而 attention 可以考虑整个序列，所以可以考虑较长的序列
@@ -60,7 +60,7 @@ graph TD
 - 很早期的信息在后续计算的时候可能会丢失，做大的 ht 对内存开销较大
 
 - RNN 虽然可以双向，但是不可以并行计算，对 memory 要求高
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
 
 <iframe src="https://arxiv.org/abs/2006.16236" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
@@ -115,7 +115,7 @@ Word embedding.
 
 - 嵌入是一个“抽象”的过程，把高维向量嵌入到一个低维度当中
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271704999.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271704999.webp)
 
 > in the embedding layers, we multiply weights by $\sqrt{d_{model}} = \sqrt{512}$
 > 防止，维度一高，导致初始时候与 position encoding 的值相差太大
@@ -165,10 +165,10 @@ $d_k$ 是 Q 和 K 的维度，因为 Q 和 K 的维度是相同的，在论文�
 > 如果$d_k$ 很大，那么$QK^T$ 的值会很大，导致 softmax 的值趋近于 1，导致梯度消失
 > 所以需要除以$\sqrt{d_k}$ 来归一化
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271659099.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271659099.webp)
 > 图片来源：李宏毅老师 ppt
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271708856.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271708856.webp)
 > 图片来源：3b1b
 
 点积能够有效衡量两个向量的相似性。在注意力机制中，通过计算查询向量（Query）和键向量（Key）的点积，可以评估它们之间的相关性，从而决定注意力权重
@@ -186,7 +186,7 @@ $d_k$ 是 Q 和 K 的维度，因为 Q 和 K 的维度是相同的，在论文�
     \end{aligned}
     $$
     
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041239000.webp)
+    ![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507041239000.webp)
 
 
     加法形式是先加、后 tanh、再和 V 矩阵相乘，相当于一个完整的隐层。
@@ -240,7 +240,7 @@ $$
 
 同时让高值更多权重，采样的时候，让高值更容易被采样到
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507041014614.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507041014614.webp){width=50%}
 
 在数量级较大时，softmax 将几乎全部的概率分布都分配给了最大值对应的标签。
 
@@ -479,7 +479,7 @@ T 较大的时候，让放缩较小，即让低值更多权重
 
 最后一个词向量，成为预测下一个词的 logit
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506271710417.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271710417.webp)
 
 ## Multi-Head Attention
 
@@ -494,7 +494,7 @@ T 较大的时候，让放缩较小，即让低值更多权重
 
 使用不同的$Q$，学习不同种类的相关性
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202507030858038.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507030858038.webp)
 
 多头注意力机制首先将 Q、K、V 通过不同的线性变换映射到不同的表示空间，然后在每个表示空间上独立地应用自注意力机制，最后将所有头的输出拼接并再次线性变换得到最终输出。
 
@@ -557,7 +557,7 @@ attention 对于模型的假设更少，所以需要更大的模型，更多的�
 
 ### 速度 & 准确
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__01-Attention.assets__202506272036822.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506272036822.webp)
 
 <iframe src="https://arxiv.org/pdf/2011.04006" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs

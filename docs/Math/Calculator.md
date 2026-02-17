@@ -6,7 +6,7 @@
     [官网模拟器下载地址](https://edu.casio.com/softwarelicense/index.php)</br>
     [官方说明书pdf文件](https://support.casio.com/storage/cn/manual/pdf/CN/004/fx-991CN_X_B_CN.pdf)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Calculator.assets__20241105105237.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__Calculator.assets__20241105105237.webp)
 
 ## 变量设置
 

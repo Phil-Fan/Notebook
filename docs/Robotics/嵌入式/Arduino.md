@@ -24,19 +24,19 @@
 
 打开 arduino，然后点击`File`——>`Preference`，按图 3 顺序点击设置，然后重启，就可以设置成中文了
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Arduino.assets__20250220102213498.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Arduino.assets__20250220102213498.webp)
 
 ### IDE 库的下载和导入
 
 1. 直接下载
 2. 导入 zip 库：点击左上角“项目” -> “加载库” -> “添加.ZIP 库”然后选择下载的 zip 文件即可
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Arduino.assets__20250220101913345.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Arduino.assets__20250220101913345.webp)
 
 ### vscode 中 Arduino IDE 插件
 
 - 保证 Arduino IDE 下载完成
 - 下载插件
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Arduino.assets__20250221115430443.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Arduino.assets__20250221115430443.webp)
 -
 
 ### Python 固件烧录
@@ -46,7 +46,7 @@
 ### LED 闪烁
 
 [Blink | Arduino Documentation](https://docs.arduino.cc/built-in-examples/basics/Blink/)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__Arduino.assets__20250220090330961.webp)
+![image](https://img.philfan.cn/Robotics_______assets__Arduino.assets__20250220090330961.webp)
 
 This example uses the built-in LED that most Arduino boards have. This LED is connected to a digital pin and its number may vary from board type to board type.
 

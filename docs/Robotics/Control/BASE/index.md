@@ -1,6 +1,6 @@
 # 大纲
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__BASE__assets__index.assets__20241025103426.webp)
+![image](https://img.philfan.cn/Robotics__Control__BASE__assets__index.assets__20241025103426.webp)
 
 课堂体验：★★★☆☆
 

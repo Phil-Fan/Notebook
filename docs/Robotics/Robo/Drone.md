@@ -26,7 +26,7 @@ MIT、ETH、ZJU、HKUST
 
 !!! note "关于“飞翔”"
  代达罗斯和伊卡洛斯
- ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241102205126.webp)
+ ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241102205126.webp)
 
 #### 固定翼
 
@@ -42,27 +42,27 @@ MIT、ETH、ZJU、HKUST
 [科普｜直升机是靠旋翼转速控制升降的？原来我们的认知是错的](https://m.thepaper.cn/newsDetail_forward_13664241)
 [【科普】十分钟就能读懂的直升机飞行原理，值得收藏的干货\_网易订阅](https://www.163.com/dy/article/D52IUJ1G0511A347.html)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__857.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__857.gif)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__866.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__866.gif)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__881.gif)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__881.gif)
 
 旋翼的升力
 
 飞机，直升机和旋翼机三种起飞原理是不同的。飞机依靠助跑来提供速度以达到足够的升力，而直升机依靠旋翼的控制旋转在不进行助跑的条件下实现垂直升降，直升机的旋转是动力系统提供的，而旋翼旋转会产生向上的升力和空气给旋翼的反作用力矩，在设计中需要提供平衡旋翼反作用扭矩的方法，通常有单旋翼加尾桨式（尾桨通常是垂直安装）、双旋翼纵列式（旋转方向相反以抵消反作用扭矩）等；而旋翼机则介于飞机和直升机之间，旋翼机的旋翼不与动力系统相连，由飞行过程中的前方气流吹动旋翼旋转产生升力（像大风车一样），即旋翼为自转式，传递到机身上的扭矩很小，无需专门抵消。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240914105319.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240914105319.webp)
 
 !!! note "四旋翼有十字和 x 两种，采用正反桨，对侧一致"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240914104903.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240914104903.webp)
 
 #### 扑翼型
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911134640.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911134640.webp)
 
 #### 气囊型
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911134634.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911134634.webp)
 
 !!! note "为什么气囊型戛然而止？"
     1. 载重量和体积效益十分不经济。
@@ -86,7 +86,7 @@ MIT、ETH、ZJU、HKUST
 
 马赫锥
 超音速飞行时，激波后的空气压力和温度急剧下降，导致水汽冷凝，形成雾化现象
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241102205256.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241102205256.webp)
 
 #### 激波
 
@@ -95,7 +95,7 @@ MIT、ETH、ZJU、HKUST
 #### 飞行包线
 
 以速度作为横坐标，以高度作为纵坐标，把各个高度下的速度上限和下限画出来，这样就构成了一条边界线，称为飞行包线，飞机只能在这个线确定的范围内飞行。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911135732.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911135732.webp)
 
 #### 气动布局
 
@@ -103,23 +103,23 @@ MIT、ETH、ZJU、HKUST
 
 === "常规布局"
     特点是有主机翼和水平尾翼，大的主机翼在前，小机翼也就是水平尾翼在后，有一个或者两个垂直尾翼
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911135816.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911135816.webp)
 === "变后掠翼布局”
     主翼的后掠角度可以改变，高速飞行可以加大后掠角，相当于飞鸟收起翅膀，低速飞行时减小后掠角，展开翅膀。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911135845.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911135845.webp)
 === "无尾布局"
     没有水平尾翼，无尾布局大大减少了空气阻力，无尾布局的缺点是低速性能不好，这影响到飞机的低速机动性能和起降能力。另外无尾布局因为只能依靠主翼控制飞行，所以稳定性也不理想。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241102205328.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241102205328.webp)
 === "鸭式布局"
     这种气动布局其实就是无尾布局加个鸭翼。有了这个鸭翼，无尾布局的缺点得到明显改善，高速飞行时更加稳定，起降距离明显缩短，甚至机动性能比常规布局更加出色。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241102205428.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241102205428.webp)
 === "飞翼布局"
     只有飞机翅膀的布局，看上去只有机翼，没有机身，机身和机翼融为一体。
     无疑这种布局是空气动力效率最高的布局，因为所有机身结构都是机翼，都是用
     于产生升力，而且最大程度低降低了阻力。空气阻力最小所以雷达波反射自然也
     是最小，所以飞翼布局是隐身性能最好的气动布局。飞翼布局的最大缺陷是操控
     性能极差，完全依赖电子传感控制机翼和发动机的矢量推力。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241102205518.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241102205518.webp)
 
 ## 动态模型
 
@@ -132,16 +132,16 @@ MIT、ETH、ZJU、HKUST
 === "地球中心坐标系 ECEF"
     $ECEF$ 坐标系与地球固联且随着地球转动。图中 $O$ 即为坐标原点，位置在地球质心 。
     $X$ 轴通过格林尼治线（0度经线）和赤道线的交点，正方向为原点指向交点方向。$Z$ 轴通过原点指向北极。$Y$ 轴与 $X$,$Z$轴构成右手坐标系。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911141806.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911141806.webp)
 === "WGS84 坐标系"
     WGS84 坐标系的 X 轴指向 BIH(国际时间服务机构)1984.和协议地球极(CTP)赤道的交点。
     Z 轴指向CTP方向。 Y轴与X、Z轴构成右手坐标系。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911142242.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911142242.webp)
 === "NED 坐标系"
-    NED 坐标系是在导航计算时使用的坐标系，向量分别指向北，东，地，因此 NED 坐标系也经常称为**北东地坐标系**![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240918134709.webp)
+    NED 坐标系是在导航计算时使用的坐标系，向量分别指向北，东，地，因此 NED 坐标系也经常称为**北东地坐标系**![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240918134709.webp)
 === "机体坐标系"
     原点在飞行器重心处 $X$ 轴指向飞行器机头前进方向,$Y$ 轴由原点指向飞行器右侧,$Z$ 轴方向根据 $X$,$Y$轴由右手法则确定。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20241224104346.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20241224104346.webp)
 
 !!! note "为什么有了 GPS 输出的海拔高度，我们还是要用气压计等其它设备来辅助定高呢？"
     GPS地貌不精确；
@@ -157,7 +157,7 @@ MIT、ETH、ZJU、HKUST
 
     一个比较容易的记法是根据字母的排列顺序 PRY 分别对应 XYZ 轴进行旋转得到的角
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911140313.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911140313.webp)
 
 螺旋桨拉力模型
 多旋翼的拉力与力矩模型
@@ -168,7 +168,7 @@ MIT、ETH、ZJU、HKUST
     杠杆定理告诉我们，要给一个物体施加某个大小的旋转力，可以在离轴心较近的位置（小半径）施加较大的力，也可以在离轴心较远的位置（大半径）施以较小的力。只要力和力臂的乘积相同，二者的效果是相等的。<br>
     反过来也一样，对于同一个旋转力，不同位置（半径/力臂）表现出的力大小不同，只有力与力臂的乘积是始终不变的。<br>
     牛·米中间的 $\cdot$（有时被省略）表示乘号 $\times$。在离旋转物体轴心1米半径处，施以1牛顿大小的力，作用于这个物体的旋转力即为1牛·米；反过来，在1牛·米的旋转力作用下，离旋转轴心1米半径处，力大小为1牛顿。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240911151007.webp)
+    ![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240911151007.webp)
 
 ## ⚙️控制
 
@@ -195,12 +195,12 @@ MIT、ETH、ZJU、HKUST
 当多旋翼飞机的各个电机转速相同时，电机产生的反扭力会互相抵消，飞机不会发生转动。
 
 但是当需要飞机原地旋转时，我们就可以利用这种反扭矩，M2、M4 两个顺时针旋转的电机转速增加，M1、M3 号两个逆时针旋转的电机转速降低，由于反扭矩影响，飞机就会产生逆时针方向的旋转。同时由于是“X”型结构对侧的电机同时增加或者降低转速，也保证了飞机的平衡。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240914105652.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240914105652.webp)
 
 ■ 水平移动：垂直方向平衡，水平方向力指向运动方向
 
 以四旋翼为例，当需要按照三角箭头方向前进时，M3、M4 电机螺旋桨会提高转速，同时 M1、M2 电机螺旋桨降低转速，由于飞机后部的升力大于飞机前部，飞机的姿态会向前倾斜。这时螺旋桨产生的升力除了在竖直方向上抵消飞机重力外，还在水平方向上有一个分力，这个分力就让飞机有了水平方向上的加速度，飞机也因而能向前飞行。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240914105702.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240914105702.webp)
 
 向其他方向的移动，实现方法亦然。
 
@@ -208,7 +208,7 @@ MIT、ETH、ZJU、HKUST
 
 ### 平面四旋翼模型
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone.assets__20240925150048.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone.assets__20240925150048.webp)
 
 $u_1$ 表示推力，$u_2$ 表示力矩。
 

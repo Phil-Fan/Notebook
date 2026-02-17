@@ -371,7 +371,7 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 正常运行后，应该显示类似如下图的结果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816231533984.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__NV.assets__image-20250816231533984.webp)
 
 #### 版本问题
 
@@ -381,7 +381,7 @@ nsys profile -d 30 -o result --export=sqlite,json python train.py
 
 遇到的问题是`CUDA device 0: Unified Memory cannot be traced on devices that don't support peer-to-peer transfers.Please verify that SLI/NVLink is functioning properly.`且 GPU 没有抓取到信息
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__image-20250816230828474.webp)
+![image](https://img.philfan.cn/Tools__Software__assets__NV.assets__image-20250816230828474.webp)
 
 我的使用环境是：在 windows 上运行 Nsight System，使用 ssh 连接 wsl 虚拟机，进行连接
 
@@ -395,7 +395,7 @@ nvidia-smi
 
 其次检查 windows 端有没有打开
 
-[![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__NV.assets__da2a85828fee97f1940e26df6c043bf8a598dbb8.webp)](https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png)
+[![image](https://img.philfan.cn/Tools__Software__assets__NV.assets__da2a85828fee97f1940e26df6c043bf8a598dbb8.webp)](https://global.discourse-cdn.com/nvidia/original/4X/d/a/2/da2a85828fee97f1940e26df6c043bf8a598dbb8.png)
 
 最后找到了官方论坛上关于这个问题的讨论，[Nsight system error : Unified Memory cannot be traced on devices that don't support peer-to-peer transfers  - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/nsight-system-error-unified-memory-cannot-be-traced-on-devices-that-dont-support-peer-to-peer-transfers/294742/2)
 

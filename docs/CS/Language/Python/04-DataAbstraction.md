@@ -429,7 +429,7 @@ a, b = map(int, input().split('/'))
 | 差集 | `difference()` | `-` | `s1 - s2` | `{11}` | s1-s2 的结果是出现在 s1 但不出现在 s2 的元素的新集合 |
 | 对称差 | `symmertric_difference()` | `^` | `s1 ^ s2` | `{4,6,11}` | 结果是⼀个除了共同元素之外的所有元素 |
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__04-DataAbstraction.assets__20240808125350.webp)
+![image](https://img.philfan.cn/CS__Language__Python__assets__04-DataAbstraction.assets__20240808125350.webp)
 
 ### 从属判断
 

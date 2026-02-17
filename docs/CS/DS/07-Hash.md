@@ -20,7 +20,7 @@ address = H [key]
 
 将散列到同一个值的所有元素保存到一个链表中
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__07-Hash.assets__image-20230101211655326.webp)
+![image](https://img.philfan.cn/CS__DS__assets__07-Hash.assets__image-20230101211655326.webp)
 
 **装填因子：**散列表中的元素个数/该表的大小  等于链表的平均长度
 
@@ -78,7 +78,7 @@ $E[T] = (1+\Theta(\frac{n}{m})),\alpha := \frac{n}{m}$ 为装载率
 
 ### 乘同余方法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__07-Hash.assets__image-20231120140954994.webp)
+![image](https://img.philfan.cn/CS__DS__assets__07-Hash.assets__image-20231120140954994.webp)
 
 ### MT19937
 

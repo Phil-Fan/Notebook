@@ -46,7 +46,7 @@ comments: True
 ### 开启 webui
 
 开启 webui 之后，操作比较简单，只需要选择对应的模型，修改参数，填写对应路径，即可进行训练
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__webui.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__04-SFT.assets__webui.webp)
 
 #### 进行训练
 
@@ -58,7 +58,7 @@ comments: True
 
 可以中途切断，loss 不需要太低
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Sci__assets__04-SFT.assets__loss.webp)
+![image](https://img.philfan.cn/AI__LLM__Sci__assets__04-SFT.assets__loss.webp)
 
 ```shell title="训练命令 基本是默认的参数"
 llamafactory-cli train \

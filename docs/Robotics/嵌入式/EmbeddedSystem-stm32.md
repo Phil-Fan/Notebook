@@ -5,13 +5,13 @@
 - 成立于 1990 年，总部在英国剑桥，目前拥有员工 2000 多名，分布在全球的 32 个分支机构。全称是 Advanced RISC Machines Limited。
 - ARM 是全球领先的半导体知识产权 (IP，intellectual property) 提供商，没有硬件，没有软件，只有图纸上的知识产权，设计了大量高性能、廉价、低耗能的 RISC 处理器。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124444437.webp" alt="产品线" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124444437.webp" alt="产品线" style="zoom:50%;" />
 
 ## 内核
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124512255.webp" alt="image-20240619124512255" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124512255.webp" alt="image-20240619124512255" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124829730.webp" alt="image-20240619124829730" style="zoom:67%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619124829730.webp" alt="image-20240619124829730" style="zoom:67%;" />
 
 1. 处理器内核
 
@@ -28,7 +28,7 @@
 
 在执行一条指令的同时对下一条指令进行译码，并将第三条指令从存储器中取出。可以显著提高效率
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619140056526.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619140056526.webp)
 
 !!! note "联想到计网中的发送端的流水线机制"
 
@@ -59,7 +59,7 @@ PC = 当前指令位置 +8（两个指令）
 - 中断 (异常) 服务程序必须在处理模式（始终特权级）下执行；
 - 复位后，mcu 默认进入线程模式，特权极访问。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619125625515.webp" alt="image-20240619125625515" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619125625515.webp" alt="image-20240619125625515" style="zoom:50%;" />
 
 特权级：该级别的程序可以访问所有范围的存储器，并且可以执行所有指令；
 
@@ -69,7 +69,7 @@ PC = 当前指令位置 +8（两个指令）
 
 ### 存储器与映射
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619125720483.webp" alt="image-20240619125720483" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619125720483.webp" alt="image-20240619125720483" style="zoom:50%;" />
 
 其中，**R13 R14 R15 比较重要**
 
@@ -77,7 +77,7 @@ PC = 当前指令位置 +8（两个指令）
 
 程序 B 执行最后，将 R14 寄存器的内容放入 PC，返回程序 A
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619130728693.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619130728693.webp)
 
 - R15：程序计数器
 
@@ -92,7 +92,7 @@ CPSR（当前程序状态寄存器）
 
 哈佛结构，但是统一编址，共享同一个逻辑地址空间
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131822340.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131822340.webp)
 
 字节：8 位
 
@@ -104,7 +104,7 @@ CPSR（当前程序状态寄存器）
 
 在大端格式中，高位数字存放在低位字节中。因此存储器系统字节 0 连接到数据线 31～24。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132014766.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132014766.webp)
 
 ### 调试接口
 
@@ -125,11 +125,11 @@ CPSR（当前程序状态寄存器）
 
 占先
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131647576.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131647576.webp)
 
 末位连锁
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131712088.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619131712088.webp)
 
    进程堆栈（process stack），`SP_process`为进程堆栈的`SP` 寄存器。线程模式在复位后使用主堆栈主堆栈，可以配置为使用进程堆栈。
 
@@ -234,7 +234,7 @@ SUBS  R0,R0,#1            ;R0=R0-1
 
 3. 操作 IO。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132657409.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132657409.webp)
 
 ```c
 void LED_Init(void)
@@ -263,7 +263,7 @@ void LED_Sets(uint8_t data)
 
 ## Timer
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132752717.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619132752717.webp)
 
 ### 4 个通用 16 位定时器
 
@@ -320,7 +320,7 @@ While (1)
 
 ### 例程
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619143905175.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619143905175.webp)
 
 ```c
 TIM_DeInit();// 函数将 Timer 设置为默认值；
@@ -393,7 +393,7 @@ UART | `Universal synchronous/asynchronous receiver transmitter`，通用同步/
 
    1 个起始位＋8 个数据位＋1 个校验位＋1 个停止位
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133353142.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133353142.webp)
 
 通信参数
 
@@ -423,11 +423,11 @@ RX：接收。
 
 中断接收 1 个字节，马上发送该字节
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133525336.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133525336.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133537387.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133537387.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133540057.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133540057.webp)
 
 ## A/D & D/A
 
@@ -458,11 +458,11 @@ RX：接收。
 
 6）CPU 通过查询状态位、中断响应、DMA 方式获取 A/D 值。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133818837.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133818837.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133821814.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133821814.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133837397.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619133837397.webp)
 
 ## D/A
 
@@ -473,8 +473,8 @@ RX：接收。
 
 如果选择软件触发，一旦 SWTRIG 位置’1’，转换即开始。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134100987.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134100987.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134104320.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134104320.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134107807.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-stm32.assets__image-20240619134107807.webp)

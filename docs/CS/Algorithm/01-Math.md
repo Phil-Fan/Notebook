@@ -233,7 +233,7 @@ void init()
     做个水题
     [P3383 【模板】线性筛素数](https://www.luogu.org/problem/P3383)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__83978c18ca1332d2089af3151f607631.webp)
+    ![image](https://img.philfan.cn/CS__Algorithm__assets__01-Math.assets__83978c18ca1332d2089af3151f607631.webp)
 
     裸题
 
@@ -363,7 +363,7 @@ $$
 !!! note "有逆元的充要条件"
     两数互质
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__01-Math.assets__image-20240529115856874.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__01-Math.assets__image-20240529115856874.webp)
 
 计算方法
 

@@ -234,7 +234,7 @@ GPT-2 15 亿参数（1.5B）
 - 在法译英任务中，GPT-2 在 zero-shot 学习的基础上，超过了大多数的无监督方法，但是比有监督的 state-of-the-art 模型要差；
 - GPT-2 在文本总结的表现不理想，但是它的效果也和有监督的模型非常接近。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704205739829.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704205739829.webp)
 
 GPT2 在很多任务上得分并不高，更多地看起来还是在讲 Zero-Shot 的问题。
 
@@ -295,7 +295,7 @@ GPT3 不去更新梯度，不做微调
 - GPT-3 Medium 是 BERT 规模
 - GPT-3 XL 和 GPT-2 差不太多，GPT3 模型偏扁
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210923960.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210923960.webp)
 
 W_E GPT3 50267 个 token，每个 token 具有 12288 维度，共 6 亿左右参数，随机初始化
 
@@ -306,7 +306,7 @@ W_E GPT3 50267 个 token，每个 token 具有 12288 维度，共 6 亿左右参
 - 过滤：爬取一部分低质量的 Common Crawl 作为负例，高质量的 Reddit 作为正例，用逻辑回归做二分类，判断质量好坏。接下来用分类器对所有 Common Crawl 进行预测，过滤掉负类的数据，留下正类的数据
 - 去重：lsh 算法（局部敏感哈希），去掉相似的文章
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704214503237.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704214503237.webp)
 
 ### 训练方法
 
@@ -320,7 +320,7 @@ DGX-1 集群，带宽非常高
 
 模型批量大小增大学习率下降
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210811422.webp){width=75%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210811422.webp){width=75%}
 
 评估 GPT3：
 
@@ -328,7 +328,7 @@ DGX-1 集群，带宽非常高
 2. one-shot：1 个样本
 3. zero-shot：0 个样本
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210853697.webp){width=75%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704210853697.webp){width=75%}
 
 - 分类：true/false
 - 补全：beam search
@@ -343,15 +343,15 @@ DGX-1 集群，带宽非常高
 
 power law：不需要过度训练
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211124574.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211124574.webp){width=50%}
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211251507.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211251507.webp){width=50%}
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211310857.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211310857.webp){width=50%}
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211324820.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211324820.webp){width=50%}
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211436395.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211436395.webp){width=50%}
 
 ### 局限性与负面
 
@@ -377,9 +377,9 @@ power law：不需要过度训练
 4. 公平性、偏见
 5. 性别、种族
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211600637.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211600637.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211618437.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__03-GPTs.assets__image-20250704211618437.webp)
 
 ## GPT-4
 

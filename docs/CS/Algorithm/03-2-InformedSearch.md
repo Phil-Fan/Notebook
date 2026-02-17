@@ -73,7 +73,7 @@ Step 4: 评估新状态：
 
 - 解决方法：每次不一定选择邻域内最优的点，而是依据一定概率从邻域内选择一个点：**指标函数优的点被选中的概率大，指标函数差的点被选中的概率小**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193129.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193129.webp)
 
 !!! tip "爬山算法的优势在于当正解的写法你并不了解（常见于毒瘤计算几何和毒瘤数学题），或者本身状态维度很多，无法容易地写分治时，可以通过非常暴力的计算得到最优解"
 
@@ -81,7 +81,7 @@ Step 4: 评估新状态：
 
 - 解决方法：变步长
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193153.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193153.webp)
 
 爬山算法一般会引入温度参数（类似模拟退火）。类比地说，爬山算法就像是一只兔子喝醉了在山上跳，它每次都会朝着它所认为的更高的地方（这往往只是个不准确的趋势）跳，显然它有可能一次跳到山顶，也可能跳过头翻到对面去。不过没关系，兔子翻过去之后还会跳回来。显然这个过程很没有用，兔子永远都找不到出路，所以在这个过程中兔子冷静下来并在每次跳的时候更加谨慎，少跳一点，以到达合适的最优点。
 
@@ -93,7 +93,7 @@ Step 4: 评估新状态：
 
 - 解决方法：随机生成一些初始点，从每个初始点出发进行搜索，找到各自的最优解。再从这些最优解中选择一个最好的结果作为最终结果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193221.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106193221.webp)
 
 ## 模拟退火法 | Simulated Annealing
 
@@ -111,7 +111,7 @@ Step 4: 评估新状态：
 3. **退火：** 逐步降低温度，通常使用冷却调度（如指数冷却）来控制温度的下降。
 4. **终止条件：** 算法在达到预设的迭代次数或温度低于某一阈值时终止。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106154900.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106154900.webp)
 
 ### Metropolis 准则
 
@@ -140,7 +140,7 @@ $$
 
 ### 分析
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__simulated-annealing.gif)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__simulated-annealing.gif)
 
 随着温度的降低，跳跃越来越不随机，最优解也越来越稳定
 
@@ -244,7 +244,7 @@ random() 这个函数取 0 到 1 之间的小数
 该实例中 x1 和 x2 的绝对值不超过 5（包含整数 5 和 -5），（random()* 11 -5）的结果是 -6 到 6 之间的任意值（不包括 -6 和 6）
 （random() * 10 -5）的结果是 -5 到 5 之间的任意值（不包括 -5 和 5），所有先乘以 11，取 -6 到 6 之间的值，产生新解过程中，用一个 if 条件语句把 -5 到 5 之间（包括整数 5 和 -5）的筛选出来。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106192331.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106192331.webp)
 
 ## 遗传算法
 
@@ -253,9 +253,9 @@ random() 这个函数取 0 到 1 之间的小数
 
 每只蚂蚁只关心局部的信息
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200900.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200900.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200625.webp)
+![image](https://img.philfan.cn/CS__Algorithm__assets__03-2-InformedSearch.assets__20241106200625.webp)
 
 - 编码和初始群体生成
 - 群体评价

@@ -16,7 +16,7 @@ iid 假设：训练集和测试集是独立同分布的 `identical and independe
 - Test error is the error calculated on the test data.
 
 use test error to evaluate the quality of model
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__image-20240614191634130.webp" alt="image-20240614191634130" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__image-20240614191634130.webp" alt="image-20240614191634130" style="zoom: 50%;" />
 
 !!! tip "不同的算法就是在用不同的方式去达到平衡点"
 
@@ -38,7 +38,7 @@ $$
 
 - 决策树：拓展分支
 - 神经网络：增加训练轮数
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__20240912105851.webp)
+![image](https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__20240912105851.webp)
 
 ### 评估方法
 
@@ -50,7 +50,7 @@ $$
 - 使用分层采样（stratified sampling）方法，以保持类别比例一致。
 - 一般进行若干次随机划分，重复实验并取平均值。
 - 训练集和测试集的样本比例通常为 2:1 或 4:1，效果还不错。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__20240912151812.webp)
+![image](https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__20240912151812.webp)
 
 #### **交叉验证法**
 
@@ -58,7 +58,7 @@ $$
 2. 训练和测试：每次使用 K-1 个子集的并集作为训练集，剩下的一个子集作为测试集。
 3. 重复实验：重复上述过程 K 次，每次都使用不同的子集作为测试集。
 4. 计算平均值：最终返回 K 个测试结果的平均值
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__20240912152056.webp)
+![image](https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__20240912152056.webp)
 
 !!! note "记得设置 seed，来保证可重复性"
 
@@ -70,7 +70,7 @@ LOO leave-one-out：留一法，最接近于理想情况，开销太大，NFL
 #### 自助法 bootstrap
 
 包外估计，有 36.8% 不出现
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__20240912152608.webp)
+![image](https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__20240912152608.webp)
 
 - 改变了数据的分布
 
@@ -133,7 +133,7 @@ $Accuracy=\frac{T P+T N}{T P+F P+F N+T N}$
 - 假阳性率 (False Positive Rate, FPR)
 假阳性率（False Positive Rate，FPR）是指在所有实际为负例的样本中，模型错误地预测为正例的样本比例。假阳性率可以理解为所有阴性群体中被检测出来阳性的比率 (误诊率)，因此 FPR 越接近 0 越好。它的计算公式如下 FP = \frac{FP}{FP+TN}
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__01-Metrics.assets__20240909154344.webp)
+![image](https://img.philfan.cn/Math__ML__assets__01-Metrics.assets__20240909154344.webp)
 
 [P-R 曲线绘制原理及代码实现\_求 p-r 曲线的代码-CSDN 博客](https://blog.csdn.net/weixin_43298886/article/details/110696655)
 

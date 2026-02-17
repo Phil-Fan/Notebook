@@ -4,7 +4,7 @@
 
 [以太坊基础 - 鹤翔万里的笔记本](https://note.tonycrane.cc/ctf/blockchain/eth/basic/)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Web3__assets__blockchain.assets__20240713192452.webp)
+![image](https://img.philfan.cn/CS__Web3__assets__blockchain.assets__20240713192452.webp)
 
 两种账户：EOA
 

@@ -328,7 +328,7 @@ cd grafana-v12.0.0/bin/
 
 添加`prometheus`数据源
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185014660.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185014660.webp)
 
 在 URL 处填入网址，其他可以不变。
 
@@ -336,7 +336,7 @@ cd grafana-v12.0.0/bin/
 http://localhost:9090/
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185117465.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185117465.webp)
 
 打开 Dashboard
 
@@ -345,7 +345,7 @@ http://localhost:9090/
 3. 要格式化时间序列的图例名称，请使用“图例格式”输入。例如，要仅显示返回查询结果的 method 和 status 标签（用破折号分隔），您可以使用图例格式字符串 {{method}} - {{status}}。
 4. 调整其他图表设置，直到您有一个可用的图表。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185335923.webp)
+![image](https://img.philfan.cn/AI__LLM__Engineer__assets__07-Evaluation.assets__image-20250808185335923.webp)
 
 抓取的 time interval 是 15s，而且不能更改，所以 grafana 测量得到的数据粒度不高
 

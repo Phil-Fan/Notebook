@@ -1,6 +1,6 @@
 # 图论 | Graph Theory
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531210914839.webp" alt="image-20240531210914839" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531210914839.webp" alt="image-20240531210914839" style="zoom:50%;" />
 
 ## 基本概念和建模
 
@@ -56,7 +56,7 @@
 >
 >Bellman-Ford 开头是 B，所以是以边为单位进行操作
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240116141856812.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240116141856812.webp)
 
 ### Floyd - 多源最短路
 
@@ -117,7 +117,7 @@ for (k = 0; k < V; k++) {
 >
 > 相当于加入已经访问过的集合，最短路径就不会再更新了
 >
-> <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240611215919765.webp" alt="image-20240611215919765" style="zoom:50%;" />
+> <img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240611215919765.webp" alt="image-20240611215919765" style="zoom:50%;" />
 
 数学推导
 
@@ -168,7 +168,7 @@ void djikstra(const std::vector<std::vector<int>> &graph, int V,int src){
 
 ### 逐次逼近法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240611214454436.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240611214454436.webp)
 
 ### Bellman-Ford
 
@@ -268,7 +268,7 @@ void bellman(){
 
 > 车队送货问题
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__20200729200407863.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__20200729200407863.webp)
 
 #### **最大流**
 
@@ -282,7 +282,7 @@ $$
 \end{aligned}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__20200729200443224.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__20200729200443224.webp)
 
 #### 饱和
 
@@ -290,7 +290,7 @@ $$
 
 反向饱和/不饱和
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531214947009.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531214947009.webp)
 
 #### **前向弧\后向弧**
 
@@ -315,7 +315,7 @@ $$
 
 > 只要让源和汇不直接相连就可以了，如下图中$(v_1,v_2),(v_3,v_4)$是一个割集
 >
-> <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531220934019.webp" alt="image-20240531220934019" style="zoom:50%;" />
+> <img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531220934019.webp" alt="image-20240531220934019" style="zoom:50%;" />
 
 #### 割量（Cut-set）
 
@@ -333,7 +333,7 @@ $$
 
 该定理指出，在任何流网络中，从源点到汇点的最大流等于最小割量。这意味着要找到最大流，可以寻找一个将源点和汇点分开的割集，使得通过该割集的流量最小。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531223239298.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531223239298.webp)
 
 用$流量=容量 - 空闲$，可以得到阻塞流（blocking flow）
 
@@ -363,11 +363,11 @@ $$
 
 （3）得到新的可行流后，去掉所有有标号，重复步骤二、三，直到收点不能标号为正。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531222016854.webp" alt="image-20240531222016854" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531222016854.webp" alt="image-20240531222016854" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531222032400.webp" alt="image-20240531222032400" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531222032400.webp" alt="image-20240531222032400" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240531222736954.webp" alt="image-20240531222736954" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240531222736954.webp" alt="image-20240531222736954" style="zoom:50%;" />
 
 ### Ford-Fulkerson 算法
 
@@ -389,7 +389,7 @@ flow = capacity -residual
 $$
 残存网络其实就是用边的剩余容量来表示每条边，如下图所示的残存网络。S->v2 这条边上的数字“2”代表这条边剩余可通过容量为 2。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__a727673c41ea4c4c9548a8154aa672d6.webp" alt="在这里插入图片描述" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__a727673c41ea4c4c9548a8154aa672d6.webp" alt="在这里插入图片描述" style="zoom:33%;" />
 
 该算法概况起来，就是在残存网络中不断寻找增广路径，每找到一条增广路径，就递增最大流 $f$，并更新残存网络，直到残存网络中不存在增广路径，则此时$f$即为最终的最大流。
 
@@ -397,15 +397,15 @@ Ford-Fulkerson 算法是通过 DFS（深度优先遍历）的方式在当前残�
 
 根据木桶原理，增广路径的流量等于该路径的边的最小剩余流量。如下图所示的增广路径，它的流量就是 3，因为`v4->t` 的容量为 3
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__b54c07de6761450d9ec4b72005d42d90.webp" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__84dee643a7a94f1ba93ed4df2dbe9193.webp" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__0c094f88a2e144cc9075bc3590500ab7.webp" alt="在这里插入图片描述" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__b54c07de6761450d9ec4b72005d42d90.webp" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__84dee643a7a94f1ba93ed4df2dbe9193.webp" alt="在这里插入图片描述" style="zoom:33%;" /><img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__0c094f88a2e144cc9075bc3590500ab7.webp" alt="在这里插入图片描述" style="zoom:33%;" />
 
 添加反向边是这一算法能够精确求解最大流问题的基础保障
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__image-20240604081319807.webp" alt="image-20240604081319807" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__image-20240604081319807.webp" alt="image-20240604081319807" style="zoom:33%;" />
 
 然后重复上述过程，直到找不到增广路径，算法结束
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-03-graph.assets__7bdff146857146ad8a75a2d0c494c166.webp)
+![image](https://img.philfan.cn/Math__OR__assets__OR-03-graph.assets__7bdff146857146ad8a75a2d0c494c166.webp)
 
 **最大循环次数** 等于最大流，因为最坏情况下每轮循环流量只能增加 1
 

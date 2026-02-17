@@ -3,15 +3,6 @@
 - [ ] 梳理论文表格
 - [ ] 梳理证明过程
 
-<div class="card file-block" markdown="1">
-<div class="file-icon"><img src="/style/images/pdf.svg" style="height: 3em;" alt="pdf"></div>
-<div class="file-body">
-<div class="file-title"> Diffusion 课堂展示 ppt</div>
-<div class="file-meta"> 1.9MB / Version: 22 Apr, 2025</div>
-</div>
-<a class="down-button" target="_blank" href="https://philfan-pic.oss-cn-beijing.aliyuncs.com/pdf/05-DiffusionModelSlides.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
-</div>
-
 ## Background
 
 当下很多图片需要去码去噪，还原本身的图像性质。或者当下 AI 绘画很火热，许多算法通过输入文字描述，最终便可以得到一张生成图像。

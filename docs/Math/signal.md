@@ -202,10 +202,10 @@ $$
 ### 常见信号的傅里叶变换
 
 各种常见信号傅里叶变换需要记住
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212932.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212944.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213012.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620213040.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__20240620212932.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__20240620212944.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__20240620213012.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__20240620213040.webp)
 
 - $cos(\omega_0 t)$频谱搬移
 - 门函数的表达 $u(t) - u(t-t_0)$
@@ -219,8 +219,8 @@ $$
 需要注意直流分量的处理：如果有直流分量，那么只能使用积分变换解决
 
 !!! note "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190744.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620190731.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620190744.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620190731.webp)
 
     $$
     y(t) = t(u(t)-u(t-1))
@@ -311,7 +311,7 @@ $$
 - 频谱乘以$\frac{1}{T_s}$
 
 !!! note "例题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620212715.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620212715.webp)
 
     取样函数（内插函数）加权求和构成的无穷级数；将抽样信号通过一个理想低通滤波器。
 
@@ -385,10 +385,10 @@ x((n-m))_NR_N(n) \stackrel{DFT}{\rightarrow} X(k) e^{-j k \frac{2\pi}{N}m}
 $$
 
 !!! note "题目"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620192017.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620192017.webp)
 
     实数序列，根据共轭对称性,$X(k) = X^*(N-k)$
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620194102.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620194102.webp)
 
 计算量
 
@@ -472,7 +472,7 @@ N 点序列 FFT 运算
 - 连续周期信号：时域正周期截断
 
 !!! note "历年题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__20240620191142.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__20240620191142.webp)
 
     **是一个频率向数字角频率转换的过程。**
     
@@ -522,7 +522,7 @@ $$
 - 终值定理 $\lim\limits_{n\rightarrow\infty}x(n) = \lim\limits_{z-\rightarrow 1}[(z-1)X(z)]$
 
 !!! note "一个很巧妙的题"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__21e71365034176015b05ccec5ccc345.webp)
+    ![image](https://img.philfan.cn/Math__assets__signal.assets__21e71365034176015b05ccec5ccc345.webp)
 
     思路：一开始没有看明白答案在干什么。后来看题才发现，题目中给出了$y(n)$的所有情况，只是没有用分段函数的方法给出而已。知道了这个点之后，这个题就不难了。
     
@@ -775,9 +775,9 @@ $$
 
 ## 滤波器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__filter-1.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__filter-1.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__assets__signal.assets__222.webp)
+![image](https://img.philfan.cn/Math__assets__signal.assets__222.webp)
 
 冲激响应不变法
 

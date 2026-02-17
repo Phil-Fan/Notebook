@@ -18,7 +18,7 @@ $$
 
 直观上说，凸集中任意两点的连线段都完全包含在该集合内。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__20250511234845.webp)
+![image](https://img.philfan.cn/Math__Opt__assets__Opt-1-model.assets__20250511234845.webp)
 
 ### 性质
 
@@ -47,7 +47,7 @@ $$
 \end{align}
 $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__image-20240521163820391.webp" alt="image-20240521163820391" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-1-model.assets__image-20240521163820391.webp" alt="image-20240521163820391" style="zoom:50%;" />
 
 ## 凸函数
 
@@ -63,7 +63,7 @@ $$
 
 这个定义意味着，对于定义域内的任意两点，函数曲线上的这两点之间的部分都在这两点的连线下方。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__image-20240521164034690.webp" alt="image-20240521164034690" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-1-model.assets__image-20240521164034690.webp" alt="image-20240521164034690" style="zoom:50%;" />
 
 - convex function 凸函数
 - concave function 凹函数
@@ -172,7 +172,7 @@ $$
 
 以求最小值为标准问题
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__image-20240521100601777.webp)
+![image](https://img.philfan.cn/Math__Opt__assets__Opt-1-model.assets__image-20240521100601777.webp)
 
 原问题
 
@@ -225,6 +225,6 @@ s.t.= \left\{
 \end{align}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__image-20240521165037244.webp)
+![image](https://img.philfan.cn/Math__Opt__assets__Opt-1-model.assets__image-20240521165037244.webp)
 
 !!! note "无论原问题是什么问题，对偶问题都是凸问题"

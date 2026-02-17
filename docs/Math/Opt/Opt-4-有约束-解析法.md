@@ -45,7 +45,7 @@ $$
 \frac{\partial L(x, \lambda)}{\partial \lambda} \Big|_{x^*} = 0 \quad \Rightarrow \quad h_i(x^*) = 0, \quad i = 1, 2, ..., m
 $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521160859915.webp" alt="image-20240521160859915" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521160859915.webp" alt="image-20240521160859915" style="zoom:50%;" />
 
 > 只有在相切的时候，可行域的切线和梯度才能在同一方向，相加才可能为 0
 
@@ -105,9 +105,9 @@ $$
 
 几何含义：不存在与$\nabla f(x^*)$和所有的$\nabla g_{j \in J(x^*)}$均成锐角的方向。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153533251.webp" alt="有行下降方向" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153533251.webp" alt="有行下降方向" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153609542.webp" alt="无可行下降方向" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521153609542.webp" alt="无可行下降方向" style="zoom:50%;" />
 
 ## **Gordan 引理**
 
@@ -124,7 +124,7 @@ $B^T$是$R^n$中一组基，由$m$个$n$维列向量组成，只存在两种情�
 2. $B^T$这组基的非负、非零线性组合可以得到原点<br>
     换句话说，**如果一组基的非负组合是一个凸锥，则等价为这组基的正组合表示不了原点，除非系数都是 0。即$b_j$不可能分布在任何超平面的同一侧**<br>
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__v2-995890416cc10e852566f5ff1a292f68_1440w.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__v2-995890416cc10e852566f5ff1a292f68_1440w.webp" alt="img" style="zoom:50%;" />
 
 正线性相关（positive linear dependence）
 
@@ -172,7 +172,7 @@ $$
 \sum_{j=0}^l \mu_j^* + \sum_{i=1}^m |\gamma_i^* |\neq 0 \quad 强非负条件
 $$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521161306273.webp" alt="image-20240521161306273" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521161306273.webp" alt="image-20240521161306273" style="zoom:50%;" />
 
 > - 对于紧致的约束条件，$g(x^*) = 0$，但是$\sum_{j=1}^l \mu_j \nabla g_j(X^*)$应该等于负梯度，$\lambda_i \neq 0$
 >
@@ -188,9 +188,9 @@ Slater 条件是指：存在一个点$x \in relint D$，$relint D$表示可行�
 
 > 内部存在点
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521171945366.webp" alt="image-20240521171945366" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521171945366.webp" alt="image-20240521171945366" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521175622067.webp" alt="image-20240521175622067" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521175622067.webp" alt="image-20240521175622067" style="zoom:50%;" />
 
 ## KKT 条件——强对偶的必要条件
 
@@ -215,12 +215,12 @@ $min f(x) \\s.t. \quad g(X) \le 0$
 !!! note "**能解出最优解的一定是等式，故式 (1)(2)(3) 帮我们求最优解；**
 **式 (4) 和式 (5) 是不等式，帮我们排除一些解，或者得到最优解的适用范围。**"
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__image-20240521172440334.webp" alt="image-20240521172440334" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__image-20240521172440334.webp" alt="image-20240521172440334" style="zoom:50%;" />
 
 （1）如果目标为最小化（Min）问题，那么不等式约束需要整理成“$\le0$”的形式；
 （2）如果目标为最大化（Max）问题，那么不等式约束需要整理成“$\ge0$”的形式；
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-4-___-___.assets__8101601f50f02cc9de347507ba01b44d.webp" alt="img" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Math__Opt__assets__Opt-4-___-___.assets__8101601f50f02cc9de347507ba01b44d.webp" alt="img" style="zoom:50%;" />
 
 **梯度方向垂直于函数等值线，指向函数值增长的方向。**
 

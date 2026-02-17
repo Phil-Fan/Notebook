@@ -31,7 +31,7 @@
 
  **实现：**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101184951393.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101184951393.webp)
 
 ## 二叉查找树`BST binary search tree`
 
@@ -43,19 +43,19 @@ contains
 
 思路：遇到比 X 小的节点就递归右子树；遇到比 X 大的节点就递归左子树
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101190630001.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101190630001.webp)
 
 ### **findMin 和 findMax**
 
 思路：一直往左走或者一直往右走
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101190756266.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101190756266.webp)
 
 ### **insert**
 
 思路：像 contains 一样沿着树查找，如果找到 X 则什么也不做，否则将 X 插入到所遍历路径的最后一点上。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101191356007.webp" alt="image-20230101191356007"  />
+<img src="https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101191356007.webp" alt="image-20230101191356007"  />
 
 ### **remove**
 
@@ -67,7 +67,7 @@ contains
 
 如果节点有两个儿子，用其右子树的最小数据代替该节点的数据并且递归删除那个节点
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101192614904.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101192614904.webp)
 
 ## **AVL 树**
 
@@ -87,17 +87,17 @@ contains
 
 从第一个有问题的节点开始，向叶子节点伸展三个节点，把中间数字第二大的节点提升，其他两个节点分列两侧——左边放左边，右边放右边。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20231113142105049.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20231113142105049.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20231113142031094.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20231113142031094.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101195437730.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101195437730.webp)
 
 1 和 4 使用单旋转 2 和 3 使用双旋转
 
 #### **单旋转**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101200041908.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101200041908.webp)
 
 思路：将 X 上移一层，Z 下移一层，抓住 k1 轻轻抖动
 
@@ -109,15 +109,15 @@ contains
 
 深度高的是右子树，那么右子树平衡必须偏右，如果偏左，则需要加一次旋转使得平衡偏右，最后再左转；
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101202411868.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101202411868.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101202422717.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101202422717.webp)
 
 #### **balance**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101202654097.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101202654097.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20230101202711279.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20230101202711279.webp)
 
 ## 红黑树
 
@@ -163,9 +163,9 @@ key-value 文件系统的索引
 
 绝对平衡 每一个节点高度都相同，平衡因子均等于 0
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20231113153948020.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20231113153948020.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__05-tree.assets__image-20231113154712384.webp)
+![image](https://img.philfan.cn/CS__DS__assets__05-tree.assets__image-20231113154712384.webp)
 
 ## B+tree
 

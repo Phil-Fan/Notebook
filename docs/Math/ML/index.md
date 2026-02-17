@@ -113,7 +113,7 @@ CS188
 - supervised learning：分类任务（离散），回归任务（连续）；学习一个映射函数$x\rightarrow \mathbf{y}$
 - unsupervised learning：找到标签或者模式，聚类、降维
 - reinforcement learning：强化学习（相当于是监督学习）
-  ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__index.assets__image-20240611173113321.webp)
+  ![image](https://img.philfan.cn/Math__ML__assets__index.assets__image-20240611173113321.webp)
 
 PAC 模型
 
@@ -204,7 +204,7 @@ there should be some patterns in the data
 
 pipeline，中文意为管线，意义等同于流水线。土味一点 你把它 翻译成 **一条龙服务**；专业一点，叫它 **综合解决方案**<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__index.assets__image-20240614191015217.webp)
+![image](https://img.philfan.cn/Math__ML__assets__index.assets__image-20240614191015217.webp)
 
 - **定义问题**:是有监督还是无监督？是分类还是回归？
 - 收集数据：

@@ -4,7 +4,7 @@
 
 NVIDIA Jetson Orin Nano 是 NVIDIA 推出的一款小型但功能强大的边缘 AI 和机器人计算设备。它是 Jetson 系列中最新的入门级产品，基于 NVIDIA 的 Ampere 架构。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__JetsonNano.assets__20250318091806079.webp)
+![image](https://img.philfan.cn/Robotics_______assets__JetsonNano.assets__20250318091806079.webp)
 > 图源 [NVIDIA Jetson Orin Nano 开发板](https://developer.nvidia.com/embedded/jetson-orin-nano-developer-kit)
 
 主要特点：
@@ -27,7 +27,7 @@ NVIDIA Jetson Orin Nano 是 NVIDIA 推出的一款小型但功能强大的边缘
 
 Jetson Orin Nano 是 Jetson Nano 的升级版，算力提升了 80 倍，高达 40 TOPS（每秒万亿次）的计算性能，为曾经难以企及的复杂 AI 模型铺平了道路
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__JetsonNano.assets__20250318091411215.webp)
+![image](https://img.philfan.cn/Robotics_______assets__JetsonNano.assets__20250318091411215.webp)
 
 ## 刷机与环境配置
 

@@ -58,7 +58,7 @@ pip install cbor
 !!! tip "仿真环境验证"
     完成上述仿真环境配置后，进入Coppeliasim软件，右键`new scene`中的`Floor`，选择`Add -> Associated child script -> Non Threaded -> Python`
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250303130523387.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250303130523387.webp)
 
     函数`sysCall_init()`中键入代码
 
@@ -69,7 +69,7 @@ pip install cbor
 
     运行并得到在控制台得到结果
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250303130627705.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250303130627705.webp)
 
     为什么 Z 轴值是 `-0.1`？
     在 `CoppeliaSim` 里，默认地面 (Floor) 通常不是在 `z = 0`，而是位于 `z = -0.1`。这可能是**为了避免浮动误差或保证物体接触地面时的稳定性**。
@@ -103,12 +103,12 @@ pip install cbor
 - 吸盘的吸附条件：吸盘与吸附中心点的 Z 轴夹角应小于$5^{\circ}$，吸附位置应在吸附中心点为圆心、半径为 0.02m 的圆内，吸盘离物体的距离不能超过 0.005m。
 - 在运行过程中、暂停时可以读取机械臂位置、速度、加速度和吸盘开关的状态，如下图所示。PS：停止会直接关闭。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310144640863.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250310144640863.webp)
 > 图片来源于实验要求
 
 ### Robot/Script.py
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310144840873.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250310144840873.webp)
 
 - `sysCall_init()` 完成各关节角的计算
 - `sysCall_actuation()`中将规划好的关节角通过`move(q, state)`函数传输给机械臂。
@@ -175,7 +175,7 @@ else:
 | 关节速度 | $100^\circ/s$ | $100^\circ/s$ | $100^\circ/s$ | $100^\circ/s$ | $100^\circ/s$ | $100^\circ/s$ |
 | 关节加速度 | $500^\circ/s^2$ | $500^\circ/s^2$ | $500^\circ/s^2$ | $500^\circ/s^2$ | $500^\circ/s^2$ | $500^\circ/s^2$ |
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310103313209.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250310103313209.webp)
 > 图源课程实验要求
 
 ### 实验要求 2
@@ -327,7 +327,7 @@ end
 
 对比得到结果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250314104911633.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250314104911633.webp)
 
 ### 逆运动学
 
@@ -378,7 +378,7 @@ def sysCall_actuation():
         sim.pauseSimulation() # 暂停，也可以使用 stopSimulation()
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250314102228374.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250314102228374.webp)
 
 可以看到红框的部分是一致的，可以验证了逆运动学的正确性
 
@@ -390,7 +390,7 @@ def sysCall_actuation():
 
 不限制规划方案，但是需要注意，最终的成绩与机械臂运行合理性、关节轴速度和加速度连续性等相关。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__9-exp.assets__20250310103409385.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__9-exp.assets__20250310103409385.webp)
 
 要求：
 

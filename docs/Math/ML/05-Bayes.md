@@ -134,7 +134,7 @@ $$
 g_i(x) > g_j(x), \forall j \neq i
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__05-Bayes.assets__20240630201905.webp)
+![image](https://img.philfan.cn/Math__ML__assets__05-Bayes.assets__20240630201905.webp)
 中间的节点是一个分类器
 
 - 判别函数是先验
@@ -161,7 +161,7 @@ Decision Regions and surfaces
 - learning 的过程其实就是将 feature space 分成不同的 decision regions
 - 现实生活中，由于只能从有限的样本中学习，所以只能得到 likelihood 和先验的估计值
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__05-Bayes.assets__image-20240630210634705.webp" alt="image-20240630210634705" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Math__ML__assets__05-Bayes.assets__image-20240630210634705.webp" alt="image-20240630210634705" style="zoom:33%;" />
 
 离散形式极大似然估计
 
@@ -187,7 +187,7 @@ $$
 \end{align*}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__05-Bayes.assets__20240630201709.webp)
+![image](https://img.philfan.cn/Math__ML__assets__05-Bayes.assets__20240630201709.webp)
 
 好处：
 

@@ -1,6 +1,6 @@
 # 通信技术
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__20250224233412357.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__20250224233412357.webp)
 
 | 技术指标 | UWB | WiFi | ZigBee | Cellular（含 NB-IoT/LTE-M） |
 | ---------------- | ---------------------------------- | ---------------------------------- | --------------------------------- | ------------------------------- |
@@ -30,7 +30,7 @@ NFC 是一种**短距离**、**高频**的无线通信技术，允许电子设�
 
 **RFID**（射频识别，Radio Frequency Identification），也称为电子标签，其工作原理是为物品贴上包含 RFID 射频部分和天线环路的电路。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-aa539569eb2e245756c3b381f459b357_1440w.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-aa539569eb2e245756c3b381f459b357_1440w.webp)
 
 !!! note "RFID 在仓储物流中的挑战"
     - 多角度多设备解调复杂
@@ -38,29 +38,29 @@ NFC 是一种**短距离**、**高频**的无线通信技术，允许电子设�
 
 当携带 RFID 标签的物品进入特定磁场时，会发出特定频率的信号，阅读器可以获取该物品的信息。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-66f09419c29d831c51389f0503588ffc_1440w.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-66f09419c29d831c51389f0503588ffc_1440w.webp)
 
 如果说 RFID 是一个人戴着胸牌方便别人了解他，那么 NFC 则是两个人都戴着胸牌，并且可以互相更改胸牌上的信息。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-909bbfcd833d77986097b14819c3f42f_1440w.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-909bbfcd833d77986097b14819c3f42f_1440w.webp)
 
 尽管 NFC 和 RFID 在物理层面相似，但 RFID 属于**识别技术**，而 NFC 属于**通信技术**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-68b289f254b8d6ea9009e018370b7edc_1440w.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-68b289f254b8d6ea9009e018370b7edc_1440w.webp)
 
 NFC 兼容索尼的**`FeliCaTM`标准**和**ISO14443 A，B**（即飞利浦的 MIFARE 标准），简称为**Type A，Type B 和 Type F**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-9c54e744634ceeae61c447d2800bd297_1440w.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-9c54e744634ceeae61c447d2800bd297_1440w.webp)
 
 ### 三种工作模式
 
 1. **主动模式**：NFC 终端作为读卡器，发出射频场识别和读/写其他 NFC 设备信息。
 
-   ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-42b01c8d4bf27423450d09c6ebc28a5e_1440w.webp)
+   ![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-42b01c8d4bf27423450d09c6ebc28a5e_1440w.webp)
 
 2. **被动模式**：NFC 终端模拟成卡，仅在其他设备的射频场中被动响应。
 
-   ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__v2-f0e1d813851749d6547449f7553fcaea_1440w.webp)
+   ![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__v2-f0e1d813851749d6547449f7553fcaea_1440w.webp)
 
 3. **双向模式**：双方 NFC 终端主动发出射频场建立点对点通信。
 
@@ -95,11 +95,11 @@ dingtalk://dingtalkclient/page/link?url=https%3A%2F%2Fyqfkgl.zju.edu.cn%2F_web%2
 
 [UrlEncode 编码和 UrlDecode 解码 - 在线 URL 编码解码工具](http://www.urlencode.com.cn/)<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__1c489475f810460c6d9466309484fac.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__1c489475f810460c6d9466309484fac.webp)
 
 使用了 URL Scheme 的方法，控制 iPhone 自动化打开软件
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__175f446d-e2a5-4f60-92bb-2588cd6406ba.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__175f446d-e2a5-4f60-92bb-2588cd6406ba.webp)
 
 参考网页
 
@@ -306,7 +306,7 @@ lora 使用自己搭建的网关
 
 ## Lora
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__IOT__assets__Tech.assets__20250220095837125.webp)
+![image](https://img.philfan.cn/Robotics__IOT__assets__Tech.assets__20250220095837125.webp)
 
 LoRa（Long Range）是一种低功耗广域网（LPWAN）无线通信技术，由 **Semtech** 公司开发。它使用 **Chirp Spread Spectrum (CSS) 扩频调制**，具有远距离通信、低功耗和强抗干扰能力的特点，适用于 **物联网（IoT）** 应用。
 

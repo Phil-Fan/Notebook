@@ -37,7 +37,7 @@
 !!! example "形象例子 —— 来自知乎杜老师"
     > 引用自 [如何形象生动地解释虚功原理、虚位移原理、力之间的关系？ - 知乎](https://www.zhihu.com/question/23984667)
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418125747.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418125747.webp)
 
 
     在斜面上，小球受到支持力N和重力G，可能位移可以沿斜面向上或者向下走，这就是虚位移，这两个力在虚位移上做的总虚功不为零，所以是不平衡状态。如果小球向上走，总虚功为负功，如果向下走，总虚功为正功，你可以理解为，功是一种能量转换形式，小球会沿着重力势能降低的方向运动，而总虚功就描述了重力势能的变化趋势。
@@ -101,7 +101,7 @@
 
 !!! example "轴孔装配任务中的投影矩阵"
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
 
 | 约束类型 | 运动学约束 | 静力学约束 |
 | --------- | ------------ | ------------ |
@@ -116,7 +116,7 @@
 
 若约束坐标系的各轴与位置和力控制回路中的方向不对齐，投射矩阵就不是对角阵。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250403093747.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250403093747.webp)
 
 位置误差$\hat{e}_p$ 和力误差$\hat{e}_f$ 需要从关节空间转回到笛卡尔空间当中，使用雅可比矩阵$J$
 
@@ -175,7 +175,7 @@ $$
 F=m\ddot{x}_d-\frac{m}{M_d}(B_d\dot{\widetilde{x}}+K_d\widetilde{x})+\left(\frac{m}{M_d}-1\right)F_{ext}
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418165730.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418165730.webp)
 
 ### 笛卡尔空间阻抗控制
 
@@ -206,7 +206,7 @@ $$
   - 增大$\boldsymbol{B}_d$，超调减小、响应变慢
 - 惯性参数$M_d$一般不需要进行调节
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418170635.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418170635.webp)
 
 ## 导纳控制
 
@@ -224,7 +224,7 @@ $$
 
 导纳控制的期望位置不是固定的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418172201.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418172201.webp)
 
 由于质量块还是要由控制力驱动，环路包括一个外环的导纳控制器和一个内环的位置控制器。在导纳控制器中，环境力$F_\mathrm{ext}$通过二阶导纳模型生成一个附加的运动信号，将预期的运动轨迹$x_d$变为新的运动轨迹$x_m$
 $$
@@ -302,7 +302,7 @@ $$
 ### 自然约束/人工约束
 
 !!! note "案例 1:轴承装配"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
 
 | 约束类型 | 运动学约束 | 静力学约束 |
 | --------- | ------------ | ------------ |
@@ -311,7 +311,7 @@ $$
 
 !!! note "案例 2:旋转曲柄"
     规定约束坐标系固连在曲柄上并随曲柄运动，x方向总是指向曲柄的轴心。
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161752.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418161752.webp)
 
     解 手柄具有两个自由度，分别为绕z轴的转动和绕曲柄轴的转动。约束条件可以整理为下表：
 
@@ -325,7 +325,7 @@ $$
 !!! note "案例 2:拧螺丝"
     拧螺丝任务中物理环境是螺丝表面，轴承装配任务中物理环境是装配孔
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250419191034.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250419191034.webp)
 
 | 约束类型 | 运动学约束 | 静力学约束 |
 | --------- | ------------ | ------------ |
@@ -337,7 +337,7 @@ $$
 !!! note "案例 4:开门"
     铰链问题、开门、开盒子
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418163710.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__8-ForceControl.assets__20250418163710.webp)
 
 
 

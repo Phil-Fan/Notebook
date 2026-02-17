@@ -27,7 +27,7 @@ AI 连接
 
 AI 接口接收 4～20mA 电流输入，如何连接
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__202504042327077.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__202504042327077.webp)
 
 - PLC 为每个输入分配好了独立的内存地址
 
@@ -124,7 +124,7 @@ PLC（可编程逻辑控制器）的主要组件包括以下部分：
 - 冗余设计：1oo1、1oo2、2oo2、2oo3
 
 !!! note "可靠度的计算"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250402190726.webp)
+    ![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250402190726.webp)
 
     第二个题计算的时候，可以按照中间的块是否有效进行分类讨论；
 
@@ -225,7 +225,7 @@ I/O 地址生成方式：在配置硬件时，系统自动提供缺省地址（�
 
 程映像区的更新机制：过程映像区在每个扫描周期中更新一次。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405092605.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250405092605.webp)
 
 - 输入、输出地址是不同的（`I`、`Q`）。模块地址在硬件配置时生成或指定。端口状态与映像区周期性自动映射。
 - 支持绝对地址访问，用 `%` 开头。非必要情况下建议优先对映像区读写。
@@ -489,7 +489,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 - FB 或 FC 可以调用其他 FB、FC。
 - 系统为每个优先级分配 64KB 的临时变量（L 堆栈），供组织块、程序块使用。
 - 嵌套越深，占用 L 堆栈越多，需防止“爆栈”现象。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405001921.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250405001921.webp)
 
 ## 定时器
 
@@ -506,7 +506,7 @@ T     %QW416:P                 // 十进制转换结果输出到过程输出缓�
 
 ### SS（保持型接通延时定时器）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp)
 
 ```shell title="SDL"
 A   %I0.0
@@ -778,7 +778,7 @@ bangbang 控制（位式控制）在 85 度，温度开关 I0.5 对应 83 度，
 提醒：先设计出一个电机的启停控制程序
 再设计出五个电机的启停控制程序最后设计出五个电机的关联开关程序
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250405103721.webp)
 
 ### 通风机的监控
 
@@ -790,9 +790,9 @@ bangbang 控制（位式控制）在 85 度，温度开关 I0.5 对应 83 度，
 设计过程风机的状态（3 个）—— %I0.0 %I0.1 %I0.2
 信号灯输出（1 个 —— %Q4.0
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145757.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250406145757.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145821.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250406145821.webp)
 
 ### 延时开关（注意设计自锁）
 
@@ -801,7 +801,7 @@ bangbang 控制（位式控制）在 85 度，温度开关 I0.5 对应 83 度，
 （2）当输入信号为 OFF 时，立即关闭开关泵，过 5 秒后关阀
 
 （输入信号地址%I0.4 开关阀输出地址%Q4.4 开关泵输出地址%Q4.5）
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406145933.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250406145933.webp)
 
 ### 原料输送系统（延时开关）
 
@@ -834,7 +834,7 @@ bangbang 控制（位式控制）在 85 度，温度开关 I0.5 对应 83 度，
 - 当储罐 A 中料满时，关闭阀 V，10s 后再关闭电机 M；
 3）按下停止按钮后，系统进入停机状态：并立即关闭开关阀 V，经 10s 后再关闭输送电机 M。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl-PLC.assets__20250406150103.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl-PLC.assets__20250406150103.webp)
 
 ## 实验课
 

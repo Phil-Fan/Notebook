@@ -14,7 +14,7 @@ Catch Me If You Can
 
 [一文看尽深度学习中的生成对抗（GAN）网络\_energy-basedgan-CSDN 博客](https://blog.csdn.net/qq_23981335/article/details/118332773)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__ADV__assets__03-GAN.assets__20240924092601.webp)
+![image](https://img.philfan.cn/AI__ADV__assets__03-GAN.assets__20240924092601.webp)
 
 [图解 生成对抗网络 GAN 原理 超详解\_gan 原理图-CSDN 博客](https://blog.csdn.net/DFCED/article/details/105175097)
 

@@ -7,7 +7,7 @@
    实践成绩占 35%——综合实践大作业，小组情况、个人完成情况各占 50% 计算<br>
    期末考试占 45%——半开卷，1 张 A4 纸，手写，复印无效<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250220082031246.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250220082031246.webp)
 
 <iframe src="http://www.cse.zju.edu.cn/aec/2012/0308/c73095a2676372/page.htm" width="100%" height="600px" frameborder="0"></iframe>
 
@@ -68,7 +68,7 @@
 
 3. **反馈的两种形式**：正反馈和负反馈
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250306110534039.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250306110534039.webp)
 
 ai:
 ao:
@@ -93,7 +93,7 @@ ao:
      - 远程节点的引入的好处：好处：提高运行效率 降低维护成本 提高数据传输速；问题：网络安全问题 通讯延迟问题；启示：结合实际 整体评估 加强检测维护
    - 90 年代：FCS 现场总线控制系统：全数字通信、全分散控制
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250227084020236.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250227084020236.webp)
 
 !!! note "计算机控制系统中的“计算机”与普通计算机相比会有哪些方面的“相同”和“不同”？"
 
@@ -230,13 +230,13 @@ ao:
 单元组合仪表
 8 种单元：变送、调节、执行、显示、辅助、给定、转换、运算
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250306083336979.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250306083336979.webp)
 DDZ：电动单元组合元件
 QDZ：气动单元组合元件
 
 电流输入仪表、电压输入仪表及其输入阻抗
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250306111119766.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250306111119766.webp)
 
 信号制：气动、电动、数字仪表
 
@@ -291,7 +291,7 @@ HART（Highway Addressable Remote Transducer）协议是一种用于现场设备
 ia 等级 在正常和≤2 个故障时均安全
 ib 等级 在正常和 1 个故障时安全
 3. 可现场开壳维修，但维修设备也应本质安全
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250306083300792.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250306083300792.webp)
 
 气体等级与最小引爆火花能量：I 甲烷 0.280mJ IIA 丙烷 0.180mJ IIB 乙烯 0.060mJ IIC 氢气 0.019mJ
 T1-6:max 450/300/200/135/100/85
@@ -311,7 +311,7 @@ Ex+i 本安 d 隔爆[a 本安 a 类 b 本安 b 类]+IIA、IIB、IIC+T1-6
 
 ### 仪表防护
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250306090733047.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250306090733047.webp)
 
 ### 信号连接方式 —— 二线制和四线制
 
@@ -380,7 +380,7 @@ Ex+i 本安 d 隔爆[a 本安 a 类 b 本安 b 类]+IIA、IIB、IIC+T1-6
 - 下方是调节机构：阀体、阀座、阀芯、阀杆或转轴，直接与介质接触，由阀芯的位置或者转角，改变调节阀的流通截面积，从而改变介质的流量
 
 气阀打开，空气增多，压力增大，阀门关闭
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__20250608112835.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__20250608112835.webp)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=933910874&bvid=BV1VT4y1d7Y2&cid=435152367&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600px"></iframe>
 
@@ -492,7 +492,7 @@ PID 离散化
 
 ### PLC 概述
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__PcCtl.assets__202506191005216.webp)
+![image](https://img.philfan.cn/Robotics_______assets__PcCtl.assets__202506191005216.webp)
 
 | 图 | 电容 C 作用 | 功能说明 |
 | -- | -------------- | -------------------- |

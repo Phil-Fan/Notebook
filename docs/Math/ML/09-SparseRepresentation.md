@@ -78,7 +78,7 @@ $m \approx k \cdot c$ 线性
 
 #### 采样矩阵$A$的设计
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__09-SparseRepresentation.assets__20241017153420.webp)
+![image](https://img.philfan.cn/Math__ML__assets__09-SparseRepresentation.assets__20241017153420.webp)
 
 - 规则采样下，每个样本点仅包含局部信息
 - 随机采样下，每个样本点包含了全局信息

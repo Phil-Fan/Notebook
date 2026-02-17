@@ -34,7 +34,7 @@ Transformer 进一步解决了 RNN、LSTM 等模型的长距离依赖问题，�
 - 长度固定
 - 局部信息的获取不如 RNN 和 CNN 强：Transformer 关注的全局关系，而 RNN 在计算过程中更关注局部，对距离更加敏感
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507022301371.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507022301371.webp)
 > 图源 Attention is all you need
 
 编码器将输入的符号序列 $(x_1, ..., x_n)$ 映射为连续表示序列 $z = (z_1, ..., z_n)$。给定 $z$，解码器会一次生成一个符号，最终生成输出序列 $(y_1, ..., y_m)$（注意 $m$ 和 $n$ 不一定相等）。
@@ -65,7 +65,7 @@ $$
 
 BatchNorm 是对一个 batch-size 样本内的每个特征**分别**做归一化，LayerNorm 是分别对每个样本的所有特征做归一化。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030922846.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507030922846.webp)
 
 BN 抹杀了不同特征之间的大小关系，但是保留了不同样本间的大小关系；LN 抹杀了不同样本间的大小关系，但是保留了一个样本内不同特征之间的大小关系。
 
@@ -109,7 +109,7 @@ $$
 FFN(x) = max(0, xW_1 + b_1)W_2 + b_2
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507040928454.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507040928454.webp)
 
 - $x$: 512 维
 
@@ -147,7 +147,7 @@ self-attention 层只需要学$W_Q,W_K,W_V$三个矩阵，参数数目是 $3*d_{
 
     有点类似于最近图书馆里面的拼贴诗接龙游戏
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030949023.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507030949023.webp)
 > 图源 李宏毅老师 ppt
 
 需要先给一个开始的信号 —— begin of sentence token，decoder 会吐出一个 vocabulary size 的向量，然后通过 softmax 得到概率分布，然后选择概率最大的 token 作为输出
@@ -162,7 +162,7 @@ Mask：不要让后面的 token 影响前面的，在 softmax 之前把左下角
 
 处理结果，在$t$时刻的值，只看$t-1$及之前的 Q、K
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507041132597.webp){width=50%}
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507041132597.webp){width=50%}
 
 !!! note "why masked"
 
@@ -184,7 +184,7 @@ Mask：不要让后面的 token 影响前面的，在 softmax 之前把左下角
 交互方式：
 Cross Self-attention，Decoder 提供$Q$，Encoder 提供$K$，$V$。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507030934992.webp){width=40% }
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507030934992.webp){width=40% }
 
 Query 来自下一个 attention 的输入
 
@@ -198,7 +198,7 @@ Query 来自下一个 attention 的输入
 
 Transformer 看起来模型比较复杂，但几乎没有什么可以调节的参数，大部分都是可以根据比例算的。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__LLM__Models__assets__02-Transformer.assets__202507022311529.webp)
+![image](https://img.philfan.cn/AI__LLM__Models__assets__02-Transformer.assets__202507022311529.webp)
 
 > 图源 Attention is all you need
 

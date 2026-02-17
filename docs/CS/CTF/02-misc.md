@@ -30,7 +30,7 @@ MISC = ALL - PWN - WEB - CRYPTO - REVERSE
 
 常见的 01 串转换方式有 编解码、加解密、哈希
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704135220.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240704135220.webp)
 
 ### 字符编码
 
@@ -38,7 +38,7 @@ MISC = ALL - PWN - WEB - CRYPTO - REVERSE
 
 人类理解的字符 to 计算机理解的 01 串之间的映射
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704142921.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240704142921.webp)
 
 #### 乱码
 
@@ -152,7 +152,7 @@ UTF-8 解码：如果超出 UTF-8 的范围，会用`0xef 0xbf 0xbd`来表示，
 一共 128 个项，即每个字符可以用一个 7 位的 01 串表示（或一字节）
 00-1F：控制字符；20-7E：可见字符；7F：控制字符（DEL）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704180429.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240704180429.webp)
 
 #### Latin-1（ISO-8859-1）
 
@@ -205,7 +205,7 @@ UCS (Universal Character Set)
 
     2. 字符€ (U+20AC)
     分析：字符‘€’的 Unicode 是 U+20AC，位于 U+0800 到 U+FFFF 之间，因此，需要用 3 个字节表示，即 1110xxxx 10xxxxxx 10xxxxxx，将“20AC”中的每个字符直接转换成二进制为：0010 0000 1010 1100，然后将它从低位往高位（从右到左）依次替换 x，如下图：
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240704183246.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240704183246.webp)
     这样得出字符 € (U+20AC) 用 UTF-8 编码的二进制为：11100010 10000010 10101100，转换成十六进制为：0xE2 0x82 0xAC
 
 - `UTF-16`：变长编码（2/4），不兼容 ASCII
@@ -227,7 +227,7 @@ GB 2312 / GBK / GB 18030-2022
     === "GB18030"
         然而为了和ASCII兼容，最高位不能为0就已经直接淘汰了一半的组合，只剩下3万多种组合无法满足全部汉字要求）。因此GB18030多出来的汉字使用4bytes编码。当然，为了兼容GBK，这个四字节的前两位显然不能与GBK冲突（实操中发现后两位也并没有和GBK冲突）。我国在2000年和2005年分别颁布的两次GB18030编码，其中2005年的是在2000年基础上进一步补充。至此，GB18030编码的中文文件已经有七万多个汉字了，甚至包含了少数民族文字。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240707134357.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240707134357.webp)
 
 这图中展示了前文所述的几种编码在编码完成后，前 2 个 byte 的值的范围（用 16 进制表示）。每个 byte 可以表示 00 到 FF（即 0 至 255）。从图中我们可以一目了然地看到为什么 GB18030 可以兼容 GBK，GB2312 和 ASCII 了。他们几种编码之间前两位没有重合部分。需要注意的是 ASCII 只有 1byte，所以是没有第二位的。另外 GB18030 在上图中占的面积虽然很小，但是它是 4bytes 编码，这图只展示了前两位。如果后两位也算上，GB18030 的字数要远多于 GBK。另外需要注意的是，由于 GBK 兼容 GB2312，因此属于 GB2312 的蓝色区域其实也可以算作是 GBK 的区域。同理 GBK 的区域理论上也属于 GB18030 的区域。上表中只是展示了多出来的部分。
 
@@ -639,7 +639,7 @@ namechk:<https://namechk.com/>
     - GIF 有损且只支持 256 色
     - 新兴格式如 HEIF、WebP、AVIF 等
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709191542.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240709191542.webp)
 
 - 文件头 `89 50 4E 47 0D 0A 1A 0A | .PNG....`
 **采用分块的方式存储数据**,每块的结构都是 4 字节长度 + 4 字节类型 + 数据 + 4 字节 CRC 校验
@@ -648,7 +648,7 @@ namechk:<https://namechk.com/>
 - eXIf 元信息，tIME 修改时间，tEXt 文本，zTXt 压缩文本
 
 === "文件结构"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709190857.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240709190857.webp)
 
     JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个字节表示类型：
 
@@ -711,7 +711,7 @@ namechk:<https://namechk.com/>
 
 ### 图像大小修改
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__02-misc.assets__20240709193713.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__02-misc.assets__20240709193713.webp)
 
 - PNG 图像按行进行像素数据的压缩，以及存储 / 读取
 - 当解码时已经达到了 IHDR 中规定的大小就会结束

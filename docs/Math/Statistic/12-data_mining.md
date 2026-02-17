@@ -19,7 +19,7 @@
 或者 Mean-subtraction（subtraction 表示减去））
 
 把数据的中心平移的过程
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__12-data_mining.assets__20241105101120.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__12-data_mining.assets__20241105101120.webp)
 
 ### 数据标准化 | normalization
 

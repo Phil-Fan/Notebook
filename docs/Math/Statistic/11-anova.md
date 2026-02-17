@@ -70,7 +70,7 @@ $$
 
 对于给定的显著水平$\alpha$，用$F_{\alpha}(r-1, n-r)$表示 F 分布的上侧$\alpha$分位数，这个假设检验的拒绝域为$W = \{F \geq F_{\alpha}(r-1, n-r)\}$。即当由观察值得到的 F 值落在拒绝域内，则意味着应该拒绝原假设$H_0$，认为各总体均值（各个水平下）有差异，即因素 A 显著。或计算$P = P\{F(r-1, n-r) \geq F\}$，当$P \leq \alpha$时拒绝原假设$H_0$。通常将上述的计算归纳成表 9.1.3，称为方差分析表（analysis of variance table）。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122192402.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__11-anova.assets__20241122192402.webp)
 
 ### $\sigma^2$的无偏估计
 
@@ -163,7 +163,7 @@ $$
 
 由观测样本计算得到$FA$和$FB$的值，根据这些值是否落在拒绝域内，判断是拒绝还是接受$H_{01}$和$H_{02}$。计算结果可归纳成下面的方差分析表
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193211.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__11-anova.assets__20241122193211.webp)
 
 ```python title="无影响多因素使用 ols&anova_lm"
 from statsmodels.stats.anova import anova_lm
@@ -185,8 +185,8 @@ Residual  42.0  3.813786e+08  9.080444e+06        NaN           NaN
 
 ## 有相互影响的多因素
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193649.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__11-anova.assets__20241122193649.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193707.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__11-anova.assets__20241122193707.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Statistic__assets__11-anova.assets__20241122193721.webp)
+![image](https://img.philfan.cn/Math__Statistic__assets__11-anova.assets__20241122193721.webp)

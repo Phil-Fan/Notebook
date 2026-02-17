@@ -11,7 +11,7 @@
     Author ：[Gongjin Lan](https://arxiv.org/search/cs?searchtype=author&query=Lan,+G), [Yu Wu](https://arxiv.org/search/cs?searchtype=author&query=Wu,+Y), [Fei Hu](https://arxiv.org/search/cs?searchtype=author&query=Hu,+F), [Qi Hao](https://arxiv.org/search/cs?searchtype=author&query=Hao,+Q)<br>
     arXiv地址：[Vision-Based Human Pose Estimation via Deep Learning: A Survey (arxiv.org)](https://arxiv.org/abs/2308.13872)<br>
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__HumanPoseEstimation.assets__image-20240318194903268.webp)
+![image](https://img.philfan.cn/AI__CV__assets__HumanPoseEstimation.assets__image-20240318194903268.webp)
 
 ## 名词解释
 
@@ -115,7 +115,7 @@ $v_i$ 是可见性标志，可以是 0（未标注）、1（已标注但不可�
 
 ## 主流数据集和技巧
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__HumanPoseEstimation.assets__image-20240318203018496.webp)
+![image](https://img.philfan.cn/AI__CV__assets__HumanPoseEstimation.assets__image-20240318203018496.webp)
 
 ### 1. AIC (AI Challenger) Dataset
 

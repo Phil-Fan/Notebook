@@ -3,9 +3,9 @@ comments: true
 ---
 # 经典控制方法
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__index.assets__20241025103707.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__index.assets__20241025103707.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__index.assets__20241025103623.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__index.assets__20241025103623.webp)
 
 [打通你任督二脉的自动控制领域知名博主 - 西门子工程师推荐\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1Bu411e762)
 

@@ -46,7 +46,7 @@ $$
     如果把输入输出层看作神经元，那么矩阵方程可以看作是神经网络的线性层
 
 
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__LinearAlgebra__assets__05-matrix_equation.assets__20250511210010.webp)
+    ![](https://img.philfan.cn/Math__LinearAlgebra__assets__05-matrix_equation.assets__20250511210010.webp)
 
 ## 有无解
 

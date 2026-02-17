@@ -28,7 +28,7 @@ else:
 
 优先级规则 not>and>or
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__02-Statement.assets__a26c8031eeb36116320ad0f23883c8c.webp)
+![image](https://img.philfan.cn/CS__Language__Python__assets__02-Statement.assets__a26c8031eeb36116320ad0f23883c8c.webp)
 
 ## while
 

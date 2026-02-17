@@ -9,13 +9,13 @@
 
 做 PPT 时候整理的图像
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605143933543.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240605143933543.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605144047495.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240605144047495.webp)
 
 ## 加密——机密性
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240215231126309.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240215231126309.webp)
 
 !!! note "密钥才是加密的核心"
     加密算法和密钥是分开的，每个人可以拥有相同品牌的锁，但是每一个人有不同的钥匙<br>锁的设计是公开的，但是钥匙是秘密的。
@@ -136,7 +136,7 @@
 
 #### 凯撒密码——平移
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522173659727.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240522173659727.webp)
 
 又叫加法密码，是一种替换密码，属于其中的单表密码，将明文的每个字母按字母表循环移动固定位数得到密文
 
@@ -191,7 +191,7 @@ $$
 [单表代换加密 - CTF Wiki (ctf-wiki.org)](https://ctf-wiki.org/crypto/classical/monoalphabetic/#_11)<br>
 
 !!! note "单表替换密码"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__crypto_challenge1.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__crypto_challenge1.webp)
 
     - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
     
@@ -201,7 +201,7 @@ $$
     >
     > tomorrow she will go to the warehouse and become the first person to discover his corpse with a strong alibi these police officers absolutely cannot arrest her
     
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240605182302624.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240605182302624.webp)
 
 #### 多表替换密码——维吉尼亚密码
 
@@ -221,7 +221,7 @@ $$
 dec(y_i)= (y_i-key_i) \mod 26
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707145724.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__20240707145724.webp)
 
 !!! note "例：明文 CRANE，密钥 TONY"
     (C, T)  to   V
@@ -280,7 +280,7 @@ $$
 
 比如还是明文`crypto basic` ，取 k=3，将明文分割成三行
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__20240707152053.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__20240707152053.webp)
 因此，密文为 `cp srtbiyoac`
 
 #### 矩阵的替换——Hill 加密
@@ -306,7 +306,7 @@ Hill 密码是一种基于线性代数的多字母替换密码，由数学家 Le
 
 Enigma 加密
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240522174420066.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240522174420066.webp)
 
 !!! bug "这一部分没有看"
 
@@ -341,7 +341,7 @@ $K_{A-B}$:对称密钥
 - 16 round Feistel 网络
 - 已经被破解了
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240526113303219.webp" alt="image-20240526113303219" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240526113303219.webp" alt="image-20240526113303219" style="zoom:50%;" />
 
 中间的“子密钥”指的是本轮加密所使用的密钥。在 Feistel 网络中，每一轮都需要使用一个不同的子密钥。由于子密钥只在一轮中使用，它只是一个局部密钥，因此才称为子密钥 (`subkey`)。
 
@@ -365,9 +365,9 @@ $K_{A-B}$:对称密钥
 
 当三重 DES 中所有的密钥都相同时，三重 DES 也就等同于普通的 DES 了。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529100522514.webp" alt="image-20240529100522514" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529100522514.webp" alt="image-20240529100522514" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506083826564.webp" alt="image-20240506083826564" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240506083826564.webp" alt="image-20240506083826564" style="zoom:50%;" />
 
 一三密钥相同
 
@@ -378,7 +378,7 @@ $K_{A-B}$:对称密钥
 - 使用 3 个 key，3 重 DES 运算；
 - 密文分组成串技术：当前明文和前面密文 64bit 做异或处理
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529095943964.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529095943964.webp)
 
 尽管三重 DES 目前还被银行等机构使用，但其处理速度不高，除了特别重视向下兼容性的 情况以外，很少被用于新的用途。
 
@@ -398,15 +398,15 @@ $K_{A-B}$:对称密钥
 
 - `SubBytes`
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101532403.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529101532403.webp)
 
 - `shiftrows`:每一行平移字节数也是不同的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101600609.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529101600609.webp)
 
 - mixcolumn
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529101833891.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529101833891.webp)
 
 最后，需要将`MixColumns` 的输出与轮密钥进行`XOR`, 即进行`AddRoundKey`处理。
 
@@ -445,7 +445,7 @@ ECB 模式中，明文分组与密文分组是一一对应的关 系，因此，
 
 $mac=MAC(K_{mac},message)$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506084559460.webp" alt="image-20240506084559460" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240506084559460.webp" alt="image-20240506084559460" style="zoom:50%;" />
 
 是一种用于分组密码的加密模式。在 CBC 模式中，每个明文分组在加密之前会先与前一个密文分组进行 XOR 运算，然后再进行加密。这种方式使得密文分组之间相互连接，像链条一样
 
@@ -458,13 +458,13 @@ CBC 模式的特点包括：
 
 **密文分组损坏**，则最多只有两个分组会受到影响。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114556558.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529114556558.webp)
 
 bit 缺失
 
 导致密文分组的长度发生变化，此后的分组发生错 位，这样一来，缺失比特的位置之后的密文分组也就全部无法解密了
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529114626002.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529114626002.webp)
 
 确保互联网安全的通信协议之一`SSL/TLS`, 就是使用 CBC 模式来确保通信的机密性的，如使 用 CBC 模式三重 DES 的 3DES_EDE_CBC 以及 CBC 模式 256 比特 AES 的 AES _256_CBC 等。
 
@@ -483,7 +483,7 @@ bit 缺失
 !!! note "密钥长度为 256 比特的对称密码 AES, 与密钥长度为 1024 比特的公钥密码 RSA 相比，RSA 的安全性更高吗？"
     公钥密码的密钥长度不能直接与对称密码的密钥长度进行比较，而且对不同密码算法的强度进行比较本来就不是一件容易的事。<br>
     尽管如此，在将对称密钥和公钥密码结合起来使用的场景中.我们还是希望使两者的强度保持一定的平衡。很多密码系统中都会给出一些密码算法的理想组合方式，并打包成密码套件( `cipher suite` )<br>
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529122411971.webp)
+    ![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529122411971.webp)
 
 > 首先，将物品放人寄物柜中。然后，投入硬币并拔出钥匙，就可以将寄物柜关闭了。关闭 后的寄物柜，没有钥匙是无法打开的。 <br>只要有硬币，任何人都可以关闭寄物柜，但寄物柜一旦被关闭，再怎么投币也无法打开。打开寄物柜需要使用钥匙，而不是硬币。 <br>因此我们可以说，硬币是关闭寄物柜的密钥，而钥匙则是打开寄物柜的密钥。
 
@@ -510,7 +510,7 @@ bit 缺失
 
 #### RSA | `Rivest, Shamir, Adelson algorithm`
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529115538998.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529115538998.webp)
 
 1978 年，`Ron Rivest`、`Adi Shamir`和`Reonard Adleman`共同发表了一种公钥密码算法 RSA
 
@@ -557,7 +557,7 @@ $$
 2. $ed = 1 + k\phi(n)$ 表示 $e$ 和 $d$ 是模 $\phi(n)$ 的乘法逆元
 3. 因此，$M^{ed} = M^{1+k\phi(n)} = M \cdot (M^{\phi(n)})^k$。由于 $M^{\phi(n)} \equiv 1 \mod n$，我们得到 $M^{ed} \mod n = M \mod n$，这证明了解密后我们可以得到原始消息 $M$。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240216123200169.webp" alt="image-20240216123200169" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240216123200169.webp" alt="image-20240216123200169" style="zoom:50%;" />
 
 #### 机密性分析
 
@@ -711,9 +711,9 @@ print(long_to_bytes(m))
 
 加密与解密过程
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135817229.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529135817229.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529135843902.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529135843902.webp)
 
 密钥长度的平衡
 
@@ -735,7 +735,7 @@ print(long_to_bytes(m))
 
 是指攻击者在知道过去生成的伪随机数列的前提下，依然无法预测出下—个生成出来的伪随机数的性质。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529153557497.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529153557497.webp)
 
 #### 线性同余法
 
@@ -758,13 +758,13 @@ print(long_to_bytes(m))
 计算报文摘要的签名$K^-_B(H(m))$
 单向散列函数所输出的散列值的长度是固定的
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529140951509.webp" alt="image-20240529140951509" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529140951509.webp" alt="image-20240529140951509" style="zoom: 50%;" />
 
 报文摘要：互异、反向计算特别难
 
 > 一车水果打成果汁，取 1mL 果汁进行签名，足以代表一车水果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240506091633237.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240506091633237.webp)
 
 - 首先，MD5 是不安全的，因此不应该使用。
 
@@ -833,7 +833,7 @@ SHA-256、SHA-384 和 SHA512 都是由 NIST 设计的单向散列函数，它们
 
 Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529144434563.webp" alt="image-20240529144434563" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529144434563.webp" alt="image-20240529144434563" style="zoom:50%;" />
 
 #### 攻击方法
 
@@ -853,13 +853,13 @@ Secure Hash Algorithm-3 新标准，公开竞争的方式进行标准化
 
 消息认证码是一种与密钥相关联的单向散列函数，无法保证机密性也无法防止抵赖
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529145807418.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529145807418.webp)
 
 #### 实现方法
 
 **使用单向散列函数实现**：HMAC
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529150336347.webp" alt="image-20240529150336347" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529150336347.webp" alt="image-20240529150336347" style="zoom:50%;" />
 
 使用分组密码实现
 
@@ -899,11 +899,11 @@ bob 解密
 
 - 不可抵赖性（对第三方）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529150956820.webp" alt="image-20240529150956820" style="zoom:50%;" />
+<img src="https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529150956820.webp" alt="image-20240529150956820" style="zoom:50%;" />
 
 **用私钥进行这一行为只能由持有私钥的人完成**：数字签名是利用了“没有私钥的人事实上无法生成使用该私钥所生成的密文”这一性质来 实现的。这里所生成的密文并非被用于保证机密性，而是被用于代表一种只有持有该密钥的人 才能够生成的信息。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529151054694.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529151054694.webp)
 
 也可以对消息的散列值签名
 
@@ -936,7 +936,7 @@ KDC 是 Kerberos 认证协议中的核心组件，主要用于认证服务和分
 5. **服务访问**：用户客户端使用服务票据向服务进行认证。服务解密服务票据，验证用户的权限，然后允许访问。
 6. **通信加密**：客户端和服务之间的通信可以使用从 KDC 获得的会话密钥加密，确保数据传输的安全性。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240216132053873.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240216132053873.webp)
 
 #### 非对称解决 | CA Certification Authorities
 
@@ -944,9 +944,9 @@ KDC 是 Kerberos 认证协议中的核心组件，主要用于认证服务和分
 
 用 CA 的私钥签署了$$CA^-(Bob,K_B^+)$$​
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152153523.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529152153523.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240217100652773.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240217100652773.webp)
 
 - 串号 (证书发行者唯一)
 - 证书拥有者信息，包括算法和密钥值本身 (不显示出来
@@ -971,7 +971,7 @@ Diffie-Hellman 密钥交换 ( Diffie-Hellman key exchange ) 是 1976 年由 Whit
 
 虽然这种方法的名字叫“密钥交换”，但实际上双方并没有真正交换密钥，而是通过计算生 成出了一个相同的共享秘钥。因此，这种方法也称为 Diffie-Hellman 密钥协商（`Diffie-Hellman key agreement` )
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CTF__assets__05-crypto.assets__image-20240529152845886.webp)
+![image](https://img.philfan.cn/CS__CTF__assets__05-crypto.assets__image-20240529152845886.webp)
 
 双方交换的数字（即能够被窃听者 Eve 知道的数字）一共有 4 个：P、G,$ G^A \mod P$和$G^B \mod P $。根据这 4 个数字计算出 Alice 和 Bob 的共享密钥（$G^{AxB}\mod P$) 是 非常困难的。
 

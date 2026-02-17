@@ -12,9 +12,9 @@ comments: true
 
       === "知识框架"
 
-         ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107134330.webp)<br>
+         ![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241107134330.webp)<br>
 
-         ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135609.webp)<br>
+         ![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135609.webp)<br>
 
       === "作业"
          递阶控制、专家控制、模糊控制和神经网络控制各有一个小作业<br>
@@ -37,7 +37,7 @@ comments: true
 
 ## 递阶控制 | Hierarchical Control
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112217.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112217.webp)
 
 <iframe src="https://wuhua.cug.edu.cn/__local/B/A1/9D/1850F4F1F9922A6F917E10E40B6_BDCC55BC_10D898.pdf" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
@@ -77,7 +77,7 @@ This browser does not support PDFs
 
 多级多目标结构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115115601.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115115601.webp)
 
 1. **系统组成**：系统由若干个可分的、相互关联的子系统组成。
 2. **决策单元排列**：所有决策单元按一定支配关系递阶排列。
@@ -119,7 +119,7 @@ $$
 (MI):(DB) \rightarrow (R)
 $$
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112758.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115112758.webp)
 
 - 若知识流量不变，增大数据库 DB 的熵将减少机器智能 MI 的熵。
 - 知识流 R 在信息理论意义上代表系统的工作能力。
@@ -136,11 +136,11 @@ $$
 !!! note "递阶智能控制的实质"
     在结构上遵循精度随智能降低而提高（ IPDI ）的原理，寻求系统的正确决策与控制序列，能够使系统的总熵为最小。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113315.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113315.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113452.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113459.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113510.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113452.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113459.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113510.webp)
 
 ??? example "智能机器人控制系统"
 
@@ -154,8 +154,8 @@ $$
     神经网络、作为机器人的控制器以适应
     技能级生成的控制参考信号。
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113721.webp)
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113755.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113721.webp)
+    ![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115113755.webp)
 
     协调级：Petri 网翻译器；语言决策树
     组织级：Boltzmann 机；语言决策树；自动机
@@ -167,11 +167,11 @@ $$
 - 分级递阶控制
 - 分散控制
 - 自治性与协调性
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114228.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114228.webp)
 
 ### HW01-递阶控制
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114628.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115114628.webp)
 
 如图所示的多机器人协作系统由三个机器人组成，分别为两个悬挂移动式多关节机器人（SMR1 和 SMR2）和一个地面移动式多关节机器人（GMR）。
 
@@ -193,11 +193,11 @@ SMR1、SMR2 和 GMR 都有自己独立的控制计算机，系统中另有一台
 
 专家系统的基本功能取决于它所含有的知识，因此，专家系统称为基于知识的系统（knowledge based system）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215810.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215810.webp)
 
 ### 结构、类型与设计
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135241.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135241.webp)
 
 1. **知识库**：
    - 存储专家系统的专门知识，包括事实、可行操作和规则等。
@@ -220,7 +220,7 @@ SMR1、SMR2 和 GMR 都有自己独立的控制计算机，系统中另有一台
 
 ### HW02-专家控制
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215028.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241115215028.webp)
 
 如图所示为车载倒立摆系统，一辆小车在水平轨道上移动，小车上有一个可绕固定点转动的倒立摆。控制小车在水平方向的移动可使摆杆维持直立不倒，这和手掌移动可使直立木棒不倒的现象类似。
 d
@@ -278,7 +278,7 @@ $$
 
 2. 针对不同的初始夹角 $\theta(0)$，给出专家 PID 控制的结果。（可能需要调整相关参数 $\theta_1, \theta_2, \theta_m$ 和 $K_s, K_b$）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241203120943.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241203120943.webp)
 
 ## 模糊控制 | Fuzzy Control
 
@@ -292,7 +292,7 @@ fuzzy logic is a way to encode this experience-based knowledge
 
 crisp input -> fuzzifizcation -> fuzzy variable -> fuzzy rule -> defuzzification -> crisp output
 示例图片——小费与食物、服务的关系
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128150916.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241128150916.webp)
 
 优点：我们一开始不知道规则，但是可以通过数据来学习规则，就像训练神经网络一样，最后可以得到一个可解释性强的模型
 
@@ -304,13 +304,13 @@ crisp input -> fuzzifizcation -> fuzzy variable -> fuzzy rule -> defuzzification
 
 模糊模型是用模糊语言和规则描述的一个系统的动态特性及性能指标。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135344.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135344.webp)
 
 ### merbership function
 
 隶属函数，需要通过经验和专家知识来确定
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128160032.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241128160032.webp)
 把人们语言中 or 行动中的不确定的量，转换成拥有置信度的模糊变量（input）
 
 ### fuzzy rules
@@ -357,7 +357,7 @@ gensurf
 - 医疗：诊断
 - 农业：病虫害诊断
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135524.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241107135524.webp)
 
 ### 数据驱动
 
@@ -377,7 +377,7 @@ gensurf
 
 ### HW03-模糊控制
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241128175458.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241128175458.webp)
 
 1. 系统方程：
 
@@ -532,7 +532,7 @@ $$
 
 可以使用 BP 算法，用于训练
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219141326.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241219141326.webp)
 
 ### 神经控制的其他结构
 
@@ -543,15 +543,15 @@ $$
 - 可以做优化器
 
 使用神经网络作为控制器，普通控制器作为监督器
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142028.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142028.webp)
 
 强化学习：critic
 
 评价器也需要训练
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142118.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142118.webp)
 
 逆模（u，y 反转）控制
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142239.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241219142239.webp)
 问题：
 
 - 开环控制
@@ -561,7 +561,7 @@ $$
 
 如图所示二自由度机械臂模型（平面俯视图），$q_1$和$q_2$表示机械臂的两个关节角大小。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__05-Intelligent.assets__20241206103243.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__05-Intelligent.assets__20241206103243.webp)
 
 图中，$m_i, l_i, r_i (i=1,2)$分别为两连杆的质量、连杆长度和质心到相应关节的距离。
 

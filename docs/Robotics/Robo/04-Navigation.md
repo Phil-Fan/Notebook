@@ -17,7 +17,7 @@
 ### GPS
 
 GPS 即全球定位系统（Global Positioning System）。简单地说，这是一个由覆盖全球的 24 颗卫星组成的卫星系统。这个系统可以保证在任意时刻，地球上任意一点都可以同时观测到 4 颗卫星，以保证卫星可以采集到该观测点的经纬度和高度，以便实现导航、定位、授时等功能。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__04-Navigation.assets__20240925003237.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__04-Navigation.assets__20240925003237.webp)
 
 ## 多普勒导航
 
@@ -26,7 +26,7 @@ GPS 即全球定位系统（Global Positioning System）。简单地说，这是
 
 多普勒雷达不断地沿着某方向向地面发出无线电波，利用飞行器和地面有相对运动产生多普勒效应，测出雷达发射的电磁波和接收到的回波的 频率变化，从而计算出飞行器相对于地面的飞行速度，速度的方向就是该点航线的方向。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__04-Navigation.assets__20240925003725.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__04-Navigation.assets__20240925003725.webp)
 
 !!! note "pros & cons"
     === "优点"
@@ -42,7 +42,7 @@ GPS 即全球定位系统（Global Positioning System）。简单地说，这是
 - 模块：计算机、加速度计、陀螺仪或其他运动传感器的平台
 - 原理：通过测量机体的加速度和角速度，计算出机体的位置、速度和姿态，实现定位导航
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__04-Navigation.assets__20240925003530.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__04-Navigation.assets__20240925003530.webp)
 
 !!! note "pros & cons"
     === "优点"

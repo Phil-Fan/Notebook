@@ -11,7 +11,7 @@
   - 存储器的分布，各个部分都是放什么的。SFR 中的各个寄存器可以控制单片机的各种资源
   - 最后了解汇编
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__8051.svg)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__8051.svg)
 
 ## 简介
 
@@ -21,7 +21,7 @@
 
 而在单片机中，这些部份全部被做到**一块集成电路芯片**中了，所以就称为单片机（单芯片）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231200675.webp" alt="image-20240620231200675" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231200675.webp" alt="image-20240620231200675" style="zoom:50%;" />
 
 - 8 位 CPU
 - 4K ROM 存放程序
@@ -38,7 +38,7 @@
 
 ### 引脚
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231616616.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620231616616.webp)
 
 > 缺口左侧是 1 号口
 
@@ -46,7 +46,7 @@
 
 **电源、时钟、控制和 I/O 引脚。**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240228113806275.webp" alt="51单片机引脚图" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240228113806275.webp" alt="51单片机引脚图" style="zoom: 33%;" />
 
 **电源引脚**：`Vcc` 40 脚:5V；`Vss` 20 GND
 
@@ -62,11 +62,11 @@
 
 CPU 的构成：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232832045.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232832045.webp)
 
 - 运算器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232944582.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620232944582.webp)
 
 寄存器 B：乘除法
 
@@ -76,7 +76,7 @@ PSW 程序状态字寄存器
 
 - 控制器
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620233446761.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620233446761.webp)
 
 - **程序计数器 PC**（16 位，24K），控制读取的代码；一开始指向 0000H，跳转到 30H 开始执行
 
@@ -95,20 +95,20 @@ MOV C,20H
 
 - **哈佛结构** RAM 和 ROM 是分开的；独立结构；可以同时获得数据和代码
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235824661.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235824661.webp)
 
 - **冯诺依曼结构** RAM 和 ROM 是相邻的，统一编址（分时）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235816288.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240620235816288.webp)
 
 51 单片机是**改进哈佛结构**，分时复用，一套数据地址总线，通过指令的方式区分
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621000834024.webp" alt="image-20240621000834024" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621000834024.webp" alt="image-20240621000834024" style="zoom:50%;" />
 
 4 个物理存储空间，实际是 3 个逻辑存储空间；
 地址总线是 16 位的，最大不可以超过 64K
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002809377.webp" alt="image-20240621002809377" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002809377.webp" alt="image-20240621002809377" style="zoom:50%;" />
 
 ### 程序存储器 ROM | `READ ONLY MEMORY`
 
@@ -148,13 +148,13 @@ MOV C,20H
 
 1 和 3 只能字节寻址，只有 2 可以位寻址
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002147037.webp" alt="image-20240621002147037" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002147037.webp" alt="image-20240621002147037" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621001638481.webp" alt="image-20240621001638481" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621001638481.webp" alt="image-20240621001638481" style="zoom:50%;" />
 
 **高 128 字节 `SFR` 特殊功能寄存器 `80H-FFH`**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002609930.webp" alt="SFR寄存器" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621002609930.webp" alt="SFR寄存器" style="zoom:50%;" />
 
 以 0 或 8 结尾的可以容许位寻址
 
@@ -162,7 +162,7 @@ MOV C,20H
 
 复位——使单片机回复原始默认状态的操作
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621190646898.webp" alt="image-20240621190646898" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621190646898.webp" alt="image-20240621190646898" style="zoom:50%;" />
 
 复位 RES
 
@@ -194,11 +194,11 @@ P1:
 
 具有通用 IO 口的方式，可实现输出，读引脚、读锁存器三种功能
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192857719.webp" alt="image-20240621192857719" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192857719.webp" alt="image-20240621192857719" style="zoom:50%;" />
 
 外部电平跟随内部总线上的电平
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621193410016.webp" alt="image-20240621193410016" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621193410016.webp" alt="image-20240621193410016" style="zoom:50%;" />
 
 - 读取外部操作的时候，读引脚（最下边）高电平，可以读入
 - 读内部的锁存器：如对总线进行取反等操作的时候，
@@ -215,11 +215,11 @@ P3:
 - 准双向通用口，作为通用输入口之前应显示 P3.n 置 1，通用输出口应该使第二输出端置 1
 - 普通 IO 第二输出为 1，完全由锁存器 Q 端决定，即由内部总线决定
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240619111616506.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240619111616506.webp)
 
 输入功能的时候，内部引脚也要置 1
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621195519916.webp" alt="image-20240621195519916" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621195519916.webp" alt="image-20240621195519916" style="zoom:50%;" />
 
 P0，P2:
 
@@ -236,7 +236,7 @@ CPU 执行程序过程中，在每个机器周期的**S5P2**期间，中断系�
     正在执行的指令为RET、RETI或任何访问IE或IP寄存器的指令。即只有在这些指令后面至少再执行一条指令时才能接受中断请求。<br>
     执行一条硬件`LCALL`指令<br>
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240327115545079.webp" alt="image-20240327115545079" style="zoom:40%;" /><img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508113216330.webp" alt="image-20240508113216330" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240327115545079.webp" alt="image-20240327115545079" style="zoom:40%;" /><img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508113216330.webp" alt="image-20240508113216330" style="zoom:50%;" />
 
 `RETI`中断函数返回，清除中断状态的标志位，否则如果来了一个小于等于当前中断优先级的中断事件不会响应
 
@@ -276,7 +276,7 @@ CPU 执行程序过程中，在每个机器周期的**S5P2**期间，中断系�
 
 > EA 虚线代表几个开关是联动的
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508114105761.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508114105761.webp)
 
 #### 中断源
 
@@ -306,7 +306,7 @@ CPU 执行程序过程中，在每个机器周期的**S5P2**期间，中断系�
 
 触发：低电平 or 下降沿
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" alt="image-20240508115812183" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" alt="image-20240508115812183" style="zoom: 33%;" />
 
 - `IT0（TCON.0）`,外部中断 0 触发方式控制位。<br>当 IT0=0 时，为电平触发方式。<br>当 IT0=1 时，为边沿触发方式（下降沿有效）。
 
@@ -322,11 +322,11 @@ CPU 执行程序过程中，在每个机器周期的**S5P2**期间，中断系�
 
 **`SCON`(串行口控制寄存器)**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621212044659.webp" alt="image-20240621212044659" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621212044659.webp" alt="image-20240621212044659" style="zoom:33%;" />
 
 **`IP`（2 个人为优先级）**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621210918383.webp" alt="image-20240621210918383" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621210918383.webp" alt="image-20240621210918383" style="zoom:33%;" />
 
 **`IE`（中断使能寄存器）**
 响应需要总开关打开且子开关打开
@@ -349,9 +349,9 @@ CPU 执行程序过程中，在每个机器周期的**S5P2**期间，中断系�
 
 - CPU 开中断（即 EA=1）
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122502143.webp" alt="image-20240508122502143" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122502143.webp" alt="image-20240508122502143" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122506367.webp" alt="image-20240508122506367" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508122506367.webp" alt="image-20240508122506367" style="zoom:50%;" />
 
 中断程序标准写法：
 
@@ -391,7 +391,7 @@ INT0:
 
 设有 5 个外部中断源，中断优先级排队顺序为：XI0、XI1、XI2、XI3、XI4。试设计它们与 80C51 单片机的接口。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508133213756.webp" alt="image-20240508133213756" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508133213756.webp" alt="image-20240508133213756" style="zoom:50%;" />
 
 ```assembly
     ORG  0003H
@@ -443,7 +443,7 @@ DV4:
 
 纵轴表示电平
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192004419.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240621192004419.webp)
 
 晶振`fosc`
 
@@ -489,7 +489,7 @@ DV4:
 
 ### 定时器/计数器结构
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508135706335.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508135706335.webp)
 
 2 个 16 位定时器、计数器：
 
@@ -511,13 +511,13 @@ TR0 TR1 控制定时计数器的启动停止：
 
 TF0 TF1 溢出中断请求标志位
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" alt="image-20240508115812183" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508115812183.webp" alt="image-20240508115812183" style="zoom:50%;" />
 
 #### 工作方式寄存器`TMOD`
 
 低四位 T0，高四位 T1
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508140054318.webp" alt="image-20240508140054318" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240508140054318.webp" alt="image-20240508140054318" style="zoom:50%;" />
 
 - M0M1：工作方式设置位工作在 4 种模式
 
@@ -534,7 +534,7 @@ TF0 TF1 溢出中断请求标志位
 
 #### 中断允许控制寄存器 IE
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511233252243.webp" alt="image-20240511233252243" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511233252243.webp" alt="image-20240511233252243" style="zoom:33%;" />
 
 开启 ET1,ET0 才能中断
 
@@ -552,7 +552,7 @@ Gate = 1：由 INT0 进行控制
 
 Gate = 0：或门让右侧一直是 1 ,完全由 TR 决定
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511234311556.webp" alt="image-20240511234311556" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511234311556.webp" alt="image-20240511234311556" style="zoom:50%;" />
 
 分析上图可以得出设置规律
 
@@ -612,7 +612,7 @@ Gate = 0：或门让右侧一直是 1 ,完全由 TR 决定
 
 **16 位**计数 65536
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622004345473.webp" alt="image-20240622004345473" style="zoom: 50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622004345473.webp" alt="image-20240622004345473" style="zoom: 50%;" />
 
 GATE 为 1 的时候，由 INT0 决定
 
@@ -665,7 +665,7 @@ GATE 为 1 的时候，由 INT0 决定
 
 #### 方式 2
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511235352718.webp" alt="image-20240511235352718" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240511235352718.webp" alt="image-20240511235352718" style="zoom:50%;" />
 
 8 位自动重装定时计数器：
 
@@ -715,7 +715,7 @@ GATE 为 1 的时候，由 INT0 决定
 
 #### 方式 3
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512000523646.webp" alt="image-20240512000523646" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512000523646.webp" alt="image-20240512000523646" style="zoom:50%;" />
 
 T0 分成两个 8 位定时/计数器 TL0 和 TH0 ;
 
@@ -725,7 +725,7 @@ T0 分成两个 8 位定时/计数器 TL0 和 TH0 ;
 
 **如果定时/计数器 T0 工作在方式 3,T1 只能工作在 0、1、2 方式****。此时由于 T1 的运行控制位 TR1 及计数溢出标志位 TF1 已被定时/计数器 T0 借用，这时，****T1 作为串行口的波特率发生器使用。**
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001740549.webp" alt="image-20240512001740549" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001740549.webp" alt="image-20240512001740549" style="zoom: 33%;" />
 
 !!! note "欲用 80C51 产生两个方波，一个周期为 200μs，另一个周期为 400μs，该 80C51 同时使用串行口，用定时器／计数器作为波特率发生器。"
     用两个独立的定时计数器实现两个不同周期的定时
@@ -781,7 +781,7 @@ T0 分成两个 8 位定时/计数器 TL0 和 TH0 ;
 
 ### 初始化
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001802295.webp" alt="image-20240512001802295" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240512001802295.webp" alt="image-20240512001802295" style="zoom:33%;" />
 
 设置工作方式 TMOD:
 
@@ -813,7 +813,7 @@ TCON:
 
 启动计数器工作 TCON，启动定时计数器使 TR0 或 TR1 置位
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516202857183.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516202857183.webp)
 
 ```c
 // 设置工作方式：GATE,C/T,M1M0→TMOD
@@ -843,9 +843,9 @@ MCS-51 单片机的串行口——全双工的异步串行通信接口（即：�
 
 > 有部分内容其实是计网物理层的内容
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100805189.webp" alt="并行通信" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100805189.webp" alt="并行通信" style="zoom:33%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100827823.webp" alt="串行通信" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622100827823.webp" alt="串行通信" style="zoom: 33%;" />
 
 #### 物理接口
 
@@ -863,7 +863,7 @@ MCS-51 单片机的串行口——全双工的异步串行通信接口（即：�
     === "**USB口**"
         通用串行总线，和串口完全是两个概念。虽然也是串行方式通信，但由于USB的通信时序和信号电平都和串口完全不同，因此和串口没有任何关系。USB是高速的通信接口，用于PC连接各种外设，U盘、键鼠、移动硬盘、当然也包括“USB转串口”的模块。（USB转串口模块，就是USB接口的UART模块）
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__v2-04217e1629bdb71c6fb0f598c1b4dd12_1440w.webp)
+    ![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__v2-04217e1629bdb71c6fb0f598c1b4dd12_1440w.webp)
 
 #### 电平标准（电信号）
 
@@ -877,7 +877,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
     负逻辑
     
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235636473.webp" alt="image-20240516235636473" style="zoom: 33%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235636473.webp" alt="image-20240516235636473" style="zoom: 33%;" />
 
 | 主要引脚 | 作用 |
 | ---------- | -------- |
@@ -887,7 +887,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
     公头-针,母头-孔（2,3交换,5共地）
     
-    <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235207535.webp" alt="image-20240516235207535" style="zoom:50%;" />
+    <img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235207535.webp" alt="image-20240516235207535" style="zoom:50%;" />
     
     **不能过远的原因: 距离太远，电平衰减**
 
@@ -909,7 +909,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 **单工：** 通信只能有一方发送到另一方，不能反向传输
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622101003848.webp" alt="image-20240622101003848" style="zoom: 25%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622101003848.webp" alt="image-20240622101003848" style="zoom: 25%;" />
 
 #### 同步异步
 
@@ -921,13 +921,13 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 帧与帧之间的时间间隔是任意的：
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622103113909.webp" alt="帧格式" style="zoom:33%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240622103113909.webp" alt="帧格式" style="zoom:33%;" />
 
 **同步：**
 
 通信双方靠一根时钟线来约定通信速率
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516233936771.webp" alt="image-20240516233936771" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516233936771.webp" alt="image-20240516233936771" style="zoom:50%;" />
 
 #### 通信速率
 
@@ -941,7 +941,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 ### 串口通信结构
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235651266.webp" alt="image-20240516235651266" style="zoom:40%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240516235651266.webp" alt="image-20240516235651266" style="zoom:40%;" />
 
 #### **串行数据缓冲寄存器 SBUF（99H）**
 
@@ -949,9 +949,9 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 > 类似于一个教室有两个门
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517101614853.webp" alt="image-20240517101614853" style="zoom: 40%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517101614853.webp" alt="image-20240517101614853" style="zoom: 40%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519232852513.webp" alt="image-20240519232852513" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519232852513.webp" alt="image-20240519232852513" style="zoom:50%;" />
 
 虽然接收和发送 SBUF 使用同一个逻辑地址，但物理是两个地址
 
@@ -963,7 +963,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 #### 串行口控制寄存器 SCON
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517102324310.webp" alt="image-20240517102324310" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517102324310.webp" alt="image-20240517102324310" style="zoom:50%;" />
 
 - SM0、SM1——串行口工作方式选择位。
 
@@ -985,7 +985,7 @@ TTL、RS-232、RS-485 是指的电平标准 (电信号)：
 
 PCON 的单元地址为 87H，其内部各位均不能进行位寻址
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517105934465.webp" alt="image-20240517105934465" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517105934465.webp" alt="image-20240517105934465" style="zoom:50%;" />
 
 SMOD 为串行口波特率倍增位，当串行口工作在方式 1 和方式 3 时，其波特率可调。调节手段之一便是利用 SMOD。
 
@@ -1014,15 +1014,15 @@ SMOD 为串行口波特率倍增位，当串行口工作在方式 1 和方式 3 
 
 每送出/接收 8 位数据 TI/ RI 自动置 1;需要用软件清零 TI/ RI。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110554534.webp" alt="image-20240517110554534" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110554534.webp" alt="image-20240517110554534" style="zoom:50%;" />
 
 发送完成后，TI 就置 1
 
 串行口在方式 0 下的工作并非是一种同步通信方式，经常配合“串入并出”“并入串出”移位寄存器一起使用，以达到扩展一个并行口的目的。扩展电路如下图所示。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110640047.webp" alt="image-20240517110640047" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110640047.webp" alt="image-20240517110640047" style="zoom:50%;" />
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110648124.webp" alt="image-20240517110648124" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517110648124.webp" alt="image-20240517110648124" style="zoom:50%;" />
 
 51 的 RXD 传入有效信息位，TXD 机械周期放到时钟，对外展示并行输出
 
@@ -1071,7 +1071,7 @@ LP:
     CLR TI           ;发送完成后清TI
 ```
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517112045860.webp" alt="image-20240517112045860" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517112045860.webp" alt="image-20240517112045860" style="zoom:50%;" />
 
 ```assembly
 ;接收代码
@@ -1098,7 +1098,7 @@ B、启动串口发送（`MOV SBUF,A` 或 `MOV SBUF,#XXH`）。按起始位、�
 
  C、待发送完毕后自动将 SCON 中的 TI 位置 1，表示发送过程结束。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519143852958.webp" alt="image-20240519143852958" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519143852958.webp" alt="image-20240519143852958" style="zoom:50%;" />
 
 接收过程：
 
@@ -1108,7 +1108,7 @@ B、UART 自动地按规定的波特率从引脚`RXD`上逐位接收信息，移
 
 C、接收完毕后，将接收移位寄存器中的数据位 D0～D7 锁入`SBUF`。同时将校验位送入`SCON`中的`RB8`位，自动将`SCON`中的 RI 置 1，表示接收过程结束。编程时可通过查询和中断方式对下一步进行处理。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519144526889.webp" alt="image-20240519144526889" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519144526889.webp" alt="image-20240519144526889" style="zoom:50%;" />
 
 波特率设置：
 
@@ -1136,9 +1136,9 @@ RITI 不会自动清零 必须软件清零
 
 方式 3 的波特率 =$(2^{\frac{SMOD}{32}}) \times (T1 的溢出率)$
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517113020751.webp" alt="image-20240517113020751" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240517113020751.webp" alt="image-20240517113020751" style="zoom:50%;" />
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__8f30c5e6ea7a025457568b080915e65.webp)
+![image](https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__8f30c5e6ea7a025457568b080915e65.webp)
 
 ### 编程
 
@@ -1154,7 +1154,7 @@ RI=1，一帧数据已送到，RI≠1，没有送到
 
 设置中断允许，以`TI`和`RI`作为中断请求标志位，`TI=1`或`RI=1`均可引发中断。
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519150922105.webp" alt="image-20240519150922105" style="zoom:50%;" />
+<img src="https://img.philfan.cn/Robotics_______assets__EmbeddedSystem-8051.assets__image-20240519150922105.webp" alt="image-20240519150922105" style="zoom:50%;" />
 
 ??? note "串口方式 1"
  通过 MCS-51 串行口按模式 1 发送存放在片内`RAM 20H～3FH`中的数据，要求传送的波特率为`1200bps`。编写有关的通信程序。 `fosc=11.0592MHz`。

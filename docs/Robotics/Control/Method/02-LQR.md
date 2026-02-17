@@ -23,4 +23,4 @@ Q: 表达的是因为系统变化而造成的能量损耗
 LQR 的目标是找到一个控制策略 $u^*(x)$，使得对于任意的初始状态 $x_0$，cost function $J$ 都达到最小值。这可以通过求解一个优化问题来实现，其中控制输入 $u$ 是优化变量，cost function $J$ 是优化目标。
 
 如图，**黄线**是选用较大的 Q，可以看到快速收敛但是输入值较大；**紫线**是选用较大的 R，可以看到输入值较小，但是收敛速度较慢。
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Control__Method__assets__02-LQR.assets__20241003155424.webp)
+![image](https://img.philfan.cn/Robotics__Control__Method__assets__02-LQR.assets__20241003155424.webp)

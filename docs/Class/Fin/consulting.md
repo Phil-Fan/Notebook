@@ -7,14 +7,14 @@
 在咨询行业中，BD 是"Business Development"的缩写，意为"商务拓展"。BD 在咨询行业中的角色主要是负责开发新的商业机会和合作伙伴，以帮助公司扩大业务范围和市场份额。他们通过与潜在客户、合作伙伴以及其他利益相关者建立和维护关系，来识别和探索新的商业机会。BD 人员需要具备良好的沟通和谈判技巧，以及对市场趋势和行业动态的敏锐洞察力，以便为公司制定有效的业务发展战略
 
 咨询的真正价值在哪里
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__consulting.assets__20240817181129.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__consulting.assets__20240817181129.webp)
 前半部分：你永远不可能比客户更懂他们的业务
 
 ## 咨询行业概况
 
 ### **咨询行业的生态链**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__consulting.assets__20240817180731.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__consulting.assets__20240817180731.webp)
 
 **Tier 1** 的名单就是无可争议的 MBB：
 
@@ -47,14 +47,14 @@
 7. **交流沟通**：将研究成果和解决方案有效地传达给相关利益相关者，以获得支持和实施。
 
 真实的工作计划通常长这样
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__consulting.assets__20240817180901.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__consulting.assets__20240817180901.webp)
 
 - 要时刻关注客户的需求，沟通是无时无刻进行的
 
 ### 结构化思考
 
 - 金字塔原理
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__consulting.assets__20240817181035.webp)
+![image](https://img.philfan.cn/Class__Fin__assets__consulting.assets__20240817181035.webp)
 
 ## 访谈
 

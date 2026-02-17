@@ -58,7 +58,7 @@
   - **滤波方法**
   - **非线性优化方法**
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__03-Localization.assets__20240925005642.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__03-Localization.assets__20240925005642.webp)
 
 ### 地标的提取
 
@@ -241,7 +241,7 @@ $$
 
 激光里程计的实现可以看做是点云的匹配和激光数据校正 ICP(Iterative Closest Point, 迭代最近点)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__03-Localization.assets__20240925010132.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__03-Localization.assets__20240925010132.webp)
 
 #### 视觉里程计
 

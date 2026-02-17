@@ -22,7 +22,7 @@ qgroundcontrol
 
 ### 动捕测试
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205747.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920205747.webp)
 
 ## 软件搭建
 
@@ -83,7 +83,7 @@ service ssh restart
 service ssh status
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240711175232.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240711175232.webp)
 
 开机自启动
 
@@ -169,7 +169,7 @@ sudo dpkg -i nomachine_7.6.2_4_armhf.deb
     - DataStreaming plugins(数据流插件)：订阅一个或多个 ros 主题并实时绘制它们的数据。
     - RosPublisher plugin(RosPublisher 插件)：使用交互式跟踪器重新发布原始 ROS 消息。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205340.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920205340.webp)
 
 ```shell
 sudo apt-get install ros-noetic-plotjuggler
@@ -181,7 +181,7 @@ rosrun plotjuggler plotjuggler
 ```
 
 可以看到如下界面
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920205309.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920205309.webp)
 
 [教程 | PlotJuggler 绘图工具的安装使用-CSDN 博客](https://blog.csdn.net/qq_39779233/article/details/106478608)
 
@@ -206,13 +206,13 @@ catkin_make
 roslaunch vrpn_client_ros sample.launch server:=192.168.43.195:3883
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920210352.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920210352.webp)
 
 ```shell title="查看"
 rostopic echo /vrpn_client_node/<刚体名称>
 ```
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920210343.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920210343.webp)
 
 ### mavros
 
@@ -244,7 +244,7 @@ rostopic hz /mavros/imu/data
 
 应该能得到如图所⽰的 50hz imu 数据
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920203808.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920203808.webp)
 
 ## 数学建模
 
@@ -259,7 +259,7 @@ rostopic hz /mavros/imu/data
 另外需要计算的是⽆⼈机的姿态`u.q`。
 程序提供了 debug 的接⼝，通过`rostopic`向外发送，可通过`run.sh`中最后一行注释记录`rosbag`，通过`plotjuggler`进行后续分析（详⻅ ros 仿真中的说明）
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920204728.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920204728.webp)
 
 参数⽂件位于`real_ws/src/px4ctrl/config/ctrl_param_fpv.yaml`，可调节增益参数。
 
@@ -284,13 +284,13 @@ rostopic hz /mavros/imu/data
 
 ⾸先根据在动捕中创建的刚体名称，修改`src/ekf_pose/launch/PX4_vicon.launch`中接收的位姿 topic
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920203843.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920203843.webp)
 
 改节点利⽤ EKF 扩展卡尔曼滤波，对 imu 和动捕的数据进⾏融合估计，我们以此结果作为⽆⼈机的里程计信息给到控制器。
 
 随后修改 run.sh 中启动 vrpn 的 ip 为动捕主机的 ip
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240920204616.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20240920204616.webp)
 
 ```shell title="编译"
 catkin_make
@@ -314,4 +314,4 @@ rosbag record /sim/odom
 
 ## 结果
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20241031223517.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__Drone_experiment.assets__20241031223517.webp)

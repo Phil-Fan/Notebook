@@ -44,10 +44,10 @@ head = 6
 
 在下一个可用位置创建一个空穴，将 X 放入空穴中，若满足则结束；否则将该空穴不断与父节点之间交换，直到 X 可以插入
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__02-queue.assets__image-20230101220607799.webp)
+![image](https://img.philfan.cn/CS__DS__assets__02-queue.assets__image-20230101220607799.webp)
 
 ### **delete**
 
 删除根后留下一个空穴，将空穴进行下滤，直到最后一个元素可以放入空穴中
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__DS__assets__02-queue.assets__image-20230101221136073.webp)
+![image](https://img.philfan.cn/CS__DS__assets__02-queue.assets__image-20230101221136073.webp)

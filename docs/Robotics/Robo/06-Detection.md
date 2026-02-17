@@ -47,7 +47,7 @@
 
 !!! tip "本笔记只记录知识框架的思维导图和具体难理解的点，不做细节完全整理"
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets___E4_BC_A0_E6_84_9F_E4_B8_8E_E6_A3_80_E6_B5_8B.svg)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets___E4_BC_A0_E6_84_9F_E4_B8_8E_E6_A3_80_E6_B5_8B.svg)
 
 ## 计算题整理
 
@@ -97,19 +97,19 @@
 - 对应关系加减法
 - 非线性，不能直接对应
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031181717.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031181717.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031181647.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031181647.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031181700.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031181700.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031181749.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031181749.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241116163557.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241116163557.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241116163142.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241116163142.webp)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241116163159.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241116163159.webp)
 
 电阻：要采用三线或四线接法，减少引线电阻的影响
 电偶：对冷端进行温度补偿
@@ -142,12 +142,12 @@
 
 当铁磁材料受到外力作用（如压力或拉力）时，其磁导率（即材料对磁场的响应能力）会发生变化$\frac{\Delta \mu}{\mu} = \frac{2\lambda}{B^2} \sigma \mu$。其中，$B$ 是磁感应强度，$\sigma$ 是应力，$\mu$ 是原始磁导率。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031112847.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031112847.webp)
 ex:负磁滞材料，受到正压力，磁畴向磁矢量垂直于正压力方向偏转，磁导率降低
 
 压磁元件
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__06-Detection.assets__20241031113428.webp)
+![image](https://img.philfan.cn/Robotics__Robo__assets__06-Detection.assets__20241031113428.webp)
 
 一开始测量线圈平行，压一下之后，不平行
 

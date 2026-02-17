@@ -11,7 +11,7 @@
     - GIF 有损且只支持 256 色
     - 新兴格式如 HEIF、WebP、AVIF 等
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709191542.webp)
+![image](https://img.philfan.cn/AI__CV__assets__00-2-format.assets__20240709191542.webp)
 
 - 文件头 `89 50 4E 47 0D 0A 1A 0A | .PNG....`
 **采用分块的方式存储数据**,每块的结构都是 4 字节长度 + 4 字节类型 + 数据 + 4 字节 CRC 校验
@@ -20,7 +20,7 @@
 - eXIf 元信息，tIME 修改时间，tEXt 文本，zTXt 压缩文本
 
 === "文件结构"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709190857.webp)
+    ![image](https://img.philfan.cn/AI__CV__assets__00-2-format.assets__20240709190857.webp)
 
     JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个字节表示类型：
     |开始|作用|
@@ -82,7 +82,7 @@
 
 ### 图像大小修改
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/AI__CV__assets__00-2-format.assets__20240709193713.webp)
+![image](https://img.philfan.cn/AI__CV__assets__00-2-format.assets__20240709193713.webp)
 
 - PNG 图像按行进行像素数据的压缩，以及存储 / 读取
 - 当解码时已经达到了 IHDR 中规定的大小就会结束

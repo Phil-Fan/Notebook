@@ -484,7 +484,7 @@ $$
 - $\mathbf{H(f)}$不定，鞍点：特征值有正有负
 - $\mathbf{H(f)}$不可逆，无法判断：特征值有 0
 
-<img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__LinearAlgebra__assets__02-2-derivative.assets__b05544056c037bc56f9070e45533f02.webp" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
+<img src="https://img.philfan.cn/Math__LinearAlgebra__assets__02-2-derivative.assets__b05544056c037bc56f9070e45533f02.webp" alt="b05544056c037bc56f9070e45533f02" style="zoom: 33%;" />
 
 ## 积分
 

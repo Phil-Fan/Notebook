@@ -281,7 +281,7 @@ $$
 * $B(t) \sim \mathcal{N}(0,t)$：在时间 $t$ 的布朗运动服从均值 0、方差 $t$ 的正态分布
 
 ??? note "直观解释"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__04-Brown.assets__20250526193135.webp)
+    ![image](https://img.philfan.cn/Math__StochasticProcess__assets__04-Brown.assets__20250526193135.webp)
 
     > 以价格为例，相当于求价格最高点不低于/不高于
     
@@ -1052,7 +1052,7 @@ $$
     
     改编自课本5.1.7
     
-    ![](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__04-Brown.assets__202506151907951.webp)
+    ![](https://img.philfan.cn/Math__StochasticProcess__assets__04-Brown.assets__202506151907951.webp)
 
 ​
 

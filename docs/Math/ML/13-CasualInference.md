@@ -57,7 +57,7 @@ And that has made all the difference.**
 
 [大白话谈因果系列文章（二）因果效应估计及论文介绍 - 知乎](https://zhuanlan.zhihu.com/p/397974913)
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__20250612140150.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__20250612140150.webp)
 
 ## 相关与因果 —— 什么是因果推断
 
@@ -75,7 +75,7 @@ And that has made all the difference.**
 
 * **相关性≠因果性**：图中是美国 1999-2009 年的**自杀人数**与**科研经费花费**的变化图。可以看到两个指标是高度相关。但是他们之间不存在因果性，即不可能因为减少科研经费而导致自杀人数急剧降低。实际上，**相关性通常是对称的，因果性通常是不对称的**（单向箭头），相关性不一定说明了因果性，但因果性一般都会在统计层面导致相关性。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual1.1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual1.1.webp)
 
 correlation is not equal to causation
 
@@ -127,7 +127,7 @@ correlation is not equal to causation
 
 * **概念：在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论。**下面用一个例子来进一步说明这个问题：下面第一个表为男性在接受某种药物治疗后的康复情况，发现经过治疗后的康复率为 0.93，而没有经过药物治疗的康复率为 0.86。第二张表是女性的情况，在经过药物治疗后的康复率为 0.73，而未经过药物治疗的康复率为 0.69。由上面数据我们可以发现：**无论是男性女性，药物对治疗该疾病都是有帮助的**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.2.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual2.2.webp)
 
 辛普森悖论例子
 
@@ -159,13 +159,13 @@ $B=②·p+④·(1-p)$
 
  为了更加形象的说明问题，我们将上述的两个式子转化成如下图：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.3.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual2.3.webp)
 
 辛普森悖论概率论解释
 
  可见 A 和 B 的取值分别由 p 和 q 取值来决定的。从上图中可以看到，出现 A<B 的内在条件是：1.A 点趋于③的位置（q 趋向于 0，即数据中的药物更多是在女性人群中使用）；2.Prob(③)<Prob(①)（即女性用药人群要比男性用药人群更难恢复）。将这两个条件用因素影响图来表示：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.4.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual2.4.webp)
 
 辛普森悖论因素影响图
 
@@ -173,13 +173,13 @@ $B=②·p+④·(1-p)$
 
 * **因果中间变量**：相对于上述的混淆变量，这里还有一类变量：因果中间变量。下面同样以一个例子来说明。
 
-  ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.5.webp)
+  ![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual2.5.webp)
 
   **因果中间变量**
 
    上图中有三个因素：血压，是否用药以及治疗效果。其中用药对治疗效果有副作用，而另一方面用药可以降血压进一步来提升治疗效果。这里的血压我们称之为**“因果中间变量”**。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.6.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual2.6.webp)
 
 因果中间变量实例
 
@@ -272,19 +272,19 @@ v-structure
 
 * **ancestor 和 descendent**：如果两个节点被一条有向路径连接，那么第一个节点被在这条路径上称为其他节点的 ancestor，而其他节点是第一个节点的 descendent。具体可以见下图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual4.1.webp)
 
 祖先与后代
 
 * **闭环图（cyclic）：**含有闭环的有向图，如下图所示：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.2.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual4.2.webp)
 
 Cyclic
 
 * **非闭环图（acyclic directed graph）DAG：**不含闭环的有向图，如下图所示：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.3.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual4.3.webp)
 
 Cyclic
 
@@ -296,25 +296,25 @@ Cyclic
 
 * **因果、SCM 以及图模型关系：**下面就用 3 个例子来说明现实世界中的因果如何转化成结构因果模型以及图模型。首先，是直接因果关系的情况，即只需一条有向边表示即可。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual5.1.webp)
 
 结构因果模型 1
 
  其次是结果 Y 由两个原因 X、Z 共同导致的情况：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.2.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual5.2.webp)
 
 结构因果模型 2
 
  最后是间接因果关系的情况，即前面提到复合函数的情况。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.3.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual5.3.webp)
 
 结构因果模型 3
 
 * **外生节点与内生节点：**上面我们提到了 3 种比较简单的因果模型，下面我们来看一个相对复杂一点的因果图模型。如下图，原因 X 和 W 共同导致了结果 Z，而结果 Z 导致了结果 Y。那么我们便可以画出对应的因果图模型如下所示。在图中，**我们称 X 和 W 这类没有父亲的节点为外生节点（exogenous），而称 Z 和 Y 这类有父亲的节点为内生节点（endogenous）**。即：根节点`<=>`外生节点集合 U，根节点的后代节点（descendent）`<=>`内生节点集合 V，连边`<=>`对应的函数映射。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.4.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual5.4.webp)
 
 外生节点与内生节点
 
@@ -329,7 +329,7 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
  根据上述的结构因果模型可以作得对应的图模型：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual6.1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__casual6.1.webp)
 
 Intransitive case 图模型
 
@@ -339,13 +339,13 @@ Intransitive case 图模型
 
 * **V-Structure 的三种结构**：①chain、②fork、③collider（所谓 V-structure 就是含有三个顶点的图，是图模型的基本组件，掌握了这三个基本组件便一通百通），具体对应的图模型见下图所示。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_0.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal7_0.webp)
 
 V-Structure
 
 * **Chain 上的条件独立结论：**从下图（题注为：Chain 的性质）中，我们发现`X`和`Z`之间存在很多的链式结构。按照前几节的内容可以得到下面结论：`X`与`Y1...Yn`都是大概率统计相关的，且`Z`与`Y1...Yn`也是大概率统计相关的。进一步可以得到`Z`和`X`也是大概率统计相关。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_2.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal7_2.webp)
 
 Chain 的性质
 
@@ -355,7 +355,7 @@ Chain 的性质
 
 * **Fork 上的条件独立结论：**从下图（题注为：Fork 的性质）中，我们发现`Ux`、`Uy`以及`Uz`为三个外生变量，而`X`、`Y`和`Z`之间构成了 Fork 结构。按照前几节的内容可以得到下面结论：`X`与`Y`都是大概率统计相关的，且`X`与`Z`也是大概率统计相关的。进一步可以得到`Y`和`Z`也是大概率统计相关。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal8_1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal8_1.webp)
 
 Fork 的性质
 
@@ -365,7 +365,7 @@ Fork 的性质
 
 **Collider 上的条件独立结论：**从下图（题注为：Collider 的性质）中，我们发现`Ux`、`Uy`以及`Uz`为三个外生变量，而`X`、`Y`和`Z`之间构成了 Collider 结构。按照前几节的内容介绍，可以得到下面结论：`X`与`Z`都是大概率统计相关的，且`Y`与`Z`也是大概率统计相关的。而`X`和`Y`却是大概率统计独立的。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal9_1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal9_1.webp)
 
 Collider 的性质
 
@@ -397,7 +397,7 @@ Collider 的性质
 
 * **对于复杂的图，只要拆分成 V-structure 就可以用 D-Separation 理论来分析。**下面是一个复杂图的 D-分隔分析方法。其中，’≡‘表示变量间相关，而‘⊥’表示变量间独立。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal10_1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal10_1.webp)
 
 复杂图的 D-Separation
 
@@ -424,13 +424,13 @@ P(X1,X2,...Xn)\=Πni\=1P(Xi|pa(Xi))
 
 下面用一个例子来证明该法则：
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_1.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal12_1.webp)
 
 乘积分解法则例子
 
 实际上只要证明下面的等式，而下面的等式只需要根据 D-Separation 即可得到。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_2.webp)
+![image](https://img.philfan.cn/Math__ML__assets__13-CasualInference.assets__causal12_2.webp)
 
 乘积分解法则证明
 

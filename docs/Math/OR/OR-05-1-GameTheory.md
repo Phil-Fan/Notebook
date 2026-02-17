@@ -220,9 +220,9 @@ $$
 !!! note "定理：一定存在混合策略意义下的矩阵博弈均衡解"
     证明思路：鞍点条件一定有解。
 
-    ![prove](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606084717435.webp)
+    ![prove](https://img.philfan.cn/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606084717435.webp)
 
-    ![prove](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606084737444.webp)
+    ![prove](https://img.philfan.cn/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606084737444.webp)
 
 ### 均衡解的性质
 
@@ -403,4 +403,4 @@ $$
 \end{aligned}
 $$
 
-![proof](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606093544168.webp)
+![proof](https://img.philfan.cn/Math__OR__assets__OR-05-1-GameTheory.assets__image-20240606093544168.webp)

@@ -45,7 +45,7 @@
 
 ## 向量加法 - 平移变换
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224145149274.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224145149274.webp)
 
 $$
 ^A\!P = ^B\!P + ^A\!P_{BORG}
@@ -173,7 +173,7 @@ $$
 
     **齐次坐标：** 增加额外变量$W$，用$n+1$维坐标表示$n$维坐标，把 W 归一化之后，相当于是一个向量
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224151848494.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224151848494.webp)
 
     任何$N$维度齐次坐标，只要$W$不为 0，都可以通过将每一个分量除以$W$来转换到 $W=1$的向量，然后获得其$N-1$维的欧式空间的点值。(也就是在$W=1$的时候，齐次坐标兼容欧氏空间)
 
@@ -230,7 +230,7 @@ $$
 
 经旋转和平移后的**齐次变换矩阵**与一个坐标系相对于参考坐标系经旋转和平移后的齐次变换矩阵是相同的。
 
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224155556956.webp)
+![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224155556956.webp)
 
 $$
 \begin{align}
@@ -301,7 +301,7 @@ $$
     $\sin$ 的符号不同y的负号在左下角，xz的负号在右上角
 
 === "桶滚 `roll`"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20190410212347423.gif)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20190410212347423.gif)
 
     x轴不变，滚动（Roll)的旋转矩阵：
 
@@ -314,7 +314,7 @@ $$
     $$
 
 === "俯仰 `pitch`"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20190410212338361.gif)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20190410212338361.gif)
 
     y轴不变，俯仰（Pitch)的旋转矩阵：
 
@@ -327,7 +327,7 @@ $$
     $$
 
 === "偏摆 `yaw`"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20190410212324456.gif)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20190410212324456.gif)
 
     z轴不变，偏摆（Yaw）的旋转矩阵：
 
@@ -391,7 +391,7 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 欧拉角描述相对于初始状态的变换，只和最终状态有关，与过程无关。（外边的轴转动会带动里面的轴转动）
 
 !!! example "例子"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224203714801.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224203714801.webp)
 
     比如这个xyz欧拉角，表述的操作顺序是x-y-z,假设y轴的欧拉角参数是90度。
 
@@ -419,7 +419,7 @@ $\forall R \in SO(3)$可用$R_{z,y,x}(\alpha, \beta, \gamma)$表示出来
 !!! note "命题 $R_z(\pm \pi + \alpha) R_y(\pm \pi - \beta) R_x(\pm \pi + \gamma) = R_z(\alpha) R_y(\beta) R_x(\gamma)$"
 
     **证明**
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224165627208.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224165627208.webp)
 
 
     **定义集合** 记集合：
@@ -571,7 +571,7 @@ $$
 
     即分别求$^{A}\mathbf{X}_{B(0)}=\begin{pmatrix}1\\0\\0\end{pmatrix}$，$^{A}\mathbf{Y}_{B(0)}=\begin{pmatrix}0\\1\\0\end{pmatrix}$，$^{A}\mathbf{Z}_{B(0)}=\begin{pmatrix}0\\0\\1\end{pmatrix}$绕$^A\!K$旋转$\theta$后所得到的$^{A}\mathbf{X}_{B(1)}$，$^{A}\mathbf{Y}_{B(1)}$，$^{A}\mathbf{Z}_{B(1)}$
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224214115258.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224214115258.webp)
 
     向量 $\mathbf{r}_{OQ}$ 绕单位向量 $\mathbf{r}_{OK}$ 旋转，这个过程中，$\mathbf{r}_{OQ}$在$\mathbf{r}_{OK}$的投影长度是不变的，所以$\mathbf{r}_{OQ}$ 向 $\mathbf{r}_{Ox}$ 作投影，得投影向量 $\mathbf{r}_{OP} = (\mathbf{r}_{OQ} \cdot \mathbf{r}_{Ox}) \mathbf{r}_{Ox}$ **（点乘获得长度，乘以单位向量获得方向）** ，则 $\mathbf{r}_{PQ} = \mathbf{r}_{OQ} - \mathbf{r}_{OP}$
 
@@ -583,7 +583,7 @@ $$
 
     显然，点 $P, Q, W, Q'$ 在同一平面，在该平面上，以点 $P$ 为圆心，以 $|\mathbf{r}_{PQ}|$ 为半径画圆，点 $Q, W, Q'$ 都在此圆上，且 $\mathbf{r}_{PQ'} = \mathbf{r}_{PQ} \cos \theta + \mathbf{r}_{PW} \sin \theta$  **（可以理解为正交分解，乘上了对应方向的单位向量）**
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224213858660.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224213858660.webp)
 
     
 
@@ -1036,16 +1036,16 @@ $$
     $$
 
 === "例 3"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224215632614.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224215632614.webp)
 
 === "例 4"
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224215659494.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250224215659494.webp)
 
 === "例 5"
 
     在下图中，没有确知工具的位置$_T^W\boldsymbol{T}$。机 器 人 利 用 力 控 制 对 工 具 末 端 进 行 检 测 直 到 把 工 件 插入位于$^s_G\boldsymbol{T}$的孔中 (即目标)。在这个“标定”过程中 (坐标系{G}})和坐标系{T}是重合的), 通过读取关节角度传感器，进行运动学计算得到机器人的位置$_w^B\boldsymbol{T}\text{ 。假定已知}_S^B\boldsymbol{T}\text{ 和}_G^S\boldsymbol{T}$,求计算末知工具坐标系$_T^W\boldsymbol{T}$ 的变换方程。
 
-    ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250418201320.webp)
+    ![image](https://img.philfan.cn/Robotics__Model__assets__1-Basis.assets__20250418201320.webp)
 
     $$
     \begin{aligned}&\text{解:因}_I^G\boldsymbol{T}=\boldsymbol{I}\\&&_T^B\boldsymbol{T}=_S^B\boldsymbol{T}_G^S\boldsymbol{T}_T^G\boldsymbol{T}=_S^B\boldsymbol{T}_G^S\boldsymbol{T}\\&&_T^W\boldsymbol{T}=_B^W\boldsymbol{T}_T^B\boldsymbol{T}=_W^B\boldsymbol{T}^{-1B}\boldsymbol{T}_G^S\boldsymbol{T}\end{aligned}
