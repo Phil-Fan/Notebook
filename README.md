@@ -17,7 +17,7 @@
 第一步，克隆仓库
 
 ```bash title="Clone the repository"
-git clone --single-branch --branch master https://github.com/Phil-Fan/Notebook.git
+git clone --single-branch --branch master https://github.com/Phil-Fan/Notebook.git --depth 1
 ```
 
 第二步，[安装 uv](https://docs.astral.sh/uv/getting-started/installation/)
@@ -129,17 +129,7 @@ make build
 
 > 经过重构以后，仓库变小了很多，现在只有 20MB 左右，应该不会对大家的使用造成影响
 
-1. 如果想要贡献，请先 fork 仓库，然后创建一个新分支，提交你的修改，然后创建一个 pull request
-2. 如果你需要添加图片，使用 `asset/{filename}.assets/{x}.{y}` 来存放图片，其中`x`是图片名，`y`是图片格式，比如`asset/image.assets/1.png`，合并的时候我会处理图床问题
-
-## About Me
-
-👤 **PhilFan**
-
-- Github: [@Phil-Fan](https://github.com/Phil-Fan)
-- Email: [@PhilFan](mailto:hw.phil.fan@gmail.com)
-
-## Show your support
+## Star History
 
 Give a ⭐️ if this notebook helps you!
 

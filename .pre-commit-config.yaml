@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.13.0
+    hooks:
+      - id: markdownlint-cli2
+        args: ["--fix", "--config", ".github/.markdownlint.yaml"]
+
+  # https://github.com/huacnlee/autocorrect
+  # curl -sSL https://git.io/JcGER | sh
+  - repo: local
+    hooks:
+      - id: autocorrect
+        name: autocorrect
+        entry: autocorrect
+        language: system
+        args: ["--fix"]
