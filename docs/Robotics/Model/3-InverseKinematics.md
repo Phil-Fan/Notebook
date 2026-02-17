@@ -53,11 +53,11 @@
 === "辅助角公式"
     - $a\sin\alpha + b\cos\alpha=\sqrt{a^{2}+b^{2}}\sin(\alpha + \varphi)$，其中 $\tan\varphi=\frac{b}{a}$
 
-**正弦定理**
+正弦定理
 
 $\frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R$
 
-**余弦定理**
+余弦定理
 
 - $a^{2}=b^{2}+c^{2}-2bc\cos A$
 - $b^{2}=a^{2}+c^{2}-2ac\cos B$

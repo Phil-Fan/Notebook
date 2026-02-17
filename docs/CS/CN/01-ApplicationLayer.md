@@ -7,12 +7,12 @@ comments: true
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets___E5_BA_94_E7_94_A8_E5_B1_82.svg)
 
-| 对比           | HTTP   | FTP       | SMTP   | POP3 | IMAP | DNS  | BitTorrent |
+| 对比 | HTTP | FTP | SMTP | POP3 | IMAP | DNS | BitTorrent |
 | -------------- | ------ | --------- | ------ | ---- | ---- | ---- | ---------- |
-| 中心/去中心    |        |           |        |      |      |      |            |
-| 有/无状态      | 无     | 有        | 有     | 无   | 有   |      |            |
-| 可靠/不可靠    |        |           |        |      |      |      |            |
-| 使用传输层协议 | TCP:80 | TCP:21,20 | TCP:25 | TCP  | TCP  | UDP  | TCP        |
+| 中心/去中心 | | | | | | | |
+| 有/无状态 | 无 | 有 | 有 | 无 | 有 | | |
+| 可靠/不可靠 | | | | | | | |
+| 使用传输层协议 | TCP:80 | TCP:21,20 | TCP:25 | TCP | TCP | UDP | TCP |
 
 ## 原理
 
@@ -76,7 +76,7 @@ TCP：可靠、流量控制、拥塞控制、面向连接
 
 ## 网络应用实例
 
-**协议：报文格式语法、语义、次序、采取的动作**
+协议：报文格式语法、语义、次序、采取的动作
 
 ### WEB & HTTP
 
@@ -180,13 +180,13 @@ description:
 502: Bad Gateway
 ```
 
-| 状态码 |           类别            |        原因        |
+| 状态码 | 类别 | 原因 |
 | :----: | :-----------------------: | :----------------: |
-|  1xx   | `Informational`信息状态码 |      正在处理      |
-|  2xx   |    `Success`成功状态码    |      正常处理      |
-|  3xx   |    `Redirection`重定向    |    需要附加操作    |
-|  4xx   | `Client Error`客户端错误  | 请求出错，无法处理 |
-|  5xx   |      `Server Error`       |   server 处理出错   |
+| 1xx | `Informational`信息状态码 | 正在处理 |
+| 2xx | `Success`成功状态码 | 正常处理 |
+| 3xx | `Redirection`重定向 | 需要附加操作 |
+| 4xx | `Client Error`客户端错误 | 请求出错，无法处理 |
+| 5xx | `Server Error` | server 处理出错 |
 
 - 响应报文头
 
@@ -362,7 +362,7 @@ Although HTTP uses persistent connections in its default mode HTTP clients and s
 
 HTTP has nothing to do with how a Web page is interpreted by a client.
 
-**Non persistent TCP connection transports exactly one request message and one response message**
+Non persistent TCP connection transports exactly one request message and one response message
 
 HTTP1.1
 
@@ -400,7 +400,7 @@ TCP 三次握手（前面 1 个 RTT+ 一个去程）
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240318164420937.webp" alt="image-20240318164420937" style="zoom:50%;" />
 
-**Pipeline**
+Pipeline
 
 流水线方式，一个请求还没有接受回复就发出下一个请求
 
@@ -713,7 +713,7 @@ nslookup -type=type domain # 指定类型查询
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__01-ApplicationLayer.assets__image-20240130101612770.webp)
 
-**问谁要**
+问谁要
 
 位图中全是 0，随机请求其他节点的块；
 
@@ -721,7 +721,7 @@ nslookup -type=type domain # 指定类型查询
 
 扰动`churn`: peer 节点可能会上线或者下线，一旦一个 peer 拥有整个文件，它会（自私的）离开或者保留（利他主义）在 torrent 中
 
-**给谁发**
+给谁发
 
 `tit for tat`原则；可以更有利于网络的维护，激励共享，防止搭便车
 
@@ -753,9 +753,9 @@ nslookup -type=type domain # 指定类型查询
 
 组内集中式，组长分布式
 
-| 文件 | 描述     | Hash                  |
+| 文件 | 描述 | Hash |
 | ---- | -------- | --------------------- |
-|      | 匹配描述 | vid，元信息的唯一标识 |
+| | 匹配描述 | vid，元信息的唯一标识 |
 
 如何定位所需资源
 如何处理对等方的加入与离开

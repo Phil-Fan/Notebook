@@ -97,22 +97,22 @@ raise Exception('load overload')
 
 ### 标准异常
 
-| 异常名称               | 描述                        |
+| 异常名称 | 描述 |
 | ---------------------- | --------------------------- |
-| SystemExit             | 解释器请求退出              |
-| **FloatingPointError** | 浮点计算错误                |
-| OverflowError          | 数值运算超出最大限制        |
-| **ZeroDivisionError**  | 除 (或取模) 零 (所有数据类型) |
-| KeyboardInterrupt      | 用户中断执行 (通常是输入^C)  |
-| ImportError            | 导入模块/对象失败           |
-| **IndexError**         | 序列中没有此索引 (index)     |
-| RuntimeError           | 一般的运行时错误            |
-| AttributeError         | 对象没有这个属性            |
-| IOError                | 输入/输出操作失败           |
-| OSError                | 操作系统错误                |
-| **KeyError**           | 映射中没有这个键            |
-| **TypeError**          | 对类型无效的操作            |
-| ValueError             | 传入无效的参数              |
+| SystemExit | 解释器请求退出 |
+| **FloatingPointError** | 浮点计算错误 |
+| OverflowError | 数值运算超出最大限制 |
+| **ZeroDivisionError** | 除 (或取模) 零 (所有数据类型) |
+| KeyboardInterrupt | 用户中断执行 (通常是输入^C) |
+| ImportError | 导入模块/对象失败 |
+| **IndexError** | 序列中没有此索引 (index) |
+| RuntimeError | 一般的运行时错误 |
+| AttributeError | 对象没有这个属性 |
+| IOError | 输入/输出操作失败 |
+| OSError | 操作系统错误 |
+| **KeyError** | 映射中没有这个键 |
+| **TypeError** | 对类型无效的操作 |
+| ValueError | 传入无效的参数 |
 
 ```py
 ##一次捕捉多个异常

@@ -498,7 +498,7 @@ $$
       ||Ux||_2 = ||x||_2\\
       $$
 
-**谱范数**
+谱范数
 
 $$
 \begin{aligned}
@@ -515,7 +515,7 @@ $$
 \|Ax_{\mathrm{opt}}\|^2=\lambda_{\max}=\sigma_{\max}^2
 $$
 
-**F 范数**
+F 范数
 
 $$
 \begin{aligned}

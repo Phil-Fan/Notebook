@@ -174,7 +174,7 @@ $$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__Opt__assets__Opt-1-model.assets__image-20240521100601777.webp)
 
-**原问题**
+原问题
 
 $$
 \begin{align*}
@@ -184,7 +184,7 @@ $$
 \end{align*}
 $$
 
-**等价问题**
+等价问题
 
 $$
 \begin{align}
@@ -211,7 +211,7 @@ $$
 
 因此，$\min \limits_x \max \limits_{\lambda, \nu} L(x, \lambda, \nu) = \min \limits_x f_0(x)$
 
-**对偶问题**
+对偶问题
 
 $$
 \begin{align}

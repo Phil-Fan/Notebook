@@ -26,7 +26,7 @@ format: format-md format-py
 # 格式化 Markdown 文件
 format-md:
 	@echo "→ 格式化 Markdown 文件..."
-	markdownlint "$(PROJECT_ROOT)" --fix -c "$(PROJECT_ROOT)/.github/.markdownlint.json"
+	markdownlint "$(PROJECT_ROOT)" --fix -c "$(PROJECT_ROOT)/.github/.markdownlint.yaml"
 	autocorrect "$(PROJECT_ROOT)/docs" --fix
 	@echo "✓ Markdown 格式化完成"
 

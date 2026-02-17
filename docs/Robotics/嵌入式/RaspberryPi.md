@@ -78,7 +78,7 @@ dtoverlay=ov5647
 ```
 
 | Camera Module | In /boot/config.txt |
-|----------------|----------------------|
+| ---------------- | ---------------------- |
 | V1 camera (OV5647) | `dtoverlay=ov5647` |
 | V2 camera (IMX219) | `dtoverlay=imx219` |
 | HQ camera (IMX477) | `dtoverlay=imx477` |

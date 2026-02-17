@@ -499,19 +499,19 @@ S-function 模块，位于 Simulink/User-Defined Functions 模块库中，是使
 
 - `S-function modules`：仅当 S-function 是用 C 语言编写并用 MEX 工具编译的 C-MEX 文件时，才需要填写该参数；
 
-**直接馈通**
+直接馈通
 
 如果输出函数（mdlOutputs 或 flag==3）是输入 u 的函数，即，如果输入 u 在 mdlOutputs 中被访问，则存在直接馈通。ex：$y= k\cdot u$
 
-**采样时间与偏移量**
+采样时间与偏移量
 
 采样时间是按照固定格式成对指定的：`[采样时间 偏移时间]`。
 
-|采样时间表示 |意义|
-|---|---|
-|[0 0] |连续采样时间|
-|[-1 0] |继承 S-function 输入信号或父层模型的采样时间|
-|[0.5 0.1] |离散采样时间，从 0.1s 开始每 0.5s 采样一次|
+| 采样时间表示 | 意义 |
+| --- | --- |
+| [0 0] | 连续采样时间 |
+| [-1 0] | 继承 S-function 输入信号或父层模型的采样时间 |
+| [0.5 0.1] | 离散采样时间，从 0.1s 开始每 0.5s 采样一次 |
 
 #### 函数分析
 
@@ -534,7 +534,7 @@ S-function 包括主函数和 6 个功能子函数，包括 mdlInitializeSizes�
 
 提示框可以随便写，但是名称需要和代码中的变量名称对齐。
 
-**第二步是在 S-function 初始化当中加入 Mask 参数**
+第二步是在 S-function 初始化当中加入 Mask 参数
 
 ```matlab hl_lines="1,3,8,20"
 function [sys,x0,str,ts,simStateCompliance] = expert_control(t,x,u,flag,K_b,K_s,theta_m,theta_2,theta_1,Kp,Ki,Kd,angle,F_m)
@@ -559,7 +559,7 @@ function [sys,x0,str,ts,simStateCompliance] = expert_control(t,x,u,flag,K_b,K_s,
 function [sys,x0,str,ts,simStateCompliance]=mdlInitializeSizes(angle)
 ```
 
-**第三步是在 s-function 的模块参数中，添加需要预置的参数**
+第三步是在 s-function 的模块参数中，添加需要预置的参数
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Matlab.assets__20241203114952.webp)
 
@@ -858,7 +858,7 @@ pzmap(sys) % 绘制极点、零点图像
 rlocus(sys)
 ```
 
-**rlocus 求系统的根轨迹**
+rlocus 求系统的根轨迹
 
 ```matlab
 rlocus(SYS)
@@ -907,7 +907,7 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 
 #### 根轨迹分析
 
-**rlocfind 计算给定一组根的根轨迹增益**
+rlocfind 计算给定一组根的根轨迹增益
 
 ```matlab
 [K, POLES] = rlocfind(SYS)
@@ -921,7 +921,7 @@ disp(['对应增益 K: ', num2str(min_zeta_K)])
 
 指定要得到增益的根矢量 P。
 
-**sgrid 在连续系统根轨迹图和零极点图中绘出阻尼系数和自然频率栅格**
+sgrid 在连续系统根轨迹图和零极点图中绘出阻尼系数和自然频率栅格
 
 `sgrid`——在连续系统的根轨迹或零极点图上绘制出栅格线，栅格线由等阻尼系数和等自然频率线构成，阻尼系数以步长 0.1 从ξ＝0 到ξ＝1 绘出
 

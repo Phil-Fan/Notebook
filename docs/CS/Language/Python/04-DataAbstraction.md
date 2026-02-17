@@ -17,12 +17,11 @@
     - 成员判断 (in, not in)
     - 切片
 
-
-    | 该程序的一部分 | 把有理数当作 | 仅使用 |
-    | --- | --- | --- |
-    | 使用有理数进行计算 | 整个数据值 | add_rational, mul_rational, rationals_are_equal, print_rational |
-    | 创建有理数或操作有理数 | 分子和分母 | rational, numer, denom |
-    | 为有理数实现选择器和构造器 | 二元列表 | 列表字面量和元素选择 |
+| 该程序的一部分 | 把有理数当作 | 仅使用 |
+| --- | --- | --- |
+| 使用有理数进行计算 | 整个数据值 | add_rational, mul_rational, rationals_are_equal, print_rational |
+| 创建有理数或操作有理数 | 分子和分母 | rational, numer, denom |
+| 为有理数实现选择器和构造器 | 二元列表 | 列表字面量和元素选择 |
 
     **序列遍历**
 
@@ -210,7 +209,7 @@ b = map(int,input().split())
 
 ### 字面量
 
-**长字符串**
+长字符串
 
 - 用 3 个引号（单引号或双引号）括起来的字符串可以包含多行字符串
 - 如果要在程序中用多行表示一个字符串，则可以在每行的结尾用反斜杠（\）结束
@@ -220,9 +219,9 @@ b = map(int,input().split())
 
 - 如果在字符串的内容中需要出现单引号或双引号，就需要用另一种引号来做前后的括号
 
-| \t     | \n       | \\   | \"   | \'   | \ooo  | \xyz   |
+| \t | \n | \\ | \" | \' | \ooo | \xyz |
 | ------ | -------- | ---- | ---- | ---- | ----- | ------ |
-| 制表位 | 回车换行 | \    | "    | '    | 8 进制 | 16 进制 |
+| 制表位 | 回车换行 | \ | " | ' | 8 进制 | 16 进制 |
 
 ```py
 print(len(r'hello\nworld'))
@@ -410,25 +409,25 @@ a, b = map(int, input().split('/'))
 
 ### Set 函数讲解
 
-| 函数     | 示例        | 结果            | 说明                                                         |
+| 函数 | 示例 | 结果 | 说明 |
 | -------- | ----------- | --------------- | ------------------------------------------------------------ |
-| len()    | len(s)      | 5               | 返回集合中元素的数量                                         |
-| min()    | min(s)      | 2               | 返回集合中最⼩的元素                                         |
-| max()    | max(s)      | 11              | 返回集合中最⼤的元素                                         |
-| sum()    | sum(s)      | 27              | 将集合中所有的元素累加起来                                   |
-| add()    | s.add(13)   | {2,3,5,7,11,13} | 将⼀个元素加⼊集合中                                         |
-| remove() | s.remove(3) | {2,5,7,11}      | 从集合中删除⼀个元素，如果这个元素在集合中不存在，则抛出 KeyError 异常 |
-| sorted() |             |                 | 排序，返回列表|
-|update()||||
+| len() | len(s) | 5 | 返回集合中元素的数量 |
+| min() | min(s) | 2 | 返回集合中最⼩的元素 |
+| max() | max(s) | 11 | 返回集合中最⼤的元素 |
+| sum() | sum(s) | 27 | 将集合中所有的元素累加起来 |
+| add() | s.add(13) | {2,3,5,7,11,13} | 将⼀个元素加⼊集合中 |
+| remove() | s.remove(3) | {2,5,7,11} | 从集合中删除⼀个元素，如果这个元素在集合中不存在，则抛出 KeyError 异常 |
+| sorted() | | | 排序，返回列表 |
+| update() | | | |
 
 ### 运算
 
-| 运算   | 函数                      | 运算符 | 示例           | 结果               | 说明                                             |
+| 运算 | 函数 | 运算符 | 示例 | 结果 | 说明 |
 | ------ | ------------------------- | ------ | -------------- | ------------------ | ------------------------------------------------ |
-| 并集   | `union()`                 | \|     | `s1.union(s2)` | `{2,3,4,5,6,7,11}` | 结果是包含两个集合中所有元素的新集合             |
-| 交集   | `intersection()`          | `&`    | `s1 & s2`     | `{2,3,5,7}`        | 交集是只包含两个集合中都有的元素的新集合         |
-| 差集   | `difference()`            | `-`    | `s1 - s2`      | `{11}`             | s1-s2 的结果是出现在 s1 但不出现在 s2 的元素的新集合 |
-| 对称差 | `symmertric_difference()` | `^`    | `s1 ^ s2`      | `{4,6,11}`         | 结果是⼀个除了共同元素之外的所有元素             |
+| 并集 | `union()` | `\|` | `s1 \| s2` | `{2,3,4,5,6,7,11}` | 结果是包含两个集合中所有元素的新集合 |
+| 交集 | `intersection()` | `&` | `s1 & s2` | `{2,3,5,7}` | 交集是只包含两个集合中都有的元素的新集合 |
+| 差集 | `difference()` | `-` | `s1 - s2` | `{11}` | s1-s2 的结果是出现在 s1 但不出现在 s2 的元素的新集合 |
+| 对称差 | `symmertric_difference()` | `^` | `s1 ^ s2` | `{4,6,11}` | 结果是⼀个除了共同元素之外的所有元素 |
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__Language__Python__assets__04-DataAbstraction.assets__20240808125350.webp)
 
@@ -522,14 +521,14 @@ for key,value in score.items():
 
 - 运算：⽤`==`和`!=`⽐较两个字典是否相同（键和值都相同）
 
-| 方法             | 功效 ｜                                                      |
+| 方法 | 功效 ｜ |
 | ---------------- | ------------------------------------------------------------ |
-| `keys()`         | 返回由全部的键组成的一个序列                                 |
-| `values()`       | 返回由全部的值组成的一个序列                                 |
-| `items()`        | 返回一个序列，其中的每一项是一个元组，每个元组由键和它对应的值组成 |
-| `clear()`        | 删除所有条目                                                 |
-| `get(key,value)` | 返回这个键所对应的值，如找不到返回`value`                     |
-| `pop(key)`       | 返回这个键所对应的值，同时删除这个条目                       |
+| `keys()` | 返回由全部的键组成的一个序列 |
+| `values()` | 返回由全部的值组成的一个序列 |
+| `items()` | 返回一个序列，其中的每一项是一个元组，每个元组由键和它对应的值组成 |
+| `clear()` | 删除所有条目 |
+| `get(key,value)` | 返回这个键所对应的值，如找不到返回`value` |
+| `pop(key)` | 返回这个键所对应的值，同时删除这个条目 |
 
 - 函数`get()`和运算符`[ ]`不同之处，在于如果键`key`在字典中不存在，则`get(key)`返回`None`值，⽽运算符`[ ]`会抛出`KeyError`异常
 - 函数 keys()、values()、items() 都是返回⼀个迭代器可以被`for in`遍历，由于字典中键不重复，所以`keys()`和`items()`的返回结果可以转换成集合⽽`values()`返回值由于可能存在重复值，应该转换为列表或元组
@@ -673,19 +672,19 @@ for i in zip(count(start = 1, step = 1), my_list):
     print(i)
 ```
 
-| 迭代器                          | 实参                 | 结果                                  |
+| 迭代器 | 实参 | 结果 |
 | ------------------------------- | -------------------- | ------------------------------------- |
-| product()                       | p, q, ... [repeat=1] | 笛卡尔积，相当于嵌套的 for 循环         |
-| permutations()                  | p[, r]               | 长度 r 元组，所有可能的排列，无重复元素 |
-| combinations()                  | p, r                 | 长度 r 元组，有序，无重复元素           |
-| combinations_with_replacement() | p, r                 | 长度 r 元组，有序，元素可重复           |
+| product() | p, q, ... [repeat=1] | 笛卡尔积，相当于嵌套的 for 循环 |
+| permutations() | p[, r] | 长度 r 元组，所有可能的排列，无重复元素 |
+| combinations() | p, r | 长度 r 元组，有序，无重复元素 |
+| combinations_with_replacement() | p, r | 长度 r 元组，有序，元素可重复 |
 
-| 例子                                     | 结果                                            |
+| 例子 | 结果 |
 | ---------------------------------------- | ----------------------------------------------- |
-| product('ABCD', repeat=2)                | AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD |
-| permutations('ABCD', 2)                  | AB AC AD BA BC BD CA CB CD DA DB DC             |
-| combinations('ABCD', 2)                  | AB AC AD BC BD CD                               |
-| combinations_with_replacement('ABCD', 2) | AA AB AC AD BB BC BD CC CD DD                   |
+| product('ABCD', repeat=2) | AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD |
+| permutations('ABCD', 2) | AB AC AD BA BC BD CA CB CD DA DB DC |
+| combinations('ABCD', 2) | AB AC AD BC BD CD |
+| combinations_with_replacement('ABCD', 2) | AA AB AC AD BB BC BD CC CD DD |
 
 ```py
 ranks = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'

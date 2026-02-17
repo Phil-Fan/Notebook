@@ -202,7 +202,7 @@ pip install denoising_diffusion_pytorch
 This browser does not support PDFs
 </iframe>
 
-**Latent Space**
+Latent Space
 
 - 潜在扩散模型”（Latent Diffusion Model）。顾名思义，Stable Diffusion 发生在潜在空间中。这就是它比纯扩散模型更快的原因。
 
@@ -210,12 +210,12 @@ VAE 由编码器​和解码器​两部分组成：编码器​负责将输入�
 
 Diffusion Model 本身在生成图片上已经能够取得很好的效果了，但是由于它无论是训练还是推导都需要大量的算力，无法生成高质量的的图像。因此 VAE 将图片压缩到潜在空间的操作对 SD 的成功是功不可没，正是由于 VAE 将复杂的像素空间压缩到了低维的潜在空间，大大降低了训练和生成的计算成本。
 
-**Latent Diffusion**
+Latent Diffusion
 
 正向扩散过程 → 向潜在数据添加噪声。
 逆向扩散过程 → 从潜在数据中去除噪声
 
-**调节机制**
+调节机制
 
 - 对于文本输入，首先使用语言模型 $\tau_{\theta}$（例如 BERT、CLIP）将文本转换为嵌入（向量），然后通过（多头）注意力 $Attention(Q, K, V)$ 映射到 U-Net 层。
 - 对于其他空间对齐的输入（例如语义映射、图像、修复），可以使用连接来完成调节。

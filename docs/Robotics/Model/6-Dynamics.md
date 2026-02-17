@@ -26,7 +26,7 @@
 
 > [干货 | 机械臂的动力学（一）：牛顿欧拉法 - 知乎](https://zhuanlan.zhihu.com/p/341842610)
 
-|  | linear | angular |
+| | linear | angular |
 | --- | --- | --- |
 | 惯性 | 质量$m$ | 张量$\mathbf{I}$ |
 | 动量 | $m\mathbf{v}$ | $\mathbf{I}\boldsymbol{\omega}$ |
@@ -134,14 +134,14 @@ $$
 
 !!! note "请务必回顾一下微积分下当中多元积分相关的内容，不然这部分会影响理解"
 
-**多元积分**
+多元积分
 
 - 画出积分区域
 - 确定上下左右限
 - 写出累次积分
 - 逐个计算定积分
 
-**极坐标换元**
+极坐标换元
 
 $$
 \begin{aligned}
@@ -152,7 +152,7 @@ $$
 \end{aligned}
 $$
 
-**对称性**
+对称性
 
 - 对称性：（$y=x$对称）
 - 奇偶性：x 轴，y 轴等；利用被积函数奇偶性
@@ -239,25 +239,25 @@ $$
 
 平动
 
-| **物理量**       | **公式**|
-|------------------|-----------------------|
-| **角速度**       | $^{i+1}\omega_{i+1} = {}^{i+1}_i R \cdot {}^i \omega_i$|
-| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} = {}^{i+1}_i R \cdot {}^i \dot{\omega}_i$|
-| **加速度**       | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ <br> 注意这里不是$2^{i+1}$,不要看错|
-| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} = {}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
-| **力**           | $^{i+1} F_{i+1} = m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
-| **力矩**         | $^{i+1}N_{i+1} = {}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
+| **物理量** | **公式** |
+| ------------------ | ----------------------- |
+| **角速度** | $^{i+1}\omega_{i+1} = {}^{i+1}_i R \cdot {}^i \omega_i$ |
+| **角加速度** | $^{i+1}\dot{\omega}_{i+1} = {}^{i+1}_i R \cdot {}^i \dot{\omega}_i$ |
+| **加速度** | $^{i+1}\dot{v}_{i+1} = {}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times ^iO_{i+1} \right) + {}^i \dot{v_i} \right] + 2 \cdot {}^{i+1} \omega_{i+1} \times \dot{d}_{i+1} ^{i+1} \hat{Z}_{i+1}  \ + \ \ddot{d}_{i+1}\cdot {}^{i+1} \hat{Z}_{i+1}$ <br> 注意这里不是$2^{i+1}$,不要看错 |
+| **质心加速度** | $^{i+1}\dot{v}_{C_{i+1}} = {}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
+| **力** | $^{i+1} F_{i+1} = m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
+| **力矩** | $^{i+1}N_{i+1} = {}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
 
 转动
 
-| **物理量**       | **公式** |
-|------------------|-------------------|
-| **角速度**       | $^{i+1}\omega_{i+1} ={}^{i+1}_i R \cdot {}^i \omega_i + \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
-| **角加速度**     | $^{i+1}\dot{\omega}_{i+1} ={}^{i+1}_i R \cdot {}^i \dot{\omega}_i + {}^{i+1}_i R \cdot {}^i \omega_i \times  \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1} + \ddot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
-| **加速度**       | $^{i+1}\dot{v}_{i+1} ={}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times {}^iO_{i+1} \right) + {}^i \dot{v_i} \right]$   |
-| **质心加速度**   | $^{i+1}\dot{v}_{C_{i+1}} ={}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
-| **力**           | $^{i+1} F_{i+1} =m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
-| **力矩**         | $^{i+1}N_{i+1} ={}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
+| **物理量** | **公式** |
+| ------------------ | ------------------- |
+| **角速度** | $^{i+1}\omega_{i+1} ={}^{i+1}_i R \cdot {}^i \omega_i + \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
+| **角加速度** | $^{i+1}\dot{\omega}_{i+1} ={}^{i+1}_i R \cdot {}^i \dot{\omega}_i + {}^{i+1}_i R \cdot {}^i \omega_i \times  \dot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1} + \ddot{\theta}_{i+1} \cdot {}^{i+1} \hat{Z}_{i+1}$ |
+| **加速度** | $^{i+1}\dot{v}_{i+1} ={}^{i+1}_i R \left[ {}^i \dot{\omega}_i \times O_{i+1} + {}^i \omega_i \times \left( {}^i \omega_i \times {}^iO_{i+1} \right) + {}^i \dot{v_i} \right]$ |
+| **质心加速度** | $^{i+1}\dot{v}_{C_{i+1}} ={}^{i+1}_i \dot{\omega}_{i+1} \times {}^{i+1} P_{C_{i+1}} + {}^{i+1} \omega_{i+1} \times \left( {}^{i+1} \omega_{i+1} \times {}^{i+1} P_{C_{i+1}} \right) + {}^{i+1} \dot{v}_{i+1}$ |
+| **力** | $^{i+1} F_{i+1} =m_{i+1} \cdot {}^{i+1}_i \dot{v}_{C_{i+1}}$ |
+| **力矩** | $^{i+1}N_{i+1} ={}^{C_{i+1}} I_{i+1} \cdot {}^{i+1}\dot{\omega}_{i+1} + {}^{i+1} \omega_{i+1} \times{}^{C_{i+1}} I_{i+1} \cdot {}^{i+1} \omega_{i+1}$ |
 
 注意事项
 
@@ -480,7 +480,7 @@ $$
 V(\boldsymbol{q},\dot{\boldsymbol{q}})=C(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1^2\\\vdots\\\dot{q}_n^2\end{bmatrix}+\boldsymbol{B}(\boldsymbol{q},\dot{\boldsymbol{q}})\begin{bmatrix}\dot{q}_1\dot{q}_2\\\dot{q}_1\dot{q}_3\\\vdots\\\dot{q}_{n-2}\dot{q}_n\\\dot{q}_{n-1}\dot{q}_n\end{bmatrix}
 $$
 
-### 性质
+### 性质介绍
 
 - $\dot{\boldsymbol{M}}(\boldsymbol{\Phi})-2\boldsymbol{C}(\boldsymbol{\Phi},\dot{\boldsymbol{\Phi}})$ 是反对称的
 - 惯性矩阵$\boldsymbol{M}(\boldsymbol{\Phi})$ 是正定的，因为机器人的总动能是非负的，所以惯性矩阵是正定的

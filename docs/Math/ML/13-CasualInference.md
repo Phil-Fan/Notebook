@@ -4,7 +4,7 @@
 
 <div align="center">
 
-**The Road Not Taken**
+The Road Not Taken
 
 BY ROBERT FROST
 
@@ -129,7 +129,7 @@ correlation is not equal to causation
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.2.webp)
 
-**辛普森悖论例子**
+辛普森悖论例子
 
 但是，第三个表格将男女数据全部合并，我们发现：**药物对治疗该疾病是没有帮助的，反而是有害的**。以上这个问题就是典型的辛普森悖论问题。
 
@@ -137,10 +137,10 @@ correlation is not equal to causation
 
   首先，对变量进行编码表示：
 
-|      | X     | Y             | Z            |
+| | X | Y | Z |
 | ---- | ----- | ------------- | ------------ |
-| 0    | Women | Not Recovered | No Treatment |
-| 1    | Men   | Recovered     | Treatment    |
+| 0 | Women | Not Recovered | No Treatment |
+| 1 | Men | Recovered | Treatment |
 
  那么上述的“辛普森悖论例子”图片中的①、②、③、④、A 以及 B 便可以用条件概率的形式来表示：
 
@@ -161,13 +161,13 @@ $B=②·p+④·(1-p)$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.3.webp)
 
-**辛普森悖论概率论解释**
+辛普森悖论概率论解释
 
  可见 A 和 B 的取值分别由 p 和 q 取值来决定的。从上图中可以看到，出现 A<B 的内在条件是：1.A 点趋于③的位置（q 趋向于 0，即数据中的药物更多是在女性人群中使用）；2.Prob(③)<Prob(①)（即女性用药人群要比男性用药人群更难恢复）。将这两个条件用因素影响图来表示：
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.4.webp)
 
-**辛普森悖论因素影响图**
+辛普森悖论因素影响图
 
  也就是：性别会影响用药情况和人的恢复，而用药也会影响恢复。这里我们称 Sex 为**混淆因素**，它不仅会影响我们判断是否用药，也会影响最终的恢复情况。如果你是医生，想要判断该药是否对病情有恢复作用，就必须把 Sex 这一混淆因素去除掉。**而去除混淆变量的方法很简单，我们只需要看分组数据**（只看男性数据或者只看女性数据，而不是将男女数据合到一起而引入了混淆因素）。通过上述的解读，可以得到一个结论：**统计结论的反转是因为存在混淆变量，该变量同时影响着原因和结果**。
 
@@ -181,7 +181,7 @@ $B=②·p+④·(1-p)$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual2.6.webp)
 
-**因果中间变量实例**
+因果中间变量实例
 
  上图是一组实际中的例子。第一行为低血压人群用药的治疗结果：对于没用药有 93% 治愈率，而对于用药人群只有 87% 的治愈率。第二行为高血压人群，对于没用药有 73% 治愈率，而对于用药人群只有 69% 的治愈率。通过这两行分类数据发现：无论是高血压人群还是低血压人群，药物只体现了其对康复的副作用。而第三行，将高血压和低血压人群合并，发现得到了药物对治疗有促进作用。如果你是医生，想知道药物对治疗疾病的真正效果，你会从分类角度（高血压\\低血压独立来看）还是整体角度来看？如果从分类的角度，则只是单独考虑了药物的副作用而忽略了血压的影响，但事实上药物对治疗的影响还存在一部分是血压带来的效益。所以从分类角度来看是有问题的。所以，**对于这种因果中间变量模型，我们应该从整体的角度来评估药物对治疗的效果**。
 
@@ -274,19 +274,19 @@ v-structure
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.1.webp)
 
-**祖先与后代**
+祖先与后代
 
 * **闭环图（cyclic）：**含有闭环的有向图，如下图所示：
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.2.webp)
 
-**Cyclic**
+Cyclic
 
 * **非闭环图（acyclic directed graph）DAG：**不含闭环的有向图，如下图所示：
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual4.3.webp)
 
-**Cyclic**
+Cyclic
 
 ### 结构因果模型（Structural Causal Model）
 
@@ -298,25 +298,25 @@ v-structure
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.1.webp)
 
-**结构因果模型 1**
+结构因果模型 1
 
  其次是结果 Y 由两个原因 X、Z 共同导致的情况：
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.2.webp)
 
-**结构因果模型 2**
+结构因果模型 2
 
  最后是间接因果关系的情况，即前面提到复合函数的情况。
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.3.webp)
 
-**结构因果模型 3**
+结构因果模型 3
 
 * **外生节点与内生节点：**上面我们提到了 3 种比较简单的因果模型，下面我们来看一个相对复杂一点的因果图模型。如下图，原因 X 和 W 共同导致了结果 Z，而结果 Z 导致了结果 Y。那么我们便可以画出对应的因果图模型如下所示。在图中，**我们称 X 和 W 这类没有父亲的节点为外生节点（exogenous），而称 Z 和 Y 这类有父亲的节点为内生节点（endogenous）**。即：根节点`<=>`外生节点集合 U，根节点的后代节点（descendent）`<=>`内生节点集合 V，连边`<=>`对应的函数映射。
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual5.4.webp)
 
-**外生节点与内生节点**
+外生节点与内生节点
 
 6.因果与相关（Intransitive Case）
 
@@ -331,7 +331,7 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__casual6.1.webp)
 
-**Intransitive case 图模型**
+Intransitive case 图模型
 
  从模型中我们可以发现，P(Z\=i)\=P(Z\=i|X\=1)\=P(Z\=i|X\=2) 三者都是相等，即 Z 的取值实际上和 X 没有关系，而完全取决于 Uy 和 Uz，Z 和 X 之间便是独立的。因此，实际上两个还有因果关系的变量也未必存在统计相关性，这也给因果推断带来了困难。
 
@@ -341,13 +341,13 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_0.webp)
 
-**V-Structure**
+V-Structure
 
 * **Chain 上的条件独立结论：**从下图（题注为：Chain 的性质）中，我们发现`X`和`Z`之间存在很多的链式结构。按照前几节的内容可以得到下面结论：`X`与`Y1...Yn`都是大概率统计相关的，且`Z`与`Y1...Yn`也是大概率统计相关的。进一步可以得到`Z`和`X`也是大概率统计相关。
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal7_2.webp)
 
-**Chain 的性质**
+Chain 的性质
 
  **但是如果其中的`Y`是已知条件（即 Condition 在`Y1..Yn`上所有通路），那么`X`和`Z`便是统计独立的（相当于`X`和`Z`间所有通路断开）——这是链式结构的重要性质。**
 
@@ -357,7 +357,7 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal8_1.webp)
 
-**Fork 的性质**
+Fork 的性质
 
  **但是如果其中的`X`是已知条件（即 Condition 在`X`上），那么`Y`和`Z`便是统计独立的（相当于`Y`和`Z`间不存在通路）——这是叉式结构的重要性质。**
 
@@ -367,7 +367,7 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal9_1.webp)
 
-**Collider 的性质**
+Collider 的性质
 
  **但是如果其中的`Z`是已知条件（即 Condition 在`Z`上），那么`X`和`Y`便是统计相关的——这是对撞结构的重要性质。**
 
@@ -377,11 +377,11 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 * **D-分隔定义**：有向图相关性的分隔。通过第 7、8、9 章的介绍，我们可以得到下表的结论：
 
-| V-Structure                | Uncondition | Condition |
+| V-Structure | Uncondition | Condition |
 | -------------------------- | ----------- | --------- |
-| Fork                       | Unblock     | Block     |
-| Chain                      | Unblock     | Block     |
-| Collider（or descendents） | Block       | Unblock   |
+| Fork | Unblock | Block |
+| Chain | Unblock | Block |
+| Collider（or descendents） | Block | Unblock |
 
 注：其中的 Unblock 为 dependent，而 Block 为 independent。
 
@@ -399,7 +399,7 @@ SCM:V\={X,Y,Z},U\={UX,UY,UZ},F\={fx,fy,fz}fx:X\=Uxfy:Y\={aifX\=1,Uy\=1bifX\=2,Uy
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal10_1.webp)
 
-**复杂图的 D-Separation**
+复杂图的 D-Separation
 
 ### 模型检验和等价类（Model Testing and Causal Search）
 
@@ -426,13 +426,13 @@ P(X1,X2,...Xn)\=Πni\=1P(Xi|pa(Xi))
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_1.webp)
 
-**乘积分解法则例子**
+乘积分解法则例子
 
 实际上只要证明下面的等式，而下面的等式只需要根据 D-Separation 即可得到。
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__13-CasualInference.assets__causal12_2.webp)
 
-**乘积分解法则证明**
+乘积分解法则证明
 
 ### 如何构建因果图
 
@@ -606,7 +606,7 @@ Weighting 加权：常用的策略是 IPW（Inverse Probability Weighting Estima
 要判断个体属于哪一类，需要了解个体在工具变量（A）和处理变量（L）上的取值情况：
 
 | 类型 | 条件 |
-|------|------|
+| ------ | ------ |
 | Always Taker | 无论 A 的取值如何，L 总是为 1 |
 | Never Taker | 无论 A 的取值如何，L 总是为 0 |
 | Defier | A=1 时 L=0，或 A=0 时 L=1 |

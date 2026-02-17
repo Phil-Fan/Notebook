@@ -116,14 +116,14 @@ AEIO
 
 归结：$\alpha  \lor\beta, \neg \alpha$ 推出 $\beta$
 
-| 推理规则 | 形式 | 说人话|
+| 推理规则 | 形式 | 说人话 |
 | --- | --- | --- |
-| 假言推理 (Modus Ponens) | $\frac{\alpha \rightarrow \beta, \alpha}{\beta}$ |满足了前提条件，推出结论|
-| 与消解 (And-Elimination) | $\frac{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}{\alpha_i (1 \leq i \leq n)}$ |众多条件抽一个|
-| 与导入 (And-Introduction) | $\frac{\alpha_1, \alpha_2, \ldots, \alpha_n}{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}$ |果宝特工，归位|
-| 双重否定 (Double-Negation Elimination) | $\frac{\neg \neg \alpha}{\alpha}$ |否定之否定|
+| 假言推理 (Modus Ponens) | $\frac{\alpha \rightarrow \beta, \alpha}{\beta}$ | 满足了前提条件，推出结论 |
+| 与消解 (And-Elimination) | $\frac{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}{\alpha_i (1 \leq i \leq n)}$ | 众多条件抽一个 |
+| 与导入 (And-Introduction) | $\frac{\alpha_1, \alpha_2, \ldots, \alpha_n}{\alpha_1 \land \alpha_2 \land \cdots \land \alpha_n}$ | 果宝特工，归位 |
+| 双重否定 (Double-Negation Elimination) | $\frac{\neg \neg \alpha}{\alpha}$ | 否定之否定 |
 | 单项消解或单项归结 (Unit Resolution) | $\frac{\alpha \lor \beta, \neg \beta}{\alpha}$ | |
-| 消解或归结 (Resolution) | $\frac{\alpha \lor \beta, \neg \beta \lor \gamma}{\alpha \lor \gamma}$ 或 $\frac{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_m, \neg \alpha_k}{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_{k-1} \lor \alpha_{k+1} \lor \cdots \lor \alpha_m} (\neg \alpha_k = \neg \beta)$ |有一对相反的，可以抵消|
+| 消解或归结 (Resolution) | $\frac{\alpha \lor \beta, \neg \beta \lor \gamma}{\alpha \lor \gamma}$ 或 $\frac{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_m, \neg \alpha_k}{\alpha_1 \lor \alpha_2 \lor \cdots \lor \alpha_{k-1} \lor \alpha_{k+1} \lor \cdots \lor \alpha_m} (\neg \alpha_k = \neg \beta)$ | 有一对相反的，可以抵消 |
 
 归结法：反证法
 

@@ -73,13 +73,13 @@
 
 内积把向量降维成为标量
 
-**典范内积**
+典范内积
 
 $$
 \langle x, y \rangle = x^H y = \sum_{i=1}^n x_i^* y_i
 $$
 
-**加权内积**
+加权内积
 
 $$
 \langle x, y \rangle = x^H G y
@@ -87,7 +87,7 @@ $$
 
 其中，$G$ 为正定 Hermitian 矩阵（二次型大于零）。
 
-**函数向量内积**
+函数向量内积
 
 $$
 \langle x(t), y(t) \rangle \stackrel{\text{def}}{=} \int_a^b x^*(t) y(t) \, dt
@@ -98,7 +98,7 @@ $$
     X(f) = \sum_{n=0}^{N-1} x(n) e^{-j \left(\frac{2\pi}{N}\right) n f} = e_N^H x = \langle e_{N-1}, x \rangle
     $$
 
-**夹角定义**
+夹角定义
 
 $$
 \cos \theta \stackrel{\text{def}}{=} \frac{\langle x, y \rangle}{\sqrt{\langle x, x \rangle} \sqrt{\langle y, y \rangle}} = \frac{\int_a^b x^H(t) y(t) \, dt}{\|x(t)\| \cdot \|y(t)\|}
@@ -143,7 +143,7 @@ $$
 - 幂等矩阵的秩为矩阵的秩
 - 幂等矩阵的特征值为 1
 
-**幂零矩阵**
+幂零矩阵
 
 - 幂零矩阵的特征值为 0
 - 幂零矩阵的行列式为 0
@@ -245,9 +245,6 @@ G 可写为一个置换矩阵和一个非奇异对角阵的乘积，$G = P\Lambd
     所以如果矩阵形式给定，才可以保证唯一性
 
     张量的 CP 分解：有 Vandermonde 结构，有可识别性
-
-
-    
 
 ### 酉矩阵 | Unitary matrix
 
@@ -387,7 +384,7 @@ $$
 
 $x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{j \frac{2\pi kn}{N}}$，其中 $n = 0, 1, \ldots, N-1$
 
-**傅里叶矩阵是一个酉矩阵**
+傅里叶矩阵是一个酉矩阵
 
 - $F^H F = F F^H = N I$
 - $F^{-1} = \frac{1}{N} F^H = \frac{1}{N} F^*$
@@ -445,7 +442,7 @@ $H_n \in \mathbb{R}^{n \times n}$ 所有元素取 +1 或者 -1，且满足 $H_n 
 
 作用：在模拟域，Hadamard 矩阵可以用于构造正交的基函数，用于信号处理、图像处理、通信等领域。
 
-**性质**
+性质
 
 - 只有当 $n = 2^k$ 或者 $n$ 是 4 的整数倍时，Hadamard 矩阵才存在。
 - 容易验证 $\frac{1}{\sqrt{n}} H_n$ 为标准正交矩阵。
@@ -498,10 +495,6 @@ $$
     $$
 
     **多项式乘法也可以看作是一个卷积的过程，表示成竖式的形式，其实就是卷积**
-
-
-    
-    
 
 ### Hankel 矩阵 - 斜对角线元素相同
 

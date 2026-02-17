@@ -87,7 +87,7 @@ Solidity 支持多种数据类型，包括：
 
 `delegatecall`是 Solidity 中的一种低级函数，允许一个合约在另一个合约的上下文中执行代码。使用`delegatecall`时，被调用合约的代码以调用合约的存储、消息和余额来执行。这意味着在`delegatecall`执行过程中，当前合约的存储、msg.sender 和 msg.value 不会改变，而是继续引用原来的上下文。
 
-**用法**
+用法
 
 假设有两个合约，合约 A 和合约 B。合约 A 希望使用合约 B 的某些功能。可以使用`delegatecall`将操作委托给合约 B：
 
@@ -120,7 +120,7 @@ contract A {
 
 在上面的示例中，当调用 A 合约的`setVars`方法时，`delegatecall`将 B 合约中的`setVars`函数在 A 合约的上下文中执行。因此，A 合约中的`num`、`sender`和`value`会被更新，而 B 合约中的相应变量不会改变。
 
-**影响**
+影响
 
 `delegatecall`的执行范围影响如下：
 

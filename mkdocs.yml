@@ -689,14 +689,6 @@ plugins:
       theme: dark
       include_source: True
       custom_mathjax_url: "https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"
-  
-  # 支持视频
-  - mkdocs-video:
-      is_video: True
-      video_muted: True
-      video_controls: True
-      css_style:
-        width: "50%"
 
   # https://github.com/ojacques/mkdocs-git-committers-plugin-2
   # get your secret key from https://github.com/settings/personal-access-tokens/new

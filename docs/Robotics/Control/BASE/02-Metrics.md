@@ -22,7 +22,7 @@ $$
 - $\zeta$ 是阻尼比。
 - $\omega_n$ 是无阻尼系统的自然频率
   
-**动态指标性能**
+动态指标性能
 
 1. **上升时间（Rise Time）**: $T_r = \frac{\pi - \beta}{\omega_n \sqrt{1 - \zeta^2}}$
 2. **峰值时间（Peak Time）**: $T_p = \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n \sqrt{1 - \zeta^2}}$  ，峰值时间的等高线是一条射线，且等峰值线是虚轴相同。

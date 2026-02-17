@@ -51,13 +51,13 @@ Web 漏洞挖掘的关键：
 
 ## 前置科技
 
-**插件**
+插件
 
 - Hackbar
 - Cookie-Editor
 - SwitchOmega
 
-**软件**
+软件
 
 - BurpSuite, Kali 自带
 - PHPStudy，[安装 phpstudy on Kali](https://blog.csdn.net/weixin_54358903/article/details/127698009)
@@ -313,7 +313,7 @@ ERROR 1105 (HY000): XPATH syntax error: '~web~'
 
 2. 语义匹配
 
-**绕过方法**
+绕过方法
 
 - 针对关键字/正则匹配
 - 大小写
@@ -496,7 +496,7 @@ def fetch_url(url):
 
 [常见 Web 源码泄露总结\_ctf 泄露大全-CSDN 博客](https://blog.csdn.net/Fly_hps/article/details/82821857)
 
-**0x1 Hg 泄露**
+0x1 Hg 泄露
 
 hg init 的时候会生成.hg
 
@@ -513,7 +513,7 @@ rip-hg.pl -v -u http://www.example.com/.hg/
 GitHack.py http://www.example.com/.git/
 ```
 
-**dvcs-ripper**
+dvcs-ripper
 
 ```shell
 rip-git.pl -v -u http://www.example.com/.git/

@@ -65,17 +65,17 @@ pip install paho-mqtt
 
 ### 常见指令
 
-| 方法                             | 描述                                                   |
-|----------------------------------|--------------------------------------------------------|
-| `mqtt.Client("client_id")`       | 创建一个 MQTT 客户端实例                                |
-| `client.connect(broker, port, keepalive)` | 连接到 MQTT 代理服务器                                |
-| `client.subscribe(topic)`       | 订阅一个主题                                           |
-| `client.publish(topic, payload)`| 发布消息到指定的主题                                   |
-| `client.on_connect`              | 设置连接回调函数（连接成功后执行的函数）               |
-| `client.on_message`             | 设置消息接收回调函数（当接收到订阅主题的消息时执行的函数） |
-| `client.loop_start()`           | 启动客户端并在后台运行（非阻塞）                       |
-| `client.loop_forever()`         | 启动客户端并在当前线程运行（阻塞）                     |
-| `client.disconnect()`           | 断开与代理的连接                                       |
+| 方法 | 描述 |
+| ---------------------------------- | -------------------------------------------------------- |
+| `mqtt.Client("client_id")` | 创建一个 MQTT 客户端实例 |
+| `client.connect(broker, port, keepalive)` | 连接到 MQTT 代理服务器 |
+| `client.subscribe(topic)` | 订阅一个主题 |
+| `client.publish(topic, payload)` | 发布消息到指定的主题 |
+| `client.on_connect` | 设置连接回调函数（连接成功后执行的函数） |
+| `client.on_message` | 设置消息接收回调函数（当接收到订阅主题的消息时执行的函数） |
+| `client.loop_start()` | 启动客户端并在后台运行（非阻塞） |
+| `client.loop_forever()` | 启动客户端并在当前线程运行（阻塞） |
+| `client.disconnect()` | 断开与代理的连接 |
 
 ### 实例
 

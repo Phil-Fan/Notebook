@@ -29,7 +29,7 @@ $$
 
 其中，$\mathbf{x}^H(\xi)$ 表示 $\mathbf{x}(\xi)$ 的共轭转置，$r_{ij}$ 表示 $x_i(\xi)$ 和 $x_j(\xi)$ 之间的自相关函数。自相关矩阵是复共轭对称矩阵，即 Hermitian 矩阵。
 
-**互相关**
+互相关
 
 $$
 R_{xy} = E\{\mathbf{x}(\xi)\mathbf{y}^H(\xi)\} = \begin{bmatrix} r_{x_1,y_1} & r_{x_1,y_2} & \cdots & r_{x_1,y_n} \\ r_{x_2,y_1} & r_{x_2,y_2} & \cdots & r_{x_2,y_n} \\ \vdots & \vdots & \ddots & \vdots \\ r_{x_m,y_1} & r_{x_m,y_2} & \cdots & r_{x_m,y_n} \end{bmatrix}
@@ -107,18 +107,18 @@ $$\rho_{ij} = \frac{E\{[x_i(\xi) - \mu_i][x_j(\xi) - \mu_j]^*\}}{\sqrt{E\{[x_i(\
 
 ### 概率与统计
 
-| 中文名             | 英文名                        |
-|--------------------|-------------------------------|
-| 概率密度函数       | Probability Density Function (pdf) |
-| 累计分布函数       | Cumulative Distribution Function (cdf) |
-| 均值向量           | Mean Vector                   |
-| 相关矩阵           | Correlation Matrix            |
-| 协方差矩阵         | Covariance Matrix             |
+| 中文名 | 英文名 |
+| -------------------- | ------------------------------- |
+| 概率密度函数 | Probability Density Function (pdf) |
+| 累计分布函数 | Cumulative Distribution Function (cdf) |
+| 均值向量 | Mean Vector |
+| 相关矩阵 | Correlation Matrix |
+| 协方差矩阵 | Covariance Matrix |
 
 ### 信息论
 
-| 中文名             | 英文名                        |
-|--------------------|-------------------------------|
-| 熵                 | Entropy                       |
-| Kullback–Leibler 散度 | Kullback–Leibler Divergence   |
-| 交叉熵             | Cross-entropy                 |
+| 中文名 | 英文名 |
+| -------------------- | ------------------------------- |
+| 熵 | Entropy |
+| Kullback–Leibler 散度 | Kullback–Leibler Divergence |
+| 交叉熵 | Cross-entropy |

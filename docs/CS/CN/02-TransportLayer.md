@@ -11,13 +11,13 @@ comments: true
 
 ### 复用、解复用
 
-**多路分解**
+多路分解
 
 在接收端，运输层检查字段表示出接受套接字，从而将报文段定向到该套接字。将运输层报文段的数据交付到正确的套接字的工作。
 
 接收方：将报文段重组成报文，然后传递给应用层
 
-**多路复用**
+多路复用
 
 在源主机从不同套接字中收集数据块，并为每个数据块封装上首部信息，从而生成报文段，然后将报文段传递到网络层
 
@@ -99,11 +99,11 @@ adaptive 动态超时时间设置：过早超时可以运行，但效率低
 
 滑动窗口 (slide window) 协议
 
-| 发送缓冲区 |        | 协议名称         | 最大 n     |
+| 发送缓冲区 | | 协议名称 | 最大 n |
 | ---------- | ------ | ---------------- | --------- |
-| SW = 1     | RW = 1 | stop and waiting |           |
-| SW > 1     | RW = 1 | GBN              | $2^n -1$  |
-| SW > 1     | RW > 1 | SR               | $2^{n-1}$ |
+| SW = 1 | RW = 1 | stop and waiting | |
+| SW > 1 | RW = 1 | GBN | $2^n -1$ |
+| SW > 1 | RW > 1 | SR | $2^{n-1}$ |
 
 发送缓冲区：内存中的一个区域，落入缓冲区的分组可以发送
 
@@ -125,17 +125,17 @@ adaptive 动态超时时间设置：过早超时可以运行，但效率低
 
 - 接收方缓冲区为 1；顺序到来最高的发确认，累积确认；只维护一个定时器
 
-**正常工作**
+正常工作
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113191056486.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
-**当发送过程中发生丢包**
+当发送过程中发生丢包
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113192200848.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 当发送过程中的 2 号包发生丢失时，发送方没有收到接收方的 ACK2，于是后面发送的 ACK3,ACK4 全部变成了 ACK1，代表接收方因为丢失了分组 2，所以分组 3 和分组 4 都被丢弃。所以全部返回 ACK1，经过一段时间后，定时器确认超时没有收到 ACK3,ACK4，所以发送方将重新发送。也代表接收方首先只收到了分组 1 及之前的包。
 
-**当接收过程中发生丢包**
+当接收过程中发生丢包
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113192954925.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
@@ -154,13 +154,13 @@ SR 单独发送没有收到的
 > 单个分组的差错就能够引起 GBN 重传大量分组，许多分组根本没必要重传。
 > 随着差错率的增加，流水线可能会被这些不必要重传的分组占满，造成效率的低下。
 
-**发送过程中丢包**
+发送过程中丢包
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113201934575.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
 当所以`ACK1`返回以后，分组 5，分组 6 就已经可以发送。然后在接收方，分组 3456 都已经被缓存，等待分组 2 的计时器超时后，分组 2 将重新发送，然后在接收方的分组 23456 全部变为接收`received`状态。
 
-**接收过程丢包**
+接收过程丢包
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__20191113205433523.gif" alt="在这里插入图片描述" style="zoom:50%;" />
 
@@ -283,7 +283,7 @@ SR 单独发送没有收到的
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240425204147268.webp" alt="image-20240425204147268" style="zoom:50%;" />
 
-**发送方：加法 + 进位回滚 + 最后的和取反码**
+发送方：加法 + 进位回滚 + 最后的和取反码
 
 - 填上伪头部，校验和一开始全 0，将报文段的内容全零；分成 16 比特的整数
 - 伪头部 + 头部 + 数据采用二进制反码求和
@@ -364,7 +364,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__202008271630393.webp)
 
-**第一次握手**
+第一次握手
 
 探测是否可以进行通信，告诉客户端 `seq X`
 
@@ -372,7 +372,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 ![image](https://data.educoder.net/api/attachments/581480)
 
-**第二次握手**
+第二次握手
 
 是接收方返回给发送方的，可以明确一些信息;
 确认 X，告诉服务器`seq Y`；相当于把确认和`seq Y` 捎带发送了
@@ -381,7 +381,7 @@ message + 本地 port + 对方 port 形成 TCP 数据报
 
 ![image](https://data.educoder.net/api/attachments/581484)
 
-**第三次握手**
+第三次握手
 
 确认`seq Y`，Y 是 server 维护的滑动窗口的下沿；和数据传递同步进行
 
@@ -444,7 +444,7 @@ TCP 通过让发送方维护一个称为接收窗口 (`receive window`) 的变�
 ??? note "UDP"
  UDP 没有流量控制，多发的包将丢失
 
-**接收方**
+接收方
 
 接收方在其向发送方的 TCP 段头部的`rwnd`字段“通告”其空闲`buffer`大小
 
@@ -455,7 +455,7 @@ V = RcvWindow = RcvBuffer-[LastByteRcvd - LastByteRead]
 $$
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131180428780.webp)
 
-**发送方**
+发送方
 
 - 限制未确认 (`inflight`) 字节的个数≤接收方发送过来的`rwnd` 值
 
@@ -551,7 +551,7 @@ $$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__02-TransportLayer.assets__image-20240131220718321.webp)
 
-**证明**
+证明
 
 随机选一个点，进入 CA 阶段，向白线靠近
 

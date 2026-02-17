@@ -50,7 +50,7 @@ make serve
 项目提供了 Makefile 来简化常用操作：
 
 | 命令 | 说明 |
-|------|------|
+| ------ | ------ |
 | `make help` | 显示所有可用命令 |
 | `make serve` | 启动 Mkdocs 开发服务器 |
 | `make format` | 格式化所有文件（Markdown + Python） |
@@ -84,7 +84,7 @@ make build
 ### 可用命令
 
 | 命令 | 说明 |
-|------|------|
+| ------ | ------ |
 | `/add [内容]` | 添加内容到知识库 |
 | `/check-markdown [路径]` | 检查 Markdown 文件格式 |
 | `/understand` | 理解这个知识库仓库的结构 |

@@ -373,11 +373,11 @@ PAN(Personal Area Network)
 
 缺点：不能折，容易断
 
-**有型介质传的远**
+有型介质传的远
 
 #### 非导引型媒体
 
-**强度 平方反比，迅速衰减**
+强度 平方反比，迅速衰减
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__index.assets__image-20240123123348917.webp" alt="image-20240123123348917" />
 
@@ -429,13 +429,13 @@ Link Layer: adjacent Node
 
 Physical Layer
 
-**封装与解封装**
+封装与解封装
 
 交换机 决定到哪个端口 两层的解封装
 
 路由：全局找路 三层的解封装
 
-**五层结构**
+五层结构
 
 **物理层**`bit` 就是 0101 物理信号或者光信号
 

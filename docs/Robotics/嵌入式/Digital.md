@@ -4,11 +4,11 @@
 
 [真值表与逻辑表达式](https://zhuanlan.zhihu.com/p/154529095)
 
-| 符号 | LaTeX 表示 | 公式示例       | 说明           |
-|------|------------|----------------|----------------|
-| 与（AND） | `\land`  | \(A \land B\)  | 逻辑与运算符   |
-| 或（OR）  | `\lor`   | \(A \lor B\)   | 逻辑或运算符   |
-| 非（NOT） | `\neg`   | \(\neg A\)     | 逻辑非运算符   |
+| 符号 | LaTeX 表示 | 公式示例 | 说明 |
+| ------ | ------------ | ---------------- | ---------------- |
+| 与（AND） | `\land` | \(A \land B\) | 逻辑与运算符 |
+| 或（OR） | `\lor` | \(A \lor B\) | 逻辑或运算符 |
+| 非（NOT） | `\neg` | \(\neg A\) | 逻辑非运算符 |
 | 蕴含（IMPLIES） | `\rightarrow` | \(A \rightarrow B\) | 逻辑蕴含运算符 |
 | 等价（EQUIVALENT） | `\leftrightarrow` | \(A \leftrightarrow B\) | 逻辑等价运算符 |
 | 全称量词（FOR ALL） | `\forall` | \(\forall x \, P(x)\) | 全称量词 |
@@ -106,7 +106,7 @@ $$
 
 反演律（**De Morgan's laws**）
 
-**并项法**
+并项法：
 
 $$
 AB + A\bar{B} = A

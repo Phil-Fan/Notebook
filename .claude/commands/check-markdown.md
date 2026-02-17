@@ -4,6 +4,7 @@ argument-hint: [文件路径或目录]
 allowed-tools: Bash(markdownlint:*), Bash(autocorrect:*), Bash(ruff:*), Bash(./formatter.sh:*), Read
 ---
 
+<!-- markdownlint-disable-next-line MD041 -->
 检查并修复 Markdown 文件格式。
 
 ## 检查项目
@@ -23,6 +24,7 @@ allowed-tools: Bash(markdownlint:*), Bash(autocorrect:*), Bash(ruff:*), Bash(./f
 ## 执行
 
 检查整个项目：
+
 ```bash
 ./formatter.sh
 ```

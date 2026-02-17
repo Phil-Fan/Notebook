@@ -59,13 +59,13 @@ $$
 P(y_i|x) = \frac{P(x|y_i) P(y_i)}{P(x)}
 $$
 
-**Bayes Decision Rule**
+Bayes Decision Rule
 
 Decide $y_1$, if $P(y_1|x)> P(y_2|x)$,otherwise $y_2$
 
 > 因为$P(x)$与类别$y_i$无关，所以可以省略
 
-**最小化错误概率**
+最小化错误概率
 
 最小错误其实和最大后验概率是等价的，因为最小错误就是最大化后验概率。（使用二分类来理解）
 
@@ -156,20 +156,20 @@ $$
     根据已有的数据(相当于$\textbf{X}$)学到相应的分布(即$\theta$),此概念对应training阶段, 即在训练阶段, 是根据已有的$X$来估计其真实的数据分布服从什么样的分布$\theta$
     > 一个质量不均的骰子，投了很多次，求一个分布
 
-**Decision Regions and surfaces**
+Decision Regions and surfaces
 
 - learning 的过程其实就是将 feature space 分成不同的 decision regions
 - 现实生活中，由于只能从有限的样本中学习，所以只能得到 likelihood 和先验的估计值
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__05-Bayes.assets__image-20240630210634705.webp" alt="image-20240630210634705" style="zoom:33%;" />
 
-**离散形式极大似然估计**
+离散形式极大似然估计
 
 - 先验概率：将频率估计为概率$P\left(y_{k}\right)=\frac{N_{y_{k}}}{N}$
 
 - 似然：在类别为$y_k$的样本中特征为$x_i$样本的占比。$P\left(x_{i} \mid y_{k}\right)=\frac{\left|x_{i k}\right|}{N_{y_{k}}}$
   
-**连续形式极大似然估计**
+连续形式极大似然估计
 
 - discretize: the range into bins，对于体重来说，可以 50-100kg，100-150kg，150-200kg。再将数据段离散成不同的类别即可。
 - two-way split: 暴力分为两个段，设置一个中间值，小于中间值的设为一类，大于中间值的设为另一类。

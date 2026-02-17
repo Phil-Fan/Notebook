@@ -48,7 +48,7 @@ $$
 \hat{\beta} = (X^T X)^{-1} X^T y
 $$
 
-**无偏**
+无偏
 
 我们计算 $\mathbb{E}[\hat{\beta}]$：
 
@@ -64,7 +64,7 @@ $$
 
 ---
 
-**方差**
+方差
 
 将 $\mathbf{y} = \mathbf{X} \boldsymbol{\beta} + \boldsymbol{\varepsilon}$ 代入：
 
@@ -90,7 +90,7 @@ $$
 
 ---
 
-**UMVUE**
+UMVUE
 
 Lehmann–Scheffé 定理告诉我们：
 
@@ -583,12 +583,12 @@ where $P_{\lambda}(\cdot)$ is a penalty function applied on the value of each pa
 
 ### Lasso - l1
 
-| 核心内容            | 解释                                          |
+| 核心内容 | 解释 |
 | --------------- | ------------------------------------------- |
-| Oracle Property | 同时实现变量选择一致性 + 最优估计精度                        |
-| Lasso 的问题       | 有偏差，不能同时实现两者                                |
-| 理论上条件           | 为了选变量，$\lambda$ 要够大；但为估计精度，$\lambda$ 又要趋于 0 |
-| 解决方法            | 改用无偏惩罚函数（如 SCAD），或者接受一定折中                   |
+| Oracle Property | 同时实现变量选择一致性 + 最优估计精度 |
+| Lasso 的问题 | 有偏差，不能同时实现两者 |
+| 理论上条件 | 为了选变量，$\lambda$ 要够大；但为估计精度，$\lambda$ 又要趋于 0 |
+| 解决方法 | 改用无偏惩罚函数（如 SCAD），或者接受一定折中 |
 
 求解下面的优化问题
 
@@ -645,7 +645,7 @@ $$
 \leftrightarrow \min_{\boldsymbol{\beta}} \|\widehat{\boldsymbol{\beta}}^{\text{ols}} - \boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|_1 \quad (\because\mathbf{X}^\top \mathbf{X} = \mathbf{I})
 $$
 
-**变量独立求解**
+变量独立求解
 
 目标函数可分解为每个参数的独立优化：
 
@@ -672,22 +672,22 @@ Soft Thresholding = 变量选择机制
 * Lasso 使用 $\ell_1$ 惩罚：会直接把小的系数压成 0
 * 所以 Lasso 能实现 **变量选择（sparsity）**
 
-| 项目             | 解释   |
+| 项目 | 解释 |
 | ---------------- | ------------------------ |
-| 正交设计         | $\mathbf{X}^\top \mathbf{X} = \mathbf{I}$ 简化问题            |
-| 拆分误差项        | 残差项垂直于列空间，交叉项为 0                               |
-| 可分解目标        | 可对每个 $\beta_j$ 独立求解                                  |
+| 正交设计 | $\mathbf{X}^\top \mathbf{X} = \mathbf{I}$ 简化问题 |
+| 拆分误差项 | 残差项垂直于列空间，交叉项为 0 |
+| 可分解目标 | 可对每个 $\beta_j$ 独立求解 |
 | Soft Threshold 解 | |
-| 稀疏性来源        | 系数可能直接为 0，实现选择                                   |
-| $\lambda$ 越大   | 越多的参数会被压成 0                                         |
+| 稀疏性来源 | 系数可能直接为 0，实现选择 |
+| $\lambda$ 越大 | 越多的参数会被压成 0 |
 
 ### Ridge - l2
 
-| 视角    | 解释                                                                                                   |
+| 视角 | 解释 |
 | ----- | ---------------------------------------------------------------------------------------------------- |
-| 最优化视角 | Ridge 解是最小化 $\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta} \|^2 + \lambda \|\boldsymbol{\beta}\|^2$ 的解 |
-| 贝叶斯视角 | Ridge 解是 $\boldsymbol{\beta} \sim \mathcal{N}(0, \frac{\sigma^2}{\lambda} \mathbf{I})$ 下的后验均值        |
-|PCA 视角||
+| 最优化视角 | Ridge 解是最小化 $\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2 + \lambda \|\boldsymbol{\beta}\|^2$ 的解 |
+| 贝叶斯视角 | Ridge 解是 $\boldsymbol{\beta} \sim \mathcal{N}(0, \frac{\sigma^2}{\lambda} \mathbf{I})$ 下的后验均值 |
+| PCA 视角 | |
 
 #### 优化视角
 
@@ -738,13 +738,13 @@ $$
 2. 投影结果 $u_j^\top y$ 被 **缩小** 了一个因子 $\frac{d_j^2}{d_j^2 + \lambda}$
 3. $d_j^2$ 小的方向（低方差）被惩罚得更严重，防止对噪声过拟合
 
-| 主题     | 内容                                    |
+| 主题 | 内容 |
 | ------ | ------------------------------------- |
-| 有偏性    | Ridge 有偏，但可控制偏差                       |
-| 方差降低   | Ridge 显著减少估计方差                        |
-| MSE 更优 | 合适的 $\lambda$ 可让 MSE 优于 OLS           |
-| 几何理解   | Ridge 在 PCA 空间中对不同方向施加不同强度的 shrinkage |
-| 实用价值   | 尤其在高维/共线性严重时表现更好                      |
+| 有偏性 | Ridge 有偏，但可控制偏差 |
+| 方差降低 | Ridge 显著减少估计方差 |
+| MSE 更优 | 合适的 $\lambda$ 可让 MSE 优于 OLS |
+| 几何理解 | Ridge 在 PCA 空间中对不同方向施加不同强度的 shrinkage |
+| 实用价值 | 尤其在高维/共线性严重时表现更好 |
 
 #### 贝叶斯视角
 
@@ -836,7 +836,7 @@ $$
 
 #### bias
 
-**Ridge 回归是有偏估计**
+Ridge 回归是有偏估计
 
 $$
 \mathbb{E}[\hat{\boldsymbol{\beta}}^{\text{ridge}}] = Z \boldsymbol{\beta}, \quad Z = (\mathbf{X}^\top \mathbf{X} + \lambda \mathbf{I})^{-1} \mathbf{X}^\top \mathbf{X}

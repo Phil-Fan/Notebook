@@ -83,7 +83,7 @@
 [候选消除算法-CSDN 博客](https://blog.csdn.net/qq_42008628/article/details/123628770)
 
 | Example | Outlook | AirTump | Humidity | Wind | Water | Forecast | EnjoySport |
-|---------|---------|----------|-----------|------|--------|-----------|------------|
+| --------- | --------- | ---------- | ----------- | ------ | -------- | ----------- | ------------ |
 | D1 | Sunny | Warm | Normal | Strong | Warm | Same | No |
 | D2 | Sunny | Warm | High | Strong | Warm | Same | No |
 | D3 | Rainy | Cold | High | Strong | Warm | Change | Yes |

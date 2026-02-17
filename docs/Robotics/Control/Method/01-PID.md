@@ -185,11 +185,11 @@ $$
 ### 经验法则
 
 | 系统 | PB | \( T_i (\text{min}) \) | \( T_d (\text{min}) \) |
-|------|----|------------------------|------------------------|
+| ------ | ---- | ------------------------ | ------------------------ |
 | 温度 | 20～60 | 3～10 | 0.5～3 |
-| 流量 | 40～100 | 0.1～1 |  |
-| 压力 | 30～70 | 0.4～3 |  |
-| 液位 | 20～80 |  |  |
+| 流量 | 40～100 | 0.1～1 | |
+| 压力 | 30～70 | 0.4～3 | |
+| 液位 | 20～80 | | |
 
 ### 临界比例法
 
@@ -203,30 +203,30 @@ $$
 
 ④ 根据 Z-N 经验规则，直接查表计算得到 PID 参数
 
-**Z-N 经验准则**
+Z-N 经验准则
 
 | 类型 | \( K_c \) | \( \tau_I \) | \( \tau_D \) |
-|------|-----------|--------------|--------------|
-| P    | \( 0.5 \, K_{CU} \) | | |
-| PI   | \( 0.45 \, K_{CU} \) | \( P_{CU}/1.2 \) | |
-| PID  | \( 0.6 \, K_{CU} \) | \( P_{CU}/2 \) | \( P_{CU}/8 \) |
+| ------ | ----------- | -------------- | -------------- |
+| P | \( 0.5 \, K_{CU} \) | | |
+| PI | \( 0.45 \, K_{CU} \) | \( P_{CU}/1.2 \) | |
+| PID | \( 0.6 \, K_{CU} \) | \( P_{CU}/2 \) | \( P_{CU}/8 \) |
 
-**修正 Z-N 经验准则**
+修正 Z-N 经验准则
 
 | 类型 | \( K_c \) | \( \tau_I \) | \( \tau_D \) |
-|------|-----------|--------------|--------------|
+| ------ | ----------- | -------------- | -------------- |
 | 标准 ZN | \( 0.6 \, K_{CU} \) | \( P_{CU}/2 \) | \( P_{CU}/8 \) |
 | 略有超调 | \( 0.33 \, K_{CU} \) | \( P_{CU}/2 \) | \( P_{CU}/3 \) |
 | 无超调 | \( 0.2 \, K_{CU} \) | \( P_{CU}/3 \) | \( P_{CU}/2 \) |
 
 #### 优缺点
 
-**优点**
+优点
 
 – 不需要过程的先验信息
 – 适用于所有稳定的过程
 
-**缺点**
+缺点
 
 – 耗时
 – 在测试期间会导致产品质量和生产率下降
@@ -262,18 +262,19 @@ G(s)=\frac{Ke^{-\theta s}}{\tau s+1}
 $$
 
 === "抗扰设计"
-    | 控制器类型 | ISE | IAE | ITAE |
-    | --- | --- | --- | --- |
-    | P | \( K_c = \frac{1.411}{K} (\theta/\tau)^{-0.917} \) | \( K_c = \frac{0.902}{K} (\theta/\tau)^{-0.985} \) | \( K_c = \frac{0.490}{K} (\theta/\tau)^{-1.084} \) |
-    | PI | \( K_c = \frac{1.305}{K} (\theta/\tau)^{-0.959} \) <br> \( \tau_I = \frac{\tau}{0.492} (\theta/\tau)^{0.739} \) | \( K_c = \frac{0.984}{K} (\theta/\tau)^{-0.986} \) <br> \( \tau_I = \frac{\tau}{0.608} (\theta/\tau)^{0.707} \) | \( K_c = \frac{0.859}{K} (\theta/\tau)^{-0.977} \) <br> \( \tau_I = \frac{\tau}{0.674} (\theta/\tau)^{0.680} \) |
-    | PID | \( K_c = \frac{1.495}{K} (\theta/\tau)^{-0.945} \) <br> \( \tau_I = \frac{\tau}{1.101} (\theta/\tau)^{0.771} \) <br> \( \tau_D = 0.560\tau (\theta/\tau)^{1.006} \) | \( K_c = \frac{1.435}{K} (\theta/\tau)^{-0.921} \) <br> \( \tau_I = \frac{\tau}{0.878} (\theta/\tau)^{0.749} \) <br> \( \tau_D = 0.482\tau (\theta/\tau)^{1.137} \) | \( K_c = \frac{1.357}{K} (\theta/\tau)^{-0.947} \) <br> \( \tau_I = \frac{\tau}{0.842} (\theta/\tau)^{0.738} \) <br> \( \tau_D = 0.381\tau (\theta/\tau)^{0.995} \) |
+
+| 控制器类型 | ISE | IAE | ITAE |
+| --- | --- | --- | --- |
+| P | \( K_c = \frac{1.411}{K} (\theta/\tau)^{-0.917} \) | \( K_c = \frac{0.902}{K} (\theta/\tau)^{-0.985} \) | \( K_c = \frac{0.490}{K} (\theta/\tau)^{-1.084} \) |
+| PI | \( K_c = \frac{1.305}{K} (\theta/\tau)^{-0.959} \) <br> \( \tau_I = \frac{\tau}{0.492} (\theta/\tau)^{0.739} \) | \( K_c = \frac{0.984}{K} (\theta/\tau)^{-0.986} \) <br> \( \tau_I = \frac{\tau}{0.608} (\theta/\tau)^{0.707} \) | \( K_c = \frac{0.859}{K} (\theta/\tau)^{-0.977} \) <br> \( \tau_I = \frac{\tau}{0.674} (\theta/\tau)^{0.680} \) |
+| PID | \( K_c = \frac{1.495}{K} (\theta/\tau)^{-0.945} \) <br> \( \tau_I = \frac{\tau}{1.101} (\theta/\tau)^{0.771} \) <br> \( \tau_D = 0.560\tau (\theta/\tau)^{1.006} \) | \( K_c = \frac{1.435}{K} (\theta/\tau)^{-0.921} \) <br> \( \tau_I = \frac{\tau}{0.878} (\theta/\tau)^{0.749} \) <br> \( \tau_D = 0.482\tau (\theta/\tau)^{1.137} \) | \( K_c = \frac{1.357}{K} (\theta/\tau)^{-0.947} \) <br> \( \tau_I = \frac{\tau}{0.842} (\theta/\tau)^{0.738} \) <br> \( \tau_D = 0.381\tau (\theta/\tau)^{0.995} \) |
 
 === "跟踪设计"
 
-    | 控制器类型 | IAE | ITAE |
-    | --- | --- | --- |
-    | PI | \( K_c = \frac{0.758}{K} (\theta/\tau)^{-0.861} \) <br> \( \tau_I = \frac{\tau}{1.020 - 0.323(\theta/\tau)} \) | \( K_c = \frac{0.586}{K} (\theta/\tau)^{-0.916} \) <br> \( \tau_I = \frac{\tau}{1.03 - 0.165(\theta/\tau)} \) |
-    | PID | \( K_c = \frac{1.086}{K} (\theta/\tau)^{-0.869} \) <br> \( \tau_I = \frac{\tau}{0.740 - 0.130(\theta/\tau)} \) <br> \( \tau_D = 0.348\tau (\theta/\tau)^{0.914} \) | \( K_c = \frac{0.965}{K} (\theta/\tau)^{-0.855} \) <br> \( \tau_I = \frac{\tau}{0.796 - 0.147(\theta/\tau)} \) <br> \( \tau_D = 0.308\tau (\theta/\tau)^{0.929} \) |
+| 控制器类型 | IAE | ITAE |
+| --- | --- | --- |
+| PI | \( K_c = \frac{0.758}{K} (\theta/\tau)^{-0.861} \) <br> \( \tau_I = \frac{\tau}{1.020 - 0.323(\theta/\tau)} \) | \( K_c = \frac{0.586}{K} (\theta/\tau)^{-0.916} \) <br> \( \tau_I = \frac{\tau}{1.03 - 0.165(\theta/\tau)} \) |
+| PID | \( K_c = \frac{1.086}{K} (\theta/\tau)^{-0.869} \) <br> \( \tau_I = \frac{\tau}{0.740 - 0.130(\theta/\tau)} \) <br> \( \tau_D = 0.348\tau (\theta/\tau)^{0.914} \) | \( K_c = \frac{0.965}{K} (\theta/\tau)^{-0.855} \) <br> \( \tau_I = \frac{\tau}{0.796 - 0.147(\theta/\tau)} \) <br> \( \tau_D = 0.308\tau (\theta/\tau)^{0.929} \) |
 
 ### Lambda 整定
 
@@ -295,7 +296,7 @@ $$
 
 | 模型 | \( K_c \) | \( \tau_I \) | \( \tau_D \) |
 | --- | --- | --- | --- |
-| \( G(s) = \frac{Ke^{-\theta s}}{\tau s + 1} \) | \( K_c = \frac{1}{K} \frac{\tau}{\tau_c + \theta} \) | \( \tau_I = \tau \) |  |
+| \( G(s) = \frac{Ke^{-\theta s}}{\tau s + 1} \) | \( K_c = \frac{1}{K} \frac{\tau}{\tau_c + \theta} \) | \( \tau_I = \tau \) | |
 | \( G(s) = \frac{Ke^{-\theta s}}{(\tau_1 s + 1)(\tau_2 s + 1)} \) | \( K_c = \frac{1}{K} \frac{\tau_1 + \tau_2}{\tau_c + \theta} \) | \( \tau_I = \tau_1 + \tau_2 \) | \( \tau_D = \frac{\tau_1 \tau_2}{\tau_1 + \tau_2} \) |
 
 !!! note "推导"

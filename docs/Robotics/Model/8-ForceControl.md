@@ -84,7 +84,7 @@
 
 正交性的原因、直观理解
 
-|  | 运动学 | 静力学 |
+| | 运动学 | 静力学 |
 | --- | --- | --- |
 | 自然约束 | $\dot{\vec{p}}_{c}=0$，$\dot{\vec{p}}_{c}\in V_{c}$ | $\vec{F}_{a}=0$，$\vec{F}_{a}\in V_{a}$ |
 | 人工约束 | $\dot{\vec{p}}_{a}\in V_{a}$ 可取任意值 | $\vec{F}_{c}\in V_{c}$ 可取任意值 |
@@ -103,10 +103,10 @@
 
     ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
 
-    | 约束类型 | 运动学约束 | 静力学约束 |
-    |---------|------------|------------|
-    | 自然约束 | $v_x = 0$ <br> $v_y = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_z = 0$ <br> $\tau_z = 0$ |
-    | 人工约束 | $v_z < 0$ <br> $\omega_z = 0$ | $f_x = 0$ <br> $f_y = 0$ <br> $\tau_x = 0$ <br> $\tau_y = 0$ |
+| 约束类型 | 运动学约束 | 静力学约束 |
+| --------- | ------------ | ------------ |
+| 自然约束 | $v_x = 0$ <br> $v_y = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_z = 0$ <br> $\tau_z = 0$ |
+| 人工约束 | $v_z < 0$ <br> $\omega_z = 0$ | $f_x = 0$ <br> $f_y = 0$ <br> $\tau_x = 0$ <br> $\tau_y = 0$ |
 
     根据前文的分析可知，末端执行器需要在沿$x$、$y$轴平动方向和绕$x$、 $y$轴旋转方向使用力控制，在沿$z$轴平动方向和绕$z$轴旋转方向使用位置控制。因此可将投影矩阵表示为
 
@@ -304,10 +304,10 @@ $$
 !!! note "案例 1:轴承装配"
     ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250418161427.webp)
 
-    | 约束类型 | 运动学约束 | 静力学约束 |
-    |---------|------------|------------|
-    | 自然约束 | $v_x = 0$ <br> $v_y = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_z = 0$ <br> $\tau_z = 0$ |
-    | 人工约束 | $v_z < 0$ <br> $\omega_z = 0$ | $f_x = 0$ <br> $f_y = 0$ <br> $\tau_x = 0$ <br> $\tau_y = 0$ |
+| 约束类型 | 运动学约束 | 静力学约束 |
+| --------- | ------------ | ------------ |
+| 自然约束 | $v_x = 0$ <br> $v_y = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_z = 0$ <br> $\tau_z = 0$ |
+| 人工约束 | $v_z < 0$ <br> $\omega_z = 0$ | $f_x = 0$ <br> $f_y = 0$ <br> $\tau_x = 0$ <br> $\tau_y = 0$ |
 
 !!! note "案例 2:旋转曲柄"
     规定约束坐标系固连在曲柄上并随曲柄运动，x方向总是指向曲柄的轴心。
@@ -315,10 +315,10 @@ $$
 
     解 手柄具有两个自由度，分别为绕z轴的转动和绕曲柄轴的转动。约束条件可以整理为下表：
 
-    | 约束类型 | 运动学约束 | 静力学约束 |
-    |---------|------------|------------|
-    | 自然约束 | $v_x = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_y = 0$ <br> $n_z = 0$ |
-    | 人工约束 | $v_y = \alpha_1$ <br> $\omega_z = \alpha_2$ | $f_x = 0$ <br> $f_z = 0$ <br> $n_x = 0$ <br> $n_y = 0$ |
+| 约束类型 | 运动学约束 | 静力学约束 |
+| --------- | ------------ | ------------ |
+| 自然约束 | $v_x = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_y = 0$ <br> $n_z = 0$ |
+| 人工约束 | $v_y = \alpha_1$ <br> $\omega_z = \alpha_2$ | $f_x = 0$ <br> $f_z = 0$ <br> $n_x = 0$ <br> $n_y = 0$ |
 
     其中$\alpha_1$和$\alpha_2$为任意给定的期望速度值。在运动学约束中，自然约束表示机械爪不能在x和z方向进行平动，也不能绕x轴和y轴进行旋转；人工约束表示在y方向的平动速度和绕z轴的转动速度可控。
 
@@ -327,11 +327,11 @@ $$
 
     ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__8-ForceControl.assets__20250419191034.webp)
 
-    | 约束类型 | 运动学约束 | 静力学约束 |
-    |---------|------------|------------|
-    | 自然约束 | $v_x = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_y = 0$ <br> $n_z = 0$ |
-    | 人工约束 | $v_y = 0$ <br> $\omega_z = \alpha_2$ | $f_x = 0$ <br> $f_z = \alpha_3$ <br> $n_x = 0$ <br> $n_y = 0$ |
-    
+| 约束类型 | 运动学约束 | 静力学约束 |
+| --------- | ------------ | ------------ |
+| 自然约束 | $v_x = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_y = 0$ <br> $n_z = 0$ |
+| 人工约束 | $v_y = 0$ <br> $\omega_z = \alpha_2$ | $f_x = 0$ <br> $f_z = \alpha_3$ <br> $n_x = 0$ <br> $n_y = 0$ |
+
     [机器人建模与控制（本）2025-04-07第1-2节](https://classroom.zju.edu.cn/livingroom?course_id=68733&sub_id=1489592&tenant_code=112)
 
 !!! note "案例 4:开门"
@@ -343,10 +343,10 @@ $$
 
     y方向上给速度，x方向力恒为0
 
-    | 约束类型 | 运动学约束 | 静力学约束 |
-    |---------|------------|------------|
-    | 自然约束 | $v_y = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_x = 0$ <br> $n_z = 0$ |
-    | 人工约束 | $v_x = a_1$ <br> $\omega_z = \frac{a_1}{r}$ | $f_y = 0$ <br> $f_z = 0$ <br> $n_x = 0$ <br> $n_y = 0$ |
+| 约束类型 | 运动学约束 | 静力学约束 |
+| --------- | ------------ | ------------ |
+| 自然约束 | $v_y = 0$ <br> $v_z = 0$ <br> $\omega_x = 0$ <br> $\omega_y = 0$ | $f_x = 0$ <br> $n_z = 0$ |
+| 人工约束 | $v_x = a_1$ <br> $\omega_z = \frac{a_1}{r}$ | $f_y = 0$ <br> $f_z = 0$ <br> $n_x = 0$ <br> $n_y = 0$ |
 
 ### 阻抗控制器设计
 

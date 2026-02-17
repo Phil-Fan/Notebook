@@ -3,6 +3,7 @@ description: 理解这个知识库仓库的结构
 allowed-tools: Read, Bash, Glob, Grep
 ---
 
+<!-- markdownlint-disable-next-line MD041 -->
 理解这个知识库仓库的结构和组织方式。
 
 ## 项目概述
@@ -11,7 +12,7 @@ allowed-tools: Read, Bash, Glob, Grep
 
 ## 目录结构
 
-```
+```text
 Note-Mkdocs/
 ├── docs/                 # 主要文档目录
 │   ├── AI/              # 人工智能相关
@@ -33,7 +34,7 @@ Note-Mkdocs/
 
 ## 文件命名规范
 
-1. **序号-主题.md**：如 `05-3-SGlang.md`，序号两位起步
+1. **序号 - 主题.md**：如 `05-3-SGlang.md`，序号两位起步
 2. **中文编号**：如 `1 空间描述与变换`
 3. **英文缩写**：如 `LLM | Engineer Roadmap`
 
@@ -44,6 +45,7 @@ Note-Mkdocs/
 3. **ruff**：Python 代码格式化
 
 运行格式化：
+
 ```bash
 ./formatter.sh
 ```

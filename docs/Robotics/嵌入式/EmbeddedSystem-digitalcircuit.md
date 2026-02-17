@@ -161,7 +161,7 @@ $$
 
 2.超前进位加法器
 
-**预测进位信息**
+预测进位信息：
 
 [超前进位加法器（较为详细讲解）-CSDN 博客](https://blog.csdn.net/qq_26707507/article/details/106146619)
 
@@ -327,7 +327,7 @@ $I_{A=B},I_{A>B},I_{A<B}$称为扩展输入端，为了传递低位的比较结�
 - 芯片正常工作 $S_1 = 1 \ and\  \bar{S_2} + \bar{S_3} = 0$
 - 芯片禁止工作 $S_1 = 0 \ or\  \bar{S_2} + \bar{S_3} = 1$
 
-**注意低电平输出要取反**
+注意低电平输出要取反：
 
 #### 显示译码器
 
@@ -339,7 +339,7 @@ $$
 Y = D_0 \bar{A_1}\bar{A_0} + D_1 \bar{A_1}A_0 +D_2 A_1\bar{A_0} + D_3 A_1 A_0
 $$
 
-**74LS151 八选一**
+74LS151 八选一：
 
 输入端 D
 
@@ -379,7 +379,7 @@ $$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320100826502.webp)
 
-**竞争与冒险**
+竞争与冒险：
 
 电路存在延时，电路飘忽不定，使组合逻辑电路出现竞争与冒险
 
@@ -428,7 +428,7 @@ when \ CP = 1: &\overline{S \cdot CP} = \overline{S\cdot 1} = \bar{S}\\
 &与基本触发相同
 \end{align}
 $$
-**同步 RS**
+同步 RS:
 
 多了一个控制端，多了一个约束条件
 $$
@@ -440,7 +440,7 @@ $$
 \right.
 $$
 
-**同步 D**
+同步 D:
 
 把 R，S 连接成 D
 $$
@@ -459,7 +459,7 @@ CP = 1，状态跟随
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320102806158.webp)
 
-**存在问题：触发方式可能会出现空翻**
+存在问题：触发方式可能会出现空翻
 
 空翻：$CP = 1$ 期间，触发器发生两次及以上的翻转。
 
@@ -558,7 +558,7 @@ Y = dafasdf
 
 状态转换总是由**现态转换到次态**
 
-**输出是现态和输入的函数，不是次态和输入的函数**
+输出是现态和输入的函数，不是次态和输入的函数：
 
 ### 设计
 
@@ -641,7 +641,7 @@ n 位二进制计数器
 
 **74LS162**——同步置数，同步清零
 
-**n 进制计数器**
+n 进制计数器：
 
 - 写出状态$S_{N-1}$的二进制代码
 
@@ -649,7 +649,7 @@ n 位二进制计数器
 
 - 画出连线图
 
-**大容量 N 进制计数器**
+大容量 N 进制计数器：
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320122514306.webp" alt="image-20240320122514306" style="zoom:50%;" />
 
@@ -677,7 +677,7 @@ n 位二进制计数器
 
 ### 例题
 
-**自启动**
+自启动：
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics_______assets__EmbeddedSystem-digitalcircuit.assets__image-20240320111840464.webp" alt="image-20240320111840464" style="zoom:50%;" />
 

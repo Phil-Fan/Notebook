@@ -24,9 +24,6 @@ jobs:
 
       - run: uv sync
     
-      - name: Create CNAME file
-        run: echo "www.philfan.cn" > docs/CNAME   # Adjust the path if your configuration is different
-    
       - name: Modify nbconvert HTML exporter
         run: sed -i 's#https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe##g' $(uv run python -c "import nbconvert; print(nbconvert.__file__.replace('__init__.py', 'exporters/html.py'))")
 

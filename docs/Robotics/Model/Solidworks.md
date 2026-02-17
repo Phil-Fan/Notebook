@@ -133,21 +133,21 @@
 
 ### 线性阵列
 
-**环形阵列**
+环形阵列
 
-**线性阵列**
+线性阵列
 
 注意选择中心轴
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323205622423.webp)
 
-**曲线驱动的阵列**
+曲线驱动的阵列
 
 等距曲线；改变方向；设置特征
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240323210443109.webp)
 
-**填充阵列**
+填充阵列
 
 填充形式
 
@@ -157,7 +157,7 @@
 
 ### 打孔
 
-**异形孔向导**
+异形孔向导
 
 设置半径、深度等参数
 
@@ -263,7 +263,7 @@ ctrl 选中多个面 同轴心
 
 ### 爆炸视图
 
-**配置**
+配置
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Tools__Software__assets__Solidworks.assets__image-20240322215918042.webp)
 

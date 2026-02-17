@@ -209,7 +209,7 @@ Transformer 看起来模型比较复杂，但几乎没有什么可以调节的�
 
 ### 训练方法
 
-**teacher forcing**
+teacher forcing
 
 让 decoder 输出的 distribution 和 ground truth 的 distribution 越接近越好
 
@@ -243,16 +243,16 @@ This corresponds to increasing the learning rate linearly for the first `warmup_
 
 ### 训练技巧
 
-**参数共享**
+参数共享
 
 在 Transformer 模型中，特定层（如编码器中的多个相同层）之间或特定操作（如多头注意力中的头）之间共享参数，可以减少模型的总参数量，有助于减轻过拟合。
 
-**梯度裁剪**
+梯度裁剪
 
 梯度裁剪通过设定一个阈值$\theta$，将梯度向量$g$裁剪为：$g^{\prime}=\min\left(1,\frac\theta{\|g\|}\right)g$这样做
 是为了防止在训练过程中出现梯度爆炸问题，确保模型的稳定训练。
 
-**copy mechanism**
+copy mechanism
 
 ```text
 User: hello, I'm John.
@@ -261,7 +261,7 @@ Machine: hello, John, nice to meet you.
 
 - pointer network
 
-**Guided attention**
+Guided attention
 
 > 训练 TTS，读四遍“发财”是可以的，但是只读一遍“发财”是不行的
 
@@ -270,7 +270,7 @@ Machine: hello, John, nice to meet you.
 - monotonic attention
 - location-aware attention
 
-**Beam search**
+Beam search
 
 greedy decoding 不一定是最好的方法，因为可能错过最优解
 
@@ -301,7 +301,7 @@ so when you don't know how to optimize BLEU, use BLEU as the reward function of 
 
 即如何解决一步错，步步错的问题
 
-**scheduled sampling**
+scheduled sampling
 
 合理的方法是给 decode 一些 noise，让 decoder 看到一些错误的东西
 

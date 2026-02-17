@@ -4,9 +4,9 @@
 
 ## 发展历程与 chitchat
 
-| 模型 | 发布时间 | 参数量 | 预训练数据量 |主要卖点 |
+| 模型 | 发布时间 | 参数量 | 预训练数据量 | 主要卖点 |
 | --- | --- | --- | --- | --- |
-| GPT | 2018 年 6 月 | 1.17 亿 | 约 5GB | Pre-training + Fine-tuning:预训练和一系列下游子任务的微调|
+| GPT | 2018 年 6 月 | 1.17 亿 | 约 5GB | Pre-training + Fine-tuning:预训练和一系列下游子任务的微调 |
 | GPT-2 | 2019 年 2 月 | 15 亿 | 40GB | Zero-Shot:不使用微调，直接将（任务描述，任务/问题，目标/答案）打包成一个句子，直接进行预训练，使得训练出来的模型适用于各种下游任务 |
 | GPT-3 | 2020 年 5 月 | 1,750 亿 | 45TB | In-Context Learning |
 
@@ -335,7 +335,7 @@ DGX-1 集群，带宽非常高
 
 ### 训练结果
 
-**精度与计算量的关系**
+精度与计算量的关系
 
 数据量指数翻倍的时候，验证精度是线性下降的
 
@@ -405,7 +405,7 @@ Question: David has the option to play a game where David has a 94 percent chanc
 - 高中英语
 - Uniform Bar Exam
 
-**多模态输入**
+多模态输入
 
 system message:
 

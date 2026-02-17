@@ -86,20 +86,20 @@ packet per minute
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141044080.webp" alt="image-20240201141044080" style="zoom:50%;" />
 
-**memory**
+memory
 
 - 在 CPU 直接控制下的交换
 - 转发速率被内存的带宽限制 (数据报通过 BUS 两遍)
 - 一次只能转发一个分组
 - 如果内存带宽为每秒可写进内存或从内存读出最多 B 个分组，则总的转发吞吐量 (分组从输入端口被传送到输出端口的总速率) 必然小于 B/2
 
-**bus**
+bus
 
 - 总线竞争：交换速度受限于总线带宽
 
 - 1 次处理一个分组
 
-**crossbar**
+crossbar
 
 - Banyan（榕树）网络，crossbar(纵横) 和其它的互联网络被开发，将多个处理器连接成多处理器
 
@@ -111,7 +111,7 @@ packet per minute
 
 解决输出链路问题
 
-**FIFO (first in first out) scheduling**
+FIFO (first in first out) scheduling
 
 - tail drop: 丢弃刚到达的分组
 - priority: 根据优先权丢失/移除分组
@@ -119,7 +119,7 @@ packet per minute
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141335251.webp" alt="image-20240201141335251" style="zoom:50%;" />
 
-**优先权调度**
+优先权调度
 
 发送最高优先权的分组
 
@@ -127,13 +127,13 @@ packet per minute
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141445525.webp" alt="image-20240201141445525" style="zoom:50%;" />
 
-**Round Robin (RR) scheduling**
+Round Robin (RR) scheduling
 
 循环扫描不同类型的队列，发送完一类的一个分组，再发送下一个类的一个分组，循环所有类
 
 <img src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141528684.webp" alt="image-20240201141528684" style="zoom:50%;" />
 
-**Weighted Fair Queuing (WFQ)**
+Weighted Fair Queuing (WFQ)
 
 一般化的 Round Robin
 
@@ -183,13 +183,13 @@ packet per minute
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426230924516.webp)
 
-**子网掩码**
+子网掩码
 
 #### CIDR
 
 因特网的地址分配策略被称为无类别域间路由选择 (Classless Interdomain Rou ling ,CIDR)
 
-**子网掩码 32 位**
+子网掩码 32 位
 
 因为 ABC 这样划分容易导致差距过大，B 类裕量太多，C 类又太少，所以采用
 
@@ -612,7 +612,7 @@ Traceroute 程序允许我们跟踪路由。
 
 !!! note "这里的两个原理还是得仔细想一下"
 
-**如何获得路径**
+如何获得路径
 
 Traceroute 是用 ICMP 报文来实现的，向目的地主机发送一系列普通的 IP 数据报。
 
@@ -670,7 +670,7 @@ Traceroute 源主机是怎样知道何时停止发送 UDP 报文段的呢？前�
 - 优先权`Priority` : 几个模式匹配了，优先采用哪个，消除歧义
 - 计数器`Counters`: #bytes 以及#packets
 
-**抽象**
+抽象
 
 - 路由器
   • match: 最长前缀匹配

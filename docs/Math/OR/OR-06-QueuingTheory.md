@@ -9,28 +9,28 @@
 对于常见的大部分模型，我们均假设顾客抵达时间的分布，服务台服务时间的分布为独立同分布 (independent and identically distributed), 通用队列模型表达式如下：
 
 | 参数 | 含义 |
-|------|------|
-|A|顾客抵达的概率分布|
-|B|服务时间的概率分布|
-|X|服务台的数量|
-|Y|服务台的容量|
-|Z|排队机制|
+| ------ | ------ |
+| A | 顾客抵达的概率分布 |
+| B | 服务时间的概率分布 |
+| X | 服务台的数量 |
+| Y | 服务台的容量 |
+| Z | 排队机制 |
 
-| Characteristic                         | Symbol     | Explanation                  |
+| Characteristic | Symbol | Explanation |
 | ---- | ---- | ---- |
-| A & B | $M$        | Exponential                  |
-| A & B| $D$  | Deterministic  |
-| A & B  | $E_k$ | Erlang type $k$ ($k = 1, 2, \dots$) |
-| A & B | $H_k$      | Mixture of $k$ exponentials  |
-| A & B | $PH$       | Phase type                   |
-|  A & B | $G$        | General                      |
+| A & B | $M$ | Exponential |
+| A & B | $D$ | Deterministic |
+| A & B | $E_k$ | Erlang type $k$ ($k = 1, 2, \dots$) |
+| A & B | $H_k$ | Mixture of $k$ exponentials |
+| A & B | $PH$ | Phase type |
+| A & B | $G$ | General |
 | X | $1, 2, \dots, \infty$ | Number of servers |
 | Y | $1, 2, \dots, \infty$ | Maximum jobs in system |
-| Z  | $\text{FCFS}$ | First come, first served |
+| Z | $\text{FCFS}$ | First come, first served |
 | Z | $\text{LCFS}$ | Last come, first served |
-| Z | $\text{RSS}$  | Random selection for service |
-| Z | $\text{PR}$   | Priority |
-| Z | $\text{GD}$   | General discipline |
+| Z | $\text{RSS}$ | Random selection for service |
+| Z | $\text{PR}$ | Priority |
+| Z | $\text{GD}$ | General discipline |
 
 ## A/B 概率分布类型
 

@@ -55,7 +55,7 @@ $$
 
 ## 旋转矩阵 - 旋转变换
 
-**旋转矩阵**
+旋转矩阵
 
 把新坐标系下的单位向量用旧坐标系下的单位向量表示
 
@@ -65,7 +65,7 @@ $$
 ^A_BR = \begin{bmatrix} ^A\!X_B & ^A\!Y_B & ^A\!Z_B \end{bmatrix} = \begin{bmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{bmatrix}
 $$
 
-**性质**
+性质
 
 - 旋转矩阵是正交矩阵，即$^A_B\!R^T = ^A_B\!R^{-1} = ^B_A\!R$<br>
 - 旋转矩阵的行列式为 1，即$\det(^A_B\!R) = 1$<br>
@@ -522,7 +522,7 @@ $$
 > 其中$r_{OQ}'$是旋转后的点
 > $r_{OQ}$是初始点，$r_{OK}$是旋转轴上的单位向量，$\theta$是旋转角度
 
-**旋转矩阵求解**
+旋转矩阵求解
 
 $$
 R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
@@ -909,7 +909,7 @@ This browser does not support PDFs
 | **旋转矩阵** | 使用 3x3 矩阵表示三维旋转 | $\mathbf{R} = \begin{pmatrix} r_{11} & r_{12} & r_{13} \\ r_{21} & r_{22} & r_{23} \\ r_{31} & r_{32} & r_{33} \end{pmatrix}$ | 1. 参数多（9 个），冗余<br> 2. 难以直观理解旋转过程<br> 3. 插值复杂 |
 | **欧拉角** | 将旋转分解为绕三个正交轴的旋转 | $(\alpha, \beta, \gamma)$，常用 ZYX 顺序：$\mathbf{R} = R_z(\alpha) R_y(\beta) R_x(\gamma)$ | 易于理解和可视化<br> 但是<br> 1. 万向锁问题（奇异性）<br> 2. 不同顺序定义不唯一<br> 3. 插值不平滑 |
 | **等效轴角** | 用一个单位轴和一个旋转角表示旋转 | $(\mathbf{k}, \theta)$，其中$\mathbf{k} = (k_x, k_y, k_z)$为单位向量，$\theta$为旋转角。旋转矩阵为：<br>$\mathbf{R} = \mathbf{I} + \sin\theta \mathbf{K} + (1 - \cos\theta) \mathbf{K}^2$，<br>其中$\mathbf{K} = \begin{pmatrix} 0 & -k_z & k_y \\ k_z & 0 & -k_x \\ -k_y & k_x & 0 \end{pmatrix}$ | 1. 无法直接表示 0°旋转（需特殊处理）<br>2. 插值时需注意旋转角的周期性，等效轴角在描述大范围旋转刚体的姿态时，会出现参数跳变 |
-| **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4 个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单）单位四元数与姿态是二对一关系，可以表示多圈旋转刚体|
+| **四元数** | 使用四维超复数表示旋转 | $q = \eta + i\varepsilon_1 + j\varepsilon_2 + k\varepsilon_3$，其中$\eta^2 + \varepsilon_1^2 + \varepsilon_2^2 + \varepsilon_3^2 = 1$。 | 参数最少（4 个）避免了奇异性问题<br>1. 较难直观理解<br>2. 计算稍复杂（但比旋转矩阵简单）单位四元数与姿态是二对一关系，可以表示多圈旋转刚体 |
 
 - 一般说来，欧拉角表示、固定角表示和等效轴角表示等姿态表示方式，适合于静止刚体或小范围旋转运动刚体。
 - 大范围旋转刚体的姿态更适合采用旋转矩阵表示或单位四元数表示。
@@ -951,7 +951,7 @@ R_{z,y,x}(\alpha,\beta,\gamma) &= \begin{pmatrix}
 \end{align}
 $$
 
-**齐次变换矩阵的考察**
+齐次变换矩阵的考察
 
 $$
 \begin{align}
@@ -1034,7 +1034,7 @@ $$
     ^{B}\boldsymbol{L}&=\frac{1}{2\sin\theta_{2}}{\begin{bmatrix}r_{32}-r_{23}\\r_{13}-r_{31}\\r_{21}-r_{12}\end{bmatrix}}=\frac{1}{2\times0.5}\begin{bmatrix}0.333+0.244\\0.333+0.244\\0.333+0.244\end{bmatrix}=\begin{bmatrix}0.577\\0.577\\0.577\end{bmatrix}
     \end{aligned}
     $$
-    
+
 === "例 3"
     ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Model__assets__1-Basis.assets__20250224215632614.webp)
 
@@ -1124,7 +1124,7 @@ $$
 - 对任何的单位四元数$\eta+$i$\varepsilon_1+$j$\varepsilon_2+$ $k\varepsilon_3,\boldsymbol{R}_\varepsilon(\eta)$都是旋转矩阵；
 - 对任何的旋转矩阵 $R$,都存在两个互为相反数的单位四元数$\pm ( \eta +$i$\varepsilon _1+$j$\varepsilon _2+$k$\varepsilon _3)$使得$R=\boldsymbol{R}_\varepsilon(\eta)$。
 
-**四元数 to 旋转矩阵**
+四元数 to 旋转矩阵
 
 可以直接带入公式，对于四元数$p = \eta + \varepsilon_1 i + \varepsilon_2 j + \varepsilon_3 k$,其旋转矩阵为
 
@@ -1144,7 +1144,7 @@ $$
 V' = p V p^{-1}
 $$
 
-**旋转矩阵 to 四元数**
+旋转矩阵 to 四元数
 
 - 首先判断旋转矩阵的合法性，判断其是否正交，即$R \cdot R^T = I$
 - 然后可以从对应的旋转矩阵的表达式中，使用拼凑法，凑出所需要的四个参数的值。这里需要注意的是，每一个旋转矩阵会对应两个反号的四元数
@@ -1262,7 +1262,7 @@ $$
 
 ### 欧拉角与四元数
 
-**欧拉角 to 四元数**
+欧拉角 to 四元数
 
 - 首先欧拉角可以视为绕着给定轴旋转一个角度
 - 我们又知道四元数是可以相乘的
@@ -1272,7 +1272,7 @@ $$
 
 ### 等效轴角
 
-**等效轴角 to 四元数**
+等效轴角 to 四元数
 
 等效轴角就是绕着某条单位轴旋转一定角度，这个角度和四元数非常类似，所以这两个转换比较容易
 
@@ -1293,7 +1293,7 @@ $$
 $$
 \begin{align*}
 R &= I + \sin(\theta)N + (1 - \cos(\theta))N^2\\
-R &= \cos(\theta)\ast I + （1-\cos(\theta)) \ast n \ast n^T + \sin(\theta) \ast n
+R &= \cos(\theta)\ast I + (1-\cos(\theta)) \ast n \ast n^T + \sin(\theta) \ast n
 \end{align*}
 $$
 
@@ -1313,7 +1313,7 @@ $$
 R= \begin{pmatrix}k_x^2 \nu \theta + c \theta & k_x k_y \nu \theta - k_z s \theta & k_x k_z \nu \theta + k_y s \theta \\    k_x k_y \nu \theta + k_z s \theta & k_y^2 \nu \theta + c \theta & k_y k_z \nu \theta - k_x s \theta \\    k_x k_z \nu \theta - k_y s \theta & k_y k_z \nu \theta + k_x s \theta & k_z^2 \nu \theta + c \theta\end{pmatrix}
 $$
 
-**旋转矩阵 to 等效轴角**
+旋转矩阵 to 等效轴角
 
 正方向旋转，等效于负方向逆时针旋转
 

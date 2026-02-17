@@ -216,7 +216,7 @@ $u_1$ 表示推力，$u_2$ 表示力矩。
 - Z：$\sum F_z = -mg + u_1 \cos(\phi) = m\ddot{z}$
 - 力矩：$M = u_2 = I_{xx}\ddot{\phi}$
 
-**线性化**
+线性化
 
 - 平衡悬停态： $(\phi_0 \sim 0, \theta_0 \sim 0, u_{1,0} \sim mg)$
 
@@ -260,7 +260,7 @@ $$
 
 ### PID 控制
 
-**位置控制**
+位置控制
 
 $$
 \ddot{p}_{i,c} = \ddot{p}_i^{des} + K_{d,i}(\dot{p}_i^{des} - \dot{p}_i) + K_{p,i}(p_i^{des} - p_i) \\

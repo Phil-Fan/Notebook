@@ -9,7 +9,7 @@ $$
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__ML__assets__07-DimensionalityReduction.assets__20241022172142.webp)
 
-**Curse of Dimensionality**
+Curse of Dimensionality
 
 – For fixed $n$, as $p$ increases, the data become sparse
 – As $p$ increases, the number of possible models explodes(computation burden, variable selection necessary)

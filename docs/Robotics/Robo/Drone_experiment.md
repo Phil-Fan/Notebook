@@ -11,7 +11,7 @@
 
 ### 硬件搭建
 
-**qgroundcontrol**
+qgroundcontrol
 
 [Download and Install | QGC Guide (master)](https://docs.qgroundcontrol.com/master/en/qgc-user-guide/getting_started/download_and_install.html#windows)
 
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-**terminator**
+terminator
 
 ```shell
 sudo apt-get install terminator
@@ -77,7 +77,7 @@ vim /etc/ssh/sshd_config
 service ssh restart
 ```
 
-**验证安装**
+验证安装
 
 ```shell
 service ssh status
@@ -85,13 +85,13 @@ service ssh status
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20240711175232.webp)
 
-**开机自启动**
+开机自启动
 
 ```shell
 update-rc.d ssh enable
 ```
 
-**配置免密登陆**
+配置免密登陆
 
 ```shell
 ssh-keygen -t rsa
@@ -315,4 +315,3 @@ rosbag record /sim/odom
 ## 结果
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__Drone_experiment.assets__20241031223517.webp)
-![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/video/drone.mp4)

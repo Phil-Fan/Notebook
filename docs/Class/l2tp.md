@@ -1,18 +1,3 @@
----
-date:
-  created: 2025-10-07
-  updated: 2025-10-07
-readtime: 8
-pin: true
-categories:
-  - Settings
-tags:
-  - Router
-authors:
-  - Phil-Fan
-nostatistics: true
----
-
 # Linux L2TP VPN 配置与网络调试
 
 在玉泉教学楼中用 Linux 配置 L2TP VPN，记录一下相关的配置过程。
@@ -29,16 +14,16 @@ nostatistics: true
 
 以校园或企业内网 VPN 为例，假设网络参数如下：
 
-| 项目                  | 示例值                 | 变量名           |
+| 项目 | 示例值 | 变量名 |
 | ------------------- | ------------------- | ------------- |
-| 本机 IP               | 10.15.xxx.xx        | `$LOCAL_IP`   |
-| 子网掩码                | 255.255.255.0       | `$LOCAL_MASK` |
-| 本地网关                | 10.15.xxx.xx         | `$LOCAL_GW`   |
-| DNS 服务器             | 10.10.0.21          | `$DNS_SERVER` |
-| VPN 服务器             | 10.5.1.7 或 10.5.1.9 | `$VPN_SERV`   |
-| 拨号后 VPN 网关（ppp0 IP） | 210.32.xxx.xx       | `$VPN_GW`     |
-| 有线网卡设备              | eth0（视系统可能为 eno1、eno2 等）   | `$ETH_DEV`    |
-| VPN 设备接口            | ppp0                | `$PPP_DEV`    |
+| 本机 IP | 10.15.xxx.xx | `$LOCAL_IP` |
+| 子网掩码 | 255.255.255.0 | `$LOCAL_MASK` |
+| 本地网关 | 10.15.xxx.xx | `$LOCAL_GW` |
+| DNS 服务器 | 10.10.0.21 | `$DNS_SERVER` |
+| VPN 服务器 | 10.5.1.7 或 10.5.1.9 | `$VPN_SERV` |
+| 拨号后 VPN 网关（ppp0 IP） | 210.32.xxx.xx | `$VPN_GW` |
+| 有线网卡设备 | eth0（视系统可能为 eno1、eno2 等） | `$ETH_DEV` |
+| VPN 设备接口 | ppp0 | `$PPP_DEV` |
 
 拨打信息中心电话`0571-87951669`，转 0
 
@@ -192,7 +177,7 @@ sudo route add -net 10.0.0.0 netmask 255.0.0.0 gw $LOCAL_GW dev $ETH_DEV
 
 ## 六、网络测试与排查
 
-**1 查看路由表**
+1 查看路由表
 
 ```bash
 ip route show
@@ -205,7 +190,7 @@ route -n
 - 默认路由 (`default`) 指向 `$PPP_DEV`
 - 10.0.0.0/8 指向 `$LOCAL_GW`
 
-**2 Ping 测试连通性**
+2 Ping 测试连通性
 
 ```bash
 ping -c 4 $LOCAL_GW        # 测试本地网关
@@ -213,7 +198,7 @@ ping -c 4 $VPN_GW          # 测试 VPN 网关
 ping -c 4 8.8.8.8          # 测试外网 IP
 ```
 
-**3 检查 DNS 配置**
+3 检查 DNS 配置
 
 ```bash
 cat /etc/resolv.conf
@@ -237,7 +222,7 @@ sudo bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
 nslookup www.baidu.com
 ```
 
-**4 路由追踪**
+4 路由追踪
 
 ```bash title="路由追踪"
 traceroute 8.8.8.8
@@ -249,12 +234,12 @@ traceroute 8.8.8.8
 
 ## 七、常见错误与解决方案
 
-| 错误类型                   | 现象           | 解决方案                              |
+| 错误类型 | 现象 | 解决方案 |
 | ---------------------- | ------------ | --------------------------------- |
-| `NS_ERROR_NET_TIMEOUT` | 浏览器访问超时      | 检查能否 ping 外网；若能，修改 DNS。           |
-| `Network unreachable`  | ping 任意地址失败  | 路由配置错误；确认 default 指向 `$PPP_DEV`。  |
-| `File exists`          | route add 报错 | 表示路由已存在，先删除后重新添加。                 |
-| 无法访问内网                 | VPN 正常但校内网断开 | 补充 `10.0.0.0/8` → `$LOCAL_GW` 路由。 |
+| `NS_ERROR_NET_TIMEOUT` | 浏览器访问超时 | 检查能否 ping 外网；若能，修改 DNS。 |
+| `Network unreachable` | ping 任意地址失败 | 路由配置错误；确认 default 指向 `$PPP_DEV`。 |
+| `File exists` | route add 报错 | 表示路由已存在，先删除后重新添加。 |
+| 无法访问内网 | VPN 正常但校内网断开 | 补充 `10.0.0.0/8` → `$LOCAL_GW` 路由。 |
 
 调试流程：
 

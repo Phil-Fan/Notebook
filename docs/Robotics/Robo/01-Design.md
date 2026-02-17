@@ -125,9 +125,9 @@ $$
 P = T\cdot W
 $$
 
-**力矩与电流大小成正比**
+力矩与电流大小成正比
 
-**转速与感应电动势大小成正比**
+转速与感应电动势大小成正比
 $$
 \begin{align}
 电压平衡方程：& u_a(t) = R_ai_a(t) + L_a\frac{di_a(t)}{dt} + E_a(t)\\
@@ -280,7 +280,7 @@ $D=\frac{t_1}{T}$:占空比
 
 ##### 单作用气缸换向回路
 
-**几位几通（考！）**
+几位几通（考！）
 
 [电磁阀工作原理_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1x8411c7hh/?spm_id_from=333.337.search-card.all.click&vd_source=8b7a5460b512357b2cf80ce1cefc69f5)
 
@@ -468,19 +468,19 @@ AB 当做输入，CD 当做输出，则 BC 就是一个连杆
 
 分类方法：看哪一根杆最短
 
-**基本形式一：曲柄摇杆机构**
+基本形式一：曲柄摇杆机构
 
 斜边最短的时候，是曲柄摇杆机构
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-2b39fc71abcddb619afb965cb02acedc_b.webp)
 
-**基本形式二：双曲柄机构**
+基本形式二：双曲柄机构
 
 最短杆为机架时候
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Robotics__Robo__assets__01-Design.assets__v2-03d65aeed7c393ce21f4de19533c46f0_b.webp)
 
-**基本形式三：双摇杆机构**
+基本形式三：双摇杆机构
 
 最短杆为连杆
 

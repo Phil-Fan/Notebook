@@ -55,7 +55,6 @@
     - [ ] [现代机器人学：力学，规划，控制（chapter11Ⅰ）自动控制原理回顾 - 知乎](https://zhuanlan.zhihu.com/p/377810484)
     - [ ] [现代机器人学：力学，规划，控制（chapter11 Ⅱ）机器人控制之运动控制 - 知乎](https://zhuanlan.zhihu.com/p/378218165)
     - [ ] [【现代机器人学】学习笔记十：机器人控制\_机器人控制算法 csdn-CSDN 博客](https://blog.csdn.net/zkk9527/article/details/128709448)
-    
 
 ## 前置知识
 
@@ -186,17 +185,17 @@ $$
 
 ### 电机建模
 
-| 符号       | 描述                                   | 英文翻译                          |
-|------------|----------------------------------------|-----------------------------------|
-| $T_{ei}$   | 电机转矩                               | Motor torque                     |
-| $C_{Ti}$   | 转矩系数                               | Torque coefficient               |
-| $I_{mi}$   | 电机的电流                             | Motor current                    |
-| $E_{mi}$   | 电机的电动势                           | Motor voltage                    |
-| $\omega_{mi}$ | 电机的转速                           | Motor speed                      |
-| $k_{ei}$   | 电机的反电动势常数                     | Back EMF constant                |
-| $R_{mi}$   | 电机的电阻                             | Motor resistance                 |
-| $U_{mi}$   | 电机的电压                             | Motor voltage                    |
-| $k_{ui}$   | 关节 $i$ 电机驱动器的增益；节省能量，用小功率的器件控制大功率的电机 | Joint $i$ motor driver gain      |
+| 符号 | 描述 | 英文翻译 |
+| ------------ | ---------------------------------------- | ----------------------------------- |
+| $T_{ei}$ | 电机转矩 | Motor torque |
+| $C_{Ti}$ | 转矩系数 | Torque coefficient |
+| $I_{mi}$ | 电机的电流 | Motor current |
+| $E_{mi}$ | 电机的电动势 | Motor voltage |
+| $\omega_{mi}$ | 电机的转速 | Motor speed |
+| $k_{ei}$ | 电机的反电动势常数 | Back EMF constant |
+| $R_{mi}$ | 电机的电阻 | Motor resistance |
+| $U_{mi}$ | 电机的电压 | Motor voltage |
+| $k_{ui}$ | 关节 $i$ 电机驱动器的增益；节省能量，用小功率的器件控制大功率的电机 | Joint $i$ motor driver gain |
 
 带驱动器的直流有刷电机模型：转矩&转速
 
@@ -371,7 +370,7 @@ $$
 
 在实验中，重力补偿的明显作用有两点：1.在位置控制时，能够增加机器人的动态性能，动态跟踪误差相比无重力补偿时更小。在无积分的位置控制器中，如 PD 控制器，重力补偿能够减少稳态误差。
 
-**控制律为**
+控制律为
 
 $$
 \boldsymbol{\tau}_d=\boldsymbol{\Lambda}_P(\boldsymbol{\Phi}_d-\boldsymbol{\Phi})-\boldsymbol{\Lambda}_D\dot{\boldsymbol{\Phi}}+\boldsymbol{G}(\boldsymbol{\Phi})
@@ -479,13 +478,13 @@ $$
 - $\alpha$ 和 $\beta$ 称为基于模型的控制部分 (model-based portion);
 - $f'$ 称为伺服控制部分 (servo portion)
 
-**PD 控制律**
+PD 控制律
 
 $$
 f' = -k_v \dot{x} - k_p x
 $$
 
-**伺服控制律**
+伺服控制律
 
 $$
 f' = \ddot{x_d} + k_v \dot{e} + k_p e

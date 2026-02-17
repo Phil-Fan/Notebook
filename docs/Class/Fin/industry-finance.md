@@ -93,7 +93,7 @@
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Class__Fin__assets__industry-finance.assets__20250309155809896.webp)
 
-**中信证券为行业内最大的公司**
+中信证券为行业内最大的公司
 
 三中一华：中信证券、中金证券、中信建投、华泰
 

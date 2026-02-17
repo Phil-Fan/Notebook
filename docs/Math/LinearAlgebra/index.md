@@ -56,17 +56,17 @@
 
 ## 大纲
 
-| 课程内容         | 学时  |
-|------------------|-------|
-| 矩阵代数基础     | 6 学时 |
-| 特殊矩阵         | 2 学时 |
-| 矩阵微分         | 4 学时 |
+| 课程内容 | 学时 |
+| ------------------ | ------- |
+| 矩阵代数基础 | 6 学时 |
+| 特殊矩阵 | 2 学时 |
+| 矩阵微分 | 4 学时 |
 | 梯度分析与最优化 | 4 学时 |
-| 矩阵方程求解     | 2 学时 |
-| 特征分析         | 4 学时 |
-| 奇异值分析       | 4 学时 |
-| 子空间分析       | 2 学时 |
-| 习题             | 4 学时 |
+| 矩阵方程求解 | 2 学时 |
+| 特征分析 | 4 学时 |
+| 奇异值分析 | 4 学时 |
+| 子空间分析 | 2 学时 |
+| 习题 | 4 学时 |
 
 ## Acknowledgement
 
@@ -176,43 +176,43 @@
 
 ### 矩阵与向量
 
-| 中文名         | 英文名                        |
-|----------------|-------------------------------|
-| 矩阵           | Matrix                        |
-| 向量           | Vector                        |
-| 转置           | Transpose                     |
-| 共轭           | Conjugate                     |
-| 导数           | Gradient                      |
-| 转置共轭       | Hermitian                     |
-| 求逆           | Inverse                       |
-| 线性组合       | Linear Combination            |
-| 线性无关       | Linear Independence           |
-| 奇异性         | Singular                      |
-| 向量空间       | Vector Space                  |
-| 内积           | Inner Product                 |
-| 外积           | Outer Product                 |
-| 范数           | Norm                          |
-| 行列式         | Determinant                   |
-| 特征值         | Eigenvalue                    |
-| 迹             | Trace                         |
-| 秩             | Rank                          |
-| 二次型             | Quadratic Form                |
-| 求逆           | Inverse                       |
-| 矩阵求逆引理   | Matrix Inverse Lemma          |
-| 伪逆           | Pseudo Inverse                |
-| 直和           | Direct Sum                    |
-| Hadamard 积     | Hadamard Product              |
-| Kronecker 积    | Kronecker Product             |
-| 稀疏           | Sparse                        |
-| 压缩感知       | Compressive Sensing           |
-| Hermitian 矩阵  | Hermitian Matrix              |
-| 置换矩阵       | Permutation Matrix            |
-| 通信矩阵       | Communication Matrix          |
-| 广义置换矩阵   | Generalized Permutation Matrix|
-| 正交矩阵       | Orthogonal Matrix             |
-| 酉矩阵         | Unitary Matrix                |
-| 上三角矩阵     | Upper Triangular Matrix       |
-| 下三角矩阵     | Lower Triangular Matrix       |
-| LU 分解         | LU Decomposition              |
-| Vandemonde 矩阵 | Vandemonde Matrix             |
-| 相似矩阵       | Similar Matrix                |
+| 中文名 | 英文名 |
+| ---------------- | ------------------------------- |
+| 矩阵 | Matrix |
+| 向量 | Vector |
+| 转置 | Transpose |
+| 共轭 | Conjugate |
+| 导数 | Gradient |
+| 转置共轭 | Hermitian |
+| 求逆 | Inverse |
+| 线性组合 | Linear Combination |
+| 线性无关 | Linear Independence |
+| 奇异性 | Singular |
+| 向量空间 | Vector Space |
+| 内积 | Inner Product |
+| 外积 | Outer Product |
+| 范数 | Norm |
+| 行列式 | Determinant |
+| 特征值 | Eigenvalue |
+| 迹 | Trace |
+| 秩 | Rank |
+| 二次型 | Quadratic Form |
+| 求逆 | Inverse |
+| 矩阵求逆引理 | Matrix Inverse Lemma |
+| 伪逆 | Pseudo Inverse |
+| 直和 | Direct Sum |
+| Hadamard 积 | Hadamard Product |
+| Kronecker 积 | Kronecker Product |
+| 稀疏 | Sparse |
+| 压缩感知 | Compressive Sensing |
+| Hermitian 矩阵 | Hermitian Matrix |
+| 置换矩阵 | Permutation Matrix |
+| 通信矩阵 | Communication Matrix |
+| 广义置换矩阵 | Generalized Permutation Matrix |
+| 正交矩阵 | Orthogonal Matrix |
+| 酉矩阵 | Unitary Matrix |
+| 上三角矩阵 | Upper Triangular Matrix |
+| 下三角矩阵 | Lower Triangular Matrix |
+| LU 分解 | LU Decomposition |
+| Vandemonde 矩阵 | Vandemonde Matrix |
+| 相似矩阵 | Similar Matrix |

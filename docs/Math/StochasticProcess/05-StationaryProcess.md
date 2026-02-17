@@ -35,7 +35,7 @@ $$
 - 傅立叶变换的性质：时域相乘等于频域卷积
 
 | 时域 | 频域 |
-|------|------|
+| ------ | ------ |
 | $e^{-a\mid\tau\mid}$ | $\frac{2a}{a^2+\omega^2}$ |
 | $\frac{sin\omega_0\tau}{\pi\tau}$ | $\begin{cases}1\quad\mid\omega\mid\leq\omega_0\\[2ex]0\quad\mid\omega\mid>\omega_0\end{cases}$ |
 | $1$ | $2\pi\delta(\omega)$ |
@@ -240,7 +240,7 @@ $$
 !!! note "这部分的题目和信号与系统相关知识联系比较紧密，可以对照着进行学习"
 
 | 时域 | 频域 |
-|------|------|
+| ------ | ------ |
 | $e^{-a\mid\tau\mid}$ | $\frac{2a}{a^2+\omega^2}$ |
 | $\begin{cases}1-\frac{\mid\tau\mid}{T}\quad\mid\tau\mid\leq T\\[2ex]0\quad\mid\tau\mid>T\end{cases}$ | $(\frac{sin(\omega T/2)}{\omega T/2})^2$ |
 | $\frac{sin\omega_0\tau}{\pi\tau}$ | $\begin{cases}1\quad\mid\omega\mid\leq\omega_0\\[2ex]0\quad\mid\omega\mid>\omega_0\end{cases}$ |
@@ -433,7 +433,7 @@ $$
 
 ---
 
-**本题目改编自课本例 5.1.6**
+本题目改编自课本例 5.1.6
 
 ![image](https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/Math__StochasticProcess__assets__05-StationaryProcess.assets__202506151904855.webp)
 
@@ -1162,8 +1162,8 @@ $$
 
  谱密度即傅里叶变换，利用傅立叶变换性质，有
 
- * $R_X(\tau)$ 的傅里叶变换为 $S_X(\omega)$
- * $\cos(\omega_0\tau)$ 的傅立叶变换是 $\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$
+ - $R_X(\tau)$ 的傅里叶变换为 $S_X(\omega)$
+ - $\cos(\omega_0\tau)$ 的傅立叶变换是 $\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)]$
 
  **直接运算**
 

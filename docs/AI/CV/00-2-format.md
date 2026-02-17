@@ -103,7 +103,7 @@
 - PIL 手动处理 / `ImageChops.difference`
 - stegsolve image combiner
 
-**盲水印系列**
+盲水印系列
 
 - 给了打水印的代码的话直接尝试根据代码逆推即可
 - 没有给代码的可能就是常见的现有盲水印工具
@@ -132,7 +132,7 @@ img.putpixel((x, y), color) #设置像素点颜色
 np.array(img) #将图像转换为 numpy 数组
 ```
 
-**具体图像模式**
+具体图像模式
 
 - '1'：黑白二值（0/255）；'L'：灰度（8 bit），'l'：32 bit 灰度
 - L = 0.299 R + 0.587 G + 0.114 B
@@ -141,7 +141,7 @@ np.array(img) #将图像转换为 numpy 数组
 - 'CMYK'：转换时有色差，CMY = 255 - RGB，K = 0
 - 'YCbCr'、'LAB'、'HSV' 等，转换时有复杂公式（可能出现新的隐写）
 
-**PIL 其他模块用途**
+PIL 其他模块用途
 
 - ImageDraw 用于绘制图像、绘制图形
 - ImageChops 用于图像通道的逻辑运算
