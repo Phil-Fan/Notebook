@@ -3685,11 +3685,11 @@
 <a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/CS/CN/03-NetworkLayer.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<div><h1 id="network-layer">网络层<span><span class="heti-spacing"> </span>| Network Layer</span><a class="headerlink" href="#network-layer" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="network-layer">网络层<span><span class="heti-spacing"> </span>| Network Layer</span><a class="headerlink" href="#network-layer" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
 <p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>6804<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>33<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>27<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets___E7_BD_91_E7_BB_9C_E5_B1_82.svg"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets___E7_BD_91_E7_BB_9C_E5_B1_82.svg"/></p>
 <h2 id="_1">原理<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_2">服务<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -3750,31 +3750,31 @@
 <p>The end-to-end routing process is analogous to a car driver who does not
 use maps but instead prefers to ask for directions.</p>
 </blockquote>
-<p><img alt="image-20240201140806254" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201140806254.webp" style="zoom:67%;"/></p>
+<p><img alt="image-20240201140806254" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201140806254.webp" style="zoom:67%;"/></p>
 <p>最长前缀匹配<code>longest prefix matching</code></p>
 <p>当给定目标地址查找转发表时，采用最长地址前缀匹配的目标地址表项</p>
 <h4 id="_4">输入端口缓存<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>当交换机构的速率小于输入端口的汇聚速率时，在输入端口可能要排队</p>
 <p>排队延迟以及由于输入缓存溢出造成丢失！</p>
-<p><img alt="image-20240201140951934" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201140951934.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240201140951934" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201140951934.webp" style="zoom:50%;"/></p>
 <p>packet per minute</p>
 <h4 id="fabric"><code>fabric</code>交换结构<a class="headerlink" href="#fabric" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image-20240201141044080" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141044080.webp" style="zoom:50%;"/></p>
-<p><strong>memory</strong></p>
+<p><img alt="image-20240201141044080" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141044080.webp" style="zoom:50%;"/></p>
+<p>memory</p>
 <ul>
 <li>在<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>直接控制下的交换</li>
 <li>转发速率被内存的带宽限制<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>数据报通过<span class="heti-skip"><span class="heti-spacing"> </span>BUS<span class="heti-spacing"> </span></span>两遍<span><span class="heti-spacing"> </span>)</span></li>
 <li>一次只能转发一个分组</li>
 <li>如果内存带宽为每秒可写进内存或从内存读出最多<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>个分组，则总的转发吞吐量<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>分组从输入端口被传送到输出端口的总速率<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>必然小于<span><span class="heti-spacing"> </span>B/2</span></li>
 </ul>
-<p><strong>bus</strong></p>
+<p>bus</p>
 <ul>
 <li>总线竞争：交换速度受限于总线带宽</li>
 </ul>
 <ul>
 <li><span>1<span class="heti-spacing"> </span></span>次处理一个分组</li>
 </ul>
-<p><strong>crossbar</strong></p>
+<p>crossbar</p>
 <ul>
 <li>Banyan（榕树）网络，<span>crossbar(<span class="heti-spacing"> </span></span>纵横<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>和其它的互联网络被开发，将多个处理器连接成多处理器</li>
 </ul>
@@ -3786,28 +3786,28 @@ use maps but instead prefers to ask for directions.</p>
 </ul>
 <h4 id="schedule"><code>schedule</code> 调度策略<a class="headerlink" href="#schedule" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>解决输出链路问题</p>
-<p><strong>FIFO (first in first out) scheduling</strong></p>
+<p>FIFO (first in first out) scheduling</p>
 <ul>
 <li><span>tail drop:<span class="heti-spacing"> </span></span>丢弃刚到达的分组</li>
 <li><span>priority:<span class="heti-spacing"> </span></span>根据优先权丢失<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>移除分组</li>
 <li><span>random:<span class="heti-spacing"> </span></span>随机地丢弃<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>移除</li>
 </ul>
-<p><img alt="image-20240201141335251" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141335251.webp" style="zoom:50%;"/></p>
-<p><strong>优先权调度</strong></p>
+<p><img alt="image-20240201141335251" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141335251.webp" style="zoom:50%;"/></p>
+<p>优先权调度</p>
 <p>发送最高优先权的分组</p>
 <p>先传高优先级的队列中的分组，除非没有<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>红色传完再传绿色<span><span class="heti-spacing"> </span>)</span></p>
-<p><img alt="image-20240201141445525" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141445525.webp" style="zoom:50%;"/></p>
-<p><strong>Round Robin (RR) scheduling</strong></p>
+<p><img alt="image-20240201141445525" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141445525.webp" style="zoom:50%;"/></p>
+<p>Round Robin (RR) scheduling</p>
 <p>循环扫描不同类型的队列，发送完一类的一个分组，再发送下一个类的一个分组，循环所有类</p>
-<p><img alt="image-20240201141528684" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141528684.webp" style="zoom:50%;"/></p>
-<p><strong>Weighted Fair Queuing (WFQ)</strong></p>
+<p><img alt="image-20240201141528684" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141528684.webp" style="zoom:50%;"/></p>
+<p>Weighted Fair Queuing (WFQ)</p>
 <p>一般化的<span><span class="heti-spacing"> </span>Round Robin</span></p>
 <p>在一段时间内，每个队列得到的服务时间是：<span class="arithmatex">\(\frac{Wi}{\sigma(Wi)} \times t\)</span>，和权重成正比</p>
 <p>每个类在每一个循环中获得不同权重的服务量</p>
-<p><img alt="image-20240201141703167" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201141703167.webp" style="zoom:50%;"/></p>
+<p><img alt="image-20240201141703167" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201141703167.webp" style="zoom:50%;"/></p>
 <h3 id="ip"><span>IP<span class="heti-spacing"> </span></span>协议<a class="headerlink" href="#ip" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_5">数据报格式<a class="headerlink" href="#_5" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201155758709.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201155758709.webp"/></p>
 <p><img alt="image" src="https://data.educoder.net/api/attachments/582224"/></p>
 <details class="note">
 <summary>各个字段含义</summary>
@@ -3838,19 +3838,19 @@ use maps but instead prefers to ask for directions.</p>
 <p>以子网为单位向外通告可达信息</p>
 </blockquote>
 <p>下图中有六个子网</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426230924516.webp"/></p>
-<p><strong>子网掩码</strong></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426230924516.webp"/></p>
+<p>子网掩码</p>
 <h4 id="cidr">CIDR<a class="headerlink" href="#cidr" title="anchor link to this section for reference">¶</a></h4>
 <p>因特网的地址分配策略被称为无类别域间路由选择<span><span class="heti-spacing"> </span>(Classless Interdomain Rou ling ,CIDR)</span></p>
-<p><strong>子网掩码<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位</strong></p>
+<p>子网掩码<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位</p>
 <p>因为<span class="heti-skip"><span class="heti-spacing"> </span>ABC<span class="heti-spacing"> </span></span>这样划分容易导致差距过大，<span>B<span class="heti-spacing"> </span></span>类裕量太多，<span>C<span class="heti-spacing"> </span></span>类又太少，所以采用</p>
 <p>如果是<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的话代表是网络号，是<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>则是主机号</p>
 <p><span>IP<span class="heti-spacing"> </span></span>号 与 子网掩码进行与操作<span><span class="heti-spacing"> </span>(&amp;)</span>，那么就可以得到网络号；主机号全为<span><span class="heti-spacing"> </span>0</span></p>
 <h4 id="_7">分类编址<a class="headerlink" href="#_7" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201180932322.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201180932322.webp"/></p>
 <p>全<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>网络和全<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>网络不用了</p>
 <p><span>ABC<span class="heti-spacing"> </span></span>单播地址、<span>DE<span class="heti-spacing"> </span></span>广播地址</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1"><span>A<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1"><span>A<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -3861,7 +3861,7 @@ use maps but instead prefers to ask for directions.</p>
 <blockquote>
 <p>A:0-127，其中<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>代表任何地址，<span>127<span class="heti-spacing"> </span></span>为回环测试地址，因此，<span>A<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>ip<span class="heti-spacing"> </span></span>地址的实际范围是<span class="heti-skip"><span class="heti-spacing"> </span>1-126.<span class="heti-spacing"> </span></span>其中<span class="heti-skip"><span class="heti-spacing"> </span>127.0.0.1<span class="heti-spacing"> </span></span>是一个特殊的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址，表示主机本身，用于本地机器的测试。</p>
 </blockquote>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><span>B<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1"><span>B<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -3873,7 +3873,7 @@ use maps but instead prefers to ask for directions.</p>
 <blockquote>
 <p>B:128-191，其中<span class="heti-skip"><span class="heti-spacing"> </span>128.0.0.0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>191.255.0.0<span class="heti-spacing"> </span></span>为保留<span><span class="heti-spacing"> </span>ip</span>，实际范围是<span><span class="heti-spacing"> </span>128.1.0.0</span>–191.254.0.0。</p>
 </blockquote>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1"><span>C<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1"><span>C<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -3884,7 +3884,7 @@ use maps but instead prefers to ask for directions.</p>
 <blockquote>
 <p>C:192-223，其中<span class="heti-skip"><span class="heti-spacing"> </span>192.0.0.0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>223.255.255.0<span class="heti-spacing"> </span></span>为保留<span><span class="heti-spacing"> </span>ip</span>，实际范围是<span><span class="heti-spacing"> </span>192.0.1.0</span>–223.255.254.0</p>
 </blockquote>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1"><span>D<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1"><span>D<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -3892,13 +3892,13 @@ use maps but instead prefers to ask for directions.</p>
 <p>用于多点广播<span><span class="heti-spacing"> </span>(Multicast)</span>。</p>
 <p><span>D<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址第一个字节以“lll0”开始，它是一个专门保留的地址。它并不指向特定的网络，目前这一类地址被用在多点广播<span class="heti-skip"><span class="heti-spacing"> </span>(Multicast)<span class="heti-spacing"> </span></span>中。</p>
 <p>多点广播地址用来一次寻址一组计算机，它标识共享同一协议的一组计算机。<span>224.0.0.0<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>239.255.255.255<span class="heti-spacing"> </span></span>用于多点广播。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1"><span>E<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1"><span>E<span class="heti-spacing"> </span></span>类<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
 </div>
 <p>以“11110”开始，为将来使用保留。<span>240.0.0.0<span class="heti-spacing"> </span></span>到<span><span class="heti-spacing"> </span>255.255.255.254</span>，<span>255.255.255.255<span class="heti-spacing"> </span></span>用于广播地址。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">特殊<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">特殊<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
 </div>
@@ -3924,11 +3924,11 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <p>第三片：20B+1020B</p>
 <p>以<span class="heti-skip"><span class="heti-spacing"> </span>8B<span class="heti-spacing"> </span></span>为单位计算<span><span class="heti-spacing"> </span>offset</span></p>
 </blockquote>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201160531914.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201160531914.webp"/></p>
 <p><span>MTU<span class="heti-spacing"> </span></span>从小到大，每转发一次是否都要适应最大长度</p>
 <p>由上可知，一个分片最多存储<code>1480bytes</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>若数据大于<code>1480bytes</code>则需要分片。设数据大小为<code>s</code>，则分片数<code>k=⌈s/1480⌉</code>。</p>
 <h3 id="dhcp"><span>DHCP<span class="heti-spacing"> </span></span>动态主机配置协议<a class="headerlink" href="#dhcp" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426231424660.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426231424660.webp"/></p>
 <blockquote>
 <p>显示了连接到子网<span class="heti-skip"><span class="heti-spacing"> </span>223.1.2/24<span class="heti-spacing"> </span></span>的一个<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务器，具有一台提供中继代理服务的路由器，它为连接到子网<span class="heti-skip"><span class="heti-spacing"> </span>223.1.1/24<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>223.1.3/24<span class="heti-spacing"> </span></span>的到达客户提供<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务。</p>
 </blockquote>
@@ -3942,9 +3942,9 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <p>DHCP Offer：由<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务器发出，告诉客户端，我可以提供<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址。广播。因为在子网中可能存在几个<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务器，该客户也许会发现它处于能在几个提供者之间进行选择的优越位置。</p>
 <p>DHCP Request：由客户端发出，告诉对应的<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务器，我需要<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址。</p>
 <p>DHCP ACK：由<span class="heti-skip"><span class="heti-spacing"> </span>DHCP<span class="heti-spacing"> </span></span>服务器发出，提供客户端响应的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址。</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__v2-52bf53d16bc59ef70312e63a91511246_1440w.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__v2-52bf53d16bc59ef70312e63a91511246_1440w.webp"/></p>
 <p>使用<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>进行传输</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240411090326803.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240411090326803.webp"/></p>
 <p><img alt="image" src="https://data.educoder.net/api/attachments/581836"/></p>
 <ul>
 <li>请求报文：DHCP Discover、DHCP Request、DHCP Release、<span>DHCP Inform<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>DHCP Decline</span>。</li>
@@ -3985,7 +3985,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <ul>
 <li>进入数据包：替换目标<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址和端口号，采用存储在<span class="heti-skip"><span class="heti-spacing"> </span>NAT<span class="heti-spacing"> </span></span>表中的<span class="heti-skip"><span class="heti-spacing"> </span>mapping<span class="heti-spacing"> </span></span>表</li>
 </ul>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201204851149.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201204851149.webp"/></p>
 <h4 id="_11">弊端<a class="headerlink" href="#_11" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>路由器只应该对第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>层做信息处理，而这里对端口号（<span>4<span class="heti-spacing"> </span></span>层）作了处
@@ -4005,14 +4005,14 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <ul>
 <li><span>128<span class="heti-spacing"> </span></span>位<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>地址</li>
 </ul>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426232040298.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426232040298.webp"/></p>
 <h4 id="_12">报文格式<a class="headerlink" href="#_12" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><code>Priority</code><span>:<span class="heti-spacing"> </span></span>标示流中数据报的优先级<br/>
 <code>Flow Label</code>: 标示数据报在一个“flow.”( “flow”的概念没有被严格的定义)<br/>
 <code>Next header</code>: 标示上层协议<br/></p>
 <p><code>Checksum</code><span>:<span class="heti-spacing"> </span></span>被移除掉，降低在每一段中的处理速度<br/>
 <code>Options</code>: 允许，但是在头部之外，被“NextHeader”字段标示<br/></p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426232120656.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426232120656.webp"/></p>
 <h4 id="_13">通信<a class="headerlink" href="#_13" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>IPV4<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>IPV6<span class="heti-spacing"> </span></span>之间是双栈协议</p>
 <p>使用隧道进行通信</p>
@@ -4114,7 +4114,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 </ul>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报上直接传送<span class="heti-skip"><span class="heti-spacing"> </span>OSPF<span class="heti-spacing"> </span></span>报文<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>而不是通过<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>TCP)</span></p>
 <p>网络比较大，分成若干区域</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215161223409.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215161223409.webp"/></p>
 <h3 id="border-gateway-protocol">外部网关协议<code>Border Gateway Protocol</code><a class="headerlink" href="#border-gateway-protocol" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p>参考<a href="https://www.bilibili.com/video/BV1JV411t7ow?p=37&amp;vd_source=8b7a5460b512357b2cf80ce1cefc69f5"><span class="heti-skip"><span class="heti-spacing"> </span>5.4 ISP<span class="heti-spacing"> </span></span>之间的路由选择：<span>BGP_<span class="heti-spacing"> </span></span>哔哩哔哩<span><span class="heti-spacing"> </span>_bilibili</span></a></p>
@@ -4132,7 +4132,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <li><code>iBGP</code><span>:<span class="heti-spacing"> </span></span>将获得的子网可达信息传遍到<span class="heti-skip"><span class="heti-spacing"> </span>AS<span class="heti-spacing"> </span></span>内部的所有路由器</li>
 </ul>
 <p>基于距离矢量算法（路径矢量）——不仅仅是距离矢量，还包括到达各个目标网络的详细路径（<span>AS<span class="heti-spacing"> </span></span>序号的列表）能够避免简单<span class="heti-skip"><span class="heti-spacing"> </span>DV<span class="heti-spacing"> </span></span>算法的路由环路问题</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215163137452.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215163137452.webp"/></p>
 <h4 id="_18">报文<a class="headerlink" href="#_18" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>2<span class="heti-spacing"> </span></span>个重要的属性：</p>
 <ul>
@@ -4147,7 +4147,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <li><code>NOTIFICATION</code><span>:<span class="heti-spacing"> </span></span>报告以前消息的错误，也用来关闭连接</li>
 </ul>
 <p>当<span class="heti-skip"><span class="heti-spacing"> </span>AS3<span class="heti-spacing"> </span></span>网关路由器<span class="heti-skip"><span class="heti-spacing"> </span>3a<span class="heti-spacing"> </span></span>向<span class="heti-skip"><span class="heti-spacing"> </span>AS2<span class="heti-spacing"> </span></span>的网关路由器<span class="heti-skip"><span class="heti-spacing"> </span>2c<span class="heti-spacing"> </span></span>通告路径：AS3,X</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240215163635186.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240215163635186.webp"/></p>
 <h4 id="_19">策略<a class="headerlink" href="#_19" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>路由器可能获得一个网络前缀的多个路径，路由器必须进行路径的选择，路由选择可以基于：</p>
 <ol>
@@ -4166,7 +4166,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <p><span>ICMP<span class="heti-spacing"> </span></span>通常被认为是<span class="heti-skip"><span class="heti-spacing"> </span>lP<span class="heti-spacing"> </span></span>的一部分，但从体系结构上讲它位于<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>之上，因为<span class="heti-skip"><span class="heti-spacing"> </span>ICMP<span class="heti-spacing"> </span></span>报文是承载在<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>分组中的。这就是说，<span>ICMP<span class="heti-spacing"> </span></span>报文是作为<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>有效载荷承载的，</p>
 <p><span>ICMP<span class="heti-spacing"> </span></span>报文有<strong>一个类型字段和一个编码字段</strong>，并且包含引起该<span class="heti-skip"><span class="heti-spacing"> </span>ICMP<span class="heti-spacing"> </span></span>报文首次生成的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报的首部和前<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>个字节<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>以便发送方能确定引发该差错的数据报<span><span class="heti-spacing"> </span>)</span>。</p>
 <p>ICMP<strong>消息类型</strong></p>
-<p><img alt="image-20240426224029128" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240426224029128.webp" style="zoom: 50%;"/></p>
+<p><img alt="image-20240426224029128" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240426224029128.webp" style="zoom: 50%;"/></p>
 <ul>
 <li><span>ICMP<span class="heti-spacing"> </span></span>协议在实际传输中的数据包结构：<code>20 字节 IP 首部 + 8 字节 ICMP 首部 + 1472 字节&lt;数据大小&gt; 38 字节</code>；</li>
 <li><span>ICMP<span class="heti-spacing"> </span></span>报文格式：<code>IP 首部(20 字节) + 8 位类型 + 8 位代码 + 16 位校验和 + (不同的类型和代码，格式也有所不同)</code>。</li>
@@ -4179,7 +4179,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <div class="admonition note">
 <p class="admonition-title">这里的两个原理还是得仔细想一下</p>
 </div>
-<p><strong>如何获得路径</strong></p>
+<p>如何获得路径</p>
 <p><span>Traceroute<span class="heti-spacing"> </span></span>是用<span class="heti-skip"><span class="heti-spacing"> </span>ICMP<span class="heti-spacing"> </span></span>报文来实现的，向目的地主机发送一系列普通的<span class="heti-skip"><span class="heti-spacing"> </span>IP<span class="heti-spacing"> </span></span>数据报。</p>
 <p>这些数据报的每个携带了一个具有不可达<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>端口号的<span class="heti-skip"><span class="heti-spacing"> </span>UDP<span class="heti-spacing"> </span></span>报文段。</p>
 <p>第一个数据报的<span class="heti-skip"><span class="heti-spacing"> </span>TTL<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>1</span>，第二个的<span class="heti-skip"><span class="heti-spacing"> </span>TIL<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>2</span>，第三个的<span class="heti-skip"><span class="heti-spacing"> </span>TTL<span class="heti-spacing"> </span></span>为<span><span class="heti-spacing"> </span>3</span>，依次类推。</p>
@@ -4195,7 +4195,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <p>通过南向接口，把流表算出来、改变流表就可以了。这样网络操作系统可以跑各种各样的网络应用</p>
 <p>之前每个路由器计算局部地图</p>
 <p>网络是可编程的，底层硬件标准化，网络设备软件化</p>
-<p><img alt="image" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201121228823.webp"/></p>
+<p><img alt="image" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201121228823.webp"/></p>
 <ul>
 <li>网络设备数据平面和控制平面分离</li>
 </ul>
@@ -4227,7 +4227,7 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
 <li>优先权<code>Priority</code><span class="heti-skip"><span class="heti-spacing"> </span>:<span class="heti-spacing"> </span></span>几个模式匹配了，优先采用哪个，消除歧义</li>
 <li>计数器<code>Counters</code><span class="heti-skip"><span class="heti-spacing"> </span>: #bytes<span class="heti-spacing"> </span></span>以及<span><span class="heti-spacing"> </span>#packets</span></li>
 </ul>
-<p><strong>抽象</strong></p>
+<p>抽象</p>
 <ul>
 <li>路由器
   • match: 最长前缀匹配
@@ -4244,13 +4244,13 @@ C 类：192.168.0.0 - 192.168.255.255   MASK 255.255.255.0</p>
   • match: IP 地址和端口号
   • action: 重写地址和</li>
 </ul>
-<p><img alt="image-20240201222746295" src="https://philfan-pic.oss-cn-beijing.aliyuncs.com/web_pic/CS__CN__assets__03-NetworkLayer.assets__image-20240201222746295.webp" style="zoom:50%;"/></p></div>
+<p><img alt="image-20240201222746295" src="https://img.philfan.cn/CS__CN__assets__03-NetworkLayer.assets__image-20240201222746295.webp" style="zoom:50%;"/></p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="最后更新">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2025年11月18日 17:40:43</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年2月17日 19:10:45</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="创建日期">
