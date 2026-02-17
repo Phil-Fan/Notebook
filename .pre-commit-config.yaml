@@ -1,5 +1,6 @@
 repos:
   - repo: https://github.com/DavidAnson/markdownlint-cli2
+    name: markdown | check format
     rev: v0.13.0
     hooks:
       - id: markdownlint-cli2
@@ -8,9 +9,26 @@ repos:
   # https://github.com/huacnlee/autocorrect
   # curl -sSL https://git.io/JcGER | sh
   - repo: local
+    name: markdown | check CJK format
     hooks:
       - id: autocorrect
         name: autocorrect
         entry: autocorrect
         language: system
         args: ["--fix"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.10
+    hooks:
+      - id: ruff-check
+        name: python | check
+      - id: ruff-format
+        name: python | format
+
+  - repo: https://github.com/facebook/pyrefly-pre-commit
+    rev: 0.47.0
+    hooks:
+      - id: pyrefly-check
+        name: python | typecheck
+        pass_filenames: true
+        language: system
