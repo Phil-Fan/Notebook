@@ -62,7 +62,7 @@ docs/
 │   ├── LLM/
 │   │   ├── index.md         # 概述
 │   │   ├── 开源框架.md      # 训练/推理等开源清单
-│   │   ├── Models/          # Attention…LLaVA…FlowMatching
+│   │   ├── Models/          # Attention…LLaVA…TTT…FlowMatching
 │   │   ├── Sci/             # 训练与对齐：SFT / RL / 评测…
 │   │   └── Engineer/        # 工程：RAG / vLLM / 推理优化 / …
 │   ├── MLSys/               # 机器学习系统（CUDA、NV、CMU10_414/）
@@ -190,6 +190,7 @@ CI：push / PR 到 `main` 触发 `.github/workflows/check.yml`（`uv sync` + pre
 **CI 要求（强制）**：所有推送必须通过 Quality Check。若 CI 失败，必须立即修复后重新推送。严禁跳过或忽略 CI 错误。
 
 提交前执行 `pre-commit run --all-files` 并与 CI 完全对齐：
+
 - markdownlint-cli2：`*.md` 格式检查（规则见 `.github/.markdownlint.yaml`）
 - autocorrect：中文排版修正（中英文空格、标点规范等）
 - ruff：`hooks/` 下 Python 代码 lint + format

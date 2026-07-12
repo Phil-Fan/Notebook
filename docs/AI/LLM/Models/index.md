@@ -26,6 +26,10 @@ Transformer-based models are shown in non-grey colors:
 
 ## 基础
 
+### 序列建模新范式
+
+- **Test-Time Training (TTT)**：在测试时对每个 token 进行针对性参数更新，用线性复杂度实现接近 Transformer 的表达能力。详见 [10-TTT](./10-TTT.md)。
+
 ### word2vec
 
 ### tokenizer
