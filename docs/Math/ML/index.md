@@ -46,11 +46,11 @@
 
 [笔记](https://github.com/mura1n/Machine-Learning-in-Practice-Crash-Course-Notes)
 
-<https://github.com/AccumulateMore>
+[AccumulateMore](https://github.com/AccumulateMore)
 
 ### 网课
 
-B 站<https://space.bilibili.com/1567748478/> 论文带读
+B 站 [论文带读](https://space.bilibili.com/1567748478/)
 
 [Machine Learning in Practice Crash Course | Jinming Hu (conanhujinming.github.io)](https://conanhujinming.github.io/post/ml_in_practice_crash_course/)
 
@@ -90,9 +90,9 @@ CS188
 
 1. 机器学习：B 站/youtube 李宏毅/吴恩达
 
-2. 深度学习：<https://zh-v2.d2l.ai/> notebook 和课程质量较高，使用的框架的话，pytorch 文献用的比较多，tensorflow 和硬件兼容性好，根据需求选择框架学习，如果觉得难以接受可以多刷几遍
+2. 深度学习：[动手学深度学习](https://zh-v2.d2l.ai/) notebook 和课程质量较高，使用的框架的话，pytorch 文献用的比较多，tensorflow 和硬件兼容性好，根据需求选择框架学习，如果觉得难以接受可以多刷几遍
 
-3. 强化学习：<https://hrl.boyuai.com/>   <https://datawhalechina.github.io/easy-rl/#/>
+3. 强化学习：[动手学强化学习](https://hrl.boyuai.com/)   [Easy RL](https://datawhalechina.github.io/easy-rl/#/)
 
 一步步教你每个数据是怎么产生怎么删除的，可视化做的非常好，手脚架给你搭建好了，不需要复杂的工程思考，只需要思考最本质的 梯度，可以快速理解梯度，activation, opt
 [LLM Training Puzzles - 寒假摸鱼 (2) - Garl 的文章 - 知乎](https://zhuanlan.zhihu.com/p/20265169815)

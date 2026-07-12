@@ -3,7 +3,7 @@
 ## 资源
 
 通过网盘分享的文件：IELTS 资料合集
-链接：<https://pan.baidu.com/s/1w8BNqHGl1m0di8jBpKUvXQ?pwd=CC98> 提取码：CC98
+链接：[百度网盘](https://pan.baidu.com/s/1w8BNqHGl1m0di8jBpKUvXQ?pwd=CC98) 提取码：CC98
 
 ## Time
 
@@ -45,7 +45,7 @@ talkface
 
 ## Acknowledgement
 
-<https://www.cc98.org/topic/5855810>
+[CC98 原帖](https://www.cc98.org/topic/5855810)
 
 It is a topic of much debate that whether university students should devote all their time to their core subjects or expand their horizons by exploring additional disciplines. From my point of view, embracing an interdisciplinary approach yields substantial benefits, though there are certainly compelling reasons for focusing solely on one’s major area of study.
 

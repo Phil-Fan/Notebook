@@ -32,7 +32,7 @@
         [QiangLong2017/Matrix-theory: 本仓库用于存储《线性代数与矩阵分析》课程课件](https://github.com/QiangLong2017/Matrix-theory/)
 
 
-    【矩阵分析第一讲 什么是矩阵分析 线性系统】https://www.bilibili.com/video/BV1p44y1h78d?vd_source=b38d40e4ee48a659bc5c5113dcf1c249
+    【矩阵分析第一讲 什么是矩阵分析 线性系统】[矩阵分析第一讲](https://www.bilibili.com/video/BV1p44y1h78d)
 
 学矩阵论的目的：
 

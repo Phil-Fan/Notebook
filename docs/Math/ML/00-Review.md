@@ -33,7 +33,7 @@
 
 [ESL CN](https://esl.hohoweiya.xyz/index.html)
 
-<https://www.bilibili.com/video/BV1QW411o7fk?from=search&seid=17747537286715723310&spm_id_from=333.337.0.0>
+[统计学习 B 站视频](https://www.bilibili.com/video/BV1QW411o7fk)
 
 ### 统计学习 2023-2024 春夏
 

@@ -8,7 +8,7 @@ Map=Data Structure + Fusion Method
 - Structural
 - Direct Index Query
 
-<https://github.com/ANYbotics/grid_map>
+[grid_map](https://github.com/ANYbotics/grid_map)
 
 ## Octo-map
 
@@ -16,7 +16,7 @@ Map=Data Structure + Fusion Method
 - Structural
 - Indirect Index Query
 
-<https://octomap.github.io/>
+[OctoMap](https://octomap.github.io/)
 
 ## Voxel hashing
 
@@ -24,9 +24,9 @@ Map=Data Structure + Fusion Method
 - Structural
 - Indirect Index Query
 
-<https://github.com/niessner/VoxelHashing>
+[VoxelHashing](https://github.com/niessner/VoxelHashing)
 
-<http://www.robots.ox.ac.uk/~victor/infinitam/>
+[InfiniTAM](http://www.robots.ox.ac.uk/~victor/infinitam/)
 
 ## Point cloud map
 
@@ -43,7 +43,7 @@ Truncated Signed Distance Functions
 
 OpenChisel
 
-<https://github.com/personalrobotics/OpenChisel>
+[OpenChisel](https://github.com/personalrobotics/OpenChisel)
 
 ## 欧式符号距离场（ESDF）
 

@@ -49,4 +49,3 @@ graph TD
 
 - [VLA 论文合集](https://github.com/Shuwn-Yuan/Awesome-VLA)
 - [具身智能综述](https://github.com/embodied-generalist/awesome-embodied-generalist)
-

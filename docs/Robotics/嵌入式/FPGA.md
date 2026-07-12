@@ -75,6 +75,6 @@ uhd_usrp_probe
 
 === "方法 2"
 
-    https://files.ettus.com/binaries/cache/x3xx/，在这个网站里面选择对应版本的FPGA镜像，直接下载，解压后采用非默认位置的烧录命令进行烧录，不过这种方法我还不知道怎么判断所需版本，我是试了两个就可以了。
+    [USRP 镜像下载](https://files.ettus.com/binaries/cache/x3xx/)，在这个网站里面选择对应版本的FPGA镜像，直接下载，解压后采用非默认位置的烧录命令进行烧录，不过这种方法我还不知道怎么判断所需版本，我是试了两个就可以了。
 
     注意：烧录完之后需要重启2954再运行gnuradio。

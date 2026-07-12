@@ -6,7 +6,7 @@ python 的函数是一种数据类型
 def pressure(v, t, n):
   """计算理想气体的压力，单位为帕斯卡
 
-  使用理想气体定律：http://en.wikipedia.org/wiki/Ideal_gas_law
+  使用理想气体定律：[Ideal gas law](http://en.wikipedia.org/wiki/Ideal_gas_law)
 
   v -- 气体体积，单位为立方米
   t -- 绝对温度，单位为开尔文

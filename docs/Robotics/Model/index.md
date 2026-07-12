@@ -50,7 +50,7 @@
 
     通过网盘分享的文件：机器人建模与控制
 
-    链接: https://pan.baidu.com/s/1kDHRlYak4JmxugfSVc9vsA?pwd=CC98 
+    链接: [百度网盘](https://pan.baidu.com/s/1kDHRlYak4JmxugfSVc9vsA?pwd=CC98)
     提取码: CC98
 
     ```

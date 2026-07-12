@@ -315,7 +315,7 @@ $$
 
 **CSMA/CA 协议工作原理 :**
 
-> 参考博文<https://blog.csdn.net/shulianghan/article/details/108116406>
+> 参考博文[CSDN 博客](https://blog.csdn.net/shulianghan/article/details/108116406)
 
 ① 检测信道 : 发送数据前 , 检测信道是否空闲 ;
 

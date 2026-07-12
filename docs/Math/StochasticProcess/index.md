@@ -55,7 +55,7 @@
 
 通过网盘分享的文件：随机过程
 
-链接：<https://pan.baidu.com/s/1Z47JujDl_nhpDbRhhAdOGw?pwd=PHIL> 提取码：PHIL
+链接：[百度网盘](https://pan.baidu.com/s/1Z47JujDl_nhpDbRhhAdOGw?pwd=PHIL) 提取码：PHIL
 
 ```text
 .

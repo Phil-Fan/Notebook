@@ -14,7 +14,7 @@
 
 Flow Matching 是一种基于连续归一化流（Continuous Normalizing Flow, CNF）的生成建模方法，将简单分布通过 ODE 逐步变换为目标数据分布。
 
-### 关键论文
+### 核心论文
 
 - [Flow Matching for Generative Modeling (2023)](https://arxiv.org/abs/2210.02747) — 奠基性工作
 - [Conditional Flow Matching (2023)](https://arxiv.org/abs/2302.00482)

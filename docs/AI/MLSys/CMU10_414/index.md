@@ -2,9 +2,9 @@
 
 ## 课程介绍
 
-课程网站：<https://dlsyscourse.org>
-课程视频：<https://www.youtube.com/watch?v=qbJqOFMyIwg>
-课程作业：<https://dlsyscourse.org/assignments/>
+[课程网站](https://dlsyscourse.org)
+[课程视频](https://www.youtube.com/watch?v=qbJqOFMyIwg)
+[课程作业](https://dlsyscourse.org/assignments/)
 
 ## 课程内容
 

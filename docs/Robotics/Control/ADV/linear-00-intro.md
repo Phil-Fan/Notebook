@@ -19,7 +19,7 @@
 
 通过百度网盘分享的文件：现代控制理论
 
-链接：<https://pan.baidu.com/s/1YUCIKVOh5ZZdMgX8pZrZ4A?pwd=92t1>
+链接：[百度网盘](https://pan.baidu.com/s/1YUCIKVOh5ZZdMgX8pZrZ4A?pwd=92t1)
 
 提取码：92t1
 

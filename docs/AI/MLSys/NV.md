@@ -86,7 +86,7 @@ my_function()
 
 ### 安装
 
-下载地址为：<https://developer.nvidia.com/nswight-systems。>
+下载地址为：[Nsight Systems](https://developer.nvidia.com/nsight-systems)
 
 ```shell
 chmod +x <installer-name>.run

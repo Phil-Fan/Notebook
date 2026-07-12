@@ -43,7 +43,7 @@ And that has made all the difference.**
 
 校内课程：研究生课《因果推断与机器学习》
 
-<http://bayes.cs.ucla.edu/PRIMER/>
+[PRIMER](http://bayes.cs.ucla.edu/PRIMER/)
 
 [聊一聊因果推断中的 ATT、ITE、ATE 和 CATE](https://www.zhihu.com/tardis/zm/art/449976773?source_id=1005)
 

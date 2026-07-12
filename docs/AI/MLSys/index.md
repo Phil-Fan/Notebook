@@ -33,7 +33,7 @@
 最佳社区奖：SGLang（欸好像是 23 年底的），社区好活跃，更新得好快。最佳算法奖：GLA（Gated Linear Attention），理论软硬件协同兼得，看了好想入坑 Linear Attention。（顺带提一句，体感大部分做 MLSys 算法的完全不会考虑系统硬件层面，系统层面优化起来发现实际上根本就没优化.jpg）最佳系统奖：好像比较多，一时想不出，给 MoonCake 吧，KVCache-centric DisaggregatedArchitecture for LLM Serving。最佳码风奖：DistServe，优雅。
 
 作者：JerryYin777
-链接：<https://www.zhihu.com/question/7370558713/answer/60487054766>
+链接：[知乎原文](https://www.zhihu.com/question/7370558713/answer/60487054766)
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 

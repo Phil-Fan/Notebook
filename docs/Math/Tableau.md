@@ -46,7 +46,7 @@ shift 移动地图
 
 ### 获取 Tableau
 
-- 官方网站提供的下载链接（需要提供官网链接，如<https://www.tableau.com/products/trial）>
+- 官方网站提供的下载链接（需要提供官网链接，如[Tableau 官网](https://www.tableau.com/products/trial)）
 
 ### 获取学生免费使用资格
 

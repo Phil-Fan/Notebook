@@ -4,7 +4,7 @@
 
 我国传统金融行业主要由银行业、证券业、保险业三部分组成。
 
-<https://www.mca.gov.cn/images3/www/file/201711/1509495881341.pdf>
+[国民经济行业分类 (PDF)](https://www.mca.gov.cn/images3/www/file/201711/1509495881341.pdf)
 
 ![image](https://img.philfan.cn/Class__Fin__assets__industry-finance.assets__20240929215423.webp)
 
@@ -22,7 +22,7 @@
 
 ## 机构角度
 
-<https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608426890.pdf>
+[金融机构概况 (PDF)](https://www.investor.org.cn/learning_center/gmjytx/bk/kj/202302/P020230228549608426890.pdf)
 
 主要可以分为：监管机构、交易场所、市场主体。
 

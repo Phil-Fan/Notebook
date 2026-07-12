@@ -471,7 +471,7 @@ ImportError: /usr/lib/x86_64-linux-gnu/libp11-kit.so.0: undefined symbol: ffi_ty
     wget http://www.quest.dcs.shef.ac.uk/wmt16_files_mmt/training.tar.gz
     ```
 
-    https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k
+    [Multi30K 数据集](https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k)
 
     并将三个文件放在`/root/.cache/torch/text/datasets/Multi30k`（本目录根据个人有所变化）
 

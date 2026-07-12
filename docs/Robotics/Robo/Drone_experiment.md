@@ -310,7 +310,7 @@ rosbag record /sim/odom
 
 - plotjuggler 数据分析软件
 
-<https://github.com/facontidavide/PlotJuggler>
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler)
 
 ## 结果
 

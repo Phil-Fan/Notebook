@@ -2,7 +2,7 @@
 
 [如何培养想 idea 的能力（选题能力和解题能力）](https://pengsida.notion.site/idea-da6ce171c13846b7a7ffaa7473ffa6ea)
 
-<https://elicit.com>
+[Elicit](https://elicit.com)
 
 - 读 Ph.D. 需要建立一套 Benchmark，即从哪里获得反馈
   - 在课题开始之前尽早动手，从结果中获取反馈，而不是靠想
@@ -24,7 +24,7 @@
 
 ## 如何培养 Research Taste
 
-<https://www.zhihu.com/question/317077307/answer/3466843590?share_code=UkzO83A1lIaV&utm_psn=1943765782413709779>
+[知乎回答](https://www.zhihu.com/question/317077307/answer/3466843590)
 
 - 要完完全全走一遍科研的工作流
 - 小问题不断深挖，用故事流总结每个小问题的探索过程

@@ -54,7 +54,7 @@ status: new
 
 ### 实战记录 —— 微调 qwen 实现 Multi30K 下英译德翻译模型
 
-使用的是 Multi30K 数据集，下载地址：<https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k>
+使用的是 Multi30K 数据集，下载地址：[Multi30K 数据集](https://github.com/neychev/small_DL_repo/tree/master/datasets/Multi30k)
 
 #### 下载模型
 

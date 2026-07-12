@@ -697,7 +697,7 @@ def move():
 [PyBullet 笔记（一）pybullet 及其依赖项的安装、pybullet 初探 - 知乎](https://zhuanlan.zhihu.com/p/347078711)
 
 !!! note "官方笔记"
-    <https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit?tab=t.0>
+    [官方笔记](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit?tab=t.0)
     [openai/baselines: OpenAI Baselines: high-quality implementations of reinforcement learning algorithms](https://github.com/openai/baselines)
 
 ```bash

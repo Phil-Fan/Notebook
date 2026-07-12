@@ -77,7 +77,7 @@ PID 部分也可以参照[PID - Youtube](https://www.youtube.com/watch?v=UR0hOmj
 - 其他有意思的讲解，如：<br>[通过开车展示系统闭环极点在 s 域的左半平面、虚轴上以及右半平面](https://www.bilibili.com/video/BV1R8411P7YF/?spm_id_from=333.337.search-card.all.click)
 - 在[这个帖子](https://www.cc98.org/topic/5835370)当中有 8u 还推荐了 b 站卢京潮老师的[【最新，考研专用速成版】自动控制原理 卢京潮 西北工业大学](https://www.bilibili.com/video/BV1vo4y147QZ)，但是我没有听过，不知道具体效果
 
-我把我自己用到的学习资料放在了：链接：<https://pan.baidu.com/s/1W6qcDByeKaxhjGYZ1WughA?pwd=CC98>
+我把我自己用到的学习资料放在了：链接：[百度网盘](https://pan.baidu.com/s/1W6qcDByeKaxhjGYZ1WughA?pwd=CC98)
 
 资料大纲如下，包含了 zyh 老师的 ppt，作业答案（~~请合理借鉴~~）,98 上找到的历年题目，98 上找到的整理资料（A4，课件整理）和我自己的 A4
 

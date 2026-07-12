@@ -2,7 +2,7 @@
 
 刘洪波】的《雅思阅读真经
 
-平行阅读法：<https://www.bilibili.com/video/BV1gy4y1q7LG/（可以看看）>
+平行阅读法：[平行阅读法](https://www.bilibili.com/video/BV1gy4y1q7LG/)（可以看看）
 阅读同义替换高频词：（应该是来自 8 友，在这里感谢一下！）
 
 平行阅读法
