@@ -4449,10 +4449,10 @@ print("mu的平均值+-误差 ", np.mean(narr) - st.sem(narr), np.mean(narr) + s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>样本平均值和标准差 5.272284476751918 2.5816129624488666
-极大似然法数值解 [5.27228451 2.58161292]
-mu的标准差区间，极大似然法  [4.69490282 5.84966614]
-mu的平均值+-误差  4.680021844401956 5.8645471091018795
+<pre>样本平均值和标准差 4.486976257654023 3.5392096642726156
+极大似然法数值解 [4.48697692 3.53920981]
+mu的标准差区间，极大似然法  [3.69542664 5.27852588]
+mu的平均值+-误差  3.6750258752031364 5.298926640104909
 </pre>
 </div>
 </div>
@@ -4587,10 +4587,16 @@ print("mu的平均值+-误差 ", np.mean(xarr) - st.sem(xarr), np.mean(xarr) + s
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>样本平均值和标准差 8.17687393305202 7.753297401912364
-极大似然法数值解 [8.17686927]
-mu的标准差区间，极大似然法  [ 6.5912881  10.32002841]
-mu的平均值+-误差  6.443183929007165 9.910563937096875
+<pre>样本平均值和标准差 5.485389530662208 4.546268523632261
+极大似然法数值解 [5.48538681]
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>mu的标准差区间，极大似然法  [4.41262031 6.90553164 6.92596534]
+mu的平均值+-误差  4.468812984381273 6.501966076943143
 </pre>
 </div>
 </div>
@@ -4732,14 +4738,8 @@ print("Mean value theta=", 2 * np.mean(xarr))</div>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>True
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Max likelihood theta= [4.78457642] 4.784559880555087
-Mean value theta= 5.327709489957142
+Max likelihood theta= [4.99899292] 4.998983781294893
+Mean value theta= 6.132464759287439
 </pre>
 </div>
 </div>
@@ -5237,18 +5237,12 @@ ax[1].errorbar(x=np.mean(xarr), y=mll + 0.5, fmt="o", xerr=[[xerr_l], [xerr_h]])
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>5.360494908703759 6.769703692851635
-[5.36049417]
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>chi2   [ 1.51787631 -0.96788398] 
-norm   [ 1.53285793 -0.97515685]
-MLE  [-1.04291928  1.38718389  1.40743475]
-Moments  1.5137517644747613
+<pre>3.0911525812214764 2.1688124581556263
+[3.09115192]
+chi2   [ 0.87528994 -0.55813448] 
+norm   [ 0.88392916 -0.56232842]
+MLE  [-0.60011922  0.80124026  0.80772803  0.81421581]
+Moments  0.48496120868843984
 </pre>
 </div>
 </div>
