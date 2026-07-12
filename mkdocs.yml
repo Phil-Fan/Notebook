@@ -42,7 +42,7 @@ theme:
     - navigation.path  # 显示当前页面的路径
     - navigation.indexes  # 在导航中显示索引页
     - navigation.top  # 提供回到页面顶部的按钮
-    - navigation.footer  # 在页面底部显示导航链接
+    # - navigation.footer  # 在页面底部显示导航链接
     - navigation.instant  # 启用即时导航，提高页面加载速度
     
     # 搜索功能
@@ -217,7 +217,7 @@ hooks:
   # toc页面，改编自https://github.com/TonyCrane/note/tree/master/hooks，效果还不稳定
   - hooks/toc_manager.py
   # excalidraw 改编自
-  - hooks/excalidraw.py
+  # - hooks/excalidraw.py
 
 
 # navigation: 注意左右下划线的写法
@@ -230,16 +230,15 @@ nav:
   
 - Research:
     - Research/index.md
-    - 研究方法论:
-        - Research/EXP/index.md
-        - 预备知识: Research/EXP/01-Preliminaries.md
-        - 论文阅读: Research/EXP/02-Reading.md
-        - 心态: Research/EXP/03-mind.md
-        - 交流: Research/EXP/04-communication.md
-        - 实验: Research/EXP/05-experiment.md
-        - 写作: Research/EXP/06-writing.md
-        - rebuttal: Research/EXP/07-rebuttal.md
-        - 汇报: Research/EXP/08-presentation.md
+    - 概述: Research/EXP/index.md
+    - 预备知识: Research/EXP/01-Preliminaries.md
+    - 论文阅读: Research/EXP/02-Reading.md
+    - 心态: Research/EXP/03-mind.md
+    - 交流: Research/EXP/04-communication.md
+    - 实验: Research/EXP/05-experiment.md
+    - 写作: Research/EXP/06-writing.md
+    - rebuttal: Research/EXP/07-rebuttal.md
+    - 汇报: Research/EXP/08-presentation.md
 
 - Math:
     - Math/index.md
@@ -332,7 +331,6 @@ nav:
         - AI/LLM/Models/07-ViT.md
         - AI/LLM/Models/08-CLIP.md
         - AI/LLM/Models/09-LLaVA.md
-        - AI/LLM/Models/10-FlowMatching.md
 
     - "LLM | Engineer Roadmap":
         - AI/LLM/Engineer/index.md
