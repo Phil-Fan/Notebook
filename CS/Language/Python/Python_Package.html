@@ -4087,8 +4087,8 @@ print(x)</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[1 3 4 ... 1 3 3]
- [2 3 3 ... 2 2 4]]
+<pre>[[2 3 4 ... 3 1 3]
+ [1 4 2 ... 4 2 3]]
 </pre>
 </div>
 </div>
@@ -4130,7 +4130,7 @@ y</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([0.110937  , 0.62488808, 0.76455105, 0.82942632, 0.25432992])</pre>
+<pre>array([0.81116422, 0.42972945, 0.14516859, 0.84718367, 0.62330207])</pre>
 </div>
 </div>
 </div>
@@ -4186,7 +4186,7 @@ y</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([0.62488808, 0.82942632, 0.76455105, 0.110937  , 0.25432992])</pre>
+<pre>array([0.14516859, 0.81116422, 0.62330207, 0.84718367, 0.42972945])</pre>
 </div>
 </div>
 </div>
@@ -4231,8 +4231,8 @@ np.random.permutation(arr)  # 只对第一维度进行打乱</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([[3, 4, 5],
-       [6, 7, 8],
+<pre>array([[6, 7, 8],
+       [3, 4, 5],
        [0, 1, 2]])</pre>
 </div>
 </div>
@@ -4325,16 +4325,16 @@ a[1, ::-2]  # 切片的应用</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[1 5 3 4]
- [4 5 3 9]
- [5 1 7 0]]
+<pre>[[3 0 6 7]
+ [6 1 0 9]
+ [9 7 8 8]]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([9, 5])</pre>
+<pre>array([9, 1])</pre>
 </div>
 </div>
 </div>
@@ -4431,10 +4431,10 @@ np.linalg.inv(A) @ b  ## 更慢</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([[ 17.25110132],
-       [ -9.56387665],
-       [ -4.52422907],
-       [-19.62555066]])</pre>
+<pre>array([[-0.10098096],
+       [ 0.20144259],
+       [ 0.121985  ],
+       [ 0.83796884]])</pre>
 </div>
 </div>
 </div>
@@ -5125,8 +5125,8 @@ plt.tight_layout()  # Adjust the spacing between subplots</div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[[0.78650375 0.39080052 0.79886286 ... 0.73343412 0.12742661 0.54461654]
- [0.63300117 0.04961032 0.52341836 ... 0.78231829 0.71780322 0.6070833 ]]
+<pre>[[0.99469431 0.66061951 0.57855095 ... 0.48716155 0.68042089 0.32083041]
+ [0.17288071 0.36737313 0.98786204 ... 0.52143675 0.58859427 0.26057086]]
 </pre>
 </div>
 </div>
