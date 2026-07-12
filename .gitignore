@@ -1,0 +1,31 @@
+# IDE and Editor Configurations
+**/.idea/
+.idea/
+.vscode/
+**/.vscode/
+/.obsidian/
+
+# System Files
+.DS_Store
+**/.DS_Store
+.DS_Store?
+
+# Cache and Build Artifacts
+.cache/
+site/
+**/__pycache__/
+*/__pycache__/
+**/__pycache__
+__pycache__/
+.venv/
+
+# Node Modules
+**/node_modules/
+**/node_modules/**
+
+.vercel
+.spec-workflow/*
+.ruff_cache/*
+# Jupyter runtime from mkdocs-jupyter execute
+**/profile_default/
+

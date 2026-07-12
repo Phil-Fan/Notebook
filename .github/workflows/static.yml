@@ -1,0 +1,32 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
+    
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.12.4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - run: uv sync
+    
+      - name: Deploy with MkDocs
+        run: export MKDOCS_GIT_COMMITTERS_APIKEY=${{ secrets.MKDOCS_GIT_COMMITTERS_APIKEY }} && uv run mkdocs gh-deploy --force

@@ -1,0 +1,80 @@
+/* modified from
+   source: https://github.com/TonyCrane/note/blob/master/docs/css/flink.css */
+
+/* friends link */
+
+.flink-list {
+    overflow: auto;
+    padding: 10px 10px 0;
+    text-align: center;
+  }
+  [data-md-color-scheme="default"] .flink-list a {
+    color:  var(--md-default-fg-color);
+  }
+  [data-md-color-scheme="slate"] .flink-list a {
+    color:  var(--md-default-fg-color);
+  }
+  .flink-list-item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 15px 7px;
+    width: calc(100% / 2 - 15px);
+    height: 90px;
+    border-radius: 8px;
+    line-height: 17px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    transition: 0.25s;
+  }
+  .flink-item-icon {
+    float: left;
+    overflow: hidden;
+    margin: 15px 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+  }
+  .flink-item-name {
+    padding: 19px 10px 0 0;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+  .flink-item-desc {
+    padding: 13px 10px 16px 0;
+    height: 50px;
+    font-size: 0.95em;
+  }
+  .flink-list-item:hover {
+    background-color:  rgba(128, 128, 128, 0.1);
+  }
+  .flink-list-item {
+    width: calc(50% - 15px) !important;
+  }
+  
+  @media screen and (max-width: 1310px) {
+    .flink-list-item {
+      width: calc(100% - 15px) !important;
+    }
+  }
+  @media screen and (max-width: 1219px) {
+    .flink-list-item {
+      width: calc(50% - 15px) !important;
+    }
+  }
+  @media screen and (max-width: 1027px) {
+    .flink-list-item {
+      width: calc(100% - 15px) !important;
+    }
+  }
+  @media screen and (max-width: 959px) {
+    .flink-list-item {
+      width: calc(50% - 15px) !important;
+    }
+  }
+  @media screen and (max-width: 692px) {
+    .flink-list-item {
+      width: calc(100% - 15px) !important;
+    }
+  }

@@ -1,0 +1,721 @@
+# info
+site_name: PhilFan's Notebook
+site_author: PhilFan
+site_description: PhilFan 的笔记本
+site_url: "https://www.philfan.cn"
+
+# repository information
+repo_name: 'Phil-Fan/Notes'
+repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
+
+# copyright
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a> 
+beian: 浙 ICP 备 2025206156 号
+
+use_directory_urls: false
+
+# configuration
+theme:
+  name: material
+  logo: logo.ico
+  favicon: logo.ico
+  custom_dir: overrides
+  icon: 
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+     
+  features:
+    # 导航功能
+    - navigation.tracking  # 跟踪用户在站点中的导航路径
+    - navigation.tabs  # 顶部显示导航标签
+    - navigation.path  # 显示当前页面的路径
+    - navigation.indexes  # 在导航中显示索引页
+    - navigation.top  # 提供回到页面顶部的按钮
+    - navigation.footer  # 在页面底部显示导航链接
+    - navigation.instant  # 启用即时导航，提高页面加载速度
+    
+    # 搜索功能
+    - search.highlight  # 高亮显示搜索结果
+    - search.suggest  # 提供搜索建议
+    
+    # 内容展示功能
+    - toc.follow  # 目录（TOC）跟随滚动，高亮当前阅读部分
+    - content.code.annotate  # 为代码块添加注释
+    - content.code.copy  # 允许复制代码块
+    - content.code.select  # 允许选择代码块
+    - content.tabs.link  # 支持内容中的标签链接
+    - content.action.edit  # 支持编辑按钮 在页面右上角添加编辑按钮，跳转到源码仓库的对应文件
+    - content.action.view  # 支持查看按钮 在页面右上角添加查看按钮，跳转到源码仓库的对应文件
+    - content.tooltips
+
+
+  language: 'zh'
+  palette:
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   primary: blue
+    #   toggle:
+    #       icon: material/weather-sunny
+    #       name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    
+
+  font:
+    text: Noto Serif SC # Roboto
+    code: JetBrains Mono
+
+markdown_extensions:
+  # 基础 Markdown 扩展
+  - abbr  # 支持缩写
+  - admonition  # 支持警告框
+  - def_list  # 支持定义列表
+  
+  # 可以支持图片缩放等功能
+  - attr_list  # 允许为 Markdown 元素添加 HTML 属性
+  - md_in_html  # 支持在 HTML 中使用 Markdown
+  
+  - tables  # 支持表格
+  - mdx_truly_sane_lists # 嵌套列表（需要 pip 安装）
+
+  # 目录生成
+  - toc:
+      permalink: true  # 为每个标题生成永久链接
+      toc_depth: 3  # 目录深度为 3 级
+      permalink_title: "anchor link to this section for reference"  # 永久链接标题
+  - markdown.extensions.smarty:
+      smart_quotes: false  # 关闭智能引号
+
+  # 公式渲染
+  - pymdownx.arithmatex:
+      generic: true  # 支持内联和块级数学公式，使用 MathJax 渲染
+      # block_tag: 'pre'  # 使用<pre>标签包裹块级公式
+
+  # 代码高亮与代码相关功能
+  - pymdownx.highlight  # 提供代码块的语法高亮
+
+  - pymdownx.superfences:
+      preserve_tabs: true  # 保留制表符
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # 扩展 Markdown 语法
+  - pymdownx.caret  # 支持插入符号（^）表示上标
+  - pymdownx.emoji:
+      # emoji_index: !!python/name:pymdownx.emoji.twemoji
+      # emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji  # 使用 Twemoji 索引
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg  # 使用 SVG 生成 Emoji
+  - pymdownx.magiclink:
+      repo_url_shorthand: true  # 使用简写形式的仓库链接
+      repo_url_shortener: true  # 缩短仓库链接
+      social_url_shorthand: true  # 社交链接简写
+      social_url_shortener: true  # 社交链接缩短
+  - pymdownx.mark  # 提供文本高亮功能
+  - pymdownx.smartsymbols  # 自动将特定文本符号转换为对应的智能符号
+  - pymdownx.tasklist:
+      custom_checkbox: true  # 允许创建自定义风格的任务列表
+  - pymdownx.tilde  # 使用波浪线（~）表示删除线
+
+  # 文档布局与样式
+  - pymdownx.details  # 允许添加可展开的详细信息块
+  - pymdownx.tabbed:
+      alternate_style: true  # 使用备用样式的标签式布局
+  - pymdownx.keys  # 支持按键表示
+  - pymdownx.escapeall:
+      hardbreak: True  # 硬换行
+      nbsp: True  # 不断行空格
+
+  # 其他功能
+  - pymdownx.progressbar  # 支持进度条
+  - pymdownx.saneheaders  # 优化标题解析，避免冲突
+
+extra:
+  social:
+    - icon: fontawesome/solid/house
+      link: https://philfan.cn
+      name: PhilFan's Homepage
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/Phil-Fan
+      name: PhilFan's GitHub
+
+    - icon: fontawesome/brands/google
+      link: mailto:hw.phil.fan@gmail.com
+      name: PhilFan's Gmail
+
+    - icon: fontawesome/brands/zhihu
+      link: https://www.zhihu.com/people/phil.fan
+      name: PhilFan's Zhihu
+
+    - icon: custom/xiaohongshu
+      link: https://www.xiaohongshu.com/user/profile/65484809000000000400b05d
+      name: PhilFan's Xiaohongshu
+
+  analytics:
+    provider: google
+    property: G-2QNP7S5RJ8 # 请勿复制这一行
+
+    feedback:
+      title: Was this note helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            感谢支持~
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            感谢指出，欢迎提 issue 或发邮件反馈~
+
+extra_css:
+  # - style/css/custom.css
+  # - style/css/counter.css
+  - style/css/flink.css
+  # source: https://github.com/TonyCrane/note/tree/master/docs/css
+  - style/css/toc_extra.css # 用于实现 toc 插件
+  - style/css/fold_toc.css # 用于实现 toc 插件
+  # source: https://tonycrane.cc/
+  - style/css/card.css # 用于卡片样式 todo: 稍作修改
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+
+extra_javascript:
+  - style/javascripts/mathjax.js
+  - style/javascripts/toc.js
+  # mathjax
+  - https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
+  # mermaid
+  - https://cdn.jsdelivr.net/npm/mermaid@11.0.1/dist/mermaid.min.js
+  
+  
+hooks:
+  # 在 blog 页面中添加社交分享功能
+  - hooks/socialmedia.py
+  # 从 CSV 文件自动生成友链页面
+  - hooks/friends.py
+  # toc页面，改编自https://github.com/TonyCrane/note/tree/master/hooks，效果还不稳定
+  - hooks/toc_manager.py
+  # excalidraw 改编自
+  - hooks/excalidraw.py
+
+
+# navigation: 注意左右下划线的写法
+nav:
+
+- Home:
+  - index.md
+  - 简介: board.md
+  - 友链: friends.md
+  
+- Research:
+    - Research/index.md
+    - 研究方法论:
+        - Research/EXP/index.md
+        - 预备知识: Research/EXP/01-Preliminaries.md
+        - 论文阅读: Research/EXP/02-Reading.md
+        - 心态: Research/EXP/03-mind.md
+        - 交流: Research/EXP/04-communication.md
+        - 实验: Research/EXP/05-experiment.md
+        - 写作: Research/EXP/06-writing.md
+        - rebuttal: Research/EXP/07-rebuttal.md
+        - 汇报: Research/EXP/08-presentation.md
+
+- Math:
+    - Math/index.md
+    - 基础知识:
+        - Math/不等式.md
+        - Math/information.md
+        - Math/logic.md
+        - Math/ODE.md
+        - Math/ComplexFunction.md
+        - 微积分:
+          - Math/Calculus/index.md
+    - Math/signal.md
+    - Math/Calculator.md
+    - Math/Tableau.md
+    - LA | 线性代数:
+        - Math/LinearAlgebra/index.md
+        - Math/LinearAlgebra/00-review.md
+        - Math/LinearAlgebra/01-basic.md
+        - Math/LinearAlgebra/02-1-calc.md
+        - Math/LinearAlgebra/02-2-derivative.md
+        - Math/LinearAlgebra/03-relationship.md
+        - Math/LinearAlgebra/04-decomposition.md
+        - Math/LinearAlgebra/05-matrix_equation.md
+        - Math/LinearAlgebra/06-analyze.md
+        - Math/LinearAlgebra/Project.md
+
+    - Opt | 凸优化:
+        - Math/Opt/index.md
+        - Math/Opt/Opt-1-model.md
+        - Math/Opt/Opt-2-无约束-解析法.md
+        - Math/Opt/Opt-3-无约束-数值法.md
+        - Math/Opt/Opt-4-有约束-解析法.md
+        - Math/Opt/Opt-5-有约束-数值法.md
+        - Math/Opt/Opt-6-else.md
+
+    - 概率论: https://statistics.philfan.cn
+
+    - SP | 随机过程:
+        - Math/StochasticProcess/index.md
+        - Math/StochasticProcess/01-Concept.md
+        - Math/StochasticProcess/02-Markov.md
+        - Math/StochasticProcess/03-Possion.md
+        - Math/StochasticProcess/04-Brown.md
+        - Math/StochasticProcess/05-StationaryProcess.md
+        - Math/StochasticProcess/06-review.md
+
+    - OR | 运筹学:
+        - Math/OR/index.md
+        - Math/OR/OR-01-programming.md
+        - Math/OR/OR-03-graph.md
+        - Math/OR/OR-04-DP.md
+        - Math/OR/OR-05-1-GameTheory.md
+        - Math/OR/OR-05-2-GameTheoryModel.md
+        - Math/OR/OR-06-QueuingTheory.md
+
+    - ML | 机器学习:
+        - Math/ML/index.md
+        - Math/ML/00-Loss.md
+        - Math/ML/00-Method.md
+        - Math/ML/00-Trick.md
+        - Math/ML/00-proof.md
+        - Math/ML/00-Review.md
+        - Math/ML/01-Metrics.md
+        - Math/ML/02-LinearRegression.md
+        - Math/ML/03-DecisionTree.md
+        - Math/ML/04-SVM.md
+        - Math/ML/05-Bayes.md
+        - Math/ML/06-Clustering.md
+        - Math/ML/07-DimensionalityReduction.md
+        - Math/ML/08-EnsembleLearning.md
+        - Math/ML/09-SparseRepresentation.md
+        - Math/ML/10-ConceptLearning.md
+        - Math/ML/12-interpretable_models.md
+        - Math/ML/13-CasualInference.md
+
+- AI: 
+    - AI/index.md
+    - "LLM | Models":
+        - AI/LLM/index.md
+        - AI/LLM/开源框架.md
+        - AI/LLM/Models/index.md
+        - AI/LLM/Models/01-Attention.md
+        - AI/LLM/Models/02-Transformer.md
+        - AI/LLM/Models/02-FlowBased.md
+        - AI/LLM/Models/03-GPTs.md
+        - AI/LLM/Models/04-BERT.md
+        - AI/LLM/Models/04-VAE.md
+        - AI/LLM/Models/05-Diffusion.md
+        - AI/LLM/Models/06-Manba.md
+        - AI/LLM/Models/07-ViT.md
+        - AI/LLM/Models/08-CLIP.md
+        - AI/LLM/Models/09-LLaVA.md
+        - AI/LLM/Models/10-FlowMatching.md
+
+    - "LLM | Engineer Roadmap":
+        - AI/LLM/Engineer/index.md
+        - AI/LLM/Engineer/01-LLMs.md
+        - AI/LLM/Engineer/02-Vectorize.md
+        - AI/LLM/Engineer/03-RAG.md
+        - AI/LLM/Engineer/04-2-LongChain.md
+        - AI/LLM/Engineer/05-2-vllm.md
+        - AI/LLM/Engineer/05-2-vllm-code.md
+        - AI/LLM/Engineer/05-3-SGlang.md
+        - AI/LLM/Engineer/06-InferOptimization.md
+        - AI/LLM/Engineer/06-GPU.md
+        - AI/LLM/Engineer/07-Scheduling.md
+        - AI/LLM/Engineer/08-LongInfer.md
+        - AI/LLM/Engineer/09-2-speculative-decoding.md
+        - AI/LLM/Engineer/09-Sampling.md
+        - AI/LLM/Engineer/10-Evaluation.md
+        - AI/LLM/Engineer/LoRA.md
+        - AI/LLM/Engineer/分布式.md
+
+        - 工具手册:
+          - "[部署] OpenAI API": https://platform.openai.com/docs/overview
+          - "[部署] vLLM手册": https://docs.vllm.com.cn/en/latest/index.html
+          - "[测试] evalscope": https://evalscope.readthedocs.io/zh-cn/latest/index.html
+          - "[监控] Prometheus": https://prometheus.ac.cn/docs/prometheus/latest/getting_started/#required-for-focus
+          - "[监控] Grafana": https://grafana.org.cn/docs/grafana/latest/
+          - "[可视化] Swandb": https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html
+
+    - "LLM | Scientist Roadmap":
+        - AI/LLM/Sci/index.md
+        - AI/LLM/Sci/00-Lingo.md
+        - AI/LLM/Sci/Focus.md
+        - AI/LLM/Sci/01-Task&Datasets.md
+        - AI/LLM/Sci/02-PreTrain.md
+        - AI/LLM/Sci/03-PostTrain.md
+        - AI/LLM/Sci/03-SFT.md
+        - AI/LLM/Sci/03-RL.md
+        - AI/LLM/Sci/04-Evaluation.md
+        - AI/LLM/Sci/05-Quantization.md
+
+        - 工具手册:
+          - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
+          - "[训练] CUDA": https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
+          - "[训练] DeepSpeed": https://deepspeed.org.cn/
+          - "[性能] NVTX ": https://nvidia.github.io/NVTX/python/reference.html
+          - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
+
+    - "DL | 深度学习":
+        - AI/DL/index.md
+        - AI/DL/01-MLP.md
+        - AI/DL/02-CNN.md
+        - AI/DL/03-Modern_CNN.md
+        - AI/DL/04-RNN.md
+        - AI/DL/05-Modern_RNN.md
+        - AI/DL/06-GAN.md
+        - AI/DL/transfer_learning.md
+        - AI/DL/Problem.md
+      
+    - "LLM | 智能体":
+        - AI/Agents/index.md
+        - AI/Agents/开源框架.md
+        - AI/Agents/01-base.md
+        - AI/Agents/accelerate.md
+
+    - "Frontier | 前沿基座模型":
+        - AI/frontier/index.md
+        - AI/frontier/01-gpt3.md
+        - AI/frontier/02-gpt4.md
+        - AI/frontier/03-llama.md
+        - AI/frontier/04-deepseek.md
+        - AI/frontier/05-qwen.md
+        - AI/frontier/06-gemini.md
+        - AI/frontier/07-claude.md
+        - AI/frontier/labs.md
+
+    - "RL | 强化学习":
+        - AI/RL/index.md
+        - AI/RL/theory/01-basic.md
+        - AI/RL/theory/02-bellman.md
+        - AI/RL/theory/03-bellman-best.md
+        - AI/RL/theory/04-iteration.md
+        - AI/RL/theory/05-model-free.md
+        - AI/RL/theory/06-stochasitic-appro.md
+        - AI/RL/theory/07-TD.md
+        - AI/RL/theory/08-value-function.md
+        - AI/RL/theory/09-policy-gradient.md
+        - AI/RL/theory/10-actor-critic.md
+        - AI/RL/method/01-ppo.md
+        - AI/RL/method/02-grpo.md
+        - AI/RL/method/03-rm.md
+        - AI/RL/method/04-opd.md
+        - AI/RL/method/05-infra.md
+
+    - "MLSys | 机器学习系统":
+        - AI/MLSys/index.md
+        - AI/MLSys/CUDA.md
+        - AI/MLSys/NV.md
+        - CMU10-414:
+          - AI/MLSys/CMU10_414/index.md
+
+    - "CV | 计算机视觉":
+        - AI/CV/index.md
+        - 基础知识:
+            - AI/CV/00-1-intro.md
+            - AI/CV/00-2-format.md
+            - AI/CV/00-3-color.md
+            - AI/CV/00-4-base.md
+            - AI/CV/00-5-camera.md
+        
+        - Tasks: 
+            - AI/CV/01-classification.md
+            - AI/CV/02-Image-location.md
+            - AI/CV/03-Object-Recognition.md
+            - AI/CV/04-Segmentation.md
+            - AI/CV/05-3D.md
+            - AI/CV/06-motion_estimation.md
+            - AI/CV/HumanPoseEstimation.md
+        
+        - 工具:
+            - AI/CV/OpenCV.md
+    - "VLA | 视觉-语言-动作":
+        - AI/VLA/index.md
+    - "学习资源":
+        - 论文阅读: https://github.com/mli/paper-reading
+        - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
+        - ISLR: https://www.statlearning.com/
+        - 统计学习方法习题解答: https://datawhalechina.github.io/statistical-learning-method-solutions-manual/
+        - d2l: https://zh.d2l.ai/index.html/
+        - AI Infra: https://infrasys-ai.github.io/aiinfra-docs/00Summary/README.html
+        - ML-SYS: https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main
+        - LLM-interview: https://wdndev.github.io/llm_interview_note/
+
+- Robotics:
+  - Robotics/index.md
+  - Model:
+    - Robotics/Model/index.md
+    - 1 空间描述与变换: Robotics/Model/1-Basis.md
+    - 2 正向运动学: Robotics/Model/2-ForwardKinematics.md
+    - 3 逆向运动学: Robotics/Model/3-InverseKinematics.md
+    - 4 瞬时运动学: Robotics/Model/4-Mechanics.md
+    - 5 轨迹规划: Robotics/Model/5-TrajectoryPlanning.md
+    - 6 动力学: Robotics/Model/6-Dynamics.md
+    - 7 运动控制: Robotics/Model/7-Control.md
+    - 8 力控制: Robotics/Model/8-ForceControl.md
+    - 9 实验: Robotics/Model/9-exp.md
+    - Robotics/Model/Solidworks.md
+
+  - Control Theory:
+    - 自动控制:
+      - Robotics/Control/BASE/index.md
+      - Robotics/Control/BASE/01-Model.md
+      - Robotics/Control/BASE/02-Metrics.md
+      - Robotics/Control/BASE/03-Adjust.md
+      
+
+    - 现代控制 | 线性系统:
+      - Robotics/Control/ADV/index.md
+      - Robotics/Control/ADV/linear-00-intro.md
+
+    - 现代控制 | 非线性系统:
+      - Robotics/Control/ADV/nonliear-00-intro.md
+
+    - 最优控制:
+      - Robotics/Control/Opt/index.md
+
+    - 控制方法:
+      - Robotics/Control/Method/index.md
+      - Robotics/Control/Method/01-PID.md
+      - Robotics/Control/Method/02-LQR.md
+      - Robotics/Control/Method/03-MPC.md
+      - Robotics/Control/Method/04-阻抗导纳.md
+      - Robotics/Control/Method/05-Intelligent.md
+      - Robotics/Control/Method/06-KalmanFilter.md
+
+    - 应用:
+      - Robotics/Control/ELSE-供配电.md
+    - Robotics/Control/Matlab.md
+
+  - 机器人技术:
+    - 简介: Robotics/Robo/index.md
+    - 1 | 设计: Robotics/Robo/01-Design.md
+    - 2 | 建图: Robotics/Robo/02-Mapping.md
+    - 3 | 定位: Robotics/Robo/03-Localization.md
+    - 4 | 导航: Robotics/Robo/04-Navigation.md
+    - 5 | 规划: Robotics/Robo/05-Planning.md
+    - 6 | 传感与检测: Robotics/Robo/06-Detection.md
+
+    - 无人机:
+      - Robotics/Robo/Drone.md
+      - Robotics/Robo/Drone_experiment.md
+
+  
+  - "嵌入式":
+    - Robotics/嵌入式/Analog.md
+    - Robotics/嵌入式/Digital.md
+    - "嵌入式系统":
+      - 0 | 简介: Robotics/嵌入式/EmbeddedSystem-intro.md
+      - 1 | 数电: Robotics/嵌入式/EmbeddedSystem-digitalcircuit.md
+      - 2 | C51: Robotics/嵌入式/EmbeddedSystem-8051.md
+      - 3 | C51实验: Robotics/嵌入式/EmbeddedSystem-8051-experiment.md
+      - 4 | STM32: Robotics/嵌入式/EmbeddedSystem-stm32.md
+    - "开发板使用":
+      - Robotics/嵌入式/Arduino.md
+      - Robotics/嵌入式/RaspberryPi.md
+      - Robotics/嵌入式/JetsonNano.md
+      - Robotics/嵌入式/JetsonThor.md
+      - Robotics/嵌入式/DGXSpark.md
+      - Robotics/嵌入式/FPGA.md
+    - 计控: Robotics/嵌入式/PcCtl.md
+    - 计控-PLC: Robotics/嵌入式/PcCtl-PLC.md
+
+  - "物联网":
+    - 简介: Robotics/IOT/intro.md
+    - 通信协议:
+      - Robotics/IOT/Protocol.md
+      - Robotics/IOT/Protocol-MQTT.md
+    - 通信技术:
+      - Robotics/IOT/Tech.md
+    
+  
+  - "实践记录":
+    - Robotics/嵌入式/嘉立创.md
+    - Robotics/嵌入式/焊接.md
+    - Robotics/嵌入式/外设.md
+
+
+
+- "CS":
+  - CS/index.md
+  - Language:
+    - CS/Language/C.md
+    - CS/Language/C++.md
+    
+    - "Python":
+      - CS/Language/Python/index.md
+      - CS/Language/Python/01-Expression.md
+      - CS/Language/Python/02-Statement.md
+      - CS/Language/Python/03-FuntionAbstraction.md
+      - CS/Language/Python/04-DataAbstraction.md
+      - CS/Language/Python/05-Object.md
+      - CS/Language/Python/06-File.md
+      - CS/Language/Python/07-Project.md
+      - CS/Language/Python/08-logger.md
+      - 可视化运行工具: https://pythontutor.com/
+      - CS61A 24fall: https://lyvelf.github.io/cs61a-fa24-backup/index.html
+      - CS61A教材: https://composingprograms.netlify.app/
+      
+      - 手册:
+        - Google styleguide: https://ggdocs.cn/styleguide/pyguide.html
+        - Python工程化开发指南: https://pyloong.github.io/pythonic-project-guidelines/
+        - Dive Into Python 3: http://getpython3.com/diveintopython3/index.html
+        - Hitchhiker's Guide: https://docs.python-guide.org/
+        - Seaborn: https://seaborn.pydata.org/api.html
+        - Pandas: https://pandas.pydata.org/docs/reference/index.html
+        - Scipy: https://docs.scipy.org/doc/scipy/reference/index.html
+
+  - Algorithm:
+    - CS/Algorithm/index.md
+    - CS/Algorithm/01-Math.md
+    - CS/Algorithm/02-Sorting.md
+    - CS/Algorithm/03-1-UninformedSearch.md
+    - CS/Algorithm/03-2-InformedSearch.md
+    - CS/Algorithm/03-3-OtherSearch.md
+    - CS/Algorithm/04-Divide.md
+    - CS/Algorithm/05-DP.md
+    - CS/Algorithm/05-背包.md
+    - CS/Algorithm/06-并查集.md
+
+  - "DS | 数据结构":
+    - CS/DS/00-intro.md
+    - CS/DS/01-list.md
+    - CS/DS/02-queue.md
+    - CS/DS/03-stack.md
+    - CS/DS/05-tree.md
+    - CS/DS/06-graph.md
+    - CS/DS/07-Hash.md
+  
+  - "OS | 操作系统":
+    - CS/OS/00-intro.md
+
+  - "CN | 计算机网络":
+    - CS/CN/index.md
+    - "01-应用层": CS/CN/01-ApplicationLayer.md
+    - "02-传输层": CS/CN/02-TransportLayer.md
+    - "03-网络层": CS/CN/03-NetworkLayer.md
+    - "04-链路层": CS/CN/04-LinkLayer.md
+    - "05-物理层": CS/CN/05-PhysicalLayer.md
+    - "06-安全": CS/CN/06-security.md
+    - "07-问题探究": CS/CN/07-问题探究.md
+
+  - CTF:
+    - CS/CTF/00-intro.md
+    - CS/CTF/01-web.md
+    - CS/CTF/02-misc.md
+    - CS/CTF/03-pwn.md
+    - CS/CTF/04-reverse.md
+    - CS/CTF/05-crypto.md
+    - CS/CTF/06-CPS.md
+  
+  - Web3:
+    - CS/Web3/blockchain.md
+    - CS/Web3/contract.md
+    - CS/Web3/solidity.md  
+
+- Class:
+  - Class/classes_in_zju.md
+  - 英语能力训练:
+    - Class/English/00-intro-IELTS.md
+    - Class/English/01-Listening.md
+    - Class/English/02-Reading.md
+    - Class/English/03-Writing.md
+    - Class/English/03-Writing1.md
+    - Class/English/03-Writing2.md
+    - Class/English/03-Writing3-exp.md
+    - Class/English/04-Speaking-IELTS.md
+    - Class/English/04-Speaking-TOFEL.md
+    - "积累-短语": Class/English/phrase.md
+    - "积累-句式": Class/English/sentence.md
+    - Class/ITP-Law.md
+  - Class/ITP-Marketing.md
+  - Class/马原.md
+  - 日语: Japanese/lyrics.md
+  - Fin:
+    - Class/Fin/invest.md
+    - Class/Fin/invest-stock.md
+    - Class/Fin/quant.md
+    - Class/Fin/consulting.md
+    - Class/Fin/industry-analyze.md
+    - Class/Fin/industry-finance.md
+    - Class/Fin/industry-welfare.md
+    - Class/Fin/micro/intro.md
+  - Physics:
+    - Class/Physics/index.md
+
+- Tools: https://dev.philfan.cn
+- Interest: https://hobby.philfan.cn
+
+
+plugins:
+
+  # - meta # 只有赞助者才有这个权限使用 buildin 功能
+  - search:
+      lang:
+        - zh
+        - en
+        - ja
+      separator: '[\s\u200b\-]'
+  
+  # heti 插件
+  # @https://github.com/TonyCrane/mkdocs-heti-plugin
+  - heti:
+      disable_serve: false
+  
+  # https://github.com/TonyCrane/mkdocs-statistics-plugin
+  - statistics:
+      words_per_minute: 256
+      codelines_per_minute: 80
+  
+  # 这个插件用于压缩 HTML 输出，减少页面的加载时间和带宽消耗。
+  # 重构环境的时候，这个插件貌似有一点点问题
+  # - minify:
+  #     minify_html: true
+
+  # 显示文件的最后修改时间，基于 git 提交记录
+    # https://github.com/timvink/mkdocs-git-revision-date-localized-plugin
+  # - git-revision-date-localized:
+  #     type: datetime
+  #     timezone: Asia/Shanghai
+  #     locale: zh
+  #     enable_creation_date: true
+  #     exclude:
+  #       - index.md
+  #     strict: false
+  
+
+  # https://github.com/ojacques/mkdocs-git-committers-plugin-2
+  # get your secret key from https://github.com/settings/personal-access-tokens/new
+  # export MKDOCS_GIT_COMMITTERS_APIKEY=your_secret_key
+  - git-committers:
+      enabled: false
+      repository: Phil-Fan/Notebook
+      branch: master
+      token: !!python/object/apply:os.getenv ["MKDOCS_GIT_COMMITTERS_APIKEY"]
+      # 使用 github secret 保存 API KEY，防止明文传递
+      cache_dir: docs/style/
+      # 使用 cache file，否则编译过久，且每次编译都会重新获取

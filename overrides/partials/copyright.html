@@ -1,0 +1,23 @@
+<div class="md-copyright">
+    {% if config.copyright %}
+        <div class="md-copyright__highlight">
+        {{ config.copyright }}
+        </div>
+    {% endif %}
+    {% if config.beian %}
+        <div class="md-copyright__beian">
+        <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">
+            {{ config.beian }}
+        </a>
+        </div>
+    {% endif %}
+    {% if config.generator == true %}
+        Made with
+        <a
+        href="https://squidfunk.github.io/mkdocs-material/"
+        target="_blank" rel="noopener"
+        >
+        Material for MkDocs
+        </a>
+    {% endif %}
+</div>

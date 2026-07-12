@@ -1,0 +1,36 @@
+{#-
+  This file was automatically generated - do not edit
+-#}
+{% extends "base.html" %}
+{% block extrahead %}
+  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.7c86dd97.min.css' | url }}">
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v05z7b7kpj");
+  </script>
+{% endblock %}
+{% block announce %}
+  For updates please follow <strong>@PhilFan</strong> on
+  <a rel="me" href="https://www.cc98.org/user/id/701211">
+    <span class="twemoji cc98">
+      <img src="/assets/images/98icon.ico" alt="cc98 icon" style="vertical-align: top;width: auto;">
+    </span>
+    <strong>CC98</strong>
+  </a>
+  or star this repository on
+  <a href="https://github.com/Phil-Fan/Phil-Fan.github.io">
+    <span class="twemoji github">
+      {% include ".icons/fontawesome/brands/github.svg" %}
+    </span>
+    <strong>Github</strong>
+  </a>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="{{ 'assets/javascripts/custom.9e5da760.min.js' | url }}"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+# Docs (Markdown) + Python (hooks/)
+repos:
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.17.2
+    hooks:
+      - id: markdownlint-cli2
+        name: markdown | lint
+        args: ["--fix", "--config", ".github/.markdownlint.yaml"]
+
+  - repo: https://github.com/YuniqueUnic/autocorrect-pre-commit
+    rev: 2.14.0
+    hooks:
+      - id: autocorrect-fix
+        name: markdown | autocorrect
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.10
+    hooks:
+      - id: ruff-check
+        name: python | check
+        files: ^hooks/
+        args: ["--fix"]
+      - id: ruff-format
+        name: python | format
+        files: ^hooks/
+
+  - repo: local
+    hooks:
+      - id: pyrefly-check
+        name: python | typecheck
+        # --extra dev: pyrefly is an optional dependency (see pyproject.toml)
+        entry: uv run --extra dev pyrefly check hooks/
+        language: system
+        files: ^hooks/
+        pass_filenames: false
