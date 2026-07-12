@@ -34,7 +34,7 @@ Notebook/
 
 ```bash
 uv sync
-JUPYTER_PLATFORM_DIRS=1 uv run mkdocs serve   # 开发
+uv run mkdocs serve   # 开发
 uv run mkdocs build                           # 构建
 pre-commit run --all-files                    # 格式化 + lint（与 CI 对齐）
 uv run ruff check --fix hooks/               # 仅 Python hooks
@@ -88,7 +88,7 @@ docs/
 │   ├── Calculus/            # 微积分
 │   ├── LinearAlgebra/       # 线性代数
 │   ├── Opt/                 # 凸优化
-│   ├── Statistic/           # 概率统计（含 .ipynb）
+│   ├── Statistic/           # 概率统计 → 已迁至 statistics-notes 仓库
 │   ├── StochasticProcess/   # 随机过程
 │   ├── OR/                  # 运筹学
 │   ├── ML/                  # 机器学习（数学向）
@@ -185,7 +185,15 @@ pre-commit run --all-files
 | Python lint + format | ruff | `hooks/` |
 | Python 类型 | pyrefly（`uv run`） | `hooks/` |
 
-CI：push / PR 到 `master` 触发 `.github/workflows/check.yml`（`uv sync` + pre-commit）。
+CI：push / PR 到 `main` 触发 `.github/workflows/check.yml`（`uv sync` + pre-commit）。
+
+**CI 要求（强制）**：所有推送必须通过 Quality Check。若 CI 失败，必须立即修复后重新推送。严禁跳过或忽略 CI 错误。
+
+提交前执行 `pre-commit run --all-files` 并与 CI 完全对齐：
+- markdownlint-cli2：`*.md` 格式检查（规则见 `.github/.markdownlint.yaml`）
+- autocorrect：中文排版修正（中英文空格、标点规范等）
+- ruff：`hooks/` 下 Python 代码 lint + format
+- pyrefly：`hooks/` 下 Python 类型检查
 
 ## Conventional Commits
 
