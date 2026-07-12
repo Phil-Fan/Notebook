@@ -5,12 +5,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="PhilFan 的笔记本" name="description"/>
 <meta content="PhilFan" name="author"/>
-<link href="https://www.philfan.cn/AI/RL/method/02-infra.html" rel="canonical"/>
-<link href="../theory/10-actor-critic.html" rel="prev"/>
-<link href="../../MLSys/index.html" rel="next"/>
+<link href="https://www.philfan.cn/AI/RL/method/04-opd.html" rel="canonical"/>
+<link href="03-rm.html" rel="prev"/>
+<link href="05-infra.html" rel="next"/>
 <link href="../../../logo.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.31" name="generator"/>
-<title>LLM + RL 后训练 - PhilFan's Notebook</title>
+<title>On Policy Distill - PhilFan's Notebook</title>
 <link href="../../../assets/stylesheets/main.3cba04c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
@@ -42,7 +42,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#llm-rl">
+<a class="md-skip" href="#on-policy-distill">
           跳转至
         </a>
 </div>
@@ -86,7 +86,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              LLM + RL 后训练
+              On Policy Distill
             
           </span>
 </div>
@@ -949,6 +949,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../LLM/Models/10-FlowMatching.html">
+<span class="md-ellipsis">
+    10 | Flow Matching
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1209,13 +1216,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../LLM/Sci/03-RM.html">
-<span class="md-ellipsis">
-    Reward Modeling
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../LLM/Sci/03-RL.html">
 <span class="md-ellipsis">
     RL
@@ -1236,23 +1236,16 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../LLM/Sci/OPD.html">
-<span class="md-ellipsis">
-    On Policy Distill
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_4_13" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_4_13" id="__nav_3_4_13_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4_11" id="__nav_3_4_11_label" tabindex="0">
 <span class="md-ellipsis">
     工具手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_4_13_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_4_13">
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_11_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_4_11">
 <span class="md-nav__icon md-icon"></span>
             工具手册
           </label>
@@ -1417,20 +1410,97 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../index.html">
+<a class="md-nav__link" href="../../frontier/index.html">
 <span class="md-ellipsis">
-    RL | 强化学习
+    Frontier | 前沿基座模型
   </span>
 </a>
 <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+            Frontier | 前沿基座模型
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/01-gpt3.html">
+<span class="md-ellipsis">
+    01 | GPT-3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/02-gpt4.html">
+<span class="md-ellipsis">
+    02 | GPT-4
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/03-llama.html">
+<span class="md-ellipsis">
+    03 | LLaMA 系列
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/04-deepseek.html">
+<span class="md-ellipsis">
+    04 | DeepSeek-V3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/05-qwen.html">
+<span class="md-ellipsis">
+    05 | Qwen 系列
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/06-gemini.html">
+<span class="md-ellipsis">
+    06 | Gemini
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/07-claude.html">
+<span class="md-ellipsis">
+    07 | Claude 3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontier/labs.html">
+<span class="md-ellipsis">
+    前沿 AI Lab
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../index.html">
+<span class="md-ellipsis">
+    RL | 强化学习
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_8">
 <span class="md-nav__icon md-icon"></span>
             RL | 强化学习
           </label>
@@ -1505,17 +1575,38 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="01-ppo.html">
+<span class="md-ellipsis">
+    01 | PPO (Proximal Policy Optimization)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="02-grpo.html">
+<span class="md-ellipsis">
+    02 | GRPO (Group Relative Policy Optimization)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="03-rm.html">
+<span class="md-ellipsis">
+    Reward Modeling
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    LLM + RL 后训练
+    On Policy Distill
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<a class="md-nav__link md-nav__link--active" href="02-infra.html">
+<a class="md-nav__link md-nav__link--active" href="04-opd.html">
 <span class="md-ellipsis">
-    LLM + RL 后训练
+    On Policy Distill
   </span>
 </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
@@ -1525,31 +1616,37 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
-      1. 后训练在干什么
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-vs">
-<span class="md-ellipsis">
-      2. 两条主线：控制流 vs 计算流
-    </span>
-</a>
-<nav aria-label="2. 两条主线：控制流 vs 计算流" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      控制流（算法主逻辑 / 调度）
+      参考资料
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      计算流（重计算 / 分布式）
+      对比
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      步骤
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      效果
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opsd">
+<span class="md-ellipsis">
+      OPSD
     </span>
 </a>
 </li>
@@ -1557,156 +1654,29 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-actor-critic-reward-ref-logprob">
+<a class="md-nav__link" href="05-infra.html">
 <span class="md-ellipsis">
-      3. 名词解释：actor / critic / reward / ref / logprob 都是什么
-    </span>
+    LLM + RL 后训练
+  </span>
 </a>
-<nav aria-label="3. 名词解释：actor / critic / reward / ref / logprob 都是什么" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actor">
-<span class="md-ellipsis">
-      Actor（策略模型）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#critic">
-<span class="md-ellipsis">
-      Critic（价值模型）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reward">
-<span class="md-ellipsis">
-      Reward（奖励）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#refreference-policy">
-<span class="md-ellipsis">
-      Ref（reference policy，参考模型）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logprob-old_logprob-ref_logprob">
-<span class="md-ellipsis">
-      logprob / old_logprob / ref_logprob
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-rollout-llm">
-<span class="md-ellipsis">
-      4. rollout 是什么（LLM 语境）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-advantage">
-<span class="md-ellipsis">
-      5. advantage 是什么意思（为什么要它）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#6-ppo-vs-grpo">
-<span class="md-ellipsis">
-      6. PPO vs GRPO（重点差异）
-    </span>
-</a>
-<nav aria-label="6. PPO vs GRPO（重点差异）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ppo-critic">
-<span class="md-ellipsis">
-      PPO（常见：有 critic）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#grpo-critic">
-<span class="md-ellipsis">
-      GRPO（常见：无 critic）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#7-advantage-llm">
-<span class="md-ellipsis">
-      7. 有了 advantage 怎么更新 LLM（更新哪些参数、如何更新）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#8-verlrollout-engine-model-engine-checkpoint">
-<span class="md-ellipsis">
-      8. 映射到 verl：rollout engine / model engine / checkpoint 的正确理解
-    </span>
-</a>
-<nav aria-label="8. 映射到 verl：rollout engine / model engine / checkpoint 的正确理解" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#rollout-engine-vllm">
-<span class="md-ellipsis">
-      ✅ Rollout engine（可接 vLLM）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#model-enginefsdpmegatron">
-<span class="md-ellipsis">
-      ✅ Model engine（训练后端：FSDP/Megatron）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#checkpoint">
-<span class="md-ellipsis">
-      ✅ Checkpoint（持久化/恢复）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#9">
-<span class="md-ellipsis">
-      9. 一张“数据流”速查图（最常用的理解方式）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_8" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_3_9" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../MLSys/index.html">
 <span class="md-ellipsis">
     MLSys | 机器学习系统
   </span>
 </a>
-<label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+<label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_8_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_8">
+<nav aria-expanded="false" aria-labelledby="__nav_3_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_9">
 <span class="md-nav__icon md-icon"></span>
             MLSys | 机器学习系统
           </label>
@@ -1726,7 +1696,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_8_4" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_3_9_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../MLSys/CMU10_414/index.html">
 <span class="md-ellipsis">
@@ -1734,8 +1704,8 @@
   </span>
 </a>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_8_4_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_8_4">
+<nav aria-expanded="false" aria-labelledby="__nav_3_9_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_9_4">
 <span class="md-nav__icon md-icon"></span>
             CMU10-414
           </label>
@@ -1747,33 +1717,33 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_9" type="checkbox"/>
+<input class="md-nav__toggle md-toggle" id="__nav_3_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
 <a class="md-nav__link" href="../../CV/index.html">
 <span class="md-ellipsis">
     CV | 计算机视觉
   </span>
 </a>
-<label class="md-nav__link" for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+<label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_3_9_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_9">
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_10">
 <span class="md-nav__icon md-icon"></span>
             CV | 计算机视觉
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_9_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_9_2" id="__nav_3_9_2_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_10_2" id="__nav_3_10_2_label" tabindex="0">
 <span class="md-ellipsis">
     基础知识
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_9_2_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_9_2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_2">
 <span class="md-nav__icon md-icon"></span>
             基础知识
           </label>
@@ -1817,15 +1787,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_9_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_9_3" id="__nav_3_9_3_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_10_3" id="__nav_3_10_3_label" tabindex="0">
 <span class="md-ellipsis">
     Tasks
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_9_3_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_9_3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_3">
 <span class="md-nav__icon md-icon"></span>
             Tasks
           </label>
@@ -1883,15 +1853,15 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_9_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_9_4" id="__nav_3_9_4_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_10_4" id="__nav_3_10_4_label" tabindex="0">
 <span class="md-ellipsis">
     工具
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_9_4_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_3_9_4">
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_4">
 <span class="md-nav__icon md-icon"></span>
             工具
           </label>
@@ -1910,15 +1880,33 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3_10" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_3_11" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../VLA/index.html">
+<span class="md-ellipsis">
+    VLA | 视觉-语言-动作
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_11">
+<span class="md-nav__icon md-icon"></span>
+            VLA | 视觉-语言-动作
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_12" id="__nav_3_12_label" tabindex="0">
 <span class="md-ellipsis">
     学习资源
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_10_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_3_10">
+<nav aria-expanded="false" aria-labelledby="__nav_3_12_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_12">
 <span class="md-nav__icon md-icon"></span>
             学习资源
           </label>
@@ -3517,165 +3505,37 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1">
-<span class="md-ellipsis">
-      1. 后训练在干什么
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-vs">
-<span class="md-ellipsis">
-      2. 两条主线：控制流 vs 计算流
-    </span>
-</a>
-<nav aria-label="2. 两条主线：控制流 vs 计算流" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      控制流（算法主逻辑 / 调度）
+      参考资料
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      计算流（重计算 / 分布式）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-actor-critic-reward-ref-logprob">
-<span class="md-ellipsis">
-      3. 名词解释：actor / critic / reward / ref / logprob 都是什么
-    </span>
-</a>
-<nav aria-label="3. 名词解释：actor / critic / reward / ref / logprob 都是什么" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#actor">
-<span class="md-ellipsis">
-      Actor（策略模型）
+      对比
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#critic">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      Critic（价值模型）
+      步骤
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#reward">
+<a class="md-nav__link" href="#_4">
 <span class="md-ellipsis">
-      Reward（奖励）
+      效果
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#refreference-policy">
+<a class="md-nav__link" href="#opsd">
 <span class="md-ellipsis">
-      Ref（reference policy，参考模型）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#logprob-old_logprob-ref_logprob">
-<span class="md-ellipsis">
-      logprob / old_logprob / ref_logprob
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-rollout-llm">
-<span class="md-ellipsis">
-      4. rollout 是什么（LLM 语境）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-advantage">
-<span class="md-ellipsis">
-      5. advantage 是什么意思（为什么要它）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#6-ppo-vs-grpo">
-<span class="md-ellipsis">
-      6. PPO vs GRPO（重点差异）
-    </span>
-</a>
-<nav aria-label="6. PPO vs GRPO（重点差异）" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ppo-critic">
-<span class="md-ellipsis">
-      PPO（常见：有 critic）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#grpo-critic">
-<span class="md-ellipsis">
-      GRPO（常见：无 critic）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#7-advantage-llm">
-<span class="md-ellipsis">
-      7. 有了 advantage 怎么更新 LLM（更新哪些参数、如何更新）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#8-verlrollout-engine-model-engine-checkpoint">
-<span class="md-ellipsis">
-      8. 映射到 verl：rollout engine / model engine / checkpoint 的正确理解
-    </span>
-</a>
-<nav aria-label="8. 映射到 verl：rollout engine / model engine / checkpoint 的正确理解" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#rollout-engine-vllm">
-<span class="md-ellipsis">
-      ✅ Rollout engine（可接 vLLM）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#model-enginefsdpmegatron">
-<span class="md-ellipsis">
-      ✅ Model engine（训练后端：FSDP/Megatron）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#checkpoint">
-<span class="md-ellipsis">
-      ✅ Checkpoint（持久化/恢复）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#9">
-<span class="md-ellipsis">
-      9. 一张“数据流”速查图（最常用的理解方式）
+      OPSD
     </span>
 </a>
 </li>
@@ -3686,207 +3546,164 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/edit/master/docs/AI/RL/method/02-infra.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/edit/master/docs/AI/RL/method/04-opd.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/AI/RL/method/02-infra.md" title="查看本页的源代码">
+<a class="md-content__button md-icon" href="https://github.com/Phil-Fan/Phil-Fan.github.io/raw/master/docs/AI/RL/method/04-opd.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<h1 id="llm-rl"><span>LLM + RL<span class="heti-spacing"> </span></span>后训练<a class="headerlink" href="#llm-rl" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="on-policy-distill">On Policy Distill<a class="headerlink" href="#on-policy-distill" title="anchor link to this section for reference">¶</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1167<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>17<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>1118<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span> <span>17<span class="heti-spacing"> </span></span>行代码 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<h2 id="1"><span>1.<span class="heti-spacing"> </span></span>后训练在干什么<a class="headerlink" href="#1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>目标：把“会说话的基础模型”变成“更符合人类偏好<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>任务指标<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>安全策略的助手”。</p>
-<p>核心方法（<span>RL<span class="heti-spacing"> </span></span>路线<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<h2 id="_1">参考资料<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li><strong>采样（rollout）</strong>模型输出 → <strong>打分（reward）</strong> → 构造 <strong>advantage</strong> → 用 <strong>受约束的策略优化（PPO/GRPO）</strong>更新模型输出分布</li>
-<li>同时用 <strong>KL / clip / reference policy</strong> 控制更新不要偏离太远，避免训练不稳定或能力退化</li>
+<li><a href="https://zhuanlan.zhihu.com/p/2003773186135831026">OPSD：通过自蒸馏提升<span class="heti-skip"><span class="heti-spacing"> </span>LLM<span class="heti-spacing"> </span></span>推理能力<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li><a href="https://www.zhihu.com/pin/1968462515513062544"><span>Thinking Machines<span class="heti-spacing"> </span></span>新文章：<span>On-Policy Distillation | TML<span class="heti-spacing"> </span></span>最近两个月连续发了几篇文章，终于有点<span class="heti-skip"><span class="heti-spacing"> </span>AI<span class="heti-spacing"> </span></span>实验室… <span>-<span class="heti-spacing"> </span></span>知乎</a></li>
+<li><a href="https://thinkingmachines.ai/blog/on-policy-distillation/">On-Policy Distillation - Thinking Machines Lab</a></li>
 </ul>
-<p>一句话：</p>
-<blockquote>
-<p>后训练不是在学“标准答案<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>标签”，而是在学“什么样的输出更值得更常出现”。</p>
-</blockquote>
-<hr/>
-<h2 id="2-vs"><span>2.<span class="heti-spacing"> </span></span>两条主线：控制流<span class="heti-skip"><span class="heti-spacing"> </span>vs<span class="heti-spacing"> </span></span>计算流<a class="headerlink" href="#2-vs" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_1">控制流（算法主逻辑<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>调度）<a class="headerlink" href="#_1" title="anchor link to this section for reference">¶</a></h3>
-<p>负责把<span class="heti-skip"><span class="heti-spacing"> </span>RL<span class="heti-spacing"> </span></span>过程串起来：</p>
+<h2 id="_2">对比<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>RL：能够训练模型的行为特征，但是奖励信号过于稀疏，用<span class="heti-skip"><span class="heti-spacing"> </span>Karpathy<span class="heti-spacing"> </span></span>的话说，就是“sucking supervision through a straw”，效率太低。</p>
+<p>SFT：本文主要讲蒸馏训练，它<span class="heti-skip"><span class="heti-spacing"> </span>Supervision<span class="heti-spacing"> </span></span>信号密集，能让<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>较好模拟<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>的语言特征，但是对于蒸馏数据分布之外的情形，则容易出错。这种情形叫做<span><span class="heti-spacing"> </span>Exposure Bias</span></p>
+<p><span>On-policy Distillation<span class="heti-spacing"> </span></span>就是把二者结合起来：用<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>模型作为奖励模型，让<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>模型自己做推理，在<span class="heti-skip"><span class="heti-spacing"> </span>Token<span class="heti-spacing"> </span></span>级别提供奖励信号<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>对比<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>模型和<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>模型的<span><span class="heti-spacing"> </span>prediction</span>，用<span class="heti-skip"><span class="heti-spacing"> </span>Reverse KL<span class="heti-spacing"> </span></span>做损失函数。</p>
+<p>用学开车类比一下的话，传统的<span><span class="heti-spacing"> </span>Distillation</span>（off-policy）就像是你坐在副驾驶，看教练开车，拿小本本记录教练的每个动作，然后自己模仿；而<span><span class="heti-spacing"> </span>On-policy Distillation</span>，是你自己握着方向盘开，教练坐在副驾看，你每做错一个动作，教练就骂你一句，告诉你他自己会怎么做。<span>off-policy<span class="heti-spacing"> </span></span>是人教人，<span>on-policy<span class="heti-spacing"> </span></span>是事教人。</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Forward KL</th>
+<th>Reverse KL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数学形式</td>
+<td><span class="arithmatex">\(D_{KL}(P\mid Q)=\sum_x P(x)\log\frac{P(x)}{Q(x)}\)</span></td>
+<td><span class="arithmatex">\(D_{KL}(Q\mid P)=\sum_x Q(x)\log\frac{Q(x)}{P(x)}\)</span></td>
+</tr>
+<tr>
+<td>期望是谁取的</td>
+<td>Teacher（<span class="arithmatex">\(P\)</span>）</td>
+<td>Student（<span class="arithmatex">\(Q\)</span>）</td>
+</tr>
+<tr>
+<td>谁决定样本权重</td>
+<td>Teacher</td>
+<td>Student</td>
+</tr>
+<tr>
+<td>优化目标</td>
+<td>覆盖<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>的整个分布（covering）</td>
+<td>优化<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>当前最可能生成的部分（mode-seeking）</td>
+</tr>
+<tr>
+<td>典型应用</td>
+<td>传统<span><span class="heti-spacing"> </span>Knowledge Distillation</span>、Maximum Likelihood、Cross Entropy</td>
+<td>On-Policy Distillation、<span>RL<span class="heti-spacing"> </span></span>中的策略约束、变分推断中的部分优化</td>
+</tr>
+<tr>
+<td>对<span class="heti-skip"><span class="heti-spacing"> </span>LLM<span class="heti-spacing"> </span></span>的含义</td>
+<td>学习<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>的完整输出分布</td>
+<td>在<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>自己的生成轨迹上，尽量让预测分布接近<span><span class="heti-spacing"> </span>Teacher</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话概括：<span>Forward KL<span class="heti-spacing"> </span></span>的视角是“<span>Teacher<span class="heti-spacing"> </span></span>希望你学什么”，<span>Reverse KL<span class="heti-spacing"> </span></span>的视角是“<span>Student<span class="heti-spacing"> </span></span>实际会做什么，就重点把它纠正成<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>的样子”。这正是<span class="heti-skip"><span class="heti-spacing"> </span>On-Policy Distillation<span class="heti-spacing"> </span></span>选择<span class="heti-skip"><span class="heti-spacing"> </span>Reverse KL<span class="heti-spacing"> </span></span>的根本原因。</strong></p>
+<div class="admonition note">
+<p class="admonition-title"><span>KL<span class="heti-spacing"> </span></span>散度</p>
+<p><span>KL<span class="heti-spacing"> </span></span>散度衡量的是两个分布的差异<span><span class="heti-spacing"> </span>,</span></p>
+<div class="arithmatex">\[
+D_{KL}(P|Q)\ge 0
+\]</div>
+<p>并且当且仅当<span><span class="heti-spacing"> </span><span class="arithmatex">\(P=Q\)</span></span></p>
+<div class="arithmatex">\[
+D_{KL}(P|Q)=0
+\]</div>
+<p><span>Reverse KL<span class="heti-spacing"> </span></span>越小越好，值越小，说明<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>的预测分布越接近<span><span class="heti-spacing"> </span>Teacher</span>。</p>
+<p><span>On-Policy Distillation<span class="heti-spacing"> </span></span>选择<span><span class="heti-spacing"> </span>Reverse KL</span>，只是因为它把比较的重点放在<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>自己实际会生成的<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>上，这与<span class="heti-skip"><span class="heti-spacing"> </span>on-policy rollout<span class="heti-spacing"> </span></span>的训练方式天然一致。</p>
+<p>用 <strong><span>Jensen<span class="heti-spacing"> </span></span>不等式</strong> 可以很快证明。</p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P,Q\)</span><span class="heti-spacing"> </span></span>是两个离散分布，且<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P(x)&gt;0\)</span><span class="heti-spacing"> </span></span>时<span><span class="heti-spacing"> </span><span class="arithmatex">\(Q(x)&gt;0\)</span></span>。</p>
+<div class="arithmatex">\[
+D_{KL}(P\mid Q) = \sum_x P(x)\log\frac{P(x)}{Q(x)}
+\]</div>
+<p>改写成：</p>
+<div class="arithmatex">\[
+D_{KL}(P\mid Q) = -\sum_x P(x)\log\frac{Q(x)}{P(x)}
+\]</div>
+<p>因为<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\log x\)</span><span class="heti-spacing"> </span></span>是凹函数，所以<span class="heti-skip"><span class="heti-spacing"> </span>Jensen<span class="heti-spacing"> </span></span>给出：</p>
+<div class="arithmatex">\[
+\sum_x P(x)\log\frac{Q(x)}{P(x)}
+\le
+\log\left(
+\sum_x P(x)\frac{Q(x)}{P(x)}
+\right)
+\]</div>
+<p>右边化简：</p>
+<div class="arithmatex">\[
+\log\left(
+\sum_x Q(x)
+\right)
+=
+\log 1
+=
+0
+\]</div>
+<p>所以：</p>
+<div class="arithmatex">\[
+\sum_x P(x)\log\frac{Q(x)}{P(x)} \le 0
+\]</div>
+<p>两边乘以<span><span class="heti-spacing"> </span><span class="arithmatex">\(-1\)</span></span>：</p>
+<div class="arithmatex">\[
+D_{KL}(P\mid Q)\ge 0
+\]</div>
+<p>等号成立当且仅当：</p>
+<div class="arithmatex">\[
+\frac{Q(x)}{P(x)}
+\]</div>
+<p>在所有<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P(x)&gt;0\)</span><span class="heti-spacing"> </span></span>的地方都是常数。</p>
+<p>又因为：</p>
+<div class="arithmatex">\[
+\sum_x P(x)=\sum_x Q(x)=1
+\]</div>
+<p>所以这个常数只能是<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，即：</p>
+<div class="arithmatex">\[
+P(x)=Q(x)
+\]</div>
+<p>因此：</p>
+<div class="arithmatex">\[
+D_{KL}(P\mid Q)\ge 0
+\]</div>
+<p>且当且仅当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(P=Q\)</span><span class="heti-spacing"> </span></span>时取等号。</p>
+</div>
+<h2 id="_3">步骤<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ol>
-<li>rollout（生成样本）</li>
-<li><span>reward<span class="heti-spacing"> </span></span>打分（含<span class="heti-skip"><span class="heti-spacing"> </span>KL/<span class="heti-spacing"> </span></span>规则等整形）</li>
-<li><span>advantage / return<span class="heti-spacing"> </span></span>计算</li>
-<li>update actor/critic（调度训练步数、mini-batch、同步权重、记录指标、保存<span><span class="heti-spacing"> </span>ckpt</span>）</li>
+<li><span>Student<span class="heti-spacing"> </span></span>自己生成一条回答（on-policy rollout<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li><span>Teacher<span class="heti-spacing"> </span></span>不生成答案，只是在<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>的轨迹上计算每个<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>的概率。</li>
+<li>用<span class="heti-skip"><span class="heti-spacing"> </span>Student<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>log<span class="heti-spacing"> </span></span>概率之差估计<span><span class="heti-spacing"> </span>Reverse KL</span>，并把它取负作为奖励（advantage<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li>将这个奖励交给标准的<span><span class="heti-spacing"> </span>RL</span>（如<span><span class="heti-spacing"> </span>PPO/Importance Sampling</span>）算法，更新<span><span class="heti-spacing"> </span>Student</span>，使它更倾向于生成<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>认为概率更高的<span><span class="heti-spacing"> </span>token</span>。</li>
 </ol>
-<h3 id="_2">计算流（重计算<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>分布式）<a class="headerlink" href="#_2" title="anchor link to this section for reference">¶</a></h3>
-<p>负责把模型推理<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>训练跑稳跑快：</p>
-<ul>
-<li>推理：高吞吐<span><span class="heti-spacing"> </span>generate</span>（<span>vLLM/SGLang<span class="heti-spacing"> </span></span>等）</li>
-<li>训练：forward/backward/optimizer（<span>FSDP/Megatron<span class="heti-spacing"> </span></span>等）</li>
-<li>分布式通信、显存优化、容错</li>
-</ul>
-<hr/>
-<h2 id="3-actor-critic-reward-ref-logprob"><span>3.<span class="heti-spacing"> </span></span>名词解释：<span>actor / critic / reward / ref / logprob<span class="heti-spacing"> </span></span>都是什么<a class="headerlink" href="#3-actor-critic-reward-ref-logprob" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="actor">Actor（策略模型）<a class="headerlink" href="#actor" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>负责 <strong>生成<span><span class="heti-spacing"> </span>token</span></strong> 的<span><span class="heti-spacing"> </span>LLM</span>（你要优化的主模型）</li>
-<li>训练时更新它的参数（全参<span class="heti-skip"><span class="heti-spacing"> </span>/ LoRA /<span class="heti-spacing"> </span></span>部分层）</li>
-</ul>
-<h3 id="critic">Critic（价值模型）<a class="headerlink" href="#critic" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>不负责生成文本，只输出 <strong><span>value<span class="heti-spacing"> </span></span>标量</strong> (V(s_t))</li>
-<li>用来当<span><span class="heti-spacing"> </span>baseline</span>，降低方差，帮助算<span><span class="heti-spacing"> </span>advantage</span>（<span>PPO<span class="heti-spacing"> </span></span>常用；<span>GRPO<span class="heti-spacing"> </span></span>往往不需要）</li>
-</ul>
-<p>对比：</p>
-<ul>
-<li>actor：输出词表分布（用于生成<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>算<span><span class="heti-spacing"> </span>logprob</span>）</li>
-<li>critic：输出<span><span class="heti-spacing"> </span>value</span>（用于<span><span class="heti-spacing"> </span>baseline/advantage</span>）</li>
-</ul>
-<h3 id="reward">Reward（奖励）<a class="headerlink" href="#reward" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>对一条回答打分（来源：RM、规则、<span>judge<span class="heti-spacing"> </span></span>等）</li>
-<li>可做整形：长度惩罚、格式惩罚、<span>KL<span class="heti-spacing"> </span></span>惩罚等</li>
-</ul>
-<h3 id="refreference-policy">Ref（reference policy，参考模型）<a class="headerlink" href="#refreference-policy" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>通常是 <strong><span>SFT<span class="heti-spacing"> </span></span>模型快照</strong></li>
-<li>作用：作为“锚点”做<span class="heti-skip"><span class="heti-spacing"> </span>KL<span class="heti-spacing"> </span></span>约束，防止策略跑飞</li>
-<li>一般 <strong>冻结不训练</strong></li>
-</ul>
-<h3 id="logprob-old_logprob-ref_logprob">logprob / old_logprob / ref_logprob<a class="headerlink" href="#logprob-old_logprob-ref_logprob" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>logprob：当前<span class="heti-skip"><span class="heti-spacing"> </span>actor<span class="heti-spacing"> </span></span>对“实际生成<span><span class="heti-spacing"> </span>token</span>”的对数概率</li>
-<li>old_logprob：<span>rollout<span class="heti-spacing"> </span></span>时保存的旧策略<span><span class="heti-spacing"> </span>logprob</span>（<span>PPO<span class="heti-spacing"> </span></span>需要新旧比值）</li>
-<li>ref_logprob：<span>reference policy<span class="heti-spacing"> </span></span>对同一<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>logprob</span>（用于<span class="heti-skip"><span class="heti-spacing"> </span>KL<span class="heti-spacing"> </span></span>约束<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>惩罚）</li>
-</ul>
-<hr/>
-<h2 id="4-rollout-llm"><span>4. rollout<span class="heti-spacing"> </span></span>是什么（<span>LLM<span class="heti-spacing"> </span></span>语境）<a class="headerlink" href="#4-rollout-llm" title="anchor link to this section for reference">¶</a></h2>
-<p><span>rollout =<span class="heti-spacing"> </span></span>用当前<span class="heti-skip"><span class="heti-spacing"> </span>actor<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>prompt<span class="heti-spacing"> </span></span>采样回答，并记录训练所需证据：</p>
-<p>输出通常包含：</p>
-<ul>
-<li><code>prompt</code>、<code>response_tokens</code></li>
-<li><code>old_logprobs</code>（<span>PPO<span class="heti-spacing"> </span></span>必需）</li>
-<li><code>ref_logprobs</code>（常用于<span><span class="heti-spacing"> </span>KL</span>）</li>
-<li>（可选<heti-adjacent class="heti-adjacent-half">）</heti-adjacent><code>values</code>（如果有<span><span class="heti-spacing"> </span>critic</span>）</li>
-<li><code>reward</code>（来自<span class="heti-skip"><span class="heti-spacing"> </span>RM/<span class="heti-spacing"> </span></span>规则）</li>
-</ul>
-<p>直觉：</p>
-<blockquote>
-<p><span>rollout<span class="heti-spacing"> </span></span>就像“用模型写答案<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>把它怎么写的也记下来”。</p>
-</blockquote>
-<hr/>
-<h2 id="5-advantage"><span>5. advantage<span class="heti-spacing"> </span></span>是什么意思（为什么要它）<a class="headerlink" href="#5-advantage" title="anchor link to this section for reference">¶</a></h2>
-<p><span>advantage<span class="heti-spacing"> </span></span>表示：</p>
-<blockquote>
-<p>这次选择（这条回答<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>这个<span><span class="heti-spacing"> </span>token</span>）比“平均水平<span><span class="heti-spacing"> </span>baseline</span>”好多少<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>差多少。</p>
-</blockquote>
-<ul>
-<li>advantage &gt; 0：提高这些<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>序列出现概率</li>
-<li>advantage &lt; 0：降低这些<span class="heti-skip"><span class="heti-spacing"> </span>token<span class="heti-spacing"> </span></span>序列出现概率</li>
-</ul>
-<p>为什么需要：</p>
-<ul>
-<li><span>reward<span class="heti-spacing"> </span></span>波动大，直接用<span class="heti-skip"><span class="heti-spacing"> </span>reward<span class="heti-spacing"> </span></span>更新会很不稳</li>
-<li>baseline（<span>critic<span class="heti-spacing"> </span></span>或组内均值）能降方差，让学习信号更稳定</li>
-</ul>
-<hr/>
-<h2 id="6-ppo-vs-grpo">6. PPO vs GRPO（重点差异）<a class="headerlink" href="#6-ppo-vs-grpo" title="anchor link to this section for reference">¶</a></h2>
-<h3 id="ppo-critic">PPO（常见：有<span><span class="heti-spacing"> </span>critic</span>）<a class="headerlink" href="#ppo-critic" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>用<span class="heti-skip"><span class="heti-spacing"> </span>critic<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>value<span class="heti-spacing"> </span></span>作为<span><span class="heti-spacing"> </span>baseline</span>，算<span><span class="heti-spacing"> </span>advantage</span>（如<span><span class="heti-spacing"> </span>GAE</span>）</li>
-<li>更新时用 <strong>新旧策略概率比值</strong> + <strong>clip/KL</strong> 控制步子别太大</li>
-<li>通常包含：actor update + critic update</li>
-</ul>
-<h3 id="grpo-critic">GRPO（常见：无<span><span class="heti-spacing"> </span>critic</span>）<a class="headerlink" href="#grpo-critic" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>对同一<span class="heti-skip"><span class="heti-spacing"> </span>prompt<span class="heti-spacing"> </span></span>采样一组回答（group）</li>
-<li>用组内<span class="heti-skip"><span class="heti-spacing"> </span>mean/std<span class="heti-spacing"> </span></span>做<span><span class="heti-spacing"> </span>baseline</span>，构造相对<span><span class="heti-spacing"> </span>advantage</span></li>
-<li>省掉训练<span class="heti-skip"><span class="heti-spacing"> </span>critic<span class="heti-spacing"> </span></span>的开销，常用于推理型任务的偏好优化</li>
-</ul>
-<p>一句话对比：</p>
-<ul>
-<li>PPO：<span>baseline<span class="heti-spacing"> </span></span>来自<span><span class="heti-spacing"> </span>critic</span></li>
-<li>GRPO：<span>baseline<span class="heti-spacing"> </span></span>来自“同题多答的组内对比”</li>
-</ul>
-<hr/>
-<h2 id="7-advantage-llm"><span>7.<span class="heti-spacing"> </span></span>有了<span class="heti-skip"><span class="heti-spacing"> </span>advantage<span class="heti-spacing"> </span></span>怎么更新<span><span class="heti-spacing"> </span>LLM</span>（更新哪些参数、如何更新）<a class="headerlink" href="#7-advantage-llm" title="anchor link to this section for reference">¶</a></h2>
-<p>更新的是<span class="heti-skip"><span class="heti-spacing"> </span>actor<span class="heti-spacing"> </span></span>的可训练参数（全参<span class="heti-skip"><span class="heti-spacing"> </span>/LoRA/<span class="heti-spacing"> </span></span>部分层<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<ol>
-<li>用<span class="heti-skip"><span class="heti-spacing"> </span>batch<span class="heti-spacing"> </span></span>做一次<span class="heti-skip"><span class="heti-spacing"> </span>forward<span class="heti-spacing"> </span></span>得到 <code>new_logprob</code></li>
-<li>结合 <code>old_logprob</code> 得到概率比值（PPO）</li>
-<li>用<span class="heti-skip"><span class="heti-spacing"> </span>advantage<span class="heti-spacing"> </span></span>加权构造策略损失（并加<span class="heti-skip"><span class="heti-spacing"> </span>clip / KL / entropy<span class="heti-spacing"> </span></span>等项）</li>
-<li><code>loss.backward()</code> → <code>optimizer.step()</code> 更新参数</li>
-<li>同步最新权重到<span class="heti-skip"><span class="heti-spacing"> </span>rollout<span class="heti-spacing"> </span></span>侧（推理引擎）</li>
-</ol>
-<p>备注：</p>
-<ul>
-<li><span>PPO<span class="heti-spacing"> </span></span>中<span class="heti-skip"><span class="heti-spacing"> </span>critic<span class="heti-spacing"> </span></span>还会用<span class="heti-skip"><span class="heti-spacing"> </span>return<span class="heti-spacing"> </span></span>拟合<span><span class="heti-spacing"> </span>value</span>（<span>MSE / huber<span class="heti-spacing"> </span></span>等）更新<span class="heti-skip"><span class="heti-spacing"> </span>critic<span class="heti-spacing"> </span></span>参数</li>
-<li><span>ref<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>reward model<span class="heti-spacing"> </span></span>通常冻结不更新</li>
-</ul>
-<hr/>
-<h2 id="8-verlrollout-engine-model-engine-checkpoint"><span>8.<span class="heti-spacing"> </span></span>映射到<span><span class="heti-spacing"> </span>verl</span>：<span>rollout engine / model engine / checkpoint<span class="heti-spacing"> </span></span>的正确理解<a class="headerlink" href="#8-verlrollout-engine-model-engine-checkpoint" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>你提出的三段理解需要这样“对齐”到<span class="heti-skip"><span class="heti-spacing"> </span>verl<span class="heti-spacing"> </span></span>的分工：</p>
-<h3 id="rollout-engine-vllm">✅ Rollout engine（可接<span><span class="heti-spacing"> </span>vLLM</span>）<a class="headerlink" href="#rollout-engine-vllm" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>负责<span><span class="heti-spacing"> </span>rollout/generation</span>（高吞吐推理）</li>
-<li>接收训练侧同步的<span class="heti-skip"><span class="heti-spacing"> </span>actor<span class="heti-spacing"> </span></span>权重</li>
-<li>“更新权重”一般是：在<span class="heti-skip"><span class="heti-spacing"> </span>rollout worker<span class="heti-spacing"> </span></span>内 <strong><span>reload / load_weights /<span class="heti-spacing"> </span></span>更新<span><span class="heti-spacing"> </span>LoRA</span></strong>（具体实现依赖后端）</li>
-<li>不一定要“新建另一个<span><span class="heti-spacing"> </span>engine</span>”，可能是原地<span><span class="heti-spacing"> </span>reload</span>，也可能是双缓冲<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>重启（取决于工程策略）</li>
-</ul>
-<h3 id="model-enginefsdpmegatron">✅ Model engine（训练后端：FSDP/Megatron）<a class="headerlink" href="#model-enginefsdpmegatron" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>负责训练：forward/backward/optimizer step</li>
-<li>负责保存<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>加载训练状态的接口（与<span class="heti-skip"><span class="heti-spacing"> </span>checkpoint<span class="heti-spacing"> </span></span>系统联动）</li>
-<li>
-<p><strong>不是</strong>专门“计算<span class="heti-skip"><span class="heti-spacing"> </span>advantage<span class="heti-spacing"> </span></span>的引擎”</p>
-<ul>
-<li><span>advantage<span class="heti-spacing"> </span></span>更多是<span class="heti-skip"><span class="heti-spacing"> </span>trainer/controller<span class="heti-spacing"> </span></span>的算法逻辑（把<span><span class="heti-spacing"> </span>reward</span>、value、<span>logprob<span class="heti-spacing"> </span></span>拼起来算）</li>
-</ul>
-</li>
-</ul>
-<h3 id="checkpoint">✅ Checkpoint（持久化<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>恢复）<a class="headerlink" href="#checkpoint" title="anchor link to this section for reference">¶</a></h3>
-<ul>
-<li>作用：保存模型参数<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>优化器<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>训练进度等，用于容错与恢复</li>
-<li>
-<p><strong>不是</strong>“用于更新模型”的引擎</p>
-<ul>
-<li>真正的更新发生在<span class="heti-skip"><span class="heti-spacing"> </span>model engine<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>optimizer step</span></li>
-</ul>
-</li>
-</ul>
-<hr/>
-<h2 id="9"><span>9.<span class="heti-spacing"> </span></span>一张“数据流”速查图（最常用的理解方式）<a class="headerlink" href="#9" title="anchor link to this section for reference">¶</a></h2>
-<div class="highlight"><pre><span></span><code>prompt
-  │
-  ▼
-[Rollout Engine / vLLM]  生成 response_tokens
-  │   产出：tokens, old_logprobs, (可选 values), ref_logprobs
-  ▼
-[Reward / Rule / RM]     产出 reward（可含 KL shaping）
-  │
-  ▼
-[Trainer/Controller]     计算 advantage / return（PPO:用 critic；GRPO:组内对比）
-  │
-  ▼
-[Model Engine / FSDP/Megatron]  用 advantage 更新 actor（+ critic）
-  │
-  ├── (可选) save checkpoint
-  ▼
-同步权重到 Rollout Engine（reload / load_weights / LoRA update）
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize teacher client (main):</span>
+<span class="n">teacher_client</span> <span class="o">=</span> <span class="n">service_client</span><span class="o">.</span><span class="n">create_sampling_client</span><span class="p">(</span>
+    <span class="n">base_model</span><span class="o">=</span><span class="n">teacher_config</span><span class="o">.</span><span class="n">base_model</span><span class="p">,</span>
+    <span class="n">model_path</span><span class="o">=</span><span class="n">teacher_config</span><span class="o">.</span><span class="n">load_checkpoint_path</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Sample trajectories (main):</span>
+<span class="n">trajectories</span> <span class="o">=</span> <span class="n">do_group_rollout</span><span class="p">(</span><span class="n">student_client</span><span class="p">,</span> <span class="n">env_group_builder</span><span class="p">)</span>
+<span class="n">sampled_logprobs</span> <span class="o">=</span> <span class="n">trajectories</span><span class="o">.</span><span class="n">loss_fn_inputs</span><span class="p">[</span><span class="s2">"logprobs"</span><span class="p">]</span>
+
+<span class="c1"># Compute reward (compute_teacher_reverse_kl):</span>
+<span class="n">teacher_logprobs</span> <span class="o">=</span> <span class="n">teacher_client</span><span class="o">.</span><span class="n">compute_logprobs</span><span class="p">(</span><span class="n">trajectories</span><span class="p">)</span>
+<span class="n">reverse_kl</span> <span class="o">=</span> <span class="n">sampled_logprobs</span> <span class="o">-</span> <span class="n">teacher_logprobs</span>
+<span class="n">trajectories</span><span class="p">[</span><span class="s2">"advantages"</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">reverse_kl</span>
+
+<span class="c1"># Train with RL (train_step):</span>
+<span class="n">training_client</span><span class="o">.</span><span class="n">forward_backward</span><span class="p">(</span><span class="n">trajectories</span><span class="p">,</span> <span class="n">loss_fn</span><span class="o">=</span><span class="s2">"importance_sampling"</span><span class="p">)</span>
 </code></pre></div>
-<aside class="md-source-file">
-<span class="md-source-file__fact">
-<span class="md-icon" title="最后更新">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
-</span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年4月18日 12:30:05</span>
-</span>
-<span class="md-source-file__fact">
-<span class="md-icon" title="创建日期">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"></path></svg>
-</span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2026年1月12日 19:04:14</span>
-</span>
-</aside>
+<h2 id="_4">效果<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>实验证明，这个方法的效果好到难以置信。训练效率提升了，<span>SFT<span class="heti-spacing"> </span></span>需要<span class="heti-skip"><span class="heti-spacing"> </span>200<span class="heti-spacing"> </span></span>万<span class="heti-skip"><span class="heti-spacing"> </span>prompts<span class="heti-spacing"> </span></span>才能达到的效果，用<span class="heti-skip"><span class="heti-spacing"> </span>On-policy Distillation<span class="heti-spacing"> </span></span>只要<span class="heti-skip"><span class="heti-spacing"> </span>77K<span class="heti-spacing"> </span></span>就能达到。另外，对于持续学习有意外的帮助：训练模型吸收新知识，会导致灾难性遗忘，比如指令遵循的表现严重下降。但如果在知识训练完成后，用原模型做<span class="heti-skip"><span class="heti-spacing"> </span>Teacher<span class="heti-spacing"> </span></span>进行<span><span class="heti-spacing"> </span>on-policy distill</span>，会发现遗忘的能力又恢复了，而且刚学的知识也没有什么损失。似乎在模型内，知识和行为是存储在不同的参数中，而<span class="heti-skip"><span class="heti-spacing"> </span>On-policy Distill<span class="heti-spacing"> </span></span>刚好只影响那些行为参数。</p>
+<h2 id="opsd">OPSD<a class="headerlink" href="#opsd" title="anchor link to this section for reference">¶</a></h2>
+<p>看到小抄的学生自己充当老师</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -3932,7 +3749,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: actor-critic" class="md-footer__link md-footer__link--prev" href="../theory/10-actor-critic.html">
+<a aria-label="上一页: Reward Modeling" class="md-footer__link md-footer__link--prev" href="03-rm.html">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -3941,17 +3758,17 @@
                 上一页
               </span>
 <div class="md-ellipsis">
-                actor-critic
+                Reward Modeling
               </div>
 </div>
 </a>
-<a aria-label="下一页: MLSys" class="md-footer__link md-footer__link--next" href="../../MLSys/index.html">
+<a aria-label="下一页: LLM + RL 后训练" class="md-footer__link md-footer__link--next" href="05-infra.html">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 下一页
               </span>
 <div class="md-ellipsis">
-                MLSys
+                LLM + RL 后训练
               </div>
 </div>
 <div class="md-footer__button md-icon">

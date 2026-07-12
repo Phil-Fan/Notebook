@@ -17,6 +17,10 @@
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
+         <loc>https://www.philfan.cn/AI/TODO.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/AI/Agents/index.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
@@ -249,6 +253,10 @@
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
+         <loc>https://www.philfan.cn/AI/LLM/Models/10-FlowMatching.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/index.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
@@ -273,10 +281,6 @@
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/LLM/Sci/03-RM.html</loc>
-         <lastmod>2026-07-12</lastmod>
-    </url>
-    <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/03-SFT.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
@@ -290,10 +294,6 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/LLM/Sci/Focus.html</loc>
-         <lastmod>2026-07-12</lastmod>
-    </url>
-    <url>
-         <loc>https://www.philfan.cn/AI/LLM/Sci/OPD.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
@@ -317,7 +317,23 @@
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
-         <loc>https://www.philfan.cn/AI/RL/method/02-infra.html</loc>
+         <loc>https://www.philfan.cn/AI/RL/method/01-ppo.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/RL/method/02-grpo.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/RL/method/03-rm.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/RL/method/04-opd.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/RL/method/05-infra.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
@@ -358,6 +374,46 @@
     </url>
     <url>
          <loc>https://www.philfan.cn/AI/RL/theory/10-actor-critic.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/VLA/index.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/index.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/01-gpt3.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/02-gpt4.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/03-llama.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/04-deepseek.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/05-qwen.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/06-gemini.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/07-claude.html</loc>
+         <lastmod>2026-07-12</lastmod>
+    </url>
+    <url>
+         <loc>https://www.philfan.cn/AI/frontier/labs.html</loc>
          <lastmod>2026-07-12</lastmod>
     </url>
     <url>
