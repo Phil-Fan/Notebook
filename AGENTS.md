@@ -77,7 +77,14 @@ docs/
 │   │   ├── 07-claude.md
 │   │   └── labs.md
 │   ├── VLA/                 # 视觉 - 语言 - 动作（VLA）
-│   │   └── index.md
+│   │   ├── index.md          # 总览与知识框架
+│   │   ├── 01-Foundations.md # 基础概念
+│   │   ├── 02-Architectures.md # 架构范式
+│   │   ├── 03-Models.md      # 模型族详解
+│   │   ├── 04-Techniques.md  # 关键技术
+│   │   ├── 05-Training.md    # 训练范式
+│   │   ├── 06-Datasets.md    # 数据集与评测
+│   │   └── 07-Ecosystem.md   # 开源生态与趋势
 │   └── RL/
 │       ├── index.md
 │       ├── theory/          # 理论

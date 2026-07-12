@@ -454,6 +454,13 @@ nav:
             - AI/CV/OpenCV.md
     - "VLA | 视觉-语言-动作":
         - AI/VLA/index.md
+        - AI/VLA/01-Foundations.md
+        - AI/VLA/02-Architectures.md
+        - AI/VLA/03-Models.md
+        - AI/VLA/04-Techniques.md
+        - AI/VLA/05-Training.md
+        - AI/VLA/06-Datasets.md
+        - AI/VLA/07-Ecosystem.md
     - "学习资源":
         - 论文阅读: https://github.com/mli/paper-reading
         - 南瓜书: https://datawhalechina.github.io/pumpkin-book/
