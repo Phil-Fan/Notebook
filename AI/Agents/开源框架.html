@@ -1324,6 +1324,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../LLM/Sci/04-Rubric.html">
+<span class="md-ellipsis">
+    Rubric
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../LLM/Sci/05-Quantization.html">
 <span class="md-ellipsis">
     07 | Quantization
@@ -1331,15 +1338,15 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4_11" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4_11" id="__nav_4_4_11_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_12" id="__nav_4_4_12_label" tabindex="0">
 <span class="md-ellipsis">
     工具手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_11_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_4_4_11">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_12">
 <span class="md-nav__icon md-icon"></span>
             工具手册
           </label>
@@ -1502,32 +1509,46 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      原理
+      基础论文与范式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+<span class="md-ellipsis">
+      通用 Agent 框架
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent-harness">
+<span class="md-ellipsis">
+      编码 Agent 与本地 Harness
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_1">
+<span class="md-ellipsis">
+      实时语音与多模态 Agent
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      产品
-    </span>
-</a>
-<nav aria-label="产品" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#framework">
-<span class="md-ellipsis">
-      framework
+      自动化与低代码
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      🦞类
+      个人助手 / 产品形态
     </span>
 </a>
-</li>
+<nav aria-label="个人助手 / 产品形态" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#a2a">
 <span class="md-ellipsis">
@@ -1551,7 +1572,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="01-base.html">
 <span class="md-ellipsis">
-    主循环
+    Agent 基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="02-system.html">
+<span class="md-ellipsis">
+    Agent 工程体系
   </span>
 </a>
 </li>
@@ -3664,32 +3692,46 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
-      原理
+      基础论文与范式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+<span class="md-ellipsis">
+      通用 Agent 框架
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent-harness">
+<span class="md-ellipsis">
+      编码 Agent 与本地 Harness
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_1">
+<span class="md-ellipsis">
+      实时语音与多模态 Agent
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
-      产品
-    </span>
-</a>
-<nav aria-label="产品" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#framework">
-<span class="md-ellipsis">
-      framework
+      自动化与低代码
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
-      🦞类
+      个人助手 / 产品形态
     </span>
 </a>
-</li>
+<nav aria-label="个人助手 / 产品形态" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#a2a">
 <span class="md-ellipsis">
@@ -3722,23 +3764,44 @@
 </a>
 <h1 id="agents"><span>Agents<span class="heti-spacing"> </span></span>开源框架整理<a class="headerlink" href="#agents" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>94<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>7<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间不到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>430<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11l-3.54-4.71Z"></path></svg></span> <span>16<span class="heti-spacing"> </span></span>张图片 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>分钟</p>
 </div>
 <p>自<span class="heti-skip"><span class="heti-spacing"> </span>Research<span class="heti-spacing"> </span></span>与本站整理的<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>相关开源项目与教程。</p>
-<h2 id="_1">原理<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">基础论文与范式<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li><a href="https://github.com/langchain-ai/langchain">langchain</a> <a href="https://github.com/langchain-ai/langchain"><img alt="GitHub stars" src="https://img.shields.io/github/stars/langchain-ai/langchain?style=social"/></a></li>
-<li><a href="https://github.com/n8n-io/n8n">n8n</a> <a href="https://github.com/n8n-io/n8n"><img alt="GitHub stars" src="https://img.shields.io/github/stars/n8n-io/n8n?style=social"/></a></li>
 <li><a href="https://github.com/ysymyth/ReAct">ReAct</a> <a href="https://github.com/ysymyth/ReAct"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ysymyth/ReAct?style=social"/></a></li>
-<li><a href="https://github.com/langchain-ai/deepagents">langchain-ai/deepagents</a> <a href="https://github.com/langchain-ai/deepagents"><img alt="GitHub stars" src="https://img.shields.io/github/stars/langchain-ai/deepagents?style=social"/></a></li>
+<li><a href="https://arxiv.org/abs/2302.04761">Toolformer</a>：让语言模型学习调用外部工具。</li>
+<li><a href="https://arxiv.org/abs/2308.08155">AutoGen paper</a>：多智能体对话式协作框架。</li>
 </ul>
-<h2 id="_2">产品<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="framework">framework<a class="headerlink" href="#framework" title="anchor link to this section for reference">¶</a></h3>
+<h2 id="agent">通用<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>框架<a class="headerlink" href="#agent" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li><a href="https://github.com/google-gemini/gemini-cli">google-gemini/gemini-cli</a> <a href="https://github.com/google-gemini/gemini-cli"><img alt="GitHub stars" src="https://img.shields.io/github/stars/google-gemini/gemini-cli?style=social"/></a></li>
-<li><a href="https://github.com/openai/codex">openai/codex</a> <a href="https://github.com/openai/codex"><img alt="GitHub stars" src="https://img.shields.io/github/stars/openai/codex?style=social"/></a></li>
+<li><a href="https://github.com/huggingface/smolagents">huggingface/smolagents</a> <a href="https://github.com/huggingface/smolagents"><img alt="GitHub stars" src="https://img.shields.io/github/stars/huggingface/smolagents?style=social"/></a>：<span>Hugging Face<span class="heti-spacing"> </span></span>的轻量<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>框架，核心抽象包括 <code>CodeAgent</code>、<code>ToolCallingAgent</code>、tools、managed agents，强调用少量代码构建可执行<span><span class="heti-spacing"> </span>agent</span>。</li>
+<li><a href="https://github.com/langchain-ai/langchain">langchain</a> <a href="https://github.com/langchain-ai/langchain"><img alt="GitHub stars" src="https://img.shields.io/github/stars/langchain-ai/langchain?style=social"/></a>：<span>LLM<span class="heti-spacing"> </span></span>应用与工具链基础库。</li>
+<li><a href="https://github.com/langchain-ai/langgraph">langchain-ai/langgraph</a> <a href="https://github.com/langchain-ai/langgraph"><img alt="GitHub stars" src="https://img.shields.io/github/stars/langchain-ai/langgraph?style=social"/></a>：面向有状态、多步骤、可恢复<span class="heti-skip"><span class="heti-spacing"> </span>Agent workflow<span class="heti-spacing"> </span></span>的图框架。</li>
+<li><a href="https://github.com/langchain-ai/deepagents">langchain-ai/deepagents</a> <a href="https://github.com/langchain-ai/deepagents"><img alt="GitHub stars" src="https://img.shields.io/github/stars/langchain-ai/deepagents?style=social"/></a></li>
+<li><a href="https://github.com/microsoft/autogen">microsoft/autogen</a> <a href="https://github.com/microsoft/autogen"><img alt="GitHub stars" src="https://img.shields.io/github/stars/microsoft/autogen?style=social"/></a>：多智能体对话、协作与工作流。</li>
+<li><a href="https://github.com/crewAIInc/crewAI">crewAIInc/crewAI</a> <a href="https://github.com/crewAIInc/crewAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/crewAIInc/crewAI?style=social"/></a>：角色分工式多智能体工作流。</li>
+<li><a href="https://github.com/pydantic/pydantic-ai">pydantic/pydantic-ai</a> <a href="https://github.com/pydantic/pydantic-ai"><img alt="GitHub stars" src="https://img.shields.io/github/stars/pydantic/pydantic-ai?style=social"/></a>：强调类型、<span>schema<span class="heti-spacing"> </span></span>与结构化输出的<span class="heti-skip"><span class="heti-spacing"> </span>Python Agent<span class="heti-spacing"> </span></span>框架。</li>
+<li><a href="https://github.com/openai/openai-agents-python">openai/openai-agents-python</a> <a href="https://github.com/openai/openai-agents-python"><img alt="GitHub stars" src="https://img.shields.io/github/stars/openai/openai-agents-python?style=social"/></a>：OpenAI Agents SDK，覆盖<span><span class="heti-spacing"> </span>agent</span>、handoff、guardrail、<span>tracing<span class="heti-spacing"> </span></span>等抽象。</li>
 </ul>
-<h3 id="_3">🦞类<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="agent-harness">编码<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>与本地<span><span class="heti-spacing"> </span>Harness</span><a class="headerlink" href="#agent-harness" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><a href="https://github.com/shareAI-lab/learn-claude-code">shareAI-lab/learn-claude-code</a>：Bash is all you need，用极简<span class="heti-skip"><span class="heti-spacing"> </span>shell harness<span class="heti-spacing"> </span></span>解释<span class="heti-skip"><span class="heti-spacing"> </span>Claude Code<span class="heti-spacing"> </span></span>类编码<span class="heti-skip"><span class="heti-spacing"> </span>agent<span class="heti-spacing"> </span></span>的核心机制。</li>
+<li><a href="https://github.com/openai/codex">openai/codex</a> <a href="https://github.com/openai/codex"><img alt="GitHub stars" src="https://img.shields.io/github/stars/openai/codex?style=social"/></a>：OpenAI Codex CLI，本地编码<span><span class="heti-spacing"> </span>agent</span>。</li>
+<li><a href="https://github.com/google-gemini/gemini-cli">google-gemini/gemini-cli</a> <a href="https://github.com/google-gemini/gemini-cli"><img alt="GitHub stars" src="https://img.shields.io/github/stars/google-gemini/gemini-cli?style=social"/></a>：<span>Gemini CLI<span class="heti-spacing"> </span></span>编码与终端<span><span class="heti-spacing"> </span>Agent</span>。</li>
+<li><a href="https://github.com/All-Hands-AI/OpenHands">All-Hands-AI/OpenHands</a> <a href="https://github.com/All-Hands-AI/OpenHands"><img alt="GitHub stars" src="https://img.shields.io/github/stars/All-Hands-AI/OpenHands?style=social"/></a>：软件工程<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>平台。</li>
+<li><a href="https://github.com/Aider-AI/aider">Aider-AI/aider</a> <a href="https://github.com/Aider-AI/aider"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Aider-AI/aider?style=social"/></a>：终端内<span><span class="heti-spacing"> </span>pair programming / code editing agent</span>。</li>
+</ul>
+<h2 id="agent_1">实时语音与多模态<span><span class="heti-spacing"> </span>Agent</span><a class="headerlink" href="#agent_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><a href="https://github.com/pipecat-ai/pipecat">pipecat-ai/pipecat</a> <a href="https://github.com/pipecat-ai/pipecat"><img alt="GitHub stars" src="https://img.shields.io/github/stars/pipecat-ai/pipecat?style=social"/></a>：实时语音和多模态<span class="heti-skip"><span class="heti-spacing"> </span>AI Agent<span class="heti-spacing"> </span></span>框架，常用于语音助手、电话<span><span class="heti-spacing"> </span>agent</span>、实时对话系统。</li>
+<li>piagent / pi-agent：检索时未定位到唯一主流同名<span class="heti-skip"><span class="heti-spacing"> </span>Agent<span class="heti-spacing"> </span></span>框架；若指的是<span><span class="heti-spacing"> </span>Pipecat</span>，可归入实时语音<span><span class="heti-spacing"> </span>Agent</span>；若指其他仓库，后续按具体<span class="heti-skip"><span class="heti-spacing"> </span>URL<span class="heti-spacing"> </span></span>补充。</li>
+</ul>
+<h2 id="_2">自动化与低代码<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li><a href="https://github.com/n8n-io/n8n">n8n</a> <a href="https://github.com/n8n-io/n8n"><img alt="GitHub stars" src="https://img.shields.io/github/stars/n8n-io/n8n?style=social"/></a>：低代码自动化<span><span class="heti-spacing"> </span>workflow</span>，可与<span class="heti-skip"><span class="heti-spacing"> </span>LLM/Agent<span class="heti-spacing"> </span></span>节点结合。</li>
+</ul>
+<h2 id="_3">个人助手<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>产品形态<a class="headerlink" href="#_3" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li><a href="https://github.com/agentscope-ai/CoPaw">agentscope-ai/CoPaw</a>: Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.</li>
 <li><a href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a>: The agent that grows with you</li>
@@ -3747,8 +3810,8 @@
 <h3 id="a2a">A2A<a class="headerlink" href="#a2a" title="anchor link to this section for reference">¶</a></h3>
 <h2 id="_4">教程<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
-<li><a href="https://github.com/shareAI-lab/learn-claude-code">shareAI-lab/learn-claude-code</a>: Bash is all you need — nano claude code–like agent harness</li>
 <li><a href="https://github.com/datawhalechina/hello-agents">datawhalechina/hello-agents</a>: 《从零开始构建智能体》</li>
+<li><a href="https://huggingface.co/learn/agents-course">Hugging Face Agents Course</a>：从<span class="heti-skip"><span class="heti-spacing"> </span>smolagents<span class="heti-spacing"> </span></span>到工具调用、RAG、多智能体的入门课程。</li>
 </ul>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
@@ -3799,11 +3862,6 @@
 <div class="md-copyright">
 <div class="md-copyright__highlight">
         Copyright <span style="font-family:Arial;">©</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
-</div>
-<div class="md-copyright__beian">
-<a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">
-            浙 ICP 备 2025206156 号
-        </a>
 </div>
 </div>
 <div class="md-social">

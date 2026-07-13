@@ -1324,6 +1324,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../LLM/Sci/04-Rubric.html">
+<span class="md-ellipsis">
+    Rubric
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../LLM/Sci/05-Quantization.html">
 <span class="md-ellipsis">
     07 | Quantization
@@ -1331,15 +1338,15 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4_11" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4_11" id="__nav_4_4_11_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_12" id="__nav_4_4_12_label" tabindex="0">
 <span class="md-ellipsis">
     工具手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_11_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_4_4_11">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_12">
 <span class="md-nav__icon md-icon"></span>
             工具手册
           </label>
@@ -1490,7 +1497,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="01-base.html">
 <span class="md-ellipsis">
-    主循环
+    Agent 基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="02-system.html">
+<span class="md-ellipsis">
+    Agent 工程体系
   </span>
 </a>
 </li>
@@ -3603,6 +3617,13 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
+      知识地图
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
       目录
     </span>
 </a>
@@ -3622,10 +3643,58 @@
 </a>
 <h1 id="agents">智能体（Agents）<a class="headerlink" href="#agents" title="anchor link to this section for reference">¶</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>75<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间不到<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
+<p><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"></path></svg></span> 约<span class="heti-skip"><span class="heti-spacing"> </span>311<span class="heti-spacing"> </span></span>个字 <span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"></path></svg></span> 预计阅读时间<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分钟</p>
 </div>
-<p><span>Agent<span class="heti-spacing"> </span></span>原理、工程笔记与开源框架清单。</p>
-<h2 id="_1">目录<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>Agent<span class="heti-spacing"> </span></span>原理、工程体系、开源框架与产品形态。</p>
+<p><span>Agent<span class="heti-spacing"> </span></span>的核心不是“调用一次大模型”，而是让模型在一个受控运行时中循环完成任务：观察状态、规划下一步、调用工具、读取结果、更新记忆，并在终止条件满足时交付结果。</p>
+<h2 id="_1">知识地图<a class="headerlink" href="#_1" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>关注问题</th>
+<th>典型内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型能力</td>
+<td><span>LLM<span class="heti-spacing"> </span></span>能否理解任务、规划、反思、使用工具</td>
+<td>ReAct、function calling、self-reflection</td>
+</tr>
+<tr>
+<td>Agent loop</td>
+<td>如何组织观察、思考、行动、反馈</td>
+<td>plan-act-observe、state machine、workflow graph</td>
+</tr>
+<tr>
+<td>Tool runtime</td>
+<td>工具如何注册、鉴权、执行与回传</td>
+<td>JSON schema、sandbox、browser、shell、RAG</td>
+</tr>
+<tr>
+<td>Memory / context</td>
+<td>如何保存任务状态与长期知识</td>
+<td>short-term state、episodic memory、vector memory</td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td>多步骤和多智能体如何协作</td>
+<td>LangGraph、AutoGen、CrewAI、deepagents</td>
+</tr>
+<tr>
+<td>Evaluation</td>
+<td>如何判断任务是否完成</td>
+<td>task success、rubric、trajectory eval、human review</td>
+</tr>
+<tr>
+<td>Safety</td>
+<td>如何限制越权和错误扩散</td>
+<td>permission、policy、least privilege、audit log</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">目录<a class="headerlink" href="#_2" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <table>
 <thead>
 <tr>
@@ -3637,6 +3706,10 @@
 <tr>
 <td><a href="01-base.html">01-base</a></td>
 <td><span>Agent<span class="heti-spacing"> </span></span>基础</td>
+</tr>
+<tr>
+<td><a href="02-system.html">02-system</a></td>
+<td><span>Agent<span class="heti-spacing"> </span></span>工程体系：循环、工具、记忆、权限、评测</td>
 </tr>
 <tr>
 <td><a href="accelerate.html">accelerate</a></td>
@@ -3698,11 +3771,6 @@
 <div class="md-copyright">
 <div class="md-copyright__highlight">
         Copyright <span style="font-family:Arial;">©</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
-</div>
-<div class="md-copyright__beian">
-<a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">
-            浙 ICP 备 2025206156 号
-        </a>
 </div>
 </div>
 <div class="md-social">

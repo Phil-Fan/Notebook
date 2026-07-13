@@ -1324,6 +1324,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../LLM/Sci/04-Rubric.html">
+<span class="md-ellipsis">
+    Rubric
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../LLM/Sci/05-Quantization.html">
 <span class="md-ellipsis">
     07 | Quantization
@@ -1331,15 +1338,15 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4_11" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_4_11" id="__nav_4_4_11_label" tabindex="0">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4_12" id="__nav_4_4_12_label" tabindex="0">
 <span class="md-ellipsis">
     工具手册
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_11_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_4_4_11">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_4_12">
 <span class="md-nav__icon md-icon"></span>
             工具手册
           </label>
@@ -1490,7 +1497,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../Agents/01-base.html">
 <span class="md-ellipsis">
-    主循环
+    Agent 基础
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Agents/02-system.html">
+<span class="md-ellipsis">
+    Agent 工程体系
   </span>
 </a>
 </li>
@@ -3880,7 +3894,7 @@
 <p><strong>优点</strong>：灵活组合、轻量高效；<strong>缺点</strong>：模块间信息传递可能损失。</p>
 <h3 id="_4">双系统架构<a class="headerlink" href="#_4" title="anchor link to this section for reference"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>模仿人脑快慢系统：<span>System 2<span class="heti-spacing"> </span></span>慢思考（VLM，低频推理）→ <span>System 1<span class="heti-spacing"> </span></span>快执行（轻量网络，高频控制<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-<p><strong>代表：Figure Helix (2025)</strong></p>
+<h4 id="figure-helix-2025">代表：Figure Helix (2025)<a class="headerlink" href="#figure-helix-2025" title="anchor link to this section for reference">¶</a></h4>
 <ul>
 <li><strong>System 2</strong>：7B VLM，7-9 Hz，负责场景理解、任务规划</li>
 <li><strong>System 1</strong>：<span>80M<span class="heti-spacing"> </span></span>交叉注意力头，200 Hz，将潜在指令实时转换为电机信号</li>
@@ -4092,11 +4106,6 @@
 <div class="md-copyright">
 <div class="md-copyright__highlight">
         Copyright <span style="font-family:Arial;">©</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
-</div>
-<div class="md-copyright__beian">
-<a href="http://beian.miit.gov.cn/" rel="noopener" target="_blank">
-            浙 ICP 备 2025206156 号
-        </a>
 </div>
 </div>
 <div class="md-social">
