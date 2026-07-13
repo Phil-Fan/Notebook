@@ -13,10 +13,11 @@
 \]
 
 其中：
+
 - \(I_t\)：当前视觉观测（RGB / RGB-D / 点云）
 - \(\ell\)：语言指令（如"拿起桌上的红色杯子"）
 - \(s_t\)：本体感知（关节角度、末端位姿、夹爪状态）
-- \(\mathcal{H}_{t-1}\)：历史观测-动作序列（可选）
+- \(\mathcal{H}_{t-1}\)：历史观测 - 动作序列（可选）
 
 ## 发展脉络
 
@@ -43,7 +44,7 @@ timeline
 | 方法 | 代表模型 | 特点 |
 |------|---------|------|
 | ViT 特征 | SigLIP (OpenVLA), DINOv2 (Octo) | 全局语义 + 局部细节 |
-| CLIP 嵌入 | RT-2, π0 (PaliGemma) | 视觉-语言对齐，强语义 |
+| CLIP 嵌入 | RT-2, π0 (PaliGemma) | 视觉 - 语言对齐，强语义 |
 | 3D 点云 | 3D Diffusion Policy | 空间几何信息 |
 
 ### 动作表征
@@ -66,7 +67,7 @@ timeline
 
 | 领域 | 与 VLA 的关系 |
 |------|---------------|
-| **VLM (Vision-Language Model)** | VLA 的感知基础；VLM 提供视觉-语言理解和常识推理 |
+| **VLM (Vision-Language Model)** | VLA 的感知基础；VLM 提供视觉 - 语言理解和常识推理 |
 | **LLM (Large Language Model)** | 提供语言理解、任务分解、规划能力 |
 | **Imitation Learning** | VLA 最常见的训练范式；行为克隆是主力方法 |
 | **RL (Reinforcement Learning)** | 用于 VLA 后训练微调，提升泛化和鲁棒性 |

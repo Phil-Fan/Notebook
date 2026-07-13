@@ -26,6 +26,10 @@ __pycache__/
 .vercel
 .spec-workflow/*
 .ruff_cache/*
+# Qoder internal
+.agents/
+.qoder/
+
 # Jupyter runtime from mkdocs-jupyter execute
 **/profile_default/
 

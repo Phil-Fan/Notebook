@@ -42,6 +42,7 @@
 ## 6. Evaluation
 
 - Base techniques
+- [Rubric](04-Rubric.md)：评分量规、LLM-as-a-judge、可靠性与偏差控制
 - GGUP and llama.cpp
 - GPTQ & AWQ
 - SmoothQuant & ZeroQuant

@@ -9,8 +9,7 @@ repo_name: 'Phil-Fan/Notes'
 repo_url: 'https://github.com/Phil-Fan/Phil-Fan.github.io'
 
 # copyright
-copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a> 
-beian: 浙 ICP 备 2025206156 号
+copyright: Copyright <span style="font-family:Arial;">&copy;</span> 2024-2026 <a href="https://github.com/Phil-Fan" target="_blank">PhilFan</a>
 
 use_directory_urls: false
 
@@ -370,6 +369,7 @@ nav:
         - AI/LLM/Sci/03-SFT.md
         - AI/LLM/Sci/03-RL.md
         - AI/LLM/Sci/04-Evaluation.md
+        - AI/LLM/Sci/04-Rubric.md
         - AI/LLM/Sci/05-Quantization.md
 
         - 工具手册:
@@ -394,6 +394,7 @@ nav:
         - AI/Agents/index.md
         - AI/Agents/开源框架.md
         - AI/Agents/01-base.md
+        - AI/Agents/02-system.md
         - AI/Agents/accelerate.md
 
     - "Frontier | 前沿基座模型":

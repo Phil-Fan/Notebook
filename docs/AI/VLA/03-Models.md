@@ -14,7 +14,7 @@
 
 ### RT-2 (2023)
 
-里程碑工作：首次将 web-scale VLM（PaLI-X/PaLM-E）直接作为 VLA 骨干，证明互联网规模视觉-语言知识可迁移到机器人控制。
+里程碑工作：首次将 web-scale VLM（PaLI-X/PaLM-E）直接作为 VLA 骨干，证明互联网规模视觉 - 语言知识可迁移到机器人控制。
 
 - **论文**：[RT-2: Vision-Language-Action Models](https://arxiv.org/abs/2307.15818)
 - **核心创新**：将连续动作离散化为 token，与文本 token 统一处理
@@ -35,7 +35,7 @@
 
 ---
 
-## Octo（UC Berkeley, 2024）
+## Octo (UC Berkeley, 2024)
 
 开源通才机器人策略，基于 Transformer 扩散解码器。
 
@@ -49,7 +49,7 @@
 
 ---
 
-## OpenVLA（Stanford/UC Berkeley, 2024）
+## OpenVLA (Stanford/UC Berkeley, 2024)
 
 全开源 7B VLA，目前社区使用最广泛的开源 VLA 基础模型。
 
@@ -64,7 +64,7 @@
 
 ---
 
-## π0（Physical Intelligence, 2024）
+## π0 (Physical Intelligence, 2024)
 
 基于流匹配（Flow Matching）的通用 VLA，演示了叠衣服等高难度精细操作。
 
@@ -78,33 +78,33 @@
 
 ---
 
-## RDT-1B（清华, 2024）
+## RDT-1B（清华，2024）
 
 基于扩散 Transformer 的双臂操作基础模型，推理速度达到 381 actions/sec。
 
 - **论文**：[RDT-1B: a Diffusion Foundation Model for Bimanual Manipulation](https://arxiv.org/abs/2410.07864)
 - **参数**：1.2B
 - **统一动作空间**：将不同机器人控制映射到归一化表示
-- **训练数据**：46 个数据集、100 万+ episodes 预训练 + 6K+ episodes ALOHA 双臂微调
+- **训练数据**：46 个数据集、100 万 + episodes 预训练 + 6K+ episodes ALOHA 双臂微调
 - **HuggingFace**：[robotics-diffusion-transformer/rdt-1b](https://huggingface.co/robotics-diffusion-transformer/rdt-1b)
 
 <iframe src="https://arxiv.org/abs/2410.07864" width="100%" height="500px" style="border:1px solid #ddd;border-radius:4px;" allowfullscreen></iframe>
 
 ---
 
-## Helix（Figure AI, 2025）
+## Helix (Figure AI, 2025)
 
 双系统 VLA，首次在完整人形机器人上实现 200Hz 全身控制。
 
 - **发布**：[Helix: A VLA Model for Generalist Humanoid Control](https://www.figure.ai/news/helix)
-- **架构**：System 2（7B VLM, 7-9Hz）→ System 1（80M 交叉注意力头, 200Hz）
+- **架构**：System 2（7B VLM, 7-9Hz）→ System 1（80M 交叉注意力头，200Hz）
 - **动作空间**：35 DoF（手指、手腕、躯干），直接输出连续电机信号
 - **训练数据**：~500 小时遥操作演示，自动 VLM 生成 hindsight instruction
 - **亮点**：zero-shot 多机器人协作，零样本泛化到未见物品
 
 ---
 
-## GR00T N1（NVIDIA, 2025）
+## GR00T N1 (NVIDIA, 2025)
 
 人形机器人专用开源基础模型。
 
@@ -116,7 +116,7 @@
 
 ---
 
-## Gemini Robotics（Google DeepMind, 2025）
+## Gemini Robotics (Google DeepMind, 2025)
 
 - **发布**：[Gemini Robotics](https://deepmind.google/models/gemini-robotics/)
 - VLA + Embodied Reasoning (ER) 双模型配对
@@ -132,7 +132,7 @@
 | **CogVLA** | 清华 | 2025 | 认知对齐 VLA，instruction-driven routing，NeurIPS 2025 |
 | **Qwen-VLA** | 阿里 | 2025 | 基于 Qwen 系列，跨具身统一 |
 | **CogACT** | 清华 | 2025 | 认知驱动动作生成，开源 |
-| **UniPi** | Google | 2023 | 通用策略，文本+视频+动作统一 |
+| **UniPi** | Google | 2023 | 通用策略，文本 + 视频 + 动作统一 |
 | **GATO** | DeepMind | 2022 | 多任务多模态通才 agent |
 
 ## 模型能力对比

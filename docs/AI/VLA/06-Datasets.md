@@ -7,7 +7,7 @@
 推动 VLA 发展的核心数据联盟，由 Google DeepMind 联合全球 33 个实验室创建。
 
 - **论文**：[Open X-Embodiment: Robotic Learning Datasets and RT-X Models](https://arxiv.org/abs/2310.08864)
-- **规模**：60+ 数据集、**100 万+ 轨迹**、22 种机器人形态
+- **规模**：60+ 数据集、**100 万 + 轨迹**、22 种机器人形态
 - **覆盖**：单臂、双臂、移动操作、四足、无人机
 - **官网**：[robotics-transformer-x.github.io](https://robotics-transformer-x.github.io/)
 
