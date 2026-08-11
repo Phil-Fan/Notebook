@@ -400,6 +400,21 @@ nav:
         - AI/Agents/04-one-turn.md
         - AI/Agents/accelerate.md
 
+    - "Benchmark | 评测基准":
+        - AI/Benchmark/index.md
+        - AI/Benchmark/01-gsm8k.md
+        - AI/Benchmark/02-mmlu.md
+        - AI/Benchmark/03-humaneval.md
+        - AI/Benchmark/04-swebench.md
+        - AI/Benchmark/05-toolbench.md
+        - AI/Benchmark/06-bfcl.md
+        - AI/Benchmark/07-gaia.md
+        - AI/Benchmark/08-terminal-bench.md
+        - AI/Benchmark/09-apibank.md
+        - AI/Benchmark/10-toolalpaca.md
+        - AI/Benchmark/11-hotpotqa.md
+        - AI/Benchmark/12-browsecomp.md
+
     - "Frontier | 前沿基座模型":
         - AI/frontier/index.md
         - AI/frontier/01-gpt3.md

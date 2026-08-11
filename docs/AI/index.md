@@ -12,6 +12,7 @@
   - Scientist Roadmap: LLM/Sci/
   - Engineer Roadmap: LLM/Engineer/
   - 智能体：Agents/
+- 评测基准：Benchmark/
 - 前沿基座模型：frontier/
 - 视觉 - 语言 - 动作：VLA/
 {{ END_TOC }}

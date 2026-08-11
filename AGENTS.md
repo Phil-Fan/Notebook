@@ -57,6 +57,7 @@ docs/
 ├── AI/                      # 人工智能
 │   ├── index.md
 │   ├── Agents/              # 智能体（index / 开源框架 / 01-base / 02-system / 03-benchmark / 04-one-turn / accelerate）
+│   ├── Benchmark/           # 评测基准（GSM8K / MMLU / HumanEval / SWE-bench / ToolBench / BFCL / GAIA / Terminal-Bench / API-Bank / ToolAlpaca / HotpotQA / BrowseComp）
 │   ├── CV/                  # 计算机视觉
 │   ├── DL/                  # 深度学习（含 06-GAN）
 │   ├── LLM/
