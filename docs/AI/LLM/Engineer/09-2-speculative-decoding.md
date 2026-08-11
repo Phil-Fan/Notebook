@@ -71,7 +71,7 @@ Drafting can be **parallel** (faster, less accurate) or **autoregressive** (slow
 - MTP
   - [MTP（Multi-Token Prediction）的前世今生 - 知乎](https://zhuanlan.zhihu.com/p/18056041194)
   - [大模型推理加速：从 EAGLE 到 DFlash - 知乎](https://zhuanlan.zhihu.com/p/2004595351189987521)
-- DFlash
+- DFlash → [详细笔记](09-3-dflash.md)
 - Pearl
 - SwiftSpec 字节
 - Speculative Speculative Decoding

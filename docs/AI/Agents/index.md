@@ -22,6 +22,8 @@ Agent 的核心不是“调用一次大模型”，而是让模型在一个受�
 |------|------|
 | [01-base](01-base.md) | Agent 基础 |
 | [02-system](02-system.md) | Agent 工程体系：循环、工具、记忆、权限、评测 |
+| [03-benchmark](03-benchmark.md) | Agent 评测基准：SWE-bench / SWE-bench Pro |
+| [04-one-turn](04-one-turn.md) | Agent 一轮回复详解：请求、响应、工具调用数据流 |
 | [accelerate](accelerate.md) | 加速相关笔记 |
 | [开源框架整理](开源框架.md) | 框架 / 产品 / 教程清单 |
 

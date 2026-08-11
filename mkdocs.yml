@@ -346,6 +346,7 @@ nav:
         - AI/LLM/Engineer/07-Scheduling.md
         - AI/LLM/Engineer/08-LongInfer.md
         - AI/LLM/Engineer/09-2-speculative-decoding.md
+        - AI/LLM/Engineer/09-3-dflash.md
         - AI/LLM/Engineer/09-Sampling.md
         - AI/LLM/Engineer/10-Evaluation.md
         - AI/LLM/Engineer/LoRA.md
@@ -395,6 +396,8 @@ nav:
         - AI/Agents/开源框架.md
         - AI/Agents/01-base.md
         - AI/Agents/02-system.md
+        - AI/Agents/03-benchmark.md
+        - AI/Agents/04-one-turn.md
         - AI/Agents/accelerate.md
 
     - "Frontier | 前沿基座模型":
