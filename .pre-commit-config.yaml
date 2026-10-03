@@ -1,12 +1,5 @@
 # Docs (Markdown) + Python (hooks/)
 repos:
-  - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.17.2
-    hooks:
-      - id: markdownlint-cli2
-        name: markdown | lint
-        args: ["--fix", "--config", ".github/.markdownlint.yaml"]
-
   - repo: https://github.com/YuniqueUnic/autocorrect-pre-commit
     rev: 2.14.0
     hooks:

@@ -93,7 +93,7 @@
 
 ### 文档格式
 
-所有文档使用 Markdown，并通过 pre-commit 自动检查/格式化（`markdownlint-cli2` + `autocorrect`）。
+所有文档使用 Markdown，并通过 pre-commit 自动检查/格式化（`autocorrect`）。
 
 推荐约定：
 

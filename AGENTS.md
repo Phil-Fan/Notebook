@@ -10,7 +10,7 @@ MkDocs Material 个人知识库。笔记在 `docs/`，导航在 `mkdocs.yml`，�
 | 框架 | MkDocs + Material |
 | 命令 | `uv run mkdocs serve` / `build`；格式化用 pre-commit |
 | 质量 | **pre-commit** + CI `Quality Check` |
-| 钩子 | markdownlint-cli2、autocorrect、ruff / pyrefly（`hooks/`） |
+| 钩子 | autocorrect、ruff / pyrefly（`hooks/`） |
 | CI | `.github/workflows/check.yml`（`pre-commit/action` + `uv sync`） |
 
 - 勿迁到 VitePress/Next；**不使用 Makefile**，统一用 `uv` / pre-commit。
@@ -188,7 +188,6 @@ pre-commit run --all-files
 
 | 检查 | 工具 | 范围 |
 |------|------|------|
-| Markdown lint / 自动修 | markdownlint-cli2 | `*.md` / `docs/**` |
 | 中文排版 | autocorrect | 全仓文本 |
 | Python lint + format | ruff | `hooks/` |
 | Python 类型 | pyrefly（`uv run`） | `hooks/` |
@@ -199,7 +198,6 @@ CI：push / PR 到 `main` 触发 `.github/workflows/check.yml`（`uv sync` + pre
 
 提交前执行 `pre-commit run --all-files` 并与 CI 完全对齐：
 
-- markdownlint-cli2：`*.md` 格式检查（规则见 `.github/.markdownlint.yaml`）
 - autocorrect：中文排版修正（中英文空格、标点规范等）
 - ruff：`hooks/` 下 Python 代码 lint + format
 - pyrefly：`hooks/` 下 Python 类型检查
