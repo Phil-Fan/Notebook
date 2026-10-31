@@ -195,7 +195,7 @@ pre-commit run --all-files
 
 CI：push / PR 到 `main` 触发 `.github/workflows/check.yml`（`uv sync` + pre-commit）。
 
-部署：由 Cloudflare Pages（项目名 `notebook`）在 push `main` 后自动构建并发布 `note.philfan.cn`；仓库内不再有 `gh-deploy` / GitHub Pages 工作流，勿再加回。
+部署：由 Cloudflare Pages（项目名 `notebook`）在 push `main` 后自动构建并发布 `note.philfan.cn`；仓库内不再有部署 workflow，GitHub Pages 已关闭（`gh-pages` 分支已删除），勿再加回。
 
 **CI 要求（强制）**：所有推送必须通过 Quality Check。若 CI 失败，必须立即修复后重新推送。严禁跳过或忽略 CI 错误。
 
