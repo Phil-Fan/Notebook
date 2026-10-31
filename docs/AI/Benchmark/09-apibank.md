@@ -37,13 +37,13 @@
 ## 举例
 
 ```text
-Level-1 对话:
+Level-1 对话：
   User: What's the weather in Shanghai tomorrow?
   Assistant: [Call WeatherAPI(city="Shanghai", date="tomorrow")]
   API return: {"weather": "rainy", "temp": 18}
   Assistant: Tomorrow in Shanghai will be rainy, about 18°C.
 
-Level-3 示例:
+Level-3 示例：
   User: "帮我订一张明天北京到上海的高铁票，靠窗。"
   → 查询车次 → 检查余票 → 创建订单 → 确认支付，多步串联。
 ```
@@ -51,5 +51,5 @@ Level-3 示例:
 ## 参考
 
 - [arXiv 2304.08244 — API-Bank](https://arxiv.org/abs/2304.08244)
-- [ACL Anthology（EMNLP 2023）](https://aclanthology.org/2023.emnlp-main.187/)
+- [ACL Anthology (EMNLP 2023)](https://aclanthology.org/2023.emnlp-main.187/)
 - [AlibabaResearch/DAMO-ConvAI](https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/api-bank)

@@ -40,12 +40,12 @@
 ```text
 Q: Were Scott Derrickson and Ed Wood of the same nationality?
 
-推理链:
-  文章1: "Scott Derrickson is an American director..."
-  文章2: "Edward Davis Wood Jr. was an American filmmaker..."
-  → 桥接比较: 两人都是美国人
+推理链：
+  文章 1: "Scott Derrickson is an American director..."
+  文章 2: "Edward Davis Wood Jr. was an American filmmaker..."
+  → 桥接比较：两人都是美国人
 A: yes
-支撑句: 上述两句
+支撑句：上述两句
 ```
 
 ## 参考

@@ -51,15 +51,15 @@ Berkeley Function-Calling Leaderboard，UC Berkeley Gorilla 团队维护的函�
 ## 举例
 
 ```text
-可用函数:
+可用函数：
   get_weather(location: str, unit: "celsius" | "fahrenheit")
 
-用户: "北京今天多少度？"
+用户："北京今天多少度？"
 
 期望输出（AST）:
   get_weather(location="Beijing", unit="celsius")
 
-Multi-turn 扰动示例:
+Multi-turn 扰动示例：
   第 2 轮用户说 "把刚才那个文件删掉"，
   但 delete_file 函数本轮被移除 →
   正确行为是报告缺函数，而不是幻觉调用。

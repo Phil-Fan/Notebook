@@ -30,7 +30,7 @@
 ## 举例
 
 ```text
-模拟对话（工具: currency_converter）:
+模拟对话（工具：currency_converter）:
   User simulator: "How much is 200 euros in Japanese yen?"
   Tool master: [call currency_converter(amount=200,
                  from_currency="EUR", to_currency="JPY")]

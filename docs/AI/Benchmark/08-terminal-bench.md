@@ -54,7 +54,7 @@ Agent 通过 bash 会话与环境交互，评测跑测试判定成败，指标�
    Diagnose the issue, fix it, and ensure the service
    starts automatically on boot."
 
-Agent 需要:
+Agent 需要：
   systemctl status nginx → 读错误日志 → 发现配置语法错误
   → 修 /etc/nginx/nginx.conf → 重启并验证 → 配置开机自启
   → 通过 pytest 检查（服务运行中 + 配置正确）

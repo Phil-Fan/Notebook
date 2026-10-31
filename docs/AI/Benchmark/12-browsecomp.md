@@ -37,7 +37,7 @@ OpenAI 发布的**浏览型 Agent** 基准：题目一句话就能说清，但�
    was the capital of a country for exactly 12 years,
    and which premiered at a festival in 1997."
 
-特点: 每个子条件都可验证，但组合起来只有极少数
+特点：每个子条件都可验证，但组合起来只有极少数
 冷门条目满足，需要逐层搜索排除。
 ```
 

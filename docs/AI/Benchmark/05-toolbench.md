@@ -53,7 +53,7 @@
   "I'm planning a trip to Paris next week. Can you check the weather
    there and convert 500 USD to EUR for my budget?"
 
-期望调用链:
+期望调用链：
   weather_api.get_forecast(city="Paris")
   → currency_api.convert(amount=500, from="USD", to="EUR")
   → 汇总成自然语言回答
