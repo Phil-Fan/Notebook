@@ -84,3 +84,11 @@
     - 切忌定义太多的缩写（Acronym），容易把人搞晕，比如动不动就定义一个：
         - Base Station (BS)、Energy Harvesting Base Station (EHBS)、Data Collection Base Station (DCBS)....... 要 minimize 缩写的定义增加可读性，比如之后的文章中不会用到的可以不进行定义
 - **注意中文中顿号的使用**：英文中没有顿号，几个词通常是用逗号连接，最后的那个用 and
+
+## 延伸阅读：论文写作经典指南
+
+- **[Paper Writing](https://www.sophielwang.com/blog/paper-writing)** - Sophie Wang：汇总了下列几份经典写作指南的要点
+- **[How to Write a Great Research Paper](https://www.microsoft.com/en-us/research/academic-program/write-great-research-paper/)** - Simon Peyton Jones：七个建议，讲清楚"写论文就是在讲一个好故事"
+- **[Heuristics for Scientific Writing (a Machine Learning Perspective)](https://www.approximatelycorrect.com/2018/01/29/heuristics-technical-scientific-writing-machine-learning-perspective/)** - Zachary Lipton：从 ML 审稿视角出发的具体写作启发式
+- **[Crafting Papers on Machine Learning](https://icml.cc/Conferences/2002/craft.html)** - Pat Langley：面向 ML 论文的组织与表达方法
+- **[Highly Opinionated Advice on How to Write ML Papers](https://www.alignmentforum.org/posts/eJGptPbbFPZGLpjsp/highly-opinionated-advice-on-how-to-write-ml-papers)** - Neel Nanda：关于叙事、结构与审稿人心理的直白建议
