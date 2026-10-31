@@ -12,6 +12,7 @@ MkDocs Material 个人知识库。笔记在 `docs/`，导航在 `mkdocs.yml`，�
 | 质量 | **pre-commit** + CI `Quality Check` |
 | 钩子 | autocorrect、ruff / pyrefly（`hooks/`） |
 | CI | `.github/workflows/check.yml`（`pre-commit/action` + `uv sync`） |
+| 部署 | Cloudflare Pages 项目 `notebook`（连 GitHub，push `main` 自动构建）；仓库内**不再**保留部署 workflow |
 
 - 勿迁到 VitePress/Next；**不使用 Makefile**，统一用 `uv` / pre-commit。
 - **提交前必须**通过 pre-commit / lint（见下节）；改结构后再 `uv run mkdocs build`。
@@ -193,6 +194,8 @@ pre-commit run --all-files
 | Python 类型 | pyrefly（`uv run`） | `hooks/` |
 
 CI：push / PR 到 `main` 触发 `.github/workflows/check.yml`（`uv sync` + pre-commit）。
+
+部署：由 Cloudflare Pages（项目名 `notebook`）在 push `main` 后自动构建并发布 `note.philfan.cn`；仓库内不再有 `gh-deploy` / GitHub Pages 工作流，勿再加回。
 
 **CI 要求（强制）**：所有推送必须通过 Quality Check。若 CI 失败，必须立即修复后重新推送。严禁跳过或忽略 CI 错误。
 

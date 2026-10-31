@@ -7,8 +7,8 @@
   <a href="https://github.com/Phil-Fan/Notebook/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/license-CC4.0-blue.svg" />
   </a>
-  <a href="https://github.com/Phil-Fan/Notebook/actions/workflows/static.yml">
-    <img alt="deploy" src="https://github.com/Phil-Fan/Notebook/actions/workflows/static.yml/badge.svg?branch=main" />
+  <a href="https://note.philfan.cn/">
+    <img alt="docs" src="https://img.shields.io/badge/docs-note.philfan.cn-blue.svg" />
   </a>
 </p>
 
