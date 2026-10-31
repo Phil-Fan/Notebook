@@ -20,9 +20,9 @@ jobs:
         with:
           fetch-depth: 0    # for mkdocs-git-revision-date-localized-plugin
     
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: 3.12.4
+          python-version: "3.12"
 
       - uses: astral-sh/setup-uv@v3
 
