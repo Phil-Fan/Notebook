@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;650&family=JetBrains+Mono:wght@400;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" />
 <title>单词拆分 · 动态规划动画</title>
 <style>
   :root{
@@ -30,12 +30,12 @@
     --font-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
   :root{
-    --panel:oklch(0.2046 0.0000 0.0000 / 0.720);
-    --line:oklch(0.7155 0.0000 0.0000 / 0.200);
+    --panel:var(--card);
+    --line:var(--border);
     --text:oklch(0.9219 0.0000 0.0000);
     --dim:oklch(0.7155 0.0000 0.0000);
     --amber:oklch(0.6231 0.1880 259.8145);
-    --green:oklch(0.7137 0.1434 254.6240);
+    --green:var(--accent-foreground);
     --blue:oklch(0.7137 0.1434 254.6240);
     --purple:oklch(0.4882 0.2172 264.3763);
     --pink:oklch(0.6368 0.2078 25.3313);
@@ -64,7 +64,7 @@
         backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
 
   /* ---------------- stage ---------------- */
-  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),oklch(0.2046 0.0000 0.0000 / 0.850));
+  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),var(--card));
          border:1px solid var(--line);border-radius:18px;padding:13px 14px 12px;
          box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden;
          transition:box-shadow .35s,border-color .35s}
@@ -72,7 +72,7 @@
          box-shadow:0 0 0 1px oklch(0.7137 0.1434 254.6240 / 0.200),0 18px 50px rgba(0,0,0,.38),0 0 46px oklch(0.7137 0.1434 254.6240 / 0.100)}
 
   .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;
-    color:oklch(0.3715 0.0000 0.0000);font-family:var(--mono);margin:0 0 7px}
+    color:var(--muted-foreground);font-family:var(--mono);margin:0 0 7px}
   .sec-label .zh{font-family:inherit;color:oklch(0.7155 0.0000 0.0000)}
   .sec-label+.sec-label{margin-top:0}
 
@@ -99,7 +99,7 @@
 
   .idx-row{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;max-width:520px;margin:7px auto 0;
     font-variant-numeric:tabular-nums}
-  .idx{text-align:center;font-size:11px;color:oklch(0.3715 0.0000 0.0000);font-family:var(--mono);transition:color .25s}
+  .idx{text-align:center;font-size:11px;color:var(--muted-foreground);font-family:var(--mono);transition:color .25s}
   .idx.on{color:oklch(0.7137 0.1434 254.6240)}
   .idx.anchor{color:oklch(0.6231 0.1880 259.8145);font-weight:700}
 
@@ -115,7 +115,7 @@
   .bracket.tone1{--bcolor:oklch(0.4882 0.2172 264.3763 / 0.820)}
   .bracket.active{border-top-width:2px;border-left-width:2px;border-right-width:2px}
   .bracket.idle{--bcolor:oklch(0.7155 0.0000 0.0000 / 0.300)}
-  .bracket.idle .blabel{color:oklch(0.3715 0.0000 0.0000)}
+  .bracket.idle .blabel{color:var(--muted-foreground)}
   .bracket .blabel{font-family:var(--mono);font-size:10.5px;white-space:nowrap;color:oklch(0.6231 0.1880 259.8145);line-height:1.2}
   .bracket.match .blabel{color:oklch(0.7137 0.1434 254.6240)}
   .bracket.nomatch .blabel{color:oklch(0.9219 0.0000 0.0000)}
@@ -146,7 +146,7 @@
   .dp-cell.chainhl{box-shadow:inset 0 1px 0 oklch(0.9219 0.0000 0.0000 / 0.140),0 0 0 2px oklch(0.7137 0.1434 254.6240 / 0.400),0 0 22px oklch(0.7137 0.1434 254.6240 / 0.160)}
 
   .words-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
-  .sec-inline{font-size:10.5px;letter-spacing:.3px;color:oklch(0.3715 0.0000 0.0000);font-family:var(--mono)}
+  .sec-inline{font-size:10.5px;letter-spacing:.3px;color:var(--muted-foreground);font-family:var(--mono)}
   .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
   .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:oklch(0.7155 0.0000 0.0000);
     padding:5px 11px 5px 12px;border-radius:10px;border:1px solid oklch(0.7137 0.1434 254.6240 / 0.300);
@@ -169,7 +169,7 @@
   .chain-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;
     min-height:22px;flex-wrap:wrap}
   .chain{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--mono);font-size:11px}
-  .chain .ca{color:oklch(0.3715 0.0000 0.0000)}
+  .chain .ca{color:var(--muted-foreground)}
   .chain .cn{color:oklch(0.7137 0.1434 254.6240);padding:2px 7px;border-radius:6px;background:oklch(0.7137 0.1434 254.6240 / 0.100);
     border:1px solid oklch(0.7137 0.1434 254.6240 / 0.300);white-space:nowrap}
   .chain .cw{color:oklch(0.6231 0.1880 259.8145);padding:2px 7px;border-radius:6px;background:oklch(0.6231 0.1880 259.8145 / 0.100);
@@ -177,10 +177,10 @@
 
   .verdict{min-height:27px;margin-top:9px;display:flex;align-items:center;justify-content:center;gap:7px;
     font-size:12px;pointer-events:none}
-  .verdict .vwait{color:oklch(0.3715 0.0000 0.0000);font-size:11px;letter-spacing:.4px}
+  .verdict .vwait{color:var(--muted-foreground);font-size:11px;letter-spacing:.4px}
   .verdict .vok{color:oklch(0.7137 0.1434 254.6240);font-weight:650;padding:3px 9px;border-radius:8px;
     background:oklch(0.7137 0.1434 254.6240 / 0.120);border:1px solid oklch(0.7137 0.1434 254.6240 / 0.400)}
-  .verdict .vsep,.verdict .vplus{color:oklch(0.3715 0.0000 0.0000)}
+  .verdict .vsep,.verdict .vplus{color:var(--muted-foreground)}
   .verdict .vseg{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:8px}
   .verdict .vseg.tone0{color:oklch(0.7137 0.1434 254.6240);background:oklch(0.7137 0.1434 254.6240 / 0.120);border:1px solid oklch(0.7137 0.1434 254.6240 / 0.400)}
   .verdict .vseg.tone1{color:oklch(0.9219 0.0000 0.0000);background:oklch(0.4882 0.2172 264.3763 / 0.120);border:1px solid oklch(0.4882 0.2172 264.3763 / 0.400)}
@@ -203,7 +203,7 @@
   .progress{height:4px;border-radius:99px;background:oklch(0.7155 0.0000 0.0000 / 0.160);margin:12px 4px 0;overflow:hidden}
   .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,oklch(0.6231 0.1880 259.8145),oklch(0.4882 0.2172 264.3763));
     transition:width .3s cubic-bezier(.4,0,.2,1)}
-  .hint{margin:10px 4px 0;font-size:11.5px;color:oklch(0.3715 0.0000 0.0000);line-height:1.65}
+  .hint{margin:10px 4px 0;font-size:11.5px;color:var(--muted-foreground);line-height:1.65}
   .hint code{font-family:var(--mono);font-size:11px;color:oklch(0.7155 0.0000 0.0000)}
   kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid oklch(0.7155 0.0000 0.0000 / 0.300);
       background:oklch(0.2393 0.0000 0.0000 / 0.900);color:oklch(0.7155 0.0000 0.0000)}
@@ -682,7 +682,7 @@
       anchor = st.seg.start;
     }
 
-    /* 下标：dp[j] 为 True 的边界泛绿，当前候选起点标琥珀 */
+    /* 下标：dp[j] 为 True 的边界用强调色，当前候选起点用主色 */
     idxEls.forEach((el, k) => {
       el.className = "idx" + (st.dp[k] ? " on" : "");
       if (anchor === k) el.classList.add("anchor");

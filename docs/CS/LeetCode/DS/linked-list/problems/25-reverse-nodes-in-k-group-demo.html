@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;650&family=JetBrains+Mono:wght@400;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" />
 <title>K 个一组翻转链表 · 迭代动画</title>
 <style>
   :root{
@@ -30,12 +30,12 @@
     --font-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
   :root{
-    --panel:oklch(0.2046 0.0000 0.0000 / 0.720);
-    --line:oklch(0.7155 0.0000 0.0000 / 0.200);
+    --panel:var(--card);
+    --line:var(--border);
     --text:oklch(0.9219 0.0000 0.0000);
     --dim:oklch(0.7155 0.0000 0.0000);
     --amber:oklch(0.6231 0.1880 259.8145);
-    --green:oklch(0.7137 0.1434 254.6240);
+    --green:var(--accent-foreground);
     --blue:oklch(0.7137 0.1434 254.6240);
     --purple:oklch(0.4882 0.2172 264.3763);
     --pink:oklch(0.6368 0.2078 25.3313);
@@ -63,7 +63,7 @@
         backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
 
   /* ---------------- stage ---------------- */
-  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),oklch(0.2046 0.0000 0.0000 / 0.850));
+  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),var(--card));
          border:1px solid var(--line);border-radius:18px;padding:14px 12px 10px;
          box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden}
   .canvas{position:relative;height:300px;width:100%}
@@ -130,14 +130,14 @@
   .progress{height:4px;border-radius:99px;background:oklch(0.7155 0.0000 0.0000 / 0.160);margin:12px 4px 0;overflow:hidden}
   .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,oklch(0.6231 0.1880 259.8145),oklch(0.4882 0.2172 264.3763));
     transition:width .3s cubic-bezier(.4,0,.2,1)}
-  .hint{margin:10px 4px 0;font-size:11.5px;color:oklch(0.3715 0.0000 0.0000);line-height:1.6}
+  .hint{margin:10px 4px 0;font-size:11.5px;color:var(--muted-foreground);line-height:1.6}
   kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid oklch(0.7155 0.0000 0.0000 / 0.300);
       background:oklch(0.2393 0.0000 0.0000 / 0.900);color:oklch(0.7155 0.0000 0.0000)}
 
   .legend{display:flex;gap:16px;flex-wrap:wrap;margin:14px 4px 0;font-size:12px;color:var(--dim)}
   .legend span{display:inline-flex;align-items:center;gap:6px}
   .sw{width:16px;height:0;border-radius:2px;display:inline-block;border-top:2px solid}
-  .sw.gray{border-color:oklch(0.3715 0.0000 0.0000)}
+  .sw.gray{border-color:var(--muted-foreground)}
   .sw.amber{border-color:oklch(0.6231 0.1880 259.8145 / 0.900)}
   .sw.green{border-color:oklch(0.7137 0.1434 254.6240 / 0.900)}
   .sw.yellow{border-color:oklch(0.6231 0.1880 259.8145 / 0.900)}

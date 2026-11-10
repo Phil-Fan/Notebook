@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;650&family=JetBrains+Mono:wght@400;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" />
 <title>最小覆盖子串 · 滑动窗口动画</title>
 <style>
   :root{
@@ -30,12 +30,12 @@
     --font-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
   :root{
-    --panel:oklch(0.2046 0.0000 0.0000 / 0.720);
-    --line:oklch(0.7155 0.0000 0.0000 / 0.200);
+    --panel:var(--card);
+    --line:var(--border);
     --text:oklch(0.9219 0.0000 0.0000);
     --dim:oklch(0.7155 0.0000 0.0000);
     --amber:oklch(0.6231 0.1880 259.8145);
-    --green:oklch(0.7137 0.1434 254.6240);
+    --green:var(--accent-foreground);
     --blue:oklch(0.7137 0.1434 254.6240);
     --purple:oklch(0.4882 0.2172 264.3763);
     --pink:oklch(0.6368 0.2078 25.3313);
@@ -64,10 +64,10 @@
   .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
         backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
 
-  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),oklch(0.2046 0.0000 0.0000 / 0.850));
+  .stage{background:linear-gradient(180deg,oklch(0.2393 0.0000 0.0000 / 0.850),var(--card));
          border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;
          box-shadow:0 18px 50px rgba(0,0,0,.38)}
-  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;color:oklch(0.3715 0.0000 0.0000);
+  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;color:var(--muted-foreground);
              font-family:var(--mono);margin:0 0 8px}
   .sec-label .zh{font-family:inherit;color:oklch(0.7155 0.0000 0.0000)}
 
@@ -76,7 +76,7 @@
   .cell{position:relative;width:36px;height:48px;border-radius:10px;border:1px solid oklch(0.7155 0.0000 0.0000 / 0.220);
         background:oklch(0.2393 0.0000 0.0000 / 0.550);display:flex;align-items:center;justify-content:center;
         font-family:var(--mono);font-size:17px;color:oklch(0.7137 0.1434 254.6240);transition:all .18s ease}
-  .cell .idx{position:absolute;top:-15px;left:0;right:0;text-align:center;font-size:9.5px;color:oklch(0.3715 0.0000 0.0000);font-family:var(--mono)}
+  .cell .idx{position:absolute;top:-15px;left:0;right:0;text-align:center;font-size:9.5px;color:var(--muted-foreground);font-family:var(--mono)}
   .cell.out{opacity:.34}
   .cell.inwin{background:oklch(0.7137 0.1434 254.6240 / 0.160);border-color:oklch(0.7137 0.1434 254.6240 / 0.550);color:oklch(0.9219 0.0000 0.0000)}
   .cell.inwin.best{background:oklch(0.7137 0.1434 254.6240 / 0.160);border-color:oklch(0.7137 0.1434 254.6240 / 0.620);box-shadow:0 0 0 1px oklch(0.7137 0.1434 254.6240 / 0.250) inset;color:oklch(0.9219 0.0000 0.0000)}
@@ -130,7 +130,7 @@
   pre{margin:0;padding:10px 0;font-family:var(--mono);font-size:11.5px;line-height:1.62;
       color:oklch(0.7155 0.0000 0.0000);overflow:auto;max-height:430px}
   .ln{display:block;padding:0 14px;white-space:pre;border-left:2px solid transparent;transition:all .16s}
-  .ln .c{color:oklch(0.3715 0.0000 0.0000)}
+  .ln .c{color:var(--muted-foreground)}
   .ln.hl{background:oklch(0.6231 0.1880 259.8145 / 0.100);border-left-color:var(--amber);color:oklch(0.6231 0.1880 259.8145)}
   .ln.hl .c{color:oklch(0.7155 0.0000 0.0000)}
 
@@ -150,7 +150,7 @@
   .speed{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11.5px;color:oklch(0.7155 0.0000 0.0000)}
   select{font-family:inherit;font-size:11.5px;color:oklch(0.9219 0.0000 0.0000);background:oklch(0.2393 0.0000 0.0000 / 0.850);
          border:1px solid oklch(0.7155 0.0000 0.0000 / 0.300);border-radius:8px;padding:5px 7px}
-  .hint{width:100%;font-size:11px;color:oklch(0.3715 0.0000 0.0000);margin-top:2px}
+  .hint{width:100%;font-size:11px;color:var(--muted-foreground);margin-top:2px}
   kbd{font-family:var(--mono);font-size:10.5px;padding:1px 5px;border-radius:5px;
       border:1px solid oklch(0.7155 0.0000 0.0000 / 0.350);background:oklch(0.2393 0.0000 0.0000 / 0.800);color:oklch(0.7137 0.1434 254.6240)}
 </style>
