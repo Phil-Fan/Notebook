@@ -141,7 +141,7 @@ $$w_i = \min(L_i, R_i) - height[i]$$
 
 ## 教学动画（HTML）
 
-[讲解动画：双指针接雨水](42-trapping-rain-water-demo.html)
+<iframe src="42-trapping-rain-water-demo.html" title="双指针接雨水" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
 橙色虚线是 `leftMax`（左侧已见最高）、紫色虚线是 `rightMax`、蓝色是已接的雨水。每一步先比较 `height[left]` 与 `height[right]`，再结算更矮那一侧、把该侧指针往里挪一格，右侧面板同步高亮对应代码行并累加水量。空格播放 / 暂停，`←` `→` 单步，`R` 重置——盯着看「谁矮结算谁」以及 `leftMax`/`rightMax` 只增不减。
 

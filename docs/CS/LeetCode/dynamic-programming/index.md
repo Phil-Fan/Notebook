@@ -20,15 +20,15 @@
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
 | [139 单词拆分](problems/139-word-break.md) | 中等 | ✔ 已整理 | 按词尾枚举的 dp；另有切点枚举 |
-| [300 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) | 中等 | ☐ 待补 | 「以 i 结尾」的经典一维 dp |
+| [300 最长递增子序列](problems/300-longest-increasing-subsequence.md) | 中等 | ✔ 已整理 | 「以 i 结尾」的 dp，或 tails + 二分 |
 
 ## 题目（多维 dp，题单第 14 类）
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [1143 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/) | 中等 | ☐ 待补 | 二维「前 i 个 × 前 j 个」 |
-| [64 最小路径和](https://leetcode.cn/problems/minimum-path-sum/) | 中等 | ☐ 待补 | 网格上的二维 dp |
-| [72 编辑距离](https://leetcode.cn/problems/edit-distance/) | 中等 | ☐ 待补 | 二维 + 增删改三种转移 |
+| [1143 最长公共子序列](problems/1143-longest-common-subsequence.md) | 中等 | ✔ 已整理 | 二维「前 i 个 × 前 j 个」 |
+| [64 最小路径和](problems/64-minimum-path-sum.md) | 中等 | ✔ 已整理 | 网格上的二维 dp |
+| [72 编辑距离](problems/72-edit-distance.md) | 中等 | ✔ 已整理 | 二维 + 增删改三种转移 |
 
 ## 易错点
 

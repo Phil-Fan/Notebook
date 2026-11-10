@@ -634,10 +634,19 @@ nav:
         - CS/LeetCode/DS/linked-list/index.md
         - 数组与链表: CS/LeetCode/DS/linked-list/list.md
         - "25 K 个一组翻转链表": CS/LeetCode/DS/linked-list/problems/25-reverse-nodes-in-k-group.md
-      - 栈: CS/LeetCode/DS/stack/index.md
-      - 队列: CS/LeetCode/DS/queue/index.md
-      - 树: CS/LeetCode/DS/tree/index.md
-      - 图: CS/LeetCode/DS/graph/index.md
+        - "146 LRU 缓存": CS/LeetCode/DS/linked-list/problems/146-lru-cache.md
+      - 栈:
+        - CS/LeetCode/DS/stack/index.md
+        - "20 有效的括号": CS/LeetCode/DS/stack/problems/20-valid-parentheses.md
+      - 队列:
+        - CS/LeetCode/DS/queue/index.md
+        - "215 第 K 个最大元素": CS/LeetCode/DS/queue/problems/215-kth-largest-element-in-an-array.md
+      - 树:
+        - CS/LeetCode/DS/tree/index.md
+        - "199 二叉树的右视图": CS/LeetCode/DS/tree/problems/199-binary-tree-right-side-view.md
+      - 图:
+        - CS/LeetCode/DS/graph/index.md
+        - "200 岛屿数量": CS/LeetCode/DS/graph/problems/200-number-of-islands.md
       - 哈希:
         - CS/LeetCode/DS/hash/index.md
         - 散列表: CS/LeetCode/DS/hash/hash-table.md
@@ -645,15 +654,28 @@ nav:
     - 双指针:
       - CS/LeetCode/two-pointers/index.md
       - "42 接雨水": CS/LeetCode/two-pointers/problems/42-trapping-rain-water.md
+      - "15 三数之和": CS/LeetCode/two-pointers/problems/15-3sum.md
     - 子串:
       - CS/LeetCode/substring/index.md
+      - "3 无重复字符的最长子串": CS/LeetCode/substring/problems/3-longest-substring-without-repeating-characters.md
       - "76 最小覆盖子串": CS/LeetCode/substring/problems/76-minimum-window-substring.md
+    - 矩阵:
+      - CS/LeetCode/matrix/index.md
+      - "48 旋转图像": CS/LeetCode/matrix/problems/48-rotate-image.md
+    - 回溯:
+      - CS/LeetCode/backtrack/index.md
+      - "22 括号生成": CS/LeetCode/backtrack/problems/22-generate-parentheses.md
     - 贪心:
       - CS/LeetCode/greedy/index.md
+      - "55 跳跃游戏": CS/LeetCode/greedy/problems/55-jump-game.md
       - "188 买卖股票的最佳时机 IV": CS/LeetCode/greedy/problems/188-best-time-to-buy-and-sell-stock-iv.md
     - 动态规划:
       - CS/LeetCode/dynamic-programming/index.md
       - "139 单词拆分": CS/LeetCode/dynamic-programming/problems/139-word-break.md
+      - "300 最长递增子序列": CS/LeetCode/dynamic-programming/problems/300-longest-increasing-subsequence.md
+      - "1143 最长公共子序列": CS/LeetCode/dynamic-programming/problems/1143-longest-common-subsequence.md
+      - "64 最小路径和": CS/LeetCode/dynamic-programming/problems/64-minimum-path-sum.md
+      - "72 编辑距离": CS/LeetCode/dynamic-programming/problems/72-edit-distance.md
     - 数学: CS/LeetCode/math/index.md
     - 排序: CS/LeetCode/sorting/index.md
     - 搜索:

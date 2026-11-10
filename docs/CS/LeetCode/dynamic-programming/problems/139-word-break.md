@@ -135,7 +135,7 @@ $m$ 个词每个长度不同，所以 $O(n m L)$ 只是上界；按长度排序 
 
 ## 教学动画（HTML）
 
-[讲解动画：dp 填表](139-word-break-demo.html)
+<iframe src="139-word-break-demo.html" title="dp 填表" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
 动画用 `s = "leetcode"、wordDict = ["leet","code"]`：橙色是当前 `i` 和正在尝试的词，方框标出正在匹配的区间 `s[i-lw:i]`；蓝色表示前缀 `dp[i-lw] = False`，粉色表示子串和单词对不上，绿色是判定为可拆的 `dp` 格。`dp` 填完后，动画顺着 `parent` 从 `n` 往回跳，把切分结果回溯成 `leet | code`。空格播放/暂停，`←` `→` 单步，`R` 复位。
 

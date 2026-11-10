@@ -143,7 +143,7 @@ Python 的 `dict` 保序，所以组间顺序天然是「该组第一个词在 `
 
 ## 教学动画（HTML）
 
-[讲解动画：哈希入桶](49-group-anagrams-demo.html)
+<iframe src="49-group-anagrams-demo.html" title="哈希入桶" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
 动画里每个单词走三步：**算签名 → 查表 → 入桶**，桶的槽位数就是 `strs` 里不同签名的个数。空格播放 / 暂停，`←` `→` 单步，看清「同签名落进同一格」这件事。
 

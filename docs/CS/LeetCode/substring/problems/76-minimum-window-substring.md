@@ -175,7 +175,7 @@
 
 ## 教学动画（HTML）
 
-[讲解动画：滑动窗口](76-minimum-window-substring-demo.html)
+<iframe src="76-minimum-window-substring-demo.html" title="滑动窗口" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
 动画用 `s = "ADOBECODEBANC"`、`t = "ABC"` 把整个扫描过程拆成 38 步：
 

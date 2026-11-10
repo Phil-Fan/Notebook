@@ -137,7 +137,7 @@ LC 188 的约束是 $k \le 100$、$n \le 1000$，$O(k n)$ 完全够用；真正�
 
 ## 教学动画（HTML）
 
-[讲解动画：dp 表](188-best-time-to-buy-and-sell-stock-iv-demo.html)
+<iframe src="188-best-time-to-buy-and-sell-stock-iv-demo.html" title="dp 表" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
 动画用 `prices = [3,2,6,5,0,3]、k = 2` 逐格填 `dp[t][i]`：黄色是当前卖出日/当前格，青色标出 `best` 对应的买入日 `j`（argmax），蓝色是参考的上一层 `dp[t-1][·]`，虚线格是「今天不卖」时的 `dp[t][i-1]`。每格只做两件事——先把新买入日 `j = i-2` 吸收进 `best`，再用 `prices[i-1] + best` 与 `dp[t][i-1]` 取 max。空格播放/暂停，`←` `→` 单步，`R` 复位。
 

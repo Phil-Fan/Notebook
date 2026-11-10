@@ -14,4 +14,10 @@ def add_undirected(graph: dict[int, list[int]], u: int, v: int) -> None:
 
 遍历见 [无权搜索](../../search/uninformed.md)。岛屿数量这类网格题，把每个格子当成顶点，四连通的边连起来，每发现一块没走过的陆地就做一次搜索。
 
+## 题目
+
+| 题目 | 难度 | 状态 | 一句话 |
+|:-----|:-----|:-----|:-------|
+| [200 岛屿数量](problems/200-number-of-islands.md) | 中等 | ✔ 已整理 | 碰到 `'1'` 就计数，并 DFS/BFS 淹掉整块 |
+
 [← 返回数据结构](../index.md)

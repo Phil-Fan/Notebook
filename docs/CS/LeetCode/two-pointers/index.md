@@ -22,7 +22,7 @@
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
 | [42 接雨水](problems/42-trapping-rain-water.md) | 困难 | ✔ 已整理 | 双指针 + 左右各自最大值，每轮结算更矮的一侧 |
-| [15 三数之和](https://leetcode.cn/problems/3sum/) | 中等 | ☐ 待补 | 排序 + 固定一个数 + 左右夹逼 + 跳过重复 |
+| [15 三数之和](problems/15-3sum.md) | 中等 | ✔ 已整理 | 排序 + 固定一个数 + 左右夹逼 + 跳过重复 |
 | [11 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) | 中等 | 相关 | 每次移动更矮的挡板 |
 | [84 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) | 困难 | 相关 | 接雨水的姊妹题，用单调栈 |
 
