@@ -628,24 +628,54 @@ nav:
 
   - "LeetCode | 力扣":
     - CS/LeetCode/index.md
-    - 哈希:
-      - CS/LeetCode/hash/index.md
-      - "49 字母异位词分组": CS/LeetCode/hash/49-group-anagrams.md
+    - 数据结构:
+      - CS/LeetCode/DS/index.md
+      - 链表:
+        - CS/LeetCode/DS/linked-list/index.md
+        - 数组与链表: CS/LeetCode/DS/linked-list/list.md
+        - "25 K 个一组翻转链表": CS/LeetCode/DS/linked-list/problems/25-reverse-nodes-in-k-group.md
+      - 栈: CS/LeetCode/DS/stack/index.md
+      - 队列: CS/LeetCode/DS/queue/index.md
+      - 树: CS/LeetCode/DS/tree/index.md
+      - 图: CS/LeetCode/DS/graph/index.md
+      - 哈希:
+        - CS/LeetCode/DS/hash/index.md
+        - 散列表: CS/LeetCode/DS/hash/hash-table.md
+        - "49 字母异位词分组": CS/LeetCode/DS/hash/problems/49-group-anagrams.md
     - 双指针:
       - CS/LeetCode/two-pointers/index.md
-      - "42 接雨水": CS/LeetCode/two-pointers/42-trapping-rain-water.md
+      - "42 接雨水": CS/LeetCode/two-pointers/problems/42-trapping-rain-water.md
     - 子串:
       - CS/LeetCode/substring/index.md
-      - "76 最小覆盖子串": CS/LeetCode/substring/76-minimum-window-substring.md
-    - 链表:
-      - CS/LeetCode/linked-list/index.md
-      - "25 K 个一组翻转链表": CS/LeetCode/linked-list/25-reverse-nodes-in-k-group.md
+      - "76 最小覆盖子串": CS/LeetCode/substring/problems/76-minimum-window-substring.md
     - 贪心:
       - CS/LeetCode/greedy/index.md
-      - "188 买卖股票的最佳时机 IV": CS/LeetCode/greedy/188-best-time-to-buy-and-sell-stock-iv.md
+      - "188 买卖股票的最佳时机 IV": CS/LeetCode/greedy/problems/188-best-time-to-buy-and-sell-stock-iv.md
     - 动态规划:
       - CS/LeetCode/dynamic-programming/index.md
-      - "139 单词拆分": CS/LeetCode/dynamic-programming/139-word-break.md
+      - "139 单词拆分": CS/LeetCode/dynamic-programming/problems/139-word-break.md
+    - 数学: CS/LeetCode/math/index.md
+    - 排序: CS/LeetCode/sorting/index.md
+    - 搜索:
+      - 无权搜索: CS/LeetCode/search/uninformed.md
+      - 启发式搜索: CS/LeetCode/search/informed.md
+      - 对抗搜索: CS/LeetCode/search/adversarial.md
+    - 分治:
+      - CS/LeetCode/divide/index.md
+      - 数列分段: CS/LeetCode/divide/problems/section-ii.md
+      - 砍树: CS/LeetCode/divide/problems/cut-trees.md
+      - 木材加工: CS/LeetCode/divide/problems/wood-processing.md
+      - 零钱方案数: CS/LeetCode/divide/problems/count-dollars.md
+      - 放苹果: CS/LeetCode/divide/problems/put-apples.md
+    - 背包: CS/LeetCode/knapsack/index.md
+    - 并查集:
+      - CS/LeetCode/union-find/index.md
+      - 亲戚: CS/LeetCode/union-find/problems/relatives.md
+      - 模板: CS/LeetCode/union-find/problems/template.md
+      - 食物链: CS/LeetCode/union-find/problems/food-chain.md
+      - 关押罪犯: CS/LeetCode/union-find/problems/prisoners.md
+      - 银河英雄传说: CS/LeetCode/union-find/problems/galaxy.md
+    - 复杂度: CS/LeetCode/complexity.md
 
   - "DS | 数据结构":
     - CS/DS/00-intro.md

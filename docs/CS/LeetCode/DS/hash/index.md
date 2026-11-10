@@ -27,7 +27,7 @@
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [49 字母异位词分组](49-group-anagrams.md) | 中等 | ✔ 已整理 | 排序键 / 计数键分桶 |
+| [49 字母异位词分组](problems/49-group-anagrams.md) | 中等 | ✔ 已整理 | 排序键 / 计数键分桶 |
 | [242 有效的字母异位词](https://leetcode.cn/problems/valid-anagram/) | 简单 | ☐ 待补 | 本题的单组版：比两个计数向量 |
 | [1 两数之和](https://leetcode.cn/problems/two-sum/) | 简单 | 相关 | 哈希里存「还差多少」 |
 
@@ -39,5 +39,5 @@
 
 ## 相关
 
-- [← 返回 Hot 20 题单](../index.md)
-- 本库基础笔记：[散列表与 hash](../../DS/07-Hash.md)
+- [← 返回 Hot 20 题单](../../index.md)
+- 本库基础笔记：[散列表](hash-table.md)

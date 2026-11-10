@@ -86,25 +86,26 @@ $$w_i = \min(L_i, R_i) - height[i]$$
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。
+> 按力扣提交格式写：一个 `Solution` 类。只用内置类型。
 
 === "主推：双指针（O(1) 空间）"
 
     ```python
-    def trap(height: list[int]) -> int:
-        left, right = 0, len(height) - 1          # 双指针夹住两端，每轮只结算更矮的那一侧
-        left_max = right_max = 0                  # 各自一侧已经见过的最高柱
-        water = 0                                 # 累加的雨水量
-        while left < right:                       # 指针相遇时每个位置恰好结算一次
-            if height[left] < height[right]:      # 左柱更矮 → 水位由 left_max 唯一确定
-                left_max = max(left_max, height[left])   # 左侧已见最高
-                water += left_max - height[left]         # 结算比自身高的部分
-                left += 1                                # 左指针内移一格
-            else:                                 # 右柱更矮或等高（等高走哪支都对）
-                right_max = max(right_max, height[right])   # 先更新右侧已见最高（含自身）
-                water += right_max - height[right]          # 再结算这一格，保证不为负
-                right -= 1                                  # 右指针内移一格
-        return water
+    class Solution:
+        def trap(self, height: list[int]) -> int:
+            left, right = 0, len(height) - 1
+            left_max = right_max = 0
+            water = 0
+            while left < right:
+                if height[left] < height[right]:
+                    left_max = max(left_max, height[left])
+                    water += left_max - height[left]
+                    left += 1
+                else:
+                    right_max = max(right_max, height[right])
+                    water += right_max - height[right]
+                    right -= 1
+            return water
     ```
 
     每个位置只被左、右指针中的一根处理一次，共 $n-1$ 轮、每轮 $O(1)$。空数组、单柱子天然返回 0，不需要特判；`height[left]` 与 `height[right]` 相等时走 `else` 分支也是正确的。
@@ -112,17 +113,18 @@ $$w_i = \min(L_i, R_i) - height[i]$$
 === "对照：前后缀最高数组"
 
     ```python
-    def trap(height: list[int]) -> int:
-        n = len(height)                          # 柱子数
-        if n < 3:                                # 少于 3 根不可能积水（两端没有挡板）
-            return 0
-        left_max = height[:]                     # left_max[i] = max(height[0..i])
-        right_max = height[:]                    # right_max[i] = max(height[i..n-1])
-        for i in range(1, n):                    # 从左往右推「含自身」的前缀最高
-            left_max[i] = max(left_max[i - 1], height[i])
-        for i in range(n - 2, -1, -1):           # 从右往左推「含自身」的后缀最高
-            right_max[i] = max(right_max[i + 1], height[i])
-        return sum(min(left_max[i], right_max[i]) - height[i] for i in range(n))  # 逐格套公式累加
+    class Solution:
+        def trap(self, height: list[int]) -> int:
+            n = len(height)
+            if n < 3:
+                return 0
+            left_max = height[:]
+            right_max = height[:]
+            for i in range(1, n):
+                left_max[i] = max(left_max[i - 1], height[i])
+            for i in range(n - 2, -1, -1):
+                right_max[i] = max(right_max[i + 1], height[i])
+            return sum(min(left_max[i], right_max[i]) - height[i] for i in range(n))
     ```
 
     先把两侧最高值都求出来，再逐格套公式，正确性一眼可见，但多花一个 $O(n)$ 的数组。写双指针时可以留着它做对拍：随机高度数组跑几千组，两版结果一致才敢交。注意这里的 max 数组是**含自身**的，所以减完不会为负，不需要再套 `max(0, ...)`。
@@ -139,7 +141,7 @@ $$w_i = \min(L_i, R_i) - height[i]$$
 
 ## 教学动画（HTML）
 
-[▶ 打开交互动画](../assets/trapping-rain-water-two-pointers.html){target=_blank .md-button}
+[讲解动画：双指针接雨水](42-trapping-rain-water-demo.html)
 
 橙色虚线是 `leftMax`（左侧已见最高）、紫色虚线是 `rightMax`、蓝色是已接的雨水。每一步先比较 `height[left]` 与 `height[right]`，再结算更矮那一侧、把该侧指针往里挪一格，右侧面板同步高亮对应代码行并累加水量。空格播放 / 暂停，`←` `→` 单步，`R` 重置——盯着看「谁矮结算谁」以及 `leftMax`/`rightMax` 只增不减。
 
@@ -153,5 +155,5 @@ $$w_i = \min(L_i, R_i) - height[i]$$
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：双指针](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：双指针](../index.md)
 - 同类题：[11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/)（双指针每次移动更矮的挡板，同一套「矮的一侧是瓶颈」直觉）· [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/)（接雨水的姊妹题，用的是单调栈）

@@ -84,49 +84,47 @@
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。
+> 按力扣提交格式写：一个 `Solution` 类。只用内置类型。
 
 === "主推：128 桶 + formed"
 
     ```python
-    def min_window(s: str, t: str) -> str:
-        """128 桶 + formed：need 记欠账，window 记窗口，formed 记已达标种数。"""
-        if not s or not t or len(s) < len(t):   # s 比 t 短，不可能覆盖
-            return ""
+    class Solution:
+        def minWindow(self, s: str, t: str) -> str:
+            """need 记欠账，window 记窗口，formed 记已达标的字符种数。"""
+            if not s or not t or len(s) < len(t):
+                return ""
 
-        need = [0] * 128                  # need[c]：字符 c 在 t 里要几个（ASCII 定长桶）
-        window = [0] * 128                # window[c]：当前窗口里字符 c 有几个
+            need = [0] * 128
+            window = [0] * 128
+            required = 0
+            for ch in t:
+                c = ord(ch)
+                if need[c] == 0:
+                    required += 1
+                need[c] += 1
 
-        required = 0                      # t 中不同字符的种数
-        for ch in t:                      # 预处理 t：填欠账表、统计种数
-            c = ord(ch)
-            if need[c] == 0:              # 这个字符第一次出现
-                required += 1
-            need[c] += 1
-
-        left = 0                          # 窗口左界
-        formed = 0                        # 已「刚好达标」的字符种数
-        best_len = len(s) + 1             # 比最大可能长度还大，当无穷
-        best_left = 0                     # 最短答案的左端点
-
-        for right, ch in enumerate(s):    # ① 右指针扩张：把字符计入窗口
-            c = ord(ch)
-            window[c] += 1                # 先 +1 再比较：need[c] == 0 的字符才不会误判
-            if window[c] == need[c]:      # 窗口里这个字符的配额刚好齐了
-                formed += 1
-
-            while formed == required:     # 窗口已覆盖 t：收缩左界并记录最短
-                if right - left + 1 < best_len:   # 先记录（此刻窗口仍合法）
-                    best_len = right - left + 1
-                    best_left = left
-
-                lc = ord(s[left])         # 把左端字符移出窗口
-                window[lc] -= 1
-                if window[lc] < need[lc]:  # 从达标变成不达标
-                    formed -= 1
-                left += 1                 # ② 左指针内移，继续试更短的窗口
-
-        return "" if best_len == len(s) + 1 else s[best_left:best_left + best_len]  # 没更新过 → 无解
+            left = 0
+            formed = 0
+            best_len = len(s) + 1
+            best_left = 0
+            for right, ch in enumerate(s):
+                c = ord(ch)
+                window[c] += 1
+                if window[c] == need[c]:
+                    formed += 1
+                while formed == required:
+                    if right - left + 1 < best_len:
+                        best_len = right - left + 1
+                        best_left = left
+                    lc = ord(s[left])
+                    window[lc] -= 1
+                    if window[lc] < need[lc]:
+                        formed -= 1
+                    left += 1
+            if best_len == len(s) + 1:
+                return ""
+            return s[best_left:best_left + best_len]
     ```
 
     只支持 ASCII：`ord(ch)` 直接当下标，题目给的是英文字母所以够用。若输入可能含中文或 emoji，会 `IndexError`，把定长数组换成 `dict`、`ord(ch)` 换成 `ch` 即可（结构不变，见下方「复杂度」）。
@@ -134,34 +132,31 @@
 === "更省：单数组 + missing"
 
     ```python
-    def min_window(s: str, t: str) -> str:
-        """单数组：need 里正数 = 还欠，负数 = 多了；missing 归零即窗口合法。"""
-        if not s or not t or len(s) < len(t):   # s 比 t 短，不可能覆盖
-            return ""
-        need = [0] * 128                        # 一个数组同时当「欠账表」和「窗口计数」
-        for ch in t:                            # 初始化欠账：t 里每个字符欠 1
-            need[ord(ch)] += 1
-
-        missing = len(t)                     # 还欠多少个字符（含重复）
-        left = start = end = 0               # 窗口左界、答案区间 [start, end)
-
-        for right, ch in enumerate(s, 1):    # right 用 1-based，窗口长度 = right - left
-            c = ord(ch)
-            if need[c] > 0:                  # 这个字符是 t 还欠的
-                missing -= 1
-            need[c] -= 1                     # 记进窗口：欠账减一，多余的变负数
-
-            if missing == 0:                 # 窗口第一次合法
-                while need[ord(s[left])] < 0:    # 左端字符多余，扔掉
+    class Solution:
+        def minWindow(self, s: str, t: str) -> str:
+            """一个数组：正数表示还欠，负数表示多了。missing 归零即窗口合法。"""
+            if not s or not t or len(s) < len(t):
+                return ""
+            need = [0] * 128
+            for ch in t:
+                need[ord(ch)] += 1
+            missing = len(t)
+            left = start = end = 0
+            for right, ch in enumerate(s, 1):
+                c = ord(ch)
+                if need[c] > 0:
+                    missing -= 1
+                need[c] -= 1
+                if missing == 0:
+                    while need[ord(s[left])] < 0:
+                        need[ord(s[left])] += 1
+                        left += 1
+                    if end == 0 or right - left < end - start:
+                        start, end = left, right
                     need[ord(s[left])] += 1
+                    missing += 1
                     left += 1
-                if end == 0 or right - left < end - start:   # 记录更短的答案
-                    start, end = left, right
-                need[ord(s[left])] += 1      # 恢复左端并整体右移，继续找更短的
-                missing += 1                 # 强制踢掉一个必需字符，下一轮才能重新扩张
-                left += 1                    # 左指针右移
-
-        return s[start:end]                  # end 是开区间；没找到时返回空串
+            return s[start:end]
     ```
 
     一个数组同时当「欠账表」和「窗口计数」用：正数是还欠、负数是多余。代价是 `right` 改成从 1 开始计数，窗口边界容易写错。
@@ -180,7 +175,7 @@
 
 ## 教学动画（HTML）
 
-[▶ 打开讲解动画](../assets/min-window-substring.html){target=_blank .md-button}
+[讲解动画：滑动窗口](76-minimum-window-substring-demo.html)
 
 动画用 `s = "ADOBECODEBANC"`、`t = "ABC"` 把整个扫描过程拆成 38 步：
 
@@ -202,6 +197,6 @@
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：子串](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：子串](../index.md)
 - 同类题：[3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)（窗口里维护「无重复」，另一类滑窗）· [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)（固定长度窗口 + 计数键）· [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/)（同一套计数 + 定长滑窗）
-- 这题也配了[讲解动画](../assets/min-window-substring.html)，在纸上画两根指针时可以和动画对着看：重点盯 `formed` 从 2 变 3、从 3 变 2 的那几个瞬间。
+- 对照 [讲解动画](76-minimum-window-substring-demo.html) 看 `formed` 从 2 变 3、从 3 变 2 的那几个瞬间。

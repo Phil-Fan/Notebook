@@ -15,7 +15,7 @@
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [25 K 个一组翻转链表](25-reverse-nodes-in-k-group.md) | 困难 | ✔ 已整理 | dummy + 走 k 步探路 + 组内掉头 |
+| [25 K 个一组翻转链表](problems/25-reverse-nodes-in-k-group.md) | 困难 | ✔ 已整理 | dummy + 走 k 步探路 + 组内掉头 |
 | [146 LRU 缓存](https://leetcode.cn/problems/lru-cache/) | 中等 | ☐ 待补 | 哈希表 + 双向链表 |
 | [206 反转链表](https://leetcode.cn/problems/reverse-linked-list/) | 简单 | 相关 | 三指针掉头的基础动作 |
 | [92 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/) | 中等 | 相关 | 区间翻转 + 组前驱 |
@@ -30,4 +30,5 @@
 
 ## 相关
 
-- [← 返回 Hot 20 题单](../index.md)
+- [← 返回 Hot 20 题单](../../index.md)
+- 链表怎么存：[数组与链表](list.md)

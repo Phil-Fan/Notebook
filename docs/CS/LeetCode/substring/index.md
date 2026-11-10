@@ -22,7 +22,7 @@
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [76 最小覆盖子串](76-minimum-window-substring.md) | 困难 | ✔ 已整理 | 欠账计数（`formed == required`）+ 收缩记录最短 |
+| [76 最小覆盖子串](problems/76-minimum-window-substring.md) | 困难 | ✔ 已整理 | 欠账计数（`formed == required`）+ 收缩记录最短 |
 | [3 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) | 中等 | ☐ 待补 | 窗口内无重复，收缩完再记录 |
 | [567 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) | 中等 | 相关 | 定长窗口 + 计数比较 |
 | [438 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) | 中等 | 相关 | 定长窗口 + 计数 |
@@ -36,4 +36,4 @@
 ## 相关
 
 - [← 返回 Hot 20 题单](../index.md)
-- 同一套「窗口 + 计数」的另一个视角：哈希入桶见 [哈希](../hash/index.md)。
+- 同一套「窗口 + 计数」的另一个视角：哈希入桶见 [哈希](../DS/hash/index.md)。

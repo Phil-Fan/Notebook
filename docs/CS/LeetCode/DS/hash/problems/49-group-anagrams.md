@@ -77,18 +77,19 @@ Python 的 `dict` 保序，所以组间顺序天然是「该组第一个词在 `
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。
+> 按力扣提交格式写：一个 `Solution` 类，方法名用题目给定的驼峰名。只用内置的 `list` / `dict`。
 
 === "主推：排序键（最短最稳）"
 
     ```python
-    def group_anagrams(strs: list[str]) -> list[list[str]]:
-        """排序键：异位词排序后必相同（"eat"/"tea"/"ate" → "aet"）。"""
-        buckets: dict[str, list[str]] = {}            # 签名 → 单词列表
-        for w in strs:                                # 逐个词独立处理：一次签名 + 一次哈希
-            key = "".join(sorted(w))                  # ① 算签名
-            buckets.setdefault(key, []).append(w)     # ② 查表 + ③ 入桶
-        return list(buckets.values())                 # dict 保序：组序 = 首词出现序
+    class Solution:
+        def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+            """排序键：异位词排序后必相同（"eat"/"tea"/"ate" → "aet"）。"""
+            buckets: dict[str, list[str]] = {}
+            for word in strs:
+                key = "".join(sorted(word))
+                buckets.setdefault(key, []).append(word)
+            return list(buckets.values())
     ```
 
     每个词只排序一次，代价 $O(k\log k)$；`setdefault` 一行干完「查表 + 新建桶 + 追加」三件事，最不容易写错。
@@ -114,15 +115,17 @@ Python 的 `dict` 保序，所以组间顺序天然是「该组第一个词在 `
 === "通用：稀疏计数键（不限字符集）"
 
     ```python
-    from collections import Counter
-
-    def group_anagrams(strs: list[str]) -> list[list[str]]:
-        """稀疏计数键：只记出现过的字母，不限字符集（Unicode 也能分组）。"""
-        buckets: dict[tuple[tuple[str, int], ...], list[str]] = {}  # 键 = 排好序的 (字符, 次数) 元组
-        for w in strs:                                             # 逐个词算签名、入桶
-            key = tuple(sorted(Counter(w).items()))                # ① 统计后排序，保证顺序无关；② 转 tuple 才能当键
-            buckets.setdefault(key, []).append(w)                  # ③ 入桶
-        return list(buckets.values())                              # 取所有桶的内容作为答案
+    class Solution:
+        def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+            """稀疏计数键：只记出现过的字母，不限字符集。"""
+            buckets: dict[tuple[tuple[str, int], ...], list[str]] = {}
+            for word in strs:
+                counts: dict[str, int] = {}
+                for ch in word:
+                    counts[ch] = counts.get(ch, 0) + 1
+                key = tuple(sorted(counts.items()))
+                buckets.setdefault(key, []).append(word)
+            return list(buckets.values())
     ```
 
     键长是「词内不同字母数 $d$」而不是 26，短词、大小写混排、甚至中文都能分组；`sorted` 不能省，否则 `("a",1),("b",1)` 和 `("b",1),("a",1)` 会变成两个不同的键。
@@ -140,7 +143,7 @@ Python 的 `dict` 保序，所以组间顺序天然是「该组第一个词在 `
 
 ## 教学动画（HTML）
 
-[▶ 打开交互动画](../assets/group-anagrams.html){target=_blank .md-button}
+[讲解动画：哈希入桶](49-group-anagrams-demo.html)
 
 动画里每个单词走三步：**算签名 → 查表 → 入桶**，桶的槽位数就是 `strs` 里不同签名的个数。空格播放 / 暂停，`←` `→` 单步，看清「同签名落进同一格」这件事。
 
@@ -155,6 +158,6 @@ Python 的 `dict` 保序，所以组间顺序天然是「该组第一个词在 `
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：哈希](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：哈希](../index.md)
 - 同类题：[242. 有效的字母异位词](https://leetcode.cn/problems/valid-anagram/)（判两个词是否同组）· [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/)（本题）
 - 一句话带过：源文件里还有**质数乘积键**和**先按签名排序再 groupby** 两种写法，前者靠唯一分解定理保证无碰撞、后者不需要哈希表（适合没有字典的语言），思路都被上面的表覆盖了，日常不必写。

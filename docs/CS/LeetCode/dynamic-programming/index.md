@@ -19,7 +19,7 @@
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [139 单词拆分](139-word-break.md) | 中等 | ✔ 已整理 | 按词尾枚举的 dp；另有切点 dp / BFS / 记忆化 / trie 四种砍法 |
+| [139 单词拆分](problems/139-word-break.md) | 中等 | ✔ 已整理 | 按词尾枚举的 dp；另有切点枚举 |
 | [300 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) | 中等 | ☐ 待补 | 「以 i 结尾」的经典一维 dp |
 
 ## 题目（多维 dp，题单第 14 类）

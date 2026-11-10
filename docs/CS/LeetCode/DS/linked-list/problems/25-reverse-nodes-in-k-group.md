@@ -57,7 +57,7 @@
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。
+> 按力扣提交格式写。`ListNode` 由判题器提供，这里留一份定义，方便本地看。
 
 === "主推：迭代 + dummy（O(1) 空间）"
 
@@ -92,35 +92,27 @@
         return out
 
 
-    def reverse_k_group(head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        # 空链表直接返回；k <= 1 也直接返回（k = 1 转不转一样，k <= 0 会让下面的循环死转）
-        if head is None or k <= 1:
-            return head
-
-        dummy = ListNode(0, head)      # 哨兵：第一组和后面的组共用同一套逻辑
-        group_prev = dummy             # 上一组翻转后的尾巴，即本组的前驱
-
-        while True:
-            # ① 先探路：从 group_prev 走 k 步；走不到说明剩余不足一组，整段不动
-            kth = group_prev
-            for _ in range(k):         # 恰好走 k 步，走完 kth 就停在本组最后一个节点
-                kth = kth.next
-                if kth is None:        # 还没走满 k 步就到了表尾：剩余不足一组
-                    return dummy.next  # 剩余节点保持原序，返回哨兵后面那串（不是 head）
-
-            next_group = kth.next      # ② 记下下一组的起点，掉头时也拿它当初始 prev
-
-            # ③ 把 group_prev.next .. kth 这段原地掉头，尾巴暂时指向 next_group
-            prev, cur = next_group, group_prev.next   # cur 是本组第一个节点；prev 从下一组起点起步，省掉接尾操作
-            while cur is not next_group:              # 一直翻到「下一组起点」为止，正好 k 个节点
-                nxt = cur.next          # 先存后继，否则改完 next 就找不到它了
-                cur.next = prev         # 掉头：当前节点改指向自己的前驱
-                prev, cur = cur, nxt    # 前驱、当前两个指针各前移一格
-
-            # ④ 接回：旧组头成了组尾，作为下一轮的 group_prev
-            old_head = group_prev.next  # 翻转前的旧组头，翻完之后它就是新组尾
-            group_prev.next = kth       # 新组头（原组尾 kth）接回已翻转部分
-            group_prev = old_head       # 组尾成为下一组的「上一组尾巴」，进入下一轮
+    class Solution:
+        def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+            if head is None or k <= 1:
+                return head
+            dummy = ListNode(0, head)
+            group_prev = dummy
+            while True:
+                kth = group_prev
+                for _ in range(k):
+                    kth = kth.next
+                    if kth is None:
+                        return dummy.next
+                next_group = kth.next
+                prev, cur = next_group, group_prev.next
+                while cur is not next_group:
+                    nxt = cur.next
+                    cur.next = prev
+                    prev, cur = cur, nxt
+                old_head = group_prev.next
+                group_prev.next = kth
+                group_prev = old_head
     ```
 
 === "栈（O(k) 额外空间，最好懂）"
@@ -163,7 +155,7 @@ $n$ 是链表节点数。三种写法都要把每个节点扫常数次，时间�
 
 ## 教学动画（HTML）
 
-[▶ 打开交互动画](../assets/reverse-nodes-in-k-group.html){target=_blank .md-button}
+[讲解动画：K 个一组翻转](25-reverse-nodes-in-k-group-demo.html)
 
 动画用 `[1..7]、k = 3` 跑迭代法：`D` 是 dummy，蓝色 `groupPrev` 站在上一组尾巴上，先走 3 步锁定 `kth`、亮一下 `nextGroup`，再逐个掉头（组内出现弯向下的弧线），最后把新组头接回 `groupPrev`。注意看最后只剩 `[7]` 的那一步——探路失败，链表就此停下。灰色是未处理的 `next`，橙色是正在翻转的组，绿色是已完成的组，黄色是凑不满的尾巴。空格播放/暂停，`←` `→` 单步，`R` 复位。
 
@@ -177,5 +169,5 @@ $n$ 是链表节点数。三种写法都要把每个节点扫常数次，时间�
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：链表](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：链表](../index.md)
 - 同类题：[206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) · [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii/) · [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/)

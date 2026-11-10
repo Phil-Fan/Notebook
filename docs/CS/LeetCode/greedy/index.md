@@ -16,7 +16,7 @@
 
 | 题目 | 难度 | 状态 | 一句话 |
 |:-----|:-----|:-----|:-------|
-| [188 买卖股票的最佳时机 IV](188-best-time-to-buy-and-sell-stock-iv.md) | 困难 | ✔ 已整理 | `dp[t][i]` + running max，笔数上限失效时退化成贪心 |
+| [188 买卖股票的最佳时机 IV](problems/188-best-time-to-buy-and-sell-stock-iv.md) | 困难 | ✔ 已整理 | `dp[t][i]` + running max，笔数上限失效时退化成贪心 |
 | [55 跳跃游戏](https://leetcode.cn/problems/jump-game/) | 中等 | ☐ 待补 | 维护最远可达下标 |
 | [121 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 简单 | 相关 | 只能一笔：维护历史最低价 |
 | [122 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) | 中等 | 相关 | 不限笔数：累加正价差 |

@@ -77,41 +77,32 @@
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。第二栏沿用第一栏的 `from typing import List`。
+> 按力扣提交格式写。只用内置类型。
 
 === "主推：按词尾枚举 dp"
 
     ```python
-    from typing import List
-
-
-    def word_break(s: str, wordDict: List[str]) -> bool:
-        n = len(s)
-        if n == 0:
-            return True                     # 空串是 0 个词的空拼接
-
-        # 过滤空词和超长词；按长度升序，短词先试、超长就能 break
-        words = sorted((w for w in wordDict if w and len(w) <= n), key=len)
-        if not words:                       # 过滤完一个词都不剩：非空 s 必然拆不开
-            return False
-
-        dp = [False] * (n + 1)              # dp[i] = 前缀 s[:i] 能否拆成字典词
-        dp[0] = True                        # 空串（0 个词的空拼接）可以拆
-        for i in range(1, n + 1):           # i 是「词尾」位置
-            for w in words:                 # 逐个词试当「最后一段」
-                lw = len(w)
-                if lw > i:                 # 升序：后面的词只会更长，放弃这个 i
-                    break
-                if dp[i - lw] and s[i - lw:i] == w:   # 前半段可拆 且 最后一段正好是 w
-                    dp[i] = True
-                    break                   # 找到一种切法就够，不必试完所有词
-        return dp[n]
+    class Solution:
+        def wordBreak(self, s: str, wordDict: list[str]) -> bool:
+            n = len(s)
+            words = sorted((w for w in wordDict if w and len(w) <= n), key=len)
+            dp = [False] * (n + 1)
+            dp[0] = True
+            for i in range(1, n + 1):
+                for word in words:
+                    length = len(word)
+                    if length > i:
+                        break
+                    if dp[i - length] and s[i - length:i] == word:
+                        dp[i] = True
+                        break
+            return dp[n]
     ```
 
 === "对比：按切点枚举 dp"
 
     ```python
-    def word_break_dp_index(s: str, wordDict: List[str]) -> bool:
+    def word_break_by_cut(s: str, wordDict: list[str]) -> bool:
         n = len(s)
         if n == 0:
             return True                     # 空串是空拼接
@@ -144,7 +135,7 @@ $m$ 个词每个长度不同，所以 $O(n m L)$ 只是上界；按长度排序 
 
 ## 教学动画（HTML）
 
-[▶ 打开交互动画](../assets/word-break.html){target=_blank .md-button}
+[讲解动画：dp 填表](139-word-break-demo.html)
 
 动画用 `s = "leetcode"、wordDict = ["leet","code"]`：橙色是当前 `i` 和正在尝试的词，方框标出正在匹配的区间 `s[i-lw:i]`；蓝色表示前缀 `dp[i-lw] = False`，粉色表示子串和单词对不上，绿色是判定为可拆的 `dp` 格。`dp` 填完后，动画顺着 `parent` 从 `n` 往回跳，把切分结果回溯成 `leet | code`。空格播放/暂停，`←` `→` 单步，`R` 复位。
 
@@ -159,6 +150,6 @@ $m$ 个词每个长度不同，所以 $O(n m L)$ 只是上界；按长度排序 
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：动态规划](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：动态规划](../index.md)
 - 要输出所有切分方案：[140. 单词拆分 II](https://leetcode.cn/problems/word-break-ii/)
 - 同族的搜索题：[79. 单词搜索](https://leetcode.cn/problems/word-search/)（二维网格上找词，DFS + 回溯）

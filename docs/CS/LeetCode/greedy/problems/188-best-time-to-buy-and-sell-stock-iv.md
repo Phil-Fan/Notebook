@@ -69,45 +69,39 @@ $$\sum_{i=1}^{n-1} \max(0,\ prices[i] - prices[i-1])$$
 
 ## 代码（带注释）
 
-> LeetCode 提交时把函数包进 `class Solution` 即可；下面的代码都能在本地直接跑。后两栏沿用第一栏的 `from typing import List`。
+> 按力扣提交格式写。只用内置类型。
 
 === "主推：running max 的 dp（O(k·n)）"
 
     ```python
-    from typing import List
-
-    NEG = -(10 ** 18)   # 「不可达」的利润，比任何真实利润都小
-
-
-    def max_profit(prices: List[int], k: int) -> int:
-        n = len(prices)
-        if n < 2 or k <= 0:         # 不足两天做不成一笔交易；k <= 0 等于不许交易
-            return 0
-        k = min(k, n // 2)          # n 天最多只做得成 n//2 笔有效交易
-
-        # dp[t][i] = 只看前 i 天、最多 t 笔的最大利润
-        dp = [[0] * (n + 1) for _ in range(k + 1)]  # 第 0 行（0 笔）和第 0 列（0 天）天然都是 0
-        for t in range(1, k + 1):                   # 逐层递推：笔数上限从 1 加到 k
-            prev, cur = dp[t - 1], dp[t]            # prev 是「少一笔」的上一层，cur 是当前层
-            best = NEG                       # max(dp[t-1][j] - prices[j])，j <= i-2
-            for i in range(2, n + 1):               # i 是「前 i 天」，至少 2 天才卖得出去
-                j = i - 2                    # 新加入的候选买入日
-                best = max(best, prev[j] - prices[j])       # 把新候选并进 running max，内层枚举压成 O(1)
-                cur[i] = max(cur[i - 1], prices[i - 1] + best)  # 不卖（沿用昨天） vs 今天卖
-        return dp[k][n]
+    class Solution:
+        def maxProfit(self, k: int, prices: list[int]) -> int:
+            n = len(prices)
+            if n < 2 or k <= 0:
+                return 0
+            k = min(k, n // 2)
+            neg = -(10**18)
+            dp = [[0] * (n + 1) for _ in range(k + 1)]
+            for t in range(1, k + 1):
+                prev, cur = dp[t - 1], dp[t]
+                best = neg
+                for i in range(2, n + 1):
+                    best = max(best, prev[i - 2] - prices[i - 2])
+                    cur[i] = max(cur[i - 1], prices[i - 1] + best)
+            return dp[k][n]
     ```
 
 === "空间更省：hold / free 滚动（O(k)）"
 
     ```python
-    def max_profit_hold_free(prices: List[int], k: int) -> int:
+    def max_profit_hold_free(prices: list[int], k: int) -> int:
         n = len(prices)
         if n < 2 or k <= 0:             # 同上：不足两天做不成一笔交易
             return 0
-        k = min(k, n // 2)              # 笔数上限先压到 n//2，就不用开巨表
-
-        hold = [NEG] * (k + 1)   # 持股中（第 t 笔进行中）
-        free = [NEG] * (k + 1)   # 空仓（第 t 笔已完成）
+        k = min(k, n // 2)
+        neg = -(10**18)
+        hold = [neg] * (k + 1)
+        free = [neg] * (k + 1)
         free[0] = 0                     # 0 笔交易且空仓：利润 0 是唯一合法的起点
         for p in prices:                # 按天推进，数组里只留上一状态
             for t in range(1, k + 1):   # 第 t 笔：只能从「已完成 t-1 笔」的状态转过来
@@ -119,7 +113,7 @@ $$\sum_{i=1}^{n-1} \max(0,\ prices[i] - prices[i-1])$$
 === "k 大时走贪心（O(n)）"
 
     ```python
-    def max_profit_greedy(prices: List[int], k: int) -> int:
+    def max_profit_greedy(prices: list[int], k: int) -> int:
         n = len(prices)
         if n < 2 or k <= 0:                     # 同上：不足两天做不成一笔交易
             return 0
@@ -143,7 +137,7 @@ LC 188 的约束是 $k \le 100$、$n \le 1000$，$O(k n)$ 完全够用；真正�
 
 ## 教学动画（HTML）
 
-[▶ 打开交互动画](../assets/stock-iv.html){target=_blank .md-button}
+[讲解动画：dp 表](188-best-time-to-buy-and-sell-stock-iv-demo.html)
 
 动画用 `prices = [3,2,6,5,0,3]、k = 2` 逐格填 `dp[t][i]`：黄色是当前卖出日/当前格，青色标出 `best` 对应的买入日 `j`（argmax），蓝色是参考的上一层 `dp[t-1][·]`，虚线格是「今天不卖」时的 `dp[t][i-1]`。每格只做两件事——先把新买入日 `j = i-2` 吸收进 `best`，再用 `prices[i-1] + best` 与 `dp[t][i-1]` 取 max。空格播放/暂停，`←` `→` 单步，`R` 复位。
 
@@ -158,6 +152,6 @@ LC 188 的约束是 $k \le 100$、$n \le 1000$，$O(k n)$ 完全够用；真正�
 
 ## 延伸
 
-- [← 返回 Hot 20 题单](../index.md) · [本类总览：贪心 · 股票](index.md)
+- [← 返回 Hot 20 题单](../../index.md) · [本类总览：贪心](../index.md)
 - 去掉 `k` 的版本：[121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)（只能一笔）· [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)（无限笔，就是这里的贪心分支）
 - `k = 2` 的特例：[123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/)

@@ -109,7 +109,7 @@ docs/
 │   │   ├── C.md / C++.md
 │   │   └── Python/          # 语法与工程笔记
 │   ├── Algorithm/           # 算法
-│   ├── LeetCode/            # 力扣题解（Hot 20：按考察点分目录，每类 index + 每题一页 + assets/ 动画）
+│   ├── LeetCode/            # 力扣题解（题型目录；数据结构在 DS/ 下再分子目录；每类 index + problems/ 一题一页，讲解 HTML 与题目同目录）
 │   ├── DS/                  # 数据结构
 │   ├── OS/                  # 操作系统
 │   ├── CN/                  # 计算机网络
