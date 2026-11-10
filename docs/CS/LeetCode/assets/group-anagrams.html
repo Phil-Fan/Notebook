@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>字母异位词分组 · 哈希表动画</title>
+<style>
+  :root{
+    --panel:rgba(20,27,49,.72);
+    --line:rgba(122,142,192,.20);
+    --text:#e9edf8;
+    --dim:#8b97b8;
+    --amber:#ffb03a;
+    --green:#4ade80;
+    --blue:#6ea8ff;
+    --purple:#b58cff;
+    --pink:#ff8fb1;
+    --teal:#5eead4;
+    --yellow:#facc15;
+    --mono:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;padding:24px 24px 22px;color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -8%,rgba(58,88,164,.34),transparent 62%),
+      radial-gradient(760px 460px at 88% 4%,rgba(120,80,200,.20),transparent 60%),
+      linear-gradient(180deg,#080c18,#05070f 60%,#04060c);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header{margin-bottom:14px}
+  h1{margin:0 0 6px;font-size:21px;letter-spacing:.2px;font-weight:650}
+  header p{margin:0;color:var(--dim);font-size:13px;line-height:1.62;max-width:1010px}
+  header p+p{margin-top:4px}
+  header p b{color:#cdd6ee;font-weight:600}
+  header code,.mono{font-family:var(--mono);font-size:12px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 6px;border-radius:6px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:18px;align-items:start}
+  @media (max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+
+  /* ---------------- stage ---------------- */
+  .stage{background:linear-gradient(180deg,rgba(24,32,56,.85),rgba(14,19,36,.85));
+         border:1px solid var(--line);border-radius:18px;padding:15px 14px 14px;
+         box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden;
+         transition:box-shadow .35s,border-color .35s}
+  .stage.is-final{border-color:rgba(74,222,128,.38);
+         box-shadow:0 0 0 1px rgba(74,222,128,.20),0 18px 50px rgba(0,0,0,.38),0 0 46px rgba(74,222,128,.10)}
+
+  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;
+    color:#5f6a8c;font-family:var(--mono);margin:0 0 7px}
+  .sec-label .zh{font-family:inherit;color:#6d789a}
+  .sig .sec-label{margin-top:16px}
+  .hash .sec-label{margin-top:18px}
+
+  /* ---------------- 输入词条 ---------------- */
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:#aeb9d8;
+    padding:7px 12px 7px 13px;border-radius:10px;border:1px solid rgba(130,155,215,.30);
+    background:linear-gradient(180deg,#2a3554,#222b46);
+    transition:background .25s,border-color .25s,box-shadow .25s,color .25s,opacity .25s}
+  .chip .cw{letter-spacing:.4px}
+  .chip em{font-style:normal;font-size:9.5px;color:#66739a;padding:1px 4px;border-radius:5px;
+    background:rgba(120,140,190,.14);line-height:1.3;min-width:34px;text-align:center}
+  .chip.current{color:#ffe3b0;border-color:rgba(255,176,58,.80);
+    background:linear-gradient(180deg,#4a3d24,#2e2718);
+    box-shadow:0 0 0 2px rgba(255,176,58,.24),0 0 22px rgba(255,176,58,.16)}
+  .chip.current em{color:#c9a766;background:rgba(255,176,58,.12)}
+  .chip.done{color:#95c8ab;border-color:rgba(74,222,128,.40);
+    background:linear-gradient(180deg,#1e3229,#182720);opacity:.80}
+  .chip.done em{color:#7fb99a;background:rgba(74,222,128,.13)}
+
+  /* ---------------- 签名计算 ---------------- */
+  .sig-row{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px}
+  .sig-word{display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:1px;min-width:62px;padding:2px 8px;border-radius:9px;
+    background:rgba(120,150,215,.08);border:1px solid rgba(130,155,215,.22)}
+  .sig-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.3px;color:#5f6a8c;line-height:1.2}
+  .sig-v{font-family:var(--mono);font-size:12.5px;font-weight:650;color:#ffd28a;line-height:1.2;
+    white-space:nowrap;max-width:86px;overflow:hidden;text-overflow:ellipsis}
+  .tiles{display:flex;gap:5px}
+  .ctile{width:38px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:17px;font-weight:650;color:#dbe6ff;
+    background:linear-gradient(180deg,#2f3b5e,#232c48);border:1px solid rgba(130,155,215,.35);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 6px 14px rgba(0,0,0,.32);
+    transition:background .28s,border-color .28s,box-shadow .28s,color .28s,opacity .28s}
+  .ctile.idle{color:#576082;background:linear-gradient(180deg,#20283f,#1a2033);
+    border-style:dashed;border-color:rgba(130,150,200,.28);box-shadow:none}
+  .ctile.raw{color:#dbe6ff}
+  .ctile.raw.dim{opacity:.62}
+  .ctile.sorted{border-color:rgba(94,234,212,.72);color:#c8fff6;
+    background:linear-gradient(180deg,#15403d,#0f2d2b);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 18px rgba(94,234,212,.14)}
+  .ctile.sorted.dim{opacity:.72}
+  .ctile.pop{animation:tilePop .36s cubic-bezier(.2,.8,.3,1) both}
+  @keyframes tilePop{
+    0%{transform:translateY(-11px) scale(.92);opacity:0}
+    62%{transform:translateY(2px) scale(1.02);opacity:1}
+    100%{transform:none;opacity:1}
+  }
+  .sig-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+  .sig-arrow .sa-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.2px;color:#5f6a8c;line-height:1.2}
+  .sig-arrow .sa-a{font-size:12px;line-height:1.1;color:#4aa8ff}
+  .sig-eq{font-family:var(--mono);font-size:14px;color:#5f6a8c;line-height:1}
+  .key-chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    min-width:90px;padding:3px 10px;border-radius:10px;
+    border:1px solid rgba(110,168,255,.30);background:rgba(74,168,255,.07);
+    transition:background .28s,border-color .28s,box-shadow .28s}
+  .key-chip .kc-l{font-family:var(--mono);font-size:8.5px;letter-spacing:.4px;color:#5f6a8c;line-height:1.2}
+  .key-chip .kc-v{font-family:var(--mono);font-size:13px;font-weight:700;color:#8fb6ea;line-height:1.25;
+    white-space:nowrap}
+  .key-chip.live{border-color:rgba(110,168,255,.68);background:rgba(74,168,255,.13);
+    box-shadow:0 0 0 2px rgba(110,168,255,.20),0 0 22px rgba(110,168,255,.14)}
+  .key-chip.live .kc-v{color:#cfe2ff}
+  .key-chip.hit{border-color:rgba(74,222,128,.75);background:rgba(74,222,128,.12);
+    box-shadow:0 0 0 2px rgba(74,222,128,.20),0 0 22px rgba(74,222,128,.14)}
+  .key-chip.hit .kc-v{color:#8ef0ae}
+  .key-chip.new{border-color:rgba(255,176,58,.78);background:rgba(255,176,58,.11);
+    box-shadow:0 0 0 2px rgba(255,176,58,.20),0 0 22px rgba(255,176,58,.14)}
+  .key-chip.new .kc-v{color:#ffd28a}
+  .key-chip.done{opacity:.78}
+
+  /* ---------------- 哈希表 ---------------- */
+  .buckets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:738px;margin:0 auto}
+  .bucket{position:relative;border-radius:13px;padding:10px 10px 11px;min-height:128px;
+    background:linear-gradient(180deg,#232c48,#1b2338);border:1px solid rgba(130,155,215,.28);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+    transition:background .3s,border-color .3s,box-shadow .3s,opacity .3s}
+  .bucket.empty,.bucket.probe{background:linear-gradient(180deg,rgba(35,44,72,.45),rgba(27,35,56,.45));
+    border-style:dashed;border-color:rgba(130,150,200,.28);box-shadow:none}
+  .bk-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:7px}
+  .bk-key{font-family:var(--mono);font-size:13px;font-weight:700;color:#8b97b8;line-height:1.2;white-space:nowrap}
+  .bucket.empty .bk-key,.bucket.probe .bk-key{color:#4f5975}
+  .bk-tag{font-family:var(--mono);font-size:8.5px;padding:2px 6px;border-radius:6px;white-space:nowrap;
+    background:rgba(120,140,190,.14);color:#66739a;line-height:1.3;transition:background .28s,color .28s}
+  .bk-words{display:flex;flex-wrap:wrap;gap:6px;min-height:68px;align-content:center}
+  .bword{font-family:var(--mono);font-size:12.5px;color:#dbe6ff;padding:3px 8px;border-radius:8px;
+    background:rgba(120,150,215,.14);border:1px solid rgba(130,155,215,.30);white-space:nowrap;line-height:1.4}
+  .bword.fresh{animation:wordPop .32s cubic-bezier(.2,.8,.3,1) both;
+    background:rgba(150,180,235,.24);border-color:rgba(190,215,255,.55);color:#fff}
+  @keyframes wordPop{
+    from{transform:scale(.82);opacity:.15}
+    to{transform:none;opacity:1}
+  }
+  .bk-empty{font-family:var(--mono);font-size:10px;color:#4c5672;line-height:1.5}
+  .bucket.probe{border-color:rgba(255,176,58,.62);box-shadow:0 0 0 2px rgba(255,176,58,.14),0 0 20px rgba(255,176,58,.10)}
+  .bucket.probe .bk-tag{background:rgba(255,176,58,.16);color:#e0b06a}
+  .bucket.new{border-color:rgba(255,176,58,.72);
+    background:linear-gradient(180deg,#3a3220,#241f14);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 2px rgba(255,176,58,.20),0 0 26px rgba(255,176,58,.12)}
+  .bucket.new .bk-key{color:#ffd28a}
+  .bucket.new .bk-tag{background:rgba(255,176,58,.17);color:#e0b06a}
+  .bucket.hit{border-color:rgba(74,222,128,.70);
+    background:linear-gradient(180deg,#1f3b2e,#182b22);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 2px rgba(74,222,128,.18),0 0 26px rgba(74,222,128,.12)}
+  .bucket.hit .bk-key{color:#8ef0ae}
+  .bucket.hit .bk-tag{background:rgba(74,222,128,.16);color:#7fb99a}
+  .bucket.final{border-color:rgba(74,222,128,.52);
+    background:linear-gradient(180deg,#1d3529,#172a21);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 0 0 1px rgba(74,222,128,.14)}
+  .bucket.final .bk-key{color:#8ef0ae}
+  .bucket.final .bk-tag{background:rgba(74,222,128,.14);color:#7fb99a}
+
+  .verdict{min-height:30px;margin-top:13px;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:12px;pointer-events:none;flex-wrap:wrap}
+  .verdict .vwait{color:#535e82;font-size:11px;letter-spacing:.4px;font-family:var(--mono)}
+  .verdict .vok{color:#8ef0ae;font-weight:650;padding:3px 9px;border-radius:8px;
+    background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.40)}
+  .verdict .vsep{color:#5d688a}
+  .verdict .vres{font-family:var(--mono);font-size:11px;color:#9ec3ff;padding:3px 9px;border-radius:8px;
+    background:rgba(74,168,255,.09);border:1px solid rgba(74,168,255,.24)}
+
+  /* ---------------- controls ---------------- */
+  .controls{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;padding:0 4px}
+  .btn{appearance:none;border:1px solid rgba(130,152,205,.28);background:rgba(30,39,63,.9);color:#cfd8f0;
+    font-size:13px;font-weight:550;padding:8px 14px;border-radius:11px;cursor:pointer;
+    transition:transform .12s ease,background .2s,border-color .2s,box-shadow .2s;font-family:inherit}
+  .btn:hover{background:rgba(44,56,88,.95);border-color:rgba(140,170,255,.5)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:linear-gradient(180deg,#3f8cf0,#2b6fd4);border-color:rgba(120,180,255,.6);color:#fff;
+    box-shadow:0 8px 22px rgba(43,111,212,.42)}
+  .btn.primary:hover{background:linear-gradient(180deg,#4d99f7,#3078de)}
+  .btn:disabled{opacity:.42;cursor:default;transform:none}
+  .spacer{flex:1}
+  .speed{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim)}
+  select{appearance:none;background:rgba(30,39,63,.9);color:#cfd8f0;border:1px solid rgba(130,152,205,.28);
+    border-radius:9px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;outline:none}
+  .progress{height:4px;border-radius:99px;background:rgba(120,140,190,.16);margin:11px 4px 0;overflow:hidden}
+  .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#4aa8ff,#a98bff);
+    transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .hint{margin:9px 4px 0;font-size:11.5px;color:#5f6a8c;line-height:1.6}
+  .hint code{font-family:var(--mono);font-size:11px;color:#93a9d6}
+  kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid rgba(130,152,205,.3);
+      background:rgba(30,39,63,.9);color:#9fb0d4}
+  .legend{display:flex;gap:13px;flex-wrap:wrap;margin:10px 4px 0;font-size:11px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .sw{width:15px;height:0;border-radius:2px;display:inline-block;border-top:2px solid;flex:0 0 auto}
+  .sw.amber{border-color:rgba(255,176,58,.9)}
+  .sw.green{border-color:rgba(74,222,128,.9)}
+  .sw.teal{border-color:rgba(94,234,212,.9)}
+  .sw.blue{border-color:rgba(110,168,255,.9)}
+  .sw.box{width:15px;height:11px;border:1.5px dashed rgba(130,150,200,.55);border-radius:4px;
+    border-top:1.5px dashed rgba(130,150,200,.55)}
+
+  /* ---------------- side panel ---------------- */
+  .right{display:flex;flex-direction:column;gap:12px;position:sticky;top:20px}
+  .card .head{display:flex;align-items:center;justify-content:space-between;padding:9px 15px;
+    border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.4px;color:#9aa7c6;text-transform:uppercase}
+  .counter{font-variant-numeric:tabular-nums;color:#7f8db0;font-size:11.5px}
+  .stitle{padding:8px 15px 0;font-size:14px;font-weight:650;line-height:1.5;color:#eef2ff;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .desc{margin:0;padding:5px 15px 3px;font-size:12.5px;line-height:1.64;color:#cdd6ee;min-height:82px}
+  .desc b{color:#fff;font-weight:650}
+  .desc b.kg{color:var(--green)}
+  .desc b.ka{color:var(--amber)}
+  .desc b.kb{color:var(--blue)}
+  .desc .m{font-family:var(--mono);font-size:11.5px;color:#a9c6ff}
+  .formula{margin:5px 15px 10px;padding:7px 12px;border-radius:10px;font-size:11px;
+    font-family:var(--mono);color:#9ec3ff;
+    background:rgba(74,168,255,.09);border:1px solid rgba(74,168,255,.22);
+    white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;min-height:60px}
+  .badge{font-size:10px;padding:2px 7px;border-radius:6px;background:rgba(74,168,255,.14);
+    color:#8fc2ff;border:1px solid rgba(74,168,255,.28);text-transform:none;letter-spacing:0}
+  .tbl{margin:0;padding:8px 15px 9px;font-family:var(--mono);font-size:10px;line-height:1.5;
+    color:#9ec3ff;white-space:pre;overflow:hidden;min-height:92px;
+    display:flex;align-items:center}
+  .note{font-size:11.5px;line-height:1.62;color:#8b97b8;padding:9px 15px 10px;margin:0}
+  .note b{color:#cdd6ee;font-weight:600}
+  .note .o{color:#7cc4ff;font-family:var(--mono);font-size:11px}
+
+  /* ---------------- 底部伪代码面板 ---------------- */
+  .bottom{margin-top:14px;padding:0}
+  .bc-head{display:flex;align-items:center;justify-content:space-between;padding:9px 16px;
+    border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.4px;color:#9aa7c6;text-transform:uppercase}
+  .bc-body{display:grid;grid-template-columns:minmax(0,1fr) 392px;align-items:stretch}
+  .bc-code{margin:0;padding:7px 0;font-family:var(--mono);font-size:10.5px;line-height:1.52;
+    color:#7f8db0;overflow:hidden}
+  .cline{padding:0 14px;white-space:pre;border-left:2px solid transparent;
+    transition:background .18s,color .18s,border-color .18s}
+  .cline.hl{background:rgba(74,168,255,.13);color:#d9e8ff;border-left-color:#4aa8ff}
+  .bc-say{border-left:1px solid var(--line);padding:11px 16px 12px;display:flex;flex-direction:column;
+    justify-content:center;gap:6px}
+  .say-l{font-family:var(--mono);font-size:9px;letter-spacing:.7px;color:#5f6a8c;text-transform:uppercase}
+  .say-t{margin:0;font-size:12.5px;line-height:1.62;color:#cdd6ee}
+  .say-t b{color:#fff;font-weight:650}
+  .say-t .m{font-family:var(--mono);font-size:11.5px;color:#a9c6ff}
+  .say-t .kg{color:var(--green);font-weight:650}
+  .say-t .ka{color:var(--amber);font-weight:650}
+  .phase-row{display:flex;gap:6px;margin-top:2px}
+  .ph{font-family:var(--mono);font-size:10px;color:#5a6484;padding:3px 8px;border-radius:7px;
+    border:1px solid rgba(130,152,205,.22);background:rgba(30,39,63,.55);white-space:nowrap;
+    transition:background .25s,border-color .25s,color .25s,box-shadow .25s}
+  .ph.on{color:#cfe2ff;border-color:rgba(110,168,255,.60);background:rgba(74,168,255,.13);
+    box-shadow:0 0 0 1px rgba(110,168,255,.18)}
+  .ph.done{color:#8ef0ae;border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.10);
+    box-shadow:none}
+  .say-note{margin:1px 0 0;font-size:11px;line-height:1.55;color:#5a6484}
+
+  @media (max-width:920px){
+    .right{position:static}
+    .bc-body{grid-template-columns:minmax(0,1fr)}
+    .bc-say{border-left:0;border-top:1px solid var(--line)}
+  }
+  @media (max-width:600px){
+    body{padding:18px 14px 32px}
+    h1{font-size:18px}
+    .sig-row{gap:6px}
+    .sig-word{min-width:0}
+    .ctile{width:28px;height:33px;font-size:14px}
+    .bucket{padding:7px 8px;min-height:92px}
+    .desc,.formula,.tbl{min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>字母异位词分组 · 哈希表动画</h1>
+    <p>LeetCode 49 · <code>strs = ["eat","tea","tan","ate","nat","bat"]</code>，把字母相同、顺序不同的单词分到同一组，组的顺序不限。</p>
+    <p>核心洞察：异位词排序后必相同 —— <code>eat / tea / ate → "aet"</code>，用它当<b>排序键</b>做哈希 key；也可用 26 字母<b>计数键</b>（计数向量）。同签名 ⇒ 同组。</p>
+  </header>
+
+  <div class="layout">
+    <section>
+      <div class="stage" id="stage">
+        <div class="sec-label"><span class="zh">输入 strs</span> · 6 个单词 · 当前处理高亮 · 已入桶变暗</div>
+        <div class="chips" id="chips"></div>
+
+        <div class="sig">
+          <div class="sec-label"><span class="zh">签名计算</span> · sorted(w) 相同 ⇔ 互为字母异位词</div>
+          <div class="sig-row">
+            <div class="sig-word"><span class="sig-l">w</span><span class="sig-v" id="sigWord">—</span></div>
+            <div class="tiles" id="sigChars"></div>
+            <div class="sig-arrow"><span class="sa-l">sorted()</span><span class="sa-a">→</span></div>
+            <div class="tiles" id="sigSorted"></div>
+            <div class="sig-eq">=</div>
+            <div class="key-chip idle" id="sigKey">
+              <span class="kc-l">hash key</span><span class="kc-v" id="sigKeyV">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hash">
+          <div class="sec-label"><span class="zh">哈希表 buckets</span> · key → 该 key 下的单词列表</div>
+          <div class="buckets" id="buckets"></div>
+        </div>
+
+        <div class="verdict" id="verdict"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev" type="button">◀ 上一步</button>
+        <button class="btn primary" id="btnPlay" type="button">▶ 播放</button>
+        <button class="btn" id="btnNext" type="button">下一步 ▶</button>
+        <button class="btn" id="btnReset" type="button">重置</button>
+        <div class="spacer"></div>
+        <label class="speed">速度
+          <select id="speed">
+            <option value="2800">0.5×</option>
+            <option value="1800" selected>1×</option>
+            <option value="1150">1.5×</option>
+            <option value="700">2×</option>
+          </select>
+        </label>
+      </div>
+      <div class="progress"><div class="progress-fill" id="prog"></div></div>
+
+      <div class="hint">
+        <kbd>空格</kbd> 播放 / 暂停 &nbsp;·&nbsp; <kbd>←</kbd><kbd>→</kbd> 单步 &nbsp;·&nbsp; <kbd>R</kbd> 重置 &nbsp;·&nbsp;
+        每个单词都走三步：先算签名 <code>key = "".join(sorted(w))</code>，再用 key 查表，最后追加或新建桶。
+      </div>
+
+      <div class="legend">
+        <span><i class="sw amber"></i>当前单词 / 新建 key</span>
+        <span><i class="sw green"></i>命中已有 key</span>
+        <span><i class="sw teal"></i>排序后的签名 sorted(w)</span>
+        <span><i class="sw blue"></i>哈希 key</span>
+        <span><i class="sw box"></i>空桶（未使用）</span>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card">
+        <div class="head"><span>当前步骤</span><span class="counter" id="counter">1 / 1</span></div>
+        <div class="stitle" id="stitle"></div>
+        <p class="desc" id="desc"></p>
+        <div class="formula" id="formula"></div>
+      </div>
+
+      <div class="card">
+        <div class="head"><span>哈希表状态</span><span class="badge" id="tableBadge">0 个 key</span></div>
+        <pre class="tbl" id="tbl"></pre>
+      </div>
+
+      <div class="card">
+        <div class="head"><span>复杂度</span><span class="badge">O(n·k log k) / O(n·k)</span></div>
+        <p class="note">
+          时间 <span class="o">O(n·k log k)</span>：n 个单词，每个排序 k 个字母；查表 / 入桶 O(1)。<br />
+          空间 <span class="o">O(n·k)</span>：每组单词列表加 key，结果本身就要存这么多。<br />
+          换成 26 字母<b>计数键</b>，每个词 O(k + 26)，省掉排序。
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="card bottom">
+    <div class="bc-head"><span>伪代码 · 排序键分桶</span><span class="badge">Python</span></div>
+    <div class="bc-body">
+      <pre class="bc-code" id="code"></pre>
+      <div class="bc-say">
+        <span class="say-l">这一步</span>
+        <p class="say-t" id="narration"></p>
+        <div class="phase-row" id="phaseRow">
+          <span class="ph" data-ph="sig">① 算签名</span>
+          <span class="ph" data-ph="lookup">② 查表</span>
+          <span class="ph" data-ph="put">③ 放入桶</span>
+        </div>
+        <p class="say-note">同一签名 ⇒ 同一组；桶的先后、桶内单词的顺序都不影响答案。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ================= 主例子 ================= */
+  const WORDS = ["eat", "tea", "tan", "ate", "nat", "bat"];
+  const sortedKey = (w) => w.split("").sort().join("");
+  const SLOTS = new Set(WORDS.map(sortedKey)).size;   // 不同的签名个数 = 桶的槽位数
+
+  /* ================= 代码面板（1-based 行号用于高亮） ================= */
+  const CODE = [
+    "def groupAnagrams(strs):",
+    '    table = {}                        # 签名 → 单词列表',
+    "    for w in strs:",
+    '        key = "".join(sorted(w))      # ① 签名：异位词排序后必相同',
+    "        if key in table:              # ② 查表",
+    "            table[key].append(w)      # ③ 命中：放进已有桶",
+    "        else:",
+    "            table[key] = [w]          # ③ 未命中：新建桶",
+    "    return list(table.values())       # 分组结果"
+  ];
+
+  /* ================= 步骤生成：真跑一遍分桶，逐步快照 ================= */
+  function buildSteps(words) {
+    const steps = [];
+    const table = [];                                   // [{key, words:[...]}]
+    const chips = words.map(() => "todo");              // todo | current | done
+    const chipKeys = words.map(() => null);             // 已入桶的词记下它的 key
+
+    function snapBuckets(states) {
+      const out = [];
+      for (let s = 0; s < SLOTS; s++) {
+        const b = table[s];
+        let state = b ? "neutral" : "empty";
+        if (states && states[s]) state = states[s];
+        out.push({
+          key: b ? b.key : null,
+          words: b ? b.words.slice() : [],
+          state: state
+        });
+      }
+      return out;
+    }
+
+    function push(o) {
+      steps.push(Object.assign({
+        phase: "run", wordIdx: -1, word: null, key: null, sigTone: "idle",
+        buckets: snapBuckets(), chips: chips.slice(), chipKeys: chipKeys.slice(),
+        title: "", desc: "", formula: "", narration: "",
+        verdict: "", code: [], final: false
+      }, o));
+    }
+
+    const doneCount = () => chips.filter((c) => c === "done").length;
+
+    /* ---- 0 · 初始化 ---- */
+    push({
+      phase: "init",
+      title: "初始化：哈希表为空",
+      desc: '<b>table = {}</b> 是一张「签名 → 单词列表」的哈希表。接下来按顺序处理 ' + words.length + ' 个单词，' +
+            '每个都走 <b>① 算签名</b> → <b>② 查表</b> → <b>③ 放入桶</b>，桶里的单词顺序不影响答案。',
+      formula: "table = {}\nfor w in strs:   # " + words.length + " 个单词",
+      narration: '<b>table = {}</b> 是空的哈希表，按顺序处理这 ' + words.length + ' 个单词。',
+      verdict: '<span class="vwait">… table 为空，等待第一个单词 eat 的签名</span>',
+      code: [2, 3]
+    });
+
+    /* ---- 逐个单词：① 算签名 ② 查表 ③ 放入桶 ---- */
+    words.forEach((w, i) => {
+      const key = sortedKey(w);
+      chips[i] = "current";
+
+      /* ① 算签名 */
+      push({
+        phase: "sig", wordIdx: i, word: w, key: key, sigTone: "live",
+        title: "① 算签名：" + w + " → " + key,
+        desc: '把 <b>"' + w + '"</b> 拆成字母 <span class="m">' + w.split("").join(", ") + '</span>,' +
+              '排序后得到 <b class="m">"' + key + '"</b>。异位词只是字母顺序不同，<b>排序后必然完全相同</b>，' +
+              '所以这个字符串可以直接当哈希键。',
+        formula: 'sorted("' + w + '") = "' + key + '"\nkey = "' + key + '"',
+        narration: w + ' 的字母排成 <span class="m">' + key + '</span> —— 这就是它的哈希键。',
+        verdict: '<span class="vwait">… 签名 "' + key + '" 已算出，下一步用它查表</span>',
+        code: [4]
+      });
+
+      /* ② 查表 */
+      const found = table.findIndex((b) => b.key === key);
+      const hit = found >= 0;
+      const probeSlot = hit ? -1 : table.length;
+      const lookupStates = {};
+      if (hit) lookupStates[found] = "hit";
+      else lookupStates[probeSlot] = "probe";
+
+      push({
+        phase: "lookup", wordIdx: i, word: w, key: key, sigTone: hit ? "hit" : "new",
+        buckets: snapBuckets(lookupStates),
+        title: hit ? "② 查表：命中 " + key : "② 查表：未命中，需要新建",
+        desc: hit
+          ? '用 <b class="m">"' + key + '"</b> 查表：<b class="kg">命中已有 key</b> —— 说明前面有单词的签名也是 ' +
+            key + '（字母完全一样），它们必须分到同一组，可直接复用第 ' + (found + 1) + ' 个桶。'
+          : '用 <b class="m">"' + key + '"</b> 查表：<b class="ka">表里没有这个 key</b> —— 目前还没有任何单词' +
+            '与它互为异位词，所以需要新建一个桶。',
+        formula: hit
+          ? '"' + key + '" in table → True\ntable["' + key + '"] = ' +
+            '[' + table[found].words.map((x) => '"' + x + '"').join(", ") + ']'
+          : '"' + key + '" in table → False\n→ 需要新建一个 key',
+        narration: hit
+          ? '表里已经有 <span class="m">' + key + '</span>，<span class="kg">命中</span>，直接复用这一桶。'
+          : '表里没有 <span class="m">' + key + '</span>，<span class="ka">未命中</span>，需要新开一个桶。',
+        verdict: hit
+          ? '<span class="vwait">… key "' + key + '" 命中第 ' + (found + 1) + ' 个桶，下一步把单词追加进去</span>'
+          : '<span class="vwait">… key "' + key + '" 查不到，下一步新建第 ' + (table.length + 1) + ' 个桶</span>',
+        code: [5]
+      });
+
+      /* ③ 放入桶 */
+      const putStates = {};
+      let bucketNo;
+      if (hit) {
+        table[found].words.push(w);
+        bucketNo = found;
+        putStates[found] = "hit";
+      } else {
+        table.push({ key: key, words: [w] });
+        bucketNo = table.length - 1;
+        putStates[bucketNo] = "new";
+      }
+      chips[i] = "done";
+      chipKeys[i] = key;
+
+      const listTxt = '[' + table[bucketNo].words.map((x) => '"' + x + '"').join(", ") + ']';
+      push({
+        phase: "put", wordIdx: i, word: w, key: key, sigTone: hit ? "hit" : "new",
+        buckets: snapBuckets(putStates),
+        title: hit ? "③ 入桶：" + w + " 追加到 " + key : "③ 入桶：新建 " + key,
+        desc: hit
+          ? '把 <b>"' + w + '"</b> 追加到 <b class="m">table["' + key + '"]</b> 的末尾 → <span class="m">' +
+            listTxt + '</span>，桶里现在有 <b>' + table[bucketNo].words.length + ' 个词</b>。' +
+            '同一个桶里的词互为异位词，顺序随意。'
+          : '新建 <b class="m">table["' + key + '"] = ["' + w + '"]</b>，哈希表从 <b>' +
+            (table.length - 1) + ' 个 key</b> 变成 <b class="ka">' + table.length + ' 个 key</b>。',
+        formula: hit
+          ? 'table["' + key + '"].append("' + w + '")\n→ ' + listTxt
+          : 'table["' + key + '"] = ["' + w + '"]\n→ ' + table.length + ' 个 key',
+        narration: hit
+          ? '<span class="m">' + w + '</span> 追加到 <span class="m">' + key + '</span> 桶 → ' + listTxt + '。'
+          : '新建桶 <span class="m">' + key + ' = ["' + w + '"]</span>，哈希表多了一个 key。',
+        verdict: '<span class="vwait">… 已入桶 ' + doneCount() + ' / ' + words.length +
+          '，哈希表 ' + table.length + ' 个 key' +
+          (i === words.length - 1 ? '，下一步汇总结果' : '，继续处理 ' + words[i + 1]) + '</span>',
+        code: hit ? [6] : [7, 8]
+      });
+    });
+
+    /* ---- 结论 ---- */
+    const finalStates = {};
+    for (let s = 0; s < table.length; s++) finalStates[s] = "final";
+    const resultLines = table.map((b) => '[' + b.words.map((w) => '"' + w + '"').join(",") + ']');
+    const bucketList = resultLines.join(",");
+    const resultTxt = "[" + bucketList + "]";
+    const sizesTxt = table.map((b) => '<span class="m">' + b.key + '</span> 桶 ' + b.words.length + ' 个词').join('、');
+    push({
+      phase: "final", wordIdx: words.length - 1, word: words[words.length - 1],
+      key: sortedKey(words[words.length - 1]), sigTone: "done",
+      buckets: snapBuckets(finalStates),
+      title: "完成：" + words.length + " 个单词 → " + table.length + " 组",
+      desc: words.length + ' 个单词全部入桶：<b class="kg">' + table.length + ' 组</b> —— ' + sizesTxt +
+            '。同桶单词的签名相同，不同桶的签名必不同，所以分组一定正确。<b>一次扫描</b>就够，不需要两两比较。',
+      formula: "return [" + resultLines[0] +
+        (resultLines.length > 1 ? ",\n        " + resultLines.slice(1).join(",") : "") + "]",
+      narration: words.length + ' 个单词全部入桶，返回 ' + table.length + ' 组：<span class="m">' +
+        resultTxt + '</span>（组的顺序不限）。',
+      verdict: '<span class="vok">✓ ' + words.length + ' 个单词 → ' + table.length + ' 组</span>' +
+        '<span class="vsep">·</span><span class="vres">' + resultTxt + '</span>',
+      code: [9],
+      final: true
+    });
+
+    return steps;
+  }
+
+  const STEPS = buildSteps(WORDS);
+  const LAST = STEPS.length - 1;
+
+  /* ================= DOM：词条 chip ================= */
+  const chipsEl = document.getElementById("chips");
+  const chipEls = WORDS.map((w, i) => {
+    const el = document.createElement("span");
+    el.className = "chip";
+    el.innerHTML = '<span class="cw">' + w + '</span><em>#' + i + '</em>';
+    chipsEl.appendChild(el);
+    return el;
+  });
+
+  /* ================= DOM：签名字母块 ================= */
+  const sigWordEl = document.getElementById("sigWord");
+  const sigKeyEl = document.getElementById("sigKey");
+  const sigKeyVEl = document.getElementById("sigKeyV");
+  const tileRaw = [];
+  const tileSorted = [];
+
+  const makeTile = (parent) => {
+    const t = document.createElement("div");
+    t.className = "ctile idle";
+    t.textContent = "·";
+    parent.appendChild(t);
+    return t;
+  };
+  const sigCharsEl = document.getElementById("sigChars");
+  const sigSortedEl = document.getElementById("sigSorted");
+  for (let k = 0; k < 3; k++) tileRaw.push(makeTile(sigCharsEl));
+  for (let k = 0; k < 3; k++) tileSorted.push(makeTile(sigSortedEl));
+
+  /* ================= DOM：哈希桶 ================= */
+  const bucketsEl = document.getElementById("buckets");
+  const bucketEls = [];
+  for (let s = 0; s < SLOTS; s++) {
+    const el = document.createElement("div");
+    el.className = "bucket empty";
+    el.innerHTML =
+      '<div class="bk-head"><span class="bk-key">?</span><span class="bk-tag">空位</span></div>' +
+      '<div class="bk-words"><span class="bk-empty">还没有 key</span></div>';
+    bucketsEl.appendChild(el);
+    bucketEls.push(el);
+  }
+
+  /* ================= DOM：伪代码 ================= */
+  const codeEl = document.getElementById("code");
+  const codeLines = CODE.map((txt) => {
+    const div = document.createElement("div");
+    div.className = "cline";
+    div.textContent = txt;
+    codeEl.appendChild(div);
+    return div;
+  });
+
+  /* ================= 渲染 ================= */
+  const stageEl = document.getElementById("stage");
+  const verdictEl = document.getElementById("verdict");
+  const phaseEls = Array.prototype.slice.call(document.querySelectorAll("#phaseRow .ph"));
+
+  let lastSigWord = null;
+
+  function bucketTag(b) {
+    if (b.key === null) return b.state === "probe" ? "将新建" : "空位";
+    if (b.state === "new") return "新建 key";
+    if (b.state === "hit") return "命中 · 追加";
+    return b.words.length + " 词";
+  }
+
+  function tableRepr(buckets) {
+    const live = buckets.filter((b) => b.key !== null);
+    if (!live.length) return "{}";
+    const lines = live.map((b) =>
+      '  "' + b.key + '": [' + b.words.map((w) => '"' + w + '"').join(", ") + "]");
+    return "{\n" + lines.join(",\n") + "\n}";
+  }
+
+  function renderSig(st) {
+    const w = st.word;
+    const raw = w ? w.split("") : [];
+    const sorted = w ? w.split("").sort() : [];
+    const changed = !!w && w !== lastSigWord;
+    const dim = st.phase === "final";
+
+    sigWordEl.textContent = w || "—";
+
+    tileRaw.forEach((el, k) => {
+      el.className = "ctile" + (raw[k] ? " raw" : " idle") + (dim && raw[k] ? " dim" : "");
+      el.textContent = raw[k] || "·";
+    });
+
+    tileSorted.forEach((el, k) => {
+      el.className = "ctile" + (sorted[k] ? " sorted" : " idle") + (dim && sorted[k] ? " dim" : "");
+      el.textContent = sorted[k] || "·";
+      el.style.animation = "none";
+      if (changed && sorted[k]) {
+        void el.offsetWidth;                       // 强制重排，让入场动画重播
+        el.style.animationDelay = (k * 70) + "ms";
+        el.classList.add("pop");
+        el.style.animation = "";
+      } else {
+        el.style.animationDelay = "";
+      }
+    });
+
+    sigKeyEl.className = "key-chip " + (st.sigTone || "idle");
+    sigKeyVEl.textContent = w ? '"' + st.key + '"' : "—";
+
+    lastSigWord = w;
+  }
+
+  function render(index) {
+    const st = STEPS[index];
+
+    /* ---- 词条 ---- */
+    chipEls.forEach((el, k) => {
+      const state = st.chips[k];
+      el.className = "chip" + (state === "current" ? " current" : state === "done" ? " done" : "");
+      el.querySelector("em").textContent = st.chipKeys[k] || ("#" + k);
+    });
+
+    /* ---- 签名 ---- */
+    renderSig(st);
+
+    /* ---- 哈希桶 ---- */
+    bucketEls.forEach((el, s) => {
+      const b = st.buckets[s];
+      let cls = "bucket";
+      if (b.key === null) cls += (b.state === "probe" ? " probe" : " empty");
+      else if (b.state === "new") cls += " new";
+      else if (b.state === "hit") cls += " hit";
+      else if (b.state === "final") cls += " final";
+      el.className = cls;
+      el.querySelector(".bk-key").textContent = b.key === null ? "?" : '"' + b.key + '"';
+      el.querySelector(".bk-tag").textContent = bucketTag(b);
+
+      const wordsEl = el.querySelector(".bk-words");
+      wordsEl.innerHTML = "";
+      if (!b.words.length) {
+        const empty = document.createElement("span");
+        empty.className = "bk-empty";
+        empty.textContent = b.state === "probe" ? "→ 下一个 key 落在这里" : "还没有 key";
+        wordsEl.appendChild(empty);
+      } else {
+        b.words.forEach((w, wi) => {
+          const chip = document.createElement("span");
+          const fresh = st.phase === "put" && wi === b.words.length - 1;
+          chip.className = "bword" + (fresh ? " fresh" : "");
+          chip.textContent = w;
+          wordsEl.appendChild(chip);
+        });
+      }
+    });
+
+    /* ---- 底部结论条 ---- */
+    verdictEl.innerHTML = st.verdict;
+    stageEl.classList.toggle("is-final", !!st.final);
+
+    /* ---- 右侧卡片 ---- */
+    document.getElementById("counter").textContent = (index + 1) + " / " + (LAST + 1);
+    document.getElementById("stitle").textContent = st.title;
+    document.getElementById("desc").innerHTML = st.desc;
+    document.getElementById("formula").textContent = st.formula;
+    document.getElementById("tbl").textContent = tableRepr(st.buckets);
+    document.getElementById("tableBadge").textContent =
+      st.buckets.filter((b) => b.key !== null).length + " 个 key";
+    document.getElementById("prog").style.width = (LAST === 0 ? 100 : (index / LAST) * 100) + "%";
+
+    /* ---- 伪代码高亮 ---- */
+    codeLines.forEach((el, i) => { el.classList.toggle("hl", st.code.indexOf(i + 1) !== -1); });
+    document.getElementById("narration").innerHTML = st.narration;
+    phaseEls.forEach((el) => {
+      el.classList.toggle("on", st.final || el.dataset.ph === st.phase);
+      el.classList.toggle("done", !!st.final);
+    });
+
+    document.getElementById("btnPrev").disabled = index === 0;
+    document.getElementById("btnNext").disabled = index === LAST;
+    document.getElementById("btnPlay").textContent = playing ? "⏸ 暂停" : "▶ 播放";
+  }
+
+  /* ================= 播放控制 ================= */
+  let current = 0;
+  let timer = null;
+  let playing = false;
+
+  const btnPlay = document.getElementById("btnPlay");
+  const speedSel = document.getElementById("speed");
+
+  function setPlaying(on) {
+    playing = on;
+    btnPlay.textContent = on ? "⏸ 暂停" : "▶ 播放";
+    if (on) {
+      if (current === LAST) { current = 0; render(0); }
+      schedule();
+    } else if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  function schedule() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      if (!playing) return;
+      if (current < LAST) {
+        current += 1;
+        render(current);
+        schedule();
+      } else {
+        setPlaying(false);
+      }
+    }, Number(speedSel.value));
+  }
+
+  function goto(i) {
+    if (playing) setPlaying(false);
+    current = Math.max(0, Math.min(LAST, i));
+    render(current);
+  }
+
+  btnPlay.addEventListener("click", () => setPlaying(!playing));
+  document.getElementById("btnNext").addEventListener("click", () => goto(current + 1));
+  document.getElementById("btnPrev").addEventListener("click", () => goto(current - 1));
+  document.getElementById("btnReset").addEventListener("click", () => { setPlaying(false); goto(0); });
+  speedSel.addEventListener("change", () => { if (playing) schedule(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") { e.preventDefault(); setPlaying(!playing); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); goto(current + 1); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+    else if (e.code === "KeyR") { e.preventDefault(); goto(0); }
+  });
+
+  /* 暴露少量状态，便于核对与截图定位（不影响交互） */
+  window.__GROUP_ANAGRAMS__ = {
+    steps: STEPS,
+    last: LAST,
+    total: STEPS.length,
+    go: goto,
+    at: () => current
+  };
+
+  document.title = "字母异位词分组 · 哈希表动画";
+  render(0);
+  window.__GROUP_ANAGRAMS_READY__ = true;
+})();
+</script>
+</body>
+</html>

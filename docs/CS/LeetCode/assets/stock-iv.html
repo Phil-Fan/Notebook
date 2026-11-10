@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>买卖股票的最佳时机 IV · 动态规划动画</title>
+<style>
+  :root{
+    --panel:rgba(20,27,49,.72);
+    --line:rgba(122,142,192,.20);
+    --text:#e9edf8;
+    --dim:#8b97b8;
+    --amber:#ffb03a;
+    --green:#4ade80;
+    --blue:#6ea8ff;
+    --purple:#b58cff;
+    --pink:#ff8fb1;
+    --teal:#5eead4;
+    --yellow:#facc15;
+    --mono:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;padding:24px;color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -8%,rgba(58,88,164,.34),transparent 62%),
+      radial-gradient(760px 460px at 88% 4%,rgba(120,80,200,.20),transparent 60%),
+      linear-gradient(180deg,#080c18,#05070f 60%,#04060c);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header{margin-bottom:14px}
+  h1{margin:0 0 6px;font-size:21px;letter-spacing:.2px;font-weight:650}
+  header p{margin:0;color:var(--dim);font-size:13px;line-height:1.62;max-width:1010px}
+  header p b{color:#cdd6ee;font-weight:600}
+  header code,.mono{font-family:var(--mono);font-size:12px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 6px;border-radius:6px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:18px;align-items:start}
+  @media (max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+
+  /* ---------------- stage ---------------- */
+  .stage{background:linear-gradient(180deg,rgba(24,32,56,.85),rgba(14,19,36,.85));
+         border:1px solid var(--line);border-radius:18px;padding:13px 14px 12px;
+         box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden;
+         transition:box-shadow .35s,border-color .35s}
+  .stage.is-final{border-color:rgba(74,222,128,.38);
+         box-shadow:0 0 0 1px rgba(74,222,128,.20),0 18px 50px rgba(0,0,0,.38),0 0 46px rgba(74,222,128,.10)}
+
+  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;
+    color:#5f6a8c;font-family:var(--mono);margin:0 0 7px}
+  .sec-label .zh{font-family:inherit;color:#6d789a}
+
+  /* ---------------- 价格柱状图 ---------------- */
+  .chart{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;max-width:600px;margin:0 auto}
+  .bcol{display:flex;flex-direction:column;align-items:center;gap:4px;
+    padding:5px 4px 4px;border-radius:12px;border:1px solid transparent;
+    transition:background .28s,border-color .28s,box-shadow .28s}
+  .btag{height:13px;line-height:13px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2px;
+    color:#5d688a;white-space:nowrap;transition:color .25s}
+  .btrack{width:100%;height:60px;display:flex;align-items:flex-end;justify-content:center}
+  .bfill{width:30px;border-radius:7px 7px 3px 3px;
+    background:linear-gradient(180deg,#3b4b74,#2a3450);border:1px solid rgba(130,155,215,.35);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+    transition:background .28s,border-color .28s,box-shadow .28s}
+  .bval{font-family:var(--mono);font-size:12px;font-weight:650;color:#a9b6d8;line-height:1;transition:color .25s}
+  .bidx{font-family:var(--mono);font-size:10.5px;color:#5d688a;line-height:1.1;transition:color .25s}
+  .bcol.sell{border-color:rgba(255,176,58,.42);background:rgba(255,176,58,.06);
+    box-shadow:0 0 0 1px rgba(255,176,58,.16),0 0 22px rgba(255,176,58,.10)}
+  .bcol.sell .bfill{background:linear-gradient(180deg,#7a5a20,#4a3714);
+    border-color:rgba(255,176,58,.85);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 18px rgba(255,176,58,.28)}
+  .bcol.sell .bval,.bcol.sell .btag{color:#ffc35e}
+  .bcol.buy{border-color:rgba(94,234,212,.42);background:rgba(94,234,212,.06);
+    box-shadow:0 0 0 1px rgba(94,234,212,.14),0 0 22px rgba(94,234,212,.10)}
+  .bcol.buy .bfill{background:linear-gradient(180deg,#18544e,#103733);
+    border-color:rgba(94,234,212,.85);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 18px rgba(94,234,212,.26)}
+  .bcol.buy .bval,.bcol.buy .btag{color:#7ff0e0}
+  .bcol.trade{border-color:rgba(74,222,128,.40);background:rgba(74,222,128,.06);
+    box-shadow:0 0 0 1px rgba(74,222,128,.16),0 0 22px rgba(74,222,128,.10)}
+  .bcol.trade .bfill{background:linear-gradient(180deg,#1f4a35,#153324);
+    border-color:rgba(74,222,128,.85);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 18px rgba(74,222,128,.22)}
+  .bcol.trade .bval,.bcol.trade .btag{color:#8ef0ae}
+  .bcol.sell .bidx,.bcol.buy .bidx{color:#9fb0d4}
+
+  /* ---------------- dp 表 ---------------- */
+  .dp-wrap{margin-top:11px}
+  .dp-grid{display:grid;grid-template-columns:66px repeat(7,minmax(0,1fr));gap:6px;
+    max-width:762px;margin:0 auto;align-items:center}
+  .dp-h{height:17px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:10px;color:#5f6a8c;transition:color .25s}
+  .dp-h.corner{font-size:9.5px;color:#66739a;letter-spacing:.2px}
+  .dp-h.on{color:#ffc35e;font-weight:700}
+  .dp-tl{height:36px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:var(--mono);line-height:1.2}
+  .dp-tl .tl1{font-size:11px;color:#9aa7c6}
+  .dp-tl .tl2{font-size:8.5px;color:#5f6a8c}
+  .cell{height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:14.5px;font-weight:700;color:#7f8db0;
+    background:linear-gradient(180deg,#232c48,#1b2338);border:1px solid rgba(130,155,215,.30);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    transition:background .28s,border-color .28s,box-shadow .28s,color .28s,opacity .28s}
+  .cell.known{color:#dbe6ff}
+  .cell.future{opacity:.38;border-style:dashed}
+  .cell.rowt{background:linear-gradient(180deg,#293a63,#1f2b4c);border-color:rgba(110,168,255,.36)}
+  .cell.ref{border-color:rgba(110,168,255,.85);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 0 2px rgba(110,168,255,.38),0 0 20px rgba(110,168,255,.16)}
+  .cell.prev{border-color:rgba(74,222,128,.62);border-style:dashed;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 0 0 2px rgba(74,222,128,.22)}
+  .cell.cur{border-color:rgba(255,176,58,.92);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 2px rgba(255,176,58,.48),0 0 24px rgba(255,176,58,.20)}
+  .cell.answer{background:linear-gradient(180deg,#1f3b2e,#182b22);border-color:rgba(74,222,128,.80);
+    color:#7ef0a8;opacity:1;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 0 0 2px rgba(74,222,128,.30),0 0 26px rgba(74,222,128,.18)}
+  .dp-foot{margin-top:7px;text-align:center;font-size:10px;line-height:1.4;color:#5f6a8c;font-family:var(--mono)}
+  .dp-foot b{color:#8b97b8;font-weight:600}
+
+  /* ---------------- 递推式 / 决策条 ---------------- */
+  .decision{margin-top:9px;border-top:1px solid var(--line);padding-top:8px}
+  .dec-rule{font-family:var(--mono);font-size:10.5px;color:#7f93bd;text-align:center;
+    line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dec-rule sub{font-size:8px}
+  .dec-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:6px}
+  .stat{min-height:48px;border-radius:10px;padding:4px 5px 5px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    background:linear-gradient(180deg,#222c49,#1a2237);border:1px solid rgba(130,155,215,.28);
+    transition:background .28s,border-color .28s,box-shadow .28s}
+  .stat .sk{font-family:var(--mono);font-size:9px;color:#66739a;line-height:1.25;
+    max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat .sv{font-family:var(--mono);font-size:15px;font-weight:700;color:#dbe6ff;line-height:1.2}
+  .stat .ss{font-family:var(--mono);font-size:8.5px;color:#5f6a8c;line-height:1.25;
+    max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat.ref{border-color:rgba(110,168,255,.55);background:linear-gradient(180deg,#243452,#1b2740)}
+  .stat.ref .sv{color:#a8c8ff}
+  .stat.hot{border-color:rgba(255,176,58,.62);background:linear-gradient(180deg,#3d3320,#2a2418)}
+  .stat.hot .sv{color:#ffd28a}
+  .stat.ans{border-color:rgba(74,222,128,.70);background:linear-gradient(180deg,#1f3b2e,#182b22)}
+  .stat.ans .sv{color:#8ef0ae}
+  .dec-expr{margin-top:6px;min-height:17px;text-align:center;font-family:var(--mono);
+    font-size:11px;line-height:1.45;color:#9ec3ff;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* ---------------- controls ---------------- */
+  .controls{display:flex;align-items:center;gap:8px;margin-top:11px;flex-wrap:wrap;padding:0 4px}
+  .btn{appearance:none;border:1px solid rgba(130,152,205,.28);background:rgba(30,39,63,.9);color:#cfd8f0;
+    font-size:13px;font-weight:550;padding:8px 14px;border-radius:11px;cursor:pointer;
+    transition:transform .12s ease,background .2s,border-color .2s,box-shadow .2s;font-family:inherit}
+  .btn:hover{background:rgba(44,56,88,.95);border-color:rgba(140,170,255,.5)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:linear-gradient(180deg,#3f8cf0,#2b6fd4);border-color:rgba(120,180,255,.6);color:#fff;
+    box-shadow:0 8px 22px rgba(43,111,212,.42)}
+  .btn.primary:hover{background:linear-gradient(180deg,#4d99f7,#3078de)}
+  .btn:disabled{opacity:.42;cursor:default;transform:none}
+  .spacer{flex:1}
+  .speed{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim)}
+  select{appearance:none;background:rgba(30,39,63,.9);color:#cfd8f0;border:1px solid rgba(130,152,205,.28);
+    border-radius:9px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;outline:none}
+  .progress{height:4px;border-radius:99px;background:rgba(120,140,190,.16);margin:11px 4px 0;overflow:hidden}
+  .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#4aa8ff,#a98bff);
+    transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .hint{margin:9px 4px 0;font-size:11.5px;color:#5f6a8c;line-height:1.6}
+  .hint code{font-family:var(--mono);font-size:11px;color:#93a9d6}
+  kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid rgba(130,152,205,.3);
+      background:rgba(30,39,63,.9);color:#9fb0d4}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin:10px 4px 0;font-size:11px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .sw{width:15px;height:0;border-radius:2px;display:inline-block;border-top:2px solid;flex:0 0 auto}
+  .sw.amber{border-color:rgba(255,176,58,.9)}
+  .sw.teal{border-color:rgba(94,234,212,.9)}
+  .sw.blue{border-color:rgba(110,168,255,.9)}
+  .sw.green{border-color:rgba(74,222,128,.9)}
+  .sw.greendash{border-top-style:dashed;border-color:rgba(74,222,128,.85)}
+  .sw.box{width:15px;height:11px;border:1.5px dashed rgba(130,150,200,.55);border-radius:4px}
+
+  /* ---------------- side panel ---------------- */
+  .right{display:flex;flex-direction:column;gap:14px;position:sticky;top:20px}
+  .card .head{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;
+    border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.4px;color:#9aa7c6;text-transform:uppercase}
+  .counter{font-variant-numeric:tabular-nums;color:#7f8db0;font-size:11.5px}
+  .stitle{padding:10px 15px 0;font-size:14px;font-weight:650;line-height:1.5;color:#eef2ff}
+  .desc{margin:0;padding:5px 15px 3px;font-size:12.5px;line-height:1.66;color:#cdd6ee;min-height:82px}
+  .desc b{color:#fff;font-weight:650}
+  .desc b.kg{color:var(--green)}
+  .desc b.kp{color:var(--pink)}
+  .desc b.kb{color:var(--blue)}
+  .desc b.ka{color:var(--amber)}
+  .desc .m{font-family:var(--mono);font-size:11.5px;color:#a9c6ff}
+  .formula{margin:8px 15px 12px;padding:8px 12px;border-radius:10px;font-size:11.5px;
+    font-family:var(--mono);color:#9ec3ff;
+    background:rgba(74,168,255,.09);border:1px solid rgba(74,168,255,.22);
+    white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;min-height:68px}
+  .code{padding:0}
+  .badge{font-size:10px;padding:2px 7px;border-radius:6px;background:rgba(74,168,255,.14);
+    color:#8fc2ff;border:1px solid rgba(74,168,255,.28);text-transform:none;letter-spacing:0}
+  .code pre{margin:0;padding:9px 0;font-family:var(--mono);
+    font-size:10px;line-height:1.6;overflow-x:auto;color:#7f8db0;scrollbar-width:thin}
+  .cline{padding:0 10px;white-space:pre;border-left:2px solid transparent;
+    transition:background .18s,color .18s,border-color .18s}
+  .cline.hl{background:rgba(74,168,255,.13);color:#d9e8ff;border-left-color:#4aa8ff}
+  .note{font-size:12px;line-height:1.72;color:#8b97b8;padding:11px 15px 12px;margin:0}
+  .note b{color:#cdd6ee;font-weight:600}
+  .note .o{color:#7cc4ff;font-family:var(--mono);font-size:11.5px}
+
+  @media (max-width:920px){
+    .right{position:static}
+  }
+  @media (max-width:600px){
+    body{padding:18px 14px 32px}
+    h1{font-size:18px}
+    .chart{max-width:440px;gap:7px}
+    .dp-grid{grid-template-columns:52px repeat(7,minmax(0,1fr));gap:4px}
+    .cell{height:32px;font-size:13px}
+    .dec-stats{gap:5px}
+    .desc{min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>买卖股票的最佳时机 IV · 动态规划动画</h1>
+    <p>LeetCode 188 · <code>prices = [3,2,6,5,0,3]</code>，<code>k = 2</code>。一笔交易 = 某天买入、之后某天卖出，任意时刻最多持有 1 股，最多 <b>k</b> 笔。<b>dp[t][i]</b> 记「只看前 i 天、最多 t 笔」的最大利润；用 <b>running max</b> 把对买入日 j 的枚举压成 O(1)：每轮只维护 <b>best = max(dp[t−1][j] − prices[j])</b>，总时间 <b>O(k·n)</b>。</p>
+  </header>
+
+  <div class="layout">
+    <section>
+      <div class="stage" id="stage">
+        <div class="sec-label"><span class="zh">价格 prices</span> · 下标 0 … 5 · 柱高 ∝ 价格</div>
+        <div class="chart" id="chart"></div>
+
+        <div class="dp-wrap">
+          <div class="sec-label"><span class="zh">dp 表</span> · dp[t][i] = 前 i 天、最多 t 笔的最大利润</div>
+          <div class="dp-grid" id="dpGrid"></div>
+          <div class="dp-foot">i = 1 列：<b>只有 1 天，不能交易</b>（买进后没有日子卖出），dp[t][1] 恒为 0</div>
+        </div>
+
+        <div class="decision">
+          <div class="dec-rule" id="decRule">dp[t][i] = max( dp[t][i−1], prices[i−1] + best ) · best = max<sub>j ≤ i−2</sub> ( dp[t−1][j] − prices[j] )</div>
+          <div class="dec-stats" id="decStats"></div>
+          <div class="dec-expr" id="decExpr"></div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev" type="button">◀ 上一步</button>
+        <button class="btn primary" id="btnPlay" type="button">▶ 播放</button>
+        <button class="btn" id="btnNext" type="button">下一步 ▶</button>
+        <button class="btn" id="btnReset" type="button">重置</button>
+        <div class="spacer"></div>
+        <label class="speed">速度
+          <select id="speed">
+            <option value="2800">0.5×</option>
+            <option value="1600" selected>1×</option>
+            <option value="1000">2×</option>
+            <option value="620">4×</option>
+          </select>
+        </label>
+      </div>
+      <div class="progress"><div class="progress-fill" id="prog"></div></div>
+
+      <div class="hint">
+        <kbd>空格</kbd> 播放 / 暂停 &nbsp;·&nbsp; <kbd>←</kbd><kbd>→</kbd> 单步 &nbsp;·&nbsp; <kbd>R</kbd> 重置 &nbsp;·&nbsp;
+        每一格只做两件事：先把新买入日 <code>j = i−2</code> 吸收进 <code>best</code>，再用 <code>prices[i−1] + best</code> 跟「今天不卖」的 <code>dp[t][i−1]</code> 取 max。
+      </div>
+
+      <div class="legend">
+        <span><i class="sw amber"></i>当前卖出日 i−1 / 当前格</span>
+        <span><i class="sw teal"></i>best 对应的买入日（argmax j）</span>
+        <span><i class="sw blue"></i>参考格 dp[t−1][·]</span>
+        <span><i class="sw greendash"></i>dp[t][i−1]（不卖）</span>
+        <span><i class="sw green"></i>最终答案 / 成交</span>
+        <span><i class="sw box"></i>还没算到</span>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card">
+        <div class="head"><span>当前步骤</span><span class="counter" id="counter">1 / 28</span></div>
+        <div class="stitle" id="stitle"></div>
+        <p class="desc" id="desc"></p>
+        <div class="formula" id="formula"></div>
+      </div>
+
+      <div class="card code">
+        <div class="head"><span>对应代码</span><span class="badge">Python</span></div>
+        <pre id="code"></pre>
+      </div>
+
+      <div class="card">
+        <div class="head"><span>复杂度</span><span class="badge">O(k·n) / O(k·n)</span></div>
+        <p class="note">
+          时间 <span class="o">O(k·n)</span>：外层 k 轮 × 内层 n 天，每天只做 O(1) 的 max。<br />
+          空间 <span class="o">O(k·n)</span>：3 × 7 的 dp 表，加一个滚动的 best。<br />
+          朴素枚举买入日是 <span class="o">O(k·n²)</span>，running max 把它压成常数。
+        </p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ================= 主例子 ================= */
+  const PRICES = [3, 2, 6, 5, 0, 3];
+  const K = 2;
+  const N = PRICES.length;
+  const MAXP = Math.max.apply(null, PRICES);
+  const TRACK = 60;   // 价格柱可达的最大高度（px）
+
+  /* ================= 代码面板（1-based 行号用于高亮） ================= */
+  const CODE = [
+    "def max_profit(prices, k):",
+    "    n = len(prices)",
+    "    dp = [[0] * (n + 1) for _ in range(k + 1)]",
+    "    for t in range(1, k + 1):",
+    '        best = -float("inf")',
+    "        for i in range(2, n + 1):",
+    "            j = i - 2",
+    "            best = max(best, dp[t-1][j] - prices[j])",
+    "            dp[t][i] = max(dp[t][i-1],",
+    "                          prices[i-1] + best)",
+    "    return dp[k][n]"
+  ];
+
+  /* ================= 步骤生成：真的把 running-max DP 跑一遍，逐步快照 ================= */
+  /* @steps-begin */
+  function buildSteps(prices, k) {
+    const n = prices.length;
+
+    const dp = [];
+    const known = [];
+    const choice = [];
+    for (let t = 0; t <= k; t++) {
+      dp.push(new Array(n + 1).fill(0));
+      known.push(new Array(n + 1).fill(false));
+      choice.push(new Array(n + 1).fill(null));
+    }
+    for (let t = 0; t <= k; t++) known[t][0] = true;   // dp[t][0] = 0
+    for (let i = 0; i <= n; i++) known[0][i] = true;   // dp[0][i] = 0
+
+    const steps = [];
+    const clone = (m) => m.map((r) => r.slice());
+    const num = (v) => (v === null || v === undefined || !isFinite(v))
+      ? "\u2212\u221e" : (v < 0 ? "\u2212" + (-v) : String(v));
+    const par = (v) => (v < 0 ? "(" + num(v) + ")" : num(v));
+
+    function push(o) {
+      steps.push(Object.assign({
+        title: "", desc: "", formula: "", expr: "",
+        t: 0, i: 0, j: null, best: null, buyJ: null, refI: null,
+        prevDP: null, cand: null, dpVal: null,
+        phase: "run", final: false, trades: [],
+        code: [], codeLine: 0,
+        dp: clone(dp), known: clone(known)
+      }, o));
+    }
+
+    /* ---- 0 · 初始化 ---- */
+    push({
+      phase: "init", t: 0, i: 0,
+      title: "初始化：dp 表全 0",
+      desc: '<b>dp[t][i]</b> = 只看前 i 天（第 0 … i−1 天）、最多做 t 笔交易的最大利润。<b>dp[t][0] = 0</b>（一天都没有），<b>dp[0][i] = 0</b>（不许交易）。n = 6 天、k = 2 笔 → 表是 <b>3 行 × 7 列</b>。',
+      formula: "dp[t][i]  \u2190  前 i 天 / 最多 t 笔\nn = 6, k = 2  \u2192  3 \u00d7 7 的零表",
+      expr: "初始化：dp[t][0] = 0，dp[0][i] = 0，其余格子先留空（·），等循环逐格算出",
+      code: [1, 2, 3], codeLine: 3
+    });
+
+    let finalBest = null;
+    let finalBuyJ = null;
+
+    for (let t = 1; t <= k; t++) {
+      let best = -Infinity;
+      let buyJ = null;
+
+      /* ---- 第 t 轮开始 ---- */
+      push({
+        phase: "round", t: t, i: 0,
+        title: "第 " + t + " 轮开始（t = " + t + "）",
+        desc: '外层固定 <b>t = ' + t + '</b>，把 <b>best</b> 重置为 <b>−∞</b>。best 存「在卖出日之前买入」能拿到的最好差价，会随 i 增大不断吸收新买入日 <b>j = i − 2</b>。内层从 i = 2 走到 6；i = 1 那列买不进也卖不出，恒为 0，下面先单独说明。',
+        formula: "t = " + t + "   best = −∞\n内层 i = 2 \u2026 6，每天 O(1)",
+        expr: "t = " + t + "：best 重置为 −∞，从 dp[" + t + "][0] = 0 起扫",
+        prevDP: dp[t][0], dpVal: dp[t][0],
+        code: [4, 5], codeLine: 5
+      });
+
+      /* ---- i = 1：只有 1 天，做不成交易 ---- */
+      known[t][1] = true;
+      push({
+        phase: "run", t: t, i: 1, j: -1,
+        title: "i = 1：没有更早的买入日",
+        desc: '内层从 <b>i = 2</b> 开始就是为了跳过这里：i = 1 时卖出日 i − 1 = 0，而买入日必须更早（j = i − 2 = <b>−1</b>），前一天不存在 —— <b>一天做不成「先买后卖」</b>。',
+        formula: "i = 1  \u2192  j = i − 2 = −1 < 0\n没有可买的日子 → 候选为空",
+        expr: "i = 1：j = i − 2 = −1 < 0，没有买入日，不产生候选",
+        prevDP: dp[t][0], dpVal: dp[t][1],
+        code: [6], codeLine: 6
+      });
+      push({
+        phase: "run", t: t, i: 1, j: -1,
+        title: "dp[" + t + "][1] = 0：一天不行",
+        desc: '没有候选，只能继承初始值：<b>dp[' + t + '][1] = dp[' + t + '][0] = 0</b>。所以表里 i = 1 这一列永远是 0 —— 只给一天，买了没日子卖。',
+        formula: "dp[" + t + "][1] = dp[" + t + "][0] = 0",
+        expr: "dp[" + t + "][1] = max(dp[" + t + "][0], −∞) = 0",
+        prevDP: dp[t][0], dpVal: dp[t][1],
+        code: [3], codeLine: 3
+      });
+
+      /* ---- i = 2 … n ---- */
+      for (let i = 2; i <= n; i++) {
+        const j = i - 2;
+        const prevBest = best;
+        const val = dp[t - 1][j] - prices[j];
+        const improved = val > prevBest;
+        const prevBuyJ = buyJ;
+        if (improved) { best = val; buyJ = j; }
+
+        /* A · 更新 best */
+        push({
+          phase: "run", t: t, i: i, j: j,
+          best: isFinite(best) ? best : null,
+          prevBest: isFinite(prevBest) ? prevBest : null,
+          buyJ: buyJ, prevBuyJ: prevBuyJ, refI: j,
+          prevDP: dp[t][i - 1], cand: null, dpVal: dp[t][i],
+          title: improved
+            ? "吸收买入日 j = " + j + "：best = " + num(best)
+            : "j = " + j + " 没超过 best",
+          desc: improved
+            ? '新买入日 <b>j = ' + j + '</b> 的候选 <b>dp[' + (t - 1) + '][' + j + '] − prices[' + j + '] = ' + dp[t - 1][j] + ' − ' + prices[j] + ' = ' + num(val) + '</b> 比原来的 best（' + num(prevBest) + '）大，于是 <b class="kb">best = ' + num(best) + '</b>，买入日记作 <b>j = ' + j + '</b>（股价 ' + prices[j] + '）。'
+            : '新买入日 <b>j = ' + j + '</b> 的候选是 <b>dp[' + (t - 1) + '][' + j + '] − prices[' + j + '] = ' + dp[t - 1][j] + ' − ' + prices[j] + ' = ' + num(val) + '</b>，没有超过当前 <b class="kb">best = ' + num(best) + '</b>（仍来自买入日 j = ' + buyJ + '，股价 ' + prices[buyJ] + '），best 不变。',
+          formula: "j = " + j + "   dp[" + (t - 1) + "][" + j + "] − prices[" + j + "] = " + dp[t - 1][j] + " − " + prices[j] + " = " + num(val) +
+                   "\nbest = max(" + num(prevBest) + ", " + num(val) + ") = " + num(best) + "   buyJ = " + buyJ,
+          expr: "best = max(" + num(prevBest) + ", " + num(val) + ") = " + num(best) + " · 买入日 j = " + buyJ + "，股价 " + prices[buyJ],
+          code: [7, 8], codeLine: 8
+        });
+
+        /* B · 决定卖还是不卖 */
+        const prevDP = dp[t][i - 1];
+        const cand = prices[i - 1] + best;
+        const take = cand > prevDP;
+        dp[t][i] = Math.max(prevDP, cand);
+        known[t][i] = true;
+        choice[t][i] = take ? { type: "sell", buyJ: buyJ } : { type: "hold" };
+
+        push({
+          phase: "run", t: t, i: i, j: j,
+          best: best, buyJ: buyJ, refI: buyJ, prevDP: prevDP, cand: cand, dpVal: dp[t][i],
+          title: take
+            ? "dp[" + t + "][" + i + "] = " + dp[t][i] + "：今天卖出"
+            : "dp[" + t + "][" + i + "] = " + dp[t][i] + "：今天不卖",
+          desc: take
+            ? '卖出日定在 <b>i − 1 = ' + (i - 1) + '</b>（价格 <b>prices[' + (i - 1) + '] = ' + prices[i - 1] + '</b>）：候选 ' + prices[i - 1] + ' + ' + par(best) + ' = <b>' + num(cand) + '</b> 大于「今天不卖」的 <b>dp[' + t + '][' + (i - 1) + '] = ' + prevDP + '</b>，所以 <b class="kg">dp[' + t + '][' + i + '] = ' + dp[t][i] + '</b>（下标 ' + buyJ + ' 买入 → 下标 ' + (i - 1) + ' 卖出）。'
+            : '候选 ' + prices[i - 1] + ' + ' + par(best) + ' = <b>' + num(cand) + '</b>，没有超过「今天不卖」的 <b>dp[' + t + '][' + (i - 1) + '] = ' + prevDP + '</b>，于是保持前一个状态 <b class="kg">dp[' + t + '][' + i + '] = ' + dp[t][i] + '</b>，今天不动。',
+          formula: "dp[" + t + "][" + i + "] = max(dp[" + t + "][" + (i - 1) + "] = " + prevDP + ", " + prices[i - 1] + " + " + par(best) + ")" +
+                   "\n              = max(" + prevDP + ", " + num(cand) + ") = " + dp[t][i] + "   ← " + (take ? "卖出更优" : "不卖更优"),
+          expr: "dp[" + t + "][" + i + "] = max(" + prevDP + ", " + prices[i - 1] + " + " + par(best) + ") = " + dp[t][i] + " · " + (take ? "卖" : "不卖"),
+          code: [9, 10], codeLine: 9
+        });
+      }
+
+      if (t === k) { finalBest = best; finalBuyJ = buyJ; }
+    }
+
+    /* ---- 结论 ---- */
+    const trades = collectTrades(choice, k, n);
+    const sumExpr = trades.map((tr) => "(" + prices[tr.sell] + " − " + prices[tr.buy] + ")").join(" + ");
+    const tradeTxt = trades.map((tr) =>
+      "下标 " + tr.buy + " 买入 " + prices[tr.buy] + " → 下标 " + tr.sell + " 卖出 " + prices[tr.sell]
+    ).join("\n");
+
+    push({
+      phase: "final", t: k, i: n,
+      best: finalBest, buyJ: finalBuyJ,
+      prevDP: dp[k][n - 1],
+      cand: prices[n - 1] + finalBest,
+      dpVal: dp[k][n],
+      title: "结论：dp[" + k + "][" + n + "] = " + dp[k][n],
+      desc: '最多 ' + k + ' 笔能赚 <b class="kg">' + dp[k][n] + ' = ' + sumExpr + '</b>：' +
+            trades.map((tr) => '下标 ' + tr.buy + ' 买入 ' + prices[tr.buy] + ' → 下标 ' + tr.sell + ' 卖出 ' + prices[tr.sell]).join('，') +
+            '。两笔的买入日都是当轮 best 记下来的，没有回头枚举。',
+      formula: "dp[" + k + "][" + n + "] = " + dp[k][n] + " = " + sumExpr + "\n" + tradeTxt,
+      expr: "dp[" + k + "][" + n + "] = max(" + dp[k][n - 1] + ", " + prices[n - 1] + " + " + num(finalBest) + ") = " + dp[k][n] + " = " + sumExpr,
+      trades: trades,
+      final: true,
+      code: [11], codeLine: 11
+    });
+
+    return steps;
+  }
+
+  /* 从决策记录回溯出成交流水（hold → i−1；sell → 记一笔，回到 (t−1, 买入日)） */
+  function collectTrades(choice, k, n) {
+    const out = [];
+    let t = k, i = n, guard = 0;
+    while (t > 0 && i > 0 && guard++ < 200) {
+      const c = choice[t][i];
+      if (c && c.type === "sell") {
+        out.push({ buy: c.buyJ, sell: i - 1 });
+        i = c.buyJ;
+        t -= 1;
+      } else {
+        i -= 1;
+      }
+    }
+    return out.reverse();
+  }
+  /* @steps-end */
+
+  const STEPS = buildSteps(PRICES, K);
+  const LAST = STEPS.length - 1;
+
+  /* ================= DOM：价格柱 ================= */
+  const chartEl = document.getElementById("chart");
+  const barCols = [], barFills = [], barTags = [], barVals = [];
+
+  PRICES.forEach((p, idx) => {
+    const col = document.createElement("div");
+    col.className = "bcol";
+
+    const tag = document.createElement("div");
+    tag.className = "btag";
+    tag.textContent = "";
+
+    const track = document.createElement("div");
+    track.className = "btrack";
+    const fill = document.createElement("div");
+    fill.className = "bfill";
+    fill.style.height = Math.max(4, Math.round((p / MAXP) * TRACK)) + "px";   // 价格 0 也留 4px 基线
+    track.appendChild(fill);
+
+    const val = document.createElement("div");
+    val.className = "bval";
+    val.textContent = String(p);
+
+    const ix = document.createElement("div");
+    ix.className = "bidx";
+    ix.textContent = String(idx);
+
+    col.appendChild(tag);
+    col.appendChild(track);
+    col.appendChild(val);
+    col.appendChild(ix);
+    chartEl.appendChild(col);
+
+    barCols.push(col);
+    barFills.push(fill);
+    barTags.push(tag);
+    barVals.push(val);
+  });
+
+  /* ================= DOM：dp 表 ================= */
+  const dpGridEl = document.getElementById("dpGrid");
+  const cellEls = [];   // cellEls[t][i]
+  const colHeadEls = [];
+
+  const corner = document.createElement("div");
+  corner.className = "dp-h corner";
+  corner.textContent = "前 i 天";
+  dpGridEl.appendChild(corner);
+
+  for (let i = 0; i <= N; i++) {
+    const h = document.createElement("div");
+    h.className = "dp-h";
+    h.textContent = String(i);
+    dpGridEl.appendChild(h);
+    colHeadEls.push(h);
+  }
+
+  for (let t = 0; t <= K; t++) {
+    const tl = document.createElement("div");
+    tl.className = "dp-tl";
+    tl.innerHTML = '<span class="tl1">t=' + t + '</span><span class="tl2">最多 ' + t + ' 笔</span>';
+    dpGridEl.appendChild(tl);
+
+    const row = [];
+    for (let i = 0; i <= N; i++) {
+      const c = document.createElement("div");
+      c.className = "cell future";
+      c.textContent = "0";
+      dpGridEl.appendChild(c);
+      row.push(c);
+    }
+    cellEls.push(row);
+  }
+
+  /* ================= DOM：代码面板 ================= */
+  const codeEl = document.getElementById("code");
+  const lineEls = CODE.map((txt) => {
+    const d = document.createElement("div");
+    d.className = "cline";
+    d.textContent = txt;
+    codeEl.appendChild(d);
+    return d;
+  });
+
+  /* ================= 渲染 ================= */
+  const stageEl = document.getElementById("stage");
+  const decStatsEl = document.getElementById("decStats");
+  const decExprEl = document.getElementById("decExpr");
+
+  function statHTML(label, value, sub, cls) {
+    return '<div class="stat' + (cls ? " " + cls : "") + '">' +
+      '<span class="sk">' + label + '</span>' +
+      '<span class="sv">' + value + '</span>' +
+      '<span class="ss">' + sub + '</span></div>';
+  }
+
+  function render(index) {
+    const st = STEPS[index];
+
+    /* ---- 价格柱 ---- */
+    const sellDay = st.phase === "run" ? st.i - 1 : null;
+    const buyDay = st.phase === "run" && st.buyJ !== null ? st.buyJ : null;
+    const tradeBuy = {}, tradeSell = {};
+    if (st.final) {
+      st.trades.forEach((tr) => { tradeBuy[tr.buy] = true; tradeSell[tr.sell] = true; });
+    }
+
+    barCols.forEach((col, idx) => {
+      const isSell = sellDay === idx;
+      const isBuy = buyDay === idx;
+      const isTrade = !!tradeBuy[idx] || !!tradeSell[idx];
+      col.className = "bcol" + (isSell ? " sell" : "") + (isBuy ? " buy" : "") + (isTrade ? " trade" : "");
+
+      let tag = "";
+      if (isSell) tag = "卖出日 i−1";
+      else if (isBuy) tag = "买入 j=" + idx + " · " + PRICES[idx];
+      else if (st.final && tradeBuy[idx]) tag = "买入 " + PRICES[idx];
+      else if (st.final && tradeSell[idx]) tag = "卖出 " + PRICES[idx];
+      barTags[idx].textContent = tag;
+    });
+
+    /* ---- dp 表 ---- */
+    const refRow = (st.phase === "run" && st.refI !== null) ? st.t - 1 : null;
+    colHeadEls.forEach((h, i) => {
+      h.classList.toggle("on", (st.phase === "run" || st.phase === "round") && i === st.i);
+    });
+
+    cellEls.forEach((row, t) => {
+      row.forEach((c, i) => {
+        const known = !!st.known[t][i];
+        c.classList.toggle("known", known);
+        c.classList.toggle("future", !known);
+        c.classList.toggle("rowt", st.phase !== "init" && t === st.t);
+        c.classList.toggle("ref", refRow !== null && t === refRow && i === st.refI);
+        c.classList.toggle("prev", st.phase === "run" && i >= 1 && t === st.t && i === st.i - 1);
+        c.classList.toggle("cur", st.phase === "run" && t === st.t && i === st.i);
+        c.classList.toggle("answer", !!st.final && t === K && i === N);
+        c.textContent = known ? String(st.dp[t][i]) : "·";
+      });
+    });
+
+    /* ---- 决策条 ---- */
+    let stats = "";
+    if (st.phase === "init") {
+      stats = statHTML("dp[t][0]", "0", "一天都没有", "") +
+              statHTML("dp[0][i]", "0", "不许交易", "ref") +
+              statHTML("best", "−∞", "还没开始扫", "") +
+              statHTML("候选", "—", "prices[i−1] + best", "") +
+              statHTML("dp[t][i]", "0", "初始化", "");
+    } else if (st.phase === "round") {
+      stats = statHTML("dp[" + st.t + "][0]", "0", "不卖基准", "") +
+              statHTML("best", "−∞", "本轮重置", "ref") +
+              statHTML("prices[i−1]", "—", "还没到卖出日", "") +
+              statHTML("候选", "—", "prices[i−1] + best", "") +
+              statHTML("dp[" + st.t + "][0]", "0", "先继承 0", "");
+    } else {
+      const bestTxt = st.best === null || !isFinite(st.best) ? "−∞" : numTxt(st.best);
+      const buySub = (st.buyJ === null) ? "还没有买入日"
+        : "买入日 j=" + st.buyJ + " · 股价 " + PRICES[st.buyJ];
+      const curKnown = !!(st.known[st.t] && st.known[st.t][st.i]);
+      stats = statHTML("dp[" + st.t + "][" + (st.i - 1) + "]", String(st.prevDP), "不卖的上一个状态", "") +
+              statHTML("best", bestTxt, buySub, "ref") +
+              statHTML("prices[" + (st.i - 1) + "]", String(PRICES[st.i - 1]), "今天的卖出价", "") +
+              statHTML("候选", st.cand === null || !isFinite(st.cand) ? "—" : numTxt(st.cand), "prices[i−1] + best", "hot") +
+              statHTML("dp[" + st.t + "][" + st.i + "]", curKnown ? String(st.dpVal) : "—",
+                st.final ? "最终答案" : (curKnown ? (st.i === 1 ? "一天不行，只能继承" : "卖 或 不卖 取大") : "下一步才定"),
+                st.final ? "ans" : "");
+    }
+    decStatsEl.innerHTML = stats;
+    decExprEl.textContent = st.expr;
+
+    /* ---- 右侧卡片 ---- */
+    document.getElementById("counter").textContent = (index + 1) + " / " + (LAST + 1);
+    document.getElementById("stitle").textContent = st.title;
+    document.getElementById("desc").innerHTML = st.desc;
+    document.getElementById("formula").textContent = st.formula;
+    document.getElementById("prog").style.width = (LAST === 0 ? 100 : (index / LAST) * 100) + "%";
+    stageEl.classList.toggle("is-final", !!st.final);
+
+    /* ---- 代码高亮 ---- */
+    lineEls.forEach((el, i) => { el.classList.toggle("hl", st.code.indexOf(i + 1) !== -1); });
+
+    document.getElementById("btnPrev").disabled = index === 0;
+    document.getElementById("btnNext").disabled = index === LAST;
+    document.getElementById("btnPlay").textContent = playing ? "⏸ 暂停" : "▶ 播放";
+  }
+
+  function numTxt(v) {
+    return (v < 0) ? "−" + (-v) : String(v);
+  }
+
+  /* ================= 播放控制 ================= */
+  let current = 0;
+  let timer = null;
+  let playing = false;
+
+  const btnPlay = document.getElementById("btnPlay");
+  const speedSel = document.getElementById("speed");
+
+  function setPlaying(on) {
+    playing = on;
+    btnPlay.textContent = on ? "⏸ 暂停" : "▶ 播放";
+    if (on) {
+      if (current === LAST) { current = 0; render(0); }
+      schedule();
+    } else if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  function schedule() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      if (!playing) return;
+      if (current < LAST) {
+        current += 1;
+        render(current);
+        schedule();
+      } else {
+        setPlaying(false);
+      }
+    }, Number(speedSel.value));
+  }
+
+  function goto(i) {
+    if (playing) setPlaying(false);
+    current = Math.max(0, Math.min(LAST, i));
+    render(current);
+  }
+
+  btnPlay.addEventListener("click", () => setPlaying(!playing));
+  document.getElementById("btnNext").addEventListener("click", () => goto(current + 1));
+  document.getElementById("btnPrev").addEventListener("click", () => goto(current - 1));
+  document.getElementById("btnReset").addEventListener("click", () => { setPlaying(false); goto(0); });
+  speedSel.addEventListener("change", () => { if (playing) schedule(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") { e.preventDefault(); setPlaying(!playing); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); goto(current + 1); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+    else if (e.code === "KeyR") { e.preventDefault(); goto(0); }
+  });
+
+  /* 暴露少量状态，便于核对与截图定位（不影响交互） */
+  window.__STOCK_IV__ = {
+    steps: STEPS,
+    last: LAST,
+    total: STEPS.length,
+    go: goto,
+    at: () => current
+  };
+
+  document.title = "买卖股票的最佳时机 IV · 动态规划动画";
+  render(0);
+  window.__STOCK_READY__ = true;
+})();
+</script>
+</body>
+</html>

@@ -626,6 +626,27 @@ nav:
     - CS/Algorithm/05-背包.md
     - CS/Algorithm/06-并查集.md
 
+  - "LeetCode | 力扣":
+    - CS/LeetCode/index.md
+    - 哈希:
+      - CS/LeetCode/hash/index.md
+      - "49 字母异位词分组": CS/LeetCode/hash/49-group-anagrams.md
+    - 双指针:
+      - CS/LeetCode/two-pointers/index.md
+      - "42 接雨水": CS/LeetCode/two-pointers/42-trapping-rain-water.md
+    - 子串:
+      - CS/LeetCode/substring/index.md
+      - "76 最小覆盖子串": CS/LeetCode/substring/76-minimum-window-substring.md
+    - 链表:
+      - CS/LeetCode/linked-list/index.md
+      - "25 K 个一组翻转链表": CS/LeetCode/linked-list/25-reverse-nodes-in-k-group.md
+    - 贪心:
+      - CS/LeetCode/greedy/index.md
+      - "188 买卖股票的最佳时机 IV": CS/LeetCode/greedy/188-best-time-to-buy-and-sell-stock-iv.md
+    - 动态规划:
+      - CS/LeetCode/dynamic-programming/index.md
+      - "139 单词拆分": CS/LeetCode/dynamic-programming/139-word-break.md
+
   - "DS | 数据结构":
     - CS/DS/00-intro.md
     - CS/DS/01-list.md

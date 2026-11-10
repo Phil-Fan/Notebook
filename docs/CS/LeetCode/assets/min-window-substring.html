@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>最小覆盖子串 · 滑动窗口动画</title>
+<style>
+  :root{
+    --panel:rgba(20,27,49,.72);
+    --line:rgba(122,142,192,.20);
+    --text:#e9edf8;
+    --dim:#8b97b8;
+    --amber:#ffb03a;
+    --green:#4ade80;
+    --blue:#6ea8ff;
+    --purple:#b58cff;
+    --pink:#ff8fb1;
+    --teal:#5eead4;
+    --yellow:#facc15;
+    --mono:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{min-height:100%}
+  body{
+    margin:0;padding:24px 24px 22px;color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -8%,rgba(58,88,164,.34),transparent 62%),
+      radial-gradient(760px 460px at 88% 4%,rgba(120,80,200,.20),transparent 60%),
+      linear-gradient(180deg,#080c18,#05070f 60%,#04060c);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header{margin-bottom:14px}
+  h1{margin:0 0 6px;font-size:21px;letter-spacing:.2px;font-weight:650}
+  header p{margin:0;color:var(--dim);font-size:13px;line-height:1.62;max-width:1010px}
+  header p+p{margin-top:4px}
+  header p b{color:#cdd6ee;font-weight:600}
+  header code,.mono{font-family:var(--mono);font-size:12px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 6px;border-radius:6px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:18px;align-items:start}
+  @media (max-width:920px){.layout{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+
+  .stage{background:linear-gradient(180deg,rgba(24,32,56,.85),rgba(14,19,36,.85));
+         border:1px solid var(--line);border-radius:18px;padding:16px 16px 14px;
+         box-shadow:0 18px 50px rgba(0,0,0,.38)}
+  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;color:#5f6a8c;
+             font-family:var(--mono);margin:0 0 8px}
+  .sec-label .zh{font-family:inherit;color:#6d789a}
+
+  /* 字符行 */
+  .srow{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;margin:16px 0 12px}
+  .cell{position:relative;width:36px;height:48px;border-radius:10px;border:1px solid rgba(122,142,192,.22);
+        background:rgba(30,39,63,.55);display:flex;align-items:center;justify-content:center;
+        font-family:var(--mono);font-size:17px;color:#c9d3ec;transition:all .18s ease}
+  .cell .idx{position:absolute;top:-15px;left:0;right:0;text-align:center;font-size:9.5px;color:#5f6a8c;font-family:var(--mono)}
+  .cell.out{opacity:.34}
+  .cell.inwin{background:rgba(110,168,255,.16);border-color:rgba(110,168,255,.55);color:#eaf1ff}
+  .cell.inwin.best{background:rgba(74,222,128,.16);border-color:rgba(74,222,128,.62);box-shadow:0 0 0 1px rgba(74,222,128,.25) inset;color:#d9ffe6}
+  .cell.cur{border-color:var(--amber);box-shadow:0 0 0 2px rgba(255,176,58,.28),0 0 18px rgba(255,176,58,.18);color:#fff3dc}
+  .cell.cur::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-11px;width:0;height:0;
+        border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--amber);opacity:.9}
+
+  .legend{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;font-size:11px;color:#8b97b8;margin:6px 0 14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block;border:1px solid transparent}
+  .sw.win{background:rgba(110,168,255,.35);border-color:rgba(110,168,255,.6)}
+  .sw.cur{background:rgba(255,176,58,.35);border-color:var(--amber)}
+  .sw.best{background:rgba(74,222,128,.32);border-color:var(--green)}
+  .sw.out{background:rgba(122,142,192,.16);border-color:rgba(122,142,192,.35)}
+
+  /* 计数与进度 */
+  .needbox{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .chip{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border-radius:9px;
+        border:1px solid rgba(122,142,192,.30);background:rgba(30,39,63,.65);color:#a9b7d6;transition:all .18s}
+  .chip b{color:#dbe5ff;font-weight:600}
+  .chip.ok{color:#c9ffd9;border-color:rgba(74,222,128,.55);background:rgba(74,222,128,.12)}
+  .chip.zero{color:#ffd7d7;border-color:rgba(255,143,177,.40)}
+
+  .meter{margin-top:2px}
+  .bar{height:9px;border-radius:6px;background:rgba(122,142,192,.14);overflow:hidden;border:1px solid rgba(122,142,192,.16)}
+  .bar>div{height:100%;width:0;border-radius:6px;transition:width .25s ease;
+           background:linear-gradient(90deg,rgba(74,222,128,.65),rgba(94,234,212,.85))}
+  .stats{display:flex;justify-content:space-between;margin-top:7px;font-size:11.5px;color:#8b97b8;font-family:var(--mono)}
+  .stats b{color:#dfe8ff;font-weight:600}
+  .stats .best{color:#b9f7cf}
+
+  /* 右侧面板 */
+  .side{display:flex;flex-direction:column;gap:12px}
+  .panel{padding:12px 14px}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;font-size:11px;
+              letter-spacing:.4px;color:#8b97b8;text-transform:uppercase;margin-bottom:8px}
+  .panel-head .tag{font-family:var(--mono);font-size:10px;color:#9fc0ff;text-transform:none;
+                   background:rgba(74,168,255,.10);border:1px solid rgba(74,168,255,.25);padding:1px 7px;border-radius:6px}
+  .desc{font-size:13px;line-height:1.72;color:#d5deef;min-height:96px}
+  .desc b{color:#fff;font-weight:600}
+  .desc .w{color:#bfe0ff}
+  .desc .k{color:var(--green)}
+  .desc .bad{color:var(--pink)}
+  .formula{margin-top:10px;padding-top:9px;border-top:1px dashed rgba(122,142,192,.22);
+           font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#93a4cc;min-height:18px}
+  .formula b{color:#dfe8ff}
+
+  /* 代码 */
+  .code{padding:0;overflow:hidden}
+  .code .panel-head{padding:10px 14px 0;margin-bottom:0}
+  pre{margin:0;padding:10px 0;font-family:var(--mono);font-size:11.5px;line-height:1.62;
+      color:#9fb0d2;overflow:auto;max-height:430px}
+  .ln{display:block;padding:0 14px;white-space:pre;border-left:2px solid transparent;transition:all .16s}
+  .ln .c{color:#5f6a8c}
+  .ln.hl{background:rgba(255,176,58,.10);border-left-color:var(--amber);color:#ffe6bf}
+  .ln.hl .c{color:#a8925f}
+
+  .notes p{margin:0 0 8px;font-size:11.5px;line-height:1.7;color:#8b97b8}
+  .notes p:last-child{margin-bottom:0}
+  .notes code{font-family:var(--mono);font-size:11px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 5px;border-radius:5px}
+
+  /* 控制条 */
+  .controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+  button{font-family:inherit;font-size:12.5px;color:#dfe8ff;background:rgba(30,39,63,.85);
+         border:1px solid rgba(122,142,192,.30);border-radius:9px;padding:8px 13px;cursor:pointer;
+         transition:all .16s}
+  button:hover{background:rgba(46,58,90,.9);border-color:rgba(122,142,192,.55)}
+  button:active{transform:translateY(1px)}
+  button.primary{background:rgba(74,168,255,.18);border-color:rgba(74,168,255,.45);color:#dcebff}
+  button.primary:hover{background:rgba(74,168,255,.26)}
+  .speed{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11.5px;color:#8b97b8}
+  select{font-family:inherit;font-size:11.5px;color:#dfe8ff;background:rgba(30,39,63,.85);
+         border:1px solid rgba(122,142,192,.30);border-radius:8px;padding:5px 7px}
+  .hint{width:100%;font-size:11px;color:#5f6a8c;margin-top:2px}
+  kbd{font-family:var(--mono);font-size:10.5px;padding:1px 5px;border-radius:5px;
+      border:1px solid rgba(122,142,192,.35);background:rgba(30,39,63,.8);color:#b8c6e6}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>最小覆盖子串 · 滑动窗口动画</h1>
+    <p>LeetCode 76：在 <code>s = "ADOBECODEBANC"</code> 里找最短的、涵盖 <code>t = "ABC"</code> 全部字符的子串。</p>
+    <p>算法只有一句话：<b>右指针负责凑齐（扩张），凑齐后左指针负责尽量多扔（收缩）</b>。每次窗口刚好覆盖 <code>t</code> 时记一次长度，最短的那个就是答案。用 <code>formed</code> 记「已经有几种字符的配额刚好齐了」，<code>formed == required</code> 即窗口合法，于是「是否覆盖」的判定是 <b>O(1)</b> 的。</p>
+  </header>
+
+  <div class="layout">
+    <!-- 左：舞台 -->
+    <div class="stage">
+      <div class="sec-label">字符串 s<span class="zh"> · 下标 0 … 12 · 高亮 = 当前窗口</span></div>
+      <div class="srow" id="srow"></div>
+      <div class="legend">
+        <span><i class="sw win"></i>窗口内</span>
+        <span><i class="sw cur"></i>当前 right</span>
+        <span><i class="sw best"></i>当前最优窗口</span>
+        <span><i class="sw out"></i>已移出 / 未进入</span>
+      </div>
+
+      <div class="sec-label">t 的要求 <span class="zh">· 每个字符：窗口里已有 / 需要</span></div>
+      <div class="needbox" id="chips"></div>
+
+      <div class="meter">
+        <div class="sec-label">覆盖进度 <span class="zh">· formed / required</span></div>
+        <div class="bar"><div id="barFill"></div></div>
+        <div class="stats">
+          <span id="statFormed">formed 0 / 3</span>
+          <span class="best" id="statBest">best: 暂无</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右：说明 -->
+    <div class="side">
+      <div class="card panel">
+        <div class="panel-head"><span>当前步骤</span><span id="stepNo">1 / 1</span></div>
+        <div class="desc" id="desc"></div>
+        <div class="formula" id="formula"></div>
+      </div>
+
+      <div class="card panel code">
+        <div class="panel-head"><span>对应代码</span><span class="tag">Python</span></div>
+        <pre id="code"></pre>
+      </div>
+
+      <div class="card panel notes">
+        <div class="panel-head"><span>复杂度</span><span class="tag">O(m+n)</span></div>
+        <p>时间 <code>O(m + n)</code>：右指针把 <code>s</code> 扫一遍，左指针也只前进不后退，每个字符进出窗口各一次。</p>
+        <p>空间 <code>O(1)</code>（字符集大小）：两个定长计数数组，与 <code>m</code>、<code>n</code> 无关。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="prev">◀ 上一步</button>
+    <button id="play" class="primary">▶ 播放</button>
+    <button id="next">下一步 ▶</button>
+    <button id="reset">重置</button>
+    <label class="speed">速度
+      <select id="speed">
+        <option value="1400">0.5×</option>
+        <option value="900" selected>1×</option>
+        <option value="600">1.5×</option>
+        <option value="380">2×</option>
+      </select>
+    </label>
+    <div class="hint"><kbd>空格</kbd> 播放 / 暂停 · <kbd>←</kbd> <kbd>→</kbd> 单步 · <kbd>R</kbd> 重置 · 窗口每次合法时都会记录一次长度，最短者胜</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var S = "ADOBECODEBANC";
+  var T = "ABC";
+
+  /* ---------- 代码面板 ---------- */
+  var CODE = [
+    ["def", "def min_window(s, t):"],
+    ["need", "    need = [0] * 128"],
+    ["win", "    window = [0] * 128"],
+    ["fill", "    for ch in t:"],
+    ["fill2", "        need[ord(ch)] += 1"],
+    ["setup", "    required = len(set(t))"],
+    ["left", "    left = formed = 0"],
+    ["best", "    best_len, best_left = len(s) + 1, 0"],
+    ["loop", "    for right, ch in enumerate(s):"],
+    ["add", "        window[ord(ch)] += 1"],
+    ["hit", "        if window[ord(ch)] == need[ord(ch)]:"],
+    ["hit2", "            formed += 1"],
+    ["while", "        while formed == required:"],
+    ["len", "            if right - left + 1 < best_len:"],
+    ["len2", "                best_len = right - left + 1"],
+    ["len3", "                best_left = left"],
+    ["l", "            l = s[left]                 # 左端字符"],
+    ["del", "            window[ord(l)] -= 1"],
+    ["drop", "            if window[ord(l)] < need[ord(l)]:"],
+    ["drop2", "                formed -= 1"],
+    ["adv", "            left += 1"],
+    ["ret", "    return s[best_left:best_left + best_len]"]
+  ];
+
+  var NEED = {};
+  for (var i = 0; i < T.length; i++) {
+    NEED[T[i]] = (NEED[T[i]] || 0) + 1;
+  }
+  var REQUIRED = Object.keys(NEED).length;
+
+  /* ---------- 生成步骤 ---------- */
+  var steps = [];
+
+  function snapshot(extra) {
+    var st = {
+      left: left,
+      right: extra.right === undefined ? -1 : extra.right,
+      win: Object.assign({}, win),
+      formed: formed,
+      bestLen: bestLen,
+      bestLeft: bestLeft
+    };
+    return Object.assign(st, extra);
+  }
+
+  var win = {};
+  var left = 0;
+  var formed = 0;
+  var bestLen = S.length + 1;
+  var bestLeft = 0;
+
+  function bestText() {
+    if (bestLen > S.length) return "暂无";
+    return '"' + S.substr(bestLeft, bestLen) + '" 长度 ' + bestLen;
+  }
+
+  function countsText() {
+    return "A " + (win.A || 0) + "/" + NEED.A +
+           " · B " + (win.B || 0) + "/" + NEED.B +
+           " · C " + (win.C || 0) + "/" + NEED.C;
+  }
+
+  function pushStep(o) {
+    steps.push(snapshot(o));
+  }
+
+  pushStep({
+    kind: "init",
+    desc: "初始化：统计 <b>t</b> 的欠账 <span class='mono'>need = {A:1, B:1, C:1}</span>，" +
+          "<b>required = 3</b>（3 种字符都要凑齐）；<b>left = 0</b>、<b>formed = 0</b>，" +
+          "窗口还是空的，best 记为「暂无」。",
+    formula: "need = A1 B1 C1 · required = 3 · 窗口 [0..-1]",
+    code: ["def", "need", "win", "fill", "fill2", "setup", "left", "best"]
+  });
+
+  for (var right = 0; right < S.length; right++) {
+    var ch = S[right];
+    win[ch] = (win[ch] || 0) + 1;
+    var needCh = NEED[ch] || 0;
+    var hit = false;
+    if (needCh > 0 && win[ch] === needCh) {
+      formed++;
+      hit = true;
+    }
+
+    if (needCh === 0) {
+      pushStep({
+        kind: "expand",
+        right: right,
+        desc: "右指针 <b>right = " + right + "</b>，把 <b>'" + ch + "'</b> 纳入窗口：" +
+              "它不在 t 里，<span class='mono'>window['" + ch + "'] = " + win[ch] +
+              "</span>，<b>formed</b> 不变（" + formed + " / " + REQUIRED + "）。",
+        formula: "窗口 [" + left + ".." + right + "] · " + countsText(),
+        code: ["add"]
+      });
+    } else if (hit) {
+      pushStep({
+        kind: "expand",
+        right: right,
+        desc: "右指针 <b>right = " + right + "</b>，加入 <b>'" + ch + "'</b>：" +
+              "<span class='mono'>window['" + ch + "'] = " + win[ch] +
+              "</span> 刚好等于 <span class='mono'>need['" + ch + "'] = " + needCh +
+              "</span> → <b>formed = " + formed + " / " + REQUIRED + "</b>。",
+        formula: "窗口 [" + left + ".." + right + "] · " + countsText(),
+        code: ["add", "hit", "hit2"]
+      });
+    } else {
+      pushStep({
+        kind: "expand",
+        right: right,
+        desc: "右指针 <b>right = " + right + "</b>，加入 <b>'" + ch + "'</b>：" +
+              "<span class='mono'>window['" + ch + "'] = " + win[ch] +
+              "</span>，还没追上 <span class='mono'>need = " + needCh +
+              "</span>，<b>formed</b> 不变（" + formed + " / " + REQUIRED + "）。",
+        formula: "窗口 [" + left + ".." + right + "] · " + countsText(),
+        code: ["add"]
+      });
+    }
+
+    if (formed === REQUIRED) {
+      pushStep({
+        kind: "cover",
+        right: right,
+        desc: "<b>formed 和 required 都是 " + REQUIRED + "</b>：窗口 <b>[" + left + ".." + right +
+              "]</b> 第一次完整覆盖 t，进入内层 <b>while</b> —— 先记答案，再尽量收缩左边界。",
+        formula: "窗口 [" + left + ".." + right + "] 合法 · 长度 " + (right - left + 1),
+        code: ["while"]
+      });
+
+      while (formed === REQUIRED) {
+        var len = right - left + 1;
+        var better = len < bestLen;
+        if (better) {
+          bestLen = len;
+          bestLeft = left;
+        }
+        pushStep({
+          kind: "record",
+          right: right,
+          desc: better
+            ? "当前窗口 <b>[" + left + ".." + right + "]</b> 长度 <b>" + len +
+              "</b>，比之前的 best 更短 → <b>记录 best = \"" + S.substr(bestLeft, bestLen) +
+              "\"（长度 " + bestLen + "）</b>。"
+            : "当前窗口 <b>[" + left + ".." + right + "]</b> 长度 <b>" + len +
+              "</b>，不短于已知的 best（长度 " + bestLen + "），<b>不更新</b>。",
+          formula: "长度 " + len + " vs best " + (better ? "（已更新为 " + bestLen + "）" : bestLen),
+          code: better ? ["len", "len2", "len3"] : ["len"]
+        });
+
+        var lc = S[left];
+        win[lc] = (win[lc] || 0) - 1;
+        var needLc = NEED[lc] || 0;
+        var dropped = false;
+        if (needLc > 0 && win[lc] < needLc) {
+          formed--;
+          dropped = true;
+        }
+        left++;
+
+        pushStep({
+          kind: "shrink",
+          right: right,
+          desc: dropped
+            ? "移出 <b>s[" + (left - 1) + "] = '" + lc + "'</b>：<span class='mono'>window['" + lc +
+              "'] = " + win[lc] + " &lt; need = " + needLc +
+              "</span> → <b class='bad'>formed 掉到 " + formed + " / " + REQUIRED +
+              "</b>，窗口不再合法，退出 while，继续右扩。"
+            : "移出 <b>s[" + (left - 1) + "] = '" + lc + "'</b>：它还有富余（<span class='mono'>window['" +
+              lc + "'] = " + win[lc] + " ≥ need = " + needLc +
+              "</span>），<b>formed 保持 " + formed + " / " + REQUIRED +
+              "</b>，窗口仍然合法，可以继续收缩。",
+          formula: "窗口 [" + left + ".." + right + "] · " + countsText(),
+          code: dropped ? ["l", "del", "drop", "drop2", "adv"] : ["l", "del", "adv"]
+        });
+      }
+    }
+  }
+
+  // 收尾：把窗口状态回放到 best 上，画面收在答案处
+  if (bestLen <= S.length) {
+    var bestStr = S.substr(bestLeft, bestLen);
+    left = bestLeft;
+    win = {};
+    for (var q = 0; q < bestStr.length; q++) {
+      win[bestStr[q]] = (win[bestStr[q]] || 0) + 1;
+    }
+    formed = REQUIRED;
+  }
+
+  pushStep({
+    kind: "done",
+    right: bestLen <= S.length ? bestLeft + bestLen - 1 : -1,
+    desc: "扫描结束，返回记录的窗口 <b>s[" + bestLeft + ".." + (bestLeft + bestLen - 1) +
+          "] = \"" + (bestLen > S.length ? "" : S.substr(bestLeft, bestLen)) +
+          "\"</b>。画面停在这个最优窗口上：时间 O(m + n)，额外空间 O(1)。",
+    formula: "best = " + (bestLen > S.length ? '""（无解）' : '"' + S.substr(bestLeft, bestLen) + '"') +
+             " · 长度 " + (bestLen > S.length ? 0 : bestLen),
+    code: ["ret"]
+  });
+
+  /* ---------- DOM ---------- */
+  var srow = document.getElementById("srow");
+  var chips = document.getElementById("chips");
+  var barFill = document.getElementById("barFill");
+  var statFormed = document.getElementById("statFormed");
+  var statBest = document.getElementById("statBest");
+  var descEl = document.getElementById("desc");
+  var formulaEl = document.getElementById("formula");
+  var codeEl = document.getElementById("code");
+  var stepNoEl = document.getElementById("stepNo");
+  var playBtn = document.getElementById("play");
+  var prevBtn = document.getElementById("prev");
+  var nextBtn = document.getElementById("next");
+  var resetBtn = document.getElementById("reset");
+  var speedSel = document.getElementById("speed");
+
+  var cells = [];
+  for (var k = 0; k < S.length; k++) {
+    var cell = document.createElement("div");
+    cell.className = "cell";
+    var idx = document.createElement("span");
+    idx.className = "idx";
+    idx.textContent = String(k);
+    cell.appendChild(idx);
+    var chSpan = document.createElement("span");
+    chSpan.textContent = S[k];
+    cell.appendChild(chSpan);
+    srow.appendChild(cell);
+    cells.push(cell);
+  }
+
+  var chipEls = {};
+  Object.keys(NEED).forEach(function (c) {
+    var chip = document.createElement("div");
+    chip.className = "chip";
+    chip.innerHTML = "<b>" + c + "</b> <span class='cnt'>0</span>/" + NEED[c];
+    chips.appendChild(chip);
+    chipEls[c] = chip;
+  });
+
+  var codeLines = {};
+  CODE.forEach(function (pair) {
+    var ln = document.createElement("span");
+    ln.className = "ln";
+    var key = pair[0];
+    var text = pair[1];
+    var ci = text.indexOf("#");
+    if (ci >= 0) {
+      var codePart = text.slice(0, ci);
+      var comment = text.slice(ci);
+      var cNode = document.createElement("span");
+      cNode.className = "c";
+      cNode.textContent = comment;
+      ln.textContent = codePart;
+      ln.appendChild(cNode);
+    } else {
+      ln.textContent = text;
+    }
+    codeLines[key] = ln;
+    codeEl.appendChild(ln);
+  });
+
+  /* ---------- 渲染 ---------- */
+  var cur = 0;
+  var timer = null;
+
+  function render(i) {
+    cur = i;
+    var st = steps[i];
+
+    cells.forEach(function (cell, idx) {
+      cell.classList.remove("inwin", "cur", "out", "best");
+      var inWin = st.right >= 0 && idx >= st.left && idx <= st.right;
+      var inBest = st.bestLen <= S.length && idx >= st.bestLeft && idx < st.bestLeft + st.bestLen;
+      if (inWin) cell.classList.add("inwin");
+      if (inBest) cell.classList.add("best");
+      if (!inWin && idx < st.left) cell.classList.add("out");
+      if (idx === st.right) cell.classList.add("cur");
+    });
+
+    Object.keys(NEED).forEach(function (c) {
+      var chip = chipEls[c];
+      var have = st.win[c] || 0;
+      var cnt = chip.querySelector(".cnt");
+      cnt.textContent = have;
+      chip.classList.toggle("ok", have >= NEED[c]);
+      chip.classList.toggle("zero", have === 0);
+    });
+
+    var pct = Math.round((st.formed / REQUIRED) * 100);
+    barFill.style.width = pct + "%";
+    statFormed.textContent = "formed " + st.formed + " / " + REQUIRED;
+    statBest.textContent = "best: " + (st.bestLen > S.length ? "暂无" :
+      '"' + S.substr(st.bestLeft, st.bestLen) + '" 长度 ' + st.bestLen);
+
+    descEl.innerHTML = st.desc;
+    formulaEl.innerHTML = st.formula;
+    stepNoEl.textContent = (i + 1) + " / " + steps.length;
+
+    var hl = {};
+    (st.code || []).forEach(function (k) { hl[k] = true; });
+    CODE.forEach(function (pair) {
+      codeLines[pair[0]].classList.toggle("hl", !!hl[pair[0]]);
+    });
+  }
+
+  /* ---------- 播放器 ---------- */
+  function stopTimer() {
+    if (timer !== null) {
+      clearInterval(timer);
+      timer = null;
+    }
+    playBtn.textContent = "▶ 播放";
+  }
+
+  function play() {
+    if (cur >= steps.length - 1) render(0);
+    stopTimer();
+    playBtn.textContent = "⏸ 暂停";
+    timer = setInterval(function () {
+      if (cur >= steps.length - 1) {
+        stopTimer();
+        return;
+      }
+      render(cur + 1);
+    }, parseInt(speedSel.value, 10));
+  }
+
+  playBtn.addEventListener("click", function () {
+    if (timer === null) play();
+    else stopTimer();
+  });
+  prevBtn.addEventListener("click", function () {
+    stopTimer();
+    render(Math.max(0, cur - 1));
+  });
+  nextBtn.addEventListener("click", function () {
+    stopTimer();
+    render(Math.min(steps.length - 1, cur + 1));
+  });
+  resetBtn.addEventListener("click", function () {
+    stopTimer();
+    render(0);
+  });
+  speedSel.addEventListener("change", function () {
+    if (timer !== null) play();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.code === "Space") {
+      e.preventDefault();
+      if (timer === null) play();
+      else stopTimer();
+    } else if (e.code === "ArrowRight") {
+      e.preventDefault();
+      stopTimer();
+      render(Math.min(steps.length - 1, cur + 1));
+    } else if (e.code === "ArrowLeft") {
+      e.preventDefault();
+      stopTimer();
+      render(Math.max(0, cur - 1));
+    } else if (e.code === "KeyR") {
+      e.preventDefault();
+      stopTimer();
+      render(0);
+    }
+  });
+
+  render(0);
+})();
+</script>
+</body>
+</html>

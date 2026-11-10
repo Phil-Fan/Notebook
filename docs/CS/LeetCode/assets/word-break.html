@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>单词拆分 · 动态规划动画</title>
+<style>
+  :root{
+    --panel:rgba(20,27,49,.72);
+    --line:rgba(122,142,192,.20);
+    --text:#e9edf8;
+    --dim:#8b97b8;
+    --amber:#ffb03a;
+    --green:#4ade80;
+    --blue:#6ea8ff;
+    --purple:#b58cff;
+    --pink:#ff8fb1;
+    --teal:#5eead4;
+    --yellow:#facc15;
+    --mono:ui-monospace,SFMono-Regular,Menlo,"Cascadia Mono",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;padding:24px 24px 40px;color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -8%,rgba(58,88,164,.34),transparent 62%),
+      radial-gradient(760px 460px at 88% 4%,rgba(120,80,200,.20),transparent 60%),
+      linear-gradient(180deg,#080c18,#05070f 60%,#04060c);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  header{margin-bottom:16px}
+  h1{margin:0 0 6px;font-size:21px;letter-spacing:.2px;font-weight:650}
+  header p{margin:0;color:var(--dim);font-size:13.5px;line-height:1.66;max-width:1010px}
+  header p b{color:#cdd6ee;font-weight:600}
+  header code,.mono{font-family:var(--mono);font-size:12.5px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 6px;border-radius:6px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:18px;align-items:start}
+  @media (max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+
+  /* ---------------- stage ---------------- */
+  .stage{background:linear-gradient(180deg,rgba(24,32,56,.85),rgba(14,19,36,.85));
+         border:1px solid var(--line);border-radius:18px;padding:13px 14px 12px;
+         box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden;
+         transition:box-shadow .35s,border-color .35s}
+  .stage.is-final{border-color:rgba(74,222,128,.38);
+         box-shadow:0 0 0 1px rgba(74,222,128,.20),0 18px 50px rgba(0,0,0,.38),0 0 46px rgba(74,222,128,.10)}
+
+  .sec-label{text-align:center;font-size:10.5px;letter-spacing:.5px;
+    color:#5f6a8c;font-family:var(--mono);margin:0 0 7px}
+  .sec-label .zh{font-family:inherit;color:#6d789a}
+  .sec-label+.sec-label{margin-top:0}
+
+  .chars{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;max-width:520px;margin:0 auto}
+  .char{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    border-radius:12px;font-size:19px;font-weight:650;color:#dbe6ff;font-family:var(--mono);
+    background:linear-gradient(180deg,#2f3b5e,#232c48);
+    border:1px solid rgba(130,155,215,.35);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 18px rgba(0,0,0,.35);
+    transition:background .28s,border-color .28s,box-shadow .28s,color .28s}
+  .char.try{border-color:rgba(255,176,58,.82);background:linear-gradient(180deg,#4a3d24,#2e2718);color:#ffe3b0;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 0 2px rgba(255,176,58,.30),0 0 26px rgba(255,176,58,.20)}
+  .char.try.match{border-color:rgba(74,222,128,.85);background:linear-gradient(180deg,#234634,#1a3126);color:#c6f5d9;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 2px rgba(74,222,128,.30),0 0 26px rgba(74,222,128,.18)}
+  .char.try.nomatch{border-color:rgba(255,143,177,.82);background:linear-gradient(180deg,#4a2634,#331b25);color:#ffd3e0;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 2px rgba(255,143,177,.28),0 0 26px rgba(255,143,177,.18)}
+  .char.try.prefixfalse{border-color:rgba(110,168,255,.82);background:linear-gradient(180deg,#24354f,#1a2739);color:#cfe2ff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 2px rgba(110,168,255,.28),0 0 26px rgba(110,168,255,.18)}
+  .char.seg0{border-color:rgba(94,234,212,.70);background:linear-gradient(180deg,#15403d,#0f2d2b);color:#c8fff6;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 20px rgba(94,234,212,.14)}
+  .char.seg1{border-color:rgba(181,140,255,.70);background:linear-gradient(180deg,#33294f,#241e39);color:#e4d9ff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 20px rgba(181,140,255,.14)}
+  .char.seg-current{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 0 0 2px rgba(255,255,255,.16),0 0 30px rgba(255,255,255,.10)}
+
+  .idx-row{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;max-width:520px;margin:7px auto 0;
+    font-variant-numeric:tabular-nums}
+  .idx{text-align:center;font-size:11px;color:#5d688a;font-family:var(--mono);transition:color .25s}
+  .idx.on{color:#6fcea0}
+  .idx.anchor{color:#ffc35e;font-weight:700}
+
+  .brackets{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;max-width:520px;margin:6px auto 0;height:31px}
+  .bracket{position:relative;height:26px;margin-top:2px;border-top:1.5px solid var(--bcolor);
+    border-left:1.5px solid var(--bcolor);border-right:1.5px solid var(--bcolor);
+    border-radius:7px 7px 0 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1px}
+  .bracket{--bcolor:rgba(255,176,58,.72)}
+  .bracket.match{--bcolor:rgba(74,222,128,.82)}
+  .bracket.nomatch{--bcolor:rgba(255,143,177,.82)}
+  .bracket.prefixfalse{--bcolor:rgba(110,168,255,.82)}
+  .bracket.tone0{--bcolor:rgba(94,234,212,.82)}
+  .bracket.tone1{--bcolor:rgba(181,140,255,.82)}
+  .bracket.active{border-top-width:2px;border-left-width:2px;border-right-width:2px}
+  .bracket.idle{--bcolor:rgba(130,150,200,.30)}
+  .bracket.idle .blabel{color:#63718f}
+  .bracket .blabel{font-family:var(--mono);font-size:10.5px;white-space:nowrap;color:#ffd28a;line-height:1.2}
+  .bracket.match .blabel{color:#b7f5cf}
+  .bracket.nomatch .blabel{color:#ffc6d7}
+  .bracket.prefixfalse .blabel{color:#c8ddff}
+  .bracket.tone0 .blabel{color:#b9fff4}
+  .bracket.tone1 .blabel{color:#ddd0ff}
+  .probe{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:10.5px;color:#ffb6c9;
+    background:rgba(255,143,177,.07);border:1px dashed rgba(255,143,177,.30);border-radius:8px;padding:4px 8px}
+
+  .dp-wrap{margin-top:12px}
+  .caret-row{display:grid;grid-template-columns:repeat(9,1fr);gap:9px;max-width:680px;margin:0 auto;height:15px}
+  .caret{display:flex;align-items:flex-end;justify-content:center;font-size:10px;line-height:1;
+    color:var(--amber);font-family:var(--mono);visibility:hidden}
+  .dp-row{display:grid;grid-template-columns:repeat(9,1fr);gap:9px;max-width:680px;margin:1px auto 0}
+  .dp-cell{position:relative;height:52px;border-radius:11px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:2px;
+    background:linear-gradient(180deg,#232c48,#1b2338);border:1px solid rgba(130,155,215,.30);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+    transition:background .28s,border-color .28s,box-shadow .28s,opacity .28s}
+  .dp-cell .dpk{font-size:9px;color:#66739a;font-family:var(--mono);line-height:1}
+  .dp-cell .dpv{font-size:15px;font-weight:700;font-family:var(--mono);color:#8b97b8;line-height:1.1}
+  .dp-cell.on{background:linear-gradient(180deg,#1f3b2e,#182b22);border-color:rgba(74,222,128,.55)}
+  .dp-cell.on .dpv{color:#7ef0a8}
+  .dp-cell.future{opacity:.42;border-style:dashed}
+  .dp-cell.cur{border-color:rgba(255,176,58,.85);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 2px rgba(255,176,58,.45),0 0 24px rgba(255,176,58,.20)}
+  .dp-cell.chainhl{box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 2px rgba(74,222,128,.40),0 0 22px rgba(74,222,128,.16)}
+
+  .words-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .sec-inline{font-size:10.5px;letter-spacing:.3px;color:#5f6a8c;font-family:var(--mono)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:13px;color:#aeb9d8;
+    padding:5px 11px 5px 12px;border-radius:10px;border:1px solid rgba(130,155,215,.30);
+    background:linear-gradient(180deg,#2a3554,#222b46);
+    transition:background .25s,border-color .25s,box-shadow .25s,color .25s,opacity .25s}
+  .chip .cw{letter-spacing:.4px}
+  .chip em{font-style:normal;font-size:9.5px;color:#66739a;padding:1px 4px;border-radius:5px;
+    background:rgba(120,140,190,.14);line-height:1.3}
+  .chip.active{color:#ffe3b0;border-color:rgba(255,176,58,.80);
+    background:linear-gradient(180deg,#4a3d24,#2e2718);
+    box-shadow:0 0 0 2px rgba(255,176,58,.24),0 0 22px rgba(255,176,58,.16)}
+  .chip.active em{color:#c9a766;background:rgba(255,176,58,.12)}
+  .chip.ok{color:#c6f5d9;border-color:rgba(74,222,128,.66);background:linear-gradient(180deg,#1f3b2e,#182b22)}
+  .chip.ok em{color:#7fb99a;background:rgba(74,222,128,.12)}
+  .chip.used{color:#c6f5d9;border-color:rgba(74,222,128,.72);background:linear-gradient(180deg,#26483a,#1b3327);
+    box-shadow:0 0 0 2px rgba(74,222,128,.18),0 0 22px rgba(74,222,128,.14)}
+  .chip.used em{color:#7fb99a;background:rgba(74,222,128,.14)}
+  .chip.fail{opacity:.40;border-style:dashed}
+
+  .chain-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px;
+    min-height:22px;flex-wrap:wrap}
+  .chain{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--mono);font-size:11px}
+  .chain .ca{color:#5d688a}
+  .chain .cn{color:#7ef0a8;padding:2px 7px;border-radius:6px;background:rgba(74,222,128,.10);
+    border:1px solid rgba(74,222,128,.30);white-space:nowrap}
+  .chain .cw{color:#ffd28a;padding:2px 7px;border-radius:6px;background:rgba(255,176,58,.10);
+    border:1px solid rgba(255,176,58,.32);white-space:nowrap}
+
+  .verdict{min-height:27px;margin-top:9px;display:flex;align-items:center;justify-content:center;gap:7px;
+    font-size:12px;pointer-events:none}
+  .verdict .vwait{color:#535e82;font-size:11px;letter-spacing:.4px}
+  .verdict .vok{color:#8ef0ae;font-weight:650;padding:3px 9px;border-radius:8px;
+    background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.40)}
+  .verdict .vsep,.verdict .vplus{color:#5d688a}
+  .verdict .vseg{font-family:var(--mono);font-size:12px;padding:3px 8px;border-radius:8px}
+  .verdict .vseg.tone0{color:#b9fff4;background:rgba(94,234,212,.12);border:1px solid rgba(94,234,212,.40)}
+  .verdict .vseg.tone1{color:#ddd0ff;background:rgba(181,140,255,.12);border:1px solid rgba(181,140,255,.40)}
+
+  /* ---------------- controls ---------------- */
+  .controls{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;padding:0 4px}
+  .btn{appearance:none;border:1px solid rgba(130,152,205,.28);background:rgba(30,39,63,.9);color:#cfd8f0;
+    font-size:13px;font-weight:550;padding:8px 14px;border-radius:11px;cursor:pointer;
+    transition:transform .12s ease,background .2s,border-color .2s,box-shadow .2s;font-family:inherit}
+  .btn:hover{background:rgba(44,56,88,.95);border-color:rgba(140,170,255,.5)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:linear-gradient(180deg,#3f8cf0,#2b6fd4);border-color:rgba(120,180,255,.6);color:#fff;
+    box-shadow:0 8px 22px rgba(43,111,212,.42)}
+  .btn.primary:hover{background:linear-gradient(180deg,#4d99f7,#3078de)}
+  .btn:disabled{opacity:.42;cursor:default;transform:none}
+  .spacer{flex:1}
+  .speed{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim)}
+  select{appearance:none;background:rgba(30,39,63,.9);color:#cfd8f0;border:1px solid rgba(130,152,205,.28);
+    border-radius:9px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;outline:none}
+  .progress{height:4px;border-radius:99px;background:rgba(120,140,190,.16);margin:12px 4px 0;overflow:hidden}
+  .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#4aa8ff,#a98bff);
+    transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .hint{margin:10px 4px 0;font-size:11.5px;color:#5f6a8c;line-height:1.65}
+  .hint code{font-family:var(--mono);font-size:11px;color:#93a9d6}
+  kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid rgba(130,152,205,.3);
+      background:rgba(30,39,63,.9);color:#9fb0d4}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:12px 4px 0;font-size:11.5px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .sw{width:15px;height:0;border-radius:2px;display:inline-block;border-top:2px solid;flex:0 0 auto}
+  .sw.amber{border-color:rgba(255,176,58,.9)}
+  .sw.green{border-color:rgba(74,222,128,.9)}
+  .sw.blue{border-color:rgba(110,168,255,.9)}
+  .sw.pink{border-color:rgba(255,143,177,.9)}
+  .sw.box{width:15px;height:11px;border:1.5px dashed rgba(130,150,200,.55);border-radius:4px;border-top:1.5px dashed rgba(130,150,200,.55)}
+  .sw.seg{width:16px;height:9px;border:0;border-radius:3px;
+    background:linear-gradient(90deg,rgba(94,234,212,.9),rgba(181,140,255,.9))}
+
+  /* ---------------- side panel ---------------- */
+  .right{display:flex;flex-direction:column;gap:14px;position:sticky;top:20px}
+  .card .head{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;
+    border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.4px;color:#9aa7c6;text-transform:uppercase}
+  .counter{font-variant-numeric:tabular-nums;color:#7f8db0;font-size:11.5px}
+  .desc{margin:0;padding:13px 15px 4px;font-size:13px;line-height:1.7;color:#cdd6ee;min-height:84px}
+  .desc b{color:#fff;font-weight:650}
+  .desc b.kg{color:var(--green)}
+  .desc b.kp{color:var(--pink)}
+  .desc b.kb{color:var(--blue)}
+  .desc b.ka{color:var(--amber)}
+  .desc .m{font-family:var(--mono);font-size:11.5px;color:#a9c6ff}
+  .formula{margin:7px 15px 12px;padding:8px 12px;border-radius:10px;font-size:12.5px;
+    font-family:var(--mono);color:#9ec3ff;
+    background:rgba(74,168,255,.09);border:1px solid rgba(74,168,255,.22);
+    white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;min-height:58px}
+  .code{padding:0}
+  .badge{font-size:10px;padding:2px 7px;border-radius:6px;background:rgba(74,168,255,.14);
+    color:#8fc2ff;border:1px solid rgba(74,168,255,.28);text-transform:none;letter-spacing:0}
+  .code pre{margin:0;padding:10px 0;font-family:var(--mono);
+    font-size:10px;line-height:1.62;overflow-x:auto;color:#7f8db0;scrollbar-width:thin}
+  .cline{padding:0 10px;white-space:pre;border-left:2px solid transparent;
+    transition:background .18s,color .18s,border-color .18s}
+  .cline.hl{background:rgba(74,168,255,.13);color:#d9e8ff;border-left-color:#4aa8ff}
+  .note{font-size:12px;line-height:1.72;color:#8b97b8;padding:11px 15px 13px;margin:0}
+  .note b{color:#cdd6ee;font-weight:600}
+  .note .o{color:#7cc4ff;font-family:var(--mono);font-size:11.5px}
+
+  @media (max-width:920px){
+    .right{position:static}
+  }
+  @media (max-width:600px){
+    body{padding:18px 14px 32px}
+    h1{font-size:18px}
+    .chars,.idx-row,.brackets{max-width:420px;gap:7px}
+    .caret-row,.dp-row{max-width:500px;gap:6px}
+    .char{font-size:15px;border-radius:9px}
+    .dp-cell{height:44px}
+    .dp-cell .dpv{font-size:13px}
+    .legend{gap:11px;font-size:11px}
+    .desc{min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>单词拆分 · 动态规划动画</h1>
+    <p>LeetCode 139：判断 <code>s = "leetcode"</code> 能否由 <code>wordDict = ["leet","code"]</code> 拼接而成。<b>dp[i]</b> 表示前 i 个字符可否拆出：只有 <b>dp[i-len(w)]</b> 为 True 且 <b>s[i-len(w):i] == w</b> 时 dp[i] 才成立，并记下 parent 便于回溯。</p>
+  </header>
+
+  <div class="layout">
+    <section>
+      <div class="stage" id="stage">
+        <div class="sec-label"><span class="zh">字符 s</span> · 下标 0 … 7</div>
+        <div class="chars" id="chars"></div>
+        <div class="idx-row" id="idxRow"></div>
+        <div class="brackets" id="brackets"></div>
+
+        <div class="dp-wrap">
+          <div class="sec-label"><span class="zh">dp 状态</span> · dp[i] = 前 i 个字符能否拆出</div>
+          <div class="caret-row" id="caretRow"></div>
+          <div class="dp-row" id="dpRow"></div>
+        </div>
+
+        <div class="words-row">
+          <span class="sec-inline">wordDict</span>
+          <div class="chips" id="chips"></div>
+        </div>
+
+        <div class="chain-row">
+          <span class="sec-inline">推导链</span>
+          <div class="chain" id="chain"></div>
+        </div>
+
+        <div class="verdict" id="verdict"></div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev" type="button">◀ 上一步</button>
+        <button class="btn primary" id="btnPlay" type="button">▶ 播放</button>
+        <button class="btn" id="btnNext" type="button">下一步 ▶</button>
+        <button class="btn" id="btnReset" type="button">重置</button>
+        <div class="spacer"></div>
+        <label class="speed">速度
+          <select id="speed">
+            <option value="2800">0.5×</option>
+            <option value="1800" selected>1×</option>
+            <option value="1150">1.5×</option>
+            <option value="700">2×</option>
+          </select>
+        </label>
+      </div>
+      <div class="progress"><div class="progress-fill" id="prog"></div></div>
+
+      <div class="hint">
+        <kbd>空格</kbd> 播放 / 暂停 &nbsp;·&nbsp; <kbd>←</kbd><kbd>→</kbd> 单步 &nbsp;·&nbsp; <kbd>R</kbd> 重置 &nbsp;·&nbsp;
+        每一帧只做一次尝试：先看 <code>i - len(w)</code> 是否越界，再查 <code>dp[i-len(w)]</code>，最后比较子串是否等于单词。
+      </div>
+
+      <div class="legend">
+        <span><i class="sw box"></i>正在匹配的区间</span>
+        <span><i class="sw amber"></i>当前 i / 尝试中的词</span>
+        <span><i class="sw green"></i>True · 可拆分</span>
+        <span><i class="sw blue"></i>前缀 dp[i-l] = False</span>
+        <span><i class="sw pink"></i>子串 ≠ 单词</span>
+        <span><i class="sw seg"></i>回溯出的分段</span>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card">
+        <div class="head"><span>当前步骤</span><span class="counter" id="counter">1 / 1</span></div>
+        <p class="desc" id="desc"></p>
+        <div class="formula" id="formula"></div>
+      </div>
+
+      <div class="card code">
+        <div class="head"><span>对应代码</span><span class="badge">Python</span></div>
+        <pre id="code"></pre>
+      </div>
+
+      <div class="card">
+        <div class="head"><span>复杂度</span><span class="badge">O(n·m·L) / O(n)</span></div>
+        <p class="note">
+          时间 <span class="o">O(n·m·L)</span>：n 个位置 × m 个单词 × 每次 O(L) 的子串比较。<br />
+          空间 <span class="o">O(n)</span>：dp 存 n+1 项，parent 最多 n 个词。<br />
+          命中就 <b>break</b>，实际远小于最坏情况。
+        </p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ================= 主例子 ================= */
+  const S = "leetcode";
+  const DICT = ["leet", "code"];
+  const N = S.length;
+
+  /* ================= 代码面板 ================= */
+  const CODE = [
+    ["def",   "def word_break(s, wordDict):"],
+    ["nline", "    n = len(s)"],
+    ["init1", "    dp = [False] * (n + 1)"],
+    ["init2", "    dp[0] = True"],
+    ["init3", "    parent = {}"],
+    ["loopI", "    for i in range(1, n + 1):"],
+    ["loopW", "        for w in wordDict:"],
+    ["lenw",  "            l = len(w)"],
+    ["oob",   "            if i - l < 0:"],
+    ["cont",  "                continue"],
+    ["check", "            if dp[i-l] and s[i-l:i] == w:"],
+    ["setdp", "                dp[i] = True"],
+    ["setp",  "                parent[i] = w"],
+    ["brk",   "                break"],
+    ["btc",   "    # 回溯：j = n 起，按 parent 往回跳"],
+    ["bt1",   "    j, parts = n, []"],
+    ["bt2",   "    while j > 0:"],
+    ["bt3",   "        w = parent[j]; parts.append(w)"],
+    ["bt4",   "        j -= len(w)"],
+    ["ret",   "    return dp[n], parts[::-1]"]
+  ];
+
+  /* ================= 步骤生成：按算法真实跑一遍，逐步快照 ================= */
+  function buildSteps(s, dict) {
+    const n = s.length;
+    const dp = new Array(n + 1).fill(false);
+    dp[0] = true;
+    const parent = {};
+    const chain = [];
+    const steps = [];
+
+    let words = dict.map(() => "idle");
+    let seg = null;
+    let finalSegs = null;
+    let finalActive = null;
+    let btJ = null;
+    let curI = 0;
+    let phase = "run";
+
+    const dpText = () => "[" + dp.map((v) => (v ? "T" : "F")).join(", ") + "]";
+
+    function push(o) {
+      steps.push({
+        i: curI,
+        dp: dp.slice(),
+        words: words.slice(),
+        seg: seg ? Object.assign({}, seg) : null,
+        finalSegs: finalSegs ? finalSegs.map((x) => Object.assign({}, x)) : null,
+        finalActive: finalActive,
+        btJ: btJ,
+        chain: chain.map((x) => Object.assign({}, x)),
+        phase: phase,
+        desc: o.desc,
+        formula: o.formula,
+        code: o.code,
+        verdict: o.verdict || "",
+        final: !!o.final
+      });
+    }
+
+    /* ---- 初始帧 ---- */
+    curI = 0;
+    words = dict.map(() => "idle");
+    seg = null;
+    push({
+      desc: '初始化：<b>dp[0] = True</b> —— 空串不用任何单词就能拼出来；<b>dp[1..' + n + ']</b> 先全部记 <b>False</b>。接下来让 <b>i</b> 从 1 走到 ' + n + '，每个位置依次尝试 <span class="m">wordDict</span> 里的词。',
+      formula: "dp = " + dpText() + "\ndp[0] = True   ← 空串可拆",
+      code: ["def", "nline", "init1", "init2", "init3"]
+    });
+
+    /* ---- 逐位填 dp ---- */
+    for (let i = 1; i <= n; i++) {
+      curI = i;
+      seg = null;
+      words = dict.map(() => "idle");
+
+      push({
+        desc: '<b>i = ' + i + '</b>,<b>dp[' + i + ']</b> 表示前缀 <span class="m">"' + s.slice(0, i) + '"</span> 能否被字典完整拼出。依次尝试 ' + dict.length + ' 个词，任意一个成立就 <b>break</b>。',
+        formula: "i = " + i + "    dp[" + i + "] = False（默认）",
+        code: ["loopI", "loopW"]
+      });
+
+      let hit = null;
+
+      for (let wi = 0; wi < dict.length; wi++) {
+        const w = dict[wi];
+        const l = w.length;
+        const start = i - l;
+
+        if (start < 0) {
+          words[wi] = "active";
+          seg = { start: null, end: null, word: w, sub: "", len: l, state: "oob" };
+          push({
+            desc: '尝试 <b>"' + w + '"</b>（len = ' + l + '）：<b>i − len = ' + i + ' − ' + l + ' = ' + start + ' &lt; 0</b>，区间起点跑到字符串左边去了 —— <span class="m">"' + s.slice(0, i) + '"</span> 太短，放不下 <b>"' + w + '"</b>，<b class="kb">continue</b> 跳过。',
+            formula: 'i - len("' + w + '") = ' + start + "  < 0\n→ 越界，continue",
+            code: ["loopW", "lenw", "oob", "cont"]
+          });
+          words[wi] = "fail";
+          continue;
+        }
+
+        const sub = s.slice(start, i);
+        const prefixOK = dp[start];
+        const subOK = sub === w;
+
+        words[wi] = "active";
+
+        if (!prefixOK) {
+          seg = { start: start, end: i, word: w, sub: sub, len: l, state: "prefixfalse" };
+          push({
+            desc: '尝试 <b>"' + w + '"</b>：框出区间 <span class="m">s[' + start + ':' + i + '] = "' + sub + '"</span>，但前缀 <b class="kb">dp[' + start + '] = False</b> —— <span class="m">"' + s.slice(0, start) + '"</span> 自己就拆不出来，起点不成立，这个候选<b>作废</b>。',
+            formula: "dp[" + start + "] = False  →  前缀不可拆\n候选 \"" + w + "\"@[" + start + "," + i + ") 作废",
+            code: ["loopW", "lenw", "check"]
+          });
+          words[wi] = "fail";
+          continue;
+        }
+
+        if (!subOK) {
+          seg = { start: start, end: i, word: w, sub: sub, len: l, state: "nomatch" };
+          push({
+            desc: '尝试 <b>"' + w + '"</b>：<b class="kg">dp[' + start + '] = True</b> ✓ 前缀可拆，但 <span class="m">s[' + start + ':' + i + '] = "' + sub + '"</span> 和 <b>"' + w + '"</b> 不相等 ✗ —— 这个词放不进这个位置。',
+            formula: 'dp[' + start + "] = True  ✓\ns[" + start + ":" + i + '] = "' + sub + '" ≠ "' + w + '"  ✗',
+            code: ["loopW", "lenw", "check"]
+          });
+          words[wi] = "fail";
+          continue;
+        }
+
+        /* 两个条件都成立 */
+        seg = { start: start, end: i, word: w, sub: sub, len: l, state: "match" };
+        push({
+          desc: '尝试 <b>"' + w + '"</b>：<b class="kg">dp[' + start + '] = True</b> ✓ 且 <span class="m">s[' + start + ':' + i + '] = "' + sub + '"</span> 正好等于 <b>"' + w + '"</b> ✓ —— 两个条件同时成立，候选可行！',
+          formula: "dp[" + i + "] = dp[" + start + "] && s[" + start + ":" + i + '] == "' + w + '"\n      = True && True → True',
+          code: ["loopW", "lenw", "check"]
+        });
+
+        /* 落子 */
+        words[wi] = "ok";
+        dp[i] = true;
+        parent[i] = w;
+        chain.push({ i: i, word: w });
+
+        push({
+          desc: '由此置 <b class="kg">dp[' + i + '] = True</b>，记录 <b>parent[' + i + '] = "' + w + '"</b>：前缀 <span class="m">"' + s.slice(0, i) + '"</span> = <span class="m">"' + s.slice(0, start) + '"</span> + <b>"' + w + '"</b>。命中后 <b>break</b>，本位置不再试剩下的词。',
+          formula: "dp[" + i + "] = True    parent[" + i + '] = "' + w + '"\nbreak  ← 本位置不再试其余的词',
+          code: ["check", "setdp", "setp", "brk"]
+        });
+
+        hit = w;
+        break;
+      }
+
+      if (!hit) {
+        words = dict.map(() => "fail");
+        seg = null;
+        push({
+          desc: '<b>i = ' + i + '</b> 处的候选全部失败：越界 / 前缀不可拆 / 子串不匹配。<b class="kp">dp[' + i + '] 保持 False</b> —— 前缀 <span class="m">"' + s.slice(0, i) + '"</span> 无法被字典里的词拆开。',
+          formula: "dp[" + i + "] = False",
+          code: ["loopI", "loopW"]
+        });
+      }
+    }
+
+    /* ---- 回溯：从 n 倒推 ---- */
+    const walked = [];
+    let j = n;
+    while (j > 0 && parent[j]) {
+      const w = parent[j];
+      const start = j - w.length;
+      walked.push({ start: start, end: j, word: w, sub: s.slice(start, j) });
+      j = start;
+    }
+
+    const used = {};
+    walked.forEach((x) => { used[x.word] = true; });
+    const btWords = dict.map((w) => (used[w] ? "used" : "fail"));
+    /* 先按整条拆分链固定每段的配色，回溯过程中颜色不会跳变 */
+    const toneMap = {};
+    walked.slice()
+      .sort((a, b) => a.start - b.start)
+      .forEach((x, idx) => { toneMap[x.start + ":" + x.end] = idx % 2; });
+    const sortSegs = (arr) => arr.slice()
+      .sort((a, b) => a.start - b.start)
+      .map((x) => Object.assign({}, x, { tone: toneMap[x.start + ":" + x.end] }));
+
+    phase = "bt";
+    curI = n;
+    const acc = [];
+    walked.forEach((item) => {
+      acc.push(item);
+      finalSegs = sortSegs(acc);
+      finalActive = item;
+      btJ = item.end;
+      words = btWords.slice();
+      push({
+        desc: '回溯：<b>dp[' + item.end + '] = True</b> 来自 <b>parent[' + item.end + '] = "' + item.word + '"</b>，即 <span class="m">s[' + item.start + ':' + item.end + '] = "' + item.sub + '"</span> 是拆分中的一段；<b>j ← ' + item.end + ' − ' + item.word.length + ' = ' + item.start + '</b>' + (item.start === 0 ? '，回到 0，拆分结束。' : '，继续往前找。'),
+        formula: 'parent[' + item.end + '] = "' + item.word + '"\ns[' + item.start + ':' + item.end + '] = "' + item.sub + '"    j ← ' + item.start,
+        code: ["btc", "bt1", "bt2", "bt3", "bt4"]
+      });
+    });
+
+    /* ---- 结论帧 ---- */
+    const parts = sortSegs(walked);
+    const chainTxt = "dp[0]" + parts.map((x) => " → dp[" + x.end + "]").join("");
+    const expr = '"' + s + '" = ' + parts.map((x) => '"' + x.word + '"').join(" + ");
+    finalSegs = parts;
+    finalActive = null;
+    btJ = null;
+    phase = "final";
+    push({
+      desc: '结论：<b class="kg">dp[' + n + '] = True</b>，整串可以拆成 <b>' + parts.map((x) => '"' + x.word + '"').join(' + ') + '</b>。推导链 <span class="m">' + chainTxt + '</span> 每一环都靠「前缀可拆 + 子串等于某个词」接上。时间 O(n·m·L)，空间 O(n)。',
+      formula: "dp[" + n + "] = True\n" + expr,
+      code: ["btc", "bt1", "bt2", "bt3", "bt4", "ret"],
+      final: true,
+      verdict: '<span class="vok">✓ dp[' + n + '] = True</span><span class="vsep">·</span>' +
+        parts.map((x) => '<span class="vseg tone' + x.tone + '">"' + x.word + '"</span>').join('<span class="vplus">+</span>')
+    });
+
+    return steps;
+  }
+
+  const STEPS = buildSteps(S, DICT);
+  const LAST = STEPS.length - 1;
+
+  /* ================= DOM 构建 ================= */
+  const charsEl = document.getElementById("chars");
+  const idxRowEl = document.getElementById("idxRow");
+  const bracketsEl = document.getElementById("brackets");
+  const caretRowEl = document.getElementById("caretRow");
+  const dpRowEl = document.getElementById("dpRow");
+  const chipsEl = document.getElementById("chips");
+  const chainEl = document.getElementById("chain");
+  const verdictEl = document.getElementById("verdict");
+  const stageEl = document.getElementById("stage");
+  const codeEl = document.getElementById("code");
+
+  charsEl.style.gridTemplateColumns = "repeat(" + N + ",1fr)";
+  idxRowEl.style.gridTemplateColumns = "repeat(" + N + ",1fr)";
+  bracketsEl.style.gridTemplateColumns = "repeat(" + N + ",1fr)";
+  caretRowEl.style.gridTemplateColumns = "repeat(" + (N + 1) + ",1fr)";
+  dpRowEl.style.gridTemplateColumns = "repeat(" + (N + 1) + ",1fr)";
+
+  const charEls = [];
+  const idxEls = [];
+  const caretEls = [];
+  const dpEls = [];
+  const chipEls = [];
+
+  for (let k = 0; k < N; k++) {
+    const c = document.createElement("div");
+    c.className = "char";
+    c.textContent = S[k];
+    charsEl.appendChild(c);
+    charEls.push(c);
+
+    const ix = document.createElement("div");
+    ix.className = "idx";
+    ix.textContent = String(k);
+    idxRowEl.appendChild(ix);
+    idxEls.push(ix);
+  }
+
+  for (let k = 0; k <= N; k++) {
+    const cr = document.createElement("div");
+    cr.className = "caret";
+    cr.textContent = "▼";
+    caretRowEl.appendChild(cr);
+    caretEls.push(cr);
+
+    const d = document.createElement("div");
+    d.className = "dp-cell";
+    d.innerHTML = '<span class="dpk">' + k + '</span><span class="dpv">F</span>';
+    dpRowEl.appendChild(d);
+    dpEls.push(d);
+  }
+
+  DICT.forEach((w) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.innerHTML = '<span class="cw">' + w + '</span><em>L=' + w.length + '</em>';
+    chipsEl.appendChild(chip);
+    chipEls.push(chip);
+  });
+
+  const codeLines = {};
+  CODE.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "cline";
+    div.dataset.key = item[0];   // 逐行 id：步骤用这些 key 高亮对应代码行
+    div.textContent = item[1];
+    codeLines[item[0]] = div;
+    codeEl.appendChild(div);
+  });
+
+  /* ================= 渲染 ================= */
+  function render(index) {
+    const st = STEPS[index];
+    const curI = st.phase === "run" ? st.i : (st.phase === "bt" ? st.btJ : null);
+
+    /* 字符格 */
+    charEls.forEach((el) => { el.className = "char"; });
+    let anchor = null;
+    if (st.finalSegs && st.finalSegs.length) {
+      st.finalSegs.forEach((sg) => {
+        const isActive = st.finalActive && st.finalActive.start === sg.start && st.finalActive.end === sg.end;
+        for (let k = sg.start; k < sg.end; k++) {
+          charEls[k].classList.add("seg" + sg.tone);
+          if (isActive) charEls[k].classList.add("seg-current");
+        }
+      });
+    } else if (st.seg && st.seg.start !== null) {
+      for (let k = st.seg.start; k < st.seg.end; k++) {
+        charEls[k].classList.add("try", st.seg.state);
+      }
+      anchor = st.seg.start;
+    }
+
+    /* 下标：dp[j] 为 True 的边界泛绿，当前候选起点标琥珀 */
+    idxEls.forEach((el, k) => {
+      el.className = "idx" + (st.dp[k] ? " on" : "");
+      if (anchor === k) el.classList.add("anchor");
+    });
+
+    /* 区间括号 / 越界提示 */
+    bracketsEl.innerHTML = "";
+    if (st.finalSegs && st.finalSegs.length) {
+      st.finalSegs.forEach((sg) => {
+        const b = document.createElement("div");
+        b.className = "bracket tone" + sg.tone;
+        if (st.finalActive && st.finalActive.start === sg.start) b.classList.add("active");
+        b.style.gridColumn = (sg.start + 1) + " / span " + (sg.end - sg.start);
+        b.innerHTML = '<span class="blabel">s[' + sg.start + ':' + sg.end + '] = "' + sg.word + '"</span>';
+        bracketsEl.appendChild(b);
+      });
+    } else if (st.seg) {
+      if (st.seg.start === null) {
+        const p = document.createElement("div");
+        p.className = "probe";
+        p.innerHTML = 'i − len("' + st.seg.word + '") = ' + st.i + ' − ' + st.seg.len + ' = ' + (st.i - st.seg.len) + ' &lt; 0 · 越界，放不下这个词';
+        bracketsEl.appendChild(p);
+      } else {
+        const b = document.createElement("div");
+        b.className = "bracket " + st.seg.state;
+        b.style.gridColumn = (st.seg.start + 1) + " / span " + (st.seg.end - st.seg.start);
+        b.innerHTML = '<span class="blabel">s[' + st.seg.start + ':' + st.seg.end + '] = "' + st.seg.sub + '"</span>';
+        bracketsEl.appendChild(b);
+      }
+    } else {
+      const b = document.createElement("div");
+      b.className = "bracket idle";
+      b.style.gridColumn = "1 / span " + N;
+      b.innerHTML = '<span class="blabel">s[0:' + N + '] = "' + S + '"</span>';
+      bracketsEl.appendChild(b);
+    }
+
+    /* dp 格 */
+    const hlSet = {};
+    if (st.phase !== "run") {
+      hlSet[0] = true;
+      (st.finalSegs || []).forEach((sg) => { hlSet[sg.end] = true; });
+    }
+    dpEls.forEach((el, k) => {
+      const on = !!st.dp[k];
+      el.classList.toggle("on", on);
+      el.classList.toggle("future", k > st.i);
+      el.classList.toggle("cur", curI === k);
+      el.classList.toggle("chainhl", !!hlSet[k]);
+      el.querySelector(".dpv").textContent = on ? "T" : "F";
+    });
+
+    caretEls.forEach((el, k) => { el.style.visibility = curI === k ? "visible" : "hidden"; });
+
+    /* 单词 chip */
+    chipEls.forEach((el, k) => { el.className = "chip " + st.words[k]; });
+
+    /* 推导链 */
+    chainEl.innerHTML = "";
+    const span = (cls, txt) => {
+      const el = document.createElement("span");
+      el.className = cls;
+      el.textContent = txt;
+      return el;
+    };
+    chainEl.appendChild(span("cn", "dp[0] ✓"));
+    st.chain.forEach((c) => {
+      chainEl.appendChild(span("ca", "→"));
+      chainEl.appendChild(span("cw", '"' + c.word + '"'));
+      chainEl.appendChild(span("ca", "→"));
+      chainEl.appendChild(span("cn", "dp[" + c.i + "] ✓"));
+    });
+
+    /* 结论 */
+    let waitText = '… 等待 dp[' + N + '] 确定后，用 parent 回溯出一组拆分';
+    if (st.phase === "bt") {
+      waitText = '… 回溯中：已找回 ' + (st.finalSegs ? st.finalSegs.length : 0) + ' 段，继续沿 parent 往前跳';
+    } else if (st.dp[N]) {
+      waitText = '… dp[' + N + '] = True，下一步用 parent 回溯出拆分链';
+    }
+    verdictEl.className = "verdict";
+    verdictEl.innerHTML = st.final ? st.verdict : '<span class="vwait">' + waitText + '</span>';
+    stageEl.classList.toggle("is-final", !!st.final);
+
+    /* 右侧卡片 */
+    document.getElementById("counter").textContent = (index + 1) + " / " + (LAST + 1);
+    document.getElementById("desc").innerHTML = st.desc;
+    document.getElementById("formula").textContent = st.formula;
+    document.getElementById("prog").style.width = (LAST === 0 ? 100 : (index / LAST) * 100) + "%";
+
+    const hl = {};
+    st.code.forEach((key) => { hl[key] = true; });
+    Object.keys(codeLines).forEach((key) => {
+      codeLines[key].classList.toggle("hl", !!hl[key]);
+    });
+
+    document.getElementById("btnPrev").disabled = index === 0;
+    document.getElementById("btnNext").disabled = index === LAST;
+    document.getElementById("btnPlay").textContent = playing ? "⏸ 暂停" : "▶ 播放";
+  }
+
+  /* ================= 播放控制 ================= */
+  let current = 0;
+  let timer = null;
+  let playing = false;
+
+  const btnPlay = document.getElementById("btnPlay");
+  const speedSel = document.getElementById("speed");
+
+  function setPlaying(on) {
+    playing = on;
+    btnPlay.textContent = on ? "⏸ 暂停" : "▶ 播放";
+    if (on) {
+      if (current === LAST) { current = 0; render(0); }
+      schedule();
+    } else if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  function schedule() {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      if (!playing) return;
+      if (current < LAST) {
+        current += 1;
+        render(current);
+        schedule();
+      } else {
+        setPlaying(false);
+      }
+    }, Number(speedSel.value));
+  }
+
+  function goto(i) {
+    if (playing) setPlaying(false);
+    current = Math.max(0, Math.min(LAST, i));
+    render(current);
+  }
+
+  btnPlay.addEventListener("click", () => setPlaying(!playing));
+  document.getElementById("btnNext").addEventListener("click", () => goto(current + 1));
+  document.getElementById("btnPrev").addEventListener("click", () => goto(current - 1));
+  document.getElementById("btnReset").addEventListener("click", () => { setPlaying(false); goto(0); });
+  speedSel.addEventListener("change", () => { if (playing) schedule(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") { e.preventDefault(); setPlaying(!playing); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); goto(current + 1); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+    else if (e.code === "KeyR") { e.preventDefault(); goto(0); }
+  });
+
+  /* 暴露少量状态，便于核对与截图定位（不影响交互） */
+  window.__WORD_BREAK__ = {
+    steps: STEPS,
+    last: LAST,
+    total: STEPS.length,
+    go: goto,
+    at: () => current,
+  };
+
+  render(0);
+})();
+</script>
+</body>
+</html>

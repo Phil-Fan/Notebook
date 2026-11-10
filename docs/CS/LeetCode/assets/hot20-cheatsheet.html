@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>力扣 Hot 20 · 一页速记</title>
+<style>
+  @page { size: A4 portrait; margin: 8mm 9mm 6mm; }
+
+  :root{
+    --fs:12.2pt;
+    --ink:#1d2433;
+    --dim:#5f6878;
+    --line:#d5dae4;
+    --accent:#1f4ea1;
+    --warn:#a8322a;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Heiti SC","Microsoft YaHei",sans-serif;
+    font-size:var(--fs);
+    line-height:1.5;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .page{width:192mm;height:279mm;display:flex;flex-direction:column}
+
+  header{display:flex;align-items:flex-end;justify-content:space-between;
+         border-bottom:1.3pt solid var(--ink);padding-bottom:1.4mm;margin-bottom:3.2mm}
+  .title{font-size:1.28em;font-weight:700;letter-spacing:.3pt}
+  .title .sub{font-size:.56em;font-weight:400;color:var(--dim);letter-spacing:0;margin-left:1.8mm}
+  .meta{font-size:.62em;color:var(--dim);text-align:right;line-height:1.4}
+  .meta b{color:var(--ink)}
+  .meta .star{color:#b07d10;font-weight:700}
+
+  .list{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between}
+  .it{margin:0;line-height:1.5;text-align:left}
+  .num{font-family:var(--mono);font-size:.86em;font-weight:700;color:var(--accent);margin-right:1mm}
+  .nm{font-weight:700;margin-right:1.4mm}
+  .star{color:#b07d10;font-size:.8em;margin-left:.7mm;margin-right:.9mm}
+  .tx{color:#2b3444}
+  .k{font-family:var(--mono);font-size:.88em;background:#f1f4f9;border:.4pt solid #e2e7ef;
+     border-radius:.7mm;padding:0 .6mm;white-space:nowrap}
+
+  footer{margin-top:2.4mm;border-top:.7pt solid var(--line);padding-top:1.4mm;
+         display:flex;justify-content:space-between;gap:4mm;font-size:.58em;color:var(--dim);line-height:1.4}
+  footer b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="title">力扣 Hot 20 · 一页速记<span class="sub">20 题：题目 → 思路 / 公式</span></div>
+    <div class="meta">
+      <b>PhilFan's Notebook</b> · CS / LeetCode<br>
+      <span class="star">★</span> 站内已有完整题解（题干 / 代码 / 动画）
+    </div>
+  </header>
+
+  <div class="list">
+
+    <div class="it"><span class="num">49</span><span class="nm">字母异位词分组</span><span class="star">★</span><span class="tx">排序串 <span class="k">"".join(sorted(w))</span> 或 26 维计数元组当「规范形」，同键入桶；dict 保序 ⇒ 组序即首词出现序。</span></div>
+
+    <div class="it"><span class="num">15</span><span class="nm">三数之和</span><span class="tx">排序后固定 <span class="k">i</span>，左右指针夹 <span class="k">nums[j]+nums[k] = −nums[i]</span>：和小移 j、和大移 k；i / j / k 都要跳过相邻重复值。</span></div>
+
+    <div class="it"><span class="num">42</span><span class="nm">接雨水</span><span class="star">★</span><span class="tx">每格水 <span class="k">min(左最高，右最高) − 柱高</span>；双指针每轮只结算更矮的一侧，先更新该侧最大值、再累加。</span></div>
+
+    <div class="it"><span class="num">3</span><span class="nm">无重复字符的最长子串</span><span class="tx">滑动窗口：右指针进字符，重复就左移直到窗口无重复，收缩完再记录长度。</span></div>
+
+    <div class="it"><span class="num">76</span><span class="nm">最小覆盖子串</span><span class="star">★</span><span class="tx">右扩到 <span class="k">formed == required</span>（t 的字符种数凑齐），再左缩：先记录最短、后移出 <span class="k">s[left]</span>。</span></div>
+
+    <div class="it"><span class="num">48</span><span class="nm">旋转图像</span><span class="tx">顺时针即 <span class="k">b[i][j] = a[n-1-j][i]</span>：先沿主对角线转置 <span class="k">a[i][j] ↔ a[j][i]</span>（只遍历上三角），再每行反转 <span class="k">a[i][j] ↔ a[i][n-1-j]</span>；逆时针 <span class="k">b[i][j] = a[j][n-1-i]</span>，即转置后每列反转。</span></div>
+
+    <div class="it"><span class="num">25</span><span class="nm">K 个一组翻转链表</span><span class="star">★</span><span class="tx"><span class="k">dummy</span> + 组前驱：先走 k 步探路，够长才把组内 next 逐个掉头（<span class="k">prev</span> 从 <span class="k">next_group</span> 起），再把新组头接回。</span></div>
+
+    <div class="it"><span class="num">146</span><span class="nm">LRU 缓存</span><span class="tx">哈希表 <span class="k">key → 节点</span> + 双向链表按访问顺序排列（头新尾旧）：get 命中移到头，put 超容量删尾。</span></div>
+
+    <div class="it"><span class="num">199</span><span class="nm">二叉树的右视图</span><span class="tx">BFS 层序取每层最后一个；或 DFS 先右后左，取「每个深度第一次到达」的节点。</span></div>
+
+    <div class="it"><span class="num">200</span><span class="nm">岛屿数量</span><span class="tx">扫到 <span class="k">'1'</span> 就答案 +1，并从该点 DFS / BFS 把整块 <span class="k">'1'</span>「淹」成 <span class="k">'0'</span>；先标记再递归。</span></div>
+
+    <div class="it"><span class="num">22</span><span class="nm">括号生成</span><span class="tx">回溯：已用左括号 &lt; n 可加 <span class="k">(</span>，已用右括号 &lt; 已用左括号 可加 <span class="k">)</span>；长度到 2n 收集。</span></div>
+
+    <div class="it"><span class="num">20</span><span class="nm">有效的括号</span><span class="tx">左括号入栈；右括号必须与栈顶配对后再弹出；全部处理完栈为空才有效。</span></div>
+
+    <div class="it"><span class="num">215</span><span class="nm">数组中的第 K 个最大元素</span><span class="tx">大小为 k 的小顶堆，堆顶即第 k 大；或快速选择（partition 后只递归一侧）。</span></div>
+
+    <div class="it"><span class="num">55</span><span class="nm">跳跃游戏</span><span class="tx">维护 <span class="k">reach = max(reach, i + nums[i])</span>；一旦 <span class="k">i &gt; reach</span> 就失败，扫完为 true。</span></div>
+
+    <div class="it"><span class="num">188</span><span class="nm">买卖股票的最佳时机 IV</span><span class="star">★</span><span class="tx"><span class="k">dp[t][i] = max(dp[t][i-1], prices[i-1] + best)</span>，<span class="k">best = max(dp[t-1][j] − prices[j])</span>，<span class="k">j ≤ i−2</span>；<span class="k">k ≥ n/2</span> 时退化为累加所有正价差。</span></div>
+
+    <div class="it"><span class="num">139</span><span class="nm">单词拆分</span><span class="star">★</span><span class="tx"><span class="k">dp[i]</span> = 前缀 <span class="k">s[:i]</span> 能否拆；枚举最后一段词 <span class="k">w</span>：<span class="k">dp[i−|w|] ∧ s[i−|w|:i] == w</span>，<span class="k">dp[0] = True</span>。</span></div>
+
+    <div class="it"><span class="num">300</span><span class="nm">最长递增子序列</span><span class="tx"><span class="k">dp[i]</span> = 以 <span class="k">i</span> 结尾的 LIS 长度：<span class="k">1 + max(dp[j]) for j &lt; i 且 a[j] &lt; a[i]</span>；或用 tails 数组 + 二分。</span></div>
+
+    <div class="it"><span class="num">1143</span><span class="nm">最长公共子序列</span><span class="tx"><span class="k">a[i-1] == b[j-1]</span> 时 <span class="k">dp[i][j] = dp[i-1][j-1] + 1</span>，否则 <span class="k">max(dp[i-1][j], dp[i][j-1])</span>。</span></div>
+
+    <div class="it"><span class="num">64</span><span class="nm">最小路径和</span><span class="tx"><span class="k">dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])</span>；首行 / 首列只能单向累加。</span></div>
+
+    <div class="it"><span class="num">72</span><span class="nm">编辑距离</span><span class="tx"><span class="k">dp[i][j]</span>：字符相同取左上；否则 <span class="k">1 + min(替换=左上，删除=上，插入=左)</span>；边界 <span class="k">dp[i][0] = i</span>、<span class="k">dp[0][j] = j</span>。</span></div>
+
+  </div>
+
+  <footer>
+    <div><b>心法</b>：先写暴力再优化 · 状态 / 判据 / 不变量先定死 · 四个边界先过 · 复杂度对约束</div>
+    <div>note.philfan.cn → CS → 力扣 LeetCode</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>K 个一组翻转链表 · 迭代动画</title>
+<style>
+  :root{
+    --panel:rgba(20,27,49,.72);
+    --line:rgba(122,142,192,.20);
+    --text:#e9edf8;
+    --dim:#8b97b8;
+    --amber:#ffb03a;
+    --green:#4ade80;
+    --blue:#6ea8ff;
+    --purple:#b58cff;
+    --pink:#ff8fb1;
+    --teal:#5eead4;
+    --yellow:#facc15;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;padding:26px 24px 44px;color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(900px 520px at 18% -8%,rgba(58,88,164,.34),transparent 62%),
+      radial-gradient(760px 460px at 88% 4%,rgba(120,80,200,.20),transparent 60%),
+      linear-gradient(180deg,#080c18,#05070f 60%,#04060c);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto}
+  header{margin-bottom:18px}
+  h1{margin:0 0 6px;font-size:21px;letter-spacing:.2px;font-weight:650}
+  header p{margin:0;color:var(--dim);font-size:13.5px;line-height:1.65;max-width:820px}
+  header code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:#a9c6ff;background:rgba(74,168,255,.10);padding:1px 6px;border-radius:6px}
+
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 372px;gap:18px;align-items:start}
+  @media (max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;
+        backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(0,0,0,.35)}
+
+  /* ---------------- stage ---------------- */
+  .stage{background:linear-gradient(180deg,rgba(24,32,56,.85),rgba(14,19,36,.85));
+         border:1px solid var(--line);border-radius:18px;padding:14px 12px 10px;
+         box-shadow:0 18px 50px rgba(0,0,0,.38);overflow:hidden}
+  .canvas{position:relative;height:300px;width:100%}
+
+  .node{
+    position:absolute;top:99px;width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+    border-radius:12px;font-size:16px;font-weight:650;color:#dbe6ff;
+    background:linear-gradient(180deg,#2f3b5e,#232c48);
+    border:1px solid rgba(130,155,215,.35);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 8px 18px rgba(0,0,0,.35);
+    transform:translateX(-50%);
+    transition:left .5s cubic-bezier(.34,.9,.3,1),box-shadow .3s,border-color .3s,background .3s;
+    z-index:3;
+  }
+  .node.dummy{width:42px;height:42px;top:101px;border-style:dashed;color:#93a4cc;
+    background:rgba(30,39,63,.8);font-size:13px;letter-spacing:.6px}
+  .node.active{border-color:rgba(255,176,58,.85);background:linear-gradient(180deg,#4a3d24,#2e2718);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 0 2px rgba(255,176,58,.35),0 0 30px rgba(255,176,58,.28);color:#ffe3b0}
+  .node.done{border-color:rgba(74,222,128,.65);background:linear-gradient(180deg,#1f3b2e,#182b22);color:#c6f5d9;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 22px rgba(74,222,128,.16)}
+  .node.tail{border-color:rgba(250,204,21,.6);background:linear-gradient(180deg,#3b351c,#2a2616);color:#f7e6a4}
+
+  .nullmark{position:absolute;top:122px;transform:translate(-50%,-50%);
+    font-size:11px;color:#66739a;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    padding:3px 9px;border:1px dashed rgba(130,150,200,.4);border-radius:8px;
+    transition:left .5s cubic-bezier(.34,.9,.3,1);z-index:2}
+
+  .group{position:absolute;top:87px;height:70px;border-radius:16px;pointer-events:none;
+    border:1.5px dashed rgba(130,150,200,.32);background:rgba(120,140,190,.05);
+    transition:left .5s cubic-bezier(.34,.9,.3,1),width .5s cubic-bezier(.34,.9,.3,1),border-color .3s,background .3s}
+  .group.active{border-color:rgba(255,176,58,.6);background:rgba(255,176,58,.085)}
+  .group.done{border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.06)}
+  .group.tail{border-color:rgba(250,204,21,.42);background:rgba(250,204,21,.05)}
+
+  .arrows{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:4}
+  .arrows path{fill:none;stroke-width:2.2;stroke-linecap:round;opacity:.95}
+
+  .tag{position:absolute;transform:translateX(-50%);
+    font-size:10.5px;font-weight:620;padding:2px 7px;border-radius:999px;white-space:nowrap;
+    letter-spacing:.15px;z-index:6;border:1px solid transparent;
+    background:rgba(12,18,34,.92);backdrop-filter:blur(4px);
+    transition:left .5s cubic-bezier(.34,.9,.3,1),top .3s ease}
+  .tag.groupPrev{color:#bcdcff;border-color:rgba(110,168,255,.55);background:rgba(110,168,255,.15)}
+  .tag.kth{color:#ddccff;border-color:rgba(181,140,255,.55);background:rgba(181,140,255,.15)}
+  .tag.prev{color:#ffd9a3;border-color:rgba(255,176,58,.58);background:rgba(255,176,58,.15)}
+  .tag.cur{color:#ffc1d5;border-color:rgba(255,143,177,.55);background:rgba(255,143,177,.15)}
+  .tag.nxt{color:#b6fff2;border-color:rgba(94,234,212,.5);background:rgba(94,234,212,.13)}
+
+  /* ---------------- controls ---------------- */
+  .controls{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wrap:wrap;padding:0 4px}
+  .btn{appearance:none;border:1px solid rgba(130,152,205,.28);background:rgba(30,39,63,.9);color:#cfd8f0;
+    font-size:13px;font-weight:550;padding:8px 14px;border-radius:11px;cursor:pointer;
+    transition:transform .12s ease,background .2s,border-color .2s,box-shadow .2s;font-family:inherit}
+  .btn:hover{background:rgba(44,56,88,.95);border-color:rgba(140,170,255,.5)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:linear-gradient(180deg,#3f8cf0,#2b6fd4);border-color:rgba(120,180,255,.6);color:#fff;
+    box-shadow:0 8px 22px rgba(43,111,212,.42)}
+  .btn.primary:hover{background:linear-gradient(180deg,#4d99f7,#3078de)}
+  .btn:disabled{opacity:.42;cursor:default;transform:none}
+  .spacer{flex:1}
+  .speed{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--dim)}
+  select{appearance:none;background:rgba(30,39,63,.9);color:#cfd8f0;border:1px solid rgba(130,152,205,.28);
+    border-radius:9px;padding:6px 10px;font-size:12.5px;cursor:pointer;font-family:inherit;outline:none}
+  .progress{height:4px;border-radius:99px;background:rgba(120,140,190,.16);margin:12px 4px 0;overflow:hidden}
+  .progress-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#4aa8ff,#a98bff);
+    transition:width .3s cubic-bezier(.4,0,.2,1)}
+  .hint{margin:10px 4px 0;font-size:11.5px;color:#5f6a8c;line-height:1.6}
+  kbd{font-family:inherit;font-size:10.5px;padding:1px 5px;border-radius:5px;border:1px solid rgba(130,152,205,.3);
+      background:rgba(30,39,63,.9);color:#9fb0d4}
+
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:14px 4px 0;font-size:12px;color:var(--dim)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .sw{width:16px;height:0;border-radius:2px;display:inline-block;border-top:2px solid}
+  .sw.gray{border-color:#5b6b93}
+  .sw.amber{border-color:rgba(255,176,58,.9)}
+  .sw.green{border-color:rgba(74,222,128,.9)}
+  .sw.yellow{border-color:rgba(250,204,21,.9)}
+  .sw.box{width:16px;height:12px;border:1.5px dashed rgba(130,150,200,.5);border-radius:4px}
+
+  /* ---------------- side panel ---------------- */
+  .right{display:flex;flex-direction:column;gap:14px;position:sticky;top:20px}
+  .card .head{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;
+    border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.4px;color:#9aa7c6;text-transform:uppercase}
+  .counter{font-variant-numeric:tabular-nums;color:#7f8db0;font-size:11.5px}
+  .desc{margin:0;padding:14px 15px 4px;font-size:13px;line-height:1.72;color:#cdd6ee;min-height:110px}
+  .desc b{color:#fff;font-weight:650}
+  .desc .k-amber{color:var(--amber);font-weight:650}
+  .desc .k-green{color:var(--green);font-weight:650}
+  .desc .k-yellow{color:var(--yellow);font-weight:650}
+  .desc .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#a9c6ff}
+  .formula{margin:8px 15px 14px;padding:9px 12px;border-radius:10px;font-size:12.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#9ec3ff;
+    background:rgba(74,168,255,.09);border:1px solid rgba(74,168,255,.22);
+    white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;min-height:34px}
+  .code{padding:0}
+  .badge{font-size:10px;padding:2px 7px;border-radius:6px;background:rgba(74,168,255,.14);
+    color:#8fc2ff;border:1px solid rgba(74,168,255,.28);text-transform:none;letter-spacing:0}
+  .code pre{margin:0;padding:10px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:10.5px;line-height:1.78;overflow-x:auto;color:#7f8db0;scrollbar-width:thin}
+  .cline{padding:0 10px;white-space:pre;border-left:2px solid transparent;transition:background .18s,color .18s,border-color .18s}
+  .cline.hl{background:rgba(74,168,255,.13);color:#d9e8ff;border-left-color:#4aa8ff}
+  .note{font-size:12px;line-height:1.75;color:#8b97b8;padding:12px 15px 14px;margin:0}
+  .note b{color:#cdd6ee;font-weight:600}
+  .note .o{color:#7cc4ff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>K 个一组翻转链表 · 迭代法动画</h1>
+    <p>每 <code>k</code> 个节点为一组，把组内的 <code>next</code> 指针全部反向；末尾不足 k 个的节点保持原序。迭代法用哨兵 <code>dummy</code> 让第一组和后面的组共用同一套逻辑：<b>groupPrev</b> 站在上一组的尾巴上，先走 k 步找到 <b>kth</b>，记下 <b>nextGroup</b>，再用 <b>prev / cur / nxt</b> 把组内指针逐个掉头。</p>
+  </header>
+
+  <div class="layout">
+    <section>
+      <div class="stage">
+        <div class="canvas" id="canvas">
+          <svg class="arrows" id="arrows" aria-hidden="true">
+            <defs>
+              <marker id="mk-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#5b6b93"/>
+              </marker>
+              <marker id="mk-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#ffb03a"/>
+              </marker>
+              <marker id="mk-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#4ade80"/>
+              </marker>
+              <marker id="mk-yellow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#facc15"/>
+              </marker>
+            </defs>
+            <g id="edgeLayer"></g>
+          </svg>
+          <div id="frames"></div>
+          <div id="tags"></div>
+          <div class="nullmark" id="nullmark">null</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev">◀ 上一步</button>
+        <button class="btn primary" id="btnPlay">▶ 播放</button>
+        <button class="btn" id="btnNext">下一步 ▶</button>
+        <button class="btn" id="btnReset">重置</button>
+        <div class="spacer"></div>
+        <label class="speed">速度
+          <select id="speed">
+            <option value="2800">0.5×</option>
+            <option value="1800" selected>1×</option>
+            <option value="1150">1.5×</option>
+            <option value="700">2×</option>
+          </select>
+        </label>
+      </div>
+      <div class="progress"><div class="progress-fill" id="prog"></div></div>
+
+      <div class="hint">
+        <kbd>空格</kbd> 播放 / 暂停 &nbsp;·&nbsp; <kbd>←</kbd><kbd>→</kbd> 单步 &nbsp;·&nbsp; <kbd>R</kbd> 重置 &nbsp;·&nbsp;
+        箭头表示每个节点的 <code>next</code> 指向；组内指针反向时会出现弯向下的弧线，接回后自动排成一行。
+      </div>
+
+      <div class="legend">
+        <span><i class="sw gray"></i>未处理的 next 指针</span>
+        <span><i class="sw amber"></i>当前组（正在翻转）</span>
+        <span><i class="sw green"></i>已完成的组</span>
+        <span><i class="sw yellow"></i>不足 k 个的尾巴</span>
+        <span><i class="sw box"></i>分组框</span>
+      </div>
+    </section>
+
+    <aside class="right">
+      <div class="card">
+        <div class="head"><span>当前步骤</span><span class="counter" id="counter">1 / 1</span></div>
+        <p class="desc" id="desc"></p>
+        <div class="formula" id="formula"></div>
+      </div>
+
+      <div class="card code">
+        <div class="head"><span>对应代码</span><span class="badge">Python</span></div>
+        <pre id="code"></pre>
+      </div>
+
+      <div class="card">
+        <div class="head"><span>复杂度</span><span class="badge">O(n) / O(1)</span></div>
+        <p class="note">
+          每个节点只会被遍历常数次：找 <b>kth</b> 走一遍、翻转再走一遍。<br />
+          时间 <span class="o">O(n)</span>，额外空间只有几个指针变量，<span class="o">O(1)</span>。<br />
+          尾部不足 k 个时直接返回，不浪费一次翻转。
+        </p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ================= 数据：示例链表与 k ================= */
+  const VALUES = [1, 2, 3, 4, 5, 6, 7];
+  const K = 3;
+  const NODE_TOP = 99, NODE_H = 46, NODE_W = 46, PAD = 20;
+
+  /* ================= 用迭代算法模拟，记录每一步快照 ================= */
+  function buildSteps(values, k) {
+    const nextMap = {};
+    nextMap["D"] = values.length ? values[0] : null;
+    values.forEach((v, i) => {
+      nextMap[v] = i + 1 < values.length ? values[i + 1] : null;
+    });
+
+    let layout = ["D", ...values];
+    const steps = [];
+    const doneGroups = [];      // 已完成的组，每项是翻转后的顺序
+    let active = null;          // 当前正在翻转的组
+    let tail = null;            // 不足 k 个的尾巴
+    let groupPrev = "D";
+
+    const chainText = () => {
+      const arr = [], seen = new Set();
+      let cur = nextMap["D"];
+      while (cur !== null && cur !== undefined && !seen.has(cur)) {
+        seen.add(cur);
+        arr.push(cur);
+        cur = nextMap[cur];
+      }
+      return arr.join(" → ");
+    };
+
+    const reachable = () => {
+      const arr = [], seen = new Set();
+      let cur = nextMap["D"];
+      while (cur !== null && cur !== undefined && !seen.has(cur)) {
+        seen.add(cur);
+        arr.push(cur);
+        cur = nextMap[cur];
+      }
+      return arr;
+    };
+
+    const push = (patch) => {
+      steps.push({
+        next: { ...nextMap },
+        layout: layout.slice(),
+        pointers: { ...(patch.pointers || {}) },
+        active: active ? active.slice() : null,
+        tail: tail ? tail.slice() : null,
+        done: doneGroups.map((g) => g.slice()),
+        desc: patch.desc,
+        formula: patch.formula,
+        code: patch.code,
+        final: !!patch.final,
+      });
+    };
+
+    push({
+      pointers: { groupPrev: "D" },
+      desc: `初始化：<b>dummy</b> 哨兵指向链表头 <b>${values[0]}</b>，<b>groupPrev</b> 先站在 dummy 上。它既是上一组翻转后的尾巴，也是下一组的前驱——这样第一组和后面的组就能共用同一套逻辑。`,
+      formula: `groupPrev = dummy`,
+      code: ["init1", "init2", "init3"],
+    });
+
+    let guard = 0;
+    while (guard++ < 100) {
+      /* ① 走 k 步，找本组最后一个节点 */
+      const group = [];
+      let cur = nextMap[groupPrev];
+      while (group.length < k && cur !== null && cur !== undefined) {
+        group.push(cur);
+        cur = nextMap[cur];
+      }
+
+      if (group.length < k) {
+        tail = group.slice();
+        push({
+          pointers: { groupPrev },
+          desc: `从 <b>groupPrev = ${groupPrev}</b> 继续走，只剩 <b>${group.length}</b> 个节点（${group.join(" → ")}），不足 k = ${k} 个 —— 不翻转，保持原序，直接返回 <b>dummy.next</b>。`,
+          formula: `剩余 ${group.length} 个 < k = ${k}\n→ 保持原序`,
+          code: ["scan3", "scan4", "scan5"],
+        });
+        break;
+      }
+
+      active = group.slice();
+      const kth = group[k - 1];
+      const nextGroup = nextMap[kth];
+
+      push({
+        pointers: { groupPrev, kth },
+        desc: `从 groupPrev 向后走 k = ${k} 步，找到本组第 ${k} 个节点 <b>kth = ${kth}</b>。${nextGroup === null ? "kth 后面没有节点，正好在链表末尾收尾，凑满一组。" : `kth 还有后继 <b>${nextGroup}</b>，说明本组凑满 ${k} 个，可以翻转。`}`,
+        formula: `kth = ${kth}    ✓ 凑满 k 个`,
+        code: ["scan1", "scan2", "scan3"],
+      });
+
+      /* ② 翻转 [groupPrev.next, kth] */
+      let prev = nextGroup;
+      let curNode = group[0];
+
+      push({
+        pointers: { groupPrev, kth, prev, cur: curNode, nxt: nextMap[curNode] },
+        desc: `记下 <b>nextGroup = kth.next = ${nextGroup}</b>；把 <b>prev</b> 先指向 nextGroup，<b>cur</b> 指向组头 <b>${curNode}</b>。接下来逐个把 cur.next 掉头指向 prev。`,
+        formula: `prev = nextGroup = ${nextGroup}\ncur = groupPrev.next = ${curNode}`,
+        code: ["nextg", "rev1"],
+      });
+
+      for (let i = 0; i < k; i++) {
+        const moved = curNode;
+        const oldNext = nextMap[curNode];
+        const target = prev;
+
+        nextMap[moved] = target;
+        prev = moved;
+        curNode = oldNext;
+        const nxtAfter = (curNode === null || curNode === undefined) ? null : nextMap[curNode];
+
+        push({
+          pointers: { groupPrev, kth, prev, cur: curNode, nxt: nxtAfter },
+          desc: `cur = <b>${moved}</b>：先存下 <b>nxt = ${oldNext === null ? "null" : oldNext}</b>，再让 ${moved}.next 指向 <b>prev = ${target === null ? "null" : target}</b>（掉头）。然后 prev = ${moved}，cur = ${curNode === null ? "null" : curNode}。${i === k - 1 ? " <b>组内指针全部反向完成</b>，prev 正好停在 kth 上。" : ""}`,
+          formula: `${moved}.next: ${oldNext === null ? "null" : oldNext} ➜ ${target === null ? "null" : target}`,
+          code: ["rev2", "rev3", "rev4", "rev5", "rev6"],
+        });
+      }
+
+      /* ③ 接回链表，并按 next 指针重新排版 */
+      const oldHead = group[0];
+      nextMap[groupPrev] = kth;
+      groupPrev = oldHead;
+      layout = ["D", ...reachable()];
+      doneGroups.push(group.slice().reverse());
+      active = null;
+
+      push({
+        pointers: { groupPrev },
+        desc: `本组翻转完成：<b>groupPrev.next</b> 改指新组头 <b>kth = ${kth}</b>，旧组头 <b>${oldHead}</b> 变成了组尾，<b>groupPrev</b> 移到它上面。当前链表：<span class="mono">${chainText()}</span>。`,
+        formula: `groupPrev.next ➜ ${kth}\ngroupPrev = ${oldHead}\n链表: ${chainText()}`,
+        code: ["relink1", "relink2", "relink3"],
+      });
+    }
+
+    push({
+      pointers: { groupPrev },
+      desc: `所有能凑满 ${k} 个的组都翻完了，尾部不足 ${k} 个的节点原样保留。最终链表：<span class="mono">${chainText()}</span>。返回 <b>dummy.next</b> —— 时间 O(n)，额外空间 O(1)。`,
+      formula: `return dummy.next\n${chainText()}`,
+      code: ["scan4", "scan5"],
+      final: true,
+    });
+
+    return steps;
+  }
+
+  const STEPS = buildSteps(VALUES, K);
+  const LAST = STEPS.length - 1;
+
+  /* ================= 代码面板 ================= */
+  const CODE = [
+    ["init1",  "def reverseKGroup(head, k):"],
+    ["init2",  "    dummy = ListNode(0, head)"],
+    ["init3",  "    group_prev = dummy"],
+    ["while",  "    while True:"],
+    ["scan1",  "        kth = group_prev"],
+    ["scan2",  "        for _ in range(k):"],
+    ["scan3",  "            kth = kth.next"],
+    ["scan4",  "            if kth is None:"],
+    ["scan5",  "                return dummy.next"],
+    ["nextg",  "        next_group = kth.next"],
+    ["rev1",   "        prev, cur = next_group, group_prev.next"],
+    ["rev2",   "        while cur is not next_group:"],
+    ["rev3",   "            nxt = cur.next"],
+    ["rev4",   "            cur.next = prev"],
+    ["rev5",   "            prev = cur"],
+    ["rev6",   "            cur = nxt"],
+    ["relink1","        old_head = group_prev.next"],
+    ["relink2","        group_prev.next = kth"],
+    ["relink3","        group_prev = old_head"],
+  ];
+
+  const codeEl = document.getElementById("code");
+  const codeLines = {};
+  CODE.forEach(([key, text]) => {
+    const div = document.createElement("div");
+    div.className = "cline";
+    div.textContent = text;
+    div.dataset.key = key;
+    codeEl.appendChild(div);
+    codeLines[key] = div;
+  });
+
+  /* ================= 节点 DOM ================= */
+  const canvas = document.getElementById("canvas");
+  const framesEl = document.getElementById("frames");
+  const tagsEl = document.getElementById("tags");
+  const nullEl = document.getElementById("nullmark");
+  const edgeLayer = document.getElementById("edgeLayer");
+  const nodeIds = ["D", ...VALUES];
+  const nodeEls = {};
+
+  nodeIds.forEach((id) => {
+    const div = document.createElement("div");
+    div.className = "node" + (id === "D" ? " dummy" : "");
+    div.textContent = id === "D" ? "D" : String(id);
+    if (id === "D") div.title = "dummy 哨兵节点";
+    canvas.appendChild(div);
+    nodeEls[id] = div;
+  });
+
+  /* ================= 坐标计算 ================= */
+  function metrics(layout) {
+    const W = canvas.clientWidth || 700;
+    const slots = layout.length + 1;          // 末尾再留一格给 null
+    const stepPx = (W - 2 * PAD) / slots;
+    return {
+      W, stepPx,
+      xOf: (slot) => PAD + (slot + 0.5) * stepPx,
+      nullSlot: layout.length,
+    };
+  }
+
+  const EDGE_COLORS = {
+    gray:   "#5b6b93",
+    amber:  "#ffb03a",
+    green:  "#4ade80",
+    yellow: "#facc15",
+  };
+
+  function edgeColorKey(id, step) {
+    if (step.active && step.active.includes(id)) return "amber";
+    if (step.done.some((g) => g.includes(id))) return "green";
+    if (step.tail && step.tail.includes(id)) return "yellow";
+    return "gray";
+  }
+
+  function spanOf(ids, layout) {
+    const idxs = ids.map((id) => layout.indexOf(id)).filter((i) => i >= 0);
+    if (!idxs.length) return null;
+    return [Math.min(...idxs), Math.max(...idxs)];
+  }
+
+  /* ================= 渲染 ================= */
+  function render(index) {
+    const s = STEPS[index];
+    const m = metrics(s.layout);
+
+    /* 节点位置与状态 */
+    nodeIds.forEach((id) => {
+      const el = nodeEls[id];
+      const idx = s.layout.indexOf(id);
+      el.style.left = m.xOf(idx) + "px";
+      el.classList.toggle("active", !!s.active && s.active.includes(id));
+      el.classList.toggle("done", s.done.some((g) => g.includes(id)));
+      el.classList.toggle("tail", !!s.tail && s.tail.includes(id));
+    });
+
+    nullEl.style.left = m.xOf(m.nullSlot) + "px";
+
+    /* 分组框 */
+    framesEl.innerHTML = "";
+    const addFrame = (ids, cls) => {
+      const span = spanOf(ids, s.layout);
+      if (!span) return;
+      const left = m.xOf(span[0]) - NODE_W / 2 - 7;
+      const right = m.xOf(span[1]) + NODE_W / 2 + 7;
+      const div = document.createElement("div");
+      div.className = "group " + cls;
+      div.style.left = left + "px";
+      div.style.width = (right - left) + "px";
+      framesEl.appendChild(div);
+    };
+    s.done.forEach((g) => addFrame(g, "done"));
+    if (s.active) addFrame(s.active, "active");
+    if (s.tail) addFrame(s.tail, "tail");
+
+    /* next 指针箭头 */
+    edgeLayer.innerHTML = "";
+    const arrowY = NODE_TOP + NODE_H / 2;
+    let special = 0;
+
+    Object.keys(s.next).forEach((rawKey) => {
+      const id = rawKey === "D" ? "D" : Number(rawKey);
+      const fromIdx = s.layout.indexOf(id);
+      if (fromIdx < 0) return;
+      const target = s.next[id];
+      const toIdx = (target === null || target === undefined)
+        ? m.nullSlot
+        : s.layout.indexOf(target);
+      if (toIdx < 0) return;
+
+      const x1 = m.xOf(fromIdx);
+      const x2 = m.xOf(toIdx);
+      const colorKey = edgeColorKey(id, s);
+      const color = EDGE_COLORS[colorKey];
+      const marker = "url(#mk-" + colorKey + ")";
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("stroke", color);
+      path.setAttribute("marker-end", marker);
+
+      if (toIdx === fromIdx + 1) {
+        /* 相邻：水平直线箭头 */
+        const startX = x1 + (id === "D" ? 21 : NODE_W / 2) + 1;
+        const endX = (target === null || target === undefined)
+          ? x2 - 22
+          : x2 - (target === "D" ? 21 : NODE_W / 2) - 2;
+        path.setAttribute("d", `M ${startX} ${arrowY} L ${endX} ${arrowY}`);
+      } else {
+        /* 跳跃 / 反向：从节点下方走一条弧线，颜色标识所属组 */
+        const depth = 52 + (special % 4) * 17;
+        special += 1;
+        const y0 = NODE_TOP + NODE_H + 3;
+        const cx = (x1 + x2) / 2;
+        const cy = y0 + depth;
+        path.setAttribute("d", `M ${x1} ${y0} Q ${cx} ${cy} ${x2} ${y0}`);
+      }
+      edgeLayer.appendChild(path);
+    });
+
+    /* 指针标签：同一节点上多个指针就向上叠 */
+    tagsEl.innerHTML = "";
+    const tagBaseY = 64;
+    const perNode = {};
+    ["groupPrev", "kth", "prev", "cur", "nxt"].forEach((name) => {
+      const id = s.pointers[name];
+      if (id === undefined || id === null) return;
+      const idx = s.layout.indexOf(id);
+      if (idx < 0) return;
+      const stack = perNode[id] || 0;
+      perNode[id] = stack + 1;
+
+      const tag = document.createElement("span");
+      tag.className = "tag " + name;
+      tag.textContent = name + " = " + (id === "D" ? "dummy" : id);
+      tag.style.left = m.xOf(idx) + "px";
+      tag.style.top = (tagBaseY - (idx % 2) * 20 - stack * 21) + "px";
+      tagsEl.appendChild(tag);
+    });
+
+    /* 侧栏文案 */
+    document.getElementById("counter").textContent = (index + 1) + " / " + (LAST + 1);
+    document.getElementById("desc").innerHTML = s.desc;
+    document.getElementById("formula").textContent = s.formula;
+    document.getElementById("prog").style.width = (index / LAST * 100) + "%";
+
+    /* 代码高亮 */
+    const hl = new Set(s.code);
+    Object.entries(codeLines).forEach(([key, node]) => node.classList.toggle("hl", hl.has(key)));
+
+    /* 按钮状态 */
+    document.getElementById("btnPrev").disabled = index === 0;
+    document.getElementById("btnNext").disabled = index === LAST;
+    document.getElementById("nullmark").classList.toggle("hidden", false);
+  }
+
+  /* ================= 播放控制 ================= */
+  let current = 0;
+  let timer = null;
+  let playing = false;
+
+  const btnPlay = document.getElementById("btnPlay");
+
+  function setPlaying(on) {
+    playing = on;
+    btnPlay.textContent = on ? "⏸ 暂停" : "▶ 播放";
+    if (on) {
+      if (current === LAST) { current = 0; render(0); }
+      schedule();
+    } else if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+
+  function schedule() {
+    if (timer) clearTimeout(timer);
+    const delay = Number(document.getElementById("speed").value);
+    timer = setTimeout(() => {
+      if (!playing) return;
+      if (current < LAST) {
+        current += 1;
+        render(current);
+        schedule();
+      } else {
+        setPlaying(false);
+      }
+    }, delay);
+  }
+
+  function goto(i) {
+    if (playing) setPlaying(false);
+    current = Math.max(0, Math.min(LAST, i));
+    render(current);
+  }
+
+  document.getElementById("btnPlay").addEventListener("click", () => setPlaying(!playing));
+  document.getElementById("btnNext").addEventListener("click", () => goto(current + 1));
+  document.getElementById("btnPrev").addEventListener("click", () => goto(current - 1));
+  document.getElementById("btnReset").addEventListener("click", () => { setPlaying(false); goto(0); });
+  document.getElementById("speed").addEventListener("change", () => { if (playing) schedule(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") { e.preventDefault(); setPlaying(!playing); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); goto(current + 1); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+    else if (e.code === "KeyR") { goto(0); }
+  });
+
+  /* 窗口尺寸变化后重新按宽度排版 */
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => render(current), 120);
+  });
+
+  render(0);
+})();
+</script>
+</body>
+</html>
