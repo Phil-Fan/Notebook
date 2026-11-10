@@ -175,4 +175,4 @@ DFlash 的核心区别在于：草稿不再是自回归的，而是**扩散式�
 - [LMSYS Blog: DFlash V2 + Spec V2](https://www.lmsys.org/blog/2026-06-15-next-generation-speculative-decoding-dflash-v2/)
 - [知乎：大模型推理加速：从 EAGLE 到 DFlash](https://zhuanlan.zhihu.com/p/2004595351189987521)
 - [Moonlight Review](https://www.themoonlight.io/zh/review/dflash-block-diffusion-for-flash-speculative-decoding)
-- [Speculative Decoding 笔记](09-2-speculative-decoding.md)
+- [Speculative Decoding 笔记](speculative-decoding.md)

@@ -318,39 +318,40 @@ nav:
     - "LLM | Models":
         - AI/LLM/index.md
         - AI/LLM/开源框架.md
-        - AI/LLM/Models/index.md
-        - AI/LLM/Models/01-Attention.md
-        - AI/LLM/Models/02-Transformer.md
-        - AI/LLM/Models/02-FlowBased.md
-        - AI/LLM/Models/03-GPTs.md
-        - AI/LLM/Models/04-BERT.md
-        - AI/LLM/Models/04-VAE.md
-        - AI/LLM/Models/05-Diffusion.md
-        - AI/LLM/Models/06-Manba.md
-        - AI/LLM/Models/07-ViT.md
-        - AI/LLM/Models/08-CLIP.md
-        - AI/LLM/Models/09-LLaVA.md
-        - AI/LLM/Models/10-TTT.md
+        - AI/LLM/models/index.md
+        - AI/LLM/models/Focus.md
+        - AI/LLM/models/01-Attention.md
+        - AI/LLM/models/02-Transformer.md
+        - AI/LLM/models/02-FlowBased.md
+        - AI/LLM/models/03-GPTs.md
+        - AI/LLM/models/04-BERT.md
+        - AI/LLM/models/04-VAE.md
+        - AI/LLM/models/05-Diffusion.md
+        - AI/LLM/models/06-Manba.md
+        - AI/LLM/models/07-ViT.md
+        - AI/LLM/models/08-CLIP.md
+        - AI/LLM/models/09-LLaVA.md
+        - AI/LLM/models/10-TTT.md
 
     - "LLM | Engineer Roadmap":
-        - AI/LLM/Engineer/index.md
-        - AI/LLM/Engineer/01-LLMs.md
-        - AI/LLM/Engineer/02-Vectorize.md
-        - AI/LLM/Engineer/03-RAG.md
-        - AI/LLM/Engineer/04-2-LongChain.md
-        - AI/LLM/Engineer/05-2-vllm.md
-        - AI/LLM/Engineer/05-2-vllm-code.md
-        - AI/LLM/Engineer/05-3-SGlang.md
-        - AI/LLM/Engineer/06-InferOptimization.md
-        - AI/LLM/Engineer/06-GPU.md
-        - AI/LLM/Engineer/07-Scheduling.md
-        - AI/LLM/Engineer/08-LongInfer.md
-        - AI/LLM/Engineer/09-2-speculative-decoding.md
-        - AI/LLM/Engineer/09-3-dflash.md
-        - AI/LLM/Engineer/09-Sampling.md
-        - AI/LLM/Engineer/10-Evaluation.md
-        - AI/LLM/Engineer/LoRA.md
-        - AI/LLM/Engineer/分布式.md
+        - AI/LLM/reasoning/index.md
+        - "推理加速引擎":
+          - AI/LLM/reasoning/engines/index.md
+          - AI/LLM/reasoning/engines/vllm.md
+          - AI/LLM/reasoning/engines/vllm-code.md
+          - AI/LLM/reasoning/engines/sglang.md
+        - "推理加速常用技术":
+          - AI/LLM/reasoning/techniques/index.md
+          - AI/LLM/reasoning/techniques/infer-optimization.md
+          - AI/LLM/reasoning/techniques/scheduling.md
+        - "投机采样":
+          - AI/LLM/reasoning/speculative/index.md
+          - AI/LLM/reasoning/speculative/speculative-decoding.md
+          - AI/LLM/reasoning/speculative/dflash.md
+        - "量化":
+          - AI/LLM/reasoning/quantization/index.md
+          - AI/LLM/reasoning/05-Quantization.md
+        - AI/LLM/reasoning/09-Sampling.md
 
         - 工具手册:
           - "[部署] OpenAI API": https://platform.openai.com/docs/overview
@@ -361,17 +362,16 @@ nav:
           - "[可视化] Swandb": https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html
 
     - "LLM | Scientist Roadmap":
-        - AI/LLM/Sci/index.md
-        - AI/LLM/Sci/00-Lingo.md
-        - AI/LLM/Sci/Focus.md
-        - AI/LLM/Sci/01-Task&Datasets.md
-        - AI/LLM/Sci/02-PreTrain.md
-        - AI/LLM/Sci/03-PostTrain.md
-        - AI/LLM/Sci/03-SFT.md
-        - AI/LLM/Sci/03-RL.md
-        - AI/LLM/Sci/04-Evaluation.md
-        - AI/LLM/Sci/04-Rubric.md
-        - AI/LLM/Sci/05-Quantization.md
+        - AI/LLM/post/index.md
+        - AI/LLM/post/00-Lingo.md
+        - AI/LLM/post/01-Task&Datasets.md
+        - AI/LLM/post/02-PreTrain.md
+        - AI/LLM/post/03-PostTrain.md
+        - AI/LLM/post/SFT/03-SFT.md
+        - AI/LLM/post/RL/03-RL.md
+        - AI/LLM/post/04-Evaluation.md
+        - AI/LLM/post/04-Rubric.md
+        - AI/LLM/post/LoRA.md
 
         - 工具手册:
           - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
@@ -401,55 +401,69 @@ nav:
         - AI/Agents/accelerate.md
 
     - "Benchmark | 评测基准":
-        - AI/Benchmark/index.md
-        - AI/Benchmark/01-gsm8k.md
-        - AI/Benchmark/02-mmlu.md
-        - AI/Benchmark/03-humaneval.md
-        - AI/Benchmark/04-swebench.md
-        - AI/Benchmark/05-toolbench.md
-        - AI/Benchmark/06-bfcl.md
-        - AI/Benchmark/07-gaia.md
-        - AI/Benchmark/08-terminal-bench.md
-        - AI/Benchmark/09-apibank.md
-        - AI/Benchmark/10-toolalpaca.md
-        - AI/Benchmark/11-hotpotqa.md
-        - AI/Benchmark/12-browsecomp.md
+        - AI/LLM/benchmark/index.md
+        - AI/LLM/benchmark/10-Evaluation.md
+        - AI/LLM/benchmark/01-gsm8k.md
+        - AI/LLM/benchmark/02-mmlu.md
+        - AI/LLM/benchmark/03-humaneval.md
+        - AI/LLM/benchmark/04-swebench.md
+        - AI/LLM/benchmark/05-toolbench.md
+        - AI/LLM/benchmark/06-bfcl.md
+        - AI/LLM/benchmark/07-gaia.md
+        - AI/LLM/benchmark/08-terminal-bench.md
+        - AI/LLM/benchmark/09-apibank.md
+        - AI/LLM/benchmark/10-toolalpaca.md
+        - AI/LLM/benchmark/11-hotpotqa.md
+        - AI/LLM/benchmark/12-browsecomp.md
 
     - "Frontier | 前沿基座模型":
-        - AI/frontier/index.md
-        - AI/frontier/01-gpt3.md
-        - AI/frontier/02-gpt4.md
-        - AI/frontier/03-llama.md
-        - AI/frontier/04-deepseek.md
-        - AI/frontier/05-qwen.md
-        - AI/frontier/06-gemini.md
-        - AI/frontier/07-claude.md
-        - AI/frontier/labs.md
+        - AI/LLM/frontier/index.md
+        - AI/LLM/frontier/labs.md
+        - AI/LLM/frontier/08-interview.md
+        - AI/LLM/frontier/09-deepseek-v2.md
+        - AI/LLM/frontier/10-deepseek-v3.md
+        - AI/LLM/frontier/11-deepseek-v32.md
+        - AI/LLM/frontier/12-deepseek-v4.md
+        - AI/LLM/frontier/13-qwen3.md
+        - AI/LLM/frontier/14-qwen3-next.md
+        - AI/LLM/frontier/15-llama3.md
+        - AI/LLM/frontier/16-llama4.md
+        - AI/LLM/frontier/17-minimax.md
+        - AI/LLM/frontier/18-kimi-linear.md
+        - AI/LLM/frontier/19-gemini25.md
+        - AI/LLM/frontier/01-gpt3.md
+        - AI/LLM/frontier/02-gpt4.md
+        - AI/LLM/frontier/03-llama.md
+        - AI/LLM/frontier/04-deepseek.md
+        - AI/LLM/frontier/05-qwen.md
+        - AI/LLM/frontier/06-gemini.md
+        - AI/LLM/frontier/07-claude.md
 
     - "RL | 强化学习":
-        - AI/RL/index.md
-        - AI/RL/theory/01-basic.md
-        - AI/RL/theory/02-bellman.md
-        - AI/RL/theory/03-bellman-best.md
-        - AI/RL/theory/04-iteration.md
-        - AI/RL/theory/05-model-free.md
-        - AI/RL/theory/06-stochasitic-appro.md
-        - AI/RL/theory/07-TD.md
-        - AI/RL/theory/08-value-function.md
-        - AI/RL/theory/09-policy-gradient.md
-        - AI/RL/theory/10-actor-critic.md
-        - AI/RL/method/01-ppo.md
-        - AI/RL/method/02-grpo.md
-        - AI/RL/method/03-rm.md
-        - AI/RL/method/04-opd.md
-        - AI/RL/method/05-infra.md
+        - AI/LLM/post/RL/index.md
+        - AI/LLM/post/RL/theory/01-basic.md
+        - AI/LLM/post/RL/theory/02-bellman.md
+        - AI/LLM/post/RL/theory/03-bellman-best.md
+        - AI/LLM/post/RL/theory/04-iteration.md
+        - AI/LLM/post/RL/theory/05-model-free.md
+        - AI/LLM/post/RL/theory/06-stochasitic-appro.md
+        - AI/LLM/post/RL/theory/07-TD.md
+        - AI/LLM/post/RL/theory/08-value-function.md
+        - AI/LLM/post/RL/theory/09-policy-gradient.md
+        - AI/LLM/post/RL/theory/10-actor-critic.md
+        - AI/LLM/post/RL/method/01-ppo.md
+        - AI/LLM/post/RL/method/02-grpo.md
+        - AI/LLM/post/RL/method/03-rm.md
+        - AI/LLM/post/RL/method/04-opd.md
+        - AI/LLM/post/RL/method/05-infra.md
 
     - "MLSys | 机器学习系统":
-        - AI/MLSys/index.md
-        - AI/MLSys/CUDA.md
-        - AI/MLSys/NV.md
+        - AI/LLM/infra/index.md
+        - AI/LLM/infra/06-GPU.md
+        - AI/LLM/infra/CUDA.md
+        - AI/LLM/infra/NV.md
         - CMU10-414:
-          - AI/MLSys/CMU10_414/index.md
+          - AI/LLM/infra/CMU10_414/index.md
 
     - "CV | 计算机视觉":
         - AI/CV/index.md

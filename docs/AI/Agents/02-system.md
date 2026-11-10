@@ -103,7 +103,7 @@ Agent 评测不只看最终答案，还要看过程。
 | Trajectory quality | 计划是否合理，是否有无效循环 |
 | Human effort | 需要多少人工确认和修正 |
 
-可以结合 [Rubric](../LLM/Sci/04-Rubric.md) 对最终结果和轨迹打分。
+可以结合 [Rubric](../LLM/post/04-Rubric.md) 对最终结果和轨迹打分。
 
 ## 框架选择
 

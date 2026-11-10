@@ -36,7 +36,7 @@
 - **Agent 系统能力**：检索、编辑、执行测试的循环（scaffold 影响巨大——同一模型配不同 agent 框架分数差距可达数倍）。
 
 !!! info "深入笔记"
-    数据字段细节、sb-cli 提交流程、SWE-bench Pro 结果分析见 [Agents/03-benchmark](../Agents/03-benchmark.md)。
+    数据字段细节、sb-cli 提交流程、SWE-bench Pro 结果分析见 [Agents/03-benchmark](../../Agents/03-benchmark.md)。
 
 ## 举例
 
