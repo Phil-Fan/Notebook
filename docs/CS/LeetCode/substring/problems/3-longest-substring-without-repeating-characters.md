@@ -121,7 +121,7 @@ $n = |s|$，$\Sigma$ 是出现过的字符种类。左指针不回退，所以�
 
 <iframe src="3-longest-substring-without-repeating-characters-demo.html" title="无重复字符的最长子串" width="100%" height="960" style="border:0;border-radius:12px;" loading="lazy"></iframe>
 
-字符串上蓝色是当前窗口，琥珀色是正在进入的 `right`。重复出现时左边界跳到上一次该字符的右边，右侧面板同步窗口内容和 `best`。空格播放 / 暂停，`←` `→` 单步，`R` 重置。
+字符串上浅蓝是当前窗口，主色是正在进入的 `right`。重复出现时左边界跳到上一次该字符的右边，右侧面板同步窗口内容和 `best`。空格播放 / 暂停，`←` `→` 单步，`R` 重置。
 
 ## 易错点
 
