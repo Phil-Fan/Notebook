@@ -315,71 +315,29 @@ nav:
 
 - AI: 
     - AI/index.md
-    - "LLM | Models":
-        - AI/LLM/index.md
-        - AI/LLM/开源框架.md
-        - AI/LLM/models/index.md
-        - AI/LLM/models/Focus.md
-        - AI/LLM/models/01-Attention.md
-        - AI/LLM/models/02-Transformer.md
-        - AI/LLM/models/02-FlowBased.md
-        - AI/LLM/models/03-GPTs.md
-        - AI/LLM/models/04-BERT.md
-        - AI/LLM/models/04-VAE.md
-        - AI/LLM/models/05-Diffusion.md
-        - AI/LLM/models/06-Manba.md
-        - AI/LLM/models/07-ViT.md
-        - AI/LLM/models/08-CLIP.md
-        - AI/LLM/models/09-LLaVA.md
-        - AI/LLM/models/10-TTT.md
-
-    - "LLM | Engineer Roadmap":
-        - AI/LLM/reasoning/index.md
-        - "推理加速引擎":
-          - AI/LLM/reasoning/engines/index.md
-          - AI/LLM/reasoning/engines/vllm.md
-          - AI/LLM/reasoning/engines/vllm-code.md
-          - AI/LLM/reasoning/engines/sglang.md
-        - "推理加速常用技术":
-          - AI/LLM/reasoning/techniques/index.md
-          - AI/LLM/reasoning/techniques/infer-optimization.md
-          - AI/LLM/reasoning/techniques/scheduling.md
-        - "投机采样":
-          - AI/LLM/reasoning/speculative/index.md
-          - AI/LLM/reasoning/speculative/speculative-decoding.md
-          - AI/LLM/reasoning/speculative/dflash.md
-        - "量化":
-          - AI/LLM/reasoning/quantization/index.md
-          - AI/LLM/reasoning/05-Quantization.md
-        - AI/LLM/reasoning/09-Sampling.md
-
-        - 工具手册:
-          - "[部署] OpenAI API": https://platform.openai.com/docs/overview
-          - "[部署] vLLM手册": https://docs.vllm.com.cn/en/latest/index.html
-          - "[测试] evalscope": https://evalscope.readthedocs.io/zh-cn/latest/index.html
-          - "[监控] Prometheus": https://prometheus.ac.cn/docs/prometheus/latest/getting_started/#required-for-focus
-          - "[监控] Grafana": https://grafana.org.cn/docs/grafana/latest/
-          - "[可视化] Swandb": https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html
-
-    - "LLM | Scientist Roadmap":
-        - AI/LLM/post/index.md
-        - AI/LLM/post/00-Lingo.md
-        - AI/LLM/post/01-Task&Datasets.md
-        - AI/LLM/post/02-PreTrain.md
-        - AI/LLM/post/03-PostTrain.md
-        - AI/LLM/post/SFT/03-SFT.md
-        - AI/LLM/post/RL/03-RL.md
-        - AI/LLM/post/04-Evaluation.md
-        - AI/LLM/post/04-Rubric.md
-        - AI/LLM/post/LoRA.md
-
-        - 工具手册:
-          - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
-          - "[训练] CUDA": https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
-          - "[训练] DeepSpeed": https://deepspeed.org.cn/
-          - "[性能] NVTX ": https://nvidia.github.io/NVTX/python/reference.html
-          - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
-
+    - "Agents | 智能体":
+        - AI/Agents/index.md
+        - AI/Agents/01-base.md
+        - AI/Agents/02-system.md
+        - AI/Agents/03-benchmark.md
+        - AI/Agents/04-one-turn.md
+        - AI/Agents/accelerate.md
+        - AI/Agents/开源框架.md
+    - "CV | 计算机视觉":
+        - AI/CV/index.md
+        - AI/CV/00-1-intro.md
+        - AI/CV/00-2-format.md
+        - AI/CV/00-3-color.md
+        - AI/CV/00-4-base.md
+        - AI/CV/00-5-camera.md
+        - AI/CV/01-classification.md
+        - AI/CV/02-Image-location.md
+        - AI/CV/03-Object-Recognition.md
+        - AI/CV/04-Segmentation.md
+        - AI/CV/05-3D.md
+        - AI/CV/06-motion_estimation.md
+        - AI/CV/HumanPoseEstimation.md
+        - AI/CV/OpenCV.md
     - "DL | 深度学习":
         - AI/DL/index.md
         - AI/DL/01-MLP.md
@@ -388,103 +346,133 @@ nav:
         - AI/DL/04-RNN.md
         - AI/DL/05-Modern_RNN.md
         - AI/DL/06-GAN.md
-        - AI/DL/transfer_learning.md
         - AI/DL/Problem.md
-      
-    - "LLM | 智能体":
-        - AI/Agents/index.md
-        - AI/Agents/开源框架.md
-        - AI/Agents/01-base.md
-        - AI/Agents/02-system.md
-        - AI/Agents/03-benchmark.md
-        - AI/Agents/04-one-turn.md
-        - AI/Agents/accelerate.md
-
-    - "Benchmark | 评测基准":
-        - AI/LLM/benchmark/index.md
-        - AI/LLM/benchmark/10-Evaluation.md
-        - AI/LLM/benchmark/01-gsm8k.md
-        - AI/LLM/benchmark/02-mmlu.md
-        - AI/LLM/benchmark/03-humaneval.md
-        - AI/LLM/benchmark/04-swebench.md
-        - AI/LLM/benchmark/05-toolbench.md
-        - AI/LLM/benchmark/06-bfcl.md
-        - AI/LLM/benchmark/07-gaia.md
-        - AI/LLM/benchmark/08-terminal-bench.md
-        - AI/LLM/benchmark/09-apibank.md
-        - AI/LLM/benchmark/10-toolalpaca.md
-        - AI/LLM/benchmark/11-hotpotqa.md
-        - AI/LLM/benchmark/12-browsecomp.md
-
-    - "Frontier | 前沿基座模型":
-        - AI/LLM/frontier/index.md
-        - AI/LLM/frontier/labs.md
-        - AI/LLM/frontier/08-interview.md
-        - AI/LLM/frontier/09-deepseek-v2.md
-        - AI/LLM/frontier/10-deepseek-v3.md
-        - AI/LLM/frontier/11-deepseek-v32.md
-        - AI/LLM/frontier/12-deepseek-v4.md
-        - AI/LLM/frontier/13-qwen3.md
-        - AI/LLM/frontier/14-qwen3-next.md
-        - AI/LLM/frontier/15-llama3.md
-        - AI/LLM/frontier/16-llama4.md
-        - AI/LLM/frontier/17-minimax.md
-        - AI/LLM/frontier/18-kimi-linear.md
-        - AI/LLM/frontier/19-gemini25.md
-        - AI/LLM/frontier/01-gpt3.md
-        - AI/LLM/frontier/02-gpt4.md
-        - AI/LLM/frontier/03-llama.md
-        - AI/LLM/frontier/04-deepseek.md
-        - AI/LLM/frontier/05-qwen.md
-        - AI/LLM/frontier/06-gemini.md
-        - AI/LLM/frontier/07-claude.md
-
-    - "RL | 强化学习":
-        - AI/LLM/post/RL/index.md
-        - AI/LLM/post/RL/theory/01-basic.md
-        - AI/LLM/post/RL/theory/02-bellman.md
-        - AI/LLM/post/RL/theory/03-bellman-best.md
-        - AI/LLM/post/RL/theory/04-iteration.md
-        - AI/LLM/post/RL/theory/05-model-free.md
-        - AI/LLM/post/RL/theory/06-stochasitic-appro.md
-        - AI/LLM/post/RL/theory/07-TD.md
-        - AI/LLM/post/RL/theory/08-value-function.md
-        - AI/LLM/post/RL/theory/09-policy-gradient.md
-        - AI/LLM/post/RL/theory/10-actor-critic.md
-        - AI/LLM/post/RL/method/01-ppo.md
-        - AI/LLM/post/RL/method/02-grpo.md
-        - AI/LLM/post/RL/method/03-rm.md
-        - AI/LLM/post/RL/method/04-opd.md
-        - AI/LLM/post/RL/method/05-infra.md
-
-    - "MLSys | 机器学习系统":
-        - AI/LLM/infra/index.md
-        - AI/LLM/infra/06-GPU.md
-        - AI/LLM/infra/CUDA.md
-        - AI/LLM/infra/NV.md
-        - CMU10-414:
-          - AI/LLM/infra/CMU10_414/index.md
-
-    - "CV | 计算机视觉":
-        - AI/CV/index.md
-        - 基础知识:
-            - AI/CV/00-1-intro.md
-            - AI/CV/00-2-format.md
-            - AI/CV/00-3-color.md
-            - AI/CV/00-4-base.md
-            - AI/CV/00-5-camera.md
-        
-        - Tasks: 
-            - AI/CV/01-classification.md
-            - AI/CV/02-Image-location.md
-            - AI/CV/03-Object-Recognition.md
-            - AI/CV/04-Segmentation.md
-            - AI/CV/05-3D.md
-            - AI/CV/06-motion_estimation.md
-            - AI/CV/HumanPoseEstimation.md
-        
-        - 工具:
-            - AI/CV/OpenCV.md
+        - AI/DL/transfer_learning.md
+    - "LLM | 大语言模型":
+        - AI/LLM/index.md
+        - AI/LLM/开源框架.md
+        - "benchmark | 评测基准":
+            - AI/LLM/benchmark/index.md
+            - AI/LLM/benchmark/01-gsm8k.md
+            - AI/LLM/benchmark/02-mmlu.md
+            - AI/LLM/benchmark/03-humaneval.md
+            - AI/LLM/benchmark/04-swebench.md
+            - AI/LLM/benchmark/05-toolbench.md
+            - AI/LLM/benchmark/06-bfcl.md
+            - AI/LLM/benchmark/07-gaia.md
+            - AI/LLM/benchmark/08-terminal-bench.md
+            - AI/LLM/benchmark/09-apibank.md
+            - AI/LLM/benchmark/10-Evaluation.md
+            - AI/LLM/benchmark/10-toolalpaca.md
+            - AI/LLM/benchmark/11-hotpotqa.md
+            - AI/LLM/benchmark/12-browsecomp.md
+        - "frontier | 前沿基座模型":
+            - AI/LLM/frontier/index.md
+            - AI/LLM/frontier/01-gpt3.md
+            - AI/LLM/frontier/02-gpt4.md
+            - AI/LLM/frontier/03-llama.md
+            - AI/LLM/frontier/04-deepseek.md
+            - AI/LLM/frontier/05-qwen.md
+            - AI/LLM/frontier/06-gemini.md
+            - AI/LLM/frontier/07-claude.md
+            - AI/LLM/frontier/08-interview.md
+            - AI/LLM/frontier/09-deepseek-v2.md
+            - AI/LLM/frontier/10-deepseek-v3.md
+            - AI/LLM/frontier/11-deepseek-v32.md
+            - AI/LLM/frontier/12-deepseek-v4.md
+            - AI/LLM/frontier/13-qwen3.md
+            - AI/LLM/frontier/14-qwen3-next.md
+            - AI/LLM/frontier/15-llama3.md
+            - AI/LLM/frontier/16-llama4.md
+            - AI/LLM/frontier/17-minimax.md
+            - AI/LLM/frontier/18-kimi-linear.md
+            - AI/LLM/frontier/19-gemini25.md
+            - AI/LLM/frontier/labs.md
+        - "infra | 机器学习系统":
+            - AI/LLM/infra/index.md
+            - AI/LLM/infra/06-GPU.md
+            - AI/LLM/infra/CUDA.md
+            - AI/LLM/infra/NV.md
+            - "CMU 10-414":
+                - AI/LLM/infra/CMU10_414/index.md
+        - "models | 模型结构":
+            - AI/LLM/models/index.md
+            - AI/LLM/models/Focus.md
+            - AI/LLM/models/01-Attention.md
+            - AI/LLM/models/02-FlowBased.md
+            - AI/LLM/models/02-Transformer.md
+            - AI/LLM/models/03-GPTs.md
+            - AI/LLM/models/04-BERT.md
+            - AI/LLM/models/04-VAE.md
+            - AI/LLM/models/05-Diffusion.md
+            - AI/LLM/models/06-Manba.md
+            - AI/LLM/models/07-ViT.md
+            - AI/LLM/models/08-CLIP.md
+            - AI/LLM/models/09-LLaVA.md
+            - AI/LLM/models/10-TTT.md
+        - "post | 训练与对齐":
+            - AI/LLM/post/index.md
+            - AI/LLM/post/00-Lingo.md
+            - AI/LLM/post/01-Task&Datasets.md
+            - AI/LLM/post/02-PreTrain.md
+            - AI/LLM/post/03-PostTrain.md
+            - AI/LLM/post/04-Evaluation.md
+            - AI/LLM/post/04-Rubric.md
+            - AI/LLM/post/LoRA.md
+            - "RL | 强化学习":
+                - AI/LLM/post/RL/index.md
+                - AI/LLM/post/RL/03-RL.md
+                - "theory | 理论":
+                    - AI/LLM/post/RL/theory/01-basic.md
+                    - AI/LLM/post/RL/theory/02-bellman.md
+                    - AI/LLM/post/RL/theory/03-bellman-best.md
+                    - AI/LLM/post/RL/theory/04-iteration.md
+                    - AI/LLM/post/RL/theory/05-model-free.md
+                    - AI/LLM/post/RL/theory/06-stochasitic-appro.md
+                    - AI/LLM/post/RL/theory/07-TD.md
+                    - AI/LLM/post/RL/theory/08-value-function.md
+                    - AI/LLM/post/RL/theory/09-policy-gradient.md
+                    - AI/LLM/post/RL/theory/10-actor-critic.md
+                - "method | 方法":
+                    - AI/LLM/post/RL/method/01-ppo.md
+                    - AI/LLM/post/RL/method/02-grpo.md
+                    - AI/LLM/post/RL/method/03-rm.md
+                    - AI/LLM/post/RL/method/04-opd.md
+                    - AI/LLM/post/RL/method/05-infra.md
+            - "SFT":
+                - AI/LLM/post/SFT/03-SFT.md
+            - 工具手册:
+                - "[训练] Pytorch": https://pytorch.org/docs/stable/index.html
+                - "[训练] CUDA": https://docs.nvidia.com/cuda/cuda-installation-guide-linux/
+                - "[训练] DeepSpeed": https://deepspeed.org.cn/
+                - "[性能] NVTX": https://nvidia.github.io/NVTX/python/reference.html
+                - "[性能] Nsight System": https://developer.nvidia.com/nsight-systems
+        - "reasoning | 推理工程":
+            - AI/LLM/reasoning/index.md
+            - AI/LLM/reasoning/05-Quantization.md
+            - AI/LLM/reasoning/09-Sampling.md
+            - "engines | 推理加速引擎":
+                - AI/LLM/reasoning/engines/index.md
+                - AI/LLM/reasoning/engines/vllm.md
+                - AI/LLM/reasoning/engines/vllm-code.md
+                - AI/LLM/reasoning/engines/sglang.md
+            - "quantization | 量化":
+                - AI/LLM/reasoning/quantization/index.md
+            - "speculative | 投机采样":
+                - AI/LLM/reasoning/speculative/index.md
+                - AI/LLM/reasoning/speculative/speculative-decoding.md
+                - AI/LLM/reasoning/speculative/dflash.md
+            - "techniques | 推理加速常用技术":
+                - AI/LLM/reasoning/techniques/index.md
+                - AI/LLM/reasoning/techniques/infer-optimization.md
+                - AI/LLM/reasoning/techniques/scheduling.md
+            - 工具手册:
+                - "[部署] OpenAI API": https://platform.openai.com/docs/overview
+                - "[部署] vLLM手册": https://docs.vllm.com.cn/en/latest/index.html
+                - "[测试] evalscope": https://evalscope.readthedocs.io/zh-cn/latest/index.html
+                - "[监控] Prometheus": https://prometheus.ac.cn/docs/prometheus/latest/getting_started/#required-for-focus
+                - "[监控] Grafana": https://grafana.org.cn/docs/grafana/latest/
+                - "[可视化] Swandb": https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html
     - "VLA | 视觉-语言-动作":
         - AI/VLA/index.md
         - AI/VLA/01-Foundations.md
@@ -503,6 +491,7 @@ nav:
         - AI Infra: https://infrasys-ai.github.io/aiinfra-docs/00Summary/README.html
         - ML-SYS: https://github.com/zhaochenyang20/Awesome-ML-SYS-Tutorial/tree/main
         - LLM-interview: https://wdndev.github.io/llm_interview_note/
+
 
 - Robotics:
   - Robotics/index.md
