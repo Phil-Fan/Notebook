@@ -462,6 +462,7 @@ nav:
                 - AI/LLM/reasoning/speculative/index.md
                 - AI/LLM/reasoning/speculative/speculative-decoding.md
                 - AI/LLM/reasoning/speculative/dflash.md
+                - AI/LLM/reasoning/speculative/dflash-code.md
             - "techniques | 推理加速常用技术":
                 - AI/LLM/reasoning/techniques/index.md
                 - AI/LLM/reasoning/techniques/infer-optimization.md

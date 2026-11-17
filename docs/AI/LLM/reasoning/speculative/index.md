@@ -6,3 +6,4 @@
 |------|------|
 | [Speculative Decoding](speculative-decoding.md) | 草稿、验证、无损接受，以及 Medusa / EAGLE / MTP |
 | [DFlash](dflash.md) | 用块扩散做投机解码 |
+| [DFlash 源码](dflash-code.md) | `dflash/model.py` 由简入深：生成主循环、草稿模型与 DFlash 2 |

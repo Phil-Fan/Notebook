@@ -15,7 +15,7 @@ DFlash 提出了一种基于**块扩散（Block Diffusion）**的推测解码框
 | 发表 | ICML 2026 |
 | 加速 | 最高 6x+ 无损加速 |
 | vs EAGLE-3 | 最高 2.5x 更高吞吐 |
-| 代码 | [GitHub](https://github.com/efo-del/DFlash) |
+| 代码 | [GitHub](https://github.com/z-lab/dflash) |
 
 ## 动机
 
@@ -152,6 +152,10 @@ ModelScope 评价该方案为"**范式级突破（paradigm-level breakthrough）
 
 相关模型关联：EAGLE-3、LLaDA 等块扩散架构。
 
+## 源码阅读
+
+官方实现仓库是 [z-lab/dflash](https://github.com/z-lab/dflash)。`dflash/model.py` 的逐函数拆解见 [model.py 由简入深详解](dflash-code.md)。
+
 ## 与 Speculative Decoding 系列的关系
 
 ```text
@@ -169,6 +173,8 @@ DFlash 的核心区别在于：草稿不再是自回归的，而是**扩散式�
 
 ## 参考资料
 
+- [GitHub: z-lab/dflash](https://github.com/z-lab/dflash)
+- [model.py 由简入深详解](dflash-code.md)
 - [arXiv: DFlash: Block Diffusion for Flash Speculative Decoding](https://arxiv.org/abs/2602.06036)
 - [HuggingFace Papers](https://huggingface.co/papers/2602.06036)
 - [ModelScope 论文页](https://modelscope.cn/papers/2602.06036)
