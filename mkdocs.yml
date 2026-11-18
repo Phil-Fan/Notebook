@@ -410,6 +410,15 @@ nav:
             - AI/LLM/models/08-CLIP.md
             - AI/LLM/models/09-LLaVA.md
             - AI/LLM/models/10-TTT.md
+        - "现代模型架构 | 注意力演进":
+            - AI/LLM/现代模型架构/index.md
+            - AI/LLM/现代模型架构/01-MHA.md
+            - AI/LLM/现代模型架构/02-MQA.md
+            - AI/LLM/现代模型架构/03-GQA.md
+            - AI/LLM/现代模型架构/04-MLA.md
+            - AI/LLM/现代模型架构/05-NSA.md
+            - AI/LLM/现代模型架构/06-DSA.md
+            - AI/LLM/现代模型架构/07-混合注意力.md
         - "post | 训练与对齐":
             - AI/LLM/post/index.md
             - AI/LLM/post/00-Lingo.md

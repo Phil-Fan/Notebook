@@ -4,6 +4,8 @@
 
 3b1b 视频 ➡️ 李宏毅视频 ➡️ 李沐视频 ➡️ 论文阅读 ➡️ 代码实战 ➡️ 公司面试八股
 
+MHA / MQA / GQA / MLA / NSA / DSA 这些变体的横向对比单独整理在 [现代模型架构](../现代模型架构/index.md)。
+
 <iframe src="https://arxiv.org/pdf/1706.03762" width="100%" height="600px" style="border: none;">
 This browser does not support PDFs
 </iframe>
