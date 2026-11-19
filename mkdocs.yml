@@ -791,11 +791,6 @@ plugins:
         - ja
       separator: '[\s\u200b\-]'
   
-  # heti 插件
-  # @https://github.com/TonyCrane/mkdocs-heti-plugin
-  - heti:
-      disable_serve: false
-  
   # https://github.com/TonyCrane/mkdocs-statistics-plugin
   - statistics:
       words_per_minute: 256

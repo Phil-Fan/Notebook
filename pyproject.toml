@@ -3,10 +3,11 @@ name = "philfan-notebook"
 version = "0.0.1"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+  # hooks/excalidraw.py 依赖；原先由 mkdocs-heti-plugin 传递引入
+  "beautifulsoup4",
   "mkdocs==1.6.1",
   "mkdocs-get-deps==0.2.0",
   "mkdocs-git-revision-date-localized-plugin==1.2.6",
-  "mkdocs-heti-plugin==0.1.6",
   "mkdocs-material==9.5.31",
   "mkdocs-material-extensions==1.3.1",
   "mkdocs-minify-plugin==0.8.0",
