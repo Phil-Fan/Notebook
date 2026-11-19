@@ -1,6 +1,6 @@
 # 前沿基座模型
 
-经典技术报告按时间线留在各页。近一到两年的面试准备看 [架构面试提纲](08-interview.md)：每篇论文代表哪一个约束被拆开，以及块上到底改了什么。
+经典技术报告按时间线留在各页。近一到两年的面试准备看 [架构面试提纲](08-interview.md)：每篇论文代表哪一个约束被拆开，以及块上到底改了什么。单个实验室的完整版本线（含 R 线收束、专项模型和 API 模型名变更）见 [DeepSeek 版本时间线](20-deepseek-versions.md)。
 
 ## 怎么读
 
@@ -27,6 +27,7 @@ GPT、Claude 和 Gemini 的多数报告公开的是能力与训练问题，不�
 | DeepSeek-V3 | 2024.12 | 无辅助损失均衡、MTP | [10](10-deepseek-v3.md) |
 | DeepSeek-V3.2 | 2025.12 | DSA，稀疏注意力续训进 MLA | [11](11-deepseek-v32.md) |
 | DeepSeek-V4 | 2026 | CSA / HCA、mHC | [12](12-deepseek-v4.md) |
+| DeepSeek 全版本线 | 2023–2026 | 版本、命名与 API 别名演进 | [20](20-deepseek-versions.md) |
 | Qwen 早期 | 2023–2024 | GQA 默认块上的模型族 | [05](05-qwen.md) |
 | Qwen3 | 2025.05 | 统一思考模式；块改动很小 | [13](13-qwen3.md) |
 | Qwen3-Next | 2025.09 | 3 : 1 混合线性注意力 | [14](14-qwen3-next.md) |

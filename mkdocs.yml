@@ -387,6 +387,7 @@ nav:
             - AI/LLM/frontier/17-minimax.md
             - AI/LLM/frontier/18-kimi-linear.md
             - AI/LLM/frontier/19-gemini25.md
+            - AI/LLM/frontier/20-deepseek-versions.md
             - AI/LLM/frontier/labs.md
         - "infra | 机器学习系统":
             - AI/LLM/infra/index.md
