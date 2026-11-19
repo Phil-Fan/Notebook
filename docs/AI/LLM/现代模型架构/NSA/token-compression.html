@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NSA · Token Compression 动图讲解</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<style>
+  :root{
+    color-scheme:dark;
+    --background:oklch(0.185 0 0);
+    --panel:oklch(0.238 0 0);
+    --stage:oklch(0.212 0 0);
+    --line:oklch(0.335 0 0);
+    --text:oklch(0.935 0 0);
+    --dim:oklch(0.705 0 0);
+    --faint:oklch(0.575 0 0);
+    --blue:oklch(0.680 0.155 262);
+    --violet:oklch(0.640 0.195 295);
+    --cyan:oklch(0.800 0.120 210);
+    --green:oklch(0.760 0.155 158);
+    --amber:oklch(0.800 0.150 80);
+    --pink:oklch(0.700 0.180 350);
+    --sans:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{min-height:100%}
+  body{
+    margin:0;padding:26px 24px 40px;
+    background:var(--background);color:var(--text);
+    font-family:var(--sans);font-size:13.5px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1200px;margin:0 auto}
+  code{font-family:var(--mono);font-size:.92em;color:var(--cyan);background:oklch(0.800 0.120 210 / .10);padding:1px 5px;border-radius:5px}
+  .m{font-family:var(--mono);font-size:.95em;letter-spacing:.01em}
+  header h1{margin:0 0 10px;font-size:22px;font-weight:650;letter-spacing:-.01em;line-height:1.35}
+  header p{margin:0 0 7px;max-width:1010px;color:var(--dim);font-size:13.5px;line-height:1.78}
+  header p:last-child{margin-bottom:0}
+  header b{color:var(--text);font-weight:600}
+  header .hl{color:var(--cyan)}
+
+  /* ---------- layout ---------- */
+  .fcard{margin-top:20px}
+  .fcard .formula{font-size:15px;justify-content:center}
+  .fcard .shape-line{font-size:14px;justify-content:center;color:var(--dim)}
+  .stage{margin-top:14px}
+  .controls{margin-top:14px}
+  .info{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;margin-top:14px;align-items:start}
+  @media (max-width:760px){.info{grid-template-columns:1fr}}
+  .subtitle{margin-top:12px;padding-top:12px;border-top:1px dashed oklch(0.335 0 0 / .8)}
+  .sub-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+  .sub-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.45px;color:var(--faint);text-transform:uppercase}
+  #stepNo{font-family:var(--mono);font-size:11px;color:var(--blue)}
+  .subtitle .desc{min-height:58px;font-size:13px;line-height:1.82}
+  .subtitle .hl-note{border-top:0;padding-top:6px;margin-top:8px}
+  .fcard-hint{margin:2px 0 0;font-size:11px;color:var(--faint);font-family:var(--mono);line-height:1.6;text-align:center}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+  .card-head .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.45px;color:var(--faint);text-transform:uppercase}
+  .tag{font-family:var(--mono);font-size:10px;color:var(--cyan);background:oklch(0.800 0.120 210 / .10);border:1px solid oklch(0.800 0.120 210 / .28);padding:1px 7px;border-radius:6px;white-space:nowrap}
+  .tag.blue{color:var(--blue);background:oklch(0.680 0.155 262 / .10);border-color:oklch(0.680 0.155 262 / .30)}
+
+  /* ---------- formula ---------- */
+  .fcard{padding-bottom:11px}
+  .formula{
+    display:flex;flex-wrap:wrap;align-items:center;gap:1px;
+    font-family:var(--mono);font-size:13.5px;line-height:1.45;color:var(--dim);
+    padding:4px 2px 8px;
+  }
+  .formula .sym{padding:2px 4px;border-radius:6px;transition:color .25s,background .25s,box-shadow .25s}
+  .formula .sym.hl{color:var(--text);background:oklch(0.680 0.155 262 / .17);box-shadow:inset 0 0 0 1px oklch(0.680 0.155 262 / .55)}
+  .formula .op{color:var(--faint);padding:0 1px}
+  .formula .op.big{font-size:19px;color:var(--dim);line-height:1}
+  .formula sub,.formula sup{font-size:.66em;line-height:0}
+  .frac{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.18;font-size:.94em;margin:0 2px}
+  .frac .num{border-bottom:1.2px solid currentColor;padding:0 3px 1px}
+  .frac .den{padding-top:1px}
+  .frac .den.sym{padding:1px 4px}
+  .fl{font-size:1.55em;line-height:0;vertical-align:-.1em;color:var(--dim)}
+  .tilde{position:relative;display:inline-block;padding:0 1px}
+  .tilde::after{content:"~";position:absolute;left:50%;top:-.44em;transform:translateX(-50%);font-size:.92em;line-height:1;opacity:.95}
+  .shape-line{margin-top:-2px;padding-bottom:2px;font-size:13.5px}
+  .shape-line sup{font-size:.8em}
+  .hl-note{font-size:11.5px;color:var(--faint);font-family:var(--mono);line-height:1.55;border-top:1px dashed oklch(0.335 0 0 / .75);padding-top:7px}
+  .hl-note b{color:var(--cyan);font-weight:500}
+
+  /* ---------- stage ---------- */
+  .stage{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg,oklch(0.238 0 0 / .92),var(--stage));
+    border:1px solid var(--line);border-radius:18px;padding:16px 16px 12px;
+    box-shadow:0 18px 50px rgba(0,0,0,.42);
+  }
+  .head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 7px}
+  .head .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.4px;color:var(--faint);text-transform:uppercase}
+  .head .val{font-family:var(--mono);font-size:11px;color:var(--cyan)}
+  .head .val.dim{color:var(--faint)}
+
+  .strip-wrap{position:relative;padding-top:24px;margin:0 0 4px}
+  .strip{position:relative;display:flex;align-items:stretch;gap:5px}
+  .chip{
+    flex:1 1 0;min-width:0;height:32px;border-radius:7px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid oklch(0.47 0 0 / .75);background:oklch(0.265 0 0 / .92);
+    font-family:var(--mono);font-size:11px;color:var(--dim);
+    transition:background .28s,border-color .28s,color .28s,opacity .28s,box-shadow .28s;
+  }
+  .chip .cn{pointer-events:none;font-size:.96em;letter-spacing:-.02em}
+  .chip.q{flex:0 0 46px;border-style:dashed;border-color:oklch(0.800 0.150 80 / .60);background:oklch(0.800 0.150 80 / .10);color:var(--amber)}
+  .chip.q .cn sub{font-size:.68em}
+  .chip.q.qon{border-style:solid;box-shadow:0 0 0 2px oklch(0.800 0.150 80 / .18),0 0 18px oklch(0.800 0.150 80 / .18)}
+  .chip.done{opacity:.68;background:oklch(0.245 0 0 / .7);border-color:oklch(0.470 0 0 / .55);color:var(--faint)}
+  .chip.cur{background:oklch(0.680 0.155 262 / .26);border-color:var(--blue);color:var(--text);box-shadow:0 0 0 2px oklch(0.680 0.155 262 / .16)}
+  .chip.cur.ovl{background:oklch(0.640 0.195 295 / .30);border-color:var(--violet);box-shadow:0 0 0 2px oklch(0.640 0.195 295 / .16)}
+  .chip.unc{opacity:.34;border-style:dashed}
+  .chip.cur.fly{background:oklch(0.760 0.155 158 / .14);border-color:oklch(0.760 0.155 158 / .75);box-shadow:0 0 0 2px oklch(0.760 0.155 158 / .14)}
+
+  .ring{
+    position:absolute;top:0;left:0;width:0;height:0;border-radius:9px;
+    border:1.5px solid var(--blue);background:oklch(0.680 0.155 262 / .10);
+    opacity:0;pointer-events:none;
+    transition:left .40s cubic-bezier(.22,1,.36,1),width .40s cubic-bezier(.22,1,.36,1),top .2s,height .2s,opacity .22s,background .3s,border-color .3s;
+  }
+  .ring.on{opacity:1}
+  .ring.compressing{border-color:var(--green);background:oklch(0.760 0.155 158 / .10)}
+  .ring-label{
+    position:absolute;left:50%;top:-21px;transform:translateX(-50%);white-space:nowrap;
+    font-family:var(--mono);font-size:10.5px;color:var(--blue);opacity:0;
+    transition:opacity .25s;
+  }
+  .ring.on .ring-label{opacity:1}
+  .ring.compressing .ring-label{color:var(--green)}
+  .ring-label sub{font-size:.72em}
+
+  .funnel{position:relative;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;margin:2px 0}
+  .phi{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:20px;color:var(--green);
+    border:1px solid oklch(0.760 0.155 158 / .48);background:oklch(0.760 0.155 158 / .10);
+    transition:all .3s;
+  }
+  .phi.on{
+    background:oklch(0.760 0.155 158 / .22);transform:scale(1.07);
+    box-shadow:0 0 0 3px oklch(0.760 0.155 158 / .13),0 0 24px oklch(0.760 0.155 158 / .28);
+  }
+  .funnel-note{font-family:var(--mono);font-size:10.5px;color:var(--faint);transition:color .3s}
+  .phi.on + .funnel-note{color:var(--green)}
+
+  .keystrip{display:flex;gap:8px;min-height:58px}
+  .kchip{
+    flex:1 1 0;min-width:0;border-radius:12px;border:1px dashed oklch(0.42 0 0 / .85);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    opacity:.40;transition:all .32s;padding:6px 4px;
+  }
+  .kbody{display:flex;align-items:center;gap:6px;color:var(--faint);font-family:var(--mono);font-size:11.5px}
+  .kvec{display:flex;flex-direction:column;gap:1.6px}
+  .kvec i{display:block;width:20px;height:1.8px;border-radius:2px;background:currentColor;opacity:.55}
+  .ktag{font-family:var(--mono);font-size:9px;letter-spacing:.2px;opacity:.75}
+  .kchip.filled{
+    opacity:1;border-style:solid;
+    border-color:oklch(0.800 0.120 210 / .55);background:oklch(0.800 0.120 210 / .09);
+    color:var(--cyan);box-shadow:0 6px 18px oklch(0.800 0.120 210 / .07);
+  }
+  .kchip.filled .kbody{color:var(--cyan)}
+  .kchip.pop{animation:kpop .48s cubic-bezier(.22,1.4,.36,1)}
+  @keyframes kpop{
+    0%{transform:scale(.72);opacity:.2;box-shadow:0 0 0 0 oklch(0.800 0.120 210 / .45)}
+    70%{transform:scale(1.05);opacity:1}
+    100%{transform:scale(1)}
+  }
+  .keystrip.scan .kchip.filled{animation:kscan 1.8s ease-in-out infinite}
+  .keystrip.scan .kchip.filled:nth-child(2){animation-delay:.22s}
+  .keystrip.scan .kchip.filled:nth-child(3){animation-delay:.44s}
+  .keystrip.scan .kchip.filled:nth-child(4){animation-delay:.66s}
+  @keyframes kscan{
+    0%,100%{box-shadow:0 6px 18px oklch(0.800 0.120 210 / .06)}
+    45%{box-shadow:0 0 0 3px oklch(0.800 0.120 210 / .15),0 0 20px oklch(0.800 0.120 210 / .18)}
+  }
+
+  .flybar{
+    position:absolute;width:7px;height:26px;border-radius:3.5px;background:var(--green);
+    box-shadow:0 0 12px oklch(0.760 0.155 158 / .45);
+    opacity:.95;pointer-events:none;z-index:3;
+    transition:transform .7s cubic-bezier(.45,0,.25,1),opacity .7s;
+    transform:translate(0,0) scale(1);
+  }
+  .flybar.go{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}
+
+  .compare{
+    margin-top:13px;padding-top:11px;border-top:1px dashed oklch(0.335 0 0 / .8);
+    display:flex;flex-direction:column;gap:6px;opacity:.32;transition:opacity .4s;
+  }
+  .compare.on{opacity:1}
+  .crow{display:grid;grid-template-columns:70px minmax(0,1fr) 56px;align-items:center;gap:10px;font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+  .bar{height:8px;border-radius:99px;background:oklch(0.295 0 0);overflow:hidden}
+  .fill{height:100%;border-radius:99px;transition:width .65s cubic-bezier(.22,1,.36,1)}
+  .fill.dense{width:100%;background:linear-gradient(90deg,oklch(0.520 0.060 262),oklch(0.680 0.155 262))}
+  .fill.sparse{width:0;background:linear-gradient(90deg,oklch(0.730 0.120 210),oklch(0.820 0.100 195))}
+  .crow .v{text-align:right;color:var(--text)}
+  .crow .v.dim{color:var(--dim)}
+  .compare-note{margin:1px 0 0 80px;font-family:var(--mono);font-size:10px;color:var(--faint);line-height:1.6}
+
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:10.5px;color:var(--faint);font-family:var(--mono)}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .sw{width:11px;height:11px;border-radius:3px;border:1px solid transparent;display:inline-block}
+  .sw.k{background:oklch(0.265 0 0);border-color:oklch(0.47 0 0)}
+  .sw.cur{background:oklch(0.680 0.155 262 / .30);border-color:var(--blue)}
+  .sw.ovl{background:oklch(0.640 0.195 295 / .34);border-color:var(--violet)}
+  .sw.cmp{background:oklch(0.800 0.120 210 / .16);border-color:oklch(0.800 0.120 210 / .6)}
+  .sw.q{background:oklch(0.800 0.150 80 / .14);border-color:oklch(0.800 0.150 80 / .6)}
+
+  /* ---------- controls ---------- */
+  .controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  button{
+    font-family:inherit;font-size:12.5px;color:var(--text);
+    background:oklch(0.265 0 0 / .9);border:1px solid oklch(0.44 0 0 / .8);
+    border-radius:9px;padding:8px 13px;cursor:pointer;transition:all .18s;
+  }
+  button:hover{border-color:oklch(0.58 0 0);background:oklch(0.30 0 0)}
+  button.primary{background:oklch(0.680 0.155 262 / .18);border-color:oklch(0.680 0.155 262 / .50);color:oklch(0.900 0.060 262)}
+  button.primary:hover{background:oklch(0.680 0.155 262 / .28)}
+  select{
+    font-family:inherit;font-size:11.5px;color:var(--text);
+    background:oklch(0.265 0 0 / .9);border:1px solid oklch(0.44 0 0 / .8);
+    border-radius:8px;padding:6px 8px;
+  }
+  .speed{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--faint)}
+  .hint{width:100%;font-size:10.5px;color:var(--faint);font-family:var(--mono);margin-top:1px}
+  kbd{font-family:var(--mono);font-size:10px;padding:1px 5px;border-radius:5px;border:1px solid oklch(0.44 0 0);background:oklch(0.265 0 0);color:var(--dim)}
+
+  /* ---------- side panel ---------- */
+  .desc{color:var(--text)}
+  .desc b{color:var(--blue);font-weight:600}
+  .desc code{font-size:.92em}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px;padding-top:10px;border-top:1px dashed oklch(0.335 0 0 / .8)}
+  .stat{background:oklch(0.212 0 0 / .75);border:1px solid oklch(0.335 0 0 / .65);border-radius:9px;padding:6px 9px;min-width:0}
+  .stat .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat .v{font-family:var(--mono);font-size:12px;color:var(--text);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .stat .v small{font-size:9px;color:var(--faint)}
+
+  .shape-grid{display:grid;grid-template-columns:repeat(4,26px);grid-auto-rows:15px;gap:4px;justify-content:center;margin:8px 0 2px}
+  .sdot{border-radius:4px;background:oklch(0.315 0 0);transition:background .3s,box-shadow .3s}
+  .sdot.on{background:oklch(0.800 0.120 210 / .72);box-shadow:0 0 9px oklch(0.800 0.120 210 / .22)}
+  .shape-cap{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:5px}
+  .small{font-size:11px;color:var(--faint);line-height:1.65;margin:6px 0 0}
+
+  /* ---------- bottom cards ---------- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .cards .wide{grid-column:1/-1}
+  @media (max-width:880px){.cards{grid-template-columns:1fr}}
+  .cards h2{margin:0 0 4px;font-size:14.5px;font-weight:600;letter-spacing:-.005em}
+  .cards .lead{margin:0 0 10px;font-size:12px;color:var(--faint);line-height:1.7}
+  table.sym{width:100%;border-collapse:collapse;font-size:12.4px}
+  table.sym th{font-family:var(--mono);font-size:10px;letter-spacing:.3px;color:var(--faint);font-weight:500;text-align:left;padding:0 10px 6px;border-bottom:1px solid oklch(0.335 0 0 / .8)}
+  table.sym td{padding:7px 10px;border-bottom:1px solid oklch(0.30 0 0 / .55);vertical-align:top;line-height:1.6}
+  table.sym tr:last-child td{border-bottom:0}
+  table.sym td.s{font-family:var(--mono);font-size:12px;white-space:nowrap}
+  table.sym td.h{color:var(--dim)}
+  table.sym td.e{font-family:var(--mono);font-size:11px;color:var(--faint);white-space:nowrap}
+  table.sym sub,table.sym sup{font-size:.78em}
+  .c-t{color:var(--amber)}
+  .c-i{color:var(--blue)}
+  .c-l{color:oklch(0.72 0.13 190)}
+  .c-d{color:var(--violet)}
+  .c-phi{color:var(--green)}
+  .c-kt{color:var(--cyan)}
+  .c-sh{color:var(--pink)}
+  .note{font-size:11px;color:var(--faint);margin:10px 0 0;line-height:1.72}
+  .note b{color:var(--dim);font-weight:600}
+
+  .gantt{margin-top:6px}
+  .gnums{display:grid;grid-template-columns:repeat(24,1fr);gap:0;margin-bottom:3px}
+  .gnum{font-family:var(--mono);font-size:9px;color:var(--faint);text-align:center;line-height:14px;border-radius:3px;transition:color .15s,background .15s;cursor:default}
+  .gnum.cur{color:var(--text);background:oklch(0.640 0.195 295 / .35)}
+  .grows{display:flex;flex-direction:column;gap:4px}
+  .grow{display:grid;grid-template-columns:repeat(24,1fr);height:16px}
+  .gbar{
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:9px;color:oklch(0.680 0.155 262 / .95);
+    border:1px solid oklch(0.680 0.155 262 / .45);background:oklch(0.680 0.155 262 / .16);
+    border-radius:4px;transition:all .18s;
+  }
+  .gbar.hit{background:oklch(0.640 0.195 295 / .42);border-color:var(--violet);color:var(--text)}
+  .gcap{font-size:11.5px;color:var(--dim);margin:10px 0 0;line-height:1.7;min-height:38px}
+  .gcap b{color:var(--violet)}
+  .scale{display:grid;grid-template-columns:1fr auto;gap:4px 12px;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:4px}
+  .scale .k{color:var(--faint)}
+  .scale .v{color:var(--text);text-align:right}
+  .scale .v.cy{color:var(--cyan)}
+  .scale .v.am{color:var(--amber)}
+  .scale .sep{grid-column:1/-1;border-top:1px dashed oklch(0.335 0 0 / .7);margin:5px 0 2px}
+  .mis{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+  .mis li{font-size:12.2px;line-height:1.7;color:var(--dim);padding-left:16px;position:relative}
+  .mis li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;background:oklch(0.680 0.155 262 / .55)}
+  .mis li b{color:var(--text);font-weight:600}
+  .mis li code{font-size:.9em}
+
+  .takeaway{
+    margin-top:18px;padding:14px 16px;border-radius:14px;
+    border:1px solid oklch(0.760 0.155 158 / .35);
+    background:linear-gradient(90deg,oklch(0.760 0.155 158 / .09),oklch(0.760 0.155 158 / .02));
+    font-size:12.6px;line-height:1.8;color:var(--dim);
+  }
+  .takeaway b{color:var(--text)}
+  .takeaway .mono{font-family:var(--mono);color:var(--green)}
+
+  @media (max-width:620px){
+    body{padding:16px 12px 28px}
+    .chip{height:26px;font-size:9px}
+    .chip .cn{display:none}
+    .chip.q{flex-basis:38px}
+    .chip.q .cn{display:block;font-size:9px}
+    .ring-label{font-size:9px}
+    .head .val{font-size:10px}
+    .kchip .kvec i{width:14px}
+    .funnel{height:72px}
+    .phi{width:40px;height:40px;font-size:17px}
+    .desc{min-height:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>NSA 的 Token Compression：把 <span class=m>l</span> 条 key 折成 1 条</h1>
+    <p>注意力每一步的贵，不在算力，在 <b>把 KV 从显存搬到片上</b>：位置 <code>t</code> 的查询要和前面每一条 key 打分，序列多长就要搬多少条。压缩支路换个思路——把连续 <code>l</code> 个 token 的 key 用一个学出来的 MLP <code>φ</code> 折成<b>一条块级 key</b>，于是每个查询要看的条目从 <code>t</code> 条变成约 <code>t/d</code> 条。</p>
+    <p>下面用缩小版演示：<code>t = 24</code>、<code>l = 8</code>（块长）、<code>d = 4</code>（步长）；论文实际是 <code>l = 32</code>、<code>d = 16</code>。盯住三件事：<span class="hl">块怎么滑</span>、<span class="hl">φ 怎么把 8 条压成 1 条</span>、<span class="hl">压完还剩几条</span>。</p>
+  </header>
+
+  <!-- 公式 -->
+  <div class="card fcard">
+    <div class="card-head">
+      <span class="lab">公式 · 逐项高亮</span>
+      <span class="tag blue">压缩分支 f<sub>K</sub><sup>cmp</sup></span>
+    </div>
+    <div class="formula" id="formula">
+      <span class="sym" data-k="Ktil"><span class="tilde">K</span><sub>t</sub><sup>cmp</sup></span>
+      <span class="op">=</span>
+      <span class="sym" data-k="fK">f<sub>K</sub><sup>cmp</sup></span>
+      <span class="op">(</span><span class="sym" data-k="kseq">k<sub>:t</sub></span><span class="op">)</span>
+      <span class="op">=</span>
+      <span class="op big">{</span>
+      <span class="sym" data-k="phi">φ</span>
+      <span class="op">(</span><span class="sym" data-k="kblock">k<sub>i·d+1 : i·d+l</sub></span><span class="op">)</span>
+      <span class="op">|</span>
+      <span class="sym" data-k="i">1 ≤ i ≤</span>
+      <span class="sym" data-k="floor"><span class="fl">⌊</span><span class="frac"><span class="num">t − l</span><span class="den sym" data-k="d">d</span></span><span class="fl">⌋</span></span>
+      <span class="op big">}</span>
+    </div>
+    <div class="formula shape-line" id="shapeFormula">
+      <span class="sym" data-k="shape"><span class="tilde">K</span><sub>t</sub><sup>cmp</sup> ∈ ℝ<sup>d<sub>k</sub> × ⌊(t−l)/d⌋</sup></span>
+    </div>
+    <p class="fcard-hint">蓝色底 = 当前这一步正在讲的符号</p>
+  </div>
+
+  <!-- 动画舞台 -->
+  <div class="stage" id="stage">
+    <div class="head">
+      <span class="lab">① 原始 key 序列 k<sub>:t</sub></span>
+      <span class="val dim">每个格子 = 一个 token 的 key</span>
+    </div>
+    <div class="strip-wrap">
+      <div class="strip" id="strip"></div>
+    </div>
+
+    <div class="funnel">
+      <div class="phi" id="phiBadge">φ</div>
+      <div class="funnel-note" id="funnelNote">可学习的 MLP · <span class=m>l</span> 条 key → 1 条</div>
+    </div>
+
+    <div class="head">
+      <span class="lab">② 压缩键 K̃<sup>cmp</sup>（每条 = 一个块）</span>
+      <span class="val" id="cmpCount">0 / 4</span>
+    </div>
+    <div class="keystrip" id="keystrip"></div>
+
+    <div class="compare" id="compare">
+      <div class="crow">
+        <span>全注意力</span>
+        <div class="bar"><div class="fill dense"></div></div>
+        <span class="v" id="cmpValDense">24 条</span>
+      </div>
+      <div class="crow">
+        <span>压缩支路</span>
+        <div class="bar"><div class="fill sparse" id="sparseFill"></div></div>
+        <span class="v" id="cmpValSparse">4 条</span>
+      </div>
+      <p class="compare-note">本例 24 → 4 条（块数 = ⌊(t−l)/d⌋）；t 越大越接近 t/d，论文尺度 65536 → 4094 ≈ 1/16</p>
+    </div>
+
+    <div class="legend">
+      <span><i class="sw k"></i>原始 key</span>
+      <span><i class="sw cur"></i>当前块</span>
+      <span><i class="sw ovl"></i>重叠 token</span>
+      <span><i class="sw cmp"></i>压缩键</span>
+      <span><i class="sw q"></i>查询 q<sub>t</sub></span>
+    </div>
+
+    <div class="subtitle">
+      <div class="sub-head">
+        <span class="sub-label">现在这一步</span>
+        <span id="stepNo">1 / 9</span>
+      </div>
+      <div class="desc" id="desc"></div>
+      <div class="hl-note" id="hlNote"></div>
+    </div>
+  </div>
+
+  <!-- 控制条 -->
+  <div class="controls">
+    <button id="prev">◀ 上一步</button>
+    <button id="play" class="primary">▶ 播放</button>
+    <button id="next">下一步 ▶</button>
+    <button id="reset">重置</button>
+    <label class="speed">速度
+      <select id="speed">
+        <option value="4200">0.5×</option>
+        <option value="2700" selected>1×</option>
+        <option value="1700">1.5×</option>
+        <option value="1050">2×</option>
+      </select>
+    </label>
+    <div class="hint"><kbd>空格</kbd> 播放 / 暂停 · <kbd>←</kbd> <kbd>→</kbd> 单步 · <kbd>R</kbd> 重置</div>
+  </div>
+
+  <!-- 读数 -->
+  <div class="info">
+    <div class="card">
+      <div class="card-head">
+        <span class="lab">实时读数</span>
+        <span class="tag blue">l=8 · d=4</span>
+      </div>
+      <div class="stats" style="margin-top:0;padding-top:0;border-top:0">
+        <div class="stat"><div class="k">t · 查询位置</div><div class="v">24</div></div>
+        <div class="stat"><div class="k">i · 第几个块</div><div class="v" id="st_i">—</div></div>
+        <div class="stat"><div class="k">块覆盖范围</div><div class="v" id="st_range">—</div></div>
+        <div class="stat"><div class="k">l / d</div><div class="v">8 / 4</div></div>
+        <div class="stat"><div class="k">已压缩</div><div class="v" id="st_done">0 / 4</div></div>
+        <div class="stat"><div class="k">K̃ 形状 d<sub>k</sub>×n</div><div class="v" id="st_shape">6 × 0</div></div>
+      </div>
+      <p class="small" style="margin-top:9px">
+        块数 = ⌊(t−<span class=m>l</span>)/d⌋ = ⌊(24−8)/4⌋ = <b style="color:var(--cyan)">4</b>；
+        重叠 = <span class=m>l</span> − d = <b style="color:var(--violet)">4</b> 个 token；
+        i 从 1 起算，第一个块从第 <b style="color:var(--amber)">d+1</b> 个 token 开始。
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-head">
+        <span class="lab">输出张量</span>
+        <span class="tag">ℝ<sup>d<sub>k</sub> × ⌊(t−l)/d⌋</sup></span>
+      </div>
+      <div class="shape-grid" id="shapeGrid"></div>
+      <div class="shape-cap"><span>行 = d<sub>k</sub>（示意 6 条）</span><span>列 = 块数</span></div>
+      <p class="small">每压一个块，就多一列。序列再长，涨的是列数；而且每 <code>d</code> 个 token 才涨一列。</p>
+    </div>
+  </div>
+
+  <!-- 底部：逐项解释 -->
+  <section class="cards">
+    <div class="card wide">
+      <h2>公式逐项对照：每个符号在动画里指的是哪块</h2>
+      <p class="lead">这张表和图中颜色一一对应，卡住的时候回头对一眼。</p>
+      <table class="sym">
+        <thead><tr><th style="width:132px">符号</th><th>人话</th><th style="width:150px">本例取值</th></tr></thead>
+        <tbody>
+          <tr><td class="s c-t">t</td><td class="h">当前查询的位置，也就是序列处理到了哪儿。</td><td class="e">24</td></tr>
+          <tr><td class="s c-i">i</td><td class="h">第几个块，从 1 数到 ⌊(t−<span class=m>l</span>)/d⌋。</td><td class="e">1 … 4</td></tr>
+          <tr><td class="s c-l">l</td><td class="h">块长：一个块里装多少个 token。压缩就是把这 <span class=m>l</span> 条 key 折成 1 条。</td><td class="e">8</td></tr>
+          <tr><td class="s c-d">d</td><td class="h">滑动步长：相邻块起点之间的间隔。d &lt; <span class=m>l</span> 才有重叠，重叠 <span class=m>l</span>−d 个 token。</td><td class="e">4（重叠 4）</td></tr>
+          <tr><td class="s c-kt">k<sub>:t</sub></td><td class="h">从位置 1 到 t 的全部 key，也就是图中那一整条格子。压缩的输入。</td><td class="e">k<sub>1:24</sub></td></tr>
+          <tr><td class="s c-kt">k<sub>i·d+1 : i·d+l</sub></td><td class="h">块 i 覆盖的那一段 token。i=1、d=4、l=8 → 从第 5 个到第 12 个。</td><td class="e">k<sub>5:12</sub> … k<sub>17:24</sub></td></tr>
+          <tr><td class="s c-phi">φ</td><td class="h">可学习的多层感知器（MLP），把块内 <span class=m>l</span> 条 key 映射成 1 条。不是平均池化。</td><td class="e">8 → 1</td></tr>
+          <tr><td class="s c-kt">K̃<sub>t</sub><sup>cmp</sup></td><td class="h">压缩键组成的张量：上面第二条彩色条，每条代表一个块。</td><td class="e">4 条</td></tr>
+          <tr><td class="s c-i">⌊(t−l)/d⌋</td><td class="h">能切出几个完整块。分子是 t−<span class=m>l</span>，因为最后一块必须整段落在序列里；除以 d 取整 = 最多几个整块。</td><td class="e">⌊16/4⌋ = 4</td></tr>
+          <tr><td class="s c-phi">d<sub>k</sub></td><td class="h">一条 key 向量的维度。压缩前后不变——变的是「有几条」，不是「每条多宽」。</td><td class="e">6（示意）</td></tr>
+          <tr><td class="s c-sh">ℝ<sup>d<sub>k</sub>×⌊(t−l)/d⌋</sup></td><td class="h">输出张量的形状：行=key 的维度，列=压缩键的条数。</td><td class="e">6 × 4</td></tr>
+        </tbody>
+      </table>
+      <p class="note"><b>为什么是 t−<span class=m>l</span> 而不是 t：</b>块要完整地落在 1…t 里，最后一块的起点最多到 t−<span class=m>l</span>，所以可切的整块数是 ⌊(t−<span class=m>l</span>)/d⌋。它约等于 t/d，所以每个查询的粗看成本降到约 1/d。另外，公式从 i=1 起算，最前面 d 个 token 不进压缩块；有的实现从 i=0 起（覆盖 k<sub>1:<span class=m>l</span></sub>），条数会多一条，不影响量级。</p>
+    </div>
+
+    <div class="card">
+      <h2>为什么步长 d 要比块长 l 小</h2>
+      <p class="lead">把鼠标放到某个 token 上，看它同时属于几个块。</p>
+      <div class="gantt">
+        <div class="gnums" id="gnums"></div>
+        <div class="grows" id="grows"></div>
+      </div>
+      <p class="gcap" id="gcap"></p>
+      <p class="note">d &lt; <span class=m>l</span> 让相邻块重叠 <span class=m>l</span>−d 个 token，每个 token 最多被 ⌈<span class=m>l</span>/d⌉ 个块覆盖。这样即使某个 token 在「错」的块边界上，也还能在相邻块的摘要里出现一次——切块不会把信息切断。</p>
+    </div>
+
+    <div class="card">
+      <h2>换成论文的尺度</h2>
+      <p class="lead">论文实际取值 <span class=m>l</span> = 32、d = 16，序列 64k。</p>
+      <div class="scale">
+        <span class="k">t</span><span class="v">65536</span>
+        <span class="k">l / d</span><span class="v">32 / 16</span>
+        <span class="k">块数 = ⌊(t−<span class=m>l</span>)/d⌋</span><span class="v cy">⌊65504/16⌋ = 4094</span>
+        <span class="k">≈ t/d</span><span class="v am">4096</span>
+        <span class="sep"></span>
+        <span class="k">全注意力每个查询</span><span class="v">65536 条</span>
+        <span class="k">压缩支路每个查询</span><span class="v cy">4094 条 ≈ 1/16</span>
+      </div>
+      <p class="note">注意 4094 和 4096 的差别只是 <b>减去块长再取整</b>：量级上就是 t/d。<br />
+      另一个关键点：<b>压缩只算一次，所有查询复用</b>——24 条 key 压成 4 条，不是每个查询各压一遍。</p>
+    </div>
+
+    <div class="card wide">
+      <h2>四个容易混的点</h2>
+      <ul class="mis">
+        <li><b>压缩 ≠ 缓存变小。</b>原始 K/V 还在，cache 照样是 t 条。变小的是「每个查询每一步要搬多少条」。缓存宽度由 MLA 管，参与计算的 token 数由 NSA / DSA 管，两条轴正交。</li>
+        <li><b>φ 不是平均池化。</b>它是带块内位置编码的可学习 MLP，参数在所有块之间共享；模型自己学「这 <span class=m>l</span> 条里哪些信息值得留给粗粒度表示」。</li>
+        <li><b>压缩只负责「全局粗看」。</b>块级 key 看不出块内细节，所以 NSA 还要选择支路（挑 top-n 个细块）和滑窗支路（最近 w 个 token），三支输出用门控加权相加。压缩分支算出的分数还会被选择分支直接复用。</li>
+        <li><b>压缩项仍是二次的。</b>条目数 ≈ t/d，所以复杂度是 O(t²/d) —— 常数小了 d 倍，不是真线性。「近似线性」指每个查询的预算近似常数。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="takeaway">
+    <b>一句话收束：</b>压缩支路以 <span class="m">l</span> 为块长、<span class="m">d</span> 为步长在 key 序列上滑窗，每块用 <span class="mono">φ</span> 折成一条块级 key <span class="mono">k̃<sub>i</sub></span>；一共 ⌊(t−<span class=m>l</span>)/d⌋ ≈ t/d 条，叠成 <span class="mono">K̃ ∈ ℝ<sup>d<sub>k</sub>×⌊(t−l)/d⌋</sup></span>。查询 <span class="mono">q<sub>t</sub></span> 只对这 ≈t/d 条打分，拿到一个便宜的粗粒度全局视野，精读留给选择与滑窗。
+  </section>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- 常量 ---------------- */
+  var L = 8, D = 4, T = 24, DK = 6;
+  var NB = Math.floor((T - L) / D);   // 4
+  var blocks = [];
+  for (var i = 1; i <= NB; i++) blocks.push({ i: i, s: i * D + 1, e: i * D + L });
+
+  var $ = function (id) { return document.getElementById(id); };
+  var stage = $("stage"), strip = $("strip"), ring = $("ring"), ringLabel = $("ringLabel");
+  var phi = $("phiBadge"), funnelNote = $("funnelNote"), keystrip = $("keystrip");
+  var descEl = $("desc"), hlEl = $("hlNote"), stepNo = $("stepNo");
+  var chips = [];
+
+  /* ---------------- 建 DOM ---------------- */
+  for (var j = 1; j <= T; j++) {
+    var c = document.createElement("div");
+    c.className = "chip";
+    c.innerHTML = '<span class="cn">' + j + "</span>";
+    strip.appendChild(c);
+    chips.push(c);
+  }
+  var qchip = document.createElement("div");
+  qchip.className = "chip q";
+  qchip.innerHTML = '<span class="cn">q<sub>t</sub></span>';
+  strip.appendChild(qchip);
+
+  var ringEl = document.createElement("div");
+  ringEl.id = "ring"; ringEl.className = "ring";
+  ringEl.innerHTML = '<span class="ring-label" id="ringLabel"></span>';
+  strip.appendChild(ringEl);
+  ring = ringEl;
+  ringLabel = $("ringLabel");
+
+  var kchips = [];
+  for (var k = 1; k <= NB; k++) {
+    var el = document.createElement("div");
+    el.className = "kchip";
+    var bars = "";
+    for (var b = 0; b < DK; b++) bars += "<i></i>";
+    el.innerHTML =
+      '<div class="kbody"><span class="klab"><span class="tilde">k</span><sub>' + k + "</sub></span>" +
+      '<span class="kvec">' + bars + "</span></div>" +
+      '<span class="ktag">1 × d<sub>k</sub></span>';
+    keystrip.appendChild(el);
+    kchips.push(el);
+  }
+
+  var shapeGrid = $("shapeGrid");
+  for (var r = 0; r < DK; r++) {
+    for (var cc = 0; cc < NB; cc++) {
+      var dot = document.createElement("i");
+      dot.className = "sdot";
+      dot.dataset.c = cc;
+      shapeGrid.appendChild(dot);
+    }
+  }
+
+  /* ---------------- 步骤脚本 ---------------- */
+  var STEPS = [
+    {
+      keys: ["fK", "kseq"], block: null, done: 0,
+      desc: "位置 <b>t</b> 的查询 q<sub>t</sub> 做全注意力时，要和 k<sub>1:t</sub> 里每一条 key 打分——这里 24 条就是 24 次。真正贵的是把 KV 从显存搬到片上，条数越多越慢。压缩支路要做的，就是把这个「条数」降下来。",
+      hlNote: "<b>k<sub>:t</sub></b>：从位置 1 到 t 的全部 key，压缩的输入"
+    },
+    {
+      keys: ["i", "kblock"], block: 0, done: 0,
+      desc: "第一个块 i=1 只圈住 <b>k<sub>5:12</sub></b>。公式写的是 k<sub>i·d+1 : i·d+l</sub>：i=1、d=4、l=8，就从第 5 个到第 12 个。i 从 1 起算，所以最前面 d=4 个 token 不进压缩块。",
+      hlNote: "<b>k<sub>i·d+1 : i·d+l</sub></b>：第 i 个块覆盖的那 l 个 token"
+    },
+    {
+      keys: ["phi", "Ktil"], block: 0, done: 1, compressing: true,
+      desc: "这 8 条 key 一起送进 <b>φ</b>，输出<b>一条</b> d<sub>k</sub> 维向量。φ 不是平均池化，而是带块内位置编码的可学习 MLP——它自己决定这 8 条里哪些信息值得留给「粗粒度表示」。这条输出就是压缩键 <b>k̃<sub>1</sub></b>。",
+      hlNote: "<b>φ</b>：一个可学习的 MLP，把块内 <span class=m>l</span> 条 key 映射成 1 条压缩键"
+    },
+    {
+      keys: ["d", "i", "kblock"], block: 1, done: 1,
+      desc: "块滑到 i=2，圈住 <b>k<sub>9:16</sub></b>：步长 d=4，起点从 5 挪到 9，和上一块<b>重叠 <span class=m>l</span>−d=4 个 token</b>（紫色）。重叠是为了不把一句话从中间切断——切块边界上的 token 至少还会出现在相邻块里。",
+      hlNote: "<b>d</b>：滑动步长，相邻块起点的间隔；d &lt; <span class=m>l</span> 才有重叠"
+    },
+    {
+      keys: ["phi", "Ktil"], block: 1, done: 2, compressing: true,
+      desc: "再压一次得到 k̃<sub>2</sub>。<b>φ 在所有块之间共享参数</b>：24 条 key 只跑 4 次 MLP，而且这 4 次整个序列只算一遍——压完之后，所有查询复用同一份压缩键。",
+      hlNote: "<b>K̃<sub>t</sub><sup>cmp</sup></b>：所有压缩键摞成的张量，第 i 条对应第 i 个块"
+    },
+    {
+      keys: ["i", "floor"], block: 3, done: 4, compressing: true,
+      desc: "i=3 圈 [13,20]，i=4 圈 [17,24]，一直滑到 t。块数由 <b>⌊(t−<span class=m>l</span>)/d⌋</b> 决定：⌊(24−8)/4⌋ = <b>4</b> 条。分子为什么是 t−<span class=m>l</span>？因为最后一块必须整段落在序列里，起点最多到 t−<span class=m>l</span>。",
+      hlNote: "<b>⌊(t−<span class=m>l</span>)/d⌋</b>：能切出几个完整的块，约等于 t/d"
+    },
+    {
+      keys: ["shape", "Ktil"], block: null, done: 4,
+      desc: "把 4 条压缩键摞起来：行数是 key 的维度 <b>d<sub>k</sub></b>，列数是块数，就是 <b>ℝ<sup>d<sub>k</sub>×⌊(t−<span class=m>l</span>)/d⌋</sup></b>。序列再长，涨的是列数——而且每 d 个 token 才涨一列。",
+      hlNote: "<b>形状</b>：d<sub>k</sub> × ⌊(t−<span class=m>l</span>)/d⌋，压缩只改「条数」，不改每条 key 的维度"
+    },
+    {
+      keys: ["Ktil"], block: null, done: 4, q: true, compare: true,
+      desc: "现在 q<sub>t</sub> 只对这 4 条压缩键打分，而不是 24 条：<b>粗粒度全局视角</b>，代价约 1/d。粗有粗的代价——块内细节看不出来，所以 NSA 还有选择支路（挑 top-n 个细块）和滑窗支路（最近 w 个 token），三支输出门控相加。",
+      hlNote: "压缩分支只负责「全局粗看」，精读交给选择 + 滑窗"
+    },
+    {
+      keys: ["Ktil", "kseq"], block: null, done: 4, compare: true,
+      desc: "最后补一个最容易搞混的点：压缩<b>不减小</b> KV cache，原序列的 K/V 还在。它减小的是<b>每个查询每一步要搬多少条</b>。缓存宽度归 MLA 管，参与计算的 token 数归 NSA / DSA 管，两条轴正交。",
+      hlNote: "<b>一句话</b>：t 条 key → ≈ t/d 条块级 key，换来一个粗粒度的全局视野"
+    }
+  ];
+
+  /* ---------------- 渲染 ---------------- */
+  var state = -1, playing = false, timer = null, speed = 2700;
+
+  function placeRing(b) {
+    var first = chips[b.s - 1], last = chips[b.e - 1];
+    var x0 = first.offsetLeft, x1 = last.offsetLeft + last.offsetWidth;
+    ring.style.left = (x0 - 5) + "px";
+    ring.style.top = (first.offsetTop - 5) + "px";
+    ring.style.width = (x1 - x0 + 10) + "px";
+    ring.style.height = (first.offsetHeight + 10) + "px";
+    // 标签跟着块走，但不要越出舞台左右边界
+    var labW = ringLabel.offsetWidth, stripW = strip.clientWidth;
+    var cx = (x0 + x1) / 2;
+    if (cx + labW / 2 > stripW) {
+      ringLabel.style.left = "auto"; ringLabel.style.right = "0px"; ringLabel.style.transform = "none";
+    } else if (cx - labW / 2 < 0) {
+      ringLabel.style.left = "0px"; ringLabel.style.right = "auto"; ringLabel.style.transform = "none";
+    } else {
+      ringLabel.style.left = "50%"; ringLabel.style.right = "auto"; ringLabel.style.transform = "translateX(-50%)";
+    }
+  }
+
+  function fly(b) {
+    if (!b) return;
+    var sr = stage.getBoundingClientRect();
+    var pr = phi.getBoundingClientRect();
+    var tx = pr.left - sr.left + pr.width / 2;
+    var ty = pr.top - sr.top + pr.height / 2;
+    for (var j = b.s; j <= b.e; j++) {
+      (function (jj, delay) {
+        var c = chips[jj - 1];
+        var r = c.getBoundingClientRect();
+        var x = r.left - sr.left + r.width / 2;
+        var y = r.top - sr.top + 4;
+        var f = document.createElement("span");
+        f.className = "flybar";
+        f.style.left = (x - 3) + "px";
+        f.style.top = y + "px";
+        f.style.transitionDelay = delay + "ms";
+        f.style.setProperty("--dx", (tx - x) + "px");
+        f.style.setProperty("--dy", (ty - y) + "px");
+        stage.appendChild(f);
+        requestAnimationFrame(function () { f.classList.add("go"); });
+        setTimeout(function () { if (f.parentNode) f.parentNode.removeChild(f); }, 1200);
+      })(j, (j - b.s) * 32);
+    }
+  }
+
+  function render(idx, animate) {
+    state = idx;
+    var st = STEPS[idx];
+    var cur = st.block === null ? null : blocks[st.block];
+    var prev = cur && cur.i > 1 ? blocks[cur.i - 2] : null;
+
+    // token 高亮
+    for (var k = 0; k < chips.length; k++) {
+      var ch = chips[k], jj = k + 1;
+      ch.className = "chip";
+      var inCur = cur && jj >= cur.s && jj <= cur.e;
+      var inPrev = prev && jj >= prev.s && jj <= prev.e;
+      var compressed = false;
+      for (var b2 = 0; b2 < blocks.length; b2++) {
+        var bb = blocks[b2];
+        if (bb.i <= st.done && jj >= bb.s && jj <= bb.e) { compressed = true; break; }
+      }
+      if (inCur) {
+        ch.classList.add("cur");
+        if (inPrev) ch.classList.add("ovl");
+        if (st.compressing) ch.classList.add("fly");
+      } else if (compressed) {
+        ch.classList.add("done");
+      } else if (st.done > 0 && jj <= D) {
+        ch.classList.add("unc");
+      }
+    }
+
+    // 滑窗框
+    if (cur) {
+      ringLabel.innerHTML = "块 i=" + cur.i + " · k<sub>" + cur.s + ":" + cur.e + "</sub> · 覆盖 " + (cur.e - cur.s + 1) + " 个 token";
+      placeRing(cur);
+      ring.classList.add("on");
+      ring.classList.toggle("compressing", !!st.compressing);
+    } else {
+      ring.classList.remove("on");
+    }
+
+    phi.classList.toggle("on", !!st.compressing);
+    funnelNote.textContent = st.compressing
+      ? "φ 正在把 " + L + " 条 key 压成 1 条…"
+      : "可学习的 MLP · l=" + L + " 条 key → 1 条";
+
+    // 压缩键
+    for (var q = 0; q < kchips.length; q++) {
+      kchips[q].classList.toggle("filled", (q + 1) <= st.done);
+    }
+    keystrip.classList.toggle("scan", !!st.q);
+    qchip.classList.toggle("qon", !!st.q);
+
+    // 对比条
+    $("compare").classList.toggle("on", !!st.compare);
+    $("sparseFill").style.width = st.compare ? (NB / T * 100).toFixed(1) + "%" : "0%";
+    $("cmpValDense").textContent = T + " 条";
+    $("cmpValSparse").textContent = NB + " 条";
+    $("cmpCount").textContent = st.done + " / " + NB;
+
+    // 文案
+    descEl.innerHTML = st.desc;
+    hlEl.innerHTML = st.hlNote;
+    stepNo.textContent = (idx + 1) + " / " + STEPS.length;
+
+    // 公式高亮
+    var syms = document.querySelectorAll(".formula .sym");
+    for (var s = 0; s < syms.length; s++) {
+      syms[s].classList.toggle("hl", st.keys.indexOf(syms[s].dataset.k) >= 0);
+    }
+
+    // 读数
+    $("st_i").textContent = cur ? cur.i + " / " + NB : "—";
+    $("st_range").textContent = cur ? "[" + cur.s + ", " + cur.e + "]" : "—";
+    $("st_done").textContent = st.done + " / " + NB;
+    $("st_shape").textContent = DK + " × " + st.done;
+
+    var dots = document.querySelectorAll(".sdot");
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].classList.toggle("on", Number(dots[d].dataset.c) < st.done);
+    }
+
+    // 入场动画：把正在压的块送进 φ
+    if (animate && st.compressing && cur) {
+      fly(cur);
+      var target = kchips[cur.i - 1];
+      setTimeout(function () {
+        target.classList.remove("pop");
+        void target.offsetWidth;
+        target.classList.add("pop");
+      }, 520);
+    }
+  }
+
+  /* ---------------- 播放控制 ---------------- */
+  var playBtn = $("play");
+  function setPlaying(p) {
+    playing = p;
+    playBtn.textContent = p ? "⏸ 暂停" : "▶ 播放";
+    if (p) {
+      if (state >= STEPS.length - 1) render(0, false);
+      loop();
+    } else {
+      clearTimeout(timer);
+    }
+  }
+  function loop() {
+    clearTimeout(timer);
+    if (!playing) return;
+    timer = setTimeout(function () {
+      if (state >= STEPS.length - 1) { setPlaying(false); return; }
+      render(state + 1, true);
+      loop();
+    }, speed);
+  }
+
+  $("prev").addEventListener("click", function () { setPlaying(false); render(Math.max(0, state - 1), false); });
+  $("next").addEventListener("click", function () { setPlaying(false); render(Math.min(STEPS.length - 1, state + 1), true); });
+  $("reset").addEventListener("click", function () { setPlaying(false); render(0, false); });
+  playBtn.addEventListener("click", function () { setPlaying(!playing); });
+  $("speed").addEventListener("change", function (e) { speed = Number(e.target.value); });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.target && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.code === "Space") { e.preventDefault(); setPlaying(!playing); }
+    else if (e.code === "ArrowRight") { e.preventDefault(); setPlaying(false); render(Math.min(STEPS.length - 1, state + 1), true); }
+    else if (e.code === "ArrowLeft") { e.preventDefault(); setPlaying(false); render(Math.max(0, state - 1), false); }
+    else if (e.key === "r" || e.key === "R") { setPlaying(false); render(0, false); }
+  });
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { if (state >= 0) render(state, false); }, 120);
+  });
+
+  /* ---------------- 底部：重叠示意 ---------------- */
+  var gnums = $("gnums"), grows = $("grows");
+  for (var gj = 1; gj <= T; gj++) {
+    var gn = document.createElement("span");
+    gn.className = "gnum";
+    gn.textContent = gj;
+    gn.dataset.j = gj;
+    gnums.appendChild(gn);
+  }
+  blocks.forEach(function (bl) {
+    var row = document.createElement("div");
+    row.className = "grow";
+    var bar = document.createElement("div");
+    bar.className = "gbar";
+    bar.style.gridColumn = bl.s + " / " + (bl.e + 1);
+    bar.dataset.s = bl.s;
+    bar.dataset.e = bl.e;
+    bar.textContent = "块 " + bl.i;
+    row.appendChild(bar);
+    grows.appendChild(row);
+  });
+
+  function hoverToken(jj) {
+    var bars = document.querySelectorAll(".gbar");
+    var n = 0;
+    for (var b = 0; b < bars.length; b++) {
+      var hit = Number(bars[b].dataset.s) <= jj && jj <= Number(bars[b].dataset.e);
+      bars[b].classList.toggle("hit", hit);
+      if (hit) n++;
+    }
+    var nums = document.querySelectorAll(".gnum");
+    for (var g = 0; g < nums.length; g++) nums[g].classList.toggle("cur", Number(nums[g].dataset.j) === jj);
+    $("gcap").innerHTML = n
+      ? "token " + jj + " 同时属于 <b>" + n + "</b> 个块（最多 <span class=m>l</span>/d = 2 个）——切块边界上的 token 不会只被压进一个块。"
+      : "token " + jj + " 不在任何块里：公式从 i=1 起算，最前面 d 个 token 不进压缩块（t 很大时可以忽略）。";
+  }
+  gnums.addEventListener("pointerover", function (e) {
+    var t = e.target.closest ? e.target.closest(".gnum") : null;
+    if (t) hoverToken(Number(t.dataset.j));
+  });
+  gnums.addEventListener("pointerleave", function () { hoverToken(12); });
+
+  /* ---------------- 启动 ---------------- */
+  var mStep = /[?&]step=(\d+)/.exec(window.location.search);
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var startIdx = 0;
+  if (mStep) {
+    startIdx = Math.max(0, Math.min(STEPS.length - 1, Number(mStep[1]) - 1));
+  }
+  render(startIdx, false);
+  hoverToken(12);
+  if (!mStep && !reduce) setTimeout(function () { setPlaying(true); }, 900);
+})();
+</script>
+</body>
+</html>
