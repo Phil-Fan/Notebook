@@ -54,7 +54,7 @@ mHC 用 Sinkhorn-Knopp 把混合矩阵投到双随机矩阵上：元素非负，
 
 ## 优化器和后训练
 
-大部分参数用 Muon，嵌入、输出头和 RMSNorm 仍用 AdamW。这是优化器，不要和 mHC 说成一个模块。
+大部分参数用 [Muon](../post/05-Muon.md)，嵌入、输出头和 RMSNorm 仍用 AdamW。这是优化器，不要和 mHC 说成一个模块。
 
 后训练先按数学、代码、智能体、指令遵循分别做 SFT 和 GRPO，再用来自学生自己轨迹的 on-policy distillation 合成一个模型。那是对齐路线。架构题收到 CSA、HCA 和 mHC 即可。
 

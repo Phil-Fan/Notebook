@@ -432,6 +432,7 @@ nav:
             - AI/LLM/post/04-Evaluation.md
             - AI/LLM/post/04-Rubric.md
             - AI/LLM/post/LoRA.md
+            - AI/LLM/post/05-Muon.md
             - "RL | 强化学习":
                 - AI/LLM/post/RL/index.md
                 - AI/LLM/post/RL/03-RL.md
