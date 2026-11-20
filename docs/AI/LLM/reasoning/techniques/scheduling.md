@@ -7,9 +7,7 @@
 
 ## Chunked Prefill
 
-[基于 chunked prefill 理解 prefill 和 decode 的计算特性 - 知乎](https://zhuanlan.zhihu.com/p/718715866)
-
-[ai-infra-learning/lesson/05-chunked-prefills at main · cr7258/ai-infra-learning](https://github.com/cr7258/ai-infra-learning/tree/main/lesson/05-chunked-prefills)
+把长 prompt 的 prefill 切成小块，和 decode 混在同一个 iteration 里，用 token 预算给单步计算量封顶。完整原理、成本模型与调参见 [分块预填充](chunked-prefill.md)。
 
 ### Continuous Batching
 

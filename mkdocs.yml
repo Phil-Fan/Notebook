@@ -480,8 +480,11 @@ nav:
                 - AI/LLM/reasoning/speculative/dflash-code.md
             - "techniques | 推理加速常用技术":
                 - AI/LLM/reasoning/techniques/index.md
-                - AI/LLM/reasoning/techniques/infer-optimization.md
+                - AI/LLM/reasoning/techniques/kv-cache.md
+                - AI/LLM/reasoning/techniques/paged-attention.md
+                - AI/LLM/reasoning/techniques/flash-attention.md
                 - AI/LLM/reasoning/techniques/scheduling.md
+                - AI/LLM/reasoning/techniques/chunked-prefill.md
             - 工具手册:
                 - "[部署] OpenAI API": https://platform.openai.com/docs/overview
                 - "[部署] vLLM手册": https://docs.vllm.com.cn/en/latest/index.html

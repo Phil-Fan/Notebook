@@ -4,5 +4,8 @@
 
 | 笔记 | 内容 |
 |------|------|
-| [推理优化](infer-optimization.md) | Prefill / Decode、KV Cache、PagedAttention、FlashAttention、StreamLLM |
-| [架构调度](scheduling.md) | Prefix Caching、Chunked Prefill、Continuous Batching、PD 分离 |
+| [KV Cache](kv-cache.md) | KV Cache 的原理、显存占用与动态性 |
+| [Paged Attention](paged-attention.md) | 分页 KV Cache：碎片、共享与按块写入 |
+| [Flash Attention](flash-attention.md) | IO-aware 的精确注意力实现 |
+| [架构调度](scheduling.md) | Prefix Caching、Continuous Batching、PD 分离 |
+| [分块预填充](chunked-prefill.md) | Chunked Prefill：为什么切、怎么切、切多大、和谁配合 |
