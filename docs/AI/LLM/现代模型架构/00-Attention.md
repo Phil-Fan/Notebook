@@ -10,96 +10,6 @@ MHA / MQA / GQA / MLA / NSA / DSA 这些变体的横向对比单独整理在 [�
 This browser does not support PDFs
 </iframe>
 
-- [ ] 各个层的参数数量整理
-- [ ] 时间复杂度计算
-
-## 对比
-
-!!! note "对应 paper 中 abstract、background"
-
-### vs CNN
-
-CNN 只考虑卷积核的感受野，而 attention 考虑整个序列
-
-所以卷积难以考虑较长的序列，如果距离较远的话，需要很多层卷积才可以达到效果；
-
-![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
-> 图源网络，侵删
-
-而 attention 可以考虑整个序列，所以可以考虑较长的序列
-
----
-
-可以说 CNN 是 attention 的特例
-
-attention 也可以说是特殊的 CNN，相当于 CNN 的 receptive filed 是 learn 出来的
-
-<iframe src="https://arxiv.org/pdf/1911.03584" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
-
-```mermaid
-graph TD
-    subgraph Self-Attention["Self-Attention"]
-        style Self-Attention fill:#e6f3ff,stroke:#2196f3,stroke-width:4px,rx:50,ry:50
-        D[Learnable Global<br/>Receptive Field]
-        subgraph CNN["CNN"]
-            style CNN fill:#ffe6e6,stroke:#f44336,stroke-width:2px,rx:30,ry:30
-            C[Fixed Local<br/>Receptive Field]
-        end
-    end
-    
-    style D fill:none,stroke:none
-    style C fill:none,stroke:none
-```
-
-- data 较少的时候，CNN 训练效果好
-- 数据量较大的时候，attention 效果好，有 scaling 效应
-
-### vs RNN
-
-- RNN 计算$h_t$的时候，需要考虑 hidden state $h_{t-1}$ and the input for position $t$
-- 很早期的信息在后续计算的时候可能会丢失，做大的 ht 对内存开销较大
-
-- RNN 虽然可以双向，但是不可以并行计算，对 memory 要求高
-![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
-
-<iframe src="https://arxiv.org/abs/2006.16236" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
-
-### vs GNN
-
-- 应用在 gragh 结构上的时候，可以使用 edge 已经给出的连接关系，直接计算 attention score，其他节点可以直接设置成 0
-
-```mermaid
-graph LR
-    subgraph Graph["Node Graph"]
-        1((1)) --- 8((8))
-        1 --- 6((6))
-        1 --- 7((7))
-        6 --- 7
-        6 --- 5((5))
-        5 --- 4((4))
-        5 --- 3((3))
-        3 --- 2((2))
-    end
-    
-    subgraph Matrix["Attention Matrix"]
-        M["1 2 3 4 5 6 7 8<br/>□ □ □ □ ■ ■ □ ■<br/>□ □ ■ □ □ □ □ □<br/>□ ■ □ □ □ □ □ □<br/>□ □ □ □ ■ □ □ □<br/>■ □ □ ■ □ □ □ □<br/>■ □ □ □ □ □ □ □<br/>□ □ ■ □ □ □ □ □<br/>■ □ □ □ □ □ □ □"]
-    end
-    
-    style 1 fill:#000000,stroke:#000000,color:#fff
-    style 2 fill:#000000,stroke:#000000,color:#fff
-    style 3 fill:#000000,stroke:#000000,color:#fff
-    style 4 fill:#000000,stroke:#000000,color:#fff
-    style 5 fill:#000000,stroke:#000000,color:#fff
-    style 6 fill:#000000,stroke:#000000,color:#fff
-    style 7 fill:#000000,stroke:#000000,color:#fff
-    style 8 fill:#000000,stroke:#000000,color:#fff
-    style M fill:none,stroke:none
-```
-
 ## Self-Attention
 
 思考下面的问题：
@@ -112,8 +22,6 @@ graph LR
 ### word embedding
 
 word2vec：获得词汇的最初始含义
-
-Word embedding.
 
 - 嵌入是一个“抽象”的过程，把高维向量嵌入到一个低维度当中
 
@@ -143,6 +51,43 @@ $$
 
 > 当然表示位置的算法可以自己创造
 > 可学习的位置编码、相对位置编码、旋转位置编码（RoPE）
+>
+
+### Softmax
+
+softmax 是「可微的 max」：把一个实数向量压成一个概率分布。形式上就是先取指数，再归一化：
+
+$$
+\operatorname{softmax}(\mathbf z)_i=\frac{e^{z_i}}{\sum_{j=1}^{n}e^{z_j}},\qquad i=1,\dots,n
+$$
+
+输入叫 logits（未归一化的分数），输出满足两条概率公理：$\hat y_i>0$ 且 $\sum_i \hat y_i=1$。
+
+为什么是「soft」的 max
+
+hardmax 只把 1 给最大的那一位，其余为 0；它梯度处处为 0，没法反向传播。softmax 是它的光滑版本：
+
+- 指数函数保持非负，因此先解决了「概率不能为负」的问题；
+- 指数会放大差距：大的更大、小的更小，因此它偏向最大值；
+- 除以总和，因此结果归一。
+
+极限上两者一致：把 logits 同乘 $\beta\to\infty$ 后，softmax 退化成 one-hot（argmax）。反过来，若所有 $z_i$ 相等，输出就是均匀分布 $1/n$。
+
+一个直观例子：$z=[1,2,3]\Rightarrow[0.090,\,0.245,\,0.665]$。
+
+几个关键性质
+- **平移不变**：$\operatorname{softmax}(\mathbf z+c)=\operatorname{softmax}(\mathbf z)$。这既是理论性质，也是工程做法。直接算 $e^{z_i}$ 在 fp16 下 $z_i>11$ 就溢出，所以实现里统一减掉最大值：
+
+```python
+z = z - z.max(dim=-1, keepdim=True).values
+p = z.exp() / z.sum(dim=-1, keepdim=True)
+```
+**梯度是 Jacobian**：$\mathbf J=\operatorname{diag}(\hat{\mathbf y})-\hat{\mathbf y}\hat{\mathbf y}^\top$，因此对单个分量有 $\partial \hat y_i/\partial z_j=\hat y_i(\delta_{ij}-\hat y_j)$。注意这个矩阵是退化的：它作用在「和为零」的方向上。
+
+**和交叉熵是天作之合**：$L=-\sum_i y_i\log \hat y_i$ 对 logits 求导直接得到 $\hat{\mathbf y}-\mathbf y$，即「预测减真值」，softmax 中难以处理的 Jacobian 被交叉熵的 $\partial L/\partial \hat y_i=-y_i/\hat y_i$ 一并消掉了。
+
+**温度 $T$**：$\operatorname{softmax}(\mathbf z/T)$。$T>1$ 分布变平，即更随机、探索更多；$T\to0$ 则退化为贪心；$T<1$ 分布变尖。采样、知识蒸馏、RL 的策略分布都用它。
+
 
 ### Attention 计算 -- scaled dot-product attention
 
@@ -158,11 +103,35 @@ word embedding 解决了词汇本身的含义，position encoding 附加了词�
 
 attention 分数：$K$与$Q$的点积，可以看作$K$与$Q$的相似度，为 value 矩阵提供权重。对于如果$Q$ 和 $K$ 相似度很高，那么就给予$V$ 更多的权重
 
+三个矩阵各自在算什么、为什么不能合并、多头里各存几份，见下文 [Q、K、V 矩阵](#qkv)。
+
 $$
 Attention(Q,K,V) = softmax(\frac{QK^T}{\sqrt{d_k}})V
 $$
 
-$d_k$ 是 Q 和 K 的维度，因为 Q 和 K 的维度是相同的，在论文中是$d_k = 512$
+$d_k$ 是单个注意力头里 Q、K 的维度，通常与 $d_v$ 取成同一个数。
+
+#### d_k 怎么选 {#d_k}
+
+$d_k$ 由模型宽度 $d$ 和头数 $h$ 除出来，一般不单独搜索：
+
+$$
+d_k = d_v = \frac{d}{h}
+$$
+
+$d$ 就是每个 token 的 embedding 维度（也叫 $d_{model}$、hidden size）。多头把这条长度为 $d$ 的向量切成 $h$ 段，每段宽度 $d_k$；各头算完再拼回去，宽度仍是 $d$。因此总计算量和「一个宽度为 $d$ 的单头」同一量级，每个头只在一个更窄的子空间里做匹配。
+
+原论文 base 模型取 $d = 512$、$h = 8$，于是 $d_k = d_v = 64$。消融在固定 $d = 512$ 时改头数：$h = 1, 4, 8, 16, 32$ 对应 $d_k = 512, 128, 64, 32, 16$。base 用的是 $h = 8$、$d_k = 64$。
+
+后来的模型多半把头宽固定在 128，模型变宽就增加头数：
+
+| 模型 | $d$ | $h$ | $d_k = d_v$ |
+|------|----:|----:|------------:|
+| Transformer base | 512 | 8 | 64 |
+| LLaMA2-7B | 4096 | 32 | 128 |
+| LLaMA2-70B | 8192 | 64 | 128 |
+
+头太窄，一个子空间里放不下一种关系；头太宽，同样的 $d$ 能切出的头数就少。128 是后来比较稳的折中。LLaMA2-70B 的 $h = 64$ 是 Query 头数；它用了 GQA，K、V 只有 8 份，每一份的宽度仍是 $d_k = 128$。GQA / MQA 减少的是 K、V 的份数，头宽仍是这个 $d_k$。
 
 > 如果$d_k$ 很大，那么$QK^T$ 的值会很大，导致 softmax 的值趋近于 1，导致梯度消失
 > 所以需要除以$\sqrt{d_k}$ 来归一化
@@ -172,6 +141,28 @@ $d_k$ 是 Q 和 K 的维度，因为 Q 和 K 的维度是相同的，在论文�
 
 ![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271708856.webp)
 > 图片来源：3b1b
+
+训练时，我们想一次算出所有位置的表示并并行训练（teacher forcing），但必须保证：**位置 $t$ 的表示里不能混入任何 $t$ 之后的信息**。计算前向时如果能看到未来，训练目标就与推理时的生成过程不一致（label leakage），模型会去抄答案。
+
+这在方阵里就是**下三角+对角线**。以 $n=4$ 为例，允许矩阵为
+
+$$
+M=\begin{bmatrix}
+1&0&0&0\\
+1&1&0&0\\
+1&1&1&0\\
+1&1&1&1
+\end{bmatrix}
+=\operatorname{tril}(\mathbf{1}_{4\times4})
+$$
+
+```python
+L = 4
+causal = torch.tril(torch.ones(L, L, dtype=torch.bool))   # j <= i 为 True
+scores = q @ k.transpose(-2, -1) / math.sqrt(d)
+scores = scores.masked_fill(~causal, float("-inf"))       # 或 -1e9 / finfo.min
+attn = scores.softmax(dim=-1)                             # 行和仍为 1
+```
 
 点积能够有效衡量两个向量的相似性。在注意力机制中，通过计算查询向量（Query）和键向量（Key）的点积，可以评估它们之间的相关性，从而决定注意力权重
 
@@ -263,7 +254,7 @@ T 较大的时候，让放缩较小，即让低值更多权重
     1. 取决于Softmax的性质，如果softmax内计算的数过大或者过小，可能导致Softmax后的结果为0，导致梯度消失
     2. 为什么是$d_k$。假设$Q$、$K$中元素的值分布在$[0,1]$, softmax的计算中，分母涉及了一次对所有位置的求和，整体的分布就会扩大到$[0,d_k]$。
     
-    > $d_k$是$Q$和$K$的维度，因为$Q$和$K$的维度是相同的，在论文中是$d_k = 512$
+    > $d_k$ 是单个头里 Q、K 的维度。它由 $d/h$ 定出，见上文 [d_k 怎么选](#d_k)。
     
     ---
     
@@ -483,6 +474,64 @@ T 较大的时候，让放缩较小，即让低值更多权重
 
 ![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506271710417.webp)
 
+## Q、K、V 矩阵
+
+这三个字母借自信息检索，最直观的类比是查数据库：拿一句查询（$Q$）去比对每条记录的索引（$K$），得分越高的记录，它的正文（$V$）就取得越多。一句话记：$Q$ 决定「谁来看」，$K$ 决定「被谁看」，$V$ 决定「被看到什么」。
+
+| 矩阵 | 角色 | 检索里的对应 |
+|------|------|--------------|
+| $Q$ (Query) | 「我在找什么」 | 查询语句 |
+| $K$ (Key) | 「我能被什么匹配」 | 每条记录的索引、标签 |
+| $V$ (Value) | 「我实际贡献什么内容」 | 每条记录的正文 |
+
+$K$ 和 $V$ 必须是两样不同的东西：用来匹配的「标签」不等于要搬运的「正文」。只有 $K$ 的话，attention 只能算出「该看谁」，却拿不到「看到了什么」。
+
+### 形状与一次计算
+
+输入 $X\in\mathbb{R}^{L\times d}$，三个投影矩阵分别作用于它：
+
+$$
+Q=XW_Q,\quad K=XW_K,\quad V=XW_V
+$$
+
+其中 $Q,K\in\mathbb{R}^{L\times d_k}$，$V\in\mathbb{R}^{L\times d_v}$，这里的 $d_k$ 已是单头宽度（见 [d_k 怎么选](#d_k)）。代码里投影后是 `[B, L, d]`，再按头拆成 `[B, H, L, d_h]`，$d_h$ 就是这个 $d_k$。前向就三行：
+
+$$
+\underbrace{QK^\top}_{L\times L\ \text{打分}}\longrightarrow\operatorname{softmax}\!\left(\frac{\cdot}{\sqrt{d_k}}\right)\longrightarrow\underbrace{\times V}_{L\times d_v}
+$$
+
+1. **打分**：$QK^\top$ 的第 $(i,j)$ 项是 $q_i\cdot k_j$，即第 $i$ 个 token 的查询与第 $j$ 个 token 的标签的相似度。结果是一个 $L\times L$ 的矩阵，第 $i$ 行就是第 $i$ 个 token 对整个序列的关注分布——这也是 attention 复杂度为 $O(L^2)$ 的来源。
+2. **归一化**：对每一行做 softmax，行和为 1。为什么要除 $\sqrt{d_k}$，见上文对 scaled dot-product 的说明。
+3. **聚合**：$\sum_j p_{ij}V_j$。输出的第 $i$ 行是 $V$ 各行的**凸组合**，权重就是注意力分布。输出宽度是 $d_v$（不是 $d_k$），最后再经 $W_O$ 映射回 $d_{model}$。
+
+一个两 token 的小例子：取 $W_Q=W_K=I$，$X=\begin{bmatrix}1&0\\0&1\end{bmatrix}$，则 $QK^\top=\begin{bmatrix}1&0\\0&1\end{bmatrix}$，softmax 后约为 $\begin{bmatrix}0.73&0.27\\0.27&0.73\end{bmatrix}$。两个 token 正交，各自主要看自己；若把 $X$ 换成两行相同，注意力矩阵退化成全 $0.5$，输出就是 $V$ 的简单平均。softmax 的温度和 logit 的相对大小，控制的就是「偏离平均多远」。
+
+### 为什么三个矩阵必须不同
+
+$Q$、$K$ 不能共用同一个投影。如果不做线性变换，即 $Q=K=X$，那么 $QK^\top=XX^\top$ 必然对称，$d(x_1,x_2)=d(x_2,x_1)$；但语言里的关系天然不对称——「我是一个女孩」里，女孩对修饰「我」的重要性，应该高于「我」修饰女孩（见上文 note）。两个不同的投影等价于学一个双线性形式 $x_i^\top W_Q^\top W_K x_j$，才允许「$i$ 关注 $j$」和「$j$ 关注 $i$」强弱不同。
+
+$V$ 也要单独一套：$K$ 只参与打分，$V$ 只参与加权聚合。若强行令 $K=V$，等于要求「如何被匹配」和「如何被搬运」共用一套投影，两件事被绑死，表达能力下降。
+
+### 多头里各有多少份
+
+$Q$ 永远是每个查询头一份（$n_h$ 份），$K$、$V$ 才是被共享的对象：
+
+| 结构 | $Q$ 的份数 | $K,V$ 的份数 |
+|------|-----------|-------------|
+| MHA | $n_h$ | $n_h$ |
+| GQA | $n_h$ | $n_g$（如 8） |
+| MQA | $n_h$ | 1 |
+| MLA | $n_h$ + 位置小头 | 只缓存一个潜变量 $c^{KV}\in\mathbb{R}^{512}$，用时升维 |
+
+这条主线在 [现代模型架构](../现代模型架构/index.md) 里逐篇展开。一句话：**被改的从来不是 $Q$，而是 $K$、$V$ 存几份、一份存多宽。**
+
+### 工程上的几个常识
+
+- **KV cache 只缓存 $K$、$V$**：$Q$ 属于当前步，用完即扔；$K$、$V$ 属于历史，要复用。decode 每步重读整个 cache 的带宽瓶颈就是这么来的，详见 [MHA](../现代模型架构/01-MHA.md)。
+- **RoPE 只加在 $Q$、$K$ 上，不加在 $V$ 上**：位置只在打分时才需要。
+- **因果掩码作用在 $QK^\top$ 上、softmax 之前**：把 $j>i$ 的位置填 $-\infty$。自注意力的 $Q$、$K$、$V$ 同源，所以必须掩。
+- **实现里常把 $W_Q,W_K,W_V$ 融成一个 `qkv_proj`**，一次矩阵乘算完；所以代码里找不到三个独立矩阵是正常的，它们只是同一块权重的三段切片。
+
 ## Multi-Head Attention
 
 - 捕捉更多样的特征
@@ -557,39 +606,6 @@ attention 对于模型的假设更少，所以需要更大的模型，更多的�
        - 不考虑多头注意力: 均为$(s,h)$
        - 多头注意力(12头): 单头尺寸为$(s,\frac{h}{12})$
 
-### 速度 & 准确
-
-![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506272036822.webp)
-
-<iframe src="https://arxiv.org/pdf/2011.04006" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
-
-### 训练速度
-
-### attention is not all you need
-
-<iframe src="https://arxiv.org/pdf/2103.03404" width="100%" height="600px" style="border: none;">
-This browser does not support PDFs
-</iframe>
-
-## Acknowledgement
-
-- 王几行 XING - [大模型-Transformer 面试八股文，简单背一背 - 知乎](https://zhuanlan.zhihu.com/p/689965833)
-
-- SweetBean - [算法岗常见面试题（八）：Transformer_牛客网](https://www.nowcoder.com/discuss/473903838680875008)
-
-- ch3nboyu - [Transformer-interview: Transformer 面试常见八股](https://github.com/ch3nboyu/Transformer-interview)
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1353986541&bvid=BV13z421U7cs&cid=1525102356&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1154246338&bvid=BV1TZ421j7Ke&cid=1530196453&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146692&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146918&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
-
-
 ## FFN - 大模型的事实藏在哪里
 
 词汇存在高维向量当中，向量的方向可以编码不同的含义
@@ -616,15 +632,77 @@ johnson-lindenstrauss lemma 告诉我们，如果使用非正交基，那么可�
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113215035936825&bvid=BV1aTxMehEjK&cid=26046694390&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height=450px></iframe>
 
-### 拓展阅读
+## 对比
 
-芝加哥大学 victor veitch 的论文
+!!! note "对应 paper 中 abstract、background"
 
-Anthropic Transformer circuit
+### vs CNN
 
-[Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)
+CNN 只考虑卷积核的感受野，而 attention 考虑整个序列
 
-[Towards Monosemanticity: Decomposing Language Models With Dictionary Learning](https://transformer-circuits.pub/2023/monosemantic-features/index.html)
+所以卷积难以考虑较长的序列，如果距离较远的话，需要很多层卷积才可以达到效果；
 
-- RLHF
-- scaling law
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202507022243848.webp)
+> 图源网络，侵删
+
+而 attention 可以考虑整个序列，所以可以考虑较长的序列
+
+---
+
+可以说 CNN 是 attention 的特例
+
+attention 也可以说是特殊的 CNN，相当于 CNN 的 receptive filed 是 learn 出来的
+
+<iframe src="https://arxiv.org/pdf/1911.03584" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+```mermaid
+graph TD
+    subgraph Self-Attention["Self-Attention"]
+        style Self-Attention fill:#e6f3ff,stroke:#2196f3,stroke-width:4px,rx:50,ry:50
+        D[Learnable Global<br/>Receptive Field]
+        subgraph CNN["CNN"]
+            style CNN fill:#ffe6e6,stroke:#f44336,stroke-width:2px,rx:30,ry:30
+            C[Fixed Local<br/>Receptive Field]
+        end
+    end
+    
+    style D fill:none,stroke:none
+    style C fill:none,stroke:none
+```
+
+- data 较少的时候，CNN 训练效果好
+- 数据量较大的时候，attention 效果好，有 scaling 效应
+
+### vs RNN
+
+- RNN 计算$h_t$的时候，需要考虑 hidden state $h_{t-1}$ and the input for position $t$
+- 很早期的信息在后续计算的时候可能会丢失，做大的 ht 对内存开销较大
+
+- RNN 虽然可以双向，但是不可以并行计算，对 memory 要求高
+![image](https://img.philfan.cn/AI__LLM__Models__assets__01-Attention.assets__202506272030318.webp)
+
+<iframe src="https://arxiv.org/abs/2006.16236" width="100%" height="600px" style="border: none;">
+This browser does not support PDFs
+</iframe>
+
+### vs GNN
+
+- 应用在 gragh 结构上的时候，可以使用 edge 已经给出的连接关系，直接计算 attention score，其他节点可以直接设置成 0
+
+## Acknowledgement
+
+- 王几行 XING - [大模型-Transformer 面试八股文，简单背一背 - 知乎](https://zhuanlan.zhihu.com/p/689965833)
+
+- SweetBean - [算法岗常见面试题（八）：Transformer_牛客网](https://www.nowcoder.com/discuss/473903838680875008)
+
+- ch3nboyu - [Transformer-interview: Transformer 面试常见八股](https://github.com/ch3nboyu/Transformer-interview)
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1353986541&bvid=BV13z421U7cs&cid=1525102356&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1154246338&bvid=BV1TZ421j7Ke&cid=1530196453&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146692&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=577276749&bvid=BV1wB4y1o7is&cid=1303146918&p=2&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"></iframe>

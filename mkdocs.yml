@@ -391,6 +391,7 @@ nav:
             - AI/LLM/frontier/labs.md
         - "infra | 机器学习系统":
             - AI/LLM/infra/index.md
+            - AI/LLM/infra/07-parallelism.md
             - AI/LLM/infra/06-GPU.md
             - AI/LLM/infra/CUDA.md
             - AI/LLM/infra/NV.md
@@ -417,8 +418,9 @@ nav:
             - AI/LLM/现代模型架构/02-MQA.md
             - AI/LLM/现代模型架构/03-GQA.md
             - AI/LLM/现代模型架构/04-MLA.md
-            - AI/LLM/现代模型架构/05-NSA.md
-            - AI/LLM/现代模型架构/06-DSA.md
+            - AI/LLM/现代模型架构/06-NSA&MoBA.md
+            - AI/LLM/现代模型架构/07-DSA.md
+            - AI/LLM/现代模型架构/CSA.md
             - AI/LLM/现代模型架构/07-混合注意力.md
         - "post | 训练与对齐":
             - AI/LLM/post/index.md
@@ -468,6 +470,7 @@ nav:
                 - AI/LLM/reasoning/engines/sglang.md
             - "quantization | 量化":
                 - AI/LLM/reasoning/quantization/index.md
+                - AI/LLM/reasoning/quantization/01-浮点精度.md
             - "speculative | 投机采样":
                 - AI/LLM/reasoning/speculative/index.md
                 - AI/LLM/reasoning/speculative/speculative-decoding.md

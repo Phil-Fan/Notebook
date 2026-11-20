@@ -8,7 +8,7 @@
 |------|------|
 | [benchmark](benchmark/index.md) | 评测基准 |
 | [frontier](frontier/index.md) | 前沿基座模型 |
-| [infra](infra/index.md) | 机器学习系统：GPU、CUDA |
+| [infra](infra/index.md) | 机器学习系统：并行策略、GPU、CUDA |
 | [models](models/index.md) | 模型结构：Attention、Transformer、GPT 等 |
 | [现代模型架构](现代模型架构/index.md) | 注意力演进：MHA、MQA、GQA、MLA、NSA、DSA、混合线性注意力 |
 | [post](post/index.md) | 训练与对齐：预训练、SFT、RL、评测 |

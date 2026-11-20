@@ -12,7 +12,7 @@ DSA 仍在原始 token 上挑选。百万长度下，挑选之前应先把序列
 
 两条注意力交错使用，都另留一个 128 token 的未压缩滑窗，补回当前压缩块内部和最近邻的细节。压缩会让查询看不到同一块里的其他 token，而语言模型又偏爱最近的 token，所以滑窗不是可有可无的装饰。
 
-**CSA（Compressed Sparse Attention）。** 每 \(m = 4\) 个 token 合成 1 条 KV，再对压缩后的条目做 [DSA](11-deepseek-v32.md)。Flash 的 top-k 是 512，Pro 是 1024。压缩用两组重叠的加权池化，实际序列长度变成原来的 \(1/4\)。
+**CSA（Compressed Sparse Attention）。** 每 \(m = 4\) 个 token 合成 1 条 KV，再对压缩后的条目做 [DSA](11-deepseek-v32.md)。Flash 的 top-k 是 512，Pro 是 1024。压缩用两组重叠的加权池化，实际序列长度变成原来的 \(1/4\)。公式和 Lightning Indexer 见 [CSA](../现代模型架构/CSA.md)。
 
 **HCA（Heavily Compressed Attention）。** 压缩率 \(m' = 128\)，不做重叠，压缩后走普通稠密注意力，不再 top-k。槽已经很少，稀疏选择的收益让给了压缩本身。
 
@@ -44,7 +44,7 @@ DSA 仍在原始 token 上挑选。百万长度下，挑选之前应先把序列
 
 亲和度从 sigmoid 改成 \(\sqrt{\mathrm{softplus}(\cdot)}\)。V3 开头的稠密 FFN 换成 Hash 路由的 MoE：前几层不学 router，用哈希把 token 分到专家，用来换训练稳定性。路由目标节点数的限制也去掉了。MTP 深度为 1。
 
-路由专家权重在后训练里用 MXFP4，CSA indexer 的 QK 也走 FP4。这是量化，不是新的连接。
+路由专家权重在后训练里用 [MXFP4](../reasoning/quantization/01-浮点精度.md)，CSA indexer 的 QK 也走 FP4。这是量化，不是新的连接。
 
 ## mHC
 

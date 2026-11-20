@@ -1,5 +1,14 @@
 # MLSys
 
+## 笔记
+
+| 页面 | 内容 |
+|------|------|
+| [并行策略](07-parallelism.md) | DP、TP、PP、EP、CP 各切哪一轴，以及按显存和互联怎么配 |
+| [GPU](06-GPU.md) | 显卡结构、精度与显存 |
+| [CUDA](CUDA.md) | CUDA 编程 |
+| [NV](NV.md) | NVIDIA 软件栈 |
+
 ## Roadmap
 
 [MLsys 各方向综述 - 知乎](https://zhuanlan.zhihu.com/p/104444471)
