@@ -1,7 +1,7 @@
 # Native Sparse Attention
 
 训练和推理的稀疏性未统一，训练的时候不稀疏，推理的时候稀疏
-trainable 的精髓在于Training
+trainable 的精髓在于 Training
 
 > [Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention](https://arxiv.org/abs/2502.11089) — DeepSeek-AI，2025.02。实验平台是 27B 的 DeepSeekMoE 骨干（72 个路由专家 + 2 个共享专家），约 260B tokens 预训练。它是一个新注意力层的研究论文，不是任何已发布模型的检查点。
 
@@ -107,7 +107,7 @@ $$
 
 ## MoBA
 
-通过将上下文分块（历史段落），并使用门控机制将token选择性地路由到最相关的块，来解决传统注意力机制的计算低效问题。
+通过将上下文分块（历史段落），并使用门控机制将 token 选择性地路由到最相关的块，来解决传统注意力机制的计算低效问题。
 
 
 ## 参考
@@ -119,4 +119,4 @@ $$
 - Raschka, [Beyond Standard LLMs](https://magazine.sebastianraschka.com/p/beyond-standard-llms)（稀疏与线性注意力的横向整理）
 
 
-[(24 封私信 / 57 条消息) 稀疏化Attention：SWA->NSA->MoBA - 知乎](https://zhuanlan.zhihu.com/p/24877229572)
+[(24 封私信 / 57 条消息) 稀疏化 Attention：SWA->NSA->MoBA - 知乎](https://zhuanlan.zhihu.com/p/24877229572)
