@@ -422,6 +422,7 @@ nav:
             - AI/LLM/现代模型架构/07-DSA.md
             - AI/LLM/现代模型架构/CSA.md
             - AI/LLM/现代模型架构/07-混合注意力.md
+            - AI/LLM/现代模型架构/08-GDN.md
         - "post | 训练与对齐":
             - AI/LLM/post/index.md
             - AI/LLM/post/00-Lingo.md

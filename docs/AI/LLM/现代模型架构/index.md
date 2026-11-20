@@ -38,6 +38,7 @@ flowchart LR
 | [NSA](./06-NSA&MoBA.md) | 参与计算的 token 数 | 不压（同基座） | 近似 $O(L)$ | 研究模型（27B 级） |
 | [DSA](./07-DSA.md) | 参与计算的 token 数 | 同 MLA | $O(Lk)$ + 廉价 indexer | DeepSeek-V3.2 |
 | [混合注意力](./07-混合注意力.md) | 换范式 | 线性层 $O(1)$ + 全局层 KV | 线性层 $O(L)$ | Qwen3-Next、Kimi Linear、MiniMax-01 |
+| [DeltaNet](./08-GDN.md) | 线性层的状态更新规则 | 线性层 $O(1)$ | 线性层 $O(L)$ | Gated DeltaNet、Kimi KDA |
 | [CSA](./CSA.md) / HCA | 先压缩序列 | 每个记忆槽一份 | $O(L \cdot k / m)$ 量级 | DeepSeek-V4 |
 
 数字看两处：**每 token 每层的缓存**决定长上下文能装多少请求，**复杂度**决定长序列算多久。两件事经常被混着说。
@@ -50,6 +51,7 @@ flowchart LR
 4. [NSA](./06-NSA&MoBA.md) → [DSA](./07-DSA.md)：从「减宽度」到「减 token」，这是 2025 年的主线。
 5. [CSA](./CSA.md)：先把每 4 个 token 压成 1 条槽，再在槽上做 DSA。HCA 是更重的压缩、不再 top-k。
 6. [混合注意力](./07-混合注意力.md)：不是所有模型都走稀疏，另一支直接换掉 softmax 的历史表示。
+7. [DeltaNet](./08-GDN.md)：线性层的状态具体怎么改写——先读旧值、再按误差写回，`07` 里那句话的展开。
 
 ## 术语约定
 
@@ -81,5 +83,6 @@ flowchart LR
 - [Native Sparse Attention](https://arxiv.org/abs/2502.11089)（2025，NSA）
 - [DeepSeek-V3.2](https://arxiv.org/abs/2512.02556)（2025，DSA）
 - [Kimi Linear](https://arxiv.org/abs/2510.26692)（2025，KDA 混合）
+- [DeltaNet](https://arxiv.org/abs/2102.11174)（2021，delta rule）· [Parallelizing the Delta Rule](https://arxiv.org/abs/2406.06484)（2024，chunkwise）
 - [DeepSeek-V4](https://arxiv.org/abs/2606.19348)（2026，CSA/HCA）
 - Sebastian Raschka, [The Big LLM Architecture Comparison](https://magazine.sebastianraschka.com/p/the-big-llm-architecture-comparison)（2025）

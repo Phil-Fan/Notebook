@@ -84,7 +84,7 @@ docs/
 │   │   ├── models/         # 模型结构
 │   │   ├── post/           # 训练与对齐（RL / SFT）
 │   │   ├── reasoning/      # 推理工程
-│   │   ├── 现代模型架构/    # 注意力演进（MHA / MQA / GQA / MLA / NSA / DSA / 混合）
+│   │   ├── 现代模型架构/    # 注意力演进（MHA / MQA / GQA / MLA / NSA / DSA / 混合 / GDN）
 │   │   ├── index.md
 │   │   └── 开源框架.md
 │   └── VLA/
